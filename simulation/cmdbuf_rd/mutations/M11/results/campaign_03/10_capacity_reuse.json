@@ -1,0 +1,26 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 20: arready got=0x0 expected=0x2",
+  "type": "capacity_reuse",
+  "seed": 1,
+  "cycles": 20,
+  "checks": 243,
+  "coverage": {
+    "accepted": 9,
+    "accepted_back_to_back": 8,
+    "accepted_src0": 7,
+    "accepted_src1": 1,
+    "accepted_src2": 1,
+    "capacity700_ready110": 1,
+    "capture_no_bypass": 9,
+    "capture_without_ready": 9,
+    "captured": 9,
+    "captured_back_to_back": 8,
+    "issued": 9,
+    "issued_back_to_back": 8,
+    "ready_zero_holds_completed": 13,
+    "reset": 1,
+    "three_cycle_path": 9
+  }
+}

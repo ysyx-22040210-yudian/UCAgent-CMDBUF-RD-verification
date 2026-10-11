@@ -1,0 +1,1 @@
+CHECK_FAILED 01_pipeline cycle 7: arready got=0x6 expected=0x7

@@ -1,0 +1,27 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 11: rvalid got=0x2 expected=0x0",
+  "type": "tokens",
+  "seed": 1,
+  "cycles": 11,
+  "checks": 143,
+  "coverage": {
+    "accepted": 3,
+    "accepted_src0": 1,
+    "accepted_src1": 1,
+    "accepted_src2": 1,
+    "ar_only_grant": 1,
+    "capture_no_bypass": 1,
+    "captured": 1,
+    "error_combo_00": 1,
+    "issue_failure": 1,
+    "issued": 3,
+    "reset": 1,
+    "retired": 1,
+    "retired_src0": 1,
+    "retry_success": 1,
+    "three_cycle_path": 2,
+    "zero_data_no_error": 1
+  }
+}

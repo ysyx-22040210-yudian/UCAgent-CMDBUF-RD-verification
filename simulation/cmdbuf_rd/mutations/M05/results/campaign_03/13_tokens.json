@@ -1,0 +1,17 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+  "type": "tokens",
+  "seed": 1,
+  "cycles": 6,
+  "checks": 80,
+  "coverage": {
+    "accepted": 2,
+    "accepted_src0": 1,
+    "accepted_src1": 1,
+    "issued": 1,
+    "reset": 1,
+    "three_cycle_path": 1
+  }
+}

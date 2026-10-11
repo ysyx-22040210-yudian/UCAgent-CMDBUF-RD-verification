@@ -1,0 +1,12 @@
+
+-- Running command `read_rtlil "/root/cmdbuf_rd/portable_20261012/package/jobs/capacity/conversion/portable.il"; write_verilog -sv -noattr "/root/cmdbuf_rd/portable_20261012/package/jobs/capacity/formalmc/model.sv"' --
+
+1. Executing RTLIL frontend.
+Input filename: /root/cmdbuf_rd/portable_20261012/package/jobs/capacity/conversion/portable.il
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+Dumping module `\cmdbuf_rd_formal'.

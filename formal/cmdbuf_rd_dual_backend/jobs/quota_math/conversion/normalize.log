@@ -1,0 +1,379 @@
+
+-- Running command `read_verilog -formal -sv -DFORMAL -DSYNTHESIS "inputs/rtl/cmdbuf_rd.sv" "inputs/rtl/cmdbuf_rd_cmd.sv" "inputs/rtl/cmdbuf_rd_otb.sv" "inputs/formal/quota_step_math.sv"
+prep -top quota_step_math
+rename -witness
+flatten
+memory_map
+async2sync
+chformal -lower
+chformal -assume -early
+setundef -undriven -anyseq
+write_rtlil "/root/cmdbuf_rd/portable_20261012/package/jobs/quota_math/conversion/normalized.il"
+write_json "/root/cmdbuf_rd/portable_20261012/package/jobs/quota_math/conversion/normalized.json"
+' --
+
+1. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd_cmd.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd_cmd.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd_cmd'.
+Warning: Replacing memory \older_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:236
+Warning: Replacing memory \arresp_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:235
+Warning: Replacing memory \port_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:234
+Warning: Replacing memory \id_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:233
+Warning: Replacing memory \src_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:232
+Warning: Replacing memory \addr_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:231
+Warning: Replacing memory \occ_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:229
+Warning: Replacing memory \older_next with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:207
+Warning: Replacing memory \rank_count with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:189, inputs/rtl/cmdbuf_rd_cmd.sv:187
+Warning: Replacing memory \occ_after with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:146, inputs/rtl/cmdbuf_rd_cmd.sv:145
+Warning: Replacing memory \head_entry with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:96, inputs/rtl/cmdbuf_rd_cmd.sv:84
+Warning: Replacing memory \head_onehot with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:90, inputs/rtl/cmdbuf_rd_cmd.sv:83
+Warning: Replacing memory \src_mask with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:88, inputs/rtl/cmdbuf_rd_cmd.sv:82
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd_otb.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd_otb.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd_otb'.
+Warning: Replacing memory \data_q with list of registers. See inputs/rtl/cmdbuf_rd_otb.sv:43
+Warning: Replacing memory \ret_entry_q with list of registers. See inputs/rtl/cmdbuf_rd_otb.sv:42
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: inputs/formal/quota_step_math.sv
+Parsing formal SystemVerilog input from `inputs/formal/quota_step_math.sv' to AST representation.
+Generating RTLIL representation for module `\quota_step_math'.
+Warning: Replacing memory \n with list of registers. See inputs/formal/quota_step_math.sv:35, inputs/formal/quota_step_math.sv:34
+Warning: Replacing memory \d with list of registers. See inputs/formal/quota_step_math.sv:24, inputs/formal/quota_step_math.sv:23
+Warning: Replacing memory \c with list of registers. See inputs/formal/quota_step_math.sv:20, inputs/formal/quota_step_math.sv:16
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \quota_step_math
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \quota_step_math
+Removing unused module `\cmdbuf_rd_otb'.
+Removing unused module `\cmdbuf_rd_cmd'.
+Removing unused module `\cmdbuf_rd'.
+Removed 3 unused modules.
+Module quota_step_math directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 31 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:40$1633'.
+Creating decoders for process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\quota_step_math.\cost' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\used' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\shared' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\ncost' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\dcost' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\ready' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\domain' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\ret_legal' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\accept' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\cap7' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\empty_ready' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.$fordecl_block$1496.x' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.$fordecl_block$1498.x' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.$fordecl_block$1500.x' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\c[0]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\c[1]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\c[2]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\d[0]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\d[1]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\d[2]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\n[0]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\n[1]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+No latch inferred for signal `\quota_step_math.\n[2]' from process `\quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `quota_step_math.$proc$inputs/formal/quota_step_math.sv:40$1633'.
+Removing empty process `quota_step_math.$proc$inputs/formal/quota_step_math.sv:15$1502'.
+Cleaned up 0 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+<suppressed ~29 debug messages>
+
+5.3. Executing FUTURE pass.
+
+5.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+
+5.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \quota_step_math..
+Removed 0 unused cells and 54 unused wires.
+<suppressed ~1 debug messages>
+
+5.6. Executing CHECK pass (checking for obvious problems).
+Checking module quota_step_math...
+Found and reported 0 problems.
+
+5.7. Executing OPT pass (performing simple optimizations).
+
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\quota_step_math'.
+Computing hashes of 140 cells of `\quota_step_math'.
+Finding duplicate cells in `\quota_step_math'.
+Computing hashes of 125 cells of `\quota_step_math'.
+Finding duplicate cells in `\quota_step_math'.
+<suppressed ~45 debug messages>
+Removed a total of 15 cells.
+
+5.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \quota_step_math..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+5.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \quota_step_math.
+Performed a total of 0 changes.
+
+5.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\quota_step_math'.
+Computing hashes of 125 cells of `\quota_step_math'.
+Finding duplicate cells in `\quota_step_math'.
+Removed a total of 0 cells.
+
+5.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \quota_step_math..
+Removed 0 unused cells and 15 unused wires.
+<suppressed ~1 debug messages>
+
+5.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+
+5.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \quota_step_math..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+5.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \quota_step_math.
+Performed a total of 0 changes.
+
+5.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\quota_step_math'.
+Computing hashes of 125 cells of `\quota_step_math'.
+Finding duplicate cells in `\quota_step_math'.
+Removed a total of 0 cells.
+
+5.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \quota_step_math..
+
+5.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+
+5.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1509 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1509 ($add).
+Removed top 30 bits (of 32) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1509 ($add).
+Removed top 30 bits (of 32) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1513 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1513 ($add).
+Removed top 29 bits (of 32) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1513 ($add).
+Removed top 29 bits (of 32) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1517 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1517 ($add).
+Removed top 28 bits (of 32) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1517 ($add).
+Removed top 28 bits (of 32) from port A of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:18$1518 ($le).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:18$1518 ($le).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1520 ($mux).
+Removed top 5 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1521 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1521 ($add).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1521 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:21$1522 ($le).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:23$1528 ($sub).
+Removed top 5 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1529 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1529 ($add).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1529 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$gt$inputs/formal/quota_step_math.sv:25$1530 ($gt).
+Removed top 2 bits (of 6) from port A of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1531 ($sub).
+Removed top 5 bits (of 6) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1531 ($sub).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1531 ($sub).
+Removed top 5 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:25$1533 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1535 ($mux).
+Removed top 5 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1536 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1536 ($add).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1536 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1538 ($mux).
+Removed top 1 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1539 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1539 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:21$1540 ($le).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:23$1546 ($sub).
+Removed top 1 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1547 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1547 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$gt$inputs/formal/quota_step_math.sv:25$1548 ($gt).
+Removed top 2 bits (of 6) from port A of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1549 ($sub).
+Removed top 5 bits (of 6) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1549 ($sub).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1549 ($sub).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1553 ($mux).
+Removed top 1 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1554 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1554 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1556 ($mux).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1557 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:21$1558 ($le).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:23$1564 ($sub).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1565 ($add).
+Removed top 31 bits (of 32) from port B of cell quota_step_math.$gt$inputs/formal/quota_step_math.sv:25$1566 ($gt).
+Removed top 2 bits (of 6) from port A of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1567 ($sub).
+Removed top 5 bits (of 6) from port B of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1567 ($sub).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$sub$inputs/formal/quota_step_math.sv:25$1567 ($sub).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1571 ($mux).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1572 ($add).
+Removed top 28 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:28$1573 ($le).
+Removed top 28 bits (of 32) from port B of cell quota_step_math.$lt$inputs/formal/quota_step_math.sv:30$1586 ($lt).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$lt$inputs/formal/quota_step_math.sv:30$1588 ($lt).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:34$1602 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1604 ($mux).
+Removed top 5 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1605 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1605 ($add).
+Removed top 1 bits (of 6) from port Y of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1605 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:36$1606 ($le).
+Removed top 1 bits (of 2) from port B of cell quota_step_math.$eq$inputs/formal/quota_step_math.sv:34$1611 ($eq).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:34$1613 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1615 ($mux).
+Removed top 1 bits (of 6) from port A of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1616 ($add).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1616 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:36$1617 ($le).
+Removed top 3 bits (of 4) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:34$1624 ($add).
+Removed top 2 bits (of 6) from mux cell quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1626 ($mux).
+Removed top 2 bits (of 6) from port B of cell quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1627 ($add).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:36$1628 ($le).
+Removed top 28 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:41$1635 ($le).
+Removed top 28 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:42$1638 ($le).
+Removed top 28 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:44$1643 ($le).
+Removed top 29 bits (of 32) from port B of cell quota_step_math.$le$inputs/formal/quota_step_math.sv:45$1646 ($le).
+Removed top 3 bits (of 4) from wire quota_step_math.$logic_and$inputs/formal/quota_step_math.sv:34$1612_Y.
+Removed top 1 bits (of 6) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:35$1605_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1571_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1615_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1556_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1553_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1538_Y.
+Removed top 1 bits (of 6) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:26$1536_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:26$1535_Y.
+Removed top 1 bits (of 6) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:24$1529_Y.
+Removed top 1 bits (of 6) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:20$1521_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:20$1520_Y.
+Removed top 28 bits (of 32) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1517_Y.
+Removed top 31 bits (of 32) from wire quota_step_math.$eqx$inputs/formal/quota_step_math.sv:18$1516_Y.
+Removed top 3 bits (of 4) from wire quota_step_math.$logic_and$inputs/formal/quota_step_math.sv:34$1623_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1604_Y.
+Removed top 29 bits (of 32) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1513_Y.
+Removed top 31 bits (of 32) from wire quota_step_math.$eqx$inputs/formal/quota_step_math.sv:18$1512_Y.
+Removed top 2 bits (of 6) from wire quota_step_math.$ternary$inputs/formal/quota_step_math.sv:35$1626_Y.
+Removed top 30 bits (of 32) from wire quota_step_math.$add$inputs/formal/quota_step_math.sv:18$1509_Y.
+Removed top 31 bits (of 32) from wire quota_step_math.$eqx$inputs/formal/quota_step_math.sv:18$1508_Y.
+Removed top 3 bits (of 4) from wire quota_step_math.$logic_and$inputs/formal/quota_step_math.sv:34$1601_Y.
+
+5.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \quota_step_math..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~1 debug messages>
+
+5.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.11. Executing OPT pass (performing simple optimizations).
+
+5.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module quota_step_math.
+
+5.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\quota_step_math'.
+Computing hashes of 125 cells of `\quota_step_math'.
+Finding duplicate cells in `\quota_step_math'.
+Removed a total of 0 cells.
+
+5.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \quota_step_math..
+
+5.11.4. Finished fast OPT passes.
+
+5.12. Executing SORT pass.
+
+5.13. Printing statistics.
+
+=== quota_step_math ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      133 wires
+      428 wire bits
+       33 public wires
+       99 public wire bits
+        7 ports
+       19 port bits
+      125 cells
+       21   $add
+        6   $check
+        2   $eq
+        3   $eqx
+        3   $gt
+       12   $le
+       21   $logic_and
+       14   $logic_not
+       17   $logic_or
+        2   $lt
+       12   $mux
+        6   $reduce_bool
+        6   $sub
+
+5.14. Executing CHECK pass (checking for obvious problems).
+Checking module quota_step_math...
+Found and reported 0 problems.
+
+6. Executing FLATTEN pass (flatten design).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing ASYNC2SYNC pass.
+
+9. Executing SETUNDEF pass (replace undef values with defined constants).
+
+10. Executing RTLIL backend.
+Output filename: /root/cmdbuf_rd/portable_20261012/package/jobs/quota_math/conversion/normalized.il
+
+11. Executing JSON backend.

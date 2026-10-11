@@ -1,0 +1,191 @@
+[
+  {
+    "label": "dut.CK_CV_ZERO_DATA",
+    "sby_label": "CK_CV_ZERO_DATA",
+    "formalmc_label": "P_COVER_0000",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:213.9-213.193",
+    "a_connection": "$auto$async2sync.cc:116:execute$17303",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17299"
+  },
+  {
+    "label": "dut.CK_CV_UPPER_DATA",
+    "sby_label": "CK_CV_UPPER_DATA",
+    "formalmc_label": "P_COVER_0001",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:214.9-214.224",
+    "a_connection": "$auto$async2sync.cc:116:execute$17309",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17305"
+  },
+  {
+    "label": "dut.CK_CV_REORDER_TO_ORDER",
+    "sby_label": "CK_CV_REORDER_TO_ORDER",
+    "formalmc_label": "P_COVER_0002",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:218.9-218.135",
+    "a_connection": "$auto$async2sync.cc:116:execute$17315",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17311"
+  },
+  {
+    "label": "dut.CK_CV_NONMONOTONIC_ID",
+    "sby_label": "CK_CV_NONMONOTONIC_ID",
+    "formalmc_label": "P_COVER_0003",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:216.9-216.156",
+    "a_connection": "$auto$async2sync.cc:116:execute$17321",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17317"
+  },
+  {
+    "label": "dut.CK_CV_FULL_SLOT_REUSE",
+    "sby_label": "CK_CV_FULL_SLOT_REUSE",
+    "formalmc_label": "P_COVER_0004",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:219.9-219.179",
+    "a_connection": "$auto$async2sync.cc:116:execute$17327",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17323"
+  },
+  {
+    "label": "dut.CK_CV_ERR11",
+    "sby_label": "CK_CV_ERR11",
+    "formalmc_label": "P_COVER_0005",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:212.9-212.173",
+    "a_connection": "$auto$async2sync.cc:116:execute$17333",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17329"
+  },
+  {
+    "label": "dut.CK_CV_ERR10",
+    "sby_label": "CK_CV_ERR10",
+    "formalmc_label": "P_COVER_0006",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:211.9-211.174",
+    "a_connection": "$auto$async2sync.cc:116:execute$17339",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17335"
+  },
+  {
+    "label": "dut.CK_CV_ERR01",
+    "sby_label": "CK_CV_ERR01",
+    "formalmc_label": "P_COVER_0007",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:210.9-210.173",
+    "a_connection": "$auto$async2sync.cc:116:execute$17345",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17341"
+  },
+  {
+    "label": "dut.CK_CV_ERR00",
+    "sby_label": "CK_CV_ERR00",
+    "formalmc_label": "P_COVER_0008",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:209.9-209.174",
+    "a_connection": "$auto$async2sync.cc:116:execute$17351",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17347"
+  },
+  {
+    "label": "dut.CK_CV_DUPLICATE_ID",
+    "sby_label": "CK_CV_DUPLICATE_ID",
+    "formalmc_label": "P_COVER_0009",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:215.9-215.211",
+    "a_connection": "$auto$async2sync.cc:116:execute$17357",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17353"
+  },
+  {
+    "label": "dut.CK_CV_CROSS_SRC_ID",
+    "sby_label": "CK_CV_CROSS_SRC_ID",
+    "formalmc_label": "P_COVER_0010",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:217.9-217.167",
+    "a_connection": "$auto$async2sync.cc:116:execute$17363",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17359"
+  },
+  {
+    "label": "dut.CK_CV_CAPTURE_NOREADY",
+    "sby_label": "CK_CV_CAPTURE_NOREADY",
+    "formalmc_label": "P_COVER_0011",
+    "kind": "cover",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:220.9-220.192",
+    "a_connection": "$auto$async2sync.cc:116:execute$17369",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17365"
+  },
+  {
+    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4767",
+    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4767",
+    "formalmc_label": "P_ASSUME_0012",
+    "kind": "assume",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.36-165.50",
+    "a_connection": "$flatten\\dut.$lt$inputs/rtl/cmdbuf_rd.sv:165$4768_Y",
+    "enable_connection": "1'1"
+  },
+  {
+    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4765",
+    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4765",
+    "formalmc_label": "P_ASSUME_0013",
+    "kind": "assume",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.21-165.35",
+    "a_connection": "$flatten\\dut.$lt$inputs/rtl/cmdbuf_rd.sv:165$4766_Y",
+    "enable_connection": "1'1"
+  },
+  {
+    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4769",
+    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4769",
+    "formalmc_label": "P_ASSUME_0014",
+    "kind": "assume",
+    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.51-165.69",
+    "a_connection": "$flatten\\dut.$ne$inputs/rtl/cmdbuf_rd.sv:165$4770_Y",
+    "enable_connection": "1'1"
+  },
+  {
+    "label": "dut.u_otb._witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_4286",
+    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_4286",
+    "formalmc_label": "P_ASSUME_0015",
+    "kind": "assume",
+    "source_location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+    "a_connection": "$flatten\\dut.\\u_otb.$lt$inputs/rtl/cmdbuf_rd_otb.sv:128$4287_Y",
+    "enable_connection": "1'1"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5258",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5258",
+    "formalmc_label": "P_ASSUME_0016",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:38$5259_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:38$5258_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5248",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5248",
+    "formalmc_label": "P_ASSUME_0017",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:32$5249_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:32$5248_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5250",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5250",
+    "formalmc_label": "P_ASSUME_0018",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+    "a_connection": "\\rst_n",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:33$5250_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5251",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5251",
+    "formalmc_label": "P_ASSUME_0019",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:35$5252_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5251_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5253",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5253",
+    "formalmc_label": "P_ASSUME_0020",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:36$5256_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5251_EN"
+  }
+]

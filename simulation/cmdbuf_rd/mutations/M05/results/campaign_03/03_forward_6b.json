@@ -1,0 +1,20 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 13: rvalid got=0x1 expected=0x0",
+  "type": "forward_6b",
+  "seed": 1,
+  "cycles": 13,
+  "checks": 151,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "issued": 2,
+    "issued_back_to_back": 1,
+    "outside_window_blocked": 2,
+    "reset": 1,
+    "same_xau_ooo_issue": 1,
+    "sixth_success_forward": 1
+  }
+}

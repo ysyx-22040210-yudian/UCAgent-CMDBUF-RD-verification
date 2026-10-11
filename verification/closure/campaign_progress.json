@@ -1,0 +1,1075 @@
+{
+  "updated_at": "2026-10-11T17:28:04.518047+00:00",
+  "conclusion": "完整14阶段已完成，全部CK及组合依赖已闭合，49类代表性RTL注错均完成形式反例和双版本回放。",
+  "stage_completed": 14,
+  "stage_total": 14,
+  "cover_witnesses": 65,
+  "mutation_completed": 49,
+  "native_safety_bound": 100,
+  "native_cover_bound": 56,
+  "ck_results": {
+    "CK-AR-ACCEPT": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_54_1513",
+      "run_id": "bece67a18aa24e32a29dcbed6105bf0a",
+      "route": "native"
+    },
+    "CK-GRANT-EXACT": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_57_1525",
+      "run_id": "bece67a18aa24e32a29dcbed6105bf0a",
+      "route": "native"
+    },
+    "CK-RETIRE-EXACT": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_56_1521",
+      "run_id": "bece67a18aa24e32a29dcbed6105bf0a",
+      "route": "native"
+    },
+    "CK-LIFE-NEW-STATE": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_350_1585",
+      "run_id": "d1b24d76e50246b68984850bd65e972a",
+      "route": "native"
+    },
+    "CK-RETIRE-CLEAR-STATE": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_358_1620",
+      "run_id": "d1b24d76e50246b68984850bd65e972a",
+      "route": "native"
+    },
+    "CK-MEM-EXACT4": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_110_1553",
+      "run_id": "6b25c32cc4d64e4d83e743c701528ade",
+      "route": "native"
+    },
+    "CK-MEM-IDENTITY": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_111_1555",
+      "run_id": "6b25c32cc4d64e4d83e743c701528ade",
+      "route": "native"
+    },
+    "CK-MEM-CALENDAR-BUBBLES": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_110_1553",
+      "run_id": "6b25c32cc4d64e4d83e743c701528ade",
+      "route": "native"
+    },
+    "CK-MEM-NO-EARLY": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_112_1557",
+      "run_id": "6b25c32cc4d64e4d83e743c701528ade",
+      "route": "native"
+    },
+    "CK-GRANT-NOSTRAY-TOKEN": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_110_1553",
+      "run_id": "6b25c32cc4d64e4d83e743c701528ade",
+      "route": "native"
+    },
+    "CK-DATA-CAPTURE128": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_134_1651",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-PCERR-CAPTURE": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_135_1653",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-HOLD128": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_137_1657",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-PCERR-HOLD": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_138_1659",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-CAPTURE-NOREADY": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_134_1651",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-VALID-NOTVALUE": {
+      "status": "proven",
+      "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_134_1651",
+      "run_id": "06c3fcda800c4a8dbbeac8bbcaf4c9cd",
+      "route": "native"
+    },
+    "CK-DATA-ENDTOEND128": {
+      "status": "proven",
+      "property_id": "D_ORIGIN_R_DATA",
+      "run_id": "339d5e96ea7a492387752769b6cd080a",
+      "route": "native"
+    },
+    "CK-DATA-R-ROUTE": {
+      "status": "proven",
+      "property_id": "D_ORIGIN_R_DATA",
+      "run_id": "339d5e96ea7a492387752769b6cd080a",
+      "route": "native"
+    },
+    "CK-DATA-ENDTOEND-ERR": {
+      "status": "proven",
+      "property_id": "D_ORIGIN_R_PC",
+      "run_id": "339d5e96ea7a492387752769b6cd080a",
+      "route": "native"
+    },
+    "CK-RESP-ERROR-DATA": {
+      "status": "proven",
+      "property_id": "D_ORIGIN_R_DATA",
+      "run_id": "339d5e96ea7a492387752769b6cd080a",
+      "route": "native"
+    },
+    "CK-CAP-RESERVE": {
+      "status": "proven",
+      "property_id": "QM_BUDGET",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-READY-FORMULA": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-700": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-440": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-711-UNIQUE": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-711-SHARED": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-NONBLOCK-COMB": {
+      "status": "proven",
+      "property_id": "QM_EMPTY_READY_ALL",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-AR-SINGLE": {
+      "status": "proven",
+      "property_id": "FA_LIVE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-AR-NOACCEPT": {
+      "status": "proven",
+      "property_id": "FA_LIVE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-LIFE-ALLOC-FREE": {
+      "status": "proven",
+      "property_id": "QM_ALLOC_FREE",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-LIFE-COUNT": {
+      "status": "proven",
+      "property_id": "FA_LIVE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-LIFE-ISSUED": {
+      "status": "proven",
+      "property_id": "FA_ISSUED_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-LIFE-DONE": {
+      "status": "proven",
+      "property_id": "FA_DONE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-LIFE-HOLD": {
+      "status": "proven",
+      "property_id": "FA_LIVE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-LIFE-NODUP-ISSUE": {
+      "status": "proven",
+      "property_id": "LIFE_ATTEMPT_OWNERSHIP",
+      "run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "route": "native"
+    },
+    "CK-LIFE-NODUP-R": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-PENDING-EXACT": {
+      "status": "proven",
+      "property_id": "LIFE_PENDING_EXACT",
+      "run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "route": "native"
+    },
+    "CK-WIN-MEMBERS": {
+      "status": "proven",
+      "property_id": "POLICY_WINDOW",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-ISSUED-EXCLUDE": {
+      "status": "proven",
+      "property_id": "POLICY_WINDOW",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-SIXTH-BLOCK": {
+      "status": "proven",
+      "property_id": "POLICY_SELECT",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-6B": {
+      "status": "proven",
+      "property_id": "POLICY_WINDOW",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-BANK": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-WIN-HALF": {
+      "status": "proven",
+      "property_id": "POLICY_CANDIDATES",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-CANDIDATES": {
+      "status": "proven",
+      "property_id": "POLICY_CANDIDATES",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-OLDEST-MATCH": {
+      "status": "proven",
+      "property_id": "POLICY_SELECT",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-WIN-STATUS-REQUEST": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-PIPE-SELECT-NEXT": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-PIPE-ACCEPT-NOBYPASS": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-PIPE-OVERLAP": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-PIPE-CURRENT-EXCLUDE": {
+      "status": "proven",
+      "property_id": "POLICY_CANDIDATES",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-PIPE-REQ-ADDR": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-RETRY-5A-B": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-RETRY-5A-A": {
+      "status": "proven",
+      "property_id": "POLICY_SELECT",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RETRY-ONCE-TOKEN": {
+      "status": "proven",
+      "property_id": "LIFE_ATTEMPT_OWNERSHIP",
+      "run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "route": "native"
+    },
+    "CK-MEM-UNIQUE": {
+      "status": "proven",
+      "property_id": "LIFE_INDEPENDENT_DUE_UNIQUE",
+      "run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "route": "native"
+    },
+    "CK-MEM-DONE-SYNC": {
+      "status": "proven",
+      "property_id": "FA_DONE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-MEM-NO-R-BYPASS": {
+      "status": "proven",
+      "property_id": "LIFE_NO_CAPTURE_BYPASS",
+      "run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "route": "native"
+    },
+    "CK-MEM-NEXT-R-ELIGIBLE": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-MEM-CONCURRENT-OLD-R": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-HEAD": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-HEAD-DONE": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-CROSS-SRC": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-ID-INDEPENDENT": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-RR-WINNER": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-RR-ADVANCE": {
+      "status": "proven",
+      "property_id": "POLICY_RR_STATE",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-RR-HOLD": {
+      "status": "proven",
+      "property_id": "POLICY_RR_STATE",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-EXACT-ELIGIBILITY": {
+      "status": "proven",
+      "property_id": "POLICY_RVALID",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-ID": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-PORT": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-R-ADDR": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RESP-ADDRERR": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RESP-PARITY": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RESP-NORMAL": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RESP-OOB-ISSUE": {
+      "status": "proven",
+      "property_id": "POLICY_SELECT",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-RETIRE-IDENTITY": {
+      "status": "proven",
+      "property_id": "POLICY_R_IDENTITY",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-REUSE-FULL-ACCEPT": {
+      "status": "proven",
+      "property_id": "QM_READY",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-REUSE-OLD-R": {
+      "status": "proven",
+      "property_id": "POLICY_R_METADATA",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-REUSE-NEW-PIPELINE": {
+      "status": "proven",
+      "property_id": "PIPELINE_ALL",
+      "run_id": "710c43c596af4eea8898f0c750b4537d",
+      "route": "native"
+    },
+    "CK-RESET-EMPTY": {
+      "status": "proven",
+      "property_id": "FA_LIVE_MATCH",
+      "run_id": "30aafb11117a4815a2ae49e811cdfc01",
+      "route": "native"
+    },
+    "CK-RESET-RR": {
+      "status": "proven",
+      "property_id": "POLICY_RR_STATE",
+      "run_id": "7af94773755d4ab0be53772682e87162",
+      "route": "native"
+    },
+    "CK-AR-ADDR-SAVE": {
+      "status": "proven",
+      "property_id": "ANYCONST_LIVE_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-AR-SRC-SAVE": {
+      "status": "proven",
+      "property_id": "ANYCONST_LIVE_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-AR-ID-SAVE": {
+      "status": "proven",
+      "property_id": "ANYCONST_LIVE_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-AR-PORT-SAVE": {
+      "status": "proven",
+      "property_id": "ANYCONST_LIVE_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-AR-RESP-SAVE": {
+      "status": "proven",
+      "property_id": "ANYCONST_LIVE_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-LIFE-PAIR": {
+      "status": "proven",
+      "property_id": "PAIR_ALL",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-LIFE-RANGE": {
+      "status": "proven",
+      "property_id": "ENTRY_RANGES_ALL",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-CAP-OCC": {
+      "status": "proven",
+      "property_id": "QM_OCC_ALL",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-MAX7": {
+      "status": "proven",
+      "property_id": "QM_MAX7_ALL",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-EMPTY-CAN-ACCEPT": {
+      "status": "proven",
+      "property_id": "QM_EMPTY_READY_ALL",
+      "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+      "route": "native"
+    },
+    "CK-CAP-NET-UPDATE": {
+      "status": "proven",
+      "property_id": "SS_OCC_NET_ALL",
+      "run_id": "1a259298993d49919ccc6332642b12e9",
+      "route": "native"
+    },
+    "CK-WIN-AGE": {
+      "status": "proven",
+      "property_id": "ANYCONST_FIFO_AGE",
+      "run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+      "route": "native"
+    },
+    "CK-GRANT-FAIL-STATE": {
+      "status": "proven",
+      "property_id": "ANYCONST_FAILED_STATE",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-RETIRE-CLEAR-DATA": {
+      "status": "proven",
+      "property_id": "ANYCONST_DATA_PC_CLEAR",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-REUSE-NEW-WINS": {
+      "status": "proven",
+      "property_id": "NEW_ALLOC_STATE_AND_META",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-REUSE-NEW-OTB": {
+      "status": "proven",
+      "property_id": "ANYCONST_DATA_PC_CLEAR",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-REUSE-YOUNGEST": {
+      "status": "proven",
+      "property_id": "ANYCONST_FIFO_AGE",
+      "run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+      "route": "native"
+    },
+    "CK-RESET-REQ": {
+      "status": "proven",
+      "property_id": "INITIAL_REQ_WITH_NO_HISTORY",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-RESET-R": {
+      "status": "proven",
+      "property_id": "INITIAL_R_WITH_NO_COMPLETION",
+      "run_id": "6f1285ed84d047b9ba505a522bf71969",
+      "route": "native"
+    },
+    "CK-PENDING-UPDATE": {
+      "status": "proven",
+      "property_id": "LIFE_PENDING_NET_NONMOD",
+      "run_id": "88efe3bbd1a44059bf2cd59e4609b7b3",
+      "route": "native"
+    },
+    "CK-CV-H0-B0": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B0",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B1": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B1",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B2": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B2",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B3": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B3",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B4": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B4",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B5": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B5",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B6": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B6",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H0-B7": {
+      "status": "covered",
+      "property_id": "CK_CV_H0_B7",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B0": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B0",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B1": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B1",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B2": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B2",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B3": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B3",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B4": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B4",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B5": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B5",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B6": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B6",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-H1-B7": {
+      "status": "covered",
+      "property_id": "CK_CV_H1_B7",
+      "run_id": "5a0bc47ec6dc42479e2c826cce8b6a88",
+      "route": "native"
+    },
+    "CK-CV-UNREADY-SRC": {
+      "status": "covered",
+      "property_id": "CK_CV_UNREADY_SRC",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-MIN3": {
+      "status": "covered",
+      "property_id": "CK_CV_MIN3",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-PIPE-ALL": {
+      "status": "covered",
+      "property_id": "CK_CV_PIPE_ALL",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-ISSUE-CONSECUTIVE": {
+      "status": "covered",
+      "property_id": "CK_CV_ISSUE_CONSECUTIVE",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-5A-B": {
+      "status": "covered",
+      "property_id": "CK_CV_5A_B",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-5A-A": {
+      "status": "covered",
+      "property_id": "CK_CV_5A_A",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-RETRY-TO-R": {
+      "status": "covered",
+      "property_id": "CK_CV_RETRY_TO_R",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-STRAY-GRANT": {
+      "status": "covered",
+      "property_id": "CK_CV_STRAY_GRANT",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-CALENDAR-BUBBLE": {
+      "status": "covered",
+      "property_id": "CK_CV_CALENDAR_BUBBLE",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-MEM-NEXT-R": {
+      "status": "covered",
+      "property_id": "CK_CV_MEM_NEXT_R",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-MEM-OTHER-R": {
+      "status": "covered",
+      "property_id": "CK_CV_MEM_OTHER_R",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-STATUS-FLIP": {
+      "status": "covered",
+      "property_id": "CK_CV_STATUS_FLIP",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-STAGGER-GRANT": {
+      "status": "covered",
+      "property_id": "CK_CV_STAGGER_GRANT",
+      "run_id": "4126ae65ec774b3eb5dee97e117dfd51",
+      "route": "native"
+    },
+    "CK-CV-SIXTH-BLOCKED": {
+      "status": "covered",
+      "property_id": "CK_CV_SIXTH_BLOCKED",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-6B": {
+      "status": "covered",
+      "property_id": "CK_CV_6B",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-FAIL-KEEPS-WINDOW": {
+      "status": "covered",
+      "property_id": "CK_CV_FAIL_KEEPS_WINDOW",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-QUOTA-NO-ESCAPE": {
+      "status": "covered",
+      "property_id": "CK_CV_QUOTA_NO_ESCAPE",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-OUT-OF-ORDER": {
+      "status": "covered",
+      "property_id": "CK_CV_OUT_OF_ORDER",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-CAP700": {
+      "status": "covered",
+      "property_id": "CK_CV_CAP700",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-CAP440": {
+      "status": "covered",
+      "property_id": "CK_CV_CAP440",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-CAP711": {
+      "status": "covered",
+      "property_id": "CK_CV_CAP711",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-UNIQUE-REFILL": {
+      "status": "covered",
+      "property_id": "CK_CV_UNIQUE_REFILL",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-SHARED-REFILL": {
+      "status": "covered",
+      "property_id": "CK_CV_SHARED_REFILL",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-SAME-SRC-NETZERO": {
+      "status": "covered",
+      "property_id": "CK_CV_SAME_SRC_NETZERO",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-YOUNGER-DONE": {
+      "status": "covered",
+      "property_id": "CK_CV_YOUNGER_DONE",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-CROSS-SRC-PROGRESS": {
+      "status": "covered",
+      "property_id": "CK_CV_CROSS_SRC_PROGRESS",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-RR-ROTATE": {
+      "status": "covered",
+      "property_id": "CK_CV_RR_ROTATE",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-RR-MASKS": {
+      "status": "covered",
+      "property_id": "CK_CV_RR_MASKS",
+      "run_id": "70ed659d569f48608f2c0ecb96219add",
+      "route": "native"
+    },
+    "CK-CV-ERR00": {
+      "status": "covered",
+      "property_id": "CK_CV_ERR00",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-ERR01": {
+      "status": "covered",
+      "property_id": "CK_CV_ERR01",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-ERR10": {
+      "status": "covered",
+      "property_id": "CK_CV_ERR10",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-ERR11": {
+      "status": "covered",
+      "property_id": "CK_CV_ERR11",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-ZERO-DATA": {
+      "status": "covered",
+      "property_id": "CK_CV_ZERO_DATA",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-UPPER-DATA": {
+      "status": "covered",
+      "property_id": "CK_CV_UPPER_DATA",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-DUPLICATE-ID": {
+      "status": "covered",
+      "property_id": "CK_CV_DUPLICATE_ID",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-NONMONOTONIC-ID": {
+      "status": "covered",
+      "property_id": "CK_CV_NONMONOTONIC_ID",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-CROSS-SRC-ID": {
+      "status": "covered",
+      "property_id": "CK_CV_CROSS_SRC_ID",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-REORDER-TO-ORDER": {
+      "status": "covered",
+      "property_id": "CK_CV_REORDER_TO_ORDER",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-FULL-SLOT-REUSE": {
+      "status": "covered",
+      "property_id": "CK_CV_FULL_SLOT_REUSE",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-CV-CAPTURE-NOREADY": {
+      "status": "covered",
+      "property_id": "CK_CV_CAPTURE_NOREADY",
+      "run_id": "4fad3bf036e74783a432f308ad4f5a89",
+      "route": "native"
+    },
+    "CK-ENV-RESET-FIRST": {
+      "status": "assumption",
+      "property_id": "M_CK_ENV_RESET_FIRST",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-ENV-RESET-RELEASE": {
+      "status": "assumption",
+      "property_id": "M_CK_ENV_RESET_RELEASE",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-ENV-SRC": {
+      "status": "assumption",
+      "property_id": "M_CK_ENV_SRC",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-ENV-ARRESP": {
+      "status": "assumption",
+      "property_id": "M_CK_ENV_ARRESP",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-ENV-READY": {
+      "status": "assumption",
+      "property_id": "M_CK_ENV_READY",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-PIPE-REQ-ONEHOT": {
+      "status": "proven",
+      "property_id": "A_CK_PIPE_REQ_ONEHOT",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-R-ONEHOT": {
+      "status": "proven",
+      "property_id": "A_CK_R_ONEHOT",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-R-READY": {
+      "status": "proven",
+      "property_id": "A_CK_R_READY",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-RESET-PENDING": {
+      "status": "proven",
+      "property_id": "A_CK_RESET_PENDING",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-RESET-READY": {
+      "status": "proven",
+      "property_id": "A_CK_RESET_READY",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-IDLE-ARB": {
+      "status": "proven",
+      "property_id": "A_CK_IDLE_ARB",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-IDLE-RPAYLOAD": {
+      "status": "proven",
+      "property_id": "A_CK_IDLE_RPAYLOAD",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-AR0": {
+      "status": "covered",
+      "property_id": "C_CK_CV_AR0",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-AR1": {
+      "status": "covered",
+      "property_id": "C_CK_CV_AR1",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-AR2": {
+      "status": "covered",
+      "property_id": "C_CK_CV_AR2",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-R0": {
+      "status": "covered",
+      "property_id": "C_CK_CV_R0",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-R1": {
+      "status": "covered",
+      "property_id": "C_CK_CV_R1",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-R2": {
+      "status": "covered",
+      "property_id": "C_CK_CV_R2",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-AR-ONLY-GRANT": {
+      "status": "covered",
+      "property_id": "C_CK_CV_AR_ONLY_GRANT",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-RW-ONLY-GRANT": {
+      "status": "covered",
+      "property_id": "C_CK_CV_RW_ONLY_GRANT",
+      "run_id": null,
+      "route": "guided"
+    },
+    "CK-CV-WRONG-GRANT": {
+      "status": "covered",
+      "property_id": "C_CK_CV_WRONG_GRANT",
+      "run_id": null,
+      "route": "guided"
+    }
+  },
+  "session_id": "90855753a21f4dc7a0dc29b7892e38f3"
+}

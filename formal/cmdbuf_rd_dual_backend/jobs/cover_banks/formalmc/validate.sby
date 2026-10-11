@@ -1,0 +1,15 @@
+[options]
+mode cover
+depth 6
+timeout 120
+multiclock off
+
+[engines]
+smtbmc yices
+
+[script]
+read_verilog -formal -sv model.sv
+prep -top cmdbuf_rd_formal
+
+[files]
+model.sv

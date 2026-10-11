@@ -1,0 +1,45 @@
+{
+  "scope": "UCAgent desktop/server GUI integration; frozen RTL and proof package unchanged",
+  "files": {
+    "desktop/tests/test_portable_formal_gui.py": {
+      "before_sha256": null,
+      "after_sha256": "38ade41b789ee667529da378635d82eacde1e55137918328e0f2fb4f5540a545"
+    },
+    "desktop/ucagent_tk/app.py": {
+      "before_sha256": "ed524c2badc1896d418b74a4f483da2723cc7c9d7d4a228baf7d1a2ab94757d5",
+      "after_sha256": "39595ae9829b5d1f60c3a5ad45296a43e175fc0d49f353351bc893051b28903a"
+    },
+    "desktop/ucagent_tk/formal.py": {
+      "before_sha256": "d7fb75dd2f55954ad4499cb7c845ad0861b10e288dd0dd22d19d62e9fad39bd9",
+      "after_sha256": "ad3a26f30effa841d2aa04f24f29cf823f33ccf9e11a731fef9deefec68b4091"
+    },
+    "desktop/ucagent_tk/lang/zh.json": {
+      "before_sha256": "fcf3cadc5230807e52d0a95ded9f36ceacb8ab482fb2b5cf8d68dd30c620052e",
+      "after_sha256": "1839bf62cddb5542fde40d482a295910c824d86c43a22bef7b66f0c5981756b5"
+    },
+    "desktop/ucagent_tk/portable_formal.py": {
+      "before_sha256": null,
+      "after_sha256": "e423080a4624d9a0e337a28a3b6774cafa51ce55da48f5e586b89fa9d8ea6af9"
+    },
+    "docs/content/02_usage/11_formal_gui.md": {
+      "before_sha256": "fdffc1adb30edf660250d7bace7f1d900b2a62d941af95cf3f188088e7e95a17",
+      "after_sha256": "381c63af77b6ef7db3451792d854d1f332b26ea19914039322fde9aceac9c370"
+    },
+    "docs/content/02_usage/13_portable_formal_gui.md": {
+      "before_sha256": null,
+      "after_sha256": "c9fc38fe0bedbe24a3a7c099b7f0de1efdabfffab592c4caddb3d6941f4c4c4d"
+    },
+    "tests/test_portable_formal.py": {
+      "before_sha256": null,
+      "after_sha256": "7a528c15254306ad85394a19d6bc417886fd49eaf800bf58eda47a00e87559a6"
+    },
+    "ucagent/server/platform_main.py": {
+      "before_sha256": "fa00e47da1b7012966df124fb08170bc88abf60d67e111f1393c3f7ec827856e",
+      "after_sha256": "0af8ad9a6c8847d24627129d513b8ff1e246626ae8a4b248761d1d563c167651"
+    },
+    "ucagent/server/portable_formal.py": {
+      "before_sha256": null,
+      "after_sha256": "a64c6d1e73a7066d620d52bf7e15b60519db023307d7a41ffb999dd0f7878951"
+    }
+  }
+}

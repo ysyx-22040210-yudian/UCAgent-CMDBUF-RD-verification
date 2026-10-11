@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=capacity_700
+seed=1
+cycles=50
+trace=0
+require=capacity700_ready110:3,rejected_unready_src:3,accepted_src1:1,accepted_src2:1

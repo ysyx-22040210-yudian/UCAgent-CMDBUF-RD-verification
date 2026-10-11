@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 10: req got=0x0 expected=0x4",
+  "type": "forward_6b",
+  "seed": 1,
+  "cycles": 10,
+  "checks": 116,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "issued": 1,
+    "outside_window_blocked": 2,
+    "reset": 1,
+    "sixth_success_forward": 1
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "label": "QUOTA_AFTER_BUDGET",
+    "sby_label": "QUOTA_AFTER_BUDGET",
+    "formalmc_label": "P_ASSERT_0000",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:41.4-41.51",
+    "a_connection": "$auto$async2sync.cc:116:execute$1676",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1672"
+  },
+  {
+    "label": "QUOTA_AFTER_SHARED",
+    "sby_label": "QUOTA_AFTER_SHARED",
+    "formalmc_label": "P_ASSERT_0001",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:45.4-45.52",
+    "a_connection": "$auto$async2sync.cc:116:execute$1682",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1678"
+  },
+  {
+    "label": "QUOTA_AFTER_TOTAL",
+    "sby_label": "QUOTA_AFTER_TOTAL",
+    "formalmc_label": "P_ASSERT_0002",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:44.4-44.49",
+    "a_connection": "$auto$async2sync.cc:116:execute$1688",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1684"
+  },
+  {
+    "label": "QUOTA_EMPTY_READY",
+    "sby_label": "QUOTA_EMPTY_READY",
+    "formalmc_label": "P_ASSERT_0003",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:46.4-46.53",
+    "a_connection": "$auto$async2sync.cc:116:execute$1694",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1690"
+  },
+  {
+    "label": "QUOTA_NEXT_BUDGET",
+    "sby_label": "QUOTA_NEXT_BUDGET",
+    "formalmc_label": "P_ASSERT_0004",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:42.4-42.50",
+    "a_connection": "$auto$async2sync.cc:116:execute$1700",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1696"
+  },
+  {
+    "label": "QUOTA_NEXT_MAX7",
+    "sby_label": "QUOTA_NEXT_MAX7",
+    "formalmc_label": "P_ASSERT_0005",
+    "kind": "assert",
+    "source_location": "inputs/formal/quota_step_math.sv:43.4-43.44",
+    "a_connection": "$auto$async2sync.cc:116:execute$1706",
+    "enable_connection": "$auto$async2sync.cc:107:execute$1702"
+  }
+]

@@ -1,0 +1,5 @@
+type=half_sweep
+cycles=160
+seed=1
+trace=0
+require=accepted:16,retired:16,issued_half_0_bank_0:1,issued_half_0_bank_1:1,issued_half_0_bank_2:1,issued_half_0_bank_3:1,issued_half_0_bank_4:1,issued_half_0_bank_5:1,issued_half_0_bank_6:1,issued_half_0_bank_7:1,issued_half_1_bank_0:1,issued_half_1_bank_1:1,issued_half_1_bank_2:1,issued_half_1_bank_3:1,issued_half_1_bank_4:1,issued_half_1_bank_5:1,issued_half_1_bank_6:1,issued_half_1_bank_7:1

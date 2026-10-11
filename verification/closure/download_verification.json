@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-11T17:32:25.466875+00:00",
+  "status": "passed",
+  "archive": "E:\\formal打榜\\output\\cmdbuf_rd_formal\\closure_20261011\\cmdbuf_rd_evidence.tar.gz",
+  "archive_sha256": "9cc646b2c13a659256b45d1b30a0cd82444ca6a7d8bcbe16a6cd9e9df4ccda00",
+  "archive_bytes": 212829414,
+  "verified_payload_files": 9252,
+  "verified_payload_bytes": 1821481875,
+  "no_filesystem_extraction": true,
+  "checks": [
+    "download matches VM archive digest",
+    "SHA manifest self-digest",
+    "exact member set; no missing/extra/duplicate members",
+    "safe relative paths and regular files",
+    "every payload file SHA256 and size"
+  ]
+}

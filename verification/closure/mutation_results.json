@@ -1,0 +1,3815 @@
+{
+  "schema_version": 1,
+  "scope": "49 fault themes, one explicit functional RTL mutation per theme; not all conceivable variants. Original pass here is trace control, not the separate universal safety proof.",
+  "total": 49,
+  "closed_count": 49,
+  "all_49_themes_closed": true,
+  "cases": [
+    {
+      "id": "FI001",
+      "title": "接受事件误用任意来源ready",
+      "group": "wiring",
+      "closed": true,
+      "selected_run": "bfee712446c742d8a193070cb8e1d45e",
+      "attempts": [
+        {
+          "run_id": "bfee712446c742d8a193070cb8e1d45e",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI001/.ucagent/platform-runs/bfee712446c742d8a193070cb8e1d45e/formal/manifest.json",
+          "manifest_sha256": "e17e75bcd29e72b56308560d6b1475a9306f462cd39b1fb084d5b2a249705452",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:54.9-55.65",
+              "status": "falsified",
+              "runtime_seconds": 22.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_54_1514",
+                "location": "inputs/rtl/cmdbuf_rd.sv:54.9-55.65",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI001/bfee712446c742d8a193070cb8e1d45e/report.json",
+          "replay_report_sha256": "4be7f216a077f08b8ae2e14319dd832e8e53387d3977d503304e58c0b63cc925",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "281812c960aac1fa7df11993f7da8ba4a90657fdd5292ae73ca3242632f99fdc",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "alloc_fire",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 886,
+          "mutant_checks": 886,
+          "trace_sha256": {
+            "trace.vcd": "95ca36121181d43f9096bc2cf3faba99d884150426ba72dc2f095deb0ae8e1de",
+            "trace_tb.v": "6950af11f9ada91c978a22a972e512aea2073c272fbb0e3b84aa5d154b1053e0"
+          },
+          "external_inputs_sha256": "7b35e5344fb0c0224291421e612fcfd816a6e8b9d0cefa9db5f1938c88c9cd80"
+        }
+      ]
+    },
+    {
+      "id": "FI002",
+      "title": "下游地址丢失half",
+      "group": "order",
+      "closed": true,
+      "selected_run": "268de76a82274d379e61495fad4c5e77",
+      "attempts": [
+        {
+          "run_id": "268de76a82274d379e61495fad4c5e77",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI002/.ucagent/platform-runs/268de76a82274d379e61495fad4c5e77/formal/manifest.json",
+          "manifest_sha256": "2ca335c0be1ec4922a7a2c0d0f22fa1d0cabaa7fe6181af0cb5320aa693efed6",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:681.9-681.58",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_ARB_ADDR",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:681.9-681.58",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI002/268de76a82274d379e61495fad4c5e77/report.json",
+          "replay_report_sha256": "b7befe1b40e71cd6c0fac053a6e970dc6a4e0753ad9a4830e79232cf1cc48ca3",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "1d28965780a7ae6e6ea5b71bccfddce3ee39e8958f71612cb8de2f5904e3ef76",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "arb_addr",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 393,
+          "mutant_checks": 393,
+          "trace_sha256": {
+            "trace.vcd": "d65adfbff6f3a2b8fb2551435dcf6e4e765c487df3f3bb73062533ee8ae31557",
+            "trace_tb.v": "7a6667ea2f6d1894763b0160c525b443c1060526101a48c574495ea7db10b1f9"
+          },
+          "external_inputs_sha256": "fc75b738dfdc26f77a92c5af6a0529a17bcf1b877a678ce9f42b5d31bbc2a81d"
+        }
+      ]
+    },
+    {
+      "id": "FI003",
+      "title": "bank解码错误为[6:4]",
+      "group": "order",
+      "closed": true,
+      "selected_run": "be5195c84091482b8df323283ec1932a",
+      "attempts": [
+        {
+          "run_id": "be5195c84091482b8df323283ec1932a",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI003/.ucagent/platform-runs/be5195c84091482b8df323283ec1932a/formal/manifest.json",
+          "manifest_sha256": "b99585be49fccb25e58a512467c3fa08422c06e1d7631168cec1fac77a6a7ffb",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_REQ",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI003/be5195c84091482b8df323283ec1932a/report.json",
+          "replay_report_sha256": "66745b3dc5690c0f9dd48c708d7aba8d5a14e6bc1e50755adf6a3a2d0587cb8f",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "d2349a10042f63124d318721aa8c6e0e222651fad8a8d3f81ba6956811885515",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "req",
+            "actual": "0x2",
+            "expected": "0x4"
+          },
+          "original_checks": 388,
+          "mutant_checks": 388,
+          "trace_sha256": {
+            "trace.vcd": "117c768449831cec2ba4182594be26d8f4cf578caef5622622da089ea63afd08",
+            "trace_tb.v": "e3748109ffffaabc1d8a8358237e2d213eb42b1a95872b19256cfe69607f65bb"
+          },
+          "external_inputs_sha256": "bd5bbbd7640df4f4dc9d0dff39e226071ca36074631091c4cc1aaa71c55e97e5"
+        }
+      ]
+    },
+    {
+      "id": "FI004",
+      "title": "bank空闲极性倒置",
+      "group": "order",
+      "closed": true,
+      "selected_run": "6dead0b4509b47bb98e5fc95e8bcd68d",
+      "attempts": [
+        {
+          "run_id": "6dead0b4509b47bb98e5fc95e8bcd68d",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI004/.ucagent/platform-runs/6dead0b4509b47bb98e5fc95e8bcd68d/formal/manifest.json",
+          "manifest_sha256": "b0e5a4b7d8ffa20bab71734376a8da72e50405f524f8e6cf29db47f270ae4eb4",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_CANDIDATES",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_VALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI004/6dead0b4509b47bb98e5fc95e8bcd68d/report.json",
+          "replay_report_sha256": "b54ef9ff007ecc548408513cfee7adef4c22ce59f692cd3d13945b53d7b18dd8",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "9d90620be08c35e9b95401d64b46845ff05eb080baf59db4ebee899540dee9ce",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 2,
+            "check": "candidate",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 296,
+          "mutant_checks": 296,
+          "trace_sha256": {
+            "trace.vcd": "786089f6391ee0087b158b45a8708039d3ef580a58f11ba3981db1a2390fba8c",
+            "trace_tb.v": "54d1ce204dc69e11a45783b30c5ef82c2cb52c9f8c9b8d542eb9e4a4c157ed6f"
+          },
+          "external_inputs_sha256": "170ab618910ea6fabc76ed8a85372039007a753d656f7128b5fa201372e24da7"
+        }
+      ]
+    },
+    {
+      "id": "FI005",
+      "title": "共享R同时指向所有来源",
+      "group": "wiring",
+      "closed": true,
+      "selected_run": "92f55f83f61f4da99f4c0b6988aae937",
+      "attempts": [
+        {
+          "run_id": "92f55f83f61f4da99f4c0b6988aae937",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI005/.ucagent/platform-runs/92f55f83f61f4da99f4c0b6988aae937/formal/manifest.json",
+          "manifest_sha256": "8053d9a03d67fc0d35bc59c0775a57f97d12a35d5a6f299cbdcef54cf6c9a044",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:59.9-59.33",
+              "status": "falsified",
+              "runtime_seconds": 8.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_59_1554",
+                "location": "inputs/rtl/cmdbuf_rd.sv:59.9-59.33",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI005/92f55f83f61f4da99f4c0b6988aae937/report.json",
+          "replay_report_sha256": "161d673a4cdf6e448b7437caf34ce10bf78c586c2077fa9a566a548ad82cbfec",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "23ad35d222ff89110d2fb55bc73aee06f5b4db9a90321fb75d15cb47a812fce4",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "rvalid",
+            "actual": "0x7",
+            "expected": "0x2"
+          },
+          "original_checks": 881,
+          "mutant_checks": 881,
+          "trace_sha256": {
+            "trace.vcd": "3e24f694141b0f4c1fb8469db13c5cd7d979c72b836f07cd0f2078c07381bdc8",
+            "trace_tb.v": "9bbfe2c7463dcdc44b589f9c732439ba333ecfa7a40b9f44bb0a79622f723919"
+          },
+          "external_inputs_sha256": "5115c6e9efe0d776f4a6614eb4fd7281bdb9af256320cb47ce2acb40e29e2905"
+        }
+      ]
+    },
+    {
+      "id": "FI006",
+      "title": "合并MEM数据的128位半字串换",
+      "group": "data_transition",
+      "closed": true,
+      "selected_run": "253db7f2631b4d79a823472ef37ffe6e",
+      "attempts": [
+        {
+          "run_id": "253db7f2631b4d79a823472ef37ffe6e",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI006/.ucagent/platform-runs/253db7f2631b4d79a823472ef37ffe6e/formal/manifest.json",
+          "manifest_sha256": "0bb63fd5256a0cd973c6e3a65649131acbc297ed6295185b5bb79a7004779587",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:134.17-134.63",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_134_1651",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:134.17-134.63",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI006/253db7f2631b4d79a823472ef37ffe6e/report.json",
+          "replay_report_sha256": "cd8d6d7033e7dcf93c673be780f91ab4a9ec09cdab4189e1a7ae7db0e5ecb1eb",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "3480afb56cde86c4ce8cf5c5a7783cc457281b3ad5e91ddfacd422eef41321ea"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "data_0",
+            "actual": "0x1000000000000000000000000",
+            "expected": "0x100000000"
+          },
+          "original_checks": 885,
+          "mutant_checks": 885,
+          "trace_sha256": {
+            "trace.vcd": "2b674b3ca353fc56fea8d969a19d5aa4fa0480a134bea7f6878396e8b2b4183a",
+            "trace_tb.v": "4daf0aad93e98a3709ba3204f06f976e7b5f1c5fd51c4b215dbcbfcb75f92a9d"
+          },
+          "external_inputs_sha256": "eba3bc35c198b983bc8941ac50530d3240b397b1aa58671df6af912890b11602"
+        }
+      ]
+    },
+    {
+      "id": "FI007",
+      "title": "保存port_id错误",
+      "group": "local_transition",
+      "closed": true,
+      "selected_run": "56216334cbea4b3d92433954bb24913b",
+      "attempts": [
+        {
+          "run_id": "56216334cbea4b3d92433954bb24913b",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI007/.ucagent/platform-runs/56216334cbea4b3d92433954bb24913b/formal/manifest.json",
+          "manifest_sha256": "00b88b558a09f5e31d25fc8c7a01ad90e455a2cacc37d4aa04687b7cfeb7955e",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:355.13-355.61",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_355_1612",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:355.13-355.61",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI007/56216334cbea4b3d92433954bb24913b/report.json",
+          "replay_report_sha256": "2a484c59d962546c0c1d302d2d96fdd0f6d35dfc39715f4523b9edc229b83538",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "b78846aee2878985eb217a3a18f120fd16b6e14c1b034a2f4cad7dbc764f44b5",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 2,
+            "check": "port_q_0",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 293,
+          "mutant_checks": 293,
+          "trace_sha256": {
+            "trace.vcd": "0c0b3b943cd74eeba6213d71b366bf55c875b586f7423bfbf145345ebb9baad9",
+            "trace_tb.v": "f0aa46e8b33a6583de5a6c7ce32c7515a2c46c26e73a75fa0b78511b5c38f952"
+          },
+          "external_inputs_sha256": "06685046aece9959fabb5963abc58f86965989e40844319b873a84cb286f557e"
+        }
+      ]
+    },
+    {
+      "id": "FI008",
+      "title": "允许单个XAU占完九项",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "f97c8affeee944209237d04fcbb6a5f2",
+      "attempts": [
+        {
+          "run_id": "f97c8affeee944209237d04fcbb6a5f2",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI008/.ucagent/platform-runs/f97c8affeee944209237d04fcbb6a5f2/formal/manifest.json",
+          "manifest_sha256": "a4d3f6dadca03328192dbd0ee584655e2c7f82aa666bb9c7517892fab6634faa",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 5.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1582",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI008/f97c8affeee944209237d04fcbb6a5f2/report.json",
+          "replay_report_sha256": "3bc16892bf64c8a780ac438f264369d47c4fa20a649ecdeabb11bce28ee1d431",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "843e2ed1e9711c2bce0f5918015b5c56e7847e349318ae995c6c9021df32c5af",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "arready",
+            "actual": "0x7",
+            "expected": "0x3"
+          },
+          "original_checks": 890,
+          "mutant_checks": 890,
+          "trace_sha256": {
+            "trace.vcd": "efd3f16dfbba578ebcde5e4857d849b51040ff63fdbef1515d666977bef928c0",
+            "trace_tb.v": "c0109c06cfc01dd16d169b37c475bb0c659e715cfcec836ddab8ccce1307dcf2"
+          },
+          "external_inputs_sha256": "29b278182b11da9a9707ba47a380ecea28eedd2619742b8870e31af711950fdf"
+        }
+      ]
+    },
+    {
+      "id": "FI009",
+      "title": "OTB分配槽与CMDBUF错位",
+      "group": "calendar",
+      "closed": true,
+      "selected_run": "58352039f9a7497eaecd016708ac7b42",
+      "attempts": [
+        {
+          "run_id": "58352039f9a7497eaecd016708ac7b42",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI009/.ucagent/platform-runs/58352039f9a7497eaecd016708ac7b42/formal/manifest.json",
+          "manifest_sha256": "cb878e74bad90178e4fdc57ad1fc5fd94fc0be2fffd73e6d5e11c69c64ba7eba",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:132.27-133.81",
+              "status": "falsified",
+              "runtime_seconds": 3.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_132_2687",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:132.27-133.81",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI009/58352039f9a7497eaecd016708ac7b42/report.json",
+          "replay_report_sha256": "aaff731c11f0e3217320461c25eb0d04aec3254f2790145ec21fd771c48412b9",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "306c481bc1ff7175293c529d37a7579b98062c6b699e3a5d10691a0f00770e28",
+            "cmdbuf_rd_cmd.sv": "8f435b962816718b5e77d855af484c7a1c5bb576c18a4192cf41db73e08910dc",
+            "cmdbuf_rd_otb.sv": "b5a2f903a958bd8fb3649fbea26f3839c563af6e6000b03b906f799cff06ae0b"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 1,
+            "check": "otb_alloc_entry",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 393,
+          "mutant_checks": 393,
+          "trace_sha256": {
+            "trace.vcd": "4a3459fc4485b654a51e4c5047822ac7efb66e5991963717572664a790ed527c",
+            "trace_tb.v": "8f6a751963788a6bf363c8f4c670c7b1eb5d295ea287480f72ae0e0d8289c2eb"
+          },
+          "external_inputs_sha256": "45476c4ec3c3be4fedcfebbfc84d476dba9e2228396d44b4aeabf4b066660237"
+        }
+      ]
+    },
+    {
+      "id": "FI010",
+      "title": "已发射项仍进入pending窗口",
+      "group": "order",
+      "closed": true,
+      "selected_run": "d099c932f049448a87fb0d634e04d0c6",
+      "attempts": [
+        {
+          "run_id": "d099c932f049448a87fb0d634e04d0c6",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI010/.ucagent/platform-runs/d099c932f049448a87fb0d634e04d0c6/formal/manifest.json",
+          "manifest_sha256": "04ecddfbcd0cedf192f911c70db1a6024576e0085e59af24ad98de59c8d84e39",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_CANDIDATES",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:693.13-693.71",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_ID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:693.13-693.71",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI010/d099c932f049448a87fb0d634e04d0c6/report.json",
+          "replay_report_sha256": "0ec71a9c27d40ad0dc07618f11d0fe52546cd58056f13148745a158d04bbfb5a",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "efa1cd5c867742331ea6d8492adab8701eebc4cef0caa1ba9f0c5d9d77efa245",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "window",
+            "actual": "0x7",
+            "expected": "0x6"
+          },
+          "original_checks": 492,
+          "mutant_checks": 492,
+          "trace_sha256": {
+            "trace.vcd": "5235fd93185423496a5439bf9897e2ac0b8fbb6b31410805ed7be86eea7625ea",
+            "trace_tb.v": "b6114de931f096c42f16cb3c9861121a1795f254872b82d108e4879f70ff9d71"
+          },
+          "external_inputs_sha256": "c8c482929b18e48a5193566bbf0c880b2691ce210bf4040f11a83287cf145081"
+        }
+      ]
+    },
+    {
+      "id": "FI011",
+      "title": "窗口扩为六项越窗发射",
+      "group": "order",
+      "closed": true,
+      "selected_run": "f4106a153f114561a066da74edbb3f46",
+      "attempts": [
+        {
+          "run_id": "f4106a153f114561a066da74edbb3f46",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI011/.ucagent/platform-runs/f4106a153f114561a066da74edbb3f46/formal/manifest.json",
+          "manifest_sha256": "f11ab9853cf4886026b8d44b1b20a66fc10cbf566307ee59d62a5321ba4d945f",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 161.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI011/f4106a153f114561a066da74edbb3f46/report.json",
+          "replay_report_sha256": "cac18fc3c99653bf1592ccec73eb0fe86c1c35c70b90225829132186b97d6600",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "0c7715eb0a18a2a8373cb5bbc15523e1229fecbaf0f1a00d4c5a80b42688a6c7",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 7,
+            "check": "window",
+            "actual": "0x3f",
+            "expected": "0x1f"
+          },
+          "original_checks": 787,
+          "mutant_checks": 787,
+          "trace_sha256": {
+            "trace.vcd": "45d3485dc0a3f64a1bf7865b6b484700a047dcc057c60326ac3228bbe4b8e89a",
+            "trace_tb.v": "fca7a4c9ad11ad0bbc6076c6e7c884770e54b365d3d3793c7810acf24922d31e"
+          },
+          "external_inputs_sha256": "0108556b7f72ddd39e91dd71651c3504ad69d16322ad8cb61c52ee71d93ce9e5"
+        }
+      ]
+    },
+    {
+      "id": "FI012",
+      "title": "窗口内误选最新命令",
+      "group": "order",
+      "closed": true,
+      "selected_run": "1b437782c4c947e0a87b05ca5f5ec354",
+      "attempts": [
+        {
+          "run_id": "1b437782c4c947e0a87b05ca5f5ec354",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI012/.ucagent/platform-runs/1b437782c4c947e0a87b05ca5f5ec354/formal/manifest.json",
+          "manifest_sha256": "463c64b4a62cd57c7431a517488076705edf3117a38e5d6933be16277f89dca2",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:693.13-693.71",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_ID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:693.13-693.71",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI012/1b437782c4c947e0a87b05ca5f5ec354/report.json",
+          "replay_report_sha256": "4a005137c824f6e96f17a4eb7c4f2971c73d5c51bed8f031f041063820a3cb0a",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "5dfbcccf1cfb4cf938ae57f9d62d0575a349e6181c12323921a2dcb9ca5e3bf0",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "select_entry",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 391,
+          "mutant_checks": 391,
+          "trace_sha256": {
+            "trace.vcd": "b0a9e33ed282844d9f738c7e8302f2b14ec0c96f770d319dae025705b5bceccf",
+            "trace_tb.v": "e752a5ca9f70f1cae467d28e79cd0c65592512c93423365a0eff573d2507c5d9"
+          },
+          "external_inputs_sha256": "991c8d07f54ab975b3ff9a07cd2a2a7805ab24848094ed024c28d1d02aaa453e"
+        }
+      ]
+    },
+    {
+      "id": "FI013",
+      "title": "AR同拍直接旁路req",
+      "group": "order",
+      "closed": true,
+      "selected_run": "380710d25ddd4387822e3997061f2291",
+      "attempts": [
+        {
+          "run_id": "380710d25ddd4387822e3997061f2291",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI013/.ucagent/platform-runs/380710d25ddd4387822e3997061f2291/formal/manifest.json",
+          "manifest_sha256": "5e46a25237ca9fedb2f6d0f1c3cc40e4e48f1fa0fd77027bf42d1a3a20020a85",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:683.9-683.67",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_ISSUE_SUCCESS",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:683.9-683.67",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_REQ",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.74",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_328_1693",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.74",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI013/380710d25ddd4387822e3997061f2291/report.json",
+          "replay_report_sha256": "cdc6a99288c2823f3938400524a3455d637ed8fd9207593d4489b8a798b81985",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "77a521d497e984d287debd6a6b44c2825e159eaabbacb7606bf279dbdd4f20a0",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 1,
+            "check": "req",
+            "actual": "0x20",
+            "expected": "0x0"
+          },
+          "original_checks": 197,
+          "mutant_checks": 197,
+          "trace_sha256": {
+            "trace.vcd": "f4441d51b0ec65c122b6f701cdb96c07a9dad86cd4a29022cdb8ffe91df0bebb",
+            "trace_tb.v": "218ec6e911635e7bb3b359c26a0fa66da2ff505d744d91082ed4a465829b5f72"
+          },
+          "external_inputs_sha256": "d5096278c248c8827603ac7e2267d5c128151c5b962638bb0501eeb58a6e27b2"
+        }
+      ]
+    },
+    {
+      "id": "FI014",
+      "title": "发射级插入不必要流水气泡",
+      "group": "local_transition",
+      "closed": true,
+      "selected_run": "898251fbcfab4e868afd939f78a4cd06",
+      "attempts": [
+        {
+          "run_id": "898251fbcfab4e868afd939f78a4cd06",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI014/.ucagent/platform-runs/898251fbcfab4e868afd939f78a4cd06/formal/manifest.json",
+          "manifest_sha256": "808707311adbd532049223ed1ae98f642ea45d02a76bb83cbdd6fb2686e5c11c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:343.9-343.51",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_343_1557",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:343.9-343.51",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI014/898251fbcfab4e868afd939f78a4cd06/report.json",
+          "replay_report_sha256": "f45bdc8da5c3b220e14c010944eb5faf754d190de51cd41300af58d228953560",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "2dc9e9b78ab454adbbfa6abe9d2e2c7a7a147986fbd8a505f82c6a8fcf04fdd5",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "req",
+            "actual": "0x0",
+            "expected": "0x4"
+          },
+          "original_checks": 488,
+          "mutant_checks": 488,
+          "trace_sha256": {
+            "trace.vcd": "3978d8134e95c557182a721ef404664e65443574e6ed6c61771fdaecd5770ae2",
+            "trace_tb.v": "26fd97f1f5ed86c273ff61921ff193bc308bc03ac3aa097a55b40ab6b1c5af34"
+          },
+          "external_inputs_sha256": "a27d128ba8d266d851946f62d0aa4203adf46639c13a2ab8dbe0bce61723f63b"
+        }
+      ]
+    },
+    {
+      "id": "FI015",
+      "title": "5A失败冲刷已预选下一条",
+      "group": "local_transition",
+      "closed": true,
+      "selected_run": "4241e8feb2ad4e408ae87c2e1bd74a3c",
+      "attempts": [
+        {
+          "run_id": "4241e8feb2ad4e408ae87c2e1bd74a3c",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI015/.ucagent/platform-runs/4241e8feb2ad4e408ae87c2e1bd74a3c/formal/manifest.json",
+          "manifest_sha256": "66db3bd4b2913066e0f8de27ae467cdef79c588261e7cd1f4ed98a7d6b301999",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:343.9-343.51",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_343_1559",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:343.9-343.51",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI015/4241e8feb2ad4e408ae87c2e1bd74a3c/report.json",
+          "replay_report_sha256": "b7baf0cecb9298eeb1d301adf10274bbce9a100220b0995be647ba3c92925d9e",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "78ebe716557deff4ca4ef3988c8f26877d2962203a21393e96fd4219862019d1",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "req",
+            "actual": "0x0",
+            "expected": "0x10"
+          },
+          "original_checks": 492,
+          "mutant_checks": 492,
+          "trace_sha256": {
+            "trace.vcd": "aac6fc4df57219a6e7322b1b03e2508263c96f11f05bf64d85950637f8e1c6f3",
+            "trace_tb.v": "d02c6fb3765c51ccd85738ad5f82955616e41c864315a23792325b2205c9811a"
+          },
+          "external_inputs_sha256": "cb86715d60e93101a871aef1639407b50c256790b5d79c1f9156a809c5fe9b15"
+        }
+      ]
+    },
+    {
+      "id": "FI016",
+      "title": "失败命令年龄变为最新",
+      "group": "order",
+      "closed": true,
+      "selected_run": "91b3aad4b62b4b1bae258d4b358b08d5",
+      "attempts": [
+        {
+          "run_id": "91b3aad4b62b4b1bae258d4b358b08d5",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI016/.ucagent/platform-runs/91b3aad4b62b4b1bae258d4b358b08d5/formal/manifest.json",
+          "manifest_sha256": "64d6a979daf3fe42e4e2482ffe38513e4b6601db865c76289aaf543c1bfec7d8",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:738.9-741.44",
+              "status": "falsified",
+              "runtime_seconds": 20.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_FIFO_AGE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:738.9-741.44",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+              "status": "falsified",
+              "runtime_seconds": 20.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_VALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI016/91b3aad4b62b4b1bae258d4b358b08d5/report.json",
+          "replay_report_sha256": "fed882fc3e7d4296a705bceefe158022f48ec1d5094b17fcbd09e8f685b89052",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "296ed91ac538a60f1c941967327d65c3cf5502a4a7b689bdf3913e7e1615e307",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "select_valid",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 488,
+          "mutant_checks": 488,
+          "trace_sha256": {
+            "trace.vcd": "b630514ad250848543228b2f10f1f980217254a0a5f306172e314f2b7acca74e",
+            "trace_tb.v": "b460c02df14440a046b62fc44ca0983495dcf94c0e9b4b51ce3b7a41c50d0653"
+          },
+          "external_inputs_sha256": "e4789040fd261b5ffc83b701fe680bc1be6791bbf23c0c4ba1cfaeb0d45361d3"
+        }
+      ]
+    },
+    {
+      "id": "FI017",
+      "title": "当前请求项允许重复预选",
+      "group": "order",
+      "closed": true,
+      "selected_run": "916d9bc2d9c6490abb2281762b313cdb",
+      "attempts": [
+        {
+          "run_id": "916d9bc2d9c6490abb2281762b313cdb",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI017/.ucagent/platform-runs/916d9bc2d9c6490abb2281762b313cdb/formal/manifest.json",
+          "manifest_sha256": "3536729ead350364e66e05c666f233505bb68e099dcbc78ca4ffd270223bb48c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_CANDIDATES",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:690.9-690.68",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_VALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.70",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI017/916d9bc2d9c6490abb2281762b313cdb/report.json",
+          "replay_report_sha256": "b767947c4127c752b7490596f1ba3590e31f969a0a2169bcbbb26bdea461ecd4",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "9d034600406a63e12dd967d989e9626e10fc34ef1ecf822a9118b383a808af42",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "candidate",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 389,
+          "mutant_checks": 389,
+          "trace_sha256": {
+            "trace.vcd": "1d5b090531d0da734cc519643594f06b428caed90db7623980c852d5ad9beba4",
+            "trace_tb.v": "a902759e2195ed1c061c2f98340fd187ac065bd7dc4a9d679da6d63774db4839"
+          },
+          "external_inputs_sha256": "ea92a7c26587304ea578ef8cc8c71006a69e7581b9edd4564515dcb8785ce105"
+        }
+      ]
+    },
+    {
+      "id": "FI018",
+      "title": "成功窗口前馈晚一拍",
+      "group": "order",
+      "closed": true,
+      "selected_run": "fd8931ee33d64484992a5aab0cb8b0cb",
+      "attempts": [
+        {
+          "run_id": "fd8931ee33d64484992a5aab0cb8b0cb",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI018/.ucagent/platform-runs/fd8931ee33d64484992a5aab0cb8b0cb/formal/manifest.json",
+          "manifest_sha256": "78795e776af88821e3b3616eb2053e377eacbbb5f54843f47df2b38dce6fd208",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI018/fd8931ee33d64484992a5aab0cb8b0cb/report.json",
+          "replay_report_sha256": "8505033915dddce43a9a0275adbe4aec1921ea8116b2329500a8e1f7112dc5d8",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "82314124c377222243ad71654911ac80d9bd68b42e417ec8911cf7e17f50ca82",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "window",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 391,
+          "mutant_checks": 391,
+          "trace_sha256": {
+            "trace.vcd": "b79840a7239b2f781ee623a9182a7f5650554dc6864616ea1584f75058760ff0",
+            "trace_tb.v": "27e194423738d0035c0b4af870906873103c623efd0b5c944a425fd9caa48366"
+          },
+          "external_inputs_sha256": "58d6590282fa43c01dd222fda041efabe6e3b74f373b51cbafee9740ffed0e2f"
+        }
+      ]
+    },
+    {
+      "id": "FI019",
+      "title": "失败请求提前腾出窗口名额",
+      "group": "order",
+      "closed": true,
+      "selected_run": "ebfaf06a70ff4a26abdfe7ba307a272c",
+      "attempts": [
+        {
+          "run_id": "ebfaf06a70ff4a26abdfe7ba307a272c",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI019/.ucagent/platform-runs/ebfaf06a70ff4a26abdfe7ba307a272c/formal/manifest.json",
+          "manifest_sha256": "27b1a0e6fd38c6adc65736f0a7c6bee7b74189a5060e5241d9b858a0de27917c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 10.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI019/ebfaf06a70ff4a26abdfe7ba307a272c/report.json",
+          "replay_report_sha256": "1931dee4b7cacc33a5074a3129d5ed1aaed427bd2f2cc9d4e2816568837c70b9",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "72067fb1322b1f668d9cfdb0f65855ccd567ba4da36fc726ce00125c49a29fe7",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "window",
+            "actual": "0x2",
+            "expected": "0x3"
+          },
+          "original_checks": 393,
+          "mutant_checks": 393,
+          "trace_sha256": {
+            "trace.vcd": "4208f28d824f449fb8153b59b2ca036b5771a63ccb880f0d45903b8e82c0824f",
+            "trace_tb.v": "04fff7d478df1748d6ea6f3c2aad649d8620afdf7f15aa9076b3618b60a33bfd"
+          },
+          "external_inputs_sha256": "0d5f173c21efc16c160fcdf1ec55c69379ce05cea9ddc0ba98dc63657c9784a1"
+        }
+      ]
+    },
+    {
+      "id": "FI020",
+      "title": "双grant错误OR",
+      "group": "wiring",
+      "closed": true,
+      "selected_run": "c56255c6953b4029b8601f4d1812b90a",
+      "attempts": [
+        {
+          "run_id": "c56255c6953b4029b8601f4d1812b90a",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI020/.ucagent/platform-runs/c56255c6953b4029b8601f4d1812b90a/formal/manifest.json",
+          "manifest_sha256": "31b267491275a5fafc5fa663e4542abdbe390289f616b3fd9ce46c27405bb43c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:57.9-57.66",
+              "status": "falsified",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_57_1525",
+                "location": "inputs/rtl/cmdbuf_rd.sv:57.9-57.66",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI020/c56255c6953b4029b8601f4d1812b90a/report.json",
+          "replay_report_sha256": "7fa8a75e2cbc34a1c5707863bb7438e96ab1509be0f17fedb7a721807849397f",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "fdc9125d871419d7317e7add8ad993995ada94a709353ca6bf241e099f5fcdd7",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "issue_success",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 393,
+          "mutant_checks": 393,
+          "trace_sha256": {
+            "trace.vcd": "4871e876698ccf07891335bca7524e99d15fbda8ba209eda40b06106ba6c2f83",
+            "trace_tb.v": "9b50f86742e52856bf67b318f3cde08eaf5d2df1727aa1b23fd3e235e9654860"
+          },
+          "external_inputs_sha256": "a86ac008737e966be97ee09831a2ed6259c0a812eeea6a0d58746a3be0b6cb61"
+        }
+      ]
+    },
+    {
+      "id": "FI021",
+      "title": "无req时grant制造成功",
+      "group": "wiring",
+      "closed": true,
+      "selected_run": "2f0786b04efa4ef5ae5d24f1f7680db4",
+      "attempts": [
+        {
+          "run_id": "2f0786b04efa4ef5ae5d24f1f7680db4",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI021/.ucagent/platform-runs/2f0786b04efa4ef5ae5d24f1f7680db4/formal/manifest.json",
+          "manifest_sha256": "db4bcb6d996354a328efc18a546b42173094ba10c4d9b34aac3fb71dd9e79aaa",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:57.9-57.66",
+              "status": "falsified",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_57_1524",
+                "location": "inputs/rtl/cmdbuf_rd.sv:57.9-57.66",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI021/2f0786b04efa4ef5ae5d24f1f7680db4/report.json",
+          "replay_report_sha256": "e5d649317b0e2a3401fdeb5f776dbad03cafee48e91cf0f049689334f4407bd4",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "5df54ebec1a38e98e4761209cf7be74eaabf5410b4fdf9d1255de51b06723f02",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 1,
+            "check": "issue_success",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 194,
+          "mutant_checks": 194,
+          "trace_sha256": {
+            "trace.vcd": "64f98dde170de5c9aa94679b12736d531523c6982babcfefdeaf0942708b19e6",
+            "trace_tb.v": "e2c2e13e968265f5199592ca7408d2f863401656dc3fc626060213a9575cbe9d"
+          },
+          "external_inputs_sha256": "b72c01fb98366c10a65f2300cc3898e0d116c87fadd34cb259d8cff7c38ae9c4"
+        }
+      ]
+    },
+    {
+      "id": "FI022",
+      "title": "待发数只报告非空",
+      "group": "order",
+      "closed": true,
+      "selected_run": "8752cd0530f047a1b00dac0cd719ce8e",
+      "attempts": [
+        {
+          "run_id": "8752cd0530f047a1b00dac0cd719ce8e",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI022/.ucagent/platform-runs/8752cd0530f047a1b00dac0cd719ce8e/formal/manifest.json",
+          "manifest_sha256": "1baf003e26510bf754556e125c3316d9f4e064783da72ee377487cd9e840ac3c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:670.9-670.65",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_PENDING_COUNT",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:670.9-670.65",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:330.9-330.39",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_330_1700",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:330.9-330.39",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI022/8752cd0530f047a1b00dac0cd719ce8e/report.json",
+          "replay_report_sha256": "d9a43d045846760f04ec85c61187cc3405c5bc12731f4fb2ec0c7c36f01897f7",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "01844d971074965bdae2b8ec5a6a5372fdada5a3825e0d410409dab1b0acdc0e",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 3,
+            "check": "pending_cnt",
+            "actual": "0x1",
+            "expected": "0x2"
+          },
+          "original_checks": 391,
+          "mutant_checks": 391,
+          "trace_sha256": {
+            "trace.vcd": "faca2f4803380ffc12bc86a96127d8bbaa2dda024dd06c550b1a5b1350aa6d25",
+            "trace_tb.v": "02e1d77c71eeb189d53bf1bfcf2a84245e724de33da5e553855ae269401c7273"
+          },
+          "external_inputs_sha256": "1d0f72b882603407837c85ca1695380e0050ec7cfb5a6680df9e710ea003fa92"
+        }
+      ]
+    },
+    {
+      "id": "FI023",
+      "title": "发射成功提前释放CMDBUF",
+      "group": "order",
+      "closed": true,
+      "selected_run": "f9d0ddbed266493ba9aa4022d29eace9",
+      "attempts": [
+        {
+          "run_id": "f9d0ddbed266493ba9aa4022d29eace9",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI023/.ucagent/platform-runs/f9d0ddbed266493ba9aa4022d29eace9/formal/manifest.json",
+          "manifest_sha256": "c42c77325483a004470ed2ce0c8679265b1452aa2647f6584325caf320f6bf58",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:667.9-667.54",
+              "status": "falsified",
+              "runtime_seconds": 17.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_VALID_SET",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:667.9-667.54",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI023/f9d0ddbed266493ba9aa4022d29eace9/report.json",
+          "replay_report_sha256": "89b1d81acc2495a7e39ea9b2fe5b7da78a05138c286e896868766b001dc466fe",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "ffe5b73fb7e2b95756a1edd3ae1f3fa72818cd6441156d9ead0b14bb975341da",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "cmd_valid",
+            "actual": "0x2",
+            "expected": "0x3"
+          },
+          "original_checks": 487,
+          "mutant_checks": 487,
+          "trace_sha256": {
+            "trace.vcd": "16a10af7ba987161ede334befafe9b726153b8265a0001c72ae32a8889e29bef",
+            "trace_tb.v": "bea72ae571d8e2a5ed43953f37822dbce60e90637929034fee3e16e2d8712f11"
+          },
+          "external_inputs_sha256": "94355029e78507eff19b13a0bbdb2cc53ff9936cda5471a83fcba2c881700133"
+        }
+      ]
+    },
+    {
+      "id": "FI024",
+      "title": "CMDBUF漏接MEM完成",
+      "group": "local_transition",
+      "closed": true,
+      "selected_run": "b18bfaa469da4c5aad7b4183c7755dab",
+      "attempts": [
+        {
+          "run_id": "b18bfaa469da4c5aad7b4183c7755dab",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI024/.ucagent/platform-runs/b18bfaa469da4c5aad7b4183c7755dab/formal/manifest.json",
+          "manifest_sha256": "7a4a6c71aac9586df64ef7892c87f6b70caf0a604bcf8074562bcd184012dbab",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:364.13-365.82",
+              "status": "falsified",
+              "runtime_seconds": 14.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_364_1638",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:364.13-365.82",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI024/b18bfaa469da4c5aad7b4183c7755dab/report.json",
+          "replay_report_sha256": "34d32ce8bf5dec566100000c82dbbc73f1ef5169bd45a733cfc44f439602e109",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "d17d2c8cf833b0596031648d19424d3260627fb3b8295bc304366e2cdd291990",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "cmd_done",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 881,
+          "mutant_checks": 881,
+          "trace_sha256": {
+            "trace.vcd": "789ce7802bfdc2f9184835376e9f402809b682842f515d5e4808d34dd7fe7827",
+            "trace_tb.v": "cf20eea851e4deab8da7618c5748ac1e81edc7c170c1e53e0939b818359c09ac"
+          },
+          "external_inputs_sha256": "0f71100819a42be0295a6eba4516982c4efa0c944fe0251a7ef5ed69c2d186b9"
+        }
+      ]
+    },
+    {
+      "id": "FI025",
+      "title": "MEM返回改成三拍",
+      "group": "calendar_delay",
+      "closed": true,
+      "selected_run": "72c246c1123044d9ac94d42899d6cf55",
+      "attempts": [
+        {
+          "run_id": "72c246c1123044d9ac94d42899d6cf55",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI025/.ucagent/platform-runs/72c246c1123044d9ac94d42899d6cf55/formal/manifest.json",
+          "manifest_sha256": "c5d2538bde2f71cdeb75629b9fa587e6362aec9a9dd102fe1f5245f818799475",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:110.13-110.58",
+              "status": "falsified",
+              "runtime_seconds": 4.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_110_1553",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:110.13-110.58",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI025/72c246c1123044d9ac94d42899d6cf55/report.json",
+          "replay_report_sha256": "235969ddd993adcfdcb1b22dddcacc780b9d1d45421f9d6c1e4913bc2e403ac6",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "49cd15bf4ed95cca2cb1d851bd9933578c76e7f55dd24cae11e45b934335f4ff"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 6,
+            "check": "capture_valid",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 685,
+          "mutant_checks": 685,
+          "trace_sha256": {
+            "trace.vcd": "0a4b4dd89b9e7865cb1802aaea30b22f6952cfe207e5966a2f67252b72cd6a3c",
+            "trace_tb.v": "3c81efd17ca736c39443fb2d23254d504581c589fccd16b4598dfc767984a53b"
+          },
+          "external_inputs_sha256": "e152f9865584463d9db0fe756ff98fadd4b7e9bae5d9e584dab03bcce2833677"
+        }
+      ]
+    },
+    {
+      "id": "FI026",
+      "title": "失败req也启动返回计时",
+      "group": "calendar_delay",
+      "closed": true,
+      "selected_run": "8e082669bbc9401dbe78114706185025",
+      "attempts": [
+        {
+          "run_id": "8e082669bbc9401dbe78114706185025",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI026/.ucagent/platform-runs/8e082669bbc9401dbe78114706185025/formal/manifest.json",
+          "manifest_sha256": "674827fe696115c062e48b8a2bba39676502d7a2580118a1cff9f5d62a83cb8c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:99.13-99.57",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_99_1541",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:99.13-99.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI026/8e082669bbc9401dbe78114706185025/report.json",
+          "replay_report_sha256": "1fbadb0bb49e6c4b95216a73fda4dff402fffd01256c07dcd820e82b64ce99e7",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "d49178feab5d2a66574a41e63c5ac0a4f42ad760da3dfb784301aa0cf7612d89",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "b50e3c6b95f51215c6c546d712c97be6aa25aed8b07ff58ebe4b1b2c01473132"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "token_valid",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 492,
+          "mutant_checks": 492,
+          "trace_sha256": {
+            "trace.vcd": "0043783970cbd5923b6eab0fae190293b78507520f2b3b0d50470dc23dcc538a",
+            "trace_tb.v": "d5d3a87ea8f75c2d78f3fea9e8e6885905675558d1bfb50f2d7ea6f264f84994"
+          },
+          "external_inputs_sha256": "dc0f8d2364c118ed45240011381b0acb91273bfb17a9e41a293d23410ec89d86"
+        }
+      ]
+    },
+    {
+      "id": "FI027",
+      "title": "返回日历遇bubble停止推进",
+      "group": "calendar_delay",
+      "closed": true,
+      "selected_run": "6f617a82a52f44c08066d4a47fa62306",
+      "attempts": [
+        {
+          "run_id": "6f617a82a52f44c08066d4a47fa62306",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI027/.ucagent/platform-runs/6f617a82a52f44c08066d4a47fa62306/formal/manifest.json",
+          "manifest_sha256": "855099ed0a6a6054abe7f074e872546fce208b85e4119001e2d015ad825b06a6",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:102.13-102.59",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_102_1545",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:102.13-102.59",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI027/6f617a82a52f44c08066d4a47fa62306/report.json",
+          "replay_report_sha256": "f8ad9ee82c04566d7ae4d6c82de03529b2c6d425d4d200a9d5bbf01cbab43159",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "688c18ff53523260d91ca2e47897fe3cd5022c35eb47e6e8c5257bdcd64bfab0"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 5,
+            "check": "token_valid",
+            "actual": "0x0",
+            "expected": "0x2"
+          },
+          "original_checks": 585,
+          "mutant_checks": 585,
+          "trace_sha256": {
+            "trace.vcd": "7599e757d8939493e62836ed0e7559d154cab0074776551914d6beff55bbb4df",
+            "trace_tb.v": "6fe2472bfc8491f971aa052c1a98f274ca94c557436e2f15c82bff9b55b19ae7"
+          },
+          "external_inputs_sha256": "9265b1171ea3eb47d1b6bb5f64286b37467e85301bd4113a5747303c046af626"
+        }
+      ]
+    },
+    {
+      "id": "FI028",
+      "title": "R不ready时漏掉MEM单拍数据",
+      "group": "data_transition",
+      "closed": true,
+      "selected_run": "5ae49ce68e3c48aca8523f92169dcacb",
+      "attempts": [
+        {
+          "run_id": "5ae49ce68e3c48aca8523f92169dcacb",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI028/.ucagent/platform-runs/5ae49ce68e3c48aca8523f92169dcacb/formal/manifest.json",
+          "manifest_sha256": "8fbaba547b05822244f3a32af67034dd55d391da3df47e5f30e5dc7675eb785b",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:135.17-135.63",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_135_1669",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:135.17-135.63",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:136.17-136.62",
+              "status": "falsified",
+              "runtime_seconds": 11.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_136_1671",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:136.17-136.62",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI028/5ae49ce68e3c48aca8523f92169dcacb/report.json",
+          "replay_report_sha256": "cb4e88b4f46728d68e2df0db64b4f7ddce4641fb8b7865d04899eeed31e8876f",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "ad8556f94b17d4a0e8b419328fe437fc27deac93aa2c3461e94fa3a72d5577c4",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "3aaa92aab0e61dd33d5d7b08423a8b01f71f973276697a8e4f927dcccc0dec5d"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "otb_done",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 877,
+          "mutant_checks": 877,
+          "trace_sha256": {
+            "trace.vcd": "190d5d45e9d52219b861850b4d87375d4e36758c29e23e5a571343a1369718e0",
+            "trace_tb.v": "3f694ab64b4f8edcdbba7344bef629c707f044e472d2245ee3de7c7138bf13bb"
+          },
+          "external_inputs_sha256": "f71802b012343cdf27648f809a9c402101f392842184c80915a28919097ad439"
+        }
+      ]
+    },
+    {
+      "id": "FI029",
+      "title": "错误地用pc_err作为返回有效",
+      "group": "data_transition",
+      "closed": true,
+      "selected_run": "ae3035c1dc88473b82e6277ebaa17505",
+      "attempts": [
+        {
+          "run_id": "ae3035c1dc88473b82e6277ebaa17505",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI029/.ucagent/platform-runs/ae3035c1dc88473b82e6277ebaa17505/formal/manifest.json",
+          "manifest_sha256": "81e6ab8f3d076965aa2fbecec564acaaf503b7eea2a8c8c3c05f42fc531dca66",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:134.17-134.63",
+              "status": "falsified",
+              "runtime_seconds": 14.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_134_1660",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:134.17-134.63",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI029/ae3035c1dc88473b82e6277ebaa17505/report.json",
+          "replay_report_sha256": "246fb65220697c31cbcc9ccb519291d2cdc658e8838763099aa9d24537cd4b72",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "fe73a3b505ab05d3242863b17ceaa3ebb78a4ce31248679cf3c36ade55303818"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "rdata",
+            "actual": "0x0",
+            "expected": "0x20"
+          },
+          "original_checks": 870,
+          "mutant_checks": 870,
+          "trace_sha256": {
+            "trace.vcd": "75c1e3118129ab2867a12b8bec426a99db284bd2db8007093bd70c6f97683622",
+            "trace_tb.v": "7a3498d77abd9d2165aee315b17a1aeadafa939a90556f16508af7fef0b7634e"
+          },
+          "external_inputs_sha256": "1b1a92c6152b124f25b0a4869cd01c3af073d9e8c2070dde190d7623936f1f1c"
+        }
+      ]
+    },
+    {
+      "id": "FI030",
+      "title": "返回token绑定错误entry",
+      "group": "calendar_delay",
+      "closed": true,
+      "selected_run": "137b566318aa4b67b81d8f5f77982cf5",
+      "attempts": [
+        {
+          "run_id": "137b566318aa4b67b81d8f5f77982cf5",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI030/.ucagent/platform-runs/137b566318aa4b67b81d8f5f77982cf5/formal/manifest.json",
+          "manifest_sha256": "33ed295cc69ab102204cbdbfc2db84d9a5628e29f4c94aff186324dee1d68a1c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:99.32-99.74",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_99_1544",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:99.32-99.74",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI030/137b566318aa4b67b81d8f5f77982cf5/report.json",
+          "replay_report_sha256": "f69c2dd414f5416e35666c4454360e4853c0103db1106e77b3294eaf13217180",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "546bd538b0d64960708108dc0c817baf1def4b9d26a796e91f3c05d5712afa6f"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "token_0",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 486,
+          "mutant_checks": 486,
+          "trace_sha256": {
+            "trace.vcd": "5dc6a0f237c2f22e6c09b29f1ad3c307d5b761d5def03ed936ba328b48af060d",
+            "trace_tb.v": "faa8b5cfc6f51b01d6bef94d91b27f1bc3470944d0fb4fe5af635da256ca1334"
+          },
+          "external_inputs_sha256": "7cb66b2033768dc083ee1e4325e982ad27cb3bcce9b54179b46b8925be98828a"
+        }
+      ]
+    },
+    {
+      "id": "FI031",
+      "title": "MEM捕获同拍直接R旁路",
+      "group": "order",
+      "closed": true,
+      "selected_run": "06414b973f3a43228c251d0da547bdda",
+      "attempts": [
+        {
+          "run_id": "06414b973f3a43228c251d0da547bdda",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI031/.ucagent/platform-runs/06414b973f3a43228c251d0da547bdda/formal/manifest.json",
+          "manifest_sha256": "480522acc055a06a631c3ef3a3ee9184f3aa948c2169bede1f4a10f46cbd7d16",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:676.13-678.70",
+              "status": "falsified",
+              "runtime_seconds": 142.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_ALLOC_OWNERSHIP",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:676.13-678.70",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+              "status": "falsified",
+              "runtime_seconds": 142.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RETIRE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+              "status": "falsified",
+              "runtime_seconds": 142.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RVALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI031/06414b973f3a43228c251d0da547bdda/report.json",
+          "replay_report_sha256": "93d19f0f7a962ea92b8c171dc83d0788bbbf769d2ffe0a8cda2011f38f9a40f8",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "4aea9c65d4d93dde39162f0a312c08136a2760c12a90bc26bbd3088f8e7b8ac8",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 7,
+            "check": "rvalid",
+            "actual": "0x4",
+            "expected": "0x0"
+          },
+          "original_checks": 785,
+          "mutant_checks": 688,
+          "trace_sha256": {
+            "trace.vcd": "f4a76bb4919285367fa70a703f21fe1432e19f5848f59f9c034b4b464f47cf74",
+            "trace_tb.v": "e053cf62ceb59b9e1076d4c5b720993d7d60fd10161c8098f1d1f7bf0998e355"
+          },
+          "external_inputs_sha256": "5103e3ea35b216169f222ebaa0b0b9890a8756c5c42e6f54c8013f88aa02264b"
+        }
+      ]
+    },
+    {
+      "id": "FI032",
+      "title": "年轻已完成项绕过同源未完成队头",
+      "group": "order",
+      "closed": true,
+      "selected_run": "727f4b70f047459a82841f863ce45362",
+      "attempts": [
+        {
+          "run_id": "08b7ce58be014c529452000b3493b445",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": false,
+          "reason": "Native run 08b7ce58be014c529452000b3493b445 is not a completed SBY execution",
+          "classification": "unclosed"
+        },
+        {
+          "run_id": "727f4b70f047459a82841f863ce45362",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI032/.ucagent/platform-runs/727f4b70f047459a82841f863ce45362/formal/manifest.json",
+          "manifest_sha256": "3cd9c4e0c78df918e80d128074df1d24eb47f28c39c3577ac2eca04e72891c41",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+              "status": "falsified",
+              "runtime_seconds": 170.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RETIRE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+              "status": "falsified",
+              "runtime_seconds": 170.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RVALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI032/727f4b70f047459a82841f863ce45362/report.json",
+          "replay_report_sha256": "ca718273cd67844bc67b92171778301b78f3ab22ef894cdea83a4a04e6d85007",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "3dc3eef9fa23fa997a0a4b7a898a9cc10f6f7f4713e6527a48ce997890484d32",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "rvalid",
+            "actual": "0x2",
+            "expected": "0x0"
+          },
+          "original_checks": 963,
+          "mutant_checks": 963,
+          "trace_sha256": {
+            "trace.vcd": "fbac8bac5dedad1afe58c55f7c67284071a6dc9f0efabf87538e27e2eb5b81c3",
+            "trace_tb.v": "c1ba7a4b37a77f6085025bcfb7dc2e6d75c237b58faafd54a084158d5d2eeb7c"
+          },
+          "external_inputs_sha256": "9c06e2226736a07b985b5689e7f614f25988fb1f77f8c436aeaf63b7484d1dbb"
+        }
+      ]
+    },
+    {
+      "id": "FI033",
+      "title": "错误施加全局响应保序",
+      "group": "order",
+      "closed": true,
+      "selected_run": "4db4b578ae7e462283c33b4552e52c62",
+      "attempts": [
+        {
+          "run_id": "5cc24269032b48e7ae3d1befb7f90f2d",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": false,
+          "reason": "Native run 5cc24269032b48e7ae3d1befb7f90f2d is not a completed SBY execution",
+          "classification": "unclosed"
+        },
+        {
+          "run_id": "4db4b578ae7e462283c33b4552e52c62",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI033/.ucagent/platform-runs/4db4b578ae7e462283c33b4552e52c62/formal/manifest.json",
+          "manifest_sha256": "34b3bd5da2145844575deeff5415f42e4aa5880f15378c32b41cabb11bf5de60",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+              "status": "falsified",
+              "runtime_seconds": 161.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RETIRE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:702.9-702.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:704.13-705.68",
+              "status": "falsified",
+              "runtime_seconds": 161.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RETIRE_ID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:704.13-705.68",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+              "status": "falsified",
+              "runtime_seconds": 161.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RVALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:701.9-701.52",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI033/4db4b578ae7e462283c33b4552e52c62/report.json",
+          "replay_report_sha256": "583311b95c4fdcc80e25a3f7e036a6b9b31c1ac13f1a80495285eac3df6843f4",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "acc9299fc6b623aa920ed2902c31d2487b29e1f0eb51fd12875285bddcc204e6",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "rvalid",
+            "actual": "0x0",
+            "expected": "0x4"
+          },
+          "original_checks": 976,
+          "mutant_checks": 976,
+          "trace_sha256": {
+            "trace.vcd": "78408bfb397dc5b56a1b290c81751776ae3c8bc776f48f266e8d514dd307b5fa",
+            "trace_tb.v": "ae495080e2d9e5384367f2726259c2ec2a30a9a1155760c04896b4adaa49702a"
+          },
+          "external_inputs_sha256": "cd588420c0449b4597913d39bfdb287299f8c04a8b9bf3d75cc410d51bfbfd47"
+        }
+      ]
+    },
+    {
+      "id": "FI034",
+      "title": "R选择忽略目标rready",
+      "group": "wiring",
+      "closed": true,
+      "selected_run": "adf1d4a538024642844da34eeb322ff5",
+      "attempts": [
+        {
+          "run_id": "adf1d4a538024642844da34eeb322ff5",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI034/.ucagent/platform-runs/adf1d4a538024642844da34eeb322ff5/formal/manifest.json",
+          "manifest_sha256": "97e38e61994e82c4463256978ce720b413a3bfda83a3f23461f3ea15298a4882",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:60.9-60.40",
+              "status": "falsified",
+              "runtime_seconds": 13.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_sv_60_1575",
+                "location": "inputs/rtl/cmdbuf_rd.sv:60.9-60.40",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI034/adf1d4a538024642844da34eeb322ff5/report.json",
+          "replay_report_sha256": "1ba16058c4ab82b65ca2cea4f05ebd529d6ed48cb49934f65b56c9ad9b63d279",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "f01c54582b301390355cf4464845daa3c3b88f5112af1db0cb8ed5ba71b9e8e8",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "rvalid",
+            "actual": "0x4",
+            "expected": "0x0"
+          },
+          "original_checks": 876,
+          "mutant_checks": 876,
+          "trace_sha256": {
+            "trace.vcd": "0b4447ccd4bd768dd8d7cf10f6f50b2fcc4af19921d30da294bf0573ffb16c7c",
+            "trace_tb.v": "a0ad693ea83f1b47d0e22f7ce7bf47d153c8c84b9df87d3c08d45b912b7e4a89"
+          },
+          "external_inputs_sha256": "eea6c9dd55208fa85c9454831a35c03e037976fd97d24bee3e4c7dab6aeff62b"
+        }
+      ]
+    },
+    {
+      "id": "FI035",
+      "title": "RR在空闲周期也推进",
+      "group": "order",
+      "closed": true,
+      "selected_run": "c86dd4f87c094160a44cec6708619a78",
+      "attempts": [
+        {
+          "run_id": "c86dd4f87c094160a44cec6708619a78",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI035/.ucagent/platform-runs/c86dd4f87c094160a44cec6708619a78/formal/manifest.json",
+          "manifest_sha256": "bc0476326799bd922b26c0e7082d0c4627ec818cffef3a5e077d30c077569d87",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:671.9-671.71",
+              "status": "falsified",
+              "runtime_seconds": 9.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_RR_POINTER",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:671.9-671.71",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI035/c86dd4f87c094160a44cec6708619a78/report.json",
+          "replay_report_sha256": "9f94f995a794345fdbd933f7e51a178e3e0cd38a7860f24d5cc17f70732f9acc",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "6800e2cfef28c21765baf21b9442bfd3a34a7dcec96c0d30777a1290d5a5f193",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 2,
+            "check": "rr",
+            "actual": "0x1",
+            "expected": "0x0"
+          },
+          "original_checks": 289,
+          "mutant_checks": 289,
+          "trace_sha256": {
+            "trace.vcd": "0bdfe33e0c315f18762c48638213d41ed651ae4b029b60aa71136a82b3e3eac0",
+            "trace_tb.v": "3ec1c4dc82ad77cfef85f72dc364149561e5e912f25c1e19fe8898044e368a7c"
+          },
+          "external_inputs_sha256": "4f0986f060de5f22a14ab1233f6eaeeea4267fee5eb3da0b95ff108f7808c246"
+        }
+      ]
+    },
+    {
+      "id": "FI036",
+      "title": "越界命令被禁止访问MEM",
+      "group": "order",
+      "closed": true,
+      "selected_run": "dea38def8b6d4b37af82df1836fdb7a8",
+      "attempts": [
+        {
+          "run_id": "dea38def8b6d4b37af82df1836fdb7a8",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI036/.ucagent/platform-runs/dea38def8b6d4b37af82df1836fdb7a8/formal/manifest.json",
+          "manifest_sha256": "f2adec2a5d410792792533aa367d847c022d1e6337c9fabd9985d71e3d1da4a7",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.68",
+              "status": "falsified",
+              "runtime_seconds": 14.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_CANDIDATES",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:691.9-691.68",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:692.9-692.70",
+              "status": "falsified",
+              "runtime_seconds": 14.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_SELECT_VALID",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:692.9-692.70",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI036/dea38def8b6d4b37af82df1836fdb7a8/report.json",
+          "replay_report_sha256": "c90356998115f9f91d90feacdf680d221e7413a56609f14b5d1e662fd22b568e",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "55f08e382e0f8efebe14e191c71340826eb698ccf247791636c1d3f034f13445",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 2,
+            "check": "candidate",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 296,
+          "mutant_checks": 296,
+          "trace_sha256": {
+            "trace.vcd": "34d055e8c7e570737ced45b2dc92dd0ebcfaa54f9e8de90bc735222615cfa792",
+            "trace_tb.v": "d484cb128604dd8cb45d22265066bbe1e98747aaee487b82f34feee5a5d02f0b"
+          },
+          "external_inputs_sha256": "a7dcfe5ab9e285b3b488f55d16258a47f75bc61e9858a7c7654d43d23a2c8e9d"
+        }
+      ]
+    },
+    {
+      "id": "FI037",
+      "title": "奇偶错误优先于越界",
+      "group": "order",
+      "closed": true,
+      "selected_run": "f8e46316d9094619bb5f23412c94e217",
+      "attempts": [
+        {
+          "run_id": "6a7aa3316d554465b8f2de3cf1a3c63b",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": false,
+          "reason": "Native run 6a7aa3316d554465b8f2de3cf1a3c63b is not a completed SBY execution",
+          "classification": "unclosed"
+        },
+        {
+          "run_id": "f8e46316d9094619bb5f23412c94e217",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI037/.ucagent/platform-runs/f8e46316d9094619bb5f23412c94e217/formal/manifest.json",
+          "manifest_sha256": "beb1a3bddb7bfd9d3ffe45bb168197d0daf9872641bdc70496e2eed67aa49891",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:706.13-707.75",
+              "status": "falsified",
+              "runtime_seconds": 70.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_R_META",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:706.13-707.75",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI037/f8e46316d9094619bb5f23412c94e217/report.json",
+          "replay_report_sha256": "b94963b35e334a6382af935b22c87acf45fb4ec8a69204604e92330af7f0b4f2",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "a77843bc12de976994734cb0eb348dac4ca76350e6b033042b90a6f6d2983282",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "rresp",
+            "actual": "0x1",
+            "expected": "0x3"
+          },
+          "original_checks": 873,
+          "mutant_checks": 873,
+          "trace_sha256": {
+            "trace.vcd": "70acd46d34c94cf078c6bf89929b7b002e066465eb9695b8b0c97519bd232255",
+            "trace_tb.v": "cb76f3b4995caf3768dfd44855ff3799d3624658d0efe27a78c998a5ebf82be5"
+          },
+          "external_inputs_sha256": "921f6a0a01158b35d981fd7a01558bcbe0af340d240b65578f757e646a9489d5"
+        }
+      ]
+    },
+    {
+      "id": "FI038",
+      "title": "捕获时丢弃pc_err",
+      "group": "data_transition",
+      "closed": true,
+      "selected_run": "ab20bde6253f40f9b38fa1c752c0051e",
+      "attempts": [
+        {
+          "run_id": "ab20bde6253f40f9b38fa1c752c0051e",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI038/.ucagent/platform-runs/ab20bde6253f40f9b38fa1c752c0051e/formal/manifest.json",
+          "manifest_sha256": "0d2df84d67c1d2b035e73900ab10599d08e4a413e73a7bfc4833fdaa57b37481",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_otb at inputs/rtl/cmdbuf_rd_otb.sv:135.17-135.62",
+              "status": "falsified",
+              "runtime_seconds": 12.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_otb_sv_135_1653",
+                "location": "inputs/rtl/cmdbuf_rd_otb.sv:135.17-135.62",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI038/ab20bde6253f40f9b38fa1c752c0051e/report.json",
+          "replay_report_sha256": "1ac39498f7f8271f8bd319850aefaf1094979e3ec958a22de13084006cb5a0c6",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162",
+            "cmdbuf_rd_otb.sv": "73838bbfbb299bc9aeeb1323cebd0887dbe450ee75ebb11c3f7daf6c227ef51c"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "otb_pc",
+            "actual": "0x0",
+            "expected": "0x1"
+          },
+          "original_checks": 875,
+          "mutant_checks": 875,
+          "trace_sha256": {
+            "trace.vcd": "1f358906f490e1d0ab778eb02854bae88ab6f5e4e19a45092e1f8739c9069a9a",
+            "trace_tb.v": "786db904c2d13a20b42aee043e798ec2234ffda39c8d54709abad48b22d18004"
+          },
+          "external_inputs_sha256": "7d698a5b9a50e949528b68ce250e111ad20b962bbdf3954222942292c90d2ce2"
+        }
+      ]
+    },
+    {
+      "id": "FI039",
+      "title": "10B准入没有扣除当拍退休",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "f9a2528f28ed455b8e16755cd1aaa7a9",
+      "attempts": [
+        {
+          "run_id": "f9a2528f28ed455b8e16755cd1aaa7a9",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI039/.ucagent/platform-runs/f9a2528f28ed455b8e16755cd1aaa7a9/formal/manifest.json",
+          "manifest_sha256": "7e384d61c3a461c296789835c1afc0fbeed844d7930278aef6ec41327f63d6f0",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 77.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1573",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI039/f9a2528f28ed455b8e16755cd1aaa7a9/report.json",
+          "replay_report_sha256": "29f5d73dd730bc90fbce1948bc6818865101e3ea0bcf86cab48c2225be9cf343",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "fd7d39e92ab63924ef2a5c5214888a8938bbe141e8d1479e6b9e8e32e78b4cf0",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "arready",
+            "actual": "0x6",
+            "expected": "0x7"
+          },
+          "original_checks": 888,
+          "mutant_checks": 888,
+          "trace_sha256": {
+            "trace.vcd": "bf4647f48af24e4d7fc42a53a40b13daa97d4b95d29676ce6b32981bea110276",
+            "trace_tb.v": "a2c3d8978d1a754acbe9b7bf2f5c20f30b4f538f9037305bba13ace5fe4d3952"
+          },
+          "external_inputs_sha256": "83ea0d147cdaa79e022074b09bb16856332dff2c491385bde933e8beedd478f0"
+        }
+      ]
+    },
+    {
+      "id": "FI040",
+      "title": "同槽复用被旧退休清除覆盖",
+      "group": "local_transition",
+      "closed": true,
+      "selected_run": "631fa9e65e17491faf1b171c3a3b0fe1",
+      "attempts": [
+        {
+          "run_id": "631fa9e65e17491faf1b171c3a3b0fe1",
+          "port": 8813,
+          "tag": "z3_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/20261004-formalmc-migration/acceptance/CMDBUF-closure-20261011/mutations/FI040/.ucagent/platform-runs/631fa9e65e17491faf1b171c3a3b0fe1/formal/manifest.json",
+          "manifest_sha256": "28b3cbd2f326c6f75dce71b55bfdf62765c883a38c8a2df9ec583cf98625280c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:352.13-352.57",
+              "status": "falsified",
+              "runtime_seconds": 38.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_352_1612",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:352.13-352.57",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:353.13-353.53",
+              "status": "falsified",
+              "runtime_seconds": 38.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_353_1615",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:353.13-353.53",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:354.13-354.53",
+              "status": "falsified",
+              "runtime_seconds": 38.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_354_1618",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:354.13-354.53",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:355.13-355.61",
+              "status": "falsified",
+              "runtime_seconds": 38.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_355_1621",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:355.13-355.61",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:356.13-356.59",
+              "status": "falsified",
+              "runtime_seconds": 38.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/z3",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_356_1624",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:356.13-356.59",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI040/631fa9e65e17491faf1b171c3a3b0fe1/report.json",
+          "replay_report_sha256": "b33a910c9257d10e7a214c4c474ec178bd7b8bb021a39c768d2df5d229268cb4",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "e275ea11bcd1b056b4ad4891894a0b39abcfa4f274ffb36acf55942d49b22519",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "candidate",
+            "actual": "0x31",
+            "expected": "0x30"
+          },
+          "original_checks": 984,
+          "mutant_checks": 984,
+          "trace_sha256": {
+            "trace.vcd": "b70be4753801f85781287d5d9e339bcaf8262976c6d9198cb3953840dfcf8b4b",
+            "trace_tb.v": "678d7492ed9c43ed7e72f0cf17ff231fd4530beb08014ae0babb6d5ae7bdcdf3"
+          },
+          "external_inputs_sha256": "4016cd3e128dd91dd44a1403c1909b7088e13e505e249775b1f2943226212a81"
+        }
+      ]
+    },
+    {
+      "id": "FI041",
+      "title": "R退休漏清CMDBUF归属",
+      "group": "order",
+      "closed": true,
+      "selected_run": "dc6a5624ccb5411f99bb00ed318b17aa",
+      "attempts": [
+        {
+          "run_id": "dc6a5624ccb5411f99bb00ed318b17aa",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI041/.ucagent/platform-runs/dc6a5624ccb5411f99bb00ed318b17aa/formal/manifest.json",
+          "manifest_sha256": "46e0c406750a4374523bf56e3ee9e4f822d762e1ade17b9c57569dc9b0f90000",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:667.9-667.54",
+              "status": "falsified",
+              "runtime_seconds": 152.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_VALID_SET",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:667.9-667.54",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 152.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI041/dc6a5624ccb5411f99bb00ed318b17aa/report.json",
+          "replay_report_sha256": "61d804d92336c00a35d084f560a50de7d1f58a985c58cda2927275909224d24c",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "f2d97f4723311b60ee063c171c613bf589d69a4b12ebad219ee15bf1fa9045a5",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "cmd_valid",
+            "actual": "0x1f",
+            "expected": "0x1e"
+          },
+          "original_checks": 980,
+          "mutant_checks": 980,
+          "trace_sha256": {
+            "trace.vcd": "3064aa359bce0e60fa7292f0fd212b279b01236454efe61ad77707cf4204b3f6",
+            "trace_tb.v": "7ea8bf7073155eb9d50c3a647fa5f9197ce3d88169c10e23b84e97303bc90fa1"
+          },
+          "external_inputs_sha256": "46efa73962b624a610fcd1667dc949eccedf17d5da41e71f40d3c755cbf71761"
+        }
+      ]
+    },
+    {
+      "id": "FI042",
+      "title": "同拍复用新AR直接旁路请求",
+      "group": "order",
+      "closed": true,
+      "selected_run": "586ff0e468a844bf9bd3d4254ad0b762",
+      "attempts": [
+        {
+          "run_id": "586ff0e468a844bf9bd3d4254ad0b762",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI042/.ucagent/platform-runs/586ff0e468a844bf9bd3d4254ad0b762/formal/manifest.json",
+          "manifest_sha256": "fd21c80a707159feac2e71d2c158a50b09aac040086992dd3550c9d36c5ff2af",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+              "status": "falsified",
+              "runtime_seconds": 82.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_REQ",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:680.9-680.43",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            },
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.74",
+              "status": "falsified",
+              "runtime_seconds": 82.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_328_1693",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.74",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI042/586ff0e468a844bf9bd3d4254ad0b762/report.json",
+          "replay_report_sha256": "a9a42c783865a24a8d0e1277b11b7d9e30ec9990f460e39b35ed69155e23df4c",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "527a2ebd558a17e19bc90dd2aac2fd737a983254f5d88d9e051a1e072800731e",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "req",
+            "actual": "0x80",
+            "expected": "0x40"
+          },
+          "original_checks": 879,
+          "mutant_checks": 879,
+          "trace_sha256": {
+            "trace.vcd": "d31240a297dc08b1f4c508fd4f3550beed01d9a3942b02ad3e8ceb548747c5e3",
+            "trace_tb.v": "924e99a5e880f6a9b4e41fdb4ac2ca38485b17b019975a14b7271a1aabb73100"
+          },
+          "external_inputs_sha256": "65150858629d35a1b9f57ee161e6bf3c2a7d6118545fa87442bbe8653a85136b"
+        }
+      ]
+    },
+    {
+      "id": "FI043",
+      "title": "只限制每源七项而丢失联合保底",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "abbc710bc1874fddb20244ea556226f1",
+      "attempts": [
+        {
+          "run_id": "abbc710bc1874fddb20244ea556226f1",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI043/.ucagent/platform-runs/abbc710bc1874fddb20244ea556226f1/formal/manifest.json",
+          "manifest_sha256": "10363dcbc2298ab4b6c64a44047f416fb4dc6f6c1b0f9ccf95c414c4aff28c8c",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 6.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1582",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI043/abbc710bc1874fddb20244ea556226f1/report.json",
+          "replay_report_sha256": "75ff41f8b92759c58a86301caf628dee4594a414c99caa991a476919afff3b43",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "fca330007cac1175708cc2f230232a142d9f8f4f2f447f7bddeebd2ad2b876d1",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "arready",
+            "actual": "0x7",
+            "expected": "0x4"
+          },
+          "original_checks": 984,
+          "mutant_checks": 984,
+          "trace_sha256": {
+            "trace.vcd": "4d9528f9a8398d3b68d2e3c97a0f32903c420e2eb65a73a4caed3a3601209c95",
+            "trace_tb.v": "b383870f2efe5456802f2d80193549901afb268939061f7cbc7cee6a260cce9c"
+          },
+          "external_inputs_sha256": "97978f49e779156d636a452cbd182f7a995ad33cbb61e0eeea17a29a7f6a983f"
+        }
+      ]
+    },
+    {
+      "id": "FI044",
+      "title": "占用额度在成功发射时提前扣除",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "d65c64a6e7af4e998c6678d11f17b9c7",
+      "attempts": [
+        {
+          "run_id": "d65c64a6e7af4e998c6678d11f17b9c7",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI044/.ucagent/platform-runs/d65c64a6e7af4e998c6678d11f17b9c7/formal/manifest.json",
+          "manifest_sha256": "12ed1c6ff88ee9894d64201528c39929b73b6b07c6c48a7fdf533c484ef9d097",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:363.13-363.42 [_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_363_1642]",
+              "status": "falsified",
+              "runtime_seconds": 2.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_363_1642",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:363.13-363.42",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI044/d65c64a6e7af4e998c6678d11f17b9c7/report.json",
+          "replay_report_sha256": "4c0716e5688c79d45adf1a599148cf0107b25f570a0ac7be4d5d4a9dc1021a8d",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "d4484eb74b793d794e13bcaf6ac097bfee8025b2a60743359a4bd011493d2b41",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 4,
+            "check": "occ_0",
+            "actual": "0x1",
+            "expected": "0x2"
+          },
+          "original_checks": 494,
+          "mutant_checks": 494,
+          "trace_sha256": {
+            "trace.vcd": "a94a8b32715829e007db3dcd6a039b07869cc3d4e6e7ae14366a0e33887d722e",
+            "trace_tb.v": "d98f2e9361f31fc257cd07e28a19a730044580c911e4b20f9151e1d9b616d05c"
+          },
+          "external_inputs_sha256": "193b9940f7e51c62cdd894129187f055ad7c8238f7afbcdafad06a7804145f59"
+        }
+      ]
+    },
+    {
+      "id": "FI045",
+      "title": "三路ready错误共用来源0占用",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "95fa799905834eef9c37d25ed6f0d15d",
+      "attempts": [
+        {
+          "run_id": "95fa799905834eef9c37d25ed6f0d15d",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI045/.ucagent/platform-runs/95fa799905834eef9c37d25ed6f0d15d/formal/manifest.json",
+          "manifest_sha256": "a1cc9b4c17c18f0a998646e5d46f7190f3e0a681ba2359264afa240a0b49f3b5",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 5.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1582",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI045/95fa799905834eef9c37d25ed6f0d15d/report.json",
+          "replay_report_sha256": "da8f95709648435cead2a472b45f3118779ebe2f71ce27a3965dae0fa2f60316",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "97ac8e97060fa105c63547b5b39e8b5b6de2f6705e98818c5bba79b59ca1af6e",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "arready",
+            "actual": "0x7",
+            "expected": "0x5"
+          },
+          "original_checks": 886,
+          "mutant_checks": 886,
+          "trace_sha256": {
+            "trace.vcd": "59a598e24f9a3d1a52c8cfab49edf96d80ccea363c224ae80432b3794778caa5",
+            "trace_tb.v": "0420a86a244d24f015864f806eb2216dcd5c196ca0c117ff83a59c2111b58faa"
+          },
+          "external_inputs_sha256": "52f369a9ecfe16fa4b13f4e980c6335bbec9b9483ef19b827453c05261be4add"
+        }
+      ]
+    },
+    {
+      "id": "FI046",
+      "title": "其他两源空闲时允许借出保底",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "0a438032f07e4f89befaff22df0cb791",
+      "attempts": [
+        {
+          "run_id": "0a438032f07e4f89befaff22df0cb791",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI046/.ucagent/platform-runs/0a438032f07e4f89befaff22df0cb791/formal/manifest.json",
+          "manifest_sha256": "3c9fa850a0db7a4ceefc9e999d6e36ceb1b7ac0b6ba56c35191c9b48978fc996",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 6.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1594",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI046/0a438032f07e4f89befaff22df0cb791/report.json",
+          "replay_report_sha256": "b79f47fe9b6e955b0fa76f24f4f7fc0ba2def57245871cad557f20b332683969",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "8b0ee54523942f955409671214c97b414791ce40becf1fb8182dc0d446c6103e",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 8,
+            "check": "arready",
+            "actual": "0x7",
+            "expected": "0x6"
+          },
+          "original_checks": 887,
+          "mutant_checks": 887,
+          "trace_sha256": {
+            "trace.vcd": "9b4a0c19ec192428a16b119649ecfd47b35da47612ee649b1b71f2c9b76828d8",
+            "trace_tb.v": "8bc758f96abb62d73de60ae80e20d9de4515651fd3e7306945ff6a623cdd685e"
+          },
+          "external_inputs_sha256": "496b62d615307614202fdc94da8269e9b171a15dbb7bb9caaa2f5941d26b0f06"
+        }
+      ]
+    },
+    {
+      "id": "FI047",
+      "title": "释放唯一保底时误开放所有来源",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "a7b6e4e116ba4b308fa8f2270c0934b3",
+      "attempts": [
+        {
+          "run_id": "a7b6e4e116ba4b308fa8f2270c0934b3",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI047/.ucagent/platform-runs/a7b6e4e116ba4b308fa8f2270c0934b3/formal/manifest.json",
+          "manifest_sha256": "29b35dc44e42f093a01303f7cc2e8197a730fa650f734a0d30c4cbbfa76a4804",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+              "status": "falsified",
+              "runtime_seconds": 77.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_359_1585",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:359.9-359.34",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI047/a7b6e4e116ba4b308fa8f2270c0934b3/report.json",
+          "replay_report_sha256": "b2f300b45eb90c5abadb891e9657804063252efa555e2e49faac14851adc7348",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "632e30789b0e0a07024eb909293843b192edc7ac59e6eb7d41809ca2b9012395",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "arready",
+            "actual": "0x7",
+            "expected": "0x6"
+          },
+          "original_checks": 990,
+          "mutant_checks": 990,
+          "trace_sha256": {
+            "trace.vcd": "f0612af5c0c8341adc338cee7a3010bc86d2a78b3f23b4e8d83c1ab6c54e6004",
+            "trace_tb.v": "1a3c177576ef0e90f256655e943d5067040f1a0f70f6754088e584b2bf6975e6"
+          },
+          "external_inputs_sha256": "9126b688f8c7353cd6010786318c458e3b92679a5bd4af05f599faf792c51e4e"
+        }
+      ]
+    },
+    {
+      "id": "FI048",
+      "title": "同源退休和接收计数更新优先级丢减一",
+      "group": "capacity",
+      "closed": true,
+      "selected_run": "30557de673ef43b59b49b21a21d2357a",
+      "attempts": [
+        {
+          "run_id": "30557de673ef43b59b49b21a21d2357a",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI048/.ucagent/platform-runs/30557de673ef43b59b49b21a21d2357a/formal/manifest.json",
+          "manifest_sha256": "a1fba5a8e50193df505871d6d7f686756ca2e6347437de32b9d703701efd1f25",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:362.13-362.42 [_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_362_1627]",
+              "status": "falsified",
+              "runtime_seconds": 50.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "_witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_362_1627",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:362.13-362.42",
+                "bounded_depth": 16,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI048/30557de673ef43b59b49b21a21d2357a/report.json",
+          "replay_report_sha256": "b44c364b7d76e84347c9687f11e8f181ee67672eb862693da367bbc64be4295f",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "87851ece21b51ce6bd635e67971013aa7dae8b95064bf23face417bb54950db5",
+            "cmdbuf_rd_otb.sv": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 9,
+            "check": "occ_0",
+            "actual": "0x3",
+            "expected": "0x2"
+          },
+          "original_checks": 988,
+          "mutant_checks": 988,
+          "trace_sha256": {
+            "trace.vcd": "904feb91a686b38c6e982347756f8b3d6edb0b1d8305ea9a72221ea0877b6324",
+            "trace_tb.v": "21f9baa09717d30e1078c069ca4aefb6d87dbd6d883d0a335fd614e0c063d472"
+          },
+          "external_inputs_sha256": "1093b37afe3875bafa800460875c8616c22c1800ab471310da78e3179a3f7fc7"
+        }
+      ]
+    },
+    {
+      "id": "FI049",
+      "title": "容量使用较高时放宽为六条发射窗口",
+      "group": "order",
+      "closed": true,
+      "selected_run": "5a6420047d8b4679bbab183c0e54ee21",
+      "attempts": [
+        {
+          "run_id": "5a6420047d8b4679bbab183c0e54ee21",
+          "port": 8814,
+          "tag": "yices_r1",
+          "closed": true,
+          "manifest": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/mutations/FI049/.ucagent/platform-runs/5a6420047d8b4679bbab183c0e54ee21/formal/manifest.json",
+          "manifest_sha256": "fcad9780e1908e41d16cd17fb6ad26d64fd64f369c8fa091dcb7a5dfdea620d2",
+          "execution_status": "completed",
+          "verification_status": "failed",
+          "falsified_properties": [
+            {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut/u_cmd at inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+              "status": "falsified",
+              "runtime_seconds": 66.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": "proof/engine_0/trace.vcd",
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "bmc",
+                "property_id": "A_ORDER_WINDOW",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:689.9-689.57",
+                "bounded_depth": 12,
+                "trace_path": "proof/engine_0/trace.vcd"
+              }
+            }
+          ],
+          "source_snapshot_verified": true,
+          "replay_report": "/root/cmdbuf_rd/formal/closure_20261011/mutations/replay/FI049/5a6420047d8b4679bbab183c0e54ee21/report.json",
+          "replay_report_sha256": "3dc4b2250b03180ac09e27677607cb891e9b510efb77dde9c313f18a63affe75",
+          "original_source_sha256": {
+            "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+            "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+            "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+          },
+          "mutant_source_sha256": {
+            "cmdbuf_rd.sv": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195",
+            "cmdbuf_rd_cmd.sv": "4725cd12c2286f6bc17bbdc29e940b576e5964c80700e02294bd2cb46808c3c7",
+            "cmdbuf_rd_otb.sv": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+          },
+          "classification": "formal_falsified_original_pass_mutant_reproduced",
+          "input_contract_valid_both": true,
+          "external_trace_exact": true,
+          "first_failure": {
+            "state": 7,
+            "check": "window",
+            "actual": "0x3f",
+            "expected": "0x1f"
+          },
+          "original_checks": 787,
+          "mutant_checks": 787,
+          "trace_sha256": {
+            "trace.vcd": "899c4370cd7bb355ef29210e8a3611c36d0bce3a0213afd3778f1ee8291d895e",
+            "trace_tb.v": "555b097c42070ff1be0e10dce997a24082af22cc4883e7439c0df7c1372abe7e"
+          },
+          "external_inputs_sha256": "a04a5ae056c6838e594be5e144664b2788a34e33e8f84d038a203945ab190323"
+        }
+      ]
+    }
+  ],
+  "audit_script_sha256": "61cac8f11e2b03ee41bf95c7f690c844f8105d6888bd43ca5f6a300f898e831c",
+  "replay_script_sha256": "de7a065c76f9699ec3c4049492af13b9a993a2fbdb0107387846e380c31794e9"
+}

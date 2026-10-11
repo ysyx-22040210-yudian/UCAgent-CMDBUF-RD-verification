@@ -1,0 +1,15 @@
+[options]
+mode prove
+depth 6
+timeout 600
+multiclock off
+
+[engines]
+smtbmc yices
+
+[script]
+read_verilog -formal -sv -DFORMAL -DSYNTHESIS -DFORMAL_CLOSURE "inputs/rtl/cmdbuf_rd_cmd.sv" "inputs/rtl/cmdbuf_rd_otb.sv" "inputs/rtl/cmdbuf_rd.sv" "inputs/formal/cmdbuf_rd_formal.sv"
+prep -top cmdbuf_rd_formal
+
+[files]
+inputs

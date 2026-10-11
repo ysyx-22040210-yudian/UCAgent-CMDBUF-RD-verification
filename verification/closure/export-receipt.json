@@ -1,0 +1,12 @@
+{
+  "archive": "/root/cmdbuf_rd/formal/closure_20261011/delivery_20261012/cmdbuf_rd_evidence.tar.gz",
+  "archive_sha256": "9cc646b2c13a659256b45d1b30a0cd82444ca6a7d8bcbe16a6cd9e9df4ccda00",
+  "archive_bytes": 212829414,
+  "offline_check": {
+    "files": 9252,
+    "bytes": 1819427498,
+    "sha256_integrity": "verified",
+    "hmac_authenticity": "Not independently verifiable offline: no secret signing key is exported. See online verification receipts."
+  },
+  "verification_conclusion": "not_generated"
+}

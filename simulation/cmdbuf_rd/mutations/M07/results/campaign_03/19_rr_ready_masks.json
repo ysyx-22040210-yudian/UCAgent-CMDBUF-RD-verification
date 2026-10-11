@@ -1,0 +1,23 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+  "type": "rr_masks",
+  "seed": 1,
+  "cycles": 7,
+  "checks": 94,
+  "coverage": {
+    "accepted": 3,
+    "accepted_back_to_back": 2,
+    "accepted_src0": 1,
+    "accepted_src1": 1,
+    "accepted_src2": 1,
+    "capture_no_bypass": 1,
+    "capture_without_ready": 1,
+    "captured": 1,
+    "issued": 3,
+    "issued_back_to_back": 2,
+    "reset": 1,
+    "three_cycle_path": 3
+  }
+}

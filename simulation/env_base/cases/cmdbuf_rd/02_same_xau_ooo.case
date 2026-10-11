@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=same_xau_ooo
+seed=1
+cycles=40
+trace=0
+require=same_xau_ooo_issue:1,same_xau_head_block:1,retired:6

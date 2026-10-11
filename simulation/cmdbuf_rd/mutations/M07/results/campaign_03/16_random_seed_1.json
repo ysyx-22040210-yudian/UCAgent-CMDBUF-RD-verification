@@ -1,0 +1,27 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 11: rvalid got=0x4 expected=0x0",
+  "type": "random",
+  "seed": 1,
+  "cycles": 11,
+  "checks": 138,
+  "coverage": {
+    "accepted": 8,
+    "accepted_back_to_back": 6,
+    "accepted_src0": 2,
+    "accepted_src1": 4,
+    "accepted_src2": 2,
+    "ar_only_grant": 1,
+    "capture_no_bypass": 1,
+    "captured": 1,
+    "failed_keep_next": 2,
+    "issue_failure": 3,
+    "issued": 3,
+    "issued_back_to_back": 1,
+    "reset": 1,
+    "retry_success": 1,
+    "rw_only_grant": 2,
+    "same_xau_ooo_issue": 1
+  }
+}

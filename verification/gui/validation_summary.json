@@ -1,0 +1,121 @@
+{
+  "desktop_tests": {
+    "passed": 82,
+    "log": "desktop_tests.log"
+  },
+  "server_tests": {
+    "passed": 39,
+    "log": "server_integration_tests.log"
+  },
+  "real_gui_e2e": {
+    "passed": true,
+    "actual_gui": "UCAgent Tk with real 8814 API under Xvfb",
+    "one_click_from_existing_sby": true,
+    "switch_posts": 0,
+    "jobs": 22,
+    "checks": 177,
+    "unsaved_backend_configs_preserved": true,
+    "backend_results_isolated": true,
+    "formalmc_preflight": {
+      "id": "run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+      "status": "error",
+      "missing_tool_observed": true
+    },
+    "sby_preflight": {
+      "id": "run-814179ff4e564904aba41753a8cc8a6c",
+      "status": "preflight_passed",
+      "full_suite_passed": false
+    },
+    "actual_sby_partial_proof": {
+      "id": "run-b8af730718b94129a2c49a486f321c6f",
+      "status": "passed",
+      "jobs": [
+        "quota_math"
+      ],
+      "full_suite_passed": false
+    },
+    "old_stage_state_unchanged": true,
+    "actual_formalmc_dut_execution": false,
+    "api_operations": [
+      {
+        "path": "/overview",
+        "method": "GET"
+      },
+      {
+        "path": "/projects",
+        "method": "GET"
+      },
+      {
+        "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal",
+        "method": "GET"
+      },
+      {
+        "path": "/runs",
+        "method": "GET"
+      },
+      {
+        "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3/files",
+        "method": "GET"
+      },
+      {
+        "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3/events?after=0",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs",
+        "method": "POST"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs/run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs/run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs",
+        "method": "POST"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs/run-814179ff4e564904aba41753a8cc8a6c",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd",
+        "method": "GET"
+      },
+      {
+        "path": "/portable-formal/cmdbuf_rd/runs/run-814179ff4e564904aba41753a8cc8a6c",
+        "method": "GET"
+      }
+    ]
+  },
+  "original_rtl_and_runner_modified": false,
+  "actual_formalmc_dut_run": false,
+  "notes": [
+    "SBY quota_math actually proved through new API; partial validation only",
+    "FormalMC preflight actually failed because no FormalMC tool is installed",
+    "Switching was read-only; source session lifecycle unchanged"
+  ]
+}

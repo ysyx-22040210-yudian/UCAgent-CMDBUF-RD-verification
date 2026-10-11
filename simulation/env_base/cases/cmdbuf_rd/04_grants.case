@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=grants
+seed=1
+cycles=100
+trace=0
+require=ar_only_grant:1,rw_only_grant:1,wrong_bank_grant:1,retry_success:1

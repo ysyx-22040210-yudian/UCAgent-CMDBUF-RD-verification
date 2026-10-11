@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=rr
+seed=1
+cycles=50
+trace=0
+require=rr_all_three:2,retired_src0:3,retired_src1:3,retired_src2:3

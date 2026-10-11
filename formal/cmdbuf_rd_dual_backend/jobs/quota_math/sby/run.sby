@@ -1,0 +1,15 @@
+[options]
+mode prove
+depth 2
+timeout 120
+multiclock off
+
+[engines]
+smtbmc yices
+
+[script]
+read_verilog -formal -sv -DFORMAL -DSYNTHESIS "inputs/rtl/cmdbuf_rd.sv" "inputs/rtl/cmdbuf_rd_cmd.sv" "inputs/rtl/cmdbuf_rd_otb.sv" "inputs/formal/quota_step_math.sv"
+prep -top quota_step_math
+
+[files]
+inputs

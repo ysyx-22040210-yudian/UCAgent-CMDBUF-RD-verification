@@ -1,0 +1,22 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 7: pending_cnt got=0x0 expected=0x1",
+  "type": "tokens",
+  "seed": 1,
+  "cycles": 7,
+  "checks": 89,
+  "coverage": {
+    "accepted": 2,
+    "accepted_src0": 1,
+    "accepted_src1": 1,
+    "ar_only_grant": 1,
+    "capture_no_bypass": 1,
+    "captured": 1,
+    "issue_failure": 1,
+    "issued": 1,
+    "reset": 1,
+    "three_cycle_path": 1,
+    "zero_data_no_error": 1
+  }
+}

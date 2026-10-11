@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-10-11T17:27:24.062921+00:00",
+  "session_id": "90855753a21f4dc7a0dc29b7892e38f3",
+  "revision": 253,
+  "all_14_enabled_stages_completed": true,
+  "counts": {
+    "spec_checkpoint_count": 177,
+    "spec_checkpoints": {
+      "assume:assumption": 5,
+      "assert:proven": 107,
+      "cover:covered": 65
+    },
+    "unique_property_count": 123,
+    "unique_properties": {
+      "assume:assumption": 5,
+      "assert:proven": 53,
+      "cover:covered": 65
+    },
+    "guard_witness_count": 7,
+    "guard_witnesses": {
+      "guard_witness:covered": 7
+    }
+  },
+  "routes": {
+    "guided": 21,
+    "native": 156
+  },
+  "native_run_count": 18,
+  "requirement_links": 335,
+  "fault_themes": [
+    "FI001",
+    "FI002",
+    "FI003",
+    "FI004",
+    "FI005",
+    "FI006",
+    "FI007",
+    "FI008",
+    "FI009",
+    "FI010",
+    "FI011",
+    "FI012",
+    "FI013",
+    "FI014",
+    "FI015",
+    "FI016",
+    "FI017",
+    "FI018",
+    "FI019",
+    "FI020",
+    "FI021",
+    "FI022",
+    "FI023",
+    "FI024",
+    "FI025",
+    "FI026",
+    "FI027",
+    "FI028",
+    "FI029",
+    "FI030",
+    "FI031",
+    "FI032",
+    "FI033",
+    "FI034",
+    "FI035",
+    "FI036",
+    "FI037",
+    "FI038",
+    "FI039",
+    "FI040",
+    "FI041",
+    "FI042",
+    "FI043",
+    "FI044",
+    "FI045",
+    "FI046",
+    "FI047",
+    "FI048",
+    "FI049"
+  ],
+  "mutation_replay": {
+    "started_at": "2026-10-11T17:04:17.847332+00:00",
+    "command": [
+      "/home/ucagent-lab/releases/20260908-formalmc-restore1/venv/bin/python",
+      "/root/cmdbuf_rd/formal/closure_20261011/mutations/test_cmdbuf_rd_counterexample.py",
+      "--replay"
+    ],
+    "entry_sha256": "61cac8f11e2b03ee41bf95c7f690c844f8105d6888bd43ca5f6a300f898e831c",
+    "checker_sha256": "de7a065c76f9699ec3c4049492af13b9a993a2fbdb0107387846e380c31794e9",
+    "status": "passed",
+    "scope": "Independent campaign execution before UCAgent stage 10. The original-RTL stage-10 checker is N/A without original DUT bugs; it does not execute these mutation simulations.",
+    "finished_at": "2026-10-11T17:04:23.043366+00:00",
+    "exit_code": 0,
+    "closed_count": 49,
+    "result_sha256": "176006d4ebeb49c71c3655afcfa4e63b60dd5f67445a6663dffbf782f885afd1",
+    "log_sha256": "e2918f4bd027461f4df25bf7a1de75c3162c26fe6c4416944d6f76ab24199434"
+  },
+  "coverage_sha256": "97e99df1b27239d26746621dc2c57c9f8033470dfd6ed3c01bfa8b21e6514951",
+  "records_sha256": "e7604a1ff74fd15a13d2c9b35fc3e18e5a6156fbf7941528ce153049f3876231",
+  "catalog_sha256": "2e18fcead2344a571009b0e9509e8367eb9e268d59cd4cda4cc806f53ecda880",
+  "verification_status": "passed",
+  "scope": "Fixed 9 entries / 5 pending-command window / 4-cycle MEM return / 128-bit data. Initial reset only. No unconditional progress claim under unbounded stalls. 49 representative mutations, not exhaustive fault enumeration. Authored by Codex engineers through actual UCAgent public APIs and original stage checkers with audited task-local native-binding adaptations."
+}

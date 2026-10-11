@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "window_block",
+  "seed": 1,
+  "cycles": 48,
+  "checks": 563,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "capture_no_bypass": 6,
+    "captured": 6,
+    "captured_back_to_back": 5,
+    "error_combo_00": 6,
+    "issued": 6,
+    "issued_back_to_back": 5,
+    "outside_window_blocked": 12,
+    "reset": 1,
+    "retired": 6,
+    "retired_back_to_back": 5,
+    "retired_src0": 6,
+    "rr_skip": 5
+  }
+}

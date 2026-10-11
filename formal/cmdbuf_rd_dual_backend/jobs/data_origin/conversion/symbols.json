@@ -1,0 +1,191 @@
+[
+  {
+    "port": "portable_symbol_0000",
+    "kind": "anyconst",
+    "width": 4,
+    "original_cell": "$flatten\\dut.\\u_otb.$anyconst$1578",
+    "source_location": "inputs/rtl/cmdbuf_rd_otb.sv:127.29-127.41"
+  },
+  {
+    "port": "portable_symbol_0001",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7344",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0002",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7346",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0003",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7348",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0004",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7350",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0005",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7352",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0006",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7354",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0007",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7356",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0008",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7358",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0009",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7360",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0010",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7362",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0011",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7364",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0012",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7366",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0013",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7368",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0014",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7370",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0015",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7372",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0016",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7374",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0017",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7376",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0018",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$7378",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0019",
+    "kind": "anyseq",
+    "width": 18,
+    "original_cell": "$auto$setundef.cc:550:execute$7380",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0020",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$7382",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0021",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$7384",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0022",
+    "kind": "anyseq",
+    "width": 3,
+    "original_cell": "$auto$setundef.cc:550:execute$7386",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0023",
+    "kind": "anyseq",
+    "width": 5,
+    "original_cell": "$auto$setundef.cc:550:execute$7388",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0024",
+    "kind": "anyseq",
+    "width": 8,
+    "original_cell": "$auto$setundef.cc:550:execute$7390",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0025",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$7392",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0026",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$7394",
+    "source_location": ""
+  }
+]

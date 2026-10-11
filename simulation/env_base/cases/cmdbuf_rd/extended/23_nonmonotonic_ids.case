@@ -1,0 +1,5 @@
+type=pipeline
+cycles=48
+seed=1
+trace=0
+require=nonmonotonic_live_id:5,retired:24

@@ -1,0 +1,5 @@
+type=rr_masks
+seed=1
+cycles=30
+trace=1
+require=rr_skip:3,ready_zero_holds_completed:1,retired:3

@@ -1,0 +1,21 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 8: rvalid got=0x2 expected=0x0",
+  "type": "random",
+  "seed": 91,
+  "cycles": 8,
+  "checks": 107,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 4,
+    "accepted_src0": 2,
+    "accepted_src1": 1,
+    "accepted_src2": 3,
+    "capture_no_bypass": 1,
+    "captured": 1,
+    "issued": 4,
+    "issued_back_to_back": 2,
+    "reset": 1
+  }
+}

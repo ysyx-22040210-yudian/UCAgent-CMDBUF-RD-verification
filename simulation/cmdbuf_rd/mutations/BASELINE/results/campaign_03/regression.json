@@ -1,0 +1,82 @@
+{
+  "passed": 19,
+  "total": 19,
+  "cases": [
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/01_pipeline.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/02_same_xau_ooo.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/03_forward_6b.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/04_grants.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/05_failure_5a.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/06_window_block.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/07_single_pulse.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/08_rr.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/09_errors.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/10_capacity_reuse.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/11_capacity_700.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/12_capacity_440.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/13_tokens.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/14_single_source_throughput.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/15_reset_clean.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/16_random_seed_1.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/17_random_seed_17.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/18_random_seed_91.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/19_rr_ready_masks.case",
+      "exit_code": 0
+    }
+  ]
+}

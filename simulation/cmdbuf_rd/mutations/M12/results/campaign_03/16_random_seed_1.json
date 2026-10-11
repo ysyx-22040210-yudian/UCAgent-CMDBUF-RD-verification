@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 5: req got=0x4 expected=0x0",
+  "type": "random",
+  "seed": 1,
+  "cycles": 5,
+  "checks": 65,
+  "coverage": {
+    "accepted": 2,
+    "accepted_back_to_back": 1,
+    "accepted_src1": 1,
+    "accepted_src2": 1,
+    "issue_failure": 1,
+    "reset": 1,
+    "rw_only_grant": 1
+  }
+}

@@ -1,0 +1,181 @@
+test_draft_isolation_and_scope (test_core.ModelTests.test_draft_isolation_and_scope)
+Copy rather than mutate saved defaults and reject empty real-test selections. ... ok
+test_formal_requires_clock_and_reset (test_core.ModelTests.test_formal_requires_clock_and_reset)
+Do not submit proof requests whose timing environment is implicit. ... ok
+test_formalmc_uses_one_tcl_and_no_ignored_timing (test_core.ModelTests.test_formalmc_uses_one_tcl_and_no_ignored_timing)
+Accept the original Tcl contract and reject missing or ambiguous entry points. ... ok
+test_literal_braces_and_markup_are_not_evaluated (test_core.ModelTests.test_literal_braces_and_markup_are_not_evaluated)
+Treat tool commands, source templates and markup as literal display data. ... ok
+test_malformed_collection_is_not_empty (test_core.ModelTests.test_malformed_collection_is_not_empty)
+Fail on incorrect contracts rather than presenting an apparently empty platform. ... ok
+test_origin_boundaries (test_core.ModelTests.test_origin_boundaries)
+Reject secrets, arbitrary paths, and non-loopback unencrypted destinations. ... ok
+test_preferences_ignore_secrets_and_bad_origins (test_core.ModelTests.test_preferences_ignore_secrets_and_bad_origins)
+Persist only origin and bounded cursors, recovering safely from corrupt settings. ... ok
+test_result_and_execution_are_orthogonal (test_core.ModelTests.test_result_and_execution_are_orthogonal)
+Completed failed tests lead to evidence; license failures lead to infrastructure. ... ok
+test_sby_requires_harness_not_guessed_signal_names (test_core.ModelTests.test_sby_requires_harness_not_guessed_signal_names)
+Accept bounded SBY settings without imposing VC Formal's timing inputs. ... ok
+test_seeds_are_strict_positive (test_core.ModelTests.test_seeds_are_strict_positive)
+Do not silently drop invalid seed tokens or impose an undocumented 32-bit bound. ... ok
+test_table_identities_are_not_translated_as_actions (test_core.ModelTests.test_table_identities_are_not_translated_as_actions)
+Tool names and user test names remain literal even if they match localization keys. ... ok
+test_cancel_does_not_publish (test_core.TransportTests.test_cancel_does_not_publish)
+Cooperative local cancellation keeps existing outputs intact and removes staging files. ... ok
+test_corrupt_hash_and_size_preserve_destination (test_core.TransportTests.test_corrupt_hash_and_size_preserve_destination)
+A forged or stale artifact cannot overwrite an existing user file. ... ok
+test_formal_download_endpoint_is_bounded_and_integrity_checked (test_core.TransportTests.test_formal_download_endpoint_is_bounded_and_integrity_checked)
+Accept the literal session download contract, never an arbitrary supplied URL. ... ok
+test_get_and_structured_post_same_origin (test_core.TransportTests.test_get_and_structured_post_same_origin)
+Preserve typed requests and the origin required by server CSRF protection. ... ok
+test_malformed_sse_does_not_advance (test_core.TransportTests.test_malformed_sse_does_not_advance)
+Reject invalid sequence types and report oversized or malformed event bodies. ... ok
+test_redirect_malformed_and_validation_error (test_core.TransportTests.test_redirect_malformed_and_validation_error)
+Reject redirects and malformed JSON while surfacing structured server validation. ... ok
+test_sse_cursor_and_duplicates (test_core.TransportTests.test_sse_cursor_and_duplicates)
+Deliver only monotonically increasing verified events, including after reconnect. ... ok
+test_timeout_does_not_retry_mutation (test_core.TransportTests.test_timeout_does_not_retry_mutation)
+Uncertain POST results remain explicit and are never automatically replayed. ... ok
+test_upload_is_bounded_and_uses_safe_basename (test_core.TransportTests.test_upload_is_bounded_and_uses_safe_basename)
+Upload literal source bytes without submitting local directory paths or shell text. ... ok
+test_verified_download_is_atomic (test_core.TransportTests.test_verified_download_is_atomic)
+Publish the file only after both declared byte count and SHA-256 agree. ... ok
+test_existing_project_view_shows_source_and_empty_target_history (test_formal_gui.MigrationProjectGuiTests.test_existing_project_view_shows_source_and_empty_target_history)
+The target page uses normal run controls and returns to its source task. ... ok
+test_both_choices_share_controls_and_agent_action (test_formal_gui.SharedFormalGuiTests.test_both_choices_share_controls_and_agent_action)
+Engine selection changes capability text, not actions, fields or Agent budgets. ... ok
+test_migration_uses_public_api_and_opens_existing_project_view (test_formal_gui.SharedFormalGuiTests.test_migration_uses_public_api_and_opens_existing_project_view)
+One click opens the linked project, with no file dialog or target tool dispatch. ... ok
+test_migration_visibility_and_unsaved_drafts (test_formal_gui.SharedFormalGuiTests.test_migration_visibility_and_unsaved_drafts)
+Only saved, idle SBY sessions can invoke internal migration. ... ok
+test_running_controls_and_persisted_diff_display (test_formal_gui.SharedFormalGuiTests.test_running_controls_and_persisted_diff_display)
+An active turn enables cancellation only; saved tool edits remain reviewable. ... ok
+test_unsaved_drafts_and_invalid_budgets_block_agent (test_formal_gui.SharedFormalGuiTests.test_unsaved_drafts_and_invalid_budgets_block_agent)
+AI authoring cannot silently discard user edits or submit unbounded budgets. ... ok
+test_advanced_inputs_survive_collapse_and_footer_stays_visible (test_gui.NativeGuiTests.test_advanced_inputs_survive_collapse_and_footer_stays_visible)
+Advanced design values remain canonical inputs and minimum-size editors retain actions. ... can't invoke "event" command: application has been destroyed
+    while executing
+"event generate $w <<ThemeChanged>>"
+    (procedure "ttk::ThemeChanged" line 6)
+    invoked from within
+"ttk::ThemeChanged"
+can't invoke "event" command: application has been destroyed
+    while executing
+"event generate $w <<ThemeChanged>>"
+    (procedure "ttk::ThemeChanged" line 6)
+    invoked from within
+"ttk::ThemeChanged"
+ok
+test_blocked_preflight_cannot_launch_and_back_invalidates_result (test_gui.NativeGuiTests.test_blocked_preflight_cannot_launch_and_back_invalidates_result)
+A blocked preview remains a recheck action and editing invalidates readiness. ... ok
+test_clone_keeps_multiple_suites_literal_plusargs_and_extended_design (test_gui.NativeGuiTests.test_clone_keeps_multiple_suites_literal_plusargs_and_extended_design)
+Cloning must not reduce a saved scope or split commas inside source inputs. ... ok
+test_close_during_io_hides_immediately_then_drains_on_tk_thread (test_gui.NativeGuiTests.test_close_during_io_hides_immediately_then_drains_on_tk_thread)
+Window closure remains responsive while avoiding off-thread Tcl finalization. ... ok
+test_compact_window_keeps_all_tabs_and_evidence_actions_reachable (test_gui.NativeGuiTests.test_compact_window_keeps_all_tabs_and_evidence_actions_reachable)
+All evidence destinations and disclosure controls remain visible at the supported minimum. ... ok
+test_connection_generation_discards_old_root_callbacks (test_gui.NativeGuiTests.test_connection_generation_discards_old_root_callbacks)
+A response from a previous service cannot open a wizard on a different service. ... ok
+test_empty_text_hides_scrollbar_and_long_text_reveals_it (test_gui.NativeGuiTests.test_empty_text_hides_scrollbar_and_long_text_reveals_it)
+Quiet editor surfaces still expose actual overflowing evidence through native scrolling. ... ok
+test_evidence_disclosure_and_semantic_states_remain_honest (test_gui.NativeGuiTests.test_evidence_disclosure_and_semantic_states_remain_honest)
+Visual summaries preserve missing counters, failed conclusions, and complete literal evidence. ... ok
+test_formal_engine_selection_preserves_separate_parameters (test_gui.NativeGuiTests.test_formal_engine_selection_preserves_separate_parameters)
+VCF and SBY retain their own options and route only to compatible profiles. ... ok
+test_formal_requires_explicit_inputs (test_gui.NativeGuiTests.test_formal_requires_explicit_inputs)
+The original FormalMC flow requires a real Tcl entry rather than VCF timing fields. ... ok
+test_formal_workflow_preview_explicit_engine (test_gui.NativeGuiTests.test_formal_workflow_preview_explicit_engine)
+Selecting SBY refreshes the native catalog without submitting a run or modifying a project. ... ok
+test_formalmc_hides_vcf_fields_and_preserves_explicit_script (test_gui.NativeGuiTests.test_formalmc_hides_vcf_fields_and_preserves_explicit_script)
+The restored flow collects Tcl-controlled timing without hidden default periods. ... ok
+test_import_and_approval_retry_cancel_are_explicit (test_gui.NativeGuiTests.test_import_and_approval_retry_cancel_are_explicit)
+Native dialogs submit declared project and stage actions, never arbitrary commands. ... ok
+test_missing_formal_engine_stays_selected_and_cannot_launch (test_gui.NativeGuiTests.test_missing_formal_engine_stays_selected_and_cannot_launch)
+An absent engine stays visible and blocked instead of falling back to another tool. ... ok
+test_native_verified_download_and_cex_dialog (test_gui.NativeGuiTests.test_native_verified_download_and_cex_dialog)
+Save a real byte stream from the native action and retain explicit CEX test mapping. ... ok
+test_navigation_every_page_and_no_hidden_workflow_branches (test_gui.NativeGuiTests.test_navigation_every_page_and_no_hidden_workflow_branches)
+Every navigation destination loads; a disabled child remains visible and inspectable. ... ok
+test_new_formal_selects_formalmc_even_with_installed_sby (test_gui.NativeGuiTests.test_new_formal_selects_formalmc_even_with_installed_sby)
+Tool discovery must not redirect a new Formal request to SBY or VCF. ... ok
+test_new_run_replaces_previous_result_only_after_real_create_response (test_gui.NativeGuiTests.test_new_run_replaces_previous_result_only_after_real_create_response)
+An existing result is not evidence that a new launch has completed. ... ok
+test_offline_state_and_recovery_do_not_create_data (test_gui.NativeGuiTests.test_offline_state_and_recovery_do_not_create_data)
+Service errors preserve the visible history and recover through explicit refresh. ... ok
+test_project_list_scroll_selection_and_pixel_ellipsis (test_gui.NativeGuiTests.test_project_list_scroll_selection_and_pixel_ellipsis)
+More projects than visible rows remain reachable by keyboard without altering their names. ... ok
+test_run_result_tabs_logs_and_resume (test_gui.NativeGuiTests.test_run_result_tabs_logs_and_resume)
+Every result category loads, missing coverage stays unknown, and events do not duplicate. ... ok
+test_sby_options_are_native_and_keep_bounded_mode (test_gui.NativeGuiTests.test_sby_options_are_native_and_keep_bounded_mode)
+Expose open formal controls and preserve mode/depth without hidden clock defaults. ... ok
+test_search_palette_uses_real_ids_and_preserves_literal_queries (test_gui.NativeGuiTests.test_search_palette_uses_real_ids_and_preserves_literal_queries)
+Search routes actual entities, does not submit queries, and survives repeated opening. ... ok
+test_settings_invalid_bound_does_not_write (test_gui.NativeGuiTests.test_settings_invalid_bound_does_not_write)
+Resource policy validation rejects zero disk thresholds and non-finite values. ... ok
+test_slow_requests_keep_tk_responsive_and_stale_views_are_discarded (test_gui.NativeGuiTests.test_slow_requests_keep_tk_responsive_and_stale_views_are_discarded)
+Networking never blocks the UI thread or writes into a page that has been closed. ... ok
+test_table_numeric_sort_and_refresh_preserve_identity (test_gui.NativeGuiTests.test_table_numeric_sort_and_refresh_preserve_identity)
+Sort native evidence numerically with missing values last and stable selected identities. ... ok
+test_tool_health_shows_open_tools_unknown_adapters_and_overflow (test_gui.NativeGuiTests.test_tool_health_shows_open_tools_unknown_adapters_and_overflow)
+The overview cannot silently hide a configured open-source or future adapter. ... ok
+test_uvm_scaffold_model_is_user_explicit (test_gui.NativeGuiTests.test_uvm_scaffold_model_is_user_explicit)
+Scaffold requests contain only declared ports and an explicit optional user model. ... ok
+test_uvm_suite_changes_use_real_saved_test_members (test_gui.NativeGuiTests.test_uvm_suite_changes_use_real_saved_test_members)
+UT and IT choices change test/seed membership without manufacturing a smoke class. ... ok
+test_vector_buttons_keyboard_focus_and_disabled_contract (test_gui.NativeGuiTests.test_vector_buttons_keyboard_focus_and_disabled_contract)
+Custom native controls support keyboard activation but never dispatch when disabled. ... ok
+test_wizard_preserves_parameters_and_launches_exactly_once (test_gui.NativeGuiTests.test_wizard_preserves_parameters_and_launches_exactly_once)
+Native controls produce one immutable request only after a ready server preflight. ... ok
+test_host_profiles_admit_only_synopsys_license_names_in_memory (test_local_service.LocalServiceTests.test_host_profiles_admit_only_synopsys_license_names_in_memory)
+A selected host profile permits VCF licensing without forwarding loader overrides. ... ok
+test_readiness_must_match_owned_child (test_local_service.LocalServiceTests.test_readiness_must_match_owned_child)
+Do not attach to a stale or forged readiness PID. ... ok
+test_readiness_never_forwards_token_off_host (test_local_service.LocalServiceTests.test_readiness_never_forwards_token_off_host)
+Reject even an otherwise valid HTTPS origin in local readiness data. ... ok
+test_root_and_unsupported_platforms_rejected (test_local_service.LocalServiceTests.test_root_and_unsupported_platforms_rejected)
+Fail before modifying local data on unsupported hosts or root sessions. ... ok
+test_start_is_authenticated_and_sanitized (test_local_service.LocalServiceTests.test_start_is_authenticated_and_sanitized)
+Keep secrets in memory and discard ambient Python/loader/license overrides. ... ok
+test_startup_deadline_cleans_owned_child (test_local_service.LocalServiceTests.test_startup_deadline_cleans_owned_child)
+Bound startup and close its log even if the service never announces readiness. ... ok
+test_active_backend_does_not_change_and_second_launch_is_disabled (test_portable_formal_gui.PortableFormalGuiTests.test_active_backend_does_not_change_and_second_launch_is_disabled)
+An active FormalMC request cannot become SBY or be duplicated by switching. ... ok
+test_cancel_targets_active_backend_while_viewing_other_backend (test_portable_formal_gui.PortableFormalGuiTests.test_cancel_targets_active_backend_while_viewing_other_backend)
+Cancellation addresses the running ID, regardless of the currently shown form. ... ok
+test_existing_source_button_opens_registered_formalmc_without_post (test_portable_formal_gui.PortableFormalGuiTests.test_existing_source_button_opens_registered_formalmc_without_post)
+The existing SBY session offers one-click navigation, with no migration or run. ... ok
+test_full_pass_requires_actual_complete_report (test_portable_formal_gui.PortableFormalGuiTests.test_full_pass_requires_actual_complete_report)
+A passed process or a record flag alone does not label the DUT as fully proved. ... ok
+test_invalid_timeout_does_not_submit (test_portable_formal_gui.PortableFormalGuiTests.test_invalid_timeout_does_not_submit)
+Reject malformed timing budgets before any configuration mutation. ... ok
+test_missing_tool_is_error_and_never_a_design_pass (test_portable_formal_gui.PortableFormalGuiTests.test_missing_tool_is_error_and_never_a_design_pass)
+A real API failure remains visible and does not fabricate a result. ... ok
+test_old_poll_cannot_clear_new_active_run (test_portable_formal_gui.PortableFormalGuiTests.test_old_poll_cannot_clear_new_active_run)
+A delayed GET from before launch cannot reopen the run button. ... ok
+test_other_package_active_run_cannot_be_cancelled_here (test_portable_formal_gui.PortableFormalGuiTests.test_other_package_active_run_cannot_be_cancelled_here)
+A manager-wide busy state blocks launch without cancelling an unrelated package. ... ok
+test_package_list_opens_selected_backend (test_portable_formal_gui.PortableFormalGuiTests.test_package_list_opens_selected_backend)
+The new sidebar view routes into the existing desktop shell. ... ok
+test_pending_write_cannot_be_resubmitted (test_portable_formal_gui.PortableFormalGuiTests.test_pending_write_cannot_be_resubmitted)
+Repeated clicks while a network write is unresolved dispatch at most once. ... ok
+test_preflight_success_is_labeled_as_environment_only (test_portable_formal_gui.PortableFormalGuiTests.test_preflight_success_is_labeled_as_environment_only)
+An environment-check result is visibly different from complete verification. ... ok
+test_registry_errors_never_downgrade_known_complete_package (test_portable_formal_gui.PortableFormalGuiTests.test_registry_errors_never_downgrade_known_complete_package)
+Transient registry errors preserve known links or disable unknown navigation. ... ok
+test_routes_reject_unknown_backend_and_traversal (test_portable_formal_gui.PortableFormalGuiTests.test_routes_reject_unknown_backend_and_traversal)
+Only a registered-identifier shape and either named backend can enter the page. ... ok
+test_save_is_backend_specific_and_run_uses_saved_selected_backend (test_portable_formal_gui.PortableFormalGuiTests.test_save_is_backend_specific_and_run_uses_saved_selected_backend)
+A FormalMC edit never changes SBY, and the run request names the selected backend. ... ok
+test_saved_response_preserves_newer_edits (test_portable_formal_gui.PortableFormalGuiTests.test_saved_response_preserves_newer_edits)
+Typing while Save is in flight keeps the newer draft intact. ... ok
+test_sby_self_test_is_disabled_and_cannot_submit_directly (test_portable_formal_gui.PortableFormalGuiTests.test_sby_self_test_is_disabled_and_cannot_submit_directly)
+SBY exposes only actions supported by the sealed runner. ... ok
+test_switch_both_directions_does_not_launch_or_copy_history (test_portable_formal_gui.PortableFormalGuiTests.test_switch_both_directions_does_not_launch_or_copy_history)
+Switching tabs is read-only and FormalMC starts without inherited SBY evidence. ... ok
+test_unsaved_configuration_survives_poll_and_backend_switch (test_portable_formal_gui.PortableFormalGuiTests.test_unsaved_configuration_survives_poll_and_backend_switch)
+Polling updates evidence without discarding either backend's unsubmitted edits. ... ok
+
+----------------------------------------------------------------------
+Ran 82 tests in 42.873s
+
+OK

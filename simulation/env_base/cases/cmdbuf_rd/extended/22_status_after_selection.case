@@ -1,0 +1,5 @@
+type=status_flip
+cycles=25
+seed=1
+trace=1
+require=request_busy_but_granted:2,retired:3,three_cycle_path:3

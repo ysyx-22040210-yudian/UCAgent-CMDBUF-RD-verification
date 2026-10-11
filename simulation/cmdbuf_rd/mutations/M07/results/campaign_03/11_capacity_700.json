@@ -1,0 +1,21 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+  "type": "capacity_700",
+  "seed": 1,
+  "cycles": 7,
+  "checks": 99,
+  "coverage": {
+    "accepted": 7,
+    "accepted_back_to_back": 6,
+    "accepted_src0": 7,
+    "capture_no_bypass": 1,
+    "capture_without_ready": 1,
+    "captured": 1,
+    "issued": 5,
+    "issued_back_to_back": 4,
+    "reset": 1,
+    "three_cycle_path": 5
+  }
+}

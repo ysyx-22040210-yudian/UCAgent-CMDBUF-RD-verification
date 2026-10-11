@@ -1,0 +1,2203 @@
+{
+  "710c43c596af4eea8898f0c750b4537d": {
+    "manifest_sha256": "cb2c5cf81a8551a3d30cac24a15a923a74b20aab57dbe0920500853ee69a6114",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。未假设 actual arready 全零时 arvalid=0，准入在更宽输入域检查。没有编译进来的额外常量选择器或DUT行为假设。",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。 PIPELINE_ALL 只证明实际选择到下一拍请求字段传送；实际选择属于候选由独立已证 SS_SELECT_PENDING 供应，候选窗口和最老选择分别保留独立 CK，不把传送性质冒称选优证明。",
+    "family": "pipeline_aggregate_r1",
+    "ck_ids": [
+      "CK-PIPE-ACCEPT-NOBYPASS",
+      "CK-PIPE-OVERLAP",
+      "CK-PIPE-REQ-ADDR",
+      "CK-PIPE-SELECT-NEXT",
+      "CK-RETRY-5A-B",
+      "CK-REUSE-NEW-PIPELINE",
+      "CK-WIN-BANK",
+      "CK-WIN-STATUS-REQUEST"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_1538",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_1536",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_1535",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_1533",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      }
+    ],
+    "auxiliary_supplier_evidence": [
+      {
+        "run_id": "1a259298993d49919ccc6332642b12e9",
+        "property_id": "SS_SELECT_PENDING",
+        "source": "rtl/cmdbuf_rd_cmd.sv",
+        "source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+        "mode": "prove",
+        "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+        "input_map": {
+          "rtl/cmdbuf_rd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_cmd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_cmd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_otb.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_otb.sv",
+            "transform": "strip_cmdbuf_monitor"
+          }
+        }
+      }
+    ]
+  },
+  "1a259298993d49919ccc6332642b12e9": {
+    "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。未假设 actual arready 全零时 arvalid=0，准入在更宽输入域检查。没有编译进来的额外常量选择器或DUT行为假设。",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "structural_component_r1",
+    "ck_ids": [
+      "CK-CAP-NET-UPDATE"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_1630",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_1628",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_1627",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_1625",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      }
+    ]
+  },
+  "bece67a18aa24e32a29dcbed6105bf0a": {
+    "manifest_sha256": "ff6e7cda9c8dfb66c7e547e5d540a3dc5ae281d217f9e49b82dbac8d8b28312b",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。没有编译进来的额外常量选择器或DUT行为假设。",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。复用2026-10-10真实无界证明，非本轮重跑。",
+    "family": "wiring_20261010",
+    "ck_ids": [
+      "CK-AR-ACCEPT",
+      "CK-GRANT-EXACT",
+      "CK-RETIRE-EXACT"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_1631",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_1626",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_1624",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_1623",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_1621",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "30aafb11117a4815a2ae49e811cdfc01": {
+    "manifest_sha256": "c60396fa834fb5fb77d7ecf5bd59fdf6d4c3845f8f341bf501cbafd150261f2f",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。未假设 actual arready 全零时 arvalid=0，准入在更宽输入域检查。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：329: wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt); 330: (* anyconst *) reg [3:0] fa_watch; 331: always @* assume(fa_watch<9); 332: reg [8:0] fm_live_q,fm_issued_q,fm_done_q;",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "aggregate_split_r1",
+    "ck_ids": [
+      "CK-AR-NOACCEPT",
+      "CK-AR-SINGLE",
+      "CK-LIFE-COUNT",
+      "CK-LIFE-DONE",
+      "CK-LIFE-HOLD",
+      "CK-LIFE-ISSUED",
+      "CK-MEM-DONE-SYNC",
+      "CK-RESET-EMPTY"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_1746",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_1744",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_1743",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_1741",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_331_1443",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:331.15-331.33",
+        "expressions": [
+          "fa_watch<9"
+        ],
+        "source_context": "329:     wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt);\n330:     (* anyconst *) reg [3:0] fa_watch;\n331:     always @* assume(fa_watch<9);\n332:     reg [8:0] fm_live_q,fm_issued_q,fm_done_q;"
+      }
+    ]
+  },
+  "6f1285ed84d047b9ba505a522bf71969": {
+    "manifest_sha256": "b97e90473deb7ade8850d2af8eab9232abfce98d05b26c3aeb777cf1a666ad17",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：126: 127: (* anyconst *) reg[3:0] f_data_entry; 128: always @* assume(f_data_entry<9); 129: reg f_data_past=0; 335: wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt); 336: (* anyconst *) reg [3:0] fa_watch; 337: always @* assume(fa_watch<9); 338: reg [8:0] fm_live_q,fm_issued_q,fm_done_q; 150: `ifdef FORMAL_CLOSURE 151: (* anyconst *) reg [3:0] fa_top_watch; 152: always @* assume(fa_top_watch<9); 153: reg fa_top_past=0;",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "aggregate_r3",
+    "ck_ids": [
+      "CK-AR-ADDR-SAVE",
+      "CK-AR-ID-SAVE",
+      "CK-AR-PORT-SAVE",
+      "CK-AR-RESP-SAVE",
+      "CK-AR-SRC-SAVE",
+      "CK-GRANT-FAIL-STATE",
+      "CK-LIFE-PAIR",
+      "CK-LIFE-RANGE",
+      "CK-RESET-R",
+      "CK-RESET-REQ",
+      "CK-RETIRE-CLEAR-DATA",
+      "CK-REUSE-NEW-OTB",
+      "CK-REUSE-NEW-WINS"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_1800",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_2346",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_2341",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_2339",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_2338",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_2336",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_337_1443",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:337.15-337.33",
+        "expressions": [
+          "fa_watch<9"
+        ],
+        "source_context": "335:     wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt);\n336:     (* anyconst *) reg [3:0] fa_watch;\n337:     always @* assume(fa_watch<9);\n338:     reg [8:0] fm_live_q,fm_issued_q,fm_done_q;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_152_2262",
+        "location": "inputs/rtl/cmdbuf_rd.sv:152.15-152.37",
+        "expressions": [
+          "fa_top_watch<9"
+        ],
+        "source_context": "150: `ifdef FORMAL_CLOSURE\n151:     (* anyconst *) reg [3:0] fa_top_watch;\n152:     always @* assume(fa_top_watch<9);\n153:     reg fa_top_past=0;"
+      }
+    ]
+  },
+  "7af94773755d4ab0be53772682e87162": {
+    "manifest_sha256": "858b6c90243734c89d976c2e70afc6d9344ebc81b7174e6fe47bd30cba163add",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。未假设 actual arready 全零时 arvalid=0，准入在更宽输入域检查。内部严格年龄序合取作为已证lemma假设；已对四条独立结构供应方逐项重新验签，接受FIFO年龄语义另行供应。精确表达式、guard、相同wrapper及源SHA见 contract_supplier_evidence。编译实际语句：338: end 339: end 340: always @(posedge clk)if(rst_n)CONTRACT_STRICT_ORDER: assume(po_order_contract); 341:",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "policy_order_r1",
+    "ck_ids": [
+      "CK-LIFE-NODUP-R",
+      "CK-MEM-CONCURRENT-OLD-R",
+      "CK-MEM-NEXT-R-ELIGIBLE",
+      "CK-PIPE-CURRENT-EXCLUDE",
+      "CK-R-ADDR",
+      "CK-R-CROSS-SRC",
+      "CK-R-EXACT-ELIGIBILITY",
+      "CK-R-HEAD",
+      "CK-R-HEAD-DONE",
+      "CK-R-ID",
+      "CK-R-ID-INDEPENDENT",
+      "CK-R-PORT",
+      "CK-R-RR-ADVANCE",
+      "CK-R-RR-HOLD",
+      "CK-R-RR-WINNER",
+      "CK-RESET-RR",
+      "CK-RESP-ADDRERR",
+      "CK-RESP-NORMAL",
+      "CK-RESP-OOB-ISSUE",
+      "CK-RESP-PARITY",
+      "CK-RETIRE-IDENTITY",
+      "CK-RETRY-5A-A",
+      "CK-REUSE-OLD-R",
+      "CK-WIN-6B",
+      "CK-WIN-CANDIDATES",
+      "CK-WIN-HALF",
+      "CK-WIN-ISSUED-EXCLUDE",
+      "CK-WIN-MEMBERS",
+      "CK-WIN-OLDEST-MATCH",
+      "CK-WIN-SIXTH-BLOCK"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_7135",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_7133",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_7132",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_7130",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\CONTRACT_STRICT_ORDER",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:340.35-340.83",
+        "expressions": [
+          "po_order_contract"
+        ],
+        "source_context": "338:         end\n339:     end\n340:     always @(posedge clk)if(rst_n)CONTRACT_STRICT_ORDER: assume(po_order_contract);\n341: "
+      }
+    ],
+    "contract_supplier_evidence": {
+      "consumer_run_id": "7af94773755d4ab0be53772682e87162",
+      "consumer_manifest_sha256": "858b6c90243734c89d976c2e70afc6d9344ebc81b7174e6fe47bd30cba163add",
+      "consumer_source_sha256": "b2a00c71a52ead3a2e29f2ab3f50facc36522483a8c061f32068973aba5c7e97",
+      "consumer_assumption": "CONTRACT_STRICT_ORDER",
+      "expression": "po_order_contract",
+      "guard": "posedge clk && rst_n",
+      "reviewed_monitor_sha256": {
+        "policy_order_contract.sv": "6fba4ebe7270e97a5b76b510d394de53683a1cabcd1e3e862deec9d962ad13e7",
+        "age_projection.sv": "317d74538f3e545d81d92d1f0881634294047114a3a4a58ae58a7fe22544c74b"
+      },
+      "wrapper_sha256": "f84594f9baec01cd346f00c82371e39442246e09d6e4b7222aaeedf0b24e36ca",
+      "structural_suppliers": [
+        {
+          "supplier_run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+          "supplier_property_id": "AP_IRREFLEXIVE",
+          "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+          "supplier_source_sha256": "3f695945ee29d6075fd0bf694b17e598e7a58622dc944bb2bd1397c61b1d27a5",
+          "supplier_manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+          "expression": "!older_q[ap_a][ap_a]",
+          "guard": "rst_n"
+        },
+        {
+          "supplier_run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+          "supplier_property_id": "AP_INVALID_BITS_ZERO",
+          "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+          "supplier_source_sha256": "3f695945ee29d6075fd0bf694b17e598e7a58622dc944bb2bd1397c61b1d27a5",
+          "supplier_manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+          "expression": "(valid_q[ap_a] && valid_q[ap_b]) || !older_q[ap_a][ap_b]",
+          "guard": "rst_n"
+        },
+        {
+          "supplier_run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+          "supplier_property_id": "AP_TOTAL_ANTISYMMETRY",
+          "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+          "supplier_source_sha256": "3f695945ee29d6075fd0bf694b17e598e7a58622dc944bb2bd1397c61b1d27a5",
+          "supplier_manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+          "expression": "older_q[ap_a][ap_b]!=older_q[ap_b][ap_a]",
+          "guard": "rst_n && valid_q[ap_a] && valid_q[ap_b] && ap_a!=ap_b"
+        },
+        {
+          "supplier_run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+          "supplier_property_id": "AP_TRANSITIVITY",
+          "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+          "supplier_source_sha256": "3f695945ee29d6075fd0bf694b17e598e7a58622dc944bb2bd1397c61b1d27a5",
+          "supplier_manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+          "expression": "older_q[ap_a][ap_c]",
+          "guard": "rst_n && valid_q[ap_a] && valid_q[ap_b] && valid_q[ap_c] && older_q[ap_a][ap_b] && older_q[ap_b][ap_c]"
+        }
+      ],
+      "age_semantics_supplier": {
+        "supplier_run_id": "e2b5b98c9ce24c82ac3ed80cc77611a7",
+        "supplier_property_id": "ANYCONST_FIFO_AGE",
+        "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+        "supplier_source_sha256": "3f695945ee29d6075fd0bf694b17e598e7a58622dc944bb2bd1397c61b1d27a5",
+        "supplier_manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+        "expression": "older_q[ap_a][ap_b]==ap_ab",
+        "guard": "rst_n"
+      },
+      "quantification": "Three independent arbitrary constants a,b,c range over all 9 DUT slots; the first four properties instantiate 81 pairs and 729 triples. ANYCONST_FIFO_AGE supplies acceptance-order semantics separately and is not substituted for the structural lemmas.",
+      "environment": "Exactly identical CMD-only wrappers: initial reset then released, valid source/response codes; arbitrary capture and parity, no actual-ready gating constraint. Supplier contains no DUT-behaviour assumption.",
+      "state_correspondence": "The signed supplier and consumer strip to exactly the same unchanged 9-entry RTL. No parameter reduction, state substitution, or reverse consumer-to-supplier dependency.",
+      "dependency_graph": {
+        "7af94773755d4ab0be53772682e87162": [
+          "e2b5b98c9ce24c82ac3ed80cc77611a7"
+        ],
+        "e2b5b98c9ce24c82ac3ed80cc77611a7": []
+      }
+    }
+  },
+  "4fad3bf036e74783a432f308ad4f5a89": {
+    "manifest_sha256": "f51d45a2b5806f6546daa39a4bed668da02c3b2eb61b3d86b979631e5707aa61",
+    "ck_ids": [
+      "CK-CV-CAPTURE-NOREADY",
+      "CK-CV-CROSS-SRC-ID",
+      "CK-CV-DUPLICATE-ID",
+      "CK-CV-ERR00",
+      "CK-CV-ERR01",
+      "CK-CV-ERR10",
+      "CK-CV-ERR11",
+      "CK-CV-FULL-SLOT-REUSE",
+      "CK-CV-NONMONOTONIC-ID",
+      "CK-CV-REORDER-TO-ORDER",
+      "CK-CV-UPPER-DATA",
+      "CK-CV-ZERO-DATA"
+    ],
+    "assumptions": "初始采样rst_n=0，随后为1；arvalid时src<3、arresp为00或11；arready全零时arvalid=0。无来源公平、grant成功、Bank最终空闲、持续ready、数据非零或ID唯一假设。额外任意常量选择器仅限0..8及两槽不同；它们选择被观察的事务，不限制DUT输入或状态。精确语句：f_data_entry<9；ct_a<9 / ct_b<9 / ct_a!=ct_b；ct_a<9 / ct_b<9 / ct_a!=ct_b；ct_a<9 / ct_b<9 / ct_a!=ct_b",
+    "scope": "仅证明所列业务场景在原RTL及上述输入协议下可达，不以cover作为安全证明。监视器跟踪同一事务身份；依赖supporting_ck_ids中的实际安全证明闭合模型与DUT关系。65个场景的定义经独立静态复核；STAGGER-GRANT/RR-ROTATE/RR-MASKS只采用收紧后的r2证据。",
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_4286",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5258",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5253",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5251",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5250",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5248",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4769",
+        "location": "inputs/rtl/cmdbuf_rd.sv:165.51-165.69",
+        "expressions": [
+          "ct_a<9",
+          "ct_b<9",
+          "ct_a!=ct_b"
+        ],
+        "source_context": "163:     reg [127:0] ct_first_data=0;\n164:     reg ct_first_data_seen=0,ct_pair_ok=0;\n165:     always @* begin assume(ct_a<9);assume(ct_b<9);assume(ct_a!=ct_b);end\n166:     wire ct_a_r=fd_retire && retire_entry==ct_a;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4767",
+        "location": "inputs/rtl/cmdbuf_rd.sv:165.36-165.50",
+        "expressions": [
+          "ct_a<9",
+          "ct_b<9",
+          "ct_a!=ct_b"
+        ],
+        "source_context": "163:     reg [127:0] ct_first_data=0;\n164:     reg ct_first_data_seen=0,ct_pair_ok=0;\n165:     always @* begin assume(ct_a<9);assume(ct_b<9);assume(ct_a!=ct_b);end\n166:     wire ct_a_r=fd_retire && retire_entry==ct_a;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4765",
+        "location": "inputs/rtl/cmdbuf_rd.sv:165.21-165.35",
+        "expressions": [
+          "ct_a<9",
+          "ct_b<9",
+          "ct_a!=ct_b"
+        ],
+        "source_context": "163:     reg [127:0] ct_first_data=0;\n164:     reg ct_first_data_seen=0,ct_pair_ok=0;\n165:     always @* begin assume(ct_a<9);assume(ct_b<9);assume(ct_a!=ct_b);end\n166:     wire ct_a_r=fd_retire && retire_entry==ct_a;"
+      }
+    ]
+  },
+  "23dfb1fbd1374613b5377a93dacf1f03": {
+    "manifest_sha256": "c2145ed3def146a722cc831be43794676127baab933cf2fba3d26070a39ee10e",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。未假设 actual arready 全零时 arvalid=0，准入在更宽输入域检查。内部15条lemma假设由8条独立结构性质和7条通用数学性质供应，供应方、完整signed消费者监视器、参数代入及保留前件均重新核验；当前容量合法性及其状态演进仍是assert。精确表达式、guard和源SHA见 contract_supplier_evidence。编译实际语句：380: always @(posedge clk)qm_contract_past<=1; 381: always @(posedge clk)if(rst_n)begin 382: C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0)); 383: C_SS_RR_RANGE: assume(rr_ptr_q<3); 381: always @(posedge clk)if(rst_n)begin 382: C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0)); 383: C_SS_RR_RANGE: assume(rr_ptr_q<3); 384: C_SS_ALLOC_INDEX: assume(alloc_entry<9); 387: if(retire_fire)begin 388: C_SS_RETIRE_OWNER: assume(retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner); 389: C_SS_RETIRE_ROUTE: assume(rvalid==(3'b1<<src_q[retire_entry])); 390: end 386: if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 387: if(retire_fire)begin 388: C_SS_RETIRE_OWNER: assume(retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner); 389: C_SS_RETIRE_ROUTE: assume(rvalid==(3'b1<<src_q[retire_entry])); 390: end 391: if(qm_contract_past && $past(rst_n))begin 392: C_SS_OCC_NET_ALL: assume( 393: occ_q[0]==$past(occ_q[0])+4'($past(alloc_fire && src==0))-4'($past(retire_fire && winner==0)) && 394: occ_q[1]==$past(occ_q[1])+4'($past(alloc_fire && src==1))-4'($past(retire_fire && winner==1)) && 395: occ_q[2]==$past(occ_q[2])+4'($past(alloc_fire && src==2))-4'($past(retire_fire && winner==2))); 396: end 383: C_SS_RR_RANGE: assume(rr_ptr_q<3); 384: C_SS_ALLOC_INDEX: assume(alloc_entry<9); 385: C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask)); 386: if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 382: C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0)); 383: C_SS_RR_RANGE: assume(rr_ptr_q<3); 384: C_SS_ALLOC_INDEX: assume(alloc_entry<9); 385: C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask)); 384: C_SS_ALLOC_INDEX: assume(alloc_entry<9); 385: C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask)); 386: if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 387: if(retire_fire)begin 484: C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9); 485: C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9); 486: C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7); 487: C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9); 483: always @(posedge clk)begin 484: C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9); 485: C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9); 486: C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7); 487: C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9); 488: C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6); 489: C_QUOTA_EMPTY_READY: assume(!mq_domain || mq_empty_ready); 490: end 485: C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9); 486: C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7); 487: C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9); 488: C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6); 486: C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7); 487: C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9); 488: C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6); 489: C_QUOTA_EMPTY_READY: assume(!mq_domain || mq_empty_ready); 482: end 483: always @(posedge clk)begin 484: C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9); 485: C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9); 444: end 445: end 446: always @(posedge clk)C_MATH_SINGLE_SLOT_SOURCE_NET: assume(!mn_legal || mn_net); 447: `endif",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "capacity_quota_math_r3",
+    "ck_ids": [
+      "CK-CAP-440",
+      "CK-CAP-700",
+      "CK-CAP-711-SHARED",
+      "CK-CAP-711-UNIQUE",
+      "CK-CAP-EMPTY-CAN-ACCEPT",
+      "CK-CAP-MAX7",
+      "CK-CAP-NONBLOCK-COMB",
+      "CK-CAP-OCC",
+      "CK-CAP-READY-FORMULA",
+      "CK-CAP-RESERVE",
+      "CK-LIFE-ALLOC-FREE",
+      "CK-REUSE-FULL-ACCEPT"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_2380",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_2378",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_2377",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_2375",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\C_SS_RVALID_PATH",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:382.9-382.78",
+        "expressions": [
+          "$onehot0(rvalid) && ((rvalid & ~rready)==0)"
+        ],
+        "source_context": "380:     always @(posedge clk)qm_contract_past<=1;\n381:     always @(posedge clk)if(rst_n)begin\n382:         C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0));\n383:         C_SS_RR_RANGE: assume(rr_ptr_q<3);"
+      },
+      {
+        "cell": "cell $assume \\C_SS_RR_RANGE",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:383.9-383.42",
+        "expressions": [
+          "rr_ptr_q<3"
+        ],
+        "source_context": "381:     always @(posedge clk)if(rst_n)begin\n382:         C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0));\n383:         C_SS_RR_RANGE: assume(rr_ptr_q<3);\n384:         C_SS_ALLOC_INDEX: assume(alloc_entry<9);"
+      },
+      {
+        "cell": "cell $assume \\C_SS_RETIRE_ROUTE",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:389.13-389.75",
+        "expressions": [
+          "rvalid==(3'b1<<src_q[retire_entry])"
+        ],
+        "source_context": "387:         if(retire_fire)begin\n388:             C_SS_RETIRE_OWNER: assume(retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner);\n389:             C_SS_RETIRE_ROUTE: assume(rvalid==(3'b1<<src_q[retire_entry]));\n390:         end"
+      },
+      {
+        "cell": "cell $assume \\C_SS_RETIRE_OWNER",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:388.13-388.146",
+        "expressions": [
+          "retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner"
+        ],
+        "source_context": "386:         if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry));\n387:         if(retire_fire)begin\n388:             C_SS_RETIRE_OWNER: assume(retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner);\n389:             C_SS_RETIRE_ROUTE: assume(rvalid==(3'b1<<src_q[retire_entry]));"
+      },
+      {
+        "cell": "cell $assume \\C_SS_OCC_NET_ALL",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:392.13-395.111",
+        "expressions": [
+          "\n                occ_q[0]==$past(occ_q[0])+4'($past(alloc_fire && src==0))-4'($past(retire_fire && winner==0)) &&\n                occ_q[1]==$past(occ_q[1])+4'($past(alloc_fire && src==1))-4'($past(retire_fire && winner==1)) &&\n                occ_q[2]==$past(occ_q[2])+4'($past(alloc_fire && src==2))-4'($past(retire_fire && winner==2))"
+        ],
+        "source_context": "390:         end\n391:         if(qm_contract_past && $past(rst_n))begin\n392:             C_SS_OCC_NET_ALL: assume(\n393:                 occ_q[0]==$past(occ_q[0])+4'($past(alloc_fire && src==0))-4'($past(retire_fire && winner==0)) &&\n394:                 occ_q[1]==$past(occ_q[1])+4'($past(alloc_fire && src==1))-4'($past(retire_fire && winner==1)) &&\n395:                 occ_q[2]==$past(occ_q[2])+4'($past(alloc_fire && src==2))-4'($past(retire_fire && winner==2)));\n396:         end"
+      },
+      {
+        "cell": "cell $assume \\C_SS_FREE_FOUND_EQ",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:385.9-385.61",
+        "expressions": [
+          "free_found==(|free_mask)"
+        ],
+        "source_context": "383:         C_SS_RR_RANGE: assume(rr_ptr_q<3);\n384:         C_SS_ALLOC_INDEX: assume(alloc_entry<9);\n385:         C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask));\n386:         if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry));"
+      },
+      {
+        "cell": "cell $assume \\C_SS_ALLOC_INDEX",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:384.9-384.48",
+        "expressions": [
+          "alloc_entry<9"
+        ],
+        "source_context": "382:         C_SS_RVALID_PATH: assume($onehot0(rvalid) && ((rvalid & ~rready)==0));\n383:         C_SS_RR_RANGE: assume(rr_ptr_q<3);\n384:         C_SS_ALLOC_INDEX: assume(alloc_entry<9);\n385:         C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask));"
+      },
+      {
+        "cell": "cell $assume \\C_SS_ALLOC_FROM_FREE",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:386.23-386.120",
+        "expressions": [
+          "!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)"
+        ],
+        "source_context": "384:         C_SS_ALLOC_INDEX: assume(alloc_entry<9);\n385:         C_SS_FREE_FOUND_EQ: assume(free_found==(|free_mask));\n386:         if(free_found)C_SS_ALLOC_FROM_FREE: assume(!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry));\n387:         if(retire_fire)begin"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_NEXT_MAX7",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:486.4-486.52",
+        "expressions": [
+          "!mq_domain || mq_cap7"
+        ],
+        "source_context": "484:    C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9);\n485:    C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9);\n486:    C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7);\n487:    C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9);"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_NEXT_BUDGET",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:485.4-485.58",
+        "expressions": [
+          "!mq_domain || mq_ncost<=9"
+        ],
+        "source_context": "483:  always @(posedge clk)begin\n484:    C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9);\n485:    C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9);\n486:    C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7);"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_EMPTY_READY",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:489.4-489.61",
+        "expressions": [
+          "!mq_domain || mq_empty_ready"
+        ],
+        "source_context": "487:    C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9);\n488:    C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6);\n489:    C_QUOTA_EMPTY_READY: assume(!mq_domain || mq_empty_ready);\n490:  end"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_AFTER_TOTAL",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:487.4-487.57",
+        "expressions": [
+          "!mq_domain || mq_used<=9"
+        ],
+        "source_context": "485:    C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9);\n486:    C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7);\n487:    C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9);\n488:    C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6);"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_AFTER_SHARED",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:488.4-488.60",
+        "expressions": [
+          "!mq_domain || mq_shared<=6"
+        ],
+        "source_context": "486:    C_QUOTA_NEXT_MAX7: assume(!mq_domain || mq_cap7);\n487:    C_QUOTA_AFTER_TOTAL: assume(!mq_domain || mq_used<=9);\n488:    C_QUOTA_AFTER_SHARED: assume(!mq_domain || mq_shared<=6);\n489:    C_QUOTA_EMPTY_READY: assume(!mq_domain || mq_empty_ready);"
+      },
+      {
+        "cell": "cell $assume \\C_QUOTA_AFTER_BUDGET",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:484.4-484.59",
+        "expressions": [
+          "!mq_domain || mq_dcost<=9"
+        ],
+        "source_context": "482:  end\n483:  always @(posedge clk)begin\n484:    C_QUOTA_AFTER_BUDGET: assume(!mq_domain || mq_dcost<=9);\n485:    C_QUOTA_NEXT_BUDGET: assume(!mq_domain || mq_ncost<=9);"
+      },
+      {
+        "cell": "cell $assume \\C_MATH_SINGLE_SLOT_SOURCE_NET",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:446.26-446.84",
+        "expressions": [
+          "!mn_legal || mn_net"
+        ],
+        "source_context": "444:         end\n445:     end\n446:     always @(posedge clk)C_MATH_SINGLE_SLOT_SOURCE_NET: assume(!mn_legal || mn_net);\n447: `endif"
+      }
+    ],
+    "contract_supplier_evidence": {
+      "group": "capacity_quota_math_r3",
+      "mathematical_suppliers": [
+        {
+          "run_id": "9f128a2b818b4e24b92fdf19a4badd65",
+          "property_id": "MATH_SINGLE_SLOT_SOURCE_NET",
+          "source": "rtl/cmdbuf_rd_cmd.sv",
+          "source_sha256": "65c7c720251a090fab2186250cc51c602ae39077d7714cf633ec28df8dac9026",
+          "manifest_sha256": "7efaa66458461c9c49e3e491fc0299e8e57192a58edbabd5f6787972cec3e9a1"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_AFTER_BUDGET",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_NEXT_BUDGET",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_NEXT_MAX7",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_AFTER_TOTAL",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_AFTER_SHARED",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        },
+        {
+          "run_id": "f0e59eb1c92d413aa7868ab341df8bcc",
+          "property_id": "QUOTA_EMPTY_READY",
+          "source": "formal/quota_step_math.sv",
+          "source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+          "manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c"
+        }
+      ],
+      "structural_suppliers": {
+        "group": "capacity_quota_math_r2",
+        "supplier_run": "1a259298993d49919ccc6332642b12e9",
+        "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+        "consumer_monitor_sha256": "bf3e1b9f087cd009bfba3ce80fc3de7f1b365fcef98472595fcc5d8dddef9b9e",
+        "consumer_project_checks": {
+          "actual_registered_project": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/proof/capacity_quota_math_r2",
+          "wrapper_sha256": "f84594f9baec01cd346f00c82371e39442246e09d6e4b7222aaeedf0b24e36ca",
+          "cmd_sha256": "0ec929c6df9f506ab7bca99ed227b1dd9dab3677c8442d723a297ecd43889149",
+          "actual_monitor_exact": true
+        },
+        "contracts": [
+          {
+            "consumer_assumption": "C_SS_RVALID_PATH",
+            "expression": "$onehot0(rvalid) && ((rvalid & ~rready)==0)",
+            "guard": "rst_n",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_RVALID_PATH",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.76",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_RVALID_PATH",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.9-328.76",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_RR_RANGE",
+            "expression": "rr_ptr_q<3",
+            "guard": "rst_n",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_RR_RANGE",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:329.9-329.40",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_RR_RANGE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:329.9-329.40",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_ALLOC_INDEX",
+            "expression": "alloc_entry<9",
+            "guard": "rst_n",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_ALLOC_INDEX",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:330.9-330.46",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_ALLOC_INDEX",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:330.9-330.46",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_FREE_FOUND_EQ",
+            "expression": "free_found==(|free_mask)",
+            "guard": "rst_n",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_FREE_FOUND_EQ",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:331.9-331.59",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_FREE_FOUND_EQ",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:331.9-331.59",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_ALLOC_FROM_FREE",
+            "expression": "!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)",
+            "guard": "rst_n && free_found",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_ALLOC_FROM_FREE",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:332.23-332.118",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_ALLOC_FROM_FREE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:332.23-332.118",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_RETIRE_OWNER",
+            "expression": "retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner",
+            "guard": "rst_n && retire_fire",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_RETIRE_OWNER",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:334.13-334.144",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_RETIRE_OWNER",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:334.13-334.144",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_RETIRE_ROUTE",
+            "expression": "rvalid==(3'b1<<src_q[retire_entry])",
+            "guard": "rst_n && retire_fire",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_RETIRE_ROUTE",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:335.13-335.73",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_RETIRE_ROUTE",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:335.13-335.73",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          },
+          {
+            "consumer_assumption": "C_SS_OCC_NET_ALL",
+            "expression": "\n                occ_q[0]==$past(occ_q[0])+4'($past(alloc_fire && src==0))-4'($past(retire_fire && winner==0)) &&\n                occ_q[1]==$past(occ_q[1])+4'($past(alloc_fire && src==1))-4'($past(retire_fire && winner==1)) &&\n                occ_q[2]==$past(occ_q[2])+4'($past(alloc_fire && src==2))-4'($past(retire_fire && winner==2))",
+            "guard": "rst_n && past_valid && $past(rst_n)",
+            "supplier_run_id": "1a259298993d49919ccc6332642b12e9",
+            "supplier_property_id": "SS_OCC_NET_ALL",
+            "supplier_property": {
+              "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd_cmd.sv:340.13-343.111",
+              "runtime_seconds": 1.0,
+              "proof_depth": null,
+              "engine": "sby/smtbmc/yices",
+              "coi": null,
+              "vacuous": null,
+              "counterexample_path": null,
+              "evidence_path": "proof/run.xml",
+              "details": {
+                "kind": "assert",
+                "mode": "prove",
+                "property_id": "SS_OCC_NET_ALL",
+                "location": "inputs/rtl/cmdbuf_rd_cmd.sv:340.13-343.111",
+                "bounded_depth": null
+              }
+            },
+            "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "environment_match": true,
+            "state_correspondence": "Same unchanged CMD module, same ports, same clock/reset and initial-reset wrapper; no reduced-depth DUT or state renaming. Past-valid registers both initialize to zero and become one at every first sample."
+          }
+        ],
+        "dependency_graph": {
+          "1a259298993d49919ccc6332642b12e9": [],
+          "capacity_quota_math_r2": [
+            "1a259298993d49919ccc6332642b12e9"
+          ]
+        },
+        "scope": "Only these eight already universally proven structure facts are imported; occupancy equality, budget, ready equation, free space under admission and max7 remain proof obligations. No assumption on grant fairness, Bank progress or MEM returns."
+      },
+      "substitution": {
+        "source_net_replacements": {
+          "// A mathematical supplier over arbitrary nine-slot state. None of these\n    // symbols are assigned from DUT state. Preconditions guard the theorem;\n    // they are not assumptions about the DUT and are not global capacity CKs.": "// Instance of the authenticated universal nine-slot mathematics theorem.\n    // Inputs below are the actual DUT state/events. Its legal antecedent is\n    // preserved, while actual DUT legality remains an assertion below.",
+          "(* anyconst *) reg [8:0] mn_live;": "wire [8:0] mn_live=valid_q;",
+          "(* anyconst *) reg [17:0] mn_sources;": "reg [17:0] mn_sources;\n    always @* for(integer i=0;i<9;i=i+1)mn_sources[i*2+:2]=src_q[i];",
+          "(* anyconst *) reg mn_alloc,mn_retire;": "wire mn_alloc=alloc_fire,mn_retire=retire_fire;",
+          "(* anyconst *) reg [3:0] mn_alloc_id,mn_retire_id;": "wire [3:0] mn_alloc_id=alloc_entry,mn_retire_id=retire_entry;",
+          "(* anyconst *) reg [1:0] mn_new_src;": "wire [1:0] mn_new_src=src;",
+          "MATH_SINGLE_SLOT_SOURCE_NET: assert(!mn_legal || mn_net);": "C_MATH_SINGLE_SLOT_SOURCE_NET: assume(!mn_legal || mn_net);"
+        },
+        "quota_alpha_renaming": {
+          "c": "mq_c",
+          "d": "mq_d",
+          "n": "mq_n",
+          "cost": "mq_cost",
+          "used": "mq_used",
+          "shared": "mq_shared",
+          "ncost": "mq_ncost",
+          "dcost": "mq_dcost",
+          "ready": "mq_ready",
+          "domain": "mq_domain",
+          "ret_legal": "mq_ret_legal",
+          "accept": "mq_accept",
+          "cap7": "mq_cap7",
+          "empty_ready": "mq_empty_ready",
+          "c0": "mq_c0",
+          "c1": "mq_c1",
+          "c2": "mq_c2",
+          "ret": "mq_ret",
+          "alloc_valid": "mq_alloc_valid",
+          "alloc_src": "mq_alloc_src"
+        },
+        "source_net_sha256": "7a29d5a6054b4db83c1d577bf97370d6ec5751731d46db00518065fe40b867b1",
+        "quota_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+        "consumer_sha256": "967ea8c1c9e83e26f815d50e3daecc29d10fc7dc0d822bd981ff714e1ac063c3",
+        "scope": "Universal arithmetic theorems are instantiated by direct wiring and identifier renaming; their legal-domain antecedents are preserved. Actual-state legality and next-state correspondence remain assertions."
+      },
+      "serialization_audit": {
+        "prepared_raw_sha256": "744163b3f756e6c92ecd11ec9e4af8ca7190e765e0f05b83e4c56062b5f9b912",
+        "normalized_monitor_sha256": "967ea8c1c9e83e26f815d50e3daecc29d10fc7dc0d822bd981ff714e1ac063c3",
+        "crlf_count": 179,
+        "consumer_run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+        "consumer_manifest_sha256": "c2145ed3def146a722cc831be43794676127baab933cf2fba3d26070a39ee10e",
+        "consumer_cmd_sha256": "5e85bdf093c2c9d10db96da125397abeda09e00199411ffca6c484226085cb0d",
+        "audit_note": "The first verifier rejected raw CRLF against the LF construction digest. No project or signed evidence was modified. This verifier explicitly checks the documented read_text normalization and exact signed consumer monitor; both digests are retained."
+      },
+      "scope": "All seven mathematics facts are universal guarded implications, not DUT behavior assumptions. Symbolic table/count arguments are connected to real DUT state/events without dropping antecedents. The consumer separately asserts that its actual state is legal, the mathematical next state corresponds to the RTL next state, and admission/budget are valid. The structure supplier has no dependence on this consumer.",
+      "static_review": "Root and independent proof agent reviewed all substitutions and guards; no counter, budget, physical vacancy or acceptance property is imported without its guard.",
+      "dependencies": [
+        "1a259298993d49919ccc6332642b12e9",
+        "9f128a2b818b4e24b92fdf19a4badd65",
+        "f0e59eb1c92d413aa7868ab341df8bcc"
+      ],
+      "independent_review": {
+        "scope": "Independent source and supplier-contract audit only; consumer proof status is not inferred.",
+        "consumer_run": "23dfb1fbd1374613b5377a93dacf1f03",
+        "observed_execution_status": "completed",
+        "prepared_raw_sha256": "744163b3f756e6c92ecd11ec9e4af8ca7190e765e0f05b83e4c56062b5f9b912",
+        "prepared_lf_sha256": "967ea8c1c9e83e26f815d50e3daecc29d10fc7dc0d822bd981ff714e1ac063c3",
+        "registered_full_cmd_sha256": "5e85bdf093c2c9d10db96da125397abeda09e00199411ffca6c484226085cb0d",
+        "registered_monitor_trimmed_sha256": "8168850316898c9c2d54df985894afc5cf3d9b5a520fd82940e4a780379f358d",
+        "registered_monitor_equals_normalized_prepared": true,
+        "wrapper_equals_structural_supplier": true,
+        "exact_authenticated_supplier_properties": [
+          {
+            "property_id": "SS_RVALID_PATH",
+            "consumer_assumption": "C_SS_RVALID_PATH",
+            "consumer_expression": "$onehot0(rvalid) && ((rvalid & ~rready)==0)",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_RR_RANGE",
+            "consumer_assumption": "C_SS_RR_RANGE",
+            "consumer_expression": "rr_ptr_q<3",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_ALLOC_INDEX",
+            "consumer_assumption": "C_SS_ALLOC_INDEX",
+            "consumer_expression": "alloc_entry<9",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_FREE_FOUND_EQ",
+            "consumer_assumption": "C_SS_FREE_FOUND_EQ",
+            "consumer_expression": "free_found==(|free_mask)",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_ALLOC_FROM_FREE",
+            "consumer_assumption": "C_SS_ALLOC_FROM_FREE",
+            "consumer_expression": "!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_RETIRE_OWNER",
+            "consumer_assumption": "C_SS_RETIRE_OWNER",
+            "consumer_expression": "retire_entry<9 && winner<3 && valid_q[retire_entry] && done_q[retire_entry] && src_q[retire_entry]==winner",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_RETIRE_ROUTE",
+            "consumer_assumption": "C_SS_RETIRE_ROUTE",
+            "consumer_expression": "rvalid==(3'b1<<src_q[retire_entry])",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "SS_OCC_NET_ALL",
+            "consumer_assumption": "C_SS_OCC_NET_ALL",
+            "consumer_expression": "\n                occ_q[0]==$past(occ_q[0])+4'($past(alloc_fire && src==0))-4'($past(retire_fire && winner==0)) &&\n                occ_q[1]==$past(occ_q[1])+4'($past(alloc_fire && src==1))-4'($past(retire_fire && winner==1)) &&\n                occ_q[2]==$past(occ_q[2])+4'($past(alloc_fire && src==2))-4'($past(retire_fire && winner==2))",
+            "supplier_manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+            "supplier_run": "1a259298993d49919ccc6332642b12e9.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+            "mode": "prove"
+          },
+          {
+            "property_id": "MATH_SINGLE_SLOT_SOURCE_NET",
+            "consumer_assumption": "C_MATH_SINGLE_SLOT_SOURCE_NET",
+            "consumer_expression": "!mn_legal || mn_net",
+            "supplier_manifest_sha256": "7efaa66458461c9c49e3e491fc0299e8e57192a58edbabd5f6787972cec3e9a1",
+            "supplier_run": "9f128a2b818b4e24b92fdf19a4badd65.formal",
+            "supplier_source": "rtl/cmdbuf_rd_cmd.sv",
+            "supplier_source_sha256": "65c7c720251a090fab2186250cc51c602ae39077d7714cf633ec28df8dac9026",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_AFTER_BUDGET",
+            "consumer_assumption": "C_QUOTA_AFTER_BUDGET",
+            "consumer_expression": "!mq_domain || mq_dcost<=9",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_NEXT_BUDGET",
+            "consumer_assumption": "C_QUOTA_NEXT_BUDGET",
+            "consumer_expression": "!mq_domain || mq_ncost<=9",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_NEXT_MAX7",
+            "consumer_assumption": "C_QUOTA_NEXT_MAX7",
+            "consumer_expression": "!mq_domain || mq_cap7",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_AFTER_TOTAL",
+            "consumer_assumption": "C_QUOTA_AFTER_TOTAL",
+            "consumer_expression": "!mq_domain || mq_used<=9",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_AFTER_SHARED",
+            "consumer_assumption": "C_QUOTA_AFTER_SHARED",
+            "consumer_expression": "!mq_domain || mq_shared<=6",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          },
+          {
+            "property_id": "QUOTA_EMPTY_READY",
+            "consumer_assumption": "C_QUOTA_EMPTY_READY",
+            "consumer_expression": "!mq_domain || mq_empty_ready",
+            "supplier_manifest_sha256": "6c584da56a525b6eceed4da69d03890ae195c4a1429f228fa46967dd00c7938c",
+            "supplier_run": "f0e59eb1c92d413aa7868ab341df8bcc.formal",
+            "supplier_source": "formal/quota_step_math.sv",
+            "supplier_source_sha256": "a63548c2fbdca68326ef299b78ec58bce3ce7e512487c571475d1612d32f14e6",
+            "mode": "prove"
+          }
+        ],
+        "mathematical_reconstruction": "Both complete pure combinational supplier computations are reconstructed by exact declared substitutions; all guarded implications retained.",
+        "guard_review": "Eight structural guards and posedge clock are identical to r2; ss_past and qm_contract_past initialize to zero and become one on every first sample. All seven mathematical implications are unconditional posedge theorems, including their legal/domain antecedents. Actual mn_legal/mq_domain, acceptance identity and RTL next-count correspondence remain assertions. Their antecedents are not imported as assumptions.",
+        "signed_consumer_verification": {
+          "manifest_sha256": "c2145ed3def146a722cc831be43794676127baab933cf2fba3d26070a39ee10e",
+          "input_cmd_sha256": "5e85bdf093c2c9d10db96da125397abeda09e00199411ffca6c484226085cb0d",
+          "execution_only": "authenticated; individual property outcomes remain in original manifest"
+        }
+      }
+    }
+  },
+  "e2b5b98c9ce24c82ac3ed80cc77611a7": {
+    "manifest_sha256": "546ee5fd797cd91e70aa5d44b446a043600f24140e778d4af508b0d3f1256c7b",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：326: // This observer is two entries; the unmodified DUT remains nine entries. 327: (* anyconst *) reg [3:0] ap_a,ap_b,ap_c; 328: always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end 329: wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0); 326: // This observer is two entries; the unmodified DUT remains nine entries. 327: (* anyconst *) reg [3:0] ap_a,ap_b,ap_c; 328: always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end 329: wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0); 326: // This observer is two entries; the unmodified DUT remains nine entries. 327: (* anyconst *) reg [3:0] ap_a,ap_b,ap_c; 328: always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end 329: wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0);",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。 任意两槽观察器覆盖完整九槽的当前世代接受顺序；不覆盖活身份由 CK-LIFE-ALLOC-FREE 供应，物理退休的有效归属和源路由由此处单列的已证 SS_RETIRE_OWNER/SS_RETIRE_ROUTE 供应，完整 R 最老选择另外验证。",
+    "family": "age_projection_r1",
+    "ck_ids": [
+      "CK-REUSE-YOUNGEST",
+      "CK-WIN-AGE"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_1713",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);\n45:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_1711",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "41:         else assume(rst_n);\n42:         if(arvalid) begin\n43:             assume(src < 3);\n44:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_1710",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);\n42:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_1708",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "38:     always @(posedge clk) begin\n39:         f_started <= 1;\n40:         if (!f_started) assume(!rst_n);\n41:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_328_1430",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.50-328.64",
+        "expressions": [
+          "ap_a<9",
+          "ap_b<9",
+          "ap_c<9"
+        ],
+        "source_context": "326:     // This observer is two entries; the unmodified DUT remains nine entries.\n327:     (* anyconst *) reg [3:0] ap_a,ap_b,ap_c;\n328:     always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end\n329:     wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_328_1428",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.35-328.49",
+        "expressions": [
+          "ap_a<9",
+          "ap_b<9",
+          "ap_c<9"
+        ],
+        "source_context": "326:     // This observer is two entries; the unmodified DUT remains nine entries.\n327:     (* anyconst *) reg [3:0] ap_a,ap_b,ap_c;\n328:     always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end\n329:     wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_328_1426",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:328.20-328.34",
+        "expressions": [
+          "ap_a<9",
+          "ap_b<9",
+          "ap_c<9"
+        ],
+        "source_context": "326:     // This observer is two entries; the unmodified DUT remains nine entries.\n327:     (* anyconst *) reg [3:0] ap_a,ap_b,ap_c;\n328:     always @*begin assume(ap_a<9);assume(ap_b<9);assume(ap_c<9);end\n329:     wire ap_accept=arvalid && src<3 && ((src<3)?arready[src]:1'b0);"
+      }
+    ],
+    "auxiliary_supplier_evidence": [
+      {
+        "run_id": "1a259298993d49919ccc6332642b12e9",
+        "property_id": "SS_RETIRE_OWNER",
+        "source": "rtl/cmdbuf_rd_cmd.sv",
+        "source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+        "mode": "prove",
+        "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+        "input_map": {
+          "rtl/cmdbuf_rd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_cmd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_cmd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_otb.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_otb.sv",
+            "transform": "strip_cmdbuf_monitor"
+          }
+        }
+      },
+      {
+        "run_id": "1a259298993d49919ccc6332642b12e9",
+        "property_id": "SS_RETIRE_ROUTE",
+        "source": "rtl/cmdbuf_rd_cmd.sv",
+        "source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+        "mode": "prove",
+        "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db",
+        "input_map": {
+          "rtl/cmdbuf_rd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_cmd.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_cmd.sv",
+            "transform": "strip_cmdbuf_monitor"
+          },
+          "rtl/cmdbuf_rd_otb.sv": {
+            "session_source": "cmdbuf_rd/rtl/cmdbuf_rd_otb.sv",
+            "transform": "strip_cmdbuf_monitor"
+          }
+        }
+      }
+    ]
+  },
+  "70ed659d569f48608f2c0ecb96219add": {
+    "manifest_sha256": "de892225e4bbcb7b34b2bc9f2c9084f8b95dd1cf04238fa07187d601417eb4c6",
+    "ck_ids": [
+      "CK-CV-6B",
+      "CK-CV-CAP440",
+      "CK-CV-CAP700",
+      "CK-CV-CAP711",
+      "CK-CV-CROSS-SRC-PROGRESS",
+      "CK-CV-FAIL-KEEPS-WINDOW",
+      "CK-CV-OUT-OF-ORDER",
+      "CK-CV-QUOTA-NO-ESCAPE",
+      "CK-CV-RR-MASKS",
+      "CK-CV-RR-ROTATE",
+      "CK-CV-SAME-SRC-NETZERO",
+      "CK-CV-SHARED-REFILL",
+      "CK-CV-SIXTH-BLOCKED",
+      "CK-CV-UNIQUE-REFILL",
+      "CK-CV-YOUNGER-DONE"
+    ],
+    "assumptions": "初始采样rst_n=0，随后为1；arvalid时src<3、arresp为00或11；arready全零时arvalid=0。无来源公平、grant成功、Bank最终空闲、持续ready、数据非零或ID唯一假设。额外任意常量选择器仅限0..8及两槽不同；它们选择被观察的事务，不限制DUT输入或状态。精确语句：f_data_entry<9",
+    "scope": "仅证明所列业务场景在原RTL及上述输入协议下可达，不以cover作为安全证明。监视器跟踪同一事务身份；依赖supporting_ck_ids中的实际安全证明闭合模型与DUT关系。65个场景的定义经独立静态复核；STAGGER-GRANT/RR-ROTATE/RR-MASKS只采用收紧后的r2证据。",
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_5890",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6348",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6343",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6341",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6340",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6338",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "4126ae65ec774b3eb5dee97e117dfd51": {
+    "manifest_sha256": "5a3c0a82a60a5b0944a90762d1216ceec0897f0997bf8238466813653b3f69bf",
+    "ck_ids": [
+      "CK-CV-5A-A",
+      "CK-CV-5A-B",
+      "CK-CV-CALENDAR-BUBBLE",
+      "CK-CV-ISSUE-CONSECUTIVE",
+      "CK-CV-MEM-NEXT-R",
+      "CK-CV-MEM-OTHER-R",
+      "CK-CV-MIN3",
+      "CK-CV-PIPE-ALL",
+      "CK-CV-RETRY-TO-R",
+      "CK-CV-STAGGER-GRANT",
+      "CK-CV-STATUS-FLIP",
+      "CK-CV-STRAY-GRANT",
+      "CK-CV-UNREADY-SRC"
+    ],
+    "assumptions": "初始采样rst_n=0，随后为1；arvalid时src<3、arresp为00或11；arready全零时arvalid=0。无来源公平、grant成功、Bank最终空闲、持续ready、数据非零或ID唯一假设。额外任意常量选择器仅限0..8及两槽不同；它们选择被观察的事务，不限制DUT输入或状态。精确语句：f_data_entry<9",
+    "scope": "仅证明所列业务场景在原RTL及上述输入协议下可达，不以cover作为安全证明。监视器跟踪同一事务身份；依赖supporting_ck_ids中的实际安全证明闭合模型与DUT关系。65个场景的定义经独立静态复核；STAGGER-GRANT/RR-ROTATE/RR-MASKS只采用收紧后的r2证据。",
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_5920",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6378",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6373",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6371",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6370",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6368",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "06c3fcda800c4a8dbbeac8bbcaf4c9cd": {
+    "manifest_sha256": "a28cd69c77c86b85d392065889c1a04506743ee7c66b90d31451cd6325ce01d8",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：118: 119: (* anyconst *) reg[3:0] f_data_entry; 120: always @* assume(f_data_entry<9); 121: reg f_data_past=0;",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。复用2026-10-10真实无界证明，非本轮重跑。",
+    "family": "data_transition_20261010",
+    "ck_ids": [
+      "CK-DATA-CAPTURE-NOREADY",
+      "CK-DATA-CAPTURE128",
+      "CK-DATA-HOLD128",
+      "CK-DATA-PCERR-CAPTURE",
+      "CK-DATA-PCERR-HOLD",
+      "CK-DATA-VALID-NOTVALUE"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_120_1578",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:120.15-120.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "118: \n119:     (* anyconst *) reg[3:0] f_data_entry;\n120:     always @* assume(f_data_entry<9);\n121:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_1794",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_1789",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_1787",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_1786",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_1784",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "d3abbb66bc0a4911a09e05d86571302d": {
+    "manifest_sha256": "10aefb88f5a519bbe9f921995949f6464294d094be882c7c7ff262d19e85e573",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。内部仅两条分配lemma假设：分配索引范围与不覆盖尚未退休活项。已重新验签独立结构/容量供应方、完整消费者监视器、只读状态连接及更宽环境包含；独立九槽倒计时、日历等价及捕获关系保持为assert。精确表达式、guard和源SHA见 contract_supplier_evidence。编译实际语句：346: wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt); 347: (* anyconst *) reg [3:0] fa_watch; 348: always @* assume(fa_watch<9); 349: reg [8:0] fm_live_q,fm_issued_q,fm_done_q; 120: always @(posedge clk)if(rst_n)begin 121: if(alloc_fire)begin 122: CONTRACT_ALLOC_RANGE: assume(alloc_entry<9); 123: CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 121: if(alloc_fire)begin 122: CONTRACT_ALLOC_RANGE: assume(alloc_entry<9); 123: CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 124: end",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "lifecycle_r2",
+    "ck_ids": [
+      "CK-LIFE-NODUP-ISSUE",
+      "CK-MEM-NO-R-BYPASS",
+      "CK-MEM-UNIQUE",
+      "CK-PENDING-EXACT",
+      "CK-RETRY-ONCE-TOKEN"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_2355",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_2350",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_2348",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_2347",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_2345",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_348_1475",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:348.15-348.33",
+        "expressions": [
+          "fa_watch<9"
+        ],
+        "source_context": "346:     wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt);\n347:     (* anyconst *) reg [3:0] fa_watch;\n348:     always @* assume(fa_watch<9);\n349:     reg [8:0] fm_live_q,fm_issued_q,fm_done_q;"
+      },
+      {
+        "cell": "cell $assume \\CONTRACT_ALLOC_RANGE",
+        "location": "inputs/rtl/cmdbuf_rd.sv:122.13-122.56",
+        "expressions": [
+          "alloc_entry<9"
+        ],
+        "source_context": "120:     always @(posedge clk)if(rst_n)begin\n121:         if(alloc_fire)begin\n122:             CONTRACT_ALLOC_RANGE: assume(alloc_entry<9);\n123:             CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry));"
+      },
+      {
+        "cell": "cell $assume \\CONTRACT_ALLOC_FREE",
+        "location": "inputs/rtl/cmdbuf_rd.sv:123.13-123.114",
+        "expressions": [
+          "!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)"
+        ],
+        "source_context": "121:         if(alloc_fire)begin\n122:             CONTRACT_ALLOC_RANGE: assume(alloc_entry<9);\n123:             CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry));\n124:         end"
+      }
+    ],
+    "contract_supplier_evidence": {
+      "consumer_run_id": "d3abbb66bc0a4911a09e05d86571302d",
+      "consumer_manifest_sha256": "10aefb88f5a519bbe9f921995949f6464294d094be882c7c7ff262d19e85e573",
+      "consumer_top_sha256": "4db13880c50ae77c7a46ff3e72b71120b676e2fae4f479b74ad9fc30b50cdeea",
+      "suppliers": [
+        {
+          "run_id": "1a259298993d49919ccc6332642b12e9",
+          "property_id": "SS_ALLOC_INDEX",
+          "expression": "alloc_entry<9",
+          "guard": "posedge clk && rst_n",
+          "source": "rtl/cmdbuf_rd_cmd.sv",
+          "source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+          "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db"
+        },
+        {
+          "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+          "property_id": "QM_ALLOC_FREE",
+          "expression": "!alloc_fire || (alloc_entry<9 && (!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)))",
+          "guard": "posedge clk && rst_n",
+          "source": "rtl/cmdbuf_rd_cmd.sv",
+          "source_sha256": "5e85bdf093c2c9d10db96da125397abeda09e00199411ffca6c484226085cb0d",
+          "manifest_sha256": "c2145ed3def146a722cc831be43794676127baab933cf2fba3d26070a39ee10e"
+        }
+      ],
+      "consumer_assumptions": [
+        "alloc_entry<9",
+        "!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)"
+      ],
+      "consumer_guard": "posedge clk && rst_n && alloc_fire",
+      "reviewed_monitor_sha256": {
+        "lifecycle_consumer.sv": "e641764f15313d2c876f02efe5ca49285971362770ea56a2289fcb38e752de87",
+        "lifecycle_due_extra.sv": "68bdf1fe094d086eacc6eeca26713e57b753f07914381a3616499d1eadd3af01"
+      },
+      "supplier_wrapper_sha256": "f84594f9baec01cd346f00c82371e39442246e09d6e4b7222aaeedf0b24e36ca",
+      "consumer_wrapper_sha256": "d1e2f1d582093d4e0b364ee24162ee9a1ca406dfc9854602334bce005ba0f75f",
+      "environment_inclusion": "Both CMD-only suppliers share the same wrapper, arbitrary capture/parity and no all-ready-zero valid restriction. Consumer full-TOP fixed four-cycle capture and valid gating is a subset; initial-reset clock contract, dimensions and functional CMD bytes are identical.",
+      "state_correspondence": "Read-only fc_cmd_valid/issued/done map exactly to unchanged u_cmd vectors; actual alloc/retire ports use the unchanged parent connections. No force, shadow-state substitution or depth reduction.",
+      "independent_countdown_properties": {
+        "LIFE_CALENDAR_MATCH": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:177.9-177.55",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_CALENDAR_MATCH",
+            "location": "inputs/rtl/cmdbuf_rd.sv:177.9-177.55",
+            "bounded_depth": null
+          }
+        },
+        "LIFE_INDEPENDENT_DUE_UNIQUE": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:178.9-178.61",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_INDEPENDENT_DUE_UNIQUE",
+            "location": "inputs/rtl/cmdbuf_rd.sv:178.9-178.61",
+            "bounded_depth": null
+          }
+        },
+        "LIFE_INDEPENDENT_CAPTURE": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:179.9-180.81",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_INDEPENDENT_CAPTURE",
+            "location": "inputs/rtl/cmdbuf_rd.sv:179.9-180.81",
+            "bounded_depth": null
+          }
+        }
+      },
+      "scope": "The two allocation assumptions are supplied independently before this run. Nine per-identity countdowns advance only from external success and elapsed cycles; calendar equality and actual capture equality are separately proven. These are supporting lemmas, not assumptions.",
+      "dependency_graph": {
+        "d3abbb66bc0a4911a09e05d86571302d": [
+          "1a259298993d49919ccc6332642b12e9",
+          "23dfb1fbd1374613b5377a93dacf1f03"
+        ]
+      }
+    }
+  },
+  "88efe3bbd1a44059bf2cd59e4609b7b3": {
+    "manifest_sha256": "50e66a9aef3591f3021663c4f09136a2f5158e4f26d4b671b1bb2fba3aff46fd",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。内部仅两条分配lemma假设：分配索引范围与不覆盖尚未退休活项。已重新验签独立结构/容量供应方、完整消费者监视器、只读状态连接及更宽环境包含；独立九槽倒计时、日历等价及捕获关系保持为assert。精确表达式、guard和源SHA见 contract_supplier_evidence。编译实际语句：346: wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt); 347: (* anyconst *) reg [3:0] fa_watch; 348: always @* assume(fa_watch<9); 349: reg [8:0] fm_live_q,fm_issued_q,fm_done_q; 120: always @(posedge clk)if(rst_n)begin 121: if(alloc_fire)begin 122: CONTRACT_ALLOC_RANGE: assume(alloc_entry<9); 123: CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 121: if(alloc_fire)begin 122: CONTRACT_ALLOC_RANGE: assume(alloc_entry<9); 123: CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)); 124: end",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "lifecycle_r3",
+    "ck_ids": [
+      "CK-PENDING-UPDATE"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_2379",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_2374",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_2372",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_2371",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_2369",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_348_1475",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:348.15-348.33",
+        "expressions": [
+          "fa_watch<9"
+        ],
+        "source_context": "346:     wire fa_success=|(req&ar_rd_gnt&rw_rd_gnt);\n347:     (* anyconst *) reg [3:0] fa_watch;\n348:     always @* assume(fa_watch<9);\n349:     reg [8:0] fm_live_q,fm_issued_q,fm_done_q;"
+      },
+      {
+        "cell": "cell $assume \\CONTRACT_ALLOC_RANGE",
+        "location": "inputs/rtl/cmdbuf_rd.sv:122.13-122.56",
+        "expressions": [
+          "alloc_entry<9"
+        ],
+        "source_context": "120:     always @(posedge clk)if(rst_n)begin\n121:         if(alloc_fire)begin\n122:             CONTRACT_ALLOC_RANGE: assume(alloc_entry<9);\n123:             CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry));"
+      },
+      {
+        "cell": "cell $assume \\CONTRACT_ALLOC_FREE",
+        "location": "inputs/rtl/cmdbuf_rd.sv:123.13-123.114",
+        "expressions": [
+          "!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)"
+        ],
+        "source_context": "121:         if(alloc_fire)begin\n122:             CONTRACT_ALLOC_RANGE: assume(alloc_entry<9);\n123:             CONTRACT_ALLOC_FREE: assume(!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry));\n124:         end"
+      }
+    ],
+    "contract_supplier_evidence": {
+      "consumer_run_id": "88efe3bbd1a44059bf2cd59e4609b7b3",
+      "consumer_manifest_sha256": "50e66a9aef3591f3021663c4f09136a2f5158e4f26d4b671b1bb2fba3aff46fd",
+      "consumer_top_sha256": "4b9cf5eee6a1500e8d77641e250777abf19ffc24fa61486c41f8331cea242626",
+      "suppliers": [
+        {
+          "run_id": "1a259298993d49919ccc6332642b12e9",
+          "property_id": "SS_ALLOC_INDEX",
+          "expression": "alloc_entry<9",
+          "guard": "posedge clk && rst_n",
+          "source": "rtl/cmdbuf_rd_cmd.sv",
+          "source_sha256": "164dcd3bb879726e6ada8caac6e819cbcbc87427ee294cc60f2361c83dc1cb0c",
+          "manifest_sha256": "fc1c8309abb9d4ee5a9d777f92b33d233902288c75b5b1d26e3b9a6d2b7b22db"
+        },
+        {
+          "run_id": "23dfb1fbd1374613b5377a93dacf1f03",
+          "property_id": "QM_ALLOC_FREE",
+          "expression": "!alloc_fire || (alloc_entry<9 && (!valid_q[alloc_entry] || (retire_fire && retire_entry==alloc_entry)))",
+          "guard": "posedge clk && rst_n",
+          "source": "rtl/cmdbuf_rd_cmd.sv",
+          "source_sha256": "5e85bdf093c2c9d10db96da125397abeda09e00199411ffca6c484226085cb0d",
+          "manifest_sha256": "c2145ed3def146a722cc831be43794676127baab933cf2fba3d26070a39ee10e"
+        }
+      ],
+      "consumer_assumptions": [
+        "alloc_entry<9",
+        "!fc_cmd_valid[alloc_entry] || (retire_fire && retire_entry==alloc_entry)"
+      ],
+      "consumer_guard": "posedge clk && rst_n && alloc_fire",
+      "reviewed_monitor_sha256": {
+        "lifecycle_consumer.sv": "e641764f15313d2c876f02efe5ca49285971362770ea56a2289fcb38e752de87",
+        "lifecycle_due_extra.sv": "68bdf1fe094d086eacc6eeca26713e57b753f07914381a3616499d1eadd3af01"
+      },
+      "supplier_wrapper_sha256": "f84594f9baec01cd346f00c82371e39442246e09d6e4b7222aaeedf0b24e36ca",
+      "consumer_wrapper_sha256": "d1e2f1d582093d4e0b364ee24162ee9a1ca406dfc9854602334bce005ba0f75f",
+      "environment_inclusion": "Both CMD-only suppliers share the same wrapper, arbitrary capture/parity and no all-ready-zero valid restriction. Consumer full-TOP fixed four-cycle capture and valid gating is a subset; initial-reset clock contract, dimensions and functional CMD bytes are identical.",
+      "state_correspondence": "Read-only fc_cmd_valid/issued/done map exactly to unchanged u_cmd vectors; actual alloc/retire ports use the unchanged parent connections. No force, shadow-state substitution or depth reduction.",
+      "independent_countdown_properties": {
+        "LIFE_CALENDAR_MATCH": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:177.9-177.55",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_CALENDAR_MATCH",
+            "location": "inputs/rtl/cmdbuf_rd.sv:177.9-177.55",
+            "bounded_depth": null
+          }
+        },
+        "LIFE_INDEPENDENT_DUE_UNIQUE": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:178.9-178.61",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_INDEPENDENT_DUE_UNIQUE",
+            "location": "inputs/rtl/cmdbuf_rd.sv:178.9-178.61",
+            "bounded_depth": null
+          }
+        },
+        "LIFE_INDEPENDENT_CAPTURE": {
+          "name": "Property ASSERT in cmdbuf_rd_formal/dut at inputs/rtl/cmdbuf_rd.sv:179.9-180.81",
+          "runtime_seconds": 11.0,
+          "proof_depth": null,
+          "engine": "sby/smtbmc/yices",
+          "coi": null,
+          "vacuous": null,
+          "counterexample_path": null,
+          "evidence_path": "proof/run.xml",
+          "details": {
+            "kind": "assert",
+            "mode": "prove",
+            "property_id": "LIFE_INDEPENDENT_CAPTURE",
+            "location": "inputs/rtl/cmdbuf_rd.sv:179.9-180.81",
+            "bounded_depth": null
+          }
+        }
+      },
+      "scope": "The two allocation assumptions are supplied independently before this run. Nine per-identity countdowns advance only from external success and elapsed cycles; calendar equality and actual capture equality are separately proven. These are supporting lemmas, not assumptions.",
+      "dependency_graph": {
+        "88efe3bbd1a44059bf2cd59e4609b7b3": [
+          "1a259298993d49919ccc6332642b12e9",
+          "23dfb1fbd1374613b5377a93dacf1f03"
+        ]
+      },
+      "pending_nonmod_equivalence": {
+        "original_expression": "{1'b0,pending_cnt} == ({1'b0,$past(pending_cnt)} + ($past(arvalid && src < 3 && arready[src]) ? 5'd1 : 5'd0) - ($past(|(req & ar_rd_gnt & rw_rd_gnt)) ? 5'd1 : 5'd0))",
+        "native_expression": "\n                {1'b0,pending_cnt} ==\n                {1'b0,$past(pending_cnt)} +\n                ($past(arvalid && src<3 && arready[src])?5'd1:5'd0) -\n                ($past(|(req & ar_rd_gnt & rw_rd_gnt))?5'd1:5'd0)",
+        "original_guard": "uc_past_valid && rst_n && $past(rst_n)",
+        "native_guard": "lp_nonmod_past_valid && rst_n && $past(rst_n)",
+        "equivalence": "Identical 5-bit zero-extended arithmetic, external acceptance/success events and sampled-reset guard; only redundant parentheses around RHS and the independent past-valid register name differ. Both registers initialize zero and become one at every clock. No modulo-4 substitution.",
+        "reviewed_extra_sha256": "b46a48536803ab47b74e70f1901beceff37cbc484eb5da226a24789f2aa36105"
+      }
+    }
+  },
+  "d1b24d76e50246b68984850bd65e972a": {
+    "manifest_sha256": "01e67c642fea6a84d1ba6b8842d77e1af283b6e1e3af4f7f131a82e4d9d36905",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：337: 338: (* anyconst *) reg[3:0] f_local_entry; 339: always @* assume(f_local_entry<9); 340: reg f_local_past=0;",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。复用2026-10-10真实无界证明，非本轮重跑。",
+    "family": "local_transition_20261010",
+    "ck_ids": [
+      "CK-LIFE-NEW-STATE",
+      "CK-RETIRE-CLEAR-STATE"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_1877",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_1872",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_1870",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_1869",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_1867",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_cmd_sv_339_1469",
+        "location": "inputs/rtl/cmdbuf_rd_cmd.sv:339.15-339.38",
+        "expressions": [
+          "f_local_entry<9"
+        ],
+        "source_context": "337: \n338:     (* anyconst *) reg[3:0] f_local_entry;\n339:     always @* assume(f_local_entry<9);\n340:     reg f_local_past=0;"
+      }
+    ]
+  },
+  "339d5e96ea7a492387752769b6cd080a": {
+    "manifest_sha256": "82979c38aa48b55227c46699e1ca5ac1ca44a5d8a85268aacbc0c46668cf0b45",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。选择器仅限制任意常量索引范围，不约束DUT行为；精确源语句：126: 127: (* anyconst *) reg[3:0] f_data_entry; 128: always @* assume(f_data_entry<9); 129: reg f_data_past=0;",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。本轮原生项目，日期以签名manifest.started_at为准。",
+    "family": "data_origin_r1",
+    "ck_ids": [
+      "CK-DATA-ENDTOEND-ERR",
+      "CK-DATA-ENDTOEND128",
+      "CK-DATA-R-ROUTE",
+      "CK-RESP-ERROR-DATA"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_1580",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_2051",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_2046",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_2044",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_2043",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_2041",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "6b25c32cc4d64e4d83e743c701528ade": {
+    "manifest_sha256": "f49b44483fc9ac67a1c47b52c2dc51eafce54d6e9978356dff15761144d8aa90",
+    "assumptions": "仅初始采样复位有效，随后持续释放；不覆盖运行中复位。arvalid 时 src<3、arresp 为00或11；其他地址、ID、数据、状态、grant和ready均不施加公平性或取值假设。包含 actual arready 全零时 arvalid=0 的外部约束。没有编译进来的额外常量选择器或DUT行为假设。",
+    "scope": "此run只为所列CK提供其真实属性所覆盖的局部关系；端到端身份、年龄、完成、R顺序和容量义务依照 supporting_ck_ids 组合闭合，禁止以本run单独替代全系统证明。复用2026-10-10真实无界证明，非本轮重跑。",
+    "family": "calendar_delay_20261010",
+    "ck_ids": [
+      "CK-GRANT-NOSTRAY-TOKEN",
+      "CK-MEM-CALENDAR-BUBBLES",
+      "CK-MEM-EXACT4",
+      "CK-MEM-IDENTITY",
+      "CK-MEM-NO-EARLY"
+    ],
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_1682",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_1677",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_1675",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_1674",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_1672",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  },
+  "5a0bc47ec6dc42479e2c826cce8b6a88": {
+    "manifest_sha256": "64ecac4930bae5ea8ee1c286a7fcb2166b427175899082615301b158b6a6d6b5",
+    "ck_ids": [
+      "CK-CV-H0-B0",
+      "CK-CV-H0-B1",
+      "CK-CV-H0-B2",
+      "CK-CV-H0-B3",
+      "CK-CV-H0-B4",
+      "CK-CV-H0-B5",
+      "CK-CV-H0-B6",
+      "CK-CV-H0-B7",
+      "CK-CV-H1-B0",
+      "CK-CV-H1-B1",
+      "CK-CV-H1-B2",
+      "CK-CV-H1-B3",
+      "CK-CV-H1-B4",
+      "CK-CV-H1-B5",
+      "CK-CV-H1-B6",
+      "CK-CV-H1-B7"
+    ],
+    "assumptions": "初始采样rst_n=0，随后为1；arvalid时src<3、arresp为00或11；arready全零时arvalid=0。无来源公平、grant成功、Bank最终空闲、持续ready、数据非零或ID唯一假设。额外任意常量选择器仅限0..8及两槽不同；它们选择被观察的事务，不限制DUT输入或状态。精确语句：f_data_entry<9",
+    "scope": "仅证明所列业务场景在原RTL及上述输入协议下可达，不以cover作为安全证明。监视器跟踪同一事务身份；依赖supporting_ck_ids中的实际安全证明闭合模型与DUT关系。65个场景的定义经独立静态复核；STAGGER-GRANT/RR-ROTATE/RR-MASKS只采用收紧后的r2证据。",
+    "compiled_assumptions": [
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_6040",
+        "location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
+        "expressions": [
+          "f_data_entry<9"
+        ],
+        "source_context": "126: \n127:     (* anyconst *) reg[3:0] f_data_entry;\n128:     always @* assume(f_data_entry<9);\n129:     reg f_data_past=0;"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6498",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
+        "expressions": [
+          "!arvalid"
+        ],
+        "source_context": "36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end\n38:         if(arready == 0) assume(!arvalid);\n39:     end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6493",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
+        "expressions": [
+          "arresp == 2'b00 || arresp == 2'b11"
+        ],
+        "source_context": "34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);\n37:         end"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6491",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
+        "expressions": [
+          "src < 3"
+        ],
+        "source_context": "33:         else assume(rst_n);\n34:         if(arvalid) begin\n35:             assume(src < 3);\n36:             assume(arresp == 2'b00 || arresp == 2'b11);"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6490",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
+        "expressions": [
+          "rst_n"
+        ],
+        "source_context": "31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);\n34:         if(arvalid) begin"
+      },
+      {
+        "cell": "cell $assume \\_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6488",
+        "location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
+        "expressions": [
+          "!rst_n"
+        ],
+        "source_context": "30:     always @(posedge clk) begin\n31:         f_started <= 1;\n32:         if (!f_started) assume(!rst_n);\n33:         else assume(rst_n);"
+      }
+    ]
+  }
+}

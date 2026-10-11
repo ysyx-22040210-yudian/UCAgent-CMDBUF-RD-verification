@@ -1,0 +1,555 @@
+{
+  "scope": "Independent Verilator syntax/elaboration check only; not FormalMC or SBY proof.",
+  "jobs": [
+    {
+      "job": "age_projection",
+      "source": "jobs/age_projection/formalmc/model.sv",
+      "source_sha256": "839bfd30a4beb8af32726831013e50b77bcdb8f7a860028442bb37bb3615a574",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 17,
+        "WIDTHTRUNC": 77,
+        "WIDTHEXPAND": 112,
+        "CASEOVERLAP": 12,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/age_projection/formalmc/model.sv"
+      ],
+      "log_sha256": "5a466e850ebc42c0d79b36e3eeefb6aeff3f3494506f6f02bea0a7a8f3765f52"
+    },
+    {
+      "job": "aggregate",
+      "source": "jobs/aggregate/formalmc/model.sv",
+      "source_sha256": "04bb3feee9fcaa6051eb5552cf6ae8f9f2c6bad6815ce4ba3f100d07c8b9f2d7",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 81,
+        "WIDTHTRUNC": 96,
+        "WIDTHEXPAND": 183,
+        "CASEOVERLAP": 14,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/aggregate/formalmc/model.sv"
+      ],
+      "log_sha256": "44cb817274ea153f7547570d06ae2383c5c353bb19da0daaa6c19c7e97850f54"
+    },
+    {
+      "job": "aggregate_split",
+      "source": "jobs/aggregate_split/formalmc/model.sv",
+      "source_sha256": "005d7098debc5961bcec09618c517455fbf4fa148e5304867211beac4e2688a1",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 11,
+        "WIDTHTRUNC": 76,
+        "WIDTHEXPAND": 103,
+        "CASEOVERLAP": 11,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/aggregate_split/formalmc/model.sv"
+      ],
+      "log_sha256": "c69a0a6d6a2de0511684eb4fc7ea0f15b49a8b63dcd4eaae970cb926fac36537"
+    },
+    {
+      "job": "calendar",
+      "source": "jobs/calendar/formalmc/model.sv",
+      "source_sha256": "e21f2fd5c8dc9bbf08d2177052f8b396d78c72aa20dfece52bec00f62128f044",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 33,
+        "WIDTHTRUNC": 82,
+        "WIDTHEXPAND": 140,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/calendar/formalmc/model.sv"
+      ],
+      "log_sha256": "16af055ba4929a5c32c988af1be67bd05d495093374ac8b38c07129abd5b5f15"
+    },
+    {
+      "job": "capacity",
+      "source": "jobs/capacity/formalmc/model.sv",
+      "source_sha256": "7200437de2242f99689780ea2ae2db85ee7b59da20b7c49b345d679de448ee83",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 43,
+        "WIDTHTRUNC": 103,
+        "WIDTHEXPAND": 219,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 13
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/capacity/formalmc/model.sv"
+      ],
+      "log_sha256": "d25f4406f73ca0a039ae1f55b3ebb7dd3d45e3d7b9ab656824642783c575dbcc"
+    },
+    {
+      "job": "cover_banks",
+      "source": "jobs/cover_banks/formalmc/model.sv",
+      "source_sha256": "aaf9c6904de8a94d65b8e545d0c843013984e23c44a8851b752f9d846bced349",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 372,
+        "WIDTHTRUNC": 127,
+        "WIDTHEXPAND": 346,
+        "CASEOVERLAP": 17,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/cover_banks/formalmc/model.sv"
+      ],
+      "log_sha256": "194328cc87f5c7fb7479d4626137d4039d43cb64c5905a839d13d3b9c27d598a"
+    },
+    {
+      "job": "cover_data_identity",
+      "source": "jobs/cover_data_identity/formalmc/model.sv",
+      "source_sha256": "dbbc5b5dc2dbeac681a35bcd3455b8b2e8928ea90bc57b9eb210f29d59558d17",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 368,
+        "WIDTHTRUNC": 135,
+        "WIDTHEXPAND": 350,
+        "CASEOVERLAP": 27,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/cover_data_identity/formalmc/model.sv"
+      ],
+      "log_sha256": "4da38aa12a472c3a516ef07318d841d725dca994d16c38f92da2492802a9e91f"
+    },
+    {
+      "job": "cover_pipeline",
+      "source": "jobs/cover_pipeline/formalmc/model.sv",
+      "source_sha256": "29913b19e6d0dd2bac0295061489d9dcc958c72b0794aa8300289b757c025a71",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 372,
+        "WIDTHTRUNC": 128,
+        "WIDTHEXPAND": 325,
+        "CASEOVERLAP": 17,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/cover_pipeline/formalmc/model.sv"
+      ],
+      "log_sha256": "0f964587d31eb1198c25f2ad0e3e8cb2fe2e1187fe4182196f514e6746a9cf72"
+    },
+    {
+      "job": "cover_window_response",
+      "source": "jobs/cover_window_response/formalmc/model.sv",
+      "source_sha256": "3fbba7285628fbb9ab775ff1fb42fe31c48fb177df9a3c051c83d3a4b5c34363",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 371,
+        "WIDTHTRUNC": 136,
+        "WIDTHEXPAND": 375,
+        "CASEOVERLAP": 23,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/cover_window_response/formalmc/model.sv"
+      ],
+      "log_sha256": "6b11771fb1ff927c065cc36bc9071572540f8197cb1143744f944ffa7a5bd1db"
+    },
+    {
+      "job": "data_origin",
+      "source": "jobs/data_origin/formalmc/model.sv",
+      "source_sha256": "08f890f2f332ba94a947bba7e0e216abede9d2102fc742c7c1a3bc61a63a7ecf",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 70,
+        "WIDTHTRUNC": 89,
+        "WIDTHEXPAND": 175,
+        "CASEOVERLAP": 9,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/data_origin/formalmc/model.sv"
+      ],
+      "log_sha256": "9d43412590f644d324a3ee3c520208108a2992b5d4bf32f5a49be7e4b6517fd0"
+    },
+    {
+      "job": "data_transition",
+      "source": "jobs/data_transition/formalmc/model.sv",
+      "source_sha256": "9155e5339ddecaad189a9ae749f248b8f6ecea1087d5a736663fc092e7ee0c76",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 43,
+        "WIDTHTRUNC": 85,
+        "WIDTHEXPAND": 147,
+        "CASEOVERLAP": 8,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/data_transition/formalmc/model.sv"
+      ],
+      "log_sha256": "338c73d020ded7f4d47928e4d3ffce5cee3bc036332018c0352c3fa19c0e917d"
+    },
+    {
+      "job": "guided_cover",
+      "source": "jobs/guided_cover/formalmc/model.sv",
+      "source_sha256": "cac29971804ffa8536cb5289cf4831b43c6c709ebcf6d4090ace6629d004789f",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 29,
+        "WIDTHEXPAND": 138,
+        "WIDTHTRUNC": 91,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_wrapper",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/guided_cover/formalmc/model.sv"
+      ],
+      "log_sha256": "6e0d2faf05bf8f3cc1cbc61680d3c3bd7e145511263166ab90de9d41e8e400b6"
+    },
+    {
+      "job": "guided_prove",
+      "source": "jobs/guided_prove/formalmc/model.sv",
+      "source_sha256": "a892eea71d2ee07ae1c3d43aeaf16b21244a367f9b79017a9547e0249112fa87",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 29,
+        "WIDTHEXPAND": 138,
+        "WIDTHTRUNC": 91,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_wrapper",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/guided_prove/formalmc/model.sv"
+      ],
+      "log_sha256": "97e6073a4bf01d5892b8b3a3cf3f70df3ac61f5e7d6cae0c9fffc09530ebdd11"
+    },
+    {
+      "job": "lifecycle",
+      "source": "jobs/lifecycle/formalmc/model.sv",
+      "source_sha256": "e50e6ff4be547b23d804e566c4fadb784764a5910300dbb61bd9523c96376c23",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 70,
+        "WIDTHTRUNC": 91,
+        "WIDTHEXPAND": 212,
+        "CASEOVERLAP": 13,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/lifecycle/formalmc/model.sv"
+      ],
+      "log_sha256": "c4bd1d651548e13736a313160af664be79e3d079553147903730c712e5267d89"
+    },
+    {
+      "job": "lifecycle_r2",
+      "source": "jobs/lifecycle_r2/formalmc/model.sv",
+      "source_sha256": "8ecf90cc1234cccd07582c6eb05c32b4c4d9ef55a5c0c986eee2e01dce772f6b",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 69,
+        "WIDTHTRUNC": 91,
+        "WIDTHEXPAND": 209,
+        "CASEOVERLAP": 13,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/lifecycle_r2/formalmc/model.sv"
+      ],
+      "log_sha256": "a443e452d8d75ee764496f5ff8e8542eb94a1f6e24ff89241eb185526454f03d"
+    },
+    {
+      "job": "local_transition",
+      "source": "jobs/local_transition/formalmc/model.sv",
+      "source_sha256": "6544dffd8103de76fd7afc057fe37872bea1f30675b5370724dd5f3824c37bc9",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 42,
+        "WIDTHTRUNC": 83,
+        "WIDTHEXPAND": 149,
+        "CASEOVERLAP": 12,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/local_transition/formalmc/model.sv"
+      ],
+      "log_sha256": "29dc11af7ed94832ee7b0342b47c564357982bfa0030937e2618bdcfd6077772"
+    },
+    {
+      "job": "pipeline",
+      "source": "jobs/pipeline/formalmc/model.sv",
+      "source_sha256": "38530bdce8604e24c230fb544ec44b73473b958588a2336ff1f02f01823026c3",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 5,
+        "WIDTHTRUNC": 77,
+        "WIDTHEXPAND": 96,
+        "CASEOVERLAP": 6,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/pipeline/formalmc/model.sv"
+      ],
+      "log_sha256": "fbe3769b1773606bd3968b54127612fdc5de9c1ad5aa0be2c648d6e57004ab75"
+    },
+    {
+      "job": "policy_order",
+      "source": "jobs/policy_order/formalmc/model.sv",
+      "source_sha256": "9c5c336de5a7492dc0eefb9aaec693f1270bc014373c636235050e02df63b650",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 20,
+        "WIDTHTRUNC": 106,
+        "WIDTHEXPAND": 295,
+        "CASEOVERLAP": 41,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/policy_order/formalmc/model.sv"
+      ],
+      "log_sha256": "dfc50d52f5ad8f77bfa93ee91415b973d7602ed94fa1ddc95f4ce8fd95ce9e7b"
+    },
+    {
+      "job": "quota_math",
+      "source": "jobs/quota_math/formalmc/model.sv",
+      "source_sha256": "71049859075057817ffba158dba48c04a70d632d486632f2d547c7aaeb428254",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 6,
+        "WIDTHEXPAND": 39,
+        "WIDTHTRUNC": 10,
+        "UNOPTFLAT": 3
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "quota_step_math",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/quota_math/formalmc/model.sv"
+      ],
+      "log_sha256": "6a23bf03635dfe818a76e3de8f25d4d817832689e100e7ed1f5e7b00e6532eb0"
+    },
+    {
+      "job": "source_net_math",
+      "source": "jobs/source_net_math/formalmc/model.sv",
+      "source_sha256": "53530ebc6bcb9634a5d6acb901e9753e7cded39ab1fcc0438aadd7d2b8e68c1b",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 5,
+        "WIDTHTRUNC": 96,
+        "WIDTHEXPAND": 129,
+        "CASEOVERLAP": 6,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/source_net_math/formalmc/model.sv"
+      ],
+      "log_sha256": "c9494ebba635eec6057a3d28b283e137f54df38e45d8a73ab953f8c3675bc5e6"
+    },
+    {
+      "job": "structural",
+      "source": "jobs/structural/formalmc/model.sv",
+      "source_sha256": "38f05fd4bf889396993fae71d138db8f858af30dbb3598e266105d74b827d39e",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 15,
+        "WIDTHTRUNC": 76,
+        "WIDTHEXPAND": 109,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/structural/formalmc/model.sv"
+      ],
+      "log_sha256": "5f6cce76a6e4919479fe02230b9657489e292974181c1ed7ae267e6756ea4416"
+    },
+    {
+      "job": "wiring",
+      "source": "jobs/wiring/formalmc/model.sv",
+      "source_sha256": "64e11ae4bb4115effd8b382b24e5b1bce5c59687852634cb5b2b291297861650",
+      "unchanged_after_lint": true,
+      "exit_code": 0,
+      "warnings": {
+        "ASCRANGE": 23,
+        "WIDTHTRUNC": 82,
+        "WIDTHEXPAND": 140,
+        "CASEOVERLAP": 7,
+        "UNOPTFLAT": 6
+      },
+      "errors": [],
+      "argv": [
+        "/opt/verilator-5.024/bin/verilator",
+        "--lint-only",
+        "--assert",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-Wno-fatal",
+        "/root/cmdbuf_rd/portable_20261012/package/jobs/wiring/formalmc/model.sv"
+      ],
+      "log_sha256": "bb14d791dc2374857f54fba59d45be02ff95b3d23043e3de75cf947c4e012145"
+    }
+  ],
+  "all_parsed": true
+}

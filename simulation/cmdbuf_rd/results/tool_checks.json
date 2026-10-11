@@ -1,0 +1,21 @@
+{
+  "host": "192.168.31.116",
+  "verilator": "5.024",
+  "gcc": "11.2.1 (devtoolset-11)",
+  "iverilog": "12.0 development",
+  "verilator_lint": {
+    "exit_code": 0,
+    "warnings": 0,
+    "flags": "--lint-only --Wall --assert"
+  },
+  "env_layout_validation": {
+    "exit_code": 0
+  },
+  "iverilog_elaboration": {
+    "exit_code": 0,
+    "flags": "-g2012 -DSYNTHESIS -s cmdbuf_rd",
+    "note": "Icarus emits sensitivity-list expansion notices for always_* constant selects; no Icarus functional simulation was run."
+  },
+  "formal_proof": "not_run",
+  "synthesis_sta": "not_run"
+}

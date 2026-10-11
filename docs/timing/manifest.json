@@ -1,0 +1,119 @@
+[
+  {
+    "num": 1,
+    "title": "连续正常流水",
+    "file": "01_timing.png",
+    "pending": false,
+    "confirmed": "无旁路",
+    "width": 2000,
+    "height": 1160
+  },
+  {
+    "num": 2,
+    "title": "乱序发射与单 XAU 保序返回",
+    "file": "02_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 984
+  },
+  {
+    "num": 3,
+    "title": "窗口外命令等待成功前馈后进入窗口",
+    "file": "03_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 1016
+  },
+  {
+    "num": 4,
+    "title": "双 grant 判定与返回气泡",
+    "file": "04_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 944
+  },
+  {
+    "num": 5,
+    "title": "失败不取消后续预选：采用 5A",
+    "file": "05_timing.png",
+    "pending": false,
+    "confirmed": "5A",
+    "width": 2000,
+    "height": 760
+  },
+  {
+    "num": 6,
+    "title": "成功当拍前移窗口：采用 6B",
+    "file": "06_timing.png",
+    "pending": false,
+    "confirmed": "6B",
+    "width": 2000,
+    "height": 760
+  },
+  {
+    "num": 7,
+    "title": "MEM 单拍返回必须捕获，不受 R ready 影响",
+    "file": "07_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 1128
+  },
+  {
+    "num": 8,
+    "title": "响应 RR 仅在当拍 ready 的完成队头间选择",
+    "file": "08_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 984
+  },
+  {
+    "num": 9,
+    "title": "地址拆分、字段透传与异常优先级",
+    "file": "09_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 1336
+  },
+  {
+    "num": 10,
+    "title": "满表同拍释放复用：采用 10B",
+    "file": "10_timing.png",
+    "pending": false,
+    "confirmed": "10B",
+    "width": 2000,
+    "height": 976
+  },
+  {
+    "num": 11,
+    "title": "窗口内全忙：第六条空闲命令仍被阻塞",
+    "file": "11_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 1224
+  },
+  {
+    "num": 12,
+    "title": "容量保留：一路占七项后仍允许其他来源接收",
+    "file": "12_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 976
+  },
+  {
+    "num": 13,
+    "title": "满表复用仍需保留刚释放来源的最低名额",
+    "file": "13_timing.png",
+    "pending": false,
+    "confirmed": "",
+    "width": 2000,
+    "height": 1048
+  }
+]

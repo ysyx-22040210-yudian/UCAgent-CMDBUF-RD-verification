@@ -1,0 +1,259 @@
+{
+  "id": "M05",
+  "rtl_root": "/root/cmdbuf_rd/mutations/M05",
+  "result_dir": "/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+  "build": {
+    "command": [
+      "make",
+      "-f",
+      "/root/env_base/env/Makefile",
+      "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+      "RTL_ROOT=/root/cmdbuf_rd/mutations/M05",
+      "BUILD_DIR=/root/cmdbuf_rd/mutations/M05/build/campaign_03",
+      "RESULT_DIR=/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+      "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+      "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+      "JOBS=2",
+      "build"
+    ],
+    "returncode": 0,
+    "timeout": false,
+    "seconds": 6.835,
+    "log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/build.log"
+  },
+  "run": {
+    "command": [
+      "make",
+      "-f",
+      "/root/env_base/env/Makefile",
+      "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+      "RTL_ROOT=/root/cmdbuf_rd/mutations/M05",
+      "BUILD_DIR=/root/cmdbuf_rd/mutations/M05/build/campaign_03",
+      "RESULT_DIR=/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+      "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+      "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+      "JOBS=2",
+      "run-all"
+    ],
+    "returncode": 2,
+    "timeout": false,
+    "seconds": 0.316,
+    "log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/run.log"
+  },
+  "cases": [
+    {
+      "case": "01_pipeline.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/01_pipeline.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "02_same_xau_ooo.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/02_same_xau_ooo.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/02_same_xau_ooo.log"
+    },
+    {
+      "case": "03_forward_6b.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/03_forward_6b.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 13: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "04_grants.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/04_grants.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 10: arready got=0x7 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "05_failure_5a.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/05_failure_5a.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "06_window_block.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/06_window_block.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 23: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "07_single_pulse.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/07_single_pulse.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/07_single_pulse.log"
+    },
+    {
+      "case": "08_rr.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/08_rr.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/08_rr.log"
+    },
+    {
+      "case": "09_errors.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/09_errors.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "10_capacity_reuse.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/10_capacity_reuse.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/10_capacity_reuse.log"
+    },
+    {
+      "case": "11_capacity_700.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/11_capacity_700.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/11_capacity_700.log"
+    },
+    {
+      "case": "12_capacity_440.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/12_capacity_440.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/12_capacity_440.log"
+    },
+    {
+      "case": "13_tokens.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/13_tokens.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "14_single_source_throughput.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/14_single_source_throughput.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "15_reset_clean.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/15_reset_clean.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "16_random_seed_1.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/16_random_seed_1.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 10: rvalid got=0x2 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "17_random_seed_17.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/17_random_seed_17.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/17_random_seed_17.log"
+    },
+    {
+      "case": "18_random_seed_91.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/18_random_seed_91.json",
+      "status": "fail",
+      "checks_failed": 1,
+      "failure": "cycle 7: rvalid got=0x2 expected=0x0",
+      "checker_failure": true,
+      "detection_kind": "scoreboard"
+    },
+    {
+      "case": "19_rr_ready_masks.case",
+      "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/19_rr_ready_masks.json",
+      "status": "fail",
+      "checker_failure": true,
+      "detection_kind": "rtl_assertion",
+      "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+      "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/19_rr_ready_masks.log"
+    }
+  ],
+  "detecting_cases": [
+    "01_pipeline.case",
+    "02_same_xau_ooo.case",
+    "03_forward_6b.case",
+    "04_grants.case",
+    "05_failure_5a.case",
+    "06_window_block.case",
+    "07_single_pulse.case",
+    "08_rr.case",
+    "09_errors.case",
+    "10_capacity_reuse.case",
+    "11_capacity_700.case",
+    "12_capacity_440.case",
+    "13_tokens.case",
+    "14_single_source_throughput.case",
+    "15_reset_clean.case",
+    "16_random_seed_1.case",
+    "17_random_seed_17.case",
+    "18_random_seed_91.case",
+    "19_rr_ready_masks.case"
+  ],
+  "detection_kinds": [
+    "rtl_assertion",
+    "scoreboard"
+  ],
+  "first_detection": {
+    "case": "01_pipeline.case",
+    "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/01_pipeline.json",
+    "status": "fail",
+    "checks_failed": 1,
+    "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+    "checker_failure": true,
+    "detection_kind": "scoreboard"
+  },
+  "status": "killed",
+  "change": {
+    "file": "rtl/cmdbuf_rd_otb.sv",
+    "before": "assign capture_valid = rst_n && ret_valid_q[3];",
+    "after": "assign capture_valid = rst_n && (ret_valid_q[3] || ret_valid_q[2]);",
+    "baseline_sha256": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068",
+    "mutant_sha256": "ebdd887d7904a1b3b4000fc345ffacc1a89d2de9d136572ad0704a4e747843b6"
+  },
+  "purpose": "固定四拍捕获错误多使用提前一拍的 tap，导致早采样或重复捕获"
+}

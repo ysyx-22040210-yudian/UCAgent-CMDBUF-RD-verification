@@ -1,0 +1,52 @@
+[
+  {
+    "file": "desktop/tests/test_portable_formal_gui.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "desktop/ucagent_tk/app.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "desktop/ucagent_tk/formal.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "desktop/ucagent_tk/lang/zh.json",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "desktop/ucagent_tk/portable_formal.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "docs/content/02_usage/11_formal_gui.md",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "docs/content/02_usage/13_portable_formal_gui.md",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "tests/test_portable_formal.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "ucagent/server/platform_main.py",
+    "returncode": 1,
+    "diagnostics": ""
+  },
+  {
+    "file": "ucagent/server/portable_formal.py",
+    "returncode": 1,
+    "diagnostics": ""
+  }
+]

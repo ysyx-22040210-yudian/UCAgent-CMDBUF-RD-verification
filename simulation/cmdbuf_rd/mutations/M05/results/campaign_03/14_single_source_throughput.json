@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+  "type": "throughput",
+  "seed": 1,
+  "cycles": 6,
+  "checks": 86,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "issued": 4,
+    "issued_back_to_back": 3,
+    "reset": 1,
+    "three_cycle_path": 4
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 11: arready got=0x0 expected=0x7",
+  "type": "grants",
+  "seed": 1,
+  "cycles": 11,
+  "checks": 142,
+  "coverage": {
+    "accepted": 9,
+    "accepted_back_to_back": 8,
+    "accepted_src0": 3,
+    "accepted_src1": 3,
+    "accepted_src2": 3,
+    "ar_only_grant": 1,
+    "capture_no_bypass": 1,
+    "captured": 1,
+    "failed_keep_next": 4,
+    "issue_failure": 4,
+    "issue_failure_back_to_back": 3,
+    "issued": 5,
+    "issued_back_to_back": 4,
+    "reset": 1,
+    "retry_success": 2,
+    "rw_only_grant": 1,
+    "wrong_bank_grant": 1
+  }
+}

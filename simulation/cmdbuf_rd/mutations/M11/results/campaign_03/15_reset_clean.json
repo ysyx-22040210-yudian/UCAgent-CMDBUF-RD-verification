@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "reset_clean",
+  "seed": 1,
+  "cycles": 96,
+  "checks": 1256,
+  "coverage": {
+    "accepted": 24,
+    "accepted_back_to_back": 22,
+    "accepted_src0": 8,
+    "accepted_src1": 8,
+    "accepted_src2": 8,
+    "capture_after_bubble": 1,
+    "capture_no_bypass": 24,
+    "captured": 24,
+    "captured_back_to_back": 22,
+    "drained_reset": 1,
+    "error_combo_00": 24,
+    "four_events": 10,
+    "issued": 24,
+    "issued_back_to_back": 22,
+    "reset": 2,
+    "retired": 24,
+    "retired_back_to_back": 22,
+    "retired_src0": 8,
+    "retired_src1": 8,
+    "retired_src2": 8,
+    "three_cycle_path": 24
+  }
+}

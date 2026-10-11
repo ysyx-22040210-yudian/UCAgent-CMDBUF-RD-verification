@@ -1,0 +1,24 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+  "type": "failure_5a",
+  "seed": 1,
+  "cycles": 7,
+  "checks": 97,
+  "coverage": {
+    "accepted": 7,
+    "accepted_back_to_back": 6,
+    "accepted_src0": 3,
+    "accepted_src1": 2,
+    "accepted_src2": 2,
+    "ar_only_grant": 1,
+    "failed_keep_next": 1,
+    "issue_failure": 1,
+    "issued": 4,
+    "issued_back_to_back": 3,
+    "reset": 1,
+    "retry_success": 1,
+    "three_cycle_path": 1
+  }
+}

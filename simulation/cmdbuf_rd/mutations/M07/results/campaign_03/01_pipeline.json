@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "pipeline",
+  "seed": 1,
+  "cycles": 51,
+  "checks": 793,
+  "coverage": {
+    "accepted": 24,
+    "accepted_back_to_back": 23,
+    "accepted_src0": 24,
+    "capture_no_bypass": 24,
+    "captured": 24,
+    "captured_back_to_back": 23,
+    "error_combo_00": 24,
+    "four_events": 17,
+    "issued": 24,
+    "issued_back_to_back": 23,
+    "reset": 1,
+    "retired": 24,
+    "retired_back_to_back": 23,
+    "retired_src0": 24,
+    "rr_skip": 23,
+    "single_source_turnover": 17,
+    "three_cycle_path": 24
+  }
+}

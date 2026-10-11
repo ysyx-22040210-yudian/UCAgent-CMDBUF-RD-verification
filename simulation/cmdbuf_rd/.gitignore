@@ -1,0 +1,5 @@
+build/
+mutations/
+*.vcd
+core*
+__pycache__/

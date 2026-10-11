@@ -1,0 +1,4658 @@
+{
+  "creator": "Yosys 0.67+94 (git sha1 7defa5186-dirty, Release, Clang /usr/bin/clang++ 18.1.8)",
+  "modules": {
+    "quota_step_math": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "inputs/formal/quota_step_math.sv:4.1-48.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "c0": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        },
+        "c1": {
+          "direction": "input",
+          "bits": [ 7, 8, 9, 10 ]
+        },
+        "c2": {
+          "direction": "input",
+          "bits": [ 11, 12, 13, 14 ]
+        },
+        "ret": {
+          "direction": "input",
+          "bits": [ 15, 16, 17 ]
+        },
+        "alloc_valid": {
+          "direction": "input",
+          "bits": [ 18 ]
+        },
+        "alloc_src": {
+          "direction": "input",
+          "bits": [ 19, 20 ]
+        }
+      },
+      "cells": {
+        "$add$inputs/formal/quota_step_math.sv:18$1509": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 21 ],
+            "Y": [ 22, 23 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:18$1513": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22, 23 ],
+            "B": [ 24 ],
+            "Y": [ 25, 26, 27 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:18$1517": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 25, 26, 27 ],
+            "B": [ 28 ],
+            "Y": [ 29, 30, 31, 32 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:20$1521": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.11-20.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 33, 34, 35, 36 ],
+            "Y": [ 37, 38, 39, 40, 41 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:20$1539": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.11-20.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 37, 38, 39, 40, 41 ],
+            "B": [ 42, 43, 44, 45 ],
+            "Y": [ 46, 47, 48, 49, 50, 51 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:20$1557": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.11-20.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 46, 47, 48, 49, 50, 51 ],
+            "B": [ 52, 53, 54, 55 ],
+            "Y": [ 56, 57, 58, 59, 60, 61 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:24$1529": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:24.11-24.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 62, 63, 64, 65 ],
+            "Y": [ 66, 67, 68, 69, 70 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:24$1547": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:24.11-24.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 66, 67, 68, 69, 70 ],
+            "B": [ 71, 72, 73, 74 ],
+            "Y": [ 75, 76, 77, 78, 79, 80 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:24$1565": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:24.11-24.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 75, 76, 77, 78, 79, 80 ],
+            "B": [ 81, 82, 83, 84 ],
+            "Y": [ 85, 86, 87, 88, 89, 90 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:25$1533": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.13-25.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 91, 92, 93, 94, 95, 96 ],
+            "Y": [ 97, 98, 99, 100, 101, 102 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:25$1551": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.13-25.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 97, 98, 99, 100, 101, 102 ],
+            "B": [ 103, 104, 105, 106, 107, 108 ],
+            "Y": [ 109, 110, 111, 112, 113, 114 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:25$1569": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.13-25.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 109, 110, 111, 112, 113, 114 ],
+            "B": [ 115, 116, 117, 118, 119, 120 ],
+            "Y": [ 121, 122, 123, 124, 125, 126 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:26$1536": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.12-26.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 127, 128, 129, 130 ],
+            "Y": [ 131, 132, 133, 134, 135 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:26$1554": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.12-26.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 131, 132, 133, 134, 135 ],
+            "B": [ 136, 137, 138, 139 ],
+            "Y": [ 140, 141, 142, 143, 144, 145 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:26$1572": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.12-26.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 140, 141, 142, 143, 144, 145 ],
+            "B": [ 146, 147, 148, 149 ],
+            "Y": [ 150, 151, 152, 153, 154, 155 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:34$1602": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.11-34.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "B": [ 156 ],
+            "Y": [ 157, 158, 159, 160 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:34$1613": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.11-34.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "B": [ 161 ],
+            "Y": [ 162, 163, 164, 165 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:34$1624": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.11-34.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "B": [ 166 ],
+            "Y": [ 167, 168, 169, 170 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:35$1605": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.12-35.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 171, 172, 173, 174 ],
+            "Y": [ 175, 176, 177, 178, 179 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:35$1616": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.12-35.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 175, 176, 177, 178, 179 ],
+            "B": [ 180, 181, 182, 183 ],
+            "Y": [ 184, 185, 186, 187, 188, 189 ]
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:35$1627": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.12-35.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 184, 185, 186, 187, 188, 189 ],
+            "B": [ 190, 191, 192, 193 ],
+            "Y": [ 194, 195, 196, 197, 198, 199 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1674": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.4-41.51"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 200 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1680": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.4-45.52"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 201 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1686": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.4-44.49"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 202 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1692": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.4-46.53"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 203 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1698": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.4-42.50"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 204 ]
+          }
+        },
+        "$auto$async2sync.cc:110:execute$1704": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.4-43.44"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 205 ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1675": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.4-41.51"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1681": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.4-45.52"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1687": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.4-44.49"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1693": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.4-46.53"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1699": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.4-42.50"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:111:execute$1705": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.4-43.44"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ ],
+            "Q": [ ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1677": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.4-41.51"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 206 ],
+            "Q": [ 207 ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1683": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.4-45.52"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 208 ],
+            "Q": [ 209 ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1689": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.4-44.49"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 210 ],
+            "Q": [ 211 ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1695": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.4-46.53"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 212 ],
+            "Q": [ 213 ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1701": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.4-42.50"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 214 ],
+            "Q": [ 215 ]
+          }
+        },
+        "$auto$async2sync.cc:118:execute$1707": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.4-43.44"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 216 ],
+            "Q": [ 217 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1709": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 207 ],
+            "Y": [ 218 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1714": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 209 ],
+            "Y": [ 219 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1719": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 211 ],
+            "Y": [ 220 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1724": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 213 ],
+            "Y": [ 221 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1729": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 215 ],
+            "Y": [ 222 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$1734": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 217 ],
+            "Y": [ 223 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1711": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 218 ],
+            "B": [ 200 ],
+            "Y": [ 224 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1716": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 219 ],
+            "B": [ 201 ],
+            "Y": [ 225 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1721": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 220 ],
+            "B": [ 202 ],
+            "Y": [ 226 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1726": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 221 ],
+            "B": [ 203 ],
+            "Y": [ 227 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1731": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 222 ],
+            "B": [ 204 ],
+            "Y": [ 228 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$1736": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 223 ],
+            "B": [ 205 ],
+            "Y": [ 229 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1519": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "Y": [ 230 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1537": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8, 9, 10 ],
+            "Y": [ 231 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1555": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12, 13, 14 ],
+            "Y": [ 232 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:30$1577": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.29-30.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "Y": [ 233 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:30$1582": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.29-30.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "Y": [ 234 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:30$1587": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.29-30.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "Y": [ 235 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:34$1600": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.29-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 19, 20 ],
+            "Y": [ 236 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:34$1611": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.29-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 19, 20 ],
+            "B": [ "1" ],
+            "Y": [ 237 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:34$1622": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.29-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 19, 20 ],
+            "B": [ "0", "1" ],
+            "Y": [ 238 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1603": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 157, 158, 159, 160 ],
+            "Y": [ 239 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1614": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 162, 163, 164, 165 ],
+            "Y": [ 240 ]
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1625": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 167, 168, 169, 170 ],
+            "Y": [ 241 ]
+          }
+        },
+        "$eqx$inputs/formal/quota_step_math.sv:18$1508": {
+          "hide_name": 1,
+          "type": "$eqx",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 17 ],
+            "B": [ "1" ],
+            "Y": [ 21 ]
+          }
+        },
+        "$eqx$inputs/formal/quota_step_math.sv:18$1512": {
+          "hide_name": 1,
+          "type": "$eqx",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "B": [ "1" ],
+            "Y": [ 24 ]
+          }
+        },
+        "$eqx$inputs/formal/quota_step_math.sv:18$1516": {
+          "hide_name": 1,
+          "type": "$eqx",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "B": [ "1" ],
+            "Y": [ 28 ]
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1530": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "B": [ "0" ],
+            "Y": [ 242 ]
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1548": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "B": [ "0" ],
+            "Y": [ 243 ]
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1566": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "B": [ "0" ],
+            "Y": [ 244 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:18$1518": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32 ],
+            "B": [ "1" ],
+            "Y": [ 245 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1522": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 246 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1540": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8, 9, 10 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 247 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1558": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12, 13, 14 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 248 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:28$1573": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:28.21-28.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 56, 57, 58, 59, 60, 61 ],
+            "B": [ "1", "0", "0", "1" ],
+            "Y": [ 249 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1606": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 157, 158, 159, 160 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 250 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1617": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 162, 163, 164, 165 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 251 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1628": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 167, 168, 169, 170 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 252 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:41$1635": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.42-41.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 150, 151, 152, 153, 154, 155 ],
+            "B": [ "1", "0", "0", "1" ],
+            "Y": [ 253 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:42$1638": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.41-42.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 194, 195, 196, 197, 198, 199 ],
+            "B": [ "1", "0", "0", "1" ],
+            "Y": [ 254 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:44$1643": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.41-44.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 85, 86, 87, 88, 89, 90 ],
+            "B": [ "1", "0", "0", "1" ],
+            "Y": [ 255 ]
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:45$1646": {
+          "hide_name": 1,
+          "type": "$le",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.42-45.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 121, 122, 123, 124, 125, 126 ],
+            "B": [ "0", "1", "1" ],
+            "Y": [ 256 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:21$1541": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.13-21.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 246 ],
+            "B": [ 247 ],
+            "Y": [ 257 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:21$1559": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.13-21.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 257 ],
+            "B": [ 248 ],
+            "Y": [ 258 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:22$1527": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.16-22.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 245 ],
+            "B": [ 259 ],
+            "Y": [ 260 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:22$1545": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.16-22.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 260 ],
+            "B": [ 261 ],
+            "Y": [ 262 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:22$1563": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.16-22.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 262 ],
+            "B": [ 263 ],
+            "Y": [ 264 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:28$1574": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:28.11-28.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 258 ],
+            "B": [ 249 ],
+            "Y": [ 265 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:28$1575": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:28.11-28.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 265 ],
+            "B": [ 264 ],
+            "Y": [ 266 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:30$1580": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.15-30.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 267 ],
+            "B": [ 268 ],
+            "Y": [ 269 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:30$1585": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.15-30.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 267 ],
+            "B": [ 270 ],
+            "Y": [ 271 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:30$1590": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.15-30.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 267 ],
+            "B": [ 272 ],
+            "Y": [ 273 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1592": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.28-31.52"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 236 ],
+            "B": [ 269 ],
+            "Y": [ 274 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1594": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.56-31.80"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 237 ],
+            "B": [ 271 ],
+            "Y": [ 275 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1597": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.84-31.108"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 238 ],
+            "B": [ 273 ],
+            "Y": [ 276 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1599": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.11-31.110"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18 ],
+            "B": [ 277 ],
+            "Y": [ 278 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:34$1601": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 278 ],
+            "B": [ 236 ],
+            "Y": [ 156 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:34$1612": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 278 ],
+            "B": [ 237 ],
+            "Y": [ 161 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:34$1623": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 278 ],
+            "B": [ 238 ],
+            "Y": [ 166 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:36$1618": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.11-36.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 250 ],
+            "B": [ 251 ],
+            "Y": [ 279 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:36$1629": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.11-36.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 279 ],
+            "B": [ 252 ],
+            "Y": [ 280 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:37$1621": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.18-37.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 281 ],
+            "B": [ 282 ],
+            "Y": [ 283 ]
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:37$1632": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.18-37.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 283 ],
+            "B": [ 284 ],
+            "Y": [ 285 ]
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1524": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "Y": [ 286 ]
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1542": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "Y": [ 287 ]
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1560": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 17 ],
+            "Y": [ 288 ]
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:44$1642": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.30-44.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 266 ],
+            "Y": [ 289 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1526": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 286 ],
+            "B": [ 290 ],
+            "Y": [ 259 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1544": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 287 ],
+            "B": [ 291 ],
+            "Y": [ 261 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1562": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 288 ],
+            "B": [ 292 ],
+            "Y": [ 263 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1579": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 233 ],
+            "B": [ 293 ],
+            "Y": [ 268 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1584": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 234 ],
+            "B": [ 293 ],
+            "Y": [ 270 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1589": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 235 ],
+            "B": [ 293 ],
+            "Y": [ 272 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:31$1595": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.27-31.81"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 274 ],
+            "B": [ 275 ],
+            "Y": [ 294 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:31$1598": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.27-31.109"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 294 ],
+            "B": [ 276 ],
+            "Y": [ 277 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:37$1609": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 295 ],
+            "B": [ 269 ],
+            "Y": [ 281 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:37$1620": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 296 ],
+            "B": [ 271 ],
+            "Y": [ 282 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:37$1631": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 297 ],
+            "B": [ 273 ],
+            "Y": [ 284 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:41$1636": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.31-41.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 253 ],
+            "Y": [ 206 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:42$1639": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.30-42.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 254 ],
+            "Y": [ 214 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:43$1641": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.28-43.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 280 ],
+            "Y": [ 216 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:44$1644": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.30-44.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 255 ],
+            "Y": [ 210 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:45$1647": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.31-45.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 256 ],
+            "Y": [ 208 ]
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:46$1649": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.30-46.52"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 289 ],
+            "B": [ 285 ],
+            "Y": [ 212 ]
+          }
+        },
+        "$lt$inputs/formal/quota_step_math.sv:30$1586": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.16-30.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 85, 86, 87, 88, 89, 90 ],
+            "B": [ "1", "0", "0", "1" ],
+            "Y": [ 267 ]
+          }
+        },
+        "$lt$inputs/formal/quota_step_math.sv:30$1588": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.40-30.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 121, 122, 123, 124, 125, 126 ],
+            "B": [ "0", "1", "1" ],
+            "Y": [ 293 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1525": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "Y": [ 290 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1543": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8, 9, 10 ],
+            "Y": [ 291 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1561": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12, 13, 14 ],
+            "Y": [ 292 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1608": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "Y": [ 295 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1619": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "Y": [ 296 ]
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1630": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "Y": [ 297 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:23$1528": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:23.11-23.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "B": [ 15 ],
+            "Y": [ 62, 63, 64, 65 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:23$1546": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:23.11-23.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8, 9, 10 ],
+            "B": [ 16 ],
+            "Y": [ 71, 72, 73, 74 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:23$1564": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:23.11-23.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12, 13, 14 ],
+            "B": [ 17 ],
+            "Y": [ 81, 82, 83, 84 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1531": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "B": [ "1" ],
+            "Y": [ 298, 299, 300, 301, 302 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1549": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "B": [ "1" ],
+            "Y": [ 303, 304, 305, 306, 307 ]
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1567": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "B": [ "1" ],
+            "Y": [ 308, 309, 310, 311, 312 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:20$1520": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 230 ],
+            "Y": [ 33, 34, 35, 36 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:20$1538": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8, 9, 10 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 231 ],
+            "Y": [ 42, 43, 44, 45 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:20$1556": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12, 13, 14 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 232 ],
+            "Y": [ 52, 53, 54, 55 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1532": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0" ],
+            "B": [ 298, 299, 300, 301, 302, 302 ],
+            "S": [ 242 ],
+            "Y": [ 91, 92, 93, 94, 95, 96 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1550": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0" ],
+            "B": [ 303, 304, 305, 306, 307, 307 ],
+            "S": [ 243 ],
+            "Y": [ 103, 104, 105, 106, 107, 108 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1568": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0" ],
+            "B": [ 308, 309, 310, 311, 312, 312 ],
+            "S": [ 244 ],
+            "Y": [ 115, 116, 117, 118, 119, 120 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:26$1535": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62, 63, 64, 65 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 233 ],
+            "Y": [ 127, 128, 129, 130 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:26$1553": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73, 74 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 234 ],
+            "Y": [ 136, 137, 138, 139 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:26$1571": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81, 82, 83, 84 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 235 ],
+            "Y": [ 146, 147, 148, 149 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:35$1604": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 157, 158, 159, 160 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 239 ],
+            "Y": [ 171, 172, 173, 174 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:35$1615": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 162, 163, 164, 165 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 240 ],
+            "Y": [ 180, 181, 182, 183 ]
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:35$1626": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 167, 168, 169, 170 ],
+            "B": [ "1", "0", "0", "0" ],
+            "S": [ 241 ],
+            "Y": [ 190, 191, 192, 193 ]
+          }
+        },
+        "QUOTA_AFTER_BUDGET": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:41.4-41.51",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 207 ],
+            "EN": [ 200 ]
+          }
+        },
+        "QUOTA_AFTER_SHARED": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:45.4-45.52",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 209 ],
+            "EN": [ 201 ]
+          }
+        },
+        "QUOTA_AFTER_TOTAL": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:44.4-44.49",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 211 ],
+            "EN": [ 202 ]
+          }
+        },
+        "QUOTA_EMPTY_READY": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:46.4-46.53",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 213 ],
+            "EN": [ 203 ]
+          }
+        },
+        "QUOTA_NEXT_BUDGET": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:42.4-42.50",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 215 ],
+            "EN": [ 204 ]
+          }
+        },
+        "QUOTA_NEXT_MAX7": {
+          "hide_name": 0,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "inputs/formal/quota_step_math.sv:43.4-43.44",
+            "trg_on_gclk": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 217 ],
+            "EN": [ 205 ]
+          }
+        }
+      },
+      "netnames": {
+        "$add$inputs/formal/quota_step_math.sv:18$1509_Y": {
+          "hide_name": 1,
+          "bits": [ 22, 23 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:18$1513_Y": {
+          "hide_name": 1,
+          "bits": [ 25, 26, 27 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:18$1517_Y": {
+          "hide_name": 1,
+          "bits": [ 29, 30, 31, 32 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:20$1521_Y": {
+          "hide_name": 1,
+          "bits": [ 37, 38, 39, 40, 41 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:20$1539_Y": {
+          "hide_name": 1,
+          "bits": [ 46, 47, 48, 49, 50, 51 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.11-20.44"
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:24$1529_Y": {
+          "hide_name": 1,
+          "bits": [ 66, 67, 68, 69, 70 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:24$1547_Y": {
+          "hide_name": 1,
+          "bits": [ 75, 76, 77, 78, 79, 80 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:24.11-24.27"
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:25$1533_Y": {
+          "hide_name": 1,
+          "bits": [ 97, 98, 99, 100, 101, 102 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.13-25.54"
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:25$1551_Y": {
+          "hide_name": 1,
+          "bits": [ 109, 110, 111, 112, 113, 114 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.13-25.54"
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:26$1536_Y": {
+          "hide_name": 1,
+          "bits": [ 131, 132, 133, 134, 135 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:26$1554_Y": {
+          "hide_name": 1,
+          "bits": [ 140, 141, 142, 143, 144, 145 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.12-26.46"
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:35$1605_Y": {
+          "hide_name": 1,
+          "bits": [ 175, 176, 177, 178, 179 ],
+          "attributes": {
+          }
+        },
+        "$add$inputs/formal/quota_step_math.sv:35$1616_Y": {
+          "hide_name": 1,
+          "bits": [ 184, 185, 186, 187, 188, 189 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.12-35.46"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1672": {
+          "hide_name": 1,
+          "bits": [ 200 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1678": {
+          "hide_name": 1,
+          "bits": [ 201 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1684": {
+          "hide_name": 1,
+          "bits": [ 202 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1690": {
+          "hide_name": 1,
+          "bits": [ 203 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1696": {
+          "hide_name": 1,
+          "bits": [ 204 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:107:execute$1702": {
+          "hide_name": 1,
+          "bits": [ 205 ],
+          "attributes": {
+            "init": "0"
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1673": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1679": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1685": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1691": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1697": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:108:execute$1703": {
+          "hide_name": 1,
+          "bits": [ ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1676": {
+          "hide_name": 1,
+          "bits": [ 207 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1682": {
+          "hide_name": 1,
+          "bits": [ 209 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1688": {
+          "hide_name": 1,
+          "bits": [ 211 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1694": {
+          "hide_name": 1,
+          "bits": [ 213 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1700": {
+          "hide_name": 1,
+          "bits": [ 215 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$async2sync.cc:116:execute$1706": {
+          "hide_name": 1,
+          "bits": [ 217 ],
+          "attributes": {
+            "init": "1"
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1710": {
+          "hide_name": 1,
+          "bits": [ 218 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1715": {
+          "hide_name": 1,
+          "bits": [ 219 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1720": {
+          "hide_name": 1,
+          "bits": [ 220 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1725": {
+          "hide_name": 1,
+          "bits": [ 221 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1730": {
+          "hide_name": 1,
+          "bits": [ 222 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3267:Not$1735": {
+          "hide_name": 1,
+          "bits": [ 223 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1712": {
+          "hide_name": 1,
+          "bits": [ 224 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1717": {
+          "hide_name": 1,
+          "bits": [ 225 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1722": {
+          "hide_name": 1,
+          "bits": [ 226 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1727": {
+          "hide_name": 1,
+          "bits": [ 227 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1732": {
+          "hide_name": 1,
+          "bits": [ 228 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3314:And$1737": {
+          "hide_name": 1,
+          "bits": [ 229 ],
+          "attributes": {
+          }
+        },
+        "$auto$wreduce.cc:514:run$1650": {
+          "hide_name": 1,
+          "bits": [ 161, "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1652": {
+          "hide_name": 1,
+          "bits": [ 146, 147, 148, 149, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1653": {
+          "hide_name": 1,
+          "bits": [ 180, 181, 182, 183, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1654": {
+          "hide_name": 1,
+          "bits": [ 52, 53, 54, 55, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1655": {
+          "hide_name": 1,
+          "bits": [ 136, 137, 138, 139, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1656": {
+          "hide_name": 1,
+          "bits": [ 42, 43, 44, 45, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1658": {
+          "hide_name": 1,
+          "bits": [ 127, 128, 129, 130, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.19-26.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1661": {
+          "hide_name": 1,
+          "bits": [ 33, 34, 35, 36, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.17-20.43"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1663": {
+          "hide_name": 1,
+          "bits": [ 28, "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1664": {
+          "hide_name": 1,
+          "bits": [ 166, "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1665": {
+          "hide_name": 1,
+          "bits": [ 171, 172, 173, 174, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1667": {
+          "hide_name": 1,
+          "bits": [ 24, "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1668": {
+          "hide_name": 1,
+          "bits": [ 190, 191, 192, 193, "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.19-35.45"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1670": {
+          "hide_name": 1,
+          "bits": [ 21, "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          }
+        },
+        "$auto$wreduce.cc:514:run$1671": {
+          "hide_name": 1,
+          "bits": [ 156, "0", "0", "0" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:34.19-34.41"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1519_Y": {
+          "hide_name": 1,
+          "bits": [ 230 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1537_Y": {
+          "hide_name": 1,
+          "bits": [ 231 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:20$1555_Y": {
+          "hide_name": 1,
+          "bits": [ 232 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:20.18-20.25"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:26$1534_Y": {
+          "hide_name": 1,
+          "bits": [ 233 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.20-26.27"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:26$1552_Y": {
+          "hide_name": 1,
+          "bits": [ 234 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.20-26.27"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:26$1570_Y": {
+          "hide_name": 1,
+          "bits": [ 235 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:26.20-26.27"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:31$1591_Y": {
+          "hide_name": 1,
+          "bits": [ 236 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.28-31.40"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:31$1593_Y": {
+          "hide_name": 1,
+          "bits": [ 237 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.56-31.68"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:31$1596_Y": {
+          "hide_name": 1,
+          "bits": [ 238 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.84-31.96"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1603_Y": {
+          "hide_name": 1,
+          "bits": [ 239 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1614_Y": {
+          "hide_name": 1,
+          "bits": [ 240 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          }
+        },
+        "$eq$inputs/formal/quota_step_math.sv:35$1625_Y": {
+          "hide_name": 1,
+          "bits": [ 241 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:35.20-35.27"
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1530_Y": {
+          "hide_name": 1,
+          "bits": [ 242 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1548_Y": {
+          "hide_name": 1,
+          "bits": [ 243 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          }
+        },
+        "$gt$inputs/formal/quota_step_math.sv:25$1566_Y": {
+          "hide_name": 1,
+          "bits": [ 244 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.22-25.28"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:18$1518_Y": {
+          "hide_name": 1,
+          "bits": [ 245 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:18.14-18.22"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1522_Y": {
+          "hide_name": 1,
+          "bits": [ 246 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1540_Y": {
+          "hide_name": 1,
+          "bits": [ 247 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:21$1558_Y": {
+          "hide_name": 1,
+          "bits": [ 248 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.23-21.30"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:28$1573_Y": {
+          "hide_name": 1,
+          "bits": [ 249 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:28.21-28.28"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1606_Y": {
+          "hide_name": 1,
+          "bits": [ 250 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1617_Y": {
+          "hide_name": 1,
+          "bits": [ 251 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:36$1628_Y": {
+          "hide_name": 1,
+          "bits": [ 252 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.19-36.26"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:41$1635_Y": {
+          "hide_name": 1,
+          "bits": [ 253 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.42-41.50"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:42$1638_Y": {
+          "hide_name": 1,
+          "bits": [ 254 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.41-42.49"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:44$1643_Y": {
+          "hide_name": 1,
+          "bits": [ 255 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.41-44.48"
+          }
+        },
+        "$le$inputs/formal/quota_step_math.sv:45$1646_Y": {
+          "hide_name": 1,
+          "bits": [ 256 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.42-45.51"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:21$1541_Y": {
+          "hide_name": 1,
+          "bits": [ 257 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.13-21.30"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:21$1559_Y": {
+          "hide_name": 1,
+          "bits": [ 258 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:21.13-21.30"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:22$1527_Y": {
+          "hide_name": 1,
+          "bits": [ 260 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.16-22.49"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:22$1545_Y": {
+          "hide_name": 1,
+          "bits": [ 262 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.16-22.49"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:28$1574_Y": {
+          "hide_name": 1,
+          "bits": [ 265 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:28.11-28.28"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1592_Y": {
+          "hide_name": 1,
+          "bits": [ 274 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.28-31.52"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1594_Y": {
+          "hide_name": 1,
+          "bits": [ 275 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.56-31.80"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:31$1597_Y": {
+          "hide_name": 1,
+          "bits": [ 276 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.84-31.108"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:36$1618_Y": {
+          "hide_name": 1,
+          "bits": [ 279 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:36.11-36.26"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:37$1610_Y": {
+          "hide_name": 1,
+          "bits": [ 281 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.18-37.54"
+          }
+        },
+        "$logic_and$inputs/formal/quota_step_math.sv:37$1621_Y": {
+          "hide_name": 1,
+          "bits": [ 283 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.18-37.54"
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1524_Y": {
+          "hide_name": 1,
+          "bits": [ 286 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1542_Y": {
+          "hide_name": 1,
+          "bits": [ 287 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:22$1560_Y": {
+          "hide_name": 1,
+          "bits": [ 288 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.37"
+          }
+        },
+        "$logic_not$inputs/formal/quota_step_math.sv:41$1634_Y": {
+          "hide_name": 1,
+          "bits": [ 289 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.31-41.38"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1526_Y": {
+          "hide_name": 1,
+          "bits": [ 259 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1544_Y": {
+          "hide_name": 1,
+          "bits": [ 261 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:22$1562_Y": {
+          "hide_name": 1,
+          "bits": [ 263 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.30-22.48"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1579_Y": {
+          "hide_name": 1,
+          "bits": [ 268 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1584_Y": {
+          "hide_name": 1,
+          "bits": [ 270 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:30$1589_Y": {
+          "hide_name": 1,
+          "bits": [ 272 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.28-30.49"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:31$1595_Y": {
+          "hide_name": 1,
+          "bits": [ 294 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.27-31.81"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:31$1598_Y": {
+          "hide_name": 1,
+          "bits": [ 277 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:31.27-31.109"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:37$1620_Y": {
+          "hide_name": 1,
+          "bits": [ 282 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.53"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:37$1631_Y": {
+          "hide_name": 1,
+          "bits": [ 284 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.53"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:41$1636_Y": {
+          "hide_name": 1,
+          "bits": [ 206 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.31-41.50"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:42$1639_Y": {
+          "hide_name": 1,
+          "bits": [ 214 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.30-42.49"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:43$1641_Y": {
+          "hide_name": 1,
+          "bits": [ 216 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.28-43.43"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:44$1644_Y": {
+          "hide_name": 1,
+          "bits": [ 210 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.30-44.48"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:45$1647_Y": {
+          "hide_name": 1,
+          "bits": [ 208 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.31-45.51"
+          }
+        },
+        "$logic_or$inputs/formal/quota_step_math.sv:46$1649_Y": {
+          "hide_name": 1,
+          "bits": [ 212 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.30-46.52"
+          }
+        },
+        "$lt$inputs/formal/quota_step_math.sv:30$1576_Y": {
+          "hide_name": 1,
+          "bits": [ 267 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.16-30.22"
+          }
+        },
+        "$lt$inputs/formal/quota_step_math.sv:30$1578_Y": {
+          "hide_name": 1,
+          "bits": [ 293 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:30.40-30.48"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1525_Y": {
+          "hide_name": 1,
+          "bits": [ 290 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1543_Y": {
+          "hide_name": 1,
+          "bits": [ 291 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:22$1561_Y": {
+          "hide_name": 1,
+          "bits": [ 292 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:22.41-22.48"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1608_Y": {
+          "hide_name": 1,
+          "bits": [ 295 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1619_Y": {
+          "hide_name": 1,
+          "bits": [ 296 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          }
+        },
+        "$ne$inputs/formal/quota_step_math.sv:37$1630_Y": {
+          "hide_name": 1,
+          "bits": [ 297 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:37.34-37.41"
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1531_Y": {
+          "hide_name": 1,
+          "bits": [ 298, 299, 300, 301, 302, 302 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1549_Y": {
+          "hide_name": 1,
+          "bits": [ 303, 304, 305, 306, 307, 307 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          }
+        },
+        "$sub$inputs/formal/quota_step_math.sv:25$1567_Y": {
+          "hide_name": 1,
+          "bits": [ 308, 309, 310, 311, 312, 312 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.31-25.47"
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1532_Y": {
+          "hide_name": 1,
+          "bits": [ 91, 92, 93, 94, 95, 96 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1550_Y": {
+          "hide_name": 1,
+          "bits": [ 103, 104, 105, 106, 107, 108 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          }
+        },
+        "$ternary$inputs/formal/quota_step_math.sv:25$1568_Y": {
+          "hide_name": 1,
+          "bits": [ 115, 116, 117, 118, 119, 120 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:25.21-25.53"
+          }
+        },
+        "QUOTA_AFTER_BUDGET_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:41.4-41.51"
+          }
+        },
+        "QUOTA_AFTER_SHARED_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:45.4-45.52"
+          }
+        },
+        "QUOTA_AFTER_TOTAL_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:44.4-44.49"
+          }
+        },
+        "QUOTA_EMPTY_READY_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:46.4-46.53"
+          }
+        },
+        "QUOTA_NEXT_BUDGET_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:42.4-42.50"
+          }
+        },
+        "QUOTA_NEXT_MAX7_EN": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:43.4-43.44"
+          }
+        },
+        "accept": {
+          "hide_name": 0,
+          "bits": [ 278 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:14.23-14.29"
+          }
+        },
+        "alloc_src": {
+          "hide_name": 0,
+          "bits": [ 19, 20 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:9.19-9.28"
+          }
+        },
+        "alloc_valid": {
+          "hide_name": 0,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:8.13-8.24"
+          }
+        },
+        "c0": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:6.19-6.21"
+          }
+        },
+        "c1": {
+          "hide_name": 0,
+          "bits": [ 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:6.22-6.24"
+          }
+        },
+        "c2": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:6.25-6.27"
+          }
+        },
+        "c[0]": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.12-11.13"
+          }
+        },
+        "c[1]": {
+          "hide_name": 0,
+          "bits": [ 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.12-11.13"
+          }
+        },
+        "c[2]": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.12-11.13"
+          }
+        },
+        "cap7": {
+          "hide_name": 0,
+          "bits": [ 280 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:14.30-14.34"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:5.13-5.16"
+          }
+        },
+        "cost": {
+          "hide_name": 0,
+          "bits": [ 56, 57, 58, 59, 60, 61 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:12.12-12.16"
+          }
+        },
+        "d[0]": {
+          "hide_name": 0,
+          "bits": [ 62, 63, 64, 65 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.19-11.20"
+          }
+        },
+        "d[1]": {
+          "hide_name": 0,
+          "bits": [ 71, 72, 73, 74 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.19-11.20"
+          }
+        },
+        "d[2]": {
+          "hide_name": 0,
+          "bits": [ 81, 82, 83, 84 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.19-11.20"
+          }
+        },
+        "dcost": {
+          "hide_name": 0,
+          "bits": [ 150, 151, 152, 153, 154, 155 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:12.35-12.40"
+          }
+        },
+        "domain": {
+          "hide_name": 0,
+          "bits": [ 266 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:14.6-14.12"
+          }
+        },
+        "empty_ready": {
+          "hide_name": 0,
+          "bits": [ 285 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:14.35-14.46"
+          }
+        },
+        "n[0]": {
+          "hide_name": 0,
+          "bits": [ 157, 158, 159, 160 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.26-11.27"
+          }
+        },
+        "n[1]": {
+          "hide_name": 0,
+          "bits": [ 162, 163, 164, 165 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.26-11.27"
+          }
+        },
+        "n[2]": {
+          "hide_name": 0,
+          "bits": [ 167, 168, 169, 170 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:11.26-11.27"
+          }
+        },
+        "ncost": {
+          "hide_name": 0,
+          "bits": [ 194, 195, 196, 197, 198, 199 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:12.29-12.34"
+          }
+        },
+        "ready": {
+          "hide_name": 0,
+          "bits": [ 269, 271, 273 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:13.12-13.17"
+          }
+        },
+        "ret": {
+          "hide_name": 0,
+          "bits": [ 15, 16, 17 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:7.19-7.22"
+          }
+        },
+        "ret_legal": {
+          "hide_name": 0,
+          "bits": [ 264 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:14.13-14.22"
+          }
+        },
+        "shared": {
+          "hide_name": 0,
+          "bits": [ 121, 122, 123, 124, 125, 126 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:12.22-12.28"
+          }
+        },
+        "used": {
+          "hide_name": 0,
+          "bits": [ 85, 86, 87, 88, 89, 90 ],
+          "attributes": {
+            "src": "inputs/formal/quota_step_math.sv:12.17-12.21"
+          }
+        }
+      }
+    }
+  }
+}

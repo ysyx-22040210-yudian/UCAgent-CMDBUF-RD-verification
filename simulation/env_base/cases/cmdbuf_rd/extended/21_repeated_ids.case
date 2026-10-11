@@ -1,0 +1,5 @@
+type=repeated_ids
+cycles=55
+seed=1
+trace=0
+require=duplicate_live_id:6,retired:9,same_xau_head_block:1

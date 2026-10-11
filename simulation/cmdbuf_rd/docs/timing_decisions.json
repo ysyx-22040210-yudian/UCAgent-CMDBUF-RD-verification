@@ -1,0 +1,41 @@
+{
+  "confirmed_on": "2026-10-10",
+  "selected_scenarios": {
+    "5": "5A: failed A does not cancel preselected B; A rejoins next cycle with original age",
+    "6": "6B: forward successful grants into the current oldest-five window",
+    "10": "10B: allow same-cycle response retirement and AR allocation/reuse"
+  },
+  "selection_logic": [
+    "pending_mask = valid & ~issued",
+    "success_mask = issue_success ? onehot(issue_entry_id) : 0",
+    "window_mask = oldest_5(pending_mask & ~success_mask)",
+    "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask"
+  ],
+  "window_blocking": {
+    "scope": "Oldest five not-yet-successfully-issued commands, before filtering bank availability",
+    "scenario_11": "If all five window commands remain bank-busy and there is no issue-stage success, an idle-bank sixth command stays outside the window and cannot issue",
+    "window_advance": "6B forwards actual successful issue only; allocation, MEM completion and R retirement do not by themselves advance this pending-command window"
+  },
+  "allocation_logic": "free_mask = ~valid | retire_mask; allocation initialization wins on reused entry",
+  "capacity_policy": {
+    "user_requirement": "Prevent one XAU from exhausting entries and denying entry admission to other XAUs",
+    "supersedes": "Unrestricted sharing with no per-XAU admission protection",
+    "design_choice": "One logical reserved entry per XAU plus six shared entries; nine physical entries remain pooled",
+    "policy_origin": "Design recommendation implementing the new user requirement; reserve size not separately specified by user",
+    "occupancy": "All accepted commands until their R response retires, including issued and completed commands",
+    "invariant": "sum(max(occ[x], 1) for x in XAUs) <= 9",
+    "ready": "After subtracting same-cycle retirement: free_after > 0 && (occ_after[x] == 0 || sum(max(occ_after[y]-1,0)) < 6)",
+    "upstream_dependency": "User confirmed shared AR may switch src; fairness remains unspecified. Eventual admission needs fairness; cmdbuf_rd guarantees capacity availability"
+  },
+  "mem_to_r_timing": {
+    "confirmed": true,
+    "mem_return_duration_cycles": 1,
+    "same_cycle_bypass": false,
+    "earliest_response_cycle": "MEM capture cycle N + 1",
+    "eligibility": "Only registered OTB completion from a previous cycle can enter R arbitration; per-XAU head order, current rready and RR must also permit the response",
+    "example": "Successful issue C3 -> MEM capture C7 -> earliest R response C8"
+  },
+  "still_unconfirmed": [
+    "Shared upstream AR arbitration fairness is unspecified; source switching is confirmed allowed"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 24: arready got=0x0 expected=0x7",
+  "type": "capacity_440",
+  "seed": 1,
+  "cycles": 24,
+  "checks": 283,
+  "coverage": {
+    "accepted": 9,
+    "accepted_back_to_back": 7,
+    "accepted_src0": 4,
+    "accepted_src1": 4,
+    "accepted_src2": 1,
+    "capacity440_ready100": 6,
+    "capture_after_bubble": 1,
+    "capture_no_bypass": 9,
+    "capture_without_ready": 9,
+    "captured": 9,
+    "captured_back_to_back": 7,
+    "issued": 9,
+    "issued_back_to_back": 7,
+    "ready_zero_holds_completed": 17,
+    "rejected_unready_src": 5,
+    "reset": 1,
+    "three_cycle_path": 9
+  }
+}

@@ -1,0 +1,17 @@
+[options]
+mode cover
+depth 12
+timeout 600
+multiclock off
+
+[engines]
+smtbmc yices
+
+[script]
+read_verilog -formal -sv -DSYNTHESIS "inputs/cmdbuf_rd/rtl/cmdbuf_rd.sv" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_cmd.sv" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_otb.sv" "inputs/formal_out/tests/cmdbuf_rd_checker.sv" "inputs/formal_out/tests/cmdbuf_rd_wrapper.sv"
+prep -top cmdbuf_rd_wrapper
+check -assert
+write_json ucagent_design.json
+
+[files]
+inputs

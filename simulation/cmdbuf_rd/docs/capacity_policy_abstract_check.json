@@ -1,0 +1,105 @@
+{
+  "result": "PASS",
+  "model": "One reserved entry per XAU plus six shared entries",
+  "legal_occupancy_states": 190,
+  "reachable_occupancy_states": 190,
+  "accepted_transition_checks": 1716,
+  "examples": [
+    {
+      "occ": [
+        7,
+        0,
+        0
+      ],
+      "retire_src": null,
+      "after": [
+        7,
+        0,
+        0
+      ],
+      "arready": "110"
+    },
+    {
+      "occ": [
+        7,
+        1,
+        0
+      ],
+      "retire_src": null,
+      "after": [
+        7,
+        1,
+        0
+      ],
+      "arready": "100"
+    },
+    {
+      "occ": [
+        7,
+        1,
+        1
+      ],
+      "retire_src": null,
+      "after": [
+        7,
+        1,
+        1
+      ],
+      "arready": "000"
+    },
+    {
+      "occ": [
+        4,
+        4,
+        0
+      ],
+      "retire_src": null,
+      "after": [
+        4,
+        4,
+        0
+      ],
+      "arready": "100"
+    },
+    {
+      "occ": [
+        7,
+        1,
+        1
+      ],
+      "retire_src": 1,
+      "after": [
+        7,
+        0,
+        1
+      ],
+      "arready": "010"
+    },
+    {
+      "occ": [
+        7,
+        1,
+        1
+      ],
+      "retire_src": 0,
+      "after": [
+        6,
+        1,
+        1
+      ],
+      "arready": "111"
+    }
+  ],
+  "verified": [
+    "invariant preservation",
+    "zero-occupancy source can accept after any legal retirement",
+    "single-source maximum seven",
+    "same-cycle retirement and allocation",
+    "per-source cap alone is insufficient"
+  ],
+  "limitations": [
+    "Occupancy policy model only; no RTL simulation or formal tool run",
+    "No upstream fairness assumption proved",
+    "Bank-window progress is a separate condition"
+  ]
+}

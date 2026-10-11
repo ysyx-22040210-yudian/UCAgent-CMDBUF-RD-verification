@@ -1,0 +1,1 @@
+CHECK_FAILED 04_grants cycle 3: pending_cnt got=0x2 expected=0x3

@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "tokens",
+  "seed": 1,
+  "cycles": 63,
+  "checks": 737,
+  "coverage": {
+    "accepted": 8,
+    "accepted_src0": 3,
+    "accepted_src1": 3,
+    "accepted_src2": 2,
+    "ar_only_grant": 1,
+    "capture_after_bubble": 7,
+    "capture_no_bypass": 8,
+    "captured": 8,
+    "error_combo_00": 8,
+    "issue_failure": 1,
+    "issued": 8,
+    "reset": 1,
+    "retired": 8,
+    "retired_src0": 3,
+    "retired_src1": 3,
+    "retired_src2": 2,
+    "retry_success": 1,
+    "three_cycle_path": 7,
+    "zero_data_no_error": 1
+  }
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "label": "dut.POLICY_SELECT_ONEHOT",
+    "sby_label": "POLICY_SELECT_ONEHOT",
+    "formalmc_label": "P_ASSERT_0000",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:405.13-405.66",
+    "a_connection": "$auto$async2sync.cc:116:execute$14739",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14735"
+  },
+  {
+    "label": "dut.POLICY_SELECT",
+    "sby_label": "POLICY_SELECT",
+    "formalmc_label": "P_ASSERT_0001",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:404.13-404.88",
+    "a_connection": "$auto$async2sync.cc:116:execute$14745",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14741"
+  },
+  {
+    "label": "dut.POLICY_R_METADATA",
+    "sby_label": "POLICY_R_METADATA",
+    "formalmc_label": "P_ASSERT_0002",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:409.13-409.110",
+    "a_connection": "$auto$async2sync.cc:116:execute$14751",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14747"
+  },
+  {
+    "label": "dut.POLICY_R_IDENTITY",
+    "sby_label": "POLICY_R_IDENTITY",
+    "formalmc_label": "P_ASSERT_0003",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:408.13-408.81",
+    "a_connection": "$auto$async2sync.cc:116:execute$14757",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14753"
+  },
+  {
+    "label": "dut.POLICY_RVALID",
+    "sby_label": "POLICY_RVALID",
+    "formalmc_label": "P_ASSERT_0004",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:407.13-407.53",
+    "a_connection": "$auto$async2sync.cc:116:execute$14763",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14759"
+  },
+  {
+    "label": "dut.POLICY_RR_STATE",
+    "sby_label": "POLICY_RR_STATE",
+    "formalmc_label": "P_ASSERT_0005",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:406.13-406.64",
+    "a_connection": "$auto$async2sync.cc:116:execute$14769",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14765"
+  },
+  {
+    "label": "dut.POLICY_POOL",
+    "sby_label": "POLICY_POOL",
+    "formalmc_label": "P_ASSERT_0006",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:400.13-400.52",
+    "a_connection": "$auto$async2sync.cc:116:execute$14775",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14771"
+  },
+  {
+    "label": "dut.POLICY_HEAD_VALID",
+    "sby_label": "POLICY_HEAD_VALID",
+    "formalmc_label": "P_ASSERT_0007",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:410.13-410.61",
+    "a_connection": "$auto$async2sync.cc:116:execute$14781",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14777"
+  },
+  {
+    "label": "dut.POLICY_HALF_IDLE",
+    "sby_label": "POLICY_HALF_IDLE",
+    "formalmc_label": "P_ASSERT_0008",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:402.13-402.62",
+    "a_connection": "$auto$async2sync.cc:116:execute$14787",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14783"
+  },
+  {
+    "label": "dut.POLICY_ELIGIBLE",
+    "sby_label": "POLICY_ELIGIBLE",
+    "formalmc_label": "P_ASSERT_0009",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:411.13-411.62",
+    "a_connection": "$auto$async2sync.cc:116:execute$14793",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14789"
+  },
+  {
+    "label": "dut.POLICY_CANDIDATES",
+    "sby_label": "POLICY_CANDIDATES",
+    "formalmc_label": "P_ASSERT_0010",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:403.13-403.69",
+    "a_connection": "$auto$async2sync.cc:116:execute$14799",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14795"
+  },
+  {
+    "label": "dut.CONTRACT_STRICT_ORDER",
+    "sby_label": "CONTRACT_STRICT_ORDER",
+    "formalmc_label": "P_ASSUME_0011",
+    "kind": "assume",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:340.35-340.83",
+    "a_connection": "\\dut.po_order_contract",
+    "enable_connection": "\\dut.CONTRACT_STRICT_ORDER_EN"
+  },
+  {
+    "label": "dut._witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7033",
+    "sby_label": "check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7033",
+    "formalmc_label": "P_ASSERT_0012",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:412.55-412.88",
+    "a_connection": "$auto$async2sync.cc:116:execute$14943",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14939"
+  },
+  {
+    "label": "dut._witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7031",
+    "sby_label": "check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7031",
+    "formalmc_label": "P_ASSERT_0013",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:412.55-412.88",
+    "a_connection": "$auto$async2sync.cc:116:execute$14949",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14945"
+  },
+  {
+    "label": "dut._witness_.check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7035",
+    "sby_label": "check_assert_inputs_rtl_cmdbuf_rd_cmd_sv_412_7035",
+    "formalmc_label": "P_ASSERT_0014",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:412.55-412.88",
+    "a_connection": "$auto$async2sync.cc:116:execute$14955",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14951"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_7135",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_44_7135",
+    "formalmc_label": "P_ASSUME_0015",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:44.13-44.55",
+    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:44$7138_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:43$7133_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_7130",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_40_7130",
+    "formalmc_label": "P_ASSUME_0016",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:40.25-40.39",
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:40$7131_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:40$7130_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_7132",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_41_7132",
+    "formalmc_label": "P_ASSUME_0017",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:41.14-41.27",
+    "a_connection": "\\rst_n",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:41$7132_EN"
+  },
+  {
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_7133",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_43_7133",
+    "formalmc_label": "P_ASSUME_0018",
+    "kind": "assume",
+    "source_location": "inputs/formal/cmdbuf_rd_formal.sv:43.13-43.28",
+    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:43$7134_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:43$7133_EN"
+  },
+  {
+    "label": "dut.POLICY_WINDOW",
+    "sby_label": "POLICY_WINDOW",
+    "formalmc_label": "P_ASSERT_0019",
+    "kind": "assert",
+    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:401.13-401.58",
+    "a_connection": "$auto$async2sync.cc:116:execute$14985",
+    "enable_connection": "$auto$async2sync.cc:107:execute$14981"
+  }
+]

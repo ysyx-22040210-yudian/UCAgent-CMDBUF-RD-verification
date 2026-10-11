@@ -1,0 +1,743 @@
+# cmdbuf_rd 详细 RTL 设计方案
+
+版本日期：2026-10-10。设计基线：九项 CMDBUF 与九项 OTB、五条待发命令乱序窗口、5A／6B／10B 时序、成功发射后固定四拍返回、MEM 捕获后最早下一拍响应，以及每 XAU 保底的容量保护方案。
+
+本方案用于 RTL 编码、模块接口评审和验证建模。已确认的行为作为实现约束；固定 entry、年龄矩阵、相同物理索引等属于本方案的实现选择。复位、精确 RR 顺序等尚未最终定义的边界在文末列出，不将建议冒充已经确认的接口要求。
+
+[时序图集](../cmdbuf_rd_timing/index.html) · [注错清单](../cmdbuf_rd_fault_catalog/index.html) · [容量隔离说明](../cmdbuf_rd_fault_catalog/capacity_policy.md)
+
+## 1 设计目标和能力边界
+
+cmdbuf_rd 位于上游共享 AR/R 接口与下游 Arbit、MEM Bank 之间。它将命令接收、Bank 可用性判断、仲裁发射、数据捕获和响应返回解耦，允许窗口内较新但目标 Bank 空闲的命令先发射，同时保证同一 XAU 的响应按接收次序返回。
+
+| 项目 | 设计基线 |
+| --- | --- |
+| 上游来源 | 最多三个 XAU，src 为 0、1、2 |
+| AR 接口 | 一组共享负载，每拍最多接收一条；并非三条独立 AR 总线 |
+| 总容量 | 九条未退休命令；CMDBUF 与 OTB 各九项、一一对应 |
+| 入口容量保护 | 每个 XAU 逻辑保留一项，其余六项共享；物理槽位统一分配 |
+| 下游命令带宽 | 每拍最多尝试发射一条，最多成功一条 |
+| 乱序范围 | 最老五条未成功发射命令 |
+| 最短前向路径 | C1 接收、C2 判断、C3 请求并获得同拍仲裁结果 |
+| MEM 返回 | 成功发射与 MEM 接收同拍，四拍后返回一组数据及 pc_err，仅有效一拍 |
+| R 返回 | 每拍最多一条；同 XAU 保序，不同 XAU 在合格通道间 RR |
+| 最短完整路径 | C1 接收、C3 成功、C7 捕获、C8 返回并释放 |
+| 释放条件 | 实际向上游返回 R 响应后，同时释放 CMDBUF 与 OTB |
+
+本模块能够缓冲 Bank 冲突，并利用五项窗口内的其他空闲 Bank。它不会增大 MEM 的物理接收带宽，也不保证所有状态下持续有命令可发。最老五条全部被阻塞时，第六条即使 Bank 空闲也继续等待。
+
+容量保留保证零占用 XAU 至少有首条命令的接收名额。用户已确认上游可以切换 src，但公平性未定；模块不能强迫上游选择某个来源，也不能无条件保证其请求最终被调度。
+
+## 2 顶层接口
+
+以下方向均相对于 cmdbuf_rd。为避免同名，AR/R 的 port_id 在本文分别命名为 ar_port_id 和 r_port_id；最终端口命名可按工程规范调整。
+
+### 2.1 时钟和复位
+
+| 信号 | 方向 | 位宽 | 说明 |
+| --- | --- | --- | --- |
+| clk | 输入 | 1 | 统一时钟；当前方案按单时钟域设计 |
+| reset | 输入 | 1 | 占位名称；极性、同步或异步及运行中复位协议待确认 |
+
+若上游、Arbit 或 MEM 实际跨时钟域，需在模块边界增加单独的跨域协议，不能直接沿用本文固定四拍关系。
+
+### 2.2 上游 AR 通道
+
+| 信号 | 方向 | 位宽 | 含义 |
+| --- | --- | --- | --- |
+| arvalid | 输入 | 1 | 当前共享 AR 负载有效 |
+| arready | 输出 | 3 | 每个 XAU 的接收资格；三位允许不同，也不要求 one-hot |
+| araddr | 输入 | 18 | 命令地址 |
+| src | 输入 | 2 | 来源 XAU，合法值 0～2 |
+| arid | 输入 | 8 | 事务标签，保存后透传到 rid |
+| ar_port_id | 输入 | 5 | 保存后透传到 r_port_id |
+| arresp | 输入 | 2 | 00 正常、11 地址越界；其他值未定义 |
+
+```text
+ar_fire = arvalid && (src < 3) && arready[src]
+```
+
+实现时先判断 src 合法性，再选择 ready 位，避免对 src=3 做越界索引。上游保证 arready 全零时 arvalid=0；这不等价于“任一 ready 为 1 就可接收当前 src”。
+
+arid 不参与年龄排序，不要求数值随命令先后递增。本实现不依赖 ID 唯一性；响应与 entry 的归属使用内部标识和接收年龄。
+
+### 2.3 上游 R 通道
+
+| 信号 | 方向 | 位宽 | 含义 |
+| --- | --- | --- | --- |
+| rvalid | 输出 | 3 | 通过哪一位为 1 指示接收 XAU；至多一位为 1 |
+| rready | 输入 | 3 | 三个 XAU 当前接收响应的能力 |
+| rdata | 输出 | 128 | 一组共享数据 |
+| rid | 输出 | 8 | 原 arid |
+| r_port_id | 输出 | 5 | 原 ar_port_id |
+| raddr | 输出 | 3 | 原 araddr[2:0] |
+| rresp | 输出 | 2 | 00 正常、11 地址越界、01 奇偶校验异常 |
+
+```text
+(rvalid & ~rready) == 0
+onehot0(rvalid)
+retire_fire = |(rvalid & rready)
+```
+
+本接口约定只在 ready=1 的通道上产生 valid，因此没有“先拉高 valid，再锁住共享负载等待 ready”的状态。所有 R 字段来自同一获选命令。
+
+### 2.4 Arbit 接口
+
+| 信号 | 方向 | 位宽 | 含义 |
+| --- | --- | --- | --- |
+| req | 输出 | 8 | Bank 请求，one-hot 或全零 |
+| arb_addr | 输出 | 12 | 请求级保存地址的 araddr[17:6] |
+| pending_cnt | 输出 | 4 | 全部已接收但未成功发射的命令数，范围 0～9 |
+| ar_rd_gnt | 输入 | 8 | 下游仲裁响应 |
+
+pending_cnt 表示全局待发数，不是窗口内命令数，也不是总占用数。输出使用当前寄存状态，不把当拍 grant 反馈形成的下一状态计数直接送回 Arbit。
+
+### 2.5 MEM 接口
+
+| 信号 | 方向 | 位宽 | 含义 |
+| --- | --- | --- | --- |
+| rd_mem_status | 输入 | [1:0][7:0] | 第一维奇偶，第二维 Bank；0 空闲、1 忙 |
+| mem_rdata | 输入 | 128 | 合并后的单组返回数据 |
+| pc_err | 输入 | 1 | 当前有效返回的奇偶校验异常 |
+| rw_rd_gnt | 输入 | 8 | 目标 Bank 的读仲裁许可 |
+
+```text
+bank_id   = saved_araddr[5:3]       // Bank 0～7
+bank_half = saved_araddr[6]         // 0 偶、1 奇
+bank_idle = !rd_mem_status[bank_half][bank_id]
+arb_addr  = issue_addr_q            // 保存的 araddr[17:6]
+```
+
+arb_addr[0] 已携带原地址 bit 6，无须再添加 bank_half 外部端口。没有独立 MEM 返回 valid 的已定义端口；本模块依据成功发射事件固定延迟四拍，产生内部捕获有效信号。pc_err 不能充当返回 valid。
+
+当前协议是一条 AR 对应一次 128-bit 返回，不额外引入 burst、rlast、AXI 重排规则或未约定的地址对齐限制。
+
+## 3 总体架构
+
+![cmdbuf_rd 架构](architecture.png)
+
+顶层仍由 CMDBUF 和 OTB 两个主要部分组成。控制职责建议如下：
+
+| 功能 | 归属建议 | 作用 |
+| --- | --- | --- |
+| AR 接收与配对分配 | CMDBUF 侧公共控制 | 计算每源 ready，原子分配 CMDBUF/OTB |
+| 命令元数据与年龄 | CMDBUF | 保存字段、维护先后关系 |
+| 五项窗口和 Bank 判断 | CMDBUF | 从合格窗口选择最老命令 |
+| 请求级寄存器 | CMDBUF | 下一拍输出 req/address，取得同拍 grant |
+| 成功发射标记流水 | OTB 返回控制 | 将内部 entry 标识延迟四拍 |
+| 数据与 pc_err 存储 | OTB | 无背压捕获 MEM 单拍返回 |
+| 每源队头、RR、共享 R mux | 公共响应控制 | 按同源接收顺序返回 |
+| 完成和退休广播 | 公共控制 | MEM 完成通知 CMDBUF；R 返回释放两侧 |
+
+AR 接收时立即为 OTB 保留位置。请求级发出命令时，同步将命令归属传给 OTB；只有成功发射事件才能启动返回标记流水。MEM 数据回来时无需再次争抢容量。
+
+## 4 存储组织与内部状态
+
+### 4.1 固定九项 entry
+
+本方案采用固定 entry 编号 0～8，内部 entry_id 为 4 bit，9～15 为无效编码。CMDBUF 与 OTB 使用相同 entry_id，使分配、返回和释放容易对应。
+
+相同物理编号是实现选择；外部要求是一一对应。若实现为不同物理编号，必须增加可靠映射并保持本文的行为。
+
+命令不会因成功发射而搬移到另一物理槽，槽位只在 R 返回后成为空闲。乱序、新老关系由年龄结构表达，不由槽位编号表达。
+
+### 4.2 每项字段
+
+| 字段 | 位宽 | 归属 | 更新时机 |
+| --- | --- | --- | --- |
+| valid | 1 | 公共归属状态 | AR 接收置位，R 退休清除 |
+| issued | 1 | CMDBUF | 分配置零，成功发射置位 |
+| mem_done | 1 | 公共完成状态 | 分配置零，MEM 捕获置位 |
+| cmd_addr | 18 | CMDBUF | AR 接收保存 |
+| cmd_src | 2 | CMDBUF | AR 接收保存 |
+| cmd_id | 8 | CMDBUF | AR 接收保存 |
+| cmd_port_id | 5 | CMDBUF | AR 接收保存 |
+| cmd_arresp | 2 | CMDBUF | AR 接收保存 |
+| data | 128 | OTB | MEM 捕获保存 |
+| saved_pc_err | 1 | OTB | 与 data 同拍保存 |
+
+valid 与 mem_done 可以作为两部分共享的权威状态。CMDBUF 直接使用 mem_done 感知返回，OTB 以相同状态表示数据有效，避免维护两个独立完成位而发生失配。若为了模块边界而镜像状态，两侧必须在同一事件下更新并检查一致性。
+
+本方案建议将 OTB 数据用寄存器阵列实现。九项共 1152 个数据 bit，能够为不同 entry 同拍执行捕获和清除；不能未经端口分析就替换成单写口 RAM。
+
+### 4.3 派生状态
+
+| 状态 | 条件 | 是否占容量 | 是否计入待发 |
+| --- | --- | --- | --- |
+| FREE | !valid | 否 | 否 |
+| WAIT | valid && !issued | 是 | 是 |
+| INFLIGHT | valid && issued && !mem_done | 是 | 否 |
+| DONE | valid && issued && mem_done | 是 | 否 |
+
+正在请求级尝试的命令仍属于 WAIT，直至取得成功 grant；额外的 issue_valid_q/issue_entry_q 仅用于标识流水占用、屏蔽重复预选。失败不需要释放、重新分配或更改年龄。
+
+```text
+FREE --AR 接收--> WAIT --成功发射--> INFLIGHT --MEM 捕获--> DONE --R 返回--> FREE
+                    |
+                    +--仲裁失败--> WAIT，年龄不变
+```
+
+### 4.4 全局寄存器
+
+| 状态 | 建议宽度 | 用途 |
+| --- | --- | --- |
+| older_set | 9 × 9 | 每项有哪些更老的有效命令 |
+| issue_valid_q | 1 | 请求级有效 |
+| issue_entry_q | 4 | 请求级 entry |
+| issue_bank_q | 3 | 请求级目标 Bank |
+| issue_addr_q | 12 | 请求级下游地址 |
+| ret_valid_q | 4 | 固定四拍返回标记 |
+| ret_entry_q | 4 × 4 | 每级返回标记对应 entry |
+| occ_q | 3 × 4 | 各 XAU 已接收、未退休总占用 |
+| used_cnt_q | 4 | 总占用，0～9；可由 occ 求和派生 |
+| pending_cnt_q | 4 | 总待发数，0～9 |
+| rr_ptr_q | 2 | RR 扫描起点，合法值 0～2 |
+
+## 5 AR 准入和容量隔离
+
+### 5.1 逻辑保留与共享额度
+
+设计采用每 XAU 逻辑保留一项、其余六项共享。只有一个 XAU 活动时最多占七项，另两项继续为其他来源保留，不因其暂时没有请求而借出。
+
+occ[x] 统计该 XAU 全部 valid 命令。成功发射以及 MEM 返回均不会减少它；只有 R 退休才减少。
+
+```text
+sum(max(occ[x], 1)) <= 9
+
+等价于：sum(max(occ[x] - 1, 0)) <= 6
+```
+
+只限制每 XAU 最多七项不够，因为 (4,5,0) 仍会占满九项并挡住第三路。上述不变量同时保护每个零占用来源的首条接收名额。
+
+### 5.2 考虑当拍退休后的 ready
+
+```text
+retire[x] = rvalid[x] && rready[x]
+occ_after[x] = occ_q[x] - retire[x]
+free_after = 9 - sum(occ_after)
+shared_after = sum(max(occ_after[x] - 1, 0))
+
+arready[x] = (free_after > 0)
+          && ((occ_after[x] == 0) || (shared_after < 6))
+
+accept[x] = ar_fire && (src == x)
+occ_next[x] = occ_after[x] + accept[x]
+```
+
+减法、比较和加法使用足够宽的无符号中间值；occ=0 时的 max(occ-1,0) 必须先判断，不能发生下溢。reset 期间的 ready 输出另外受复位策略控制。
+
+| 原占用 (XAU0,XAU1,XAU2) | 当拍退休 | arready[2:0] |
+| --- | --- | --- |
+| (7,0,0) | 无 | 110 |
+| (7,1,0) | 无 | 100 |
+| (7,1,1) | 无 | 000 |
+| (4,4,0) | 无 | 100 |
+| (7,1,1) | XAU1 唯一一条 | 010 |
+| (7,1,1) | XAU0 一条 | 111 |
+
+若某来源 occ_after[x]=0，保留不变量保证至少还有一个空槽；它接收第一条不增加 max(occ_after[x],1)，因此不依赖其他来源退休即可准入。
+
+### 5.3 物理 entry 分配
+
+```text
+free_mask = ~valid_q | retire_mask
+alloc_valid = ar_fire
+alloc_entry = select_one(free_mask)
+```
+
+可以用固定最低空闲编号选择器，分配顺序不参与年龄优先级。不存在两个 AR 同拍竞争分配的问题，因为总线每拍最多一条。
+
+接收沿原子完成：置 valid、保存所有 AR 字段、清 issued/mem_done、初始化 OTB 状态、把新命令登记为最年轻。新命令只能从下一周期开始参与窗口判断。
+
+## 6 接收年龄管理
+
+本方案采用九项年龄矩阵，避免有限宽度时间戳溢出后比较新老的问题。
+
+定义 older_set[i][j]=1 表示“有效 entry j 比有效 entry i 更老”。对角线恒为零；任意两个不同有效 entry 的先后关系唯一。
+
+```text
+oldest(M)[i] = M[i] && !(|(older_set[i] & M))
+```
+
+其中 M 是待比较集合。例如 M 为窗口内可发集合时，返回最老可发命令；M 为某 XAU 的所有 valid 项时，返回其最老未退休命令。
+
+### 6.1 更新规则
+
+只在分配或退休改变年龄关系；发射、失败、MEM 完成不改变年龄。
+
+在先求出 valid_next 后，对每对 i、j 使用下列优先级：
+
+```text
+if (!valid_next[i] || !valid_next[j] || i == j)
+    older_next[i][j] = 0;
+else if (alloc_valid && i == alloc_entry)
+    older_next[i][j] = 1;  // 所有其他存活项都比新 i 老
+else if (alloc_valid && j == alloc_entry)
+    older_next[i][j] = 0;  // 新 j 不可能比旧 i 老
+else
+    older_next[i][j] = older_q[i][j];
+```
+
+退休后无复用时，该项所在行列清零；同拍退休并复用同一槽时，新分配规则重建该行列，不能保留旧命令年龄。
+
+九项矩阵只有 81 个 bit，易于实现与检查。若实现优化为三角矩阵，行为与比较方向应保持不变。
+
+## 7 三拍前向流水
+
+| 周期 | 阶段 | 工作 |
+| --- | --- | --- |
+| C1 | S0 接收 | AR 握手，配对分配，保存命令 |
+| C2 | S1 判断 | 构建五项窗口，匹配 Bank 空闲，选最老合格项；拍末寄存 |
+| C3 | S2 请求 | 输出 req/address，当拍获得两种 grant，拍末提交成功或失败 |
+
+S0、S1、S2 针对不同命令并行运行。C3 可以同时接收 C、判断 B、请求 A。不能将三阶段做成等待前一命令完成后才处理下一条的串行状态机。
+
+S1 没有候选则向 S2 注入空泡。S2 的每次尝试在该周期结束，不因失败而保留原请求级内容；下一周期请求级接收的是本周期 S1 的结果。
+
+## 8 五项窗口和最老匹配选择
+
+### 8.1 候选集合
+
+```text
+pending_mask = valid_q & ~issued_q
+current_issue_mask = issue_valid_q ? onehot(issue_entry_q) : 0
+issue_success = |(req & ar_rd_gnt & rw_rd_gnt)
+success_mask = issue_success ? current_issue_mask : 0
+
+rank_pool = pending_mask & ~success_mask
+
+older_count[i] = popcount(older_set[i] & rank_pool)
+window_mask[i] = rank_pool[i] && (older_count[i] < 5)
+
+bank_idle_mask[i] = !rd_mem_status[cmd_addr[i][6]][cmd_addr[i][5:3]]
+candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask
+select_onehot = oldest(candidate_mask)
+```
+
+顺序必须是先决定最老五条，再筛 Bank 空闲。若先在全部九项中过滤空闲 Bank，会把窗口外命令错误引入候选。
+
+所有 entry 的 Bank 状态可以并行读取。窗口 rank 最大为八，计数比较使用四位即可。若候选存在，年龄关系保证 oldest 返回唯一命令。
+
+### 8.2 6B 成功当拍前移
+
+当前请求级 A 成功时，success_mask 在本拍 S1 计算中将 A 排除。原第六条 F 可当拍进入窗口，并在下一拍发出请求。
+
+```text
+N：请求 A 成功；B～E 忙；F 空闲 → S1 当拍选 F
+N+1：请求 F
+```
+
+如果等 issued 寄存器下一拍更新后才前移，会多一个气泡，与所选 6B 不符。
+
+### 8.3 失败时的窗口位置
+
+当前请求级 A 失败时，A 仍留在 rank_pool 和最老五条窗口中，只在最后候选掩码中被屏蔽，避免同拍重复预选。
+
+不能在构窗前无条件移除 current_issue_mask，否则 A 失败也会让 F 错误进入窗口。
+
+### 8.4 五条全部阻塞
+
+A～F 从老到新，A～E 对应 Bank 均忙、F 空闲且当前请求级为空时，candidate_mask=0。rd_mem_status 若持续不变，窗口不会自动滑动，F 不发射。
+
+这一等待是规格行为。每 XAU 容量保留只能让其他来源的命令进入 CMDBUF，不能授权窗口外命令绕过发射规则。
+
+## 9 请求级和 5A 失败恢复
+
+### 9.1 请求级寄存器
+
+在每个周期结束时：
+
+```text
+issue_valid_q <= select_valid
+if (select_valid):
+    issue_entry_q <= select_entry
+    issue_bank_q  <= cmd_addr[select_entry][5:3]
+    issue_addr_q  <= cmd_addr[select_entry][17:6]
+```
+
+下一周期输出：
+
+```text
+req = issue_valid_q ? (8'b1 << issue_bank_q) : 8'b0
+arb_addr = issue_addr_q
+issue_success = issue_valid_q
+             && ar_rd_gnt[issue_bank_q]
+             && rw_rd_gnt[issue_bank_q]
+```
+
+req 必须来自请求级寄存器，不能由本拍 grant 决定是否产生，否则会引入仲裁组合环。无请求时的 arb_addr 可输出寄存值或零；本方案建议对外置零便于观察，此行为不是已确认功能要求。
+
+### 9.2 5A 的恢复过程
+
+| 周期 | S1 判断 | S2 请求 |
+| --- | --- | --- |
+| C2 | A | 空 |
+| C3 | B | A 失败 |
+| C4 | A | B |
+| C5 | 后续命令 | A 重试 |
+
+A 失败不冲刷 B，也不在失败当拍重新选择 A 替换 B。A 的 valid 保留、issued 仍为零、年龄不变；下一拍自动恢复候选资格。
+
+如果只有 A 一条命令，C3 失败后，C4 重判、C5 重试。这一重试间隔来自已经选择的流水行为。
+
+### 9.3 请求拍 Bank 状态变化
+
+已确认的成功判据始终是目标 Bank 的同拍双 grant。判断拍空闲、请求拍转忙时，是否额外撤销请求尚未独立对齐。
+
+本方案建议锁定 S1 的选择，在 S2 正常输出请求，由双 grant 决定是否接受，避免加入第二套隐含选择规则。该建议列为待确认实现边界。
+
+### 9.4 同步给 OTB 的信息
+
+CMDBUF 在请求级同时向 OTB 提供 attempt_valid、entry_id 及 issue_success。最小功能信息是命令归属与成功提交；完整地址和元数据已由接收时保存，不必重复存入 OTB。
+
+attempt_valid 便于观察请求尝试；只有 issue_success 才允许 OTB 产生返回标记。失败不能造成 OTB 完成计时、重复分配或提前清除。
+
+## 10 固定四拍返回标记
+
+下游成功接收后不能反压返回，因此使用四级 valid 加 entry_id 标记流水，按时钟无条件推进。
+
+```text
+每个时钟沿：
+    ret_valid_q[0] <= issue_success
+    成功时 ret_entry_q[0] <= issue_entry_q
+
+    对 k=1..3：
+        ret_valid_q[k] <= ret_valid_q[k-1]
+        前一级有效时 ret_entry_q[k] <= ret_entry_q[k-1]
+
+    若本沿前的 ret_valid_q[3] 为 1：
+        capture_entry = 本沿前的 ret_entry_q[3]
+        otb_data[capture_entry] <= mem_rdata
+        otb_pc_err[capture_entry] <= pc_err
+        mem_done[capture_entry] <= 1
+```
+
+在 SystemVerilog 中用同一沿的非阻塞赋值读取旧末级即可。不要将 capture_valid 再额外寄存一拍，也不要在捕获时使用刚移入末级的下一状态。
+
+| 时钟沿 | A 标记和数据的动作 |
+| --- | --- |
+| C3 末 | A 成功，写入第 0 级 |
+| C4 末 | A 移入第 1 级 |
+| C5 末 | A 移入第 2 级 |
+| C6 末 | A 移入第 3 级 |
+| C7 末 | 读取旧第 3 级，捕获 A 数据和 pc_err |
+| C8 周期 | A 的已寄存完成状态可参与 R 选择 |
+
+空泡、仲裁失败写入无效标记；已有标记继续前进。AR 满、没有新请求、rready 全零均不能暂停该流水。
+
+外部无返回事务标识，本方案依赖“每个成功命令恰好四拍后返回，且返回合并总线保持该对应关系”的接口约束。若下游将来改为可变延迟，必须增加可匹配的返回标签或改变协议，当前标记流水不能继续直接使用。
+
+## 11 MEM 捕获和完成通知
+
+捕获当拍将完整 128-bit 数据和 pc_err 写到标记指定的 OTB entry，并使该 entry 的 mem_done 置位。CMDBUF 使用同一完成状态或接收同拍完成通知。
+
+捕获条件只由 ret_valid_q[3] 决定。数据全零、pc_err=0 仍是合法返回；不能以数据非零或错误有效代替捕获有效。
+
+捕获时 entry 必须 valid、issued 且尚未 mem_done。它仍占用容量，后续 rready 不允许响应时，数据和错误保持直到退休。
+
+当前 MEM 捕获不能组合旁路进入本拍 R 候选。R 只能读取本周期开始前已经寄存的 mem_done 和 OTB 数据，从而保证最早下一 cycle 返回。
+
+## 12 每 XAU 保序及 RR 响应
+
+### 12.1 每源队头
+
+```text
+src_mask[x][i] = valid_q[i] && (cmd_src[i] == x)
+head_onehot[x] = oldest(src_mask[x])
+head_valid[x] = |head_onehot[x]
+head_done[x] = mem_done[head_entry[x]]，仅在 head_valid 时读取
+
+r_candidate[x] = head_valid[x] && head_done[x] && rready[x]
+```
+
+先找该 XAU 最老的未退休命令，再检查它是否完成。不能在该 XAU 的所有完成项里找最老，否则会跳过尚未完成的真正队头。
+
+不同 arid 的同源请求也必须遵循同一接收序列。不同 XAU 不施加全局返回顺序：XAU0 的队头未完成时，XAU1 的合格队头仍可响应。
+
+### 12.2 RR 实现建议
+
+当前已确认的是在合格通道间 RR。为了给出可编码方案，建议 rr_ptr 表示扫描起点，按 0→1→2 循环，从起点扫描三个通道，选第一个 r_candidate=1 的通道。
+
+```text
+winner = rr_first(r_candidate, rr_ptr_q)
+rvalid = winner_valid ? onehot(winner) : 0
+
+若 retire_fire：rr_ptr_next = (winner == 2) ? 0 : winner + 1
+否则：rr_ptr_next = rr_ptr_q
+```
+
+图 08 使用上述方向和空闲保持；初始起点及精确推进策略尚未独立确认。本方案建议初始指针为 0，但不能把这一建议当作既定系统复位协议。
+
+若三个通道持续有完成队头且持续 ready，上述 RR 方案会循环服务三个通道。它不为非 ready 或队头未完成的通道预留 R 总线。
+
+### 12.3 共享负载选择
+
+```text
+response_entry = head_entry[winner]
+rdata     = otb_data[response_entry]
+rid       = cmd_id[response_entry]
+r_port_id = cmd_port_id[response_entry]
+raddr     = cmd_addr[response_entry][2:0]
+rresp     = error_encode(cmd_arresp[response_entry], otb_pc_err[response_entry])
+```
+
+winner 无效时建议将共享负载置零，便于波形和降低无意义翻转；协议检查只在对应 rvalid 有效时比较负载。
+
+不能用实时 AR 字段或实时 MEM 数据构造 R 负载。R 被选中时对应 rready 已经为 1，因此该周期结束沿同时完成传输和退休。
+
+## 13 错误处理
+
+| 保存的 arresp | 保存的 pc_err | rresp |
+| --- | --- | --- |
+| 00 | 0 | 00 |
+| 00 | 1 | 01 |
+| 11 | 0 | 11 |
+| 11 | 1 | 11 |
+
+地址越界优先于奇偶校验异常。arresp=11 的命令仍完整经历分配、窗口选择、请求、MEM 返回和 R 返回，不做本地立即完成。
+
+```text
+if saved_arresp == 2'b11: rresp = 2'b11
+else if saved_pc_err:    rresp = 2'b01
+else:                   rresp = 2'b00
+```
+
+该编码逻辑仅对已定义的 arresp=00/11 给出协议承诺。错误响应的数据内容尚未独立约定；本方案建议仍输出捕获值，同时以 rresp 指示数据状态，最终需确认。
+
+## 14 R 退休和 10B 同拍复用
+
+R 成功传输产生唯一 retire_entry，同时清除旧命令在 CMDBUF、OTB 的有效归属、完成状态和年龄关系，并扣除所属 XAU 的占用。
+
+本方案建议分配及退休时将 OTB data/pc_err 清零。功能正确性至少要求旧数据失效且不能暴露给新事务；若为功耗或 RAM 实现改为只清有效位，是否符合“清除”的最终要求需确认。
+
+### 14.1 满表复用
+
+free_mask 包含当拍 retire_mask。因此即使沿前九项均 valid，仍能选中本拍即将退休的槽位分配新请求。每来源额度也必须先扣除当拍退休再计算。
+
+例如 (7,1,1) 中 XAU1 唯一命令退休，本拍只能对 XAU1 给出 ready=1；若退休的是 XAU0 的一条，则释放的是共享额度，三路均可具备准入资格。
+
+### 14.2 同一槽位更新优先级
+
+R 负载由沿前旧状态输出；时钟沿上同槽新分配优先于旧退休清除：
+
+```text
+if reset_active:
+    清控制状态
+else if alloc_valid && alloc_entry == i:
+    valid=1; issued=0; mem_done=0
+    保存新 AR 元数据；清新 OTB 数据状态；重新登记最年轻年龄
+else if retire_fire && retire_entry == i:
+    valid=0; issued=0; mem_done=0
+    清旧归属及对应存储
+else:
+    若成功发射命中 i，issued=1
+    若 MEM 捕获命中 i，保存数据和 pc_err，mem_done=1
+```
+
+这是每项的逻辑优先级，不代表将所有数组写成多个冲突的 always_ff。每个寄存器应有唯一写入过程；并行事件分别作用于不同 entry，不能用顶层全局 if/else 误删其他事件。
+
+### 14.3 合法并发关系
+
+| 同拍事件 | 可否同 entry | 说明 |
+| --- | --- | --- |
+| R 退休与 AR 分配 | 可以 | 10B，输出旧负载后建立新归属 |
+| MEM 捕获与 R 退休 | 不可以 | 本拍捕获项此前尚未完成，不能本拍返回 |
+| 成功发射与 R 退休 | 不可以 | 待发与已完成状态互斥 |
+| 成功发射与 MEM 捕获 | 不可以 | 同一命令相隔四拍；出现同项通常是重复发射错误 |
+| AR 分配与旧返回标记命中 | 不可以 | 未捕获命令不能先退休，其槽位不能被重分配 |
+| 上述事件作用于不同 entry | 可以 | 可同时接收、成功发射、捕获、返回 |
+
+正常协议下，旧命令退休时已不存在其未到达的返回标记，因此 entry 重用无需额外 generation tag。复位打断未完成事务是另一边界，见第 21 节。
+
+## 15 计数及状态一致性
+
+```text
+used_next = used_q + ar_fire - retire_fire
+pending_next = pending_q + ar_fire - issue_success
+occ_next[x] = occ_q[x] + accept[x] - retire[x]
+
+sum(occ_q) == used_q == popcount(valid_q)
+pending_q == popcount(valid_q & ~issued_q)
+0 <= pending_q <= used_q <= 9
+sum(max(occ_q[x],1)) <= 9
+```
+
+预选、失败、MEM 捕获不改变 pending_cnt。R 退休的命令早已 issued，退休本身也不再减少 pending_cnt。
+
+6B 可以在本拍窗口计算中提前排除成功项，但 pending_cnt 对外仍表示本周期寄存状态，并在本周期末更新。这样不把下游 grant 通过计数绕回下游仲裁逻辑。
+
+实现可以选择寄存计数或由位向量计算，但保留额度计算、对外指示和验证采样必须使用一致的周期定义。
+
+## 16 周期内组合依赖
+
+建议按以下依赖形成组合逻辑，并统一在周期结束沿提交：
+
+```text
+当前命令/OTB/年龄状态 + rready
+    → 各 XAU 队头和合格候选 → RR → R 负载/retire
+    → 扣除 retire 后的占用 → 每来源 arready → AR 接收/分配
+
+当前请求级寄存器
+    → req/address → 下游两组 grant → issue_success
+    → 成功前馈后的窗口 → Bank 匹配/最老选择 → 下一周期请求级
+
+返回标记旧末级 + 当前 MEM 返回
+    → 本沿捕获 → 下一周期可见的 mem_done/data
+```
+
+当前 R 选择不依赖新 AR，当前 req 不依赖本拍选择结果，当前 R 候选不依赖本拍 capture_next。上述隔离是保持三拍路径、禁止同拍 MEM 旁路及避免本模块内部组合环的关键。
+
+## 17 性能与时序实现考虑
+
+### 17.1 理想吞吐
+
+当上游每拍供给、窗口中持续存在可发项、每次双 grant 成功、R 持续可返回时，模块可每拍接收一条、成功发射一条、捕获一条和返回一条。
+
+单 XAU 最多七项仍能支撑这一理想吞吐：C1～C7 接收七条，第一条 C3 成功、C7 捕获、C8 返回；C8 同时接收第八条，随后每拍释放与接收相抵。这里必须对容量额度做当拍退休前馈，即使物理池中还剩另两路保留空槽也一样。
+
+若没有 10B，单来源达到七项时会额外停一拍。若增加额外 R 流水级，或 MEM 延迟不再是四拍，则这一七项支撑一条每拍的结论也需重新评估。
+
+### 17.2 关键组合路径
+
+| 路径 | 关注点 |
+| --- | --- |
+| grant → 成功前馈 → 窗口 → 最老选择 → 请求级寄存器 | 6B 明确要求这条路径在一拍内完成 |
+| mem_done/年龄 → 每源队头 → RR → 共享 128-bit mux | 影响 R 返回周期 |
+| rready → RR/retire → 每源额度 → arready | 10B 和容量保留引入的前馈路径 |
+| AR 握手 → 元数据写入及年龄更新 | 不能越过 S0 寄存直接影响本拍判断 |
+
+九项年龄比较、Bank 空闲解码和每源队头可并行计算。可预先计算“当前请求成功/不成功”两套窗口，再由成功信号选择，以缩短 late grant 路径；必须证明与统一窗口公式等价。
+
+为了频率随意再插一拍会改变 6B、三拍请求或最早 R 返回时序，不能在保持原规格的名义下增加延迟。目标频率、工艺、综合约束尚未给出，本方案不承诺具体 MHz。
+
+### 17.3 存储量估算
+
+按本文字段直接实现，未计组合逻辑及实现相关冗余：
+
+| 项目 | bit 数 |
+| --- | --- |
+| 命令元数据与 valid/issued/mem_done | 9 × 38 = 342 |
+| OTB 数据及 pc_err | 9 × 129 = 1161 |
+| 年龄矩阵 | 81 |
+| 请求级 | 20 |
+| 返回标记流水 | 20 |
+| 三路占用、总占用、待发数、RR 指针 | 22 |
+| 合计 | 约 1646 |
+
+这是寄存状态规模估算，不是综合面积结果。共享状态无需在两个模块中重复实现；是否复制、编码或优化由综合和模块边界决定。
+
+## 18 典型时序
+
+### 18.1 连续无阻塞
+
+| 周期 | AR 接收 | S1 选中 | S2 请求成功 | MEM 捕获 | R 返回 |
+| --- | --- | --- | --- | --- | --- |
+| C1 | A | — | — | — | — |
+| C2 | B | A | — | — | — |
+| C3 | C | B | A | — | — |
+| C4 | — | C | B | — | — |
+| C5 | — | — | C | — | — |
+| C6 | — | — | — | — | — |
+| C7 | — | — | — | A | — |
+| C8 | — | — | — | B | A |
+| C9 | — | — | — | C | B |
+| C10 | — | — | — | — | C |
+
+![连续流水时序](../cmdbuf_rd_timing/01_timing.png)
+
+### 18.2 已对齐场景索引
+
+| 图 | 核心行为 |
+| --- | --- |
+| [01 连续流水](../cmdbuf_rd_timing/01_timing.png) | 三拍请求、固定四拍捕获、下一拍可返回 |
+| [02 同 XAU 保序](../cmdbuf_rd_timing/02_timing.png) | 后接收先完成的命令等待前序返回 |
+| [03 窗口前移](../cmdbuf_rd_timing/03_timing.png) | 第六条通过成功前馈进入窗口 |
+| [04 双 grant 与空泡](../cmdbuf_rd_timing/04_timing.png) | 失败没有返回标记 |
+| [05 选择 5A](../cmdbuf_rd_timing/05_timing.png) | A 失败保留已选 B |
+| [06 选择 6B](../cmdbuf_rd_timing/06_timing.png) | 成功当拍选入后续项 |
+| [07 单拍返回](../cmdbuf_rd_timing/07_timing.png) | R 不 ready 时仍捕获并保持 |
+| [08 RR 示例](../cmdbuf_rd_timing/08_timing.png) | 只选择 ready 的完成队头；精确环方向见待定项 |
+| [09 字段与错误](../cmdbuf_rd_timing/09_timing.png) | 地址切片、字段透传、异常优先级 |
+| [10 选择 10B](../cmdbuf_rd_timing/10_timing.png) | 满表同拍退休和接收 |
+| [11 窗口全阻塞](../cmdbuf_rd_timing/11_timing.png) | 不因第六条可用而越窗发射 |
+| [12 容量保留](../cmdbuf_rd_timing/12_timing.png) | 一路占七项后其他来源仍可准入 |
+| [13 保底复用](../cmdbuf_rd_timing/13_timing.png) | 释放唯一项时仅恢复该来源资格 |
+
+## 19 建议 RTL 划分
+
+| 文件或逻辑块建议 | 主要内容 |
+| --- | --- |
+| cmdbuf_rd.sv | 顶层端口、公共事件、模块连接 |
+| cmdbuf_rd_cmd.sv | 九项元数据、状态、年龄、窗口及请求级 |
+| cmdbuf_rd_otb.sv | 九项数据、pc_err、固定四拍返回标记与捕获 |
+| cmdbuf_rd_alloc.sv | 每来源占用、保留额度、free mask 与分配 |
+| cmdbuf_rd_rsp.sv | 每来源队头、RR、共享 R mux 与退休 |
+
+文件划分是建议，允许将 alloc/rsp 合并到顶层或 CMDBUF 控制中。核心是状态单一归属、每个寄存器唯一写入者，以及分配/完成/退休广播的一致性。
+
+常量建议统一定义：XAU_NUM=3、ENTRY_NUM=9、WINDOW_SIZE=5、BANK_NUM=8、ADDR_WIDTH=18、DATA_WIDTH=128、ID_WIDTH=8、PORT_ID_WIDTH=5、MEM_LATENCY=4。参数化不代表任意组合均已验证；首先固定这一基线实现。
+
+## 20 验证和关键检查
+
+### 20.1 基准模型
+
+每次合法 AR 握手分配独立测试序号 accept_seq，保存所有输入字段。为每个 XAU 建接收队列，并维护全局占用、待发集合、成功发射四拍日历以及完成记录。
+
+参考模型按本方案窗口规则选下一拍请求，不使用 arid 数值决定新老。MEM 在对应日历拍提供有效数据；无效拍可以改变总线，暴露晚采样和实时总线误用。
+
+R 只从此前已完成的各 XAU 队头选择。检查完整负载属于同一命令；错误数据值尚未确定时，错误子例优先核对状态与归属，正常子例逐位比较 128-bit 数据。
+
+### 20.2 安全性检查
+
+以下是断言意图，实际 SVA 需绑定 RTL 信号及采样语义：
+
+- req 与 rvalid 均 onehot0；rvalid 不得指向当拍 rready=0 的通道。
+- ar_fire 必须命中合法 src 的 ready；一次 AR 最多分配一个配对 entry。
+- mem_done 必须蕴含 valid 和 issued；issued 不得在 grant 失败时置位。
+- 每条命令最多成功发射一次、MEM 捕获一次、R 返回一次。
+- 捕获 entry 必须有效、已成功发射且未完成；同条命令本拍捕获时不能本拍退休。
+- 每次成功发射恰好在四拍后对应一次捕获，失败不得生成返回标记。
+- 预选命令必须属于成功前馈后的最老五条集合，目标 half 空闲，且不是当前请求级项。
+- 候选非空时，选中者不存在同集合内更老命令；候选为空则不产生选择有效。
+- 同 XAU 响应顺序与实际 AR 握手顺序一致；所有元数据和数据归属一致。
+- valid、计数、每源占用和年龄结构一致，保留容量不变量一直保持。
+- 同拍复用输出旧命令，新命令在下一状态有效、最年轻、未发射、未完成。
+
+### 20.3 吞吐检查
+
+5A、6B、10B 需要检查精确相邻周期行为，不能只检查最终数据正确。额外空泡也可能是规格偏离。
+
+重点覆盖单 XAU 达七项后的持续接收、全表九项的跨源复用、失败时保留 B、成功当拍引入 F、同时接收/发射/捕获/响应四事件。
+
+### 20.4 进展条件
+
+无条件安全性检查与有环境前提的活性检查分开。rd_mem_status 持续阻塞、上游公平性未定、rready 永久为零或仲裁持续失败时，不要求每条命令最终完成。
+
+现有 [49 组注错清单](../cmdbuf_rd_fault_catalog/index.html) 可作为验证覆盖来源。容量准入模型已对 190 个合法占用状态及 1716 个接收状态转换进行穷举检查；这是抽象容量模型结果，不是完整 RTL 形式验证或时序收敛结果。
+
+## 21 复位与异常边界
+
+复位建议将 valid、issued、mem_done、请求级 valid、四拍返回 valid、年龄矩阵、计数和 RR 控制清零。复位期间 req/rvalid/arready 建议全零，具体极性和生效方式待系统确认。
+
+数据阵列可在无效状态下不做复位，由分配和退休清零；外部负载在无 valid 时按实现建议置零。若要求所有存储 bit 复位为零，可调整，但会影响复位网络负担。
+
+运行中复位不能只清本地标记而默认下游旧返回自动消失。需要系统明确同步冲刷 MEM，或停发并排空旧事务等协议，才能定义何时恢复接收。当前方案不自行选定恢复流程。
+
+| 项目 | 已知行为 | 本方案建议或仍待确定内容 |
+| --- | --- | --- |
+| 容量隔离 | 不允许 XAU 独占导致其他来源没有 entry | 已纳入每源一项保底、六项共享的实现方案 |
+| 复位 | 尚无完整协议 | 极性、同步方式、初始 RR 和未完成返回处置待确认 |
+| 非法输入 | src 0～2、arresp 00/11 有定义 | src=3、arresp=01/10 的恢复行为未定义 |
+| 重复 ID | arid 为透传标签 | 本实现能按内部归属区分；系统是否另有限制待说明 |
+| 数据清除 | 退休后旧归属和数据不能再次有效 | 建议分配及退休物理清零；是否必须逐 bit 清零待确认 |
+| 错误响应数据 | rresp 优先级已确认 | 建议仍输出捕获值，最终数据语义待确认 |
+| RR 细节 | 合格通道间 RR | 建议 0→1→2、服务后推进、空闲保持，精确规则待确认 |
+| Bank 状态变化 | 双 grant 决定最终成功 | 建议请求级不二次撤销，是否允许撤销待确认 |
+| 无效周期负载 | 无有效请求或响应时不作功能比较 | 建议输出零，尚无强制值约定 |
+| 上游公平性 | 已确认可切换 src | 公平性未定，不建立无条件最终接收保证 |
+
+## 22 实施交付边界
+
+本方案完成了接口、状态、选择算法、返回匹配、容量准入、并发更新优先级和验证判据的设计定义。可先据此搭建 RTL 主体与参考模型；将第 21 节中会影响外部行为的选择记录为可追踪配置，最终冻结前按系统要求确定。
+
+现有时序图是规格示意，容量检查是独立抽象模型。尚未交付可综合 RTL、运行完整仿真、综合或静态时序分析，不能据此宣称目标频率、面积或全部验证已通过。

@@ -1,0 +1,170 @@
+[
+  {
+    "port": "portable_symbol_0000",
+    "kind": "anyconst",
+    "width": 4,
+    "original_cell": "$flatten\\dut.\\u_otb.$anyconst$1576",
+    "source_location": "inputs/rtl/cmdbuf_rd_otb.sv:119.29-119.41"
+  },
+  {
+    "port": "portable_symbol_0001",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6398",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0002",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6400",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0003",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6402",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0004",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6404",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0005",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6406",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0006",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6408",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0007",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6410",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0008",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6412",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0009",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6414",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0010",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6416",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0011",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6418",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0012",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6420",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0013",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6422",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0014",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6424",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0015",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$6426",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0016",
+    "kind": "anyseq",
+    "width": 18,
+    "original_cell": "$auto$setundef.cc:550:execute$6428",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0017",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$6430",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0018",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$6432",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0019",
+    "kind": "anyseq",
+    "width": 3,
+    "original_cell": "$auto$setundef.cc:550:execute$6434",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0020",
+    "kind": "anyseq",
+    "width": 5,
+    "original_cell": "$auto$setundef.cc:550:execute$6436",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0021",
+    "kind": "anyseq",
+    "width": 8,
+    "original_cell": "$auto$setundef.cc:550:execute$6438",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0022",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$6440",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0023",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$6442",
+    "source_location": ""
+  }
+]

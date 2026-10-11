@@ -1,0 +1,3 @@
+[27] %Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch
+%Error: /root/cmdbuf_rd/mutations/M05/rtl/cmdbuf_rd_cmd.sv:305: Verilog $stop
+Aborting...

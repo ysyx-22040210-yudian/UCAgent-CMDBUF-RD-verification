@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=pipeline
+seed=1
+cycles=48
+trace=0
+require=three_cycle_path:3,issued_back_to_back:3,accepted:24,four_events:1

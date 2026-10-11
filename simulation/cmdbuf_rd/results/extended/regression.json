@@ -1,0 +1,22 @@
+{
+  "passed": 4,
+  "total": 4,
+  "cases": [
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/extended/20_all_bank_halves.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/extended/21_repeated_ids.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/extended/22_status_after_selection.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/extended/23_nonmonotonic_ids.case",
+      "exit_code": 0
+    }
+  ]
+}

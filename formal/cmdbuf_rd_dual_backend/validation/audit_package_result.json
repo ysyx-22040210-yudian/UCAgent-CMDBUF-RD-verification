@@ -1,0 +1,35 @@
+{
+  "scope": "Independent static inventory, DAG, and immutable archive source audit; not a solver proof.",
+  "manifest_sha256": "472cb4e4cf67b8cfe10e9c5fbb9243d8115b83f53fc241e185c9bc57a8a957dc",
+  "jobs": 22,
+  "checks": 177,
+  "kinds": {
+    "assume": 5,
+    "assert": 107,
+    "cover": 65
+  },
+  "extra_guards": 7,
+  "native_bindings": 156,
+  "source_files_checked": 90,
+  "raw_source_manifests_checked": 22,
+  "required_imports": {
+    "capacity": [
+      "quota_math",
+      "source_net_math",
+      "structural"
+    ],
+    "lifecycle": [
+      "capacity",
+      "structural"
+    ],
+    "lifecycle_r2": [
+      "capacity",
+      "structural"
+    ],
+    "policy_order": [
+      "age_projection"
+    ]
+  },
+  "errors": [],
+  "passed": true
+}

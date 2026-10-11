@@ -1,0 +1,22 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 4: pending_cnt got=0x2 expected=0x3",
+  "type": "random",
+  "seed": 17,
+  "cycles": 4,
+  "checks": 59,
+  "coverage": {
+    "accepted": 4,
+    "accepted_back_to_back": 3,
+    "accepted_src0": 1,
+    "accepted_src1": 2,
+    "accepted_src2": 1,
+    "ar_only_grant": 1,
+    "failed_keep_next": 1,
+    "issue_failure": 1,
+    "issued": 1,
+    "reset": 1,
+    "three_cycle_path": 1
+  }
+}

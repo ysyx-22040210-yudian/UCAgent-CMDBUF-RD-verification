@@ -1,0 +1,16 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 7: req got=0x2 expected=0x0",
+  "type": "window_block",
+  "seed": 1,
+  "cycles": 7,
+  "checks": 84,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "outside_window_blocked": 1,
+    "reset": 1
+  }
+}

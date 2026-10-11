@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=window_block
+seed=1
+cycles=45
+trace=0
+require=outside_window_blocked:5,retired:6

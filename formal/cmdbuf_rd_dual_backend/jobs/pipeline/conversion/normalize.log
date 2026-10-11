@@ -1,0 +1,1816 @@
+
+-- Running command `read_verilog -formal -sv -DFORMAL -DSYNTHESIS -DFORMAL_CLOSURE "inputs/rtl/cmdbuf_rd_cmd.sv" "inputs/rtl/cmdbuf_rd_otb.sv" "inputs/rtl/cmdbuf_rd.sv" "inputs/formal/cmdbuf_rd_formal.sv"
+prep -top cmdbuf_rd_formal
+rename -witness
+flatten
+memory_map
+async2sync
+chformal -lower
+chformal -assume -early
+setundef -undriven -anyseq
+write_rtlil "/root/cmdbuf_rd/portable_20261012/package/jobs/pipeline/conversion/normalized.il"
+write_json "/root/cmdbuf_rd/portable_20261012/package/jobs/pipeline/conversion/normalized.json"
+' --
+
+1. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd_cmd.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd_cmd.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd_cmd'.
+Warning: Replacing memory \older_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:236
+Warning: Replacing memory \arresp_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:235
+Warning: Replacing memory \port_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:234
+Warning: Replacing memory \id_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:233
+Warning: Replacing memory \src_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:232
+Warning: Replacing memory \addr_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:231
+Warning: Replacing memory \occ_q with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:229
+Warning: Replacing memory \older_next with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:207
+Warning: Replacing memory \rank_count with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:189, inputs/rtl/cmdbuf_rd_cmd.sv:187
+Warning: Replacing memory \occ_after with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:146, inputs/rtl/cmdbuf_rd_cmd.sv:145
+Warning: Replacing memory \head_entry with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:96, inputs/rtl/cmdbuf_rd_cmd.sv:84
+Warning: Replacing memory \head_onehot with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:90, inputs/rtl/cmdbuf_rd_cmd.sv:83
+Warning: Replacing memory \src_mask with list of registers. See inputs/rtl/cmdbuf_rd_cmd.sv:88, inputs/rtl/cmdbuf_rd_cmd.sv:82
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd_otb.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd_otb.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd_otb'.
+Warning: Replacing memory \data_q with list of registers. See inputs/rtl/cmdbuf_rd_otb.sv:43
+Warning: Replacing memory \ret_entry_q with list of registers. See inputs/rtl/cmdbuf_rd_otb.sv:42
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: inputs/rtl/cmdbuf_rd.sv
+Parsing formal SystemVerilog input from `inputs/rtl/cmdbuf_rd.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: inputs/formal/cmdbuf_rd_formal.sv
+Parsing formal SystemVerilog input from `inputs/formal/cmdbuf_rd_formal.sv' to AST representation.
+Generating RTLIL representation for module `\cmdbuf_rd_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \cmdbuf_rd_formal
+Used module:     \cmdbuf_rd_cmd
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \cmdbuf_rd_formal
+Used module:     \cmdbuf_rd_cmd
+Removing unused module `\cmdbuf_rd'.
+Removing unused module `\cmdbuf_rd_otb'.
+Removed 2 unused modules.
+Module cmdbuf_rd_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module cmdbuf_rd_cmd directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$inputs/formal/cmdbuf_rd_formal.sv:38$1531 in module cmdbuf_rd_formal.
+Marked 1 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:330$1436 in module cmdbuf_rd_cmd.
+Marked 1 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409 in module cmdbuf_rd_cmd.
+Marked 22 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308 in module cmdbuf_rd_cmd.
+Marked 243 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649 in module cmdbuf_rd_cmd.
+Marked 91 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358 in module cmdbuf_rd_cmd.
+Marked 18 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262 in module cmdbuf_rd_cmd.
+Marked 4 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:127$254 in module cmdbuf_rd_cmd.
+Marked 11 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204 in module cmdbuf_rd_cmd.
+Marked 30 switch rules as full_case in process $proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55 in module cmdbuf_rd_cmd.
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 23 redundant assignments.
+Promoted 273 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:37$1542'.
+  Set init value: \f_started = 1'0
+Found init rule in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:329$1439'.
+  Set init value: \pa_history = 1'0
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~441 debug messages>
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:37$1542'.
+Creating decoders for process `\cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:38$1531'.
+     1/4: $assume$inputs/formal/cmdbuf_rd_formal.sv:44$1538_EN
+     2/4: $assume$inputs/formal/cmdbuf_rd_formal.sv:43$1536_EN
+     3/4: $assume$inputs/formal/cmdbuf_rd_formal.sv:41$1535_EN
+     4/4: $assume$inputs/formal/cmdbuf_rd_formal.sv:40$1533_EN
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:329$1439'.
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:330$1436'.
+     1/1: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:330$44_DATA[17:0]$1438
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+     1/4: $0\pa_addr[11:0]
+     2/4: $0\pa_bank[2:0]
+     3/4: $0\pa_entry[3:0]
+     4/4: $0\pa_valid[0:0]
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+     1/96: $0\done_q[8:0] [8]
+     2/96: $0\done_q[8:0] [7]
+     3/96: $0\issued_q[8:0] [7]
+     4/96: $0\done_q[8:0] [6]
+     5/96: $0\issued_q[8:0] [6]
+     6/96: $0\done_q[8:0] [5]
+     7/96: $0\issued_q[8:0] [5]
+     8/96: $0\done_q[8:0] [4]
+     9/96: $0\issued_q[8:0] [4]
+    10/96: $0\done_q[8:0] [3]
+    11/96: $0\issued_q[8:0] [3]
+    12/96: $0\done_q[8:0] [2]
+    13/96: $0\issued_q[8:0] [2]
+    14/96: $0\done_q[8:0] [1]
+    15/96: $0\issued_q[8:0] [1]
+    16/96: $0\done_q[8:0] [0]
+    17/96: $0\issued_q[8:0] [0]
+    18/96: $3$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_DATA[17:0]$1353
+    19/96: $0\issue_addr_q[11:0]
+    20/96: $2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_DATA[17:0]$1352
+    21/96: $2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_ADDR[3:0]$1351
+    22/96: $0\issue_bank_q[2:0]
+    23/96: $2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_DATA[17:0]$1350
+    24/96: $2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_ADDR[3:0]$1349
+    25/96: $0\issue_entry_q[3:0]
+    26/96: $1$fordecl_block$31.i[31:0]$1321
+    27/96: $0\older_q[8][8:0]
+    28/96: $0\older_q[7][8:0]
+    29/96: $0\older_q[6][8:0]
+    30/96: $0\older_q[5][8:0]
+    31/96: $0\older_q[4][8:0]
+    32/96: $0\older_q[3][8:0]
+    33/96: $0\older_q[2][8:0]
+    34/96: $0\older_q[1][8:0]
+    35/96: $0\older_q[0][8:0]
+    36/96: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_DATA[17:0]$1325
+    37/96: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_ADDR[3:0]$1324
+    38/96: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_DATA[17:0]$1323
+    39/96: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_ADDR[3:0]$1322
+    40/96: $0\issue_valid_q[0:0]
+    41/96: $1$fordecl_block$29.x[31:0]$1320
+    42/96: $0\occ_q[2][3:0]
+    43/96: $0\occ_q[1][3:0]
+    44/96: $0\occ_q[0][3:0]
+    45/96: $0\pending_q[3:0]
+    46/96: $0\valid_q[8:0]
+    47/96: $1$fordecl_block$27.i[31:0]$1319
+    48/96: $1$fordecl_block$25.x[31:0]$1318
+    49/96: $0\arresp_q[8][1:0]
+    50/96: $0\arresp_q[7][1:0]
+    51/96: $0\arresp_q[6][1:0]
+    52/96: $0\arresp_q[5][1:0]
+    53/96: $0\arresp_q[4][1:0]
+    54/96: $0\arresp_q[3][1:0]
+    55/96: $0\arresp_q[2][1:0]
+    56/96: $0\arresp_q[1][1:0]
+    57/96: $0\arresp_q[0][1:0]
+    58/96: $0\port_q[8][4:0]
+    59/96: $0\port_q[7][4:0]
+    60/96: $0\port_q[6][4:0]
+    61/96: $0\port_q[5][4:0]
+    62/96: $0\port_q[4][4:0]
+    63/96: $0\port_q[3][4:0]
+    64/96: $0\port_q[2][4:0]
+    65/96: $0\port_q[1][4:0]
+    66/96: $0\port_q[0][4:0]
+    67/96: $0\id_q[8][7:0]
+    68/96: $0\id_q[7][7:0]
+    69/96: $0\id_q[6][7:0]
+    70/96: $0\id_q[5][7:0]
+    71/96: $0\id_q[4][7:0]
+    72/96: $0\id_q[3][7:0]
+    73/96: $0\id_q[2][7:0]
+    74/96: $0\id_q[1][7:0]
+    75/96: $0\id_q[0][7:0]
+    76/96: $0\src_q[8][1:0]
+    77/96: $0\src_q[7][1:0]
+    78/96: $0\src_q[6][1:0]
+    79/96: $0\src_q[5][1:0]
+    80/96: $0\src_q[4][1:0]
+    81/96: $0\src_q[3][1:0]
+    82/96: $0\src_q[2][1:0]
+    83/96: $0\src_q[1][1:0]
+    84/96: $0\src_q[0][1:0]
+    85/96: $0\addr_q[8][17:0]
+    86/96: $0\addr_q[7][17:0]
+    87/96: $0\addr_q[6][17:0]
+    88/96: $0\addr_q[5][17:0]
+    89/96: $0\addr_q[4][17:0]
+    90/96: $0\addr_q[3][17:0]
+    91/96: $0\addr_q[2][17:0]
+    92/96: $0\addr_q[1][17:0]
+    93/96: $0\addr_q[0][17:0]
+    94/96: $0\rr_ptr_q[1:0]
+    95/96: $0\issued_q[8:0] [8]
+    96/96: $3$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_DATA[17:0]$1354
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+     1/243: $27\older_next[8][8:8]
+     2/243: $26\older_next[8][8:8]
+     3/243: $25\older_next[8][8:8]
+     4/243: $24\older_next[8][7:7]
+     5/243: $23\older_next[8][7:7]
+     6/243: $22\older_next[8][7:7]
+     7/243: $21\older_next[8][6:6]
+     8/243: $20\older_next[8][6:6]
+     9/243: $19\older_next[8][6:6]
+    10/243: $18\older_next[8][5:5]
+    11/243: $17\older_next[8][5:5]
+    12/243: $16\older_next[8][5:5]
+    13/243: $15\older_next[8][4:4]
+    14/243: $14\older_next[8][4:4]
+    15/243: $13\older_next[8][4:4]
+    16/243: $12\older_next[8][3:3]
+    17/243: $11\older_next[8][3:3]
+    18/243: $10\older_next[8][3:3]
+    19/243: $9\older_next[8][2:2]
+    20/243: $8\older_next[8][2:2]
+    21/243: $7\older_next[8][2:2]
+    22/243: $6\older_next[8][1:1]
+    23/243: $5\older_next[8][1:1]
+    24/243: $4\older_next[8][1:1]
+    25/243: $3\older_next[8][0:0]
+    26/243: $2\older_next[8][0:0]
+    27/243: $1\older_next[8][0:0]
+    28/243: $27\older_next[7][8:8]
+    29/243: $26\older_next[7][8:8]
+    30/243: $25\older_next[7][8:8]
+    31/243: $24\older_next[7][7:7]
+    32/243: $23\older_next[7][7:7]
+    33/243: $22\older_next[7][7:7]
+    34/243: $21\older_next[7][6:6]
+    35/243: $20\older_next[7][6:6]
+    36/243: $19\older_next[7][6:6]
+    37/243: $18\older_next[7][5:5]
+    38/243: $17\older_next[7][5:5]
+    39/243: $16\older_next[7][5:5]
+    40/243: $15\older_next[7][4:4]
+    41/243: $14\older_next[7][4:4]
+    42/243: $13\older_next[7][4:4]
+    43/243: $12\older_next[7][3:3]
+    44/243: $11\older_next[7][3:3]
+    45/243: $10\older_next[7][3:3]
+    46/243: $9\older_next[7][2:2]
+    47/243: $8\older_next[7][2:2]
+    48/243: $7\older_next[7][2:2]
+    49/243: $6\older_next[7][1:1]
+    50/243: $5\older_next[7][1:1]
+    51/243: $4\older_next[7][1:1]
+    52/243: $3\older_next[7][0:0]
+    53/243: $2\older_next[7][0:0]
+    54/243: $1\older_next[7][0:0]
+    55/243: $27\older_next[6][8:8]
+    56/243: $26\older_next[6][8:8]
+    57/243: $25\older_next[6][8:8]
+    58/243: $24\older_next[6][7:7]
+    59/243: $23\older_next[6][7:7]
+    60/243: $22\older_next[6][7:7]
+    61/243: $21\older_next[6][6:6]
+    62/243: $20\older_next[6][6:6]
+    63/243: $19\older_next[6][6:6]
+    64/243: $18\older_next[6][5:5]
+    65/243: $17\older_next[6][5:5]
+    66/243: $16\older_next[6][5:5]
+    67/243: $15\older_next[6][4:4]
+    68/243: $14\older_next[6][4:4]
+    69/243: $13\older_next[6][4:4]
+    70/243: $12\older_next[6][3:3]
+    71/243: $11\older_next[6][3:3]
+    72/243: $10\older_next[6][3:3]
+    73/243: $9\older_next[6][2:2]
+    74/243: $8\older_next[6][2:2]
+    75/243: $7\older_next[6][2:2]
+    76/243: $6\older_next[6][1:1]
+    77/243: $5\older_next[6][1:1]
+    78/243: $4\older_next[6][1:1]
+    79/243: $3\older_next[6][0:0]
+    80/243: $2\older_next[6][0:0]
+    81/243: $1\older_next[6][0:0]
+    82/243: $27\older_next[5][8:8]
+    83/243: $26\older_next[5][8:8]
+    84/243: $25\older_next[5][8:8]
+    85/243: $24\older_next[5][7:7]
+    86/243: $23\older_next[5][7:7]
+    87/243: $22\older_next[5][7:7]
+    88/243: $21\older_next[5][6:6]
+    89/243: $20\older_next[5][6:6]
+    90/243: $19\older_next[5][6:6]
+    91/243: $18\older_next[5][5:5]
+    92/243: $17\older_next[5][5:5]
+    93/243: $16\older_next[5][5:5]
+    94/243: $15\older_next[5][4:4]
+    95/243: $14\older_next[5][4:4]
+    96/243: $13\older_next[5][4:4]
+    97/243: $12\older_next[5][3:3]
+    98/243: $11\older_next[5][3:3]
+    99/243: $10\older_next[5][3:3]
+   100/243: $9\older_next[5][2:2]
+   101/243: $8\older_next[5][2:2]
+   102/243: $7\older_next[5][2:2]
+   103/243: $6\older_next[5][1:1]
+   104/243: $5\older_next[5][1:1]
+   105/243: $4\older_next[5][1:1]
+   106/243: $3\older_next[5][0:0]
+   107/243: $2\older_next[5][0:0]
+   108/243: $1\older_next[5][0:0]
+   109/243: $27\older_next[4][8:8]
+   110/243: $26\older_next[4][8:8]
+   111/243: $25\older_next[4][8:8]
+   112/243: $24\older_next[4][7:7]
+   113/243: $23\older_next[4][7:7]
+   114/243: $22\older_next[4][7:7]
+   115/243: $21\older_next[4][6:6]
+   116/243: $20\older_next[4][6:6]
+   117/243: $19\older_next[4][6:6]
+   118/243: $18\older_next[4][5:5]
+   119/243: $17\older_next[4][5:5]
+   120/243: $16\older_next[4][5:5]
+   121/243: $15\older_next[4][4:4]
+   122/243: $14\older_next[4][4:4]
+   123/243: $13\older_next[4][4:4]
+   124/243: $12\older_next[4][3:3]
+   125/243: $11\older_next[4][3:3]
+   126/243: $10\older_next[4][3:3]
+   127/243: $9\older_next[4][2:2]
+   128/243: $8\older_next[4][2:2]
+   129/243: $7\older_next[4][2:2]
+   130/243: $6\older_next[4][1:1]
+   131/243: $5\older_next[4][1:1]
+   132/243: $4\older_next[4][1:1]
+   133/243: $3\older_next[4][0:0]
+   134/243: $2\older_next[4][0:0]
+   135/243: $1\older_next[4][0:0]
+   136/243: $27\older_next[3][8:8]
+   137/243: $26\older_next[3][8:8]
+   138/243: $25\older_next[3][8:8]
+   139/243: $24\older_next[3][7:7]
+   140/243: $23\older_next[3][7:7]
+   141/243: $22\older_next[3][7:7]
+   142/243: $21\older_next[3][6:6]
+   143/243: $20\older_next[3][6:6]
+   144/243: $19\older_next[3][6:6]
+   145/243: $18\older_next[3][5:5]
+   146/243: $17\older_next[3][5:5]
+   147/243: $16\older_next[3][5:5]
+   148/243: $15\older_next[3][4:4]
+   149/243: $14\older_next[3][4:4]
+   150/243: $13\older_next[3][4:4]
+   151/243: $12\older_next[3][3:3]
+   152/243: $11\older_next[3][3:3]
+   153/243: $10\older_next[3][3:3]
+   154/243: $9\older_next[3][2:2]
+   155/243: $8\older_next[3][2:2]
+   156/243: $7\older_next[3][2:2]
+   157/243: $6\older_next[3][1:1]
+   158/243: $5\older_next[3][1:1]
+   159/243: $4\older_next[3][1:1]
+   160/243: $3\older_next[3][0:0]
+   161/243: $2\older_next[3][0:0]
+   162/243: $1\older_next[3][0:0]
+   163/243: $27\older_next[2][8:8]
+   164/243: $26\older_next[2][8:8]
+   165/243: $25\older_next[2][8:8]
+   166/243: $24\older_next[2][7:7]
+   167/243: $23\older_next[2][7:7]
+   168/243: $22\older_next[2][7:7]
+   169/243: $21\older_next[2][6:6]
+   170/243: $20\older_next[2][6:6]
+   171/243: $19\older_next[2][6:6]
+   172/243: $18\older_next[2][5:5]
+   173/243: $17\older_next[2][5:5]
+   174/243: $16\older_next[2][5:5]
+   175/243: $15\older_next[2][4:4]
+   176/243: $14\older_next[2][4:4]
+   177/243: $13\older_next[2][4:4]
+   178/243: $12\older_next[2][3:3]
+   179/243: $11\older_next[2][3:3]
+   180/243: $10\older_next[2][3:3]
+   181/243: $9\older_next[2][2:2]
+   182/243: $8\older_next[2][2:2]
+   183/243: $7\older_next[2][2:2]
+   184/243: $6\older_next[2][1:1]
+   185/243: $5\older_next[2][1:1]
+   186/243: $4\older_next[2][1:1]
+   187/243: $3\older_next[2][0:0]
+   188/243: $2\older_next[2][0:0]
+   189/243: $1\older_next[2][0:0]
+   190/243: $27\older_next[1][8:8]
+   191/243: $26\older_next[1][8:8]
+   192/243: $25\older_next[1][8:8]
+   193/243: $24\older_next[1][7:7]
+   194/243: $23\older_next[1][7:7]
+   195/243: $22\older_next[1][7:7]
+   196/243: $21\older_next[1][6:6]
+   197/243: $20\older_next[1][6:6]
+   198/243: $19\older_next[1][6:6]
+   199/243: $18\older_next[1][5:5]
+   200/243: $17\older_next[1][5:5]
+   201/243: $16\older_next[1][5:5]
+   202/243: $15\older_next[1][4:4]
+   203/243: $14\older_next[1][4:4]
+   204/243: $13\older_next[1][4:4]
+   205/243: $12\older_next[1][3:3]
+   206/243: $11\older_next[1][3:3]
+   207/243: $10\older_next[1][3:3]
+   208/243: $9\older_next[1][2:2]
+   209/243: $8\older_next[1][2:2]
+   210/243: $7\older_next[1][2:2]
+   211/243: $6\older_next[1][1:1]
+   212/243: $5\older_next[1][1:1]
+   213/243: $4\older_next[1][1:1]
+   214/243: $3\older_next[1][0:0]
+   215/243: $2\older_next[1][0:0]
+   216/243: $1\older_next[1][0:0]
+   217/243: $27\older_next[0][8:8]
+   218/243: $26\older_next[0][8:8]
+   219/243: $25\older_next[0][8:8]
+   220/243: $24\older_next[0][7:7]
+   221/243: $23\older_next[0][7:7]
+   222/243: $22\older_next[0][7:7]
+   223/243: $21\older_next[0][6:6]
+   224/243: $20\older_next[0][6:6]
+   225/243: $19\older_next[0][6:6]
+   226/243: $18\older_next[0][5:5]
+   227/243: $17\older_next[0][5:5]
+   228/243: $16\older_next[0][5:5]
+   229/243: $15\older_next[0][4:4]
+   230/243: $14\older_next[0][4:4]
+   231/243: $13\older_next[0][4:4]
+   232/243: $12\older_next[0][3:3]
+   233/243: $11\older_next[0][3:3]
+   234/243: $10\older_next[0][3:3]
+   235/243: $9\older_next[0][2:2]
+   236/243: $8\older_next[0][2:2]
+   237/243: $7\older_next[0][2:2]
+   238/243: $6\older_next[0][1:1]
+   239/243: $5\older_next[0][1:1]
+   240/243: $4\older_next[0][1:1]
+   241/243: $3\older_next[0][0:0]
+   242/243: $2\older_next[0][0:0]
+   243/243: $1\older_next[0][0:0]
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+     1/92: $9\select_entry[3:0]
+     2/92: $8\select_entry[3:0]
+     3/92: $7\select_entry[3:0]
+     4/92: $6\select_entry[3:0]
+     5/92: $5\select_entry[3:0]
+     6/92: $4\select_entry[3:0]
+     7/92: $3\select_entry[3:0]
+     8/92: $2\select_entry[3:0]
+     9/92: $1\select_entry[3:0]
+    10/92: $9\rank_count[8][31:0]
+    11/92: $8\rank_count[8][31:0]
+    12/92: $7\rank_count[8][31:0]
+    13/92: $6\rank_count[8][31:0]
+    14/92: $5\rank_count[8][31:0]
+    15/92: $4\rank_count[8][31:0]
+    16/92: $3\rank_count[8][31:0]
+    17/92: $2\rank_count[8][31:0]
+    18/92: $1\rank_count[8][31:0]
+    19/92: $9\rank_count[7][31:0]
+    20/92: $8\rank_count[7][31:0]
+    21/92: $7\rank_count[7][31:0]
+    22/92: $6\rank_count[7][31:0]
+    23/92: $5\rank_count[7][31:0]
+    24/92: $4\rank_count[7][31:0]
+    25/92: $3\rank_count[7][31:0]
+    26/92: $2\rank_count[7][31:0]
+    27/92: $1\rank_count[7][31:0]
+    28/92: $9\rank_count[6][31:0]
+    29/92: $8\rank_count[6][31:0]
+    30/92: $7\rank_count[6][31:0]
+    31/92: $6\rank_count[6][31:0]
+    32/92: $5\rank_count[6][31:0]
+    33/92: $4\rank_count[6][31:0]
+    34/92: $3\rank_count[6][31:0]
+    35/92: $2\rank_count[6][31:0]
+    36/92: $1\rank_count[6][31:0]
+    37/92: $9\rank_count[5][31:0]
+    38/92: $8\rank_count[5][31:0]
+    39/92: $7\rank_count[5][31:0]
+    40/92: $6\rank_count[5][31:0]
+    41/92: $5\rank_count[5][31:0]
+    42/92: $4\rank_count[5][31:0]
+    43/92: $3\rank_count[5][31:0]
+    44/92: $2\rank_count[5][31:0]
+    45/92: $1\rank_count[5][31:0]
+    46/92: $9\rank_count[4][31:0]
+    47/92: $8\rank_count[4][31:0]
+    48/92: $7\rank_count[4][31:0]
+    49/92: $6\rank_count[4][31:0]
+    50/92: $5\rank_count[4][31:0]
+    51/92: $4\rank_count[4][31:0]
+    52/92: $3\rank_count[4][31:0]
+    53/92: $2\rank_count[4][31:0]
+    54/92: $1\rank_count[4][31:0]
+    55/92: $9\rank_count[3][31:0]
+    56/92: $8\rank_count[3][31:0]
+    57/92: $7\rank_count[3][31:0]
+    58/92: $6\rank_count[3][31:0]
+    59/92: $5\rank_count[3][31:0]
+    60/92: $4\rank_count[3][31:0]
+    61/92: $3\rank_count[3][31:0]
+    62/92: $2\rank_count[3][31:0]
+    63/92: $1\rank_count[3][31:0]
+    64/92: $9\rank_count[2][31:0]
+    65/92: $8\rank_count[2][31:0]
+    66/92: $7\rank_count[2][31:0]
+    67/92: $6\rank_count[2][31:0]
+    68/92: $5\rank_count[2][31:0]
+    69/92: $4\rank_count[2][31:0]
+    70/92: $3\rank_count[2][31:0]
+    71/92: $2\rank_count[2][31:0]
+    72/92: $1\rank_count[2][31:0]
+    73/92: $9\rank_count[1][31:0]
+    74/92: $8\rank_count[1][31:0]
+    75/92: $7\rank_count[1][31:0]
+    76/92: $6\rank_count[1][31:0]
+    77/92: $5\rank_count[1][31:0]
+    78/92: $4\rank_count[1][31:0]
+    79/92: $3\rank_count[1][31:0]
+    80/92: $2\rank_count[1][31:0]
+    81/92: $1\rank_count[1][31:0]
+    82/92: $9\rank_count[0][31:0]
+    83/92: $8\rank_count[0][31:0]
+    84/92: $7\rank_count[0][31:0]
+    85/92: $6\rank_count[0][31:0]
+    86/92: $5\rank_count[0][31:0]
+    87/92: $4\rank_count[0][31:0]
+    88/92: $3\rank_count[0][31:0]
+    89/92: $2\rank_count[0][31:0]
+    90/92: $1\rank_count[0][31:0]
+    91/92: $1\current_issue_mask[8:0]
+    92/92: $1$bitselwrite$pos$inputs/rtl/cmdbuf_rd_cmd.sv:178$36[3:0]$373
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+     1/29: $1\valid_next[8:0]
+     2/29: $1$bitselwrite$pos$inputs/rtl/cmdbuf_rd_cmd.sv:170$35[3:0]$350
+     3/29: $9\alloc_entry[3:0]
+     4/29: $9\free_found[0:0]
+     5/29: $8\alloc_entry[3:0]
+     6/29: $8\free_found[0:0]
+     7/29: $7\alloc_entry[3:0]
+     8/29: $7\free_found[0:0]
+     9/29: $6\alloc_entry[3:0]
+    10/29: $6\free_found[0:0]
+    11/29: $5\alloc_entry[3:0]
+    12/29: $5\free_found[0:0]
+    13/29: $4\alloc_entry[3:0]
+    14/29: $4\free_found[0:0]
+    15/29: $3\alloc_entry[3:0]
+    16/29: $3\free_found[0:0]
+    17/29: $2\alloc_entry[3:0]
+    18/29: $2\free_found[0:0]
+    19/29: $1\alloc_entry[3:0]
+    20/29: $1\free_found[0:0]
+    21/29: $1\src_ready[0:0]
+    22/29: $3\shared_after[31:0]
+    23/29: $1\occ_after[2][31:0]
+    24/29: $2\shared_after[31:0]
+    25/29: $1\occ_after[1][31:0]
+    26/29: $1\shared_after[31:0]
+    27/29: $1\occ_after[0][31:0]
+    28/29: $1\retire_mask[8:0]
+    29/29: $1$bitselwrite$pos$inputs/rtl/cmdbuf_rd_cmd.sv:140$34[3:0]$268
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:127$254'.
+     1/6: $3\rresp[1:0]
+     2/6: $2\rresp[1:0]
+     3/6: $2$mem2reg_rd$\arresp_q$inputs/rtl/cmdbuf_rd_cmd.sv:130$41_DATA[1:0]$260
+     4/6: $1\rresp[1:0]
+     5/6: $1$mem2reg_rd$\arresp_q$inputs/rtl/cmdbuf_rd_cmd.sv:130$41_DATA[1:0]$259
+     6/6: $1$mem2reg_rd$\arresp_q$inputs/rtl/cmdbuf_rd_cmd.sv:130$41_ADDR[3:0]$258
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+     1/27: $2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:123$40_DATA[17:0]$253
+     2/27: $2$mem2reg_rd$\port_q$inputs/rtl/cmdbuf_rd_cmd.sv:122$39_DATA[4:0]$252
+     3/27: $2$mem2reg_rd$\id_q$inputs/rtl/cmdbuf_rd_cmd.sv:121$38_DATA[7:0]$251
+     4/27: $2$mem2reg_rd$\head_entry$inputs/rtl/cmdbuf_rd_cmd.sv:119$37_DATA[3:0]$243
+     5/27: $1\raddr[2:0]
+     6/27: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:123$40_DATA[17:0]$242
+     7/27: $1$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:123$40_ADDR[3:0]$241
+     8/27: $1\r_port_id[4:0]
+     9/27: $1$mem2reg_rd$\port_q$inputs/rtl/cmdbuf_rd_cmd.sv:122$39_DATA[4:0]$240
+    10/27: $1$mem2reg_rd$\port_q$inputs/rtl/cmdbuf_rd_cmd.sv:122$39_ADDR[3:0]$239
+    11/27: $1\rid[7:0]
+    12/27: $1$mem2reg_rd$\id_q$inputs/rtl/cmdbuf_rd_cmd.sv:121$38_DATA[7:0]$238
+    13/27: $1$mem2reg_rd$\id_q$inputs/rtl/cmdbuf_rd_cmd.sv:121$38_ADDR[3:0]$237
+    14/27: $1\rvalid[2:0]
+    15/27: $1$bitselwrite$pos$inputs/rtl/cmdbuf_rd_cmd.sv:120$33[1:0]$234
+    16/27: $1\rsp_entry[3:0]
+    17/27: $1$mem2reg_rd$\head_entry$inputs/rtl/cmdbuf_rd_cmd.sv:119$37_DATA[3:0]$236
+    18/27: $1$mem2reg_rd$\head_entry$inputs/rtl/cmdbuf_rd_cmd.sv:119$37_ADDR[1:0]$235
+    19/27: $3\winner[1:0]
+    20/27: $3\winner_valid[0:0]
+    21/27: $3\scan[31:0]
+    22/27: $2\winner[1:0]
+    23/27: $2\winner_valid[0:0]
+    24/27: $2\scan[31:0]
+    25/27: $1\winner[1:0]
+    26/27: $1\winner_valid[0:0]
+    27/27: $1\scan[31:0]
+Creating decoders for process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+     1/57: $3\r_candidate[2:2]
+     2/57: $27\head_valid[2:2]
+     3/57: $9\head_entry[2][3:0]
+     4/57: $26\head_valid[2:2]
+     5/57: $8\head_entry[2][3:0]
+     6/57: $25\head_valid[2:2]
+     7/57: $7\head_entry[2][3:0]
+     8/57: $24\head_valid[2:2]
+     9/57: $6\head_entry[2][3:0]
+    10/57: $23\head_valid[2:2]
+    11/57: $5\head_entry[2][3:0]
+    12/57: $22\head_valid[2:2]
+    13/57: $4\head_entry[2][3:0]
+    14/57: $21\head_valid[2:2]
+    15/57: $3\head_entry[2][3:0]
+    16/57: $20\head_valid[2:2]
+    17/57: $2\head_entry[2][3:0]
+    18/57: $19\head_valid[2:2]
+    19/57: $1\head_entry[2][3:0]
+    20/57: $2\r_candidate[1:1]
+    21/57: $18\head_valid[1:1]
+    22/57: $9\head_entry[1][3:0]
+    23/57: $17\head_valid[1:1]
+    24/57: $8\head_entry[1][3:0]
+    25/57: $16\head_valid[1:1]
+    26/57: $7\head_entry[1][3:0]
+    27/57: $15\head_valid[1:1]
+    28/57: $6\head_entry[1][3:0]
+    29/57: $14\head_valid[1:1]
+    30/57: $5\head_entry[1][3:0]
+    31/57: $13\head_valid[1:1]
+    32/57: $4\head_entry[1][3:0]
+    33/57: $12\head_valid[1:1]
+    34/57: $3\head_entry[1][3:0]
+    35/57: $11\head_valid[1:1]
+    36/57: $2\head_entry[1][3:0]
+    37/57: $10\head_valid[1:1]
+    38/57: $1\head_entry[1][3:0]
+    39/57: $1\r_candidate[0:0]
+    40/57: $9\head_valid[0:0]
+    41/57: $9\head_entry[0][3:0]
+    42/57: $8\head_valid[0:0]
+    43/57: $8\head_entry[0][3:0]
+    44/57: $7\head_valid[0:0]
+    45/57: $7\head_entry[0][3:0]
+    46/57: $6\head_valid[0:0]
+    47/57: $6\head_entry[0][3:0]
+    48/57: $5\head_valid[0:0]
+    49/57: $5\head_entry[0][3:0]
+    50/57: $4\head_valid[0:0]
+    51/57: $4\head_entry[0][3:0]
+    52/57: $3\head_valid[0:0]
+    53/57: $3\head_entry[0][3:0]
+    54/57: $2\head_valid[0:0]
+    55/57: $2\head_entry[0][3:0]
+    56/57: $1\head_valid[0:0]
+    57/57: $1\head_entry[0][3:0]
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\cmdbuf_rd_cmd.$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:330$44_DATA' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:330$1436'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[3]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[4]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[5]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[6]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[7]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\older_next[8]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\current_issue_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\success_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_pool' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\pending_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\window_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\bank_idle_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\candidate_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\select_onehot' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\select_valid' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\select_entry' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[3]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[4]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[5]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[6]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[7]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rank_count[8]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\arready' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\alloc_fire' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\alloc_entry' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\valid_next' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\free_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\retire_mask' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\free_found' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\src_ready' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\shared_after' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\free_after' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\used_after' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\quota_cost' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\occ_after[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\occ_after[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\occ_after[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rresp' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:127$254'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rvalid' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rid' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\r_port_id' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\raddr' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\rsp_entry' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\winner_valid' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\winner' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\scan' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_valid' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\r_candidate' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\src_mask[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\src_mask[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\src_mask[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_onehot[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_onehot[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_onehot[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_entry[0]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_entry[1]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+No latch inferred for signal `\cmdbuf_rd_cmd.\head_entry[2]' from process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\cmdbuf_rd_formal.\f_started' using process `\cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:38$1531'.
+  created $dff cell `$procdff$4185' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\pa_history' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+  created $dff cell `$procdff$4186' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\pa_valid' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+  created $dff cell `$procdff$4187' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\pa_entry' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+  created $dff cell `$procdff$4188' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\pa_bank' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+  created $dff cell `$procdff$4189' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\pa_addr' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+  created $dff cell `$procdff$4190' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\valid_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4195' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\issued_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4200' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\done_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4205' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\pending_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4210' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\rr_ptr_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4215' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\issue_valid_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4220' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\issue_entry_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4225' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\issue_bank_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4230' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\issue_addr_q' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4235' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$fordecl_block$25.x' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4240' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$fordecl_block$27.i' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4245' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$fordecl_block$29.x' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $dff cell `$procdff$4252' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.$fordecl_block$31.i' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $dff cell `$procdff$4259' with positive edge clock.
+Creating register for signal `\cmdbuf_rd_cmd.\occ_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4264' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\occ_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4269' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\occ_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4274' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4279' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4284' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4289' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4294' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4299' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4304' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4309' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4314' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\addr_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4319' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4324' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4329' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4334' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4339' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4344' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4349' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4354' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4359' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\src_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4364' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4369' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4374' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4379' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4384' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4389' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4394' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4399' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4404' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\id_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4409' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4414' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4419' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4424' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4429' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4434' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4439' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4444' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4449' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\port_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4454' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4459' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4464' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4469' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4474' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4479' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4484' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4489' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4494' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\arresp_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4499' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[0]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4504' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[1]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4509' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[2]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4514' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[3]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4519' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[4]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4524' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[5]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4529' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[6]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4534' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[7]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4539' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.\older_q[8]' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4544' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_ADDR' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4549' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:250$42_DATA' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4554' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_ADDR' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4559' with positive edge clock and positive level reset.
+Creating register for signal `\cmdbuf_rd_cmd.$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:251$43_DATA' using process `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+  created $adff cell `$procdff$4564' with positive edge clock and positive level reset.
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:37$1542'.
+Found and cleaned up 2 empty switches in `\cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:38$1531'.
+Removing empty process `cmdbuf_rd_formal.$proc$inputs/formal/cmdbuf_rd_formal.sv:38$1531'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:329$1439'.
+Found and cleaned up 1 empty switch in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:330$1436'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:330$1436'.
+Found and cleaned up 1 empty switch in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:335$1409'.
+Found and cleaned up 40 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:218$1308'.
+Found and cleaned up 243 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:203$649'.
+Found and cleaned up 91 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:175$358'.
+Found and cleaned up 18 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:138$262'.
+Found and cleaned up 4 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:127$254'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:127$254'.
+Found and cleaned up 11 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:101$204'.
+Found and cleaned up 30 empty switches in `\cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+Removing empty process `cmdbuf_rd_cmd.$proc$inputs/rtl/cmdbuf_rd_cmd.sv:78$55'.
+Cleaned up 441 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+<suppressed ~3 debug messages>
+Optimizing module cmdbuf_rd_cmd.
+<suppressed ~364 debug messages>
+
+5.3. Executing FUTURE pass.
+
+5.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+Optimizing module cmdbuf_rd_cmd.
+
+5.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmdbuf_rd_formal..
+Finding unused cells or wires in module \cmdbuf_rd_cmd..
+Removed 214 unused cells and 2213 unused wires.
+<suppressed ~218 debug messages>
+
+5.6. Executing CHECK pass (checking for obvious problems).
+Checking module cmdbuf_rd_formal...
+Checking module cmdbuf_rd_cmd...
+Found and reported 0 problems.
+
+5.7. Executing OPT pass (performing simple optimizations).
+
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+Optimizing module cmdbuf_rd_cmd.
+
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmdbuf_rd_formal'.
+Computing hashes of 18 cells of `\cmdbuf_rd_formal'.
+Finding duplicate cells in `\cmdbuf_rd_formal'.
+Finding identical cells in module `\cmdbuf_rd_cmd'.
+Computing hashes of 2039 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Computing hashes of 1710 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Computing hashes of 1527 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+<suppressed ~1536 debug messages>
+Removed a total of 512 cells.
+
+5.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cmdbuf_rd_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cmdbuf_rd_cmd..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$2162.
+    dead port 1/2 on $mux $procmux$2156.
+    dead port 1/2 on $mux $procmux$2153.
+    dead port 1/2 on $mux $procmux$2144.
+    dead port 1/2 on $mux $procmux$2138.
+    dead port 1/2 on $mux $procmux$2135.
+    dead port 1/2 on $mux $procmux$2126.
+    dead port 1/2 on $mux $procmux$2120.
+    dead port 1/2 on $mux $procmux$2117.
+    dead port 1/2 on $mux $procmux$2108.
+    dead port 1/2 on $mux $procmux$2102.
+    dead port 1/2 on $mux $procmux$2099.
+    dead port 1/2 on $mux $procmux$2090.
+    dead port 1/2 on $mux $procmux$2084.
+    dead port 1/2 on $mux $procmux$2081.
+    dead port 1/2 on $mux $procmux$2072.
+    dead port 1/2 on $mux $procmux$2066.
+    dead port 1/2 on $mux $procmux$2063.
+    dead port 2/2 on $mux $procmux$2039.
+    dead port 1/2 on $mux $procmux$3865.
+    dead port 2/2 on $mux $procmux$3867.
+    dead port 2/2 on $mux $procmux$1724.
+    dead port 2/2 on $mux $procmux$3873.
+    dead port 1/2 on $mux $procmux$2714.
+    dead port 1/2 on $mux $procmux$2711.
+    dead port 1/2 on $mux $procmux$2702.
+    dead port 1/2 on $mux $procmux$2696.
+    dead port 1/2 on $mux $procmux$2693.
+    dead port 1/2 on $mux $procmux$2684.
+    dead port 1/2 on $mux $procmux$2678.
+    dead port 1/2 on $mux $procmux$2675.
+    dead port 1/2 on $mux $procmux$2666.
+    dead port 1/2 on $mux $procmux$2660.
+    dead port 1/2 on $mux $procmux$2657.
+    dead port 1/2 on $mux $procmux$2648.
+    dead port 1/2 on $mux $procmux$2642.
+    dead port 1/2 on $mux $procmux$2639.
+    dead port 1/2 on $mux $procmux$2630.
+    dead port 1/2 on $mux $procmux$2624.
+    dead port 1/2 on $mux $procmux$2621.
+    dead port 1/2 on $mux $procmux$2612.
+    dead port 1/2 on $mux $procmux$3476.
+    dead port 1/2 on $mux $procmux$3470.
+    dead port 1/2 on $mux $procmux$2606.
+    dead port 1/2 on $mux $procmux$3467.
+    dead port 1/2 on $mux $procmux$2603.
+    dead port 1/2 on $mux $procmux$3458.
+    dead port 1/2 on $mux $procmux$3452.
+    dead port 1/2 on $mux $procmux$3449.
+    dead port 1/2 on $mux $procmux$3440.
+    dead port 1/2 on $mux $procmux$3434.
+    dead port 1/2 on $mux $procmux$3431.
+    dead port 1/2 on $mux $procmux$3422.
+    dead port 1/2 on $mux $procmux$2576.
+    dead port 1/2 on $mux $procmux$3416.
+    dead port 1/2 on $mux $procmux$3413.
+    dead port 1/2 on $mux $procmux$2570.
+    dead port 1/2 on $mux $procmux$3404.
+    dead port 1/2 on $mux $procmux$3398.
+    dead port 1/2 on $mux $procmux$2567.
+    dead port 1/2 on $mux $procmux$3395.
+    dead port 1/2 on $mux $procmux$3386.
+    dead port 1/2 on $mux $procmux$2558.
+    dead port 1/2 on $mux $procmux$3380.
+    dead port 1/2 on $mux $procmux$3377.
+    dead port 1/2 on $mux $procmux$2552.
+    dead port 1/2 on $mux $procmux$2549.
+    dead port 1/2 on $mux $procmux$3368.
+    dead port 1/2 on $mux $procmux$3362.
+    dead port 1/2 on $mux $procmux$3359.
+    dead port 1/2 on $mux $procmux$2540.
+    dead port 1/2 on $mux $procmux$3350.
+    dead port 2/2 on $mux $procmux$3910.
+    dead port 1/2 on $mux $procmux$3344.
+    dead port 1/2 on $mux $procmux$2534.
+    dead port 1/2 on $mux $procmux$3341.
+    dead port 1/2 on $mux $procmux$2531.
+    dead port 1/2 on $mux $procmux$3332.
+    dead port 1/2 on $mux $procmux$3326.
+    dead port 1/2 on $mux $procmux$3323.
+    dead port 1/2 on $mux $procmux$2522.
+    dead port 1/2 on $mux $procmux$2516.
+    dead port 1/2 on $mux $procmux$2513.
+    dead port 1/2 on $mux $procmux$3296.
+    dead port 1/2 on $mux $procmux$3290.
+    dead port 1/2 on $mux $procmux$3287.
+    dead port 1/2 on $mux $procmux$2504.
+    dead port 1/2 on $mux $procmux$3278.
+    dead port 1/2 on $mux $procmux$2498.
+    dead port 1/2 on $mux $procmux$3272.
+    dead port 1/2 on $mux $procmux$2495.
+    dead port 1/2 on $mux $procmux$3269.
+    dead port 1/2 on $mux $procmux$3260.
+    dead port 1/2 on $mux $procmux$2486.
+    dead port 1/2 on $mux $procmux$3254.
+    dead port 1/2 on $mux $procmux$2480.
+    dead port 1/2 on $mux $procmux$3251.
+    dead port 1/2 on $mux $procmux$2477.
+    dead port 1/2 on $mux $procmux$3242.
+    dead port 1/2 on $mux $procmux$3236.
+    dead port 1/2 on $mux $procmux$3233.
+    dead port 1/2 on $mux $procmux$3224.
+    dead port 1/2 on $mux $procmux$3218.
+    dead port 1/2 on $mux $procmux$3215.
+    dead port 1/2 on $mux $procmux$2468.
+    dead port 1/2 on $mux $procmux$3206.
+    dead port 1/2 on $mux $procmux$2462.
+    dead port 1/2 on $mux $procmux$3200.
+    dead port 1/2 on $mux $procmux$2459.
+    dead port 1/2 on $mux $procmux$3197.
+    dead port 1/2 on $mux $procmux$3188.
+    dead port 1/2 on $mux $procmux$3182.
+    dead port 1/2 on $mux $procmux$3179.
+    dead port 1/2 on $mux $procmux$2450.
+    dead port 1/2 on $mux $procmux$3170.
+    dead port 1/2 on $mux $procmux$2444.
+    dead port 1/2 on $mux $procmux$3164.
+    dead port 1/2 on $mux $procmux$2441.
+    dead port 1/2 on $mux $procmux$3161.
+    dead port 1/2 on $mux $procmux$3152.
+    dead port 1/2 on $mux $procmux$2432.
+    dead port 1/2 on $mux $procmux$3146.
+    dead port 1/2 on $mux $procmux$3143.
+    dead port 1/2 on $mux $procmux$2426.
+    dead port 1/2 on $mux $procmux$2423.
+    dead port 1/2 on $mux $procmux$3116.
+    dead port 1/2 on $mux $procmux$3110.
+    dead port 1/2 on $mux $procmux$3107.
+    dead port 2/2 on $mux $procmux$3924.
+    dead port 1/2 on $mux $procmux$3098.
+    dead port 1/2 on $mux $procmux$3092.
+    dead port 1/2 on $mux $procmux$3089.
+    dead port 1/2 on $mux $procmux$2396.
+    dead port 1/2 on $mux $procmux$3080.
+    dead port 1/2 on $mux $procmux$2390.
+    dead port 1/2 on $mux $procmux$3074.
+    dead port 1/2 on $mux $procmux$3071.
+    dead port 1/2 on $mux $procmux$2387.
+    dead port 1/2 on $mux $procmux$3062.
+    dead port 1/2 on $mux $procmux$3056.
+    dead port 1/2 on $mux $procmux$3053.
+    dead port 1/2 on $mux $procmux$2378.
+    dead port 1/2 on $mux $procmux$3044.
+    dead port 1/2 on $mux $procmux$2372.
+    dead port 1/2 on $mux $procmux$2369.
+    dead port 1/2 on $mux $procmux$3038.
+    dead port 1/2 on $mux $procmux$3035.
+    dead port 1/2 on $mux $procmux$2360.
+    dead port 1/2 on $mux $procmux$3026.
+    dead port 1/2 on $mux $procmux$3020.
+    dead port 1/2 on $mux $procmux$2354.
+    dead port 1/2 on $mux $procmux$3017.
+    dead port 1/2 on $mux $procmux$2351.
+    dead port 1/2 on $mux $procmux$3008.
+    dead port 1/2 on $mux $procmux$2342.
+    dead port 1/2 on $mux $procmux$3002.
+    dead port 1/2 on $mux $procmux$2999.
+    dead port 1/2 on $mux $procmux$2336.
+    dead port 1/2 on $mux $procmux$2333.
+    dead port 1/2 on $mux $procmux$2990.
+    dead port 1/2 on $mux $procmux$2984.
+    dead port 1/2 on $mux $procmux$2981.
+    dead port 1/2 on $mux $procmux$2972.
+    dead port 2/2 on $mux $procmux$3938.
+    dead port 1/2 on $mux $procmux$2966.
+    dead port 1/2 on $mux $procmux$2324.
+    dead port 1/2 on $mux $procmux$2963.
+    dead port 1/2 on $mux $procmux$2318.
+    dead port 1/2 on $mux $procmux$2315.
+    dead port 1/2 on $mux $procmux$2936.
+    dead port 1/2 on $mux $procmux$2306.
+    dead port 1/2 on $mux $procmux$2930.
+    dead port 1/2 on $mux $procmux$2927.
+    dead port 1/2 on $mux $procmux$2300.
+    dead port 1/2 on $mux $procmux$2297.
+    dead port 1/2 on $mux $procmux$2918.
+    dead port 1/2 on $mux $procmux$2912.
+    dead port 1/2 on $mux $procmux$2909.
+    dead port 1/2 on $mux $procmux$2288.
+    dead port 1/2 on $mux $procmux$2282.
+    dead port 1/2 on $mux $procmux$2900.
+    dead port 1/2 on $mux $procmux$2279.
+    dead port 1/2 on $mux $procmux$2894.
+    dead port 1/2 on $mux $procmux$2891.
+    dead port 1/2 on $mux $procmux$2270.
+    dead port 1/2 on $mux $procmux$2882.
+    dead port 1/2 on $mux $procmux$2264.
+    dead port 1/2 on $mux $procmux$2876.
+    dead port 1/2 on $mux $procmux$2873.
+    dead port 1/2 on $mux $procmux$2261.
+    dead port 1/2 on $mux $procmux$2864.
+    dead port 1/2 on $mux $procmux$2858.
+    dead port 1/2 on $mux $procmux$2855.
+    dead port 1/2 on $mux $procmux$2252.
+    dead port 1/2 on $mux $procmux$2846.
+    dead port 1/2 on $mux $procmux$2246.
+    dead port 1/2 on $mux $procmux$2840.
+    dead port 1/2 on $mux $procmux$2243.
+    dead port 1/2 on $mux $procmux$2837.
+    dead port 1/2 on $mux $procmux$2828.
+    dead port 1/2 on $mux $procmux$2822.
+    dead port 1/2 on $mux $procmux$2819.
+    dead port 1/2 on $mux $procmux$2810.
+    dead port 1/2 on $mux $procmux$2804.
+    dead port 1/2 on $mux $procmux$2216.
+    dead port 1/2 on $mux $procmux$2801.
+    dead port 1/2 on $mux $procmux$2210.
+    dead port 1/2 on $mux $procmux$2792.
+    dead port 1/2 on $mux $procmux$2207.
+    dead port 1/2 on $mux $procmux$2786.
+    dead port 1/2 on $mux $procmux$2783.
+    dead port 1/2 on $mux $procmux$2198.
+    dead port 1/2 on $mux $procmux$2192.
+    dead port 1/2 on $mux $procmux$2189.
+    dead port 1/2 on $mux $procmux$2756.
+    dead port 1/2 on $mux $procmux$2180.
+    dead port 1/2 on $mux $procmux$2750.
+    dead port 1/2 on $mux $procmux$2747.
+    dead port 1/2 on $mux $procmux$2174.
+    dead port 1/2 on $mux $procmux$2171.
+    dead port 1/2 on $mux $procmux$2738.
+    dead port 1/2 on $mux $procmux$2732.
+    dead port 1/2 on $mux $procmux$2729.
+    dead port 1/2 on $mux $procmux$2720.
+Removed 224 multiplexer ports.
+<suppressed ~1099 debug messages>
+
+5.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cmdbuf_rd_formal.
+  Optimizing cells in module \cmdbuf_rd_cmd.
+Performed a total of 0 changes.
+
+5.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmdbuf_rd_formal'.
+Computing hashes of 18 cells of `\cmdbuf_rd_formal'.
+Finding duplicate cells in `\cmdbuf_rd_formal'.
+Computing hashes of 17 cells of `\cmdbuf_rd_formal'.
+Finding duplicate cells in `\cmdbuf_rd_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\cmdbuf_rd_cmd'.
+Computing hashes of 1303 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Computing hashes of 1300 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Computing hashes of 1298 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+<suppressed ~15 debug messages>
+Removed a total of 6 cells.
+
+5.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmdbuf_rd_formal..
+Finding unused cells or wires in module \cmdbuf_rd_cmd..
+Removed 0 unused cells and 742 unused wires.
+<suppressed ~2 debug messages>
+
+5.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+Optimizing module cmdbuf_rd_cmd.
+
+5.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cmdbuf_rd_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cmdbuf_rd_cmd..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~868 debug messages>
+
+5.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cmdbuf_rd_formal.
+  Optimizing cells in module \cmdbuf_rd_cmd.
+Performed a total of 0 changes.
+
+5.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmdbuf_rd_formal'.
+Computing hashes of 17 cells of `\cmdbuf_rd_formal'.
+Finding duplicate cells in `\cmdbuf_rd_formal'.
+Finding identical cells in module `\cmdbuf_rd_cmd'.
+Computing hashes of 1298 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Removed a total of 0 cells.
+
+5.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmdbuf_rd_formal..
+Finding unused cells or wires in module \cmdbuf_rd_cmd..
+
+5.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+Optimizing module cmdbuf_rd_cmd.
+
+5.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_formal.$lt$inputs/formal/cmdbuf_rd_formal.sv:43$1537 ($lt).
+Removed top 7 bits (of 8) from port A of cell cmdbuf_rd_cmd.$shl$inputs/rtl/cmdbuf_rd_cmd.sv:68$46 ($shl).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$110 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$112 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$114 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$116 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$118 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$120 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$122 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$124 ($eq).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:86$126 ($eq).
+Removed top 30 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$215 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$215 ($add).
+Removed top 29 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$215 ($add).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$216 ($ge).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$216 ($ge).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$217 ($sub).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$217 ($sub).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$217 ($sub).
+Removed top 30 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$221 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$221 ($add).
+Removed top 29 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$221 ($add).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$222 ($ge).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$222 ($ge).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$223 ($sub).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$223 ($sub).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$223 ($sub).
+Removed top 30 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$227 ($add).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$227 ($add).
+Removed top 29 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$227 ($add).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$228 ($ge).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$ge$inputs/rtl/cmdbuf_rd_cmd.sv:107$228 ($ge).
+Removed top 29 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$229 ($sub).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$229 ($sub).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:107$229 ($sub).
+Converting cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:120$248 ($neg) from signed to unsigned.
+Removed top 1 bits (of 3) from port A of cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:120$248 ($neg).
+Converting cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:140$273 ($neg) from signed to unsigned.
+Removed top 1 bits (of 5) from port A of cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:140$273 ($neg).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$278 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$278 ($sub).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$278 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$gt$inputs/rtl/cmdbuf_rd_cmd.sv:148$280 ($gt).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:148$281 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:148$282 ($sub).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$288 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$288 ($sub).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$288 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$gt$inputs/rtl/cmdbuf_rd_cmd.sv:148$290 ($gt).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:148$292 ($sub).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$298 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$298 ($sub).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:146$298 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$gt$inputs/rtl/cmdbuf_rd_cmd.sv:148$300 ($gt).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:148$302 ($sub).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:151$306 ($sub).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$gt$inputs/rtl/cmdbuf_rd_cmd.sv:154$319 ($gt).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:155$322 ($lt).
+Removed top 30 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:158$325 ($lt).
+Converting cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:170$355 ($neg) from signed to unsigned.
+Removed top 1 bits (of 5) from port A of cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:170$355 ($neg).
+Converting cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:178$378 ($neg) from signed to unsigned.
+Removed top 1 bits (of 5) from port A of cell cmdbuf_rd_cmd.$neg$inputs/rtl/cmdbuf_rd_cmd.sv:178$378 ($neg).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$387 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$389 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$391 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$393 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$395 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$397 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$399 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$401 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$402 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$404 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$404 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$405 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$406 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$406 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$407 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$413 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$415 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$417 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$419 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$421 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$423 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$425 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$427 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$428 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$430 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$430 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$431 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$432 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$432 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$433 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$439 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$441 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$443 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$445 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$447 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$449 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$451 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$453 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$454 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$456 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$456 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$457 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$458 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$458 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$459 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$465 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$467 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$469 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$471 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$473 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$475 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$477 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$479 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$480 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$482 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$482 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$483 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$484 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$484 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$485 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$491 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$493 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$495 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$497 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$499 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$501 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$503 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$505 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$506 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$508 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$508 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$509 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$510 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$510 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$511 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$517 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$519 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$521 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$523 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$525 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$527 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$529 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$531 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$532 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$534 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$534 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$535 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$536 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$536 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$537 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$543 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$545 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$547 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$549 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$551 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$553 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$555 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$557 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$558 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$560 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$560 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$561 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$562 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$562 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$563 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$569 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$571 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$573 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$575 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$577 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$579 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$581 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$583 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$584 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$586 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$586 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$587 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$588 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$588 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$589 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$595 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$597 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$599 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$601 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$603 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$605 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$607 ($add).
+Removed top 31 bits (of 32) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:189$609 ($add).
+Removed top 29 bits (of 32) from port B of cell cmdbuf_rd_cmd.$lt$inputs/rtl/cmdbuf_rd_cmd.sv:190$610 ($lt).
+Removed top 28 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$612 ($add).
+Removed top 27 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$612 ($add).
+Removed top 26 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$613 ($shiftx).
+Removed top 31 bits (of 32) from port A of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$614 ($add).
+Removed top 28 bits (of 32) from port Y of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$614 ($add).
+Removed top 27 bits (of 32) from port B of cell cmdbuf_rd_cmd.$shiftx$inputs/rtl/cmdbuf_rd_cmd.sv:191$615 ($shiftx).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:240$1326 ($add).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:240$1327 ($sub).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:242$1330 ($add).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:242$1333 ($sub).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:242$1334 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:242$1336 ($add).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:243$1337 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:242$1339 ($sub).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:242$1342 ($add).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$sub$inputs/rtl/cmdbuf_rd_cmd.sv:242$1345 ($sub).
+Removed top 1 bits (of 2) from port B of cell cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:244$1347 ($add).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1361 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1363 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1365 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1367 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1369 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1371 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1373 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1375 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1377 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1379 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1381 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1383 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1385 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1387 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1389 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1391 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1393 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1395 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:260$1397 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:277$1399 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$eq$inputs/rtl/cmdbuf_rd_cmd.sv:278$1401 ($eq).
+Removed top 7 bits (of 8) from port A of cell cmdbuf_rd_cmd.$shl$inputs/rtl/cmdbuf_rd_cmd.sv:350$1428 ($shl).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2031_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2032_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2033_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2034_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2035_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2036_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$2037_CMP0 ($eq).
+Removed top 3 bits (of 4) from mux cell cmdbuf_rd_cmd.$procmux$3521 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3550 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3577 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3604 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3631 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3658 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3685 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3712 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3739 ($mux).
+Removed top 31 bits (of 32) from mux cell cmdbuf_rd_cmd.$procmux$3766 ($mux).
+Removed top 3 bits (of 4) from mux cell cmdbuf_rd_cmd.$procmux$3823 ($mux).
+Removed top 1 bits (of 2) from mux cell cmdbuf_rd_cmd.$procmux$3862 ($mux).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3879_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3880_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3881_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3882_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3883_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3884_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3885_CMP0 ($eq).
+Removed top 15 bits (of 18) from mux cell cmdbuf_rd_cmd.$procmux$3900 ($pmux).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3902_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3903_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3904_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3905_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3906_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3907_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell cmdbuf_rd_cmd.$procmux$3908_CMP0 ($eq).
+Removed top 3 bits (of 4) from mux cell cmdbuf_rd_cmd.$procmux$4066 ($mux).
+Removed top 3 bits (of 4) from mux cell cmdbuf_rd_cmd.$procmux$4122 ($mux).
+Removed top 3 bits (of 4) from mux cell cmdbuf_rd_cmd.$procmux$4178 ($mux).
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$2\select_entry[3:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$614_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$612_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[8][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$588_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$586_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[7][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$562_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$560_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[6][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$536_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$534_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[5][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$510_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$508_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[4][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$484_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$482_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[3][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$458_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$456_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[2][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$432_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$430_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[1][31:0].
+Removed top 28 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$406_Y.
+Removed top 27 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:191$404_Y.
+Removed top 31 bits (of 32) from wire cmdbuf_rd_cmd.$1\rank_count[0][31:0].
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$2\alloc_entry[3:0].
+Removed top 1 bits (of 2) from wire cmdbuf_rd_cmd.$3\rresp[1:0].
+Removed top 15 bits (of 18) from wire cmdbuf_rd_cmd.$2$mem2reg_rd$\addr_q$inputs/rtl/cmdbuf_rd_cmd.sv:123$40_DATA[17:0]$253.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:243$1344_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:242$1341_Y.
+Removed top 29 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$227_Y.
+Removed top 29 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$221_Y.
+Removed top 29 bits (of 32) from wire cmdbuf_rd_cmd.$add$inputs/rtl/cmdbuf_rd_cmd.sv:106$215_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:243$1338_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:242$1335_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:243$1332_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$logic_and$inputs/rtl/cmdbuf_rd_cmd.sv:242$1329_Y.
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$2\head_entry[2][3:0].
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$2\head_entry[1][3:0].
+Removed top 3 bits (of 4) from wire cmdbuf_rd_cmd.$2\head_entry[0][3:0].
+Removed top 1 bits (of 9) from wire cmdbuf_rd_cmd.older_next[8].
+
+5.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmdbuf_rd_formal..
+Finding unused cells or wires in module \cmdbuf_rd_cmd..
+Removed 0 unused cells and 44 unused wires.
+<suppressed ~1 debug messages>
+
+5.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.11. Executing OPT pass (performing simple optimizations).
+
+5.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmdbuf_rd_formal.
+Optimizing module cmdbuf_rd_cmd.
+
+5.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmdbuf_rd_formal'.
+Computing hashes of 17 cells of `\cmdbuf_rd_formal'.
+Finding duplicate cells in `\cmdbuf_rd_formal'.
+Finding identical cells in module `\cmdbuf_rd_cmd'.
+Computing hashes of 1298 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+Computing hashes of 1295 cells of `\cmdbuf_rd_cmd'.
+Finding duplicate cells in `\cmdbuf_rd_cmd'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+5.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmdbuf_rd_formal..
+Finding unused cells or wires in module \cmdbuf_rd_cmd..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+5.11.4. Finished fast OPT passes.
+
+5.12. Executing SORT pass.
+
+5.13. Printing statistics.
+
+=== cmdbuf_rd_cmd ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1156 wires
+     8403 wire bits
+      156 public wires
+     1419 public wire bits
+       31 ports
+      146 port bits
+     1295 cells
+      103   $add
+       66   $adff
+       45   $and
+        1   $check
+        5   $dff
+       77   $eq
+        3   $ge
+        4   $gt
+      215   $logic_and
+       87   $logic_not
+       40   $logic_or
+       11   $lt
+      571   $mux
+        4   $neg
+        6   $not
+        2   $or
+        6   $pmux
+        4   $reduce_or
+        4   $shift
+       25   $shiftx
+        2   $shl
+       14   $sub
+
+=== cmdbuf_rd_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       43 wires
+      412 wire bits
+       35 public wires
+      404 public wire bits
+       24 ports
+      378 port bits
+       16 cells
+        3   $anyseq
+        4   $check
+        1   $dff
+        1   $eq
+        2   $logic_not
+        1   $logic_or
+        1   $lt
+        3   $mux
+        1 submodules
+        1   cmdbuf_rd_cmd
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+     1311 cmdbuf_rd_formal
+     1295 cmdbuf_rd_cmd
+
+        +----------Count including submodules.
+        | 
+     1199 wires
+     8815 wire bits
+      191 public wires
+     1823 public wire bits
+       55 ports
+      524 port bits
+        - memories
+        - memory bits
+        - processes
+     1311 cells
+      103   $add
+       66   $adff
+       45   $and
+        3   $anyseq
+        5   $check
+        6   $dff
+       78   $eq
+        3   $ge
+        4   $gt
+      215   $logic_and
+       89   $logic_not
+       41   $logic_or
+       12   $lt
+      574   $mux
+        4   $neg
+        6   $not
+        2   $or
+        6   $pmux
+        4   $reduce_or
+        4   $shift
+       25   $shiftx
+        2   $shl
+       14   $sub
+        1 submodules
+        1   cmdbuf_rd_cmd
+
+5.14. Executing CHECK pass (checking for obvious problems).
+Checking module cmdbuf_rd_cmd...
+Checking module cmdbuf_rd_formal...
+Found and reported 0 problems.
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module cmdbuf_rd_cmd.
+<suppressed ~1 debug messages>
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing ASYNC2SYNC pass.
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4544 ($adff): ARST=\dut.rst_n, D={ 1'0 \dut.older_next[8] }, Q=\dut.older_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4539 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[7] [8] 1'0 \dut.older_next[7] [6:0] }, Q=\dut.older_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4534 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[6] [8:7] 1'0 \dut.older_next[6] [5:0] }, Q=\dut.older_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4529 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[5] [8:6] 1'0 \dut.older_next[5] [4:0] }, Q=\dut.older_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4524 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[4] [8:5] 1'0 \dut.older_next[4] [3:0] }, Q=\dut.older_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4519 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[3] [8:4] 1'0 \dut.older_next[3] [2:0] }, Q=\dut.older_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4514 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[2] [8:3] 1'0 \dut.older_next[2] [1:0] }, Q=\dut.older_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4509 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[1] [8:2] 1'0 \dut.older_next[1] [0] }, Q=\dut.older_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4504 ($adff): ARST=\dut.rst_n, D={ \dut.older_next[0] [8:1] 1'0 }, Q=\dut.older_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4499 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[8][1:0], Q=\dut.arresp_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4494 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[7][1:0], Q=\dut.arresp_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4489 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[6][1:0], Q=\dut.arresp_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4484 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[5][1:0], Q=\dut.arresp_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4479 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[4][1:0], Q=\dut.arresp_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4474 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[3][1:0], Q=\dut.arresp_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4469 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[2][1:0], Q=\dut.arresp_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4464 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[1][1:0], Q=\dut.arresp_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4459 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\arresp_q[0][1:0], Q=\dut.arresp_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4454 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[8][4:0], Q=\dut.port_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4449 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[7][4:0], Q=\dut.port_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4444 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[6][4:0], Q=\dut.port_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4439 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[5][4:0], Q=\dut.port_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4434 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[4][4:0], Q=\dut.port_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4429 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[3][4:0], Q=\dut.port_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4424 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[2][4:0], Q=\dut.port_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4419 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[1][4:0], Q=\dut.port_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4414 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\port_q[0][4:0], Q=\dut.port_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4409 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[8][7:0], Q=\dut.id_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4404 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[7][7:0], Q=\dut.id_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4399 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[6][7:0], Q=\dut.id_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4394 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[5][7:0], Q=\dut.id_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4389 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[4][7:0], Q=\dut.id_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4384 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[3][7:0], Q=\dut.id_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4379 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[2][7:0], Q=\dut.id_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4374 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[1][7:0], Q=\dut.id_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4369 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\id_q[0][7:0], Q=\dut.id_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4364 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[8][1:0], Q=\dut.src_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4359 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[7][1:0], Q=\dut.src_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4354 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[6][1:0], Q=\dut.src_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4349 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[5][1:0], Q=\dut.src_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4344 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[4][1:0], Q=\dut.src_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4339 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[3][1:0], Q=\dut.src_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4334 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[2][1:0], Q=\dut.src_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4329 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[1][1:0], Q=\dut.src_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4324 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\src_q[0][1:0], Q=\dut.src_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4319 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[8][17:0], Q=\dut.addr_q[8]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4314 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[7][17:0], Q=\dut.addr_q[7]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4309 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[6][17:0], Q=\dut.addr_q[6]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4304 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[5][17:0], Q=\dut.addr_q[5]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4299 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[4][17:0], Q=\dut.addr_q[4]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4294 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[3][17:0], Q=\dut.addr_q[3]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4289 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[2][17:0], Q=\dut.addr_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4284 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[1][17:0], Q=\dut.addr_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4279 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\addr_q[0][17:0], Q=\dut.addr_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4274 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\occ_q[2][3:0], Q=\dut.occ_q[2]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4269 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\occ_q[1][3:0], Q=\dut.occ_q[1]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4264 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\occ_q[0][3:0], Q=\dut.occ_q[0]
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4235 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\issue_addr_q[11:0], Q=\dut.issue_addr_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4230 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\issue_bank_q[2:0], Q=\dut.issue_bank_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4225 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\issue_entry_q[3:0], Q=\dut.issue_entry_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4220 ($adff): ARST=\dut.rst_n, D=\dut.select_valid, Q=\dut.issue_valid_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4215 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\rr_ptr_q[1:0], Q=\dut.rr_ptr_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4210 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pending_q[3:0], Q=\dut.pending_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4205 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\done_q[8:0], Q=\dut.done_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4200 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\issued_q[8:0], Q=\dut.issued_q
+Replacing cmdbuf_rd_formal.$flatten\dut.$procdff$4195 ($adff): ARST=\dut.rst_n, D=\dut.valid_next, Q=\dut.valid_q
+
+9. Executing SETUNDEF pass (replace undef values with defined constants).
+
+10. Executing RTLIL backend.
+Output filename: /root/cmdbuf_rd/portable_20261012/package/jobs/pipeline/conversion/normalized.il
+
+11. Executing JSON backend.

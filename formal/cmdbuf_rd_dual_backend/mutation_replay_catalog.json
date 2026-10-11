@@ -1,0 +1,1749 @@
+{
+  "schema_version": 1,
+  "scope": "Replay of 49 archived SBY external traces; not a new FormalMC counterexample campaign.",
+  "oracle_source_sha256": "de7a065c76f9699ec3c4049492af13b9a993a2fbdb0107387846e380c31794e9",
+  "cases": [
+    {
+      "id": "FI001",
+      "title": "接受事件误用任意来源ready",
+      "group": "wiring",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "alloc_fire = arvalid && src_ready;",
+          "new": "alloc_fire = arvalid && (|arready);"
+        }
+      ],
+      "source_sby_run": "bfee712446c742d8a193070cb8e1d45e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI002",
+      "title": "下游地址丢失half",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_addr_q <= addr_q[select_entry][17:6];",
+          "new": "issue_addr_q <= {addr_q[select_entry][17:7],1'b0};"
+        }
+      ],
+      "source_sby_run": "268de76a82274d379e61495fad4c5e77",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI003",
+      "title": "bank解码错误为[6:4]",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_bank_q <= addr_q[select_entry][5:3];",
+          "new": "issue_bank_q <= addr_q[select_entry][6:4];"
+        }
+      ],
+      "source_sby_run": "be5195c84091482b8df323283ec1932a",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI004",
+      "title": "bank空闲极性倒置",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "bank_idle_mask[i] = !(addr_q[i][6] ?",
+          "new": "bank_idle_mask[i] = (addr_q[i][6] ?"
+        }
+      ],
+      "source_sby_run": "6dead0b4509b47bb98e5fc95e8bcd68d",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI005",
+      "title": "共享R同时指向所有来源",
+      "group": "wiring",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "rvalid[winner] = 1'b1;",
+          "new": "rvalid = 3'b111;"
+        }
+      ],
+      "source_sby_run": "92f55f83f61f4da99f4c0b6988aae937",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI006",
+      "title": "合并MEM数据的128位半字串换",
+      "group": "data_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "data_q[i] <= mem_rdata;",
+          "new": "data_q[i] <= {mem_rdata[63:0],mem_rdata[127:64]};"
+        }
+      ],
+      "source_sby_run": "253db7f2631b4d79a823472ef37ffe6e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI007",
+      "title": "保存port_id错误",
+      "group": "local_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "port_q[i] <= ar_port_id;",
+          "new": "port_q[i] <= ar_port_id ^ 5'b00001;"
+        }
+      ],
+      "source_sby_run": "56216334cbea4b3d92433954bb24913b",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI008",
+      "title": "允许单个XAU占完九项",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "(shared_after < 6)",
+          "new": "(shared_after < 8)"
+        }
+      ],
+      "source_sby_run": "f97c8affeee944209237d04fcbb6a5f2",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI009",
+      "title": "OTB分配槽与CMDBUF错位",
+      "group": "calendar",
+      "edits": [
+        {
+          "file": "cmdbuf_rd.sv",
+          "old": ".clk, .rst_n, .alloc_fire, .alloc_entry, .retire_fire,",
+          "new": ".clk, .rst_n, .alloc_fire, .alloc_entry(alloc_entry ^ 4'd1), .retire_fire,"
+        }
+      ],
+      "source_sby_run": "58352039f9a7497eaecd016708ac7b42",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI010",
+      "title": "已发射项仍进入pending窗口",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "pending_mask = valid_q & ~issued_q;",
+          "new": "pending_mask = valid_q;"
+        }
+      ],
+      "source_sby_run": "d099c932f049448a87fb0d634e04d0c6",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI011",
+      "title": "窗口扩为六项越窗发射",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "(rank_count[i] < 5)",
+          "new": "(rank_count[i] < 6)"
+        }
+      ],
+      "source_sby_run": "f4106a153f114561a066da74edbb3f46",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI012",
+      "title": "窗口内误选最新命令",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "((older_q[i] & candidate_mask) == 9'b0)",
+          "new": "((~older_q[i] & candidate_mask & ~(9'b1 << i)) == 9'b0)"
+        }
+      ],
+      "source_sby_run": "1b437782c4c947e0a87b05ca5f5ec354",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI013",
+      "title": "AR同拍直接旁路req",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;",
+          "new": "assign req = (rst_n && arvalid && src_ready) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);"
+        }
+      ],
+      "source_sby_run": "380710d25ddd4387822e3997061f2291",
+      "samples": 3,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI014",
+      "title": "发射级插入不必要流水气泡",
+      "group": "local_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_valid_q <= select_valid;",
+          "new": "issue_valid_q <= select_valid && !issue_valid_q;"
+        }
+      ],
+      "source_sby_run": "898251fbcfab4e868afd939f78a4cd06",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI015",
+      "title": "5A失败冲刷已预选下一条",
+      "group": "local_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_valid_q <= select_valid;",
+          "new": "issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);"
+        }
+      ],
+      "source_sby_run": "4241e8feb2ad4e408ae87c2e1bd74a3c",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI016",
+      "title": "失败命令年龄变为最新",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "older_q[i] <= older_next[i];",
+          "new": "older_q[i] <= (issue_valid_q && !issue_success && issue_entry_q == 4'(i)) ? (valid_q & ~(9'b1 << i)) : older_next[i];"
+        }
+      ],
+      "source_sby_run": "91b3aad4b62b4b1bae258d4b358b08d5",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI017",
+      "title": "当前请求项允许重复预选",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;",
+          "new": "candidate_mask = window_mask & bank_idle_mask;"
+        }
+      ],
+      "source_sby_run": "916d9bc2d9c6490abb2281762b313cdb",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI018",
+      "title": "成功窗口前馈晚一拍",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "success_mask = issue_success ? current_issue_mask : 9'b0;",
+          "new": "success_mask = 9'b0;"
+        }
+      ],
+      "source_sby_run": "fd8931ee33d64484992a5aab0cb8b0cb",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI019",
+      "title": "失败请求提前腾出窗口名额",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "success_mask = issue_success ? current_issue_mask : 9'b0;",
+          "new": "success_mask = issue_valid_q ? current_issue_mask : 9'b0;"
+        }
+      ],
+      "source_sby_run": "ebfaf06a70ff4a26abdfe7ba307a272c",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI020",
+      "title": "双grant错误OR",
+      "group": "wiring",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
+          "new": "issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));"
+        }
+      ],
+      "source_sby_run": "c56255c6953b4029b8601f4d1812b90a",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI021",
+      "title": "无req时grant制造成功",
+      "group": "wiring",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
+          "new": "issue_success = |(ar_rd_gnt & rw_rd_gnt);"
+        }
+      ],
+      "source_sby_run": "2f0786b04efa4ef5ae5d24f1f7680db4",
+      "samples": 3,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI022",
+      "title": "待发数只报告非空",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "assign pending_cnt = pending_q;",
+          "new": "assign pending_cnt = (pending_q != 0) ? 4'd1 : 4'd0;"
+        }
+      ],
+      "source_sby_run": "8752cd0530f047a1b00dac0cd719ce8e",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI023",
+      "title": "发射成功提前释放CMDBUF",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "valid_next = valid_q & ~retire_mask;",
+          "new": "valid_next = valid_q & ~retire_mask & ~success_mask;"
+        }
+      ],
+      "source_sby_run": "f9d0ddbed266493ba9aa4022d29eace9",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI024",
+      "title": "CMDBUF漏接MEM完成",
+      "group": "local_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "if (capture_valid && (capture_entry == 4'(i))) done_q[i] <= 1'b1;",
+          "new": "if (capture_valid && (capture_entry == 4'(i))) done_q[i] <= 1'b0;"
+        }
+      ],
+      "source_sby_run": "b18bfaa469da4c5aad7b4183c7755dab",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI025",
+      "title": "MEM返回改成三拍",
+      "group": "calendar_delay",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "rst_n && ret_valid_q[3]",
+          "new": "rst_n && ret_valid_q[2]"
+        },
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "capture_entry = ret_entry_q[3]",
+          "new": "capture_entry = ret_entry_q[2]"
+        }
+      ],
+      "source_sby_run": "72c246c1123044d9ac94d42899d6cf55",
+      "samples": 8,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI026",
+      "title": "失败req也启动返回计时",
+      "group": "calendar_delay",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "input  logic issue_success,",
+          "new": "input  logic issue_success,\n    input logic mutation_issue_request,"
+        },
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "ret_valid_q[0] <= issue_success;",
+          "new": "ret_valid_q[0] <= mutation_issue_request;"
+        },
+        {
+          "file": "cmdbuf_rd.sv",
+          "old": ".retire_entry, .issue_success, .issue_entry, .capture_valid,",
+          "new": ".retire_entry, .issue_success, .mutation_issue_request(|req), .issue_entry, .capture_valid,"
+        }
+      ],
+      "source_sby_run": "8e082669bbc9401dbe78114706185025",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI027",
+      "title": "返回日历遇bubble停止推进",
+      "group": "calendar_delay",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "ret_valid_q[k] <= ret_valid_q[k-1];",
+          "new": "if (issue_success) ret_valid_q[k] <= ret_valid_q[k-1];"
+        }
+      ],
+      "source_sby_run": "6f617a82a52f44c08066d4a47fa62306",
+      "samples": 7,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI028",
+      "title": "R不ready时漏掉MEM单拍数据",
+      "group": "data_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "input  logic pc_err,",
+          "new": "input  logic pc_err,\n    input logic [2:0] mutation_rready,"
+        },
+        {
+          "file": "cmdbuf_rd.sv",
+          "old": ".capture_entry, .mem_rdata, .pc_err, .rsp_entry, .rsp_data,",
+          "new": ".capture_entry, .mem_rdata, .pc_err, .mutation_rready(rready), .rsp_entry, .rsp_data,"
+        },
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "end else if (capture_valid && (capture_entry == 4'(i))) begin",
+          "new": "end else if (capture_valid && (capture_entry == 4'(i)) && (|mutation_rready)) begin"
+        }
+      ],
+      "source_sby_run": "5ae49ce68e3c48aca8523f92169dcacb",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI029",
+      "title": "错误地用pc_err作为返回有效",
+      "group": "data_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "end else if (capture_valid && (capture_entry == 4'(i))) begin",
+          "new": "end else if (capture_valid && (capture_entry == 4'(i)) && pc_err) begin"
+        }
+      ],
+      "source_sby_run": "ae3035c1dc88473b82e6277ebaa17505",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI030",
+      "title": "返回token绑定错误entry",
+      "group": "calendar_delay",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;",
+          "new": "ret_entry_q[0] <= issue_success ? (issue_entry ^ 4'd1) : 4'b0;"
+        }
+      ],
+      "source_sby_run": "137b566318aa4b67b81d8f5f77982cf5",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI031",
+      "title": "MEM捕获同拍直接R旁路",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
+          "new": "r_candidate[x] = (done_q[head_entry[x]] || (capture_valid && capture_entry == head_entry[x])) && rready[x];"
+        }
+      ],
+      "source_sby_run": "06414b973f3a43228c251d0da547bdda",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI032",
+      "title": "年轻已完成项绕过同源未完成队头",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "src_mask[x][i] = valid_q[i] && (src_q[i] == 2'(x));",
+          "new": "src_mask[x][i] = valid_q[i] && done_q[i] && (src_q[i] == 2'(x));"
+        }
+      ],
+      "source_sby_run": "727f4b70f047459a82841f863ce45362",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI033",
+      "title": "错误施加全局响应保序",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "((older_q[i] & src_mask[x]) == 9'b0)",
+          "new": "(older_q[i] == 9'b0)"
+        }
+      ],
+      "source_sby_run": "4db4b578ae7e462283c33b4552e52c62",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI034",
+      "title": "R选择忽略目标rready",
+      "group": "wiring",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
+          "new": "r_candidate[x] = done_q[head_entry[x]];"
+        }
+      ],
+      "source_sby_run": "adf1d4a538024642844da34eeb322ff5",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI035",
+      "title": "RR在空闲周期也推进",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "if (retire_fire) rr_ptr_q <=",
+          "new": "if (1'b1) rr_ptr_q <="
+        }
+      ],
+      "source_sby_run": "c86dd4f87c094160a44cec6708619a78",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI036",
+      "title": "越界命令被禁止访问MEM",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;",
+          "new": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n        for (int m = 0; m < ENTRIES; m++) if (arresp_q[m] == 2'b11) candidate_mask[m] = 1'b0;"
+        }
+      ],
+      "source_sby_run": "dea38def8b6d4b37af82df1836fdb7a8",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI037",
+      "title": "奇偶错误优先于越界",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;",
+          "new": "if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;"
+        }
+      ],
+      "source_sby_run": "f8e46316d9094619bb5f23412c94e217",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI038",
+      "title": "捕获时丢弃pc_err",
+      "group": "data_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_otb.sv",
+          "old": "pc_err_q[i] <= pc_err;",
+          "new": "pc_err_q[i] <= 1'b0;"
+        }
+      ],
+      "source_sby_run": "ab20bde6253f40f9b38fa1c752c0051e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI039",
+      "title": "10B准入没有扣除当拍退休",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x] - 1;",
+          "new": "if (1'b0) occ_after[x] = occ_after[x] - 1;"
+        }
+      ],
+      "source_sby_run": "f9a2528f28ed455b8e16755cd1aaa7a9",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI040",
+      "title": "同槽复用被旧退休清除覆盖",
+      "group": "local_transition",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "if (alloc_fire && (alloc_entry == 4'(i))) begin",
+          "new": "if (alloc_fire && (alloc_entry == 4'(i)) && !retire_mask[i]) begin"
+        }
+      ],
+      "source_sby_run": "631fa9e65e17491faf1b171c3a3b0fe1",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI041",
+      "title": "R退休漏清CMDBUF归属",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "valid_next = valid_q & ~retire_mask;",
+          "new": "valid_next = valid_q;"
+        }
+      ],
+      "source_sby_run": "dc6a5624ccb5411f99bb00ed318b17aa",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI042",
+      "title": "同拍复用新AR直接旁路请求",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;",
+          "new": "assign req = (rst_n && alloc_fire && retire_fire) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);"
+        }
+      ],
+      "source_sby_run": "586ff0e468a844bf9bd3d4254ad0b762",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI043",
+      "title": "只限制每源七项而丢失联合保底",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "(shared_after < 6)",
+          "new": "(occ_after[x] < 7)"
+        }
+      ],
+      "source_sby_run": "abbc710bc1874fddb20244ea556226f1",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI044",
+      "title": "占用额度在成功发射时提前扣除",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "- 4'(retire_fire && (winner == 2'(x)))",
+          "new": "- 4'(issue_success && (src_q[issue_entry_q] == 2'(x)))"
+        }
+      ],
+      "source_sby_run": "d65c64a6e7af4e998c6678d11f17b9c7",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI045",
+      "title": "三路ready错误共用来源0占用",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "((occ_after[x] == 0) || (shared_after < 6))",
+          "new": "((occ_after[0] == 0) || (shared_after < 6))"
+        }
+      ],
+      "source_sby_run": "95fa799905834eef9c37d25ed6f0d15d",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI046",
+      "title": "其他两源空闲时允许借出保底",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "(shared_after < 6)",
+          "new": "((shared_after < 6) || ((occ_after[1] == 0) && (occ_after[2] == 0)))"
+        }
+      ],
+      "source_sby_run": "0a438032f07e4f89befaff22df0cb791",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI047",
+      "title": "释放唯一保底时误开放所有来源",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "((occ_after[x] == 0) || (shared_after < 6))",
+          "new": "((occ_after[x] == 0) || (shared_after < 6) || retire_fire)"
+        }
+      ],
+      "source_sby_run": "a7b6e4e116ba4b308fa8f2270c0934b3",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI048",
+      "title": "同源退休和接收计数更新优先级丢减一",
+      "group": "capacity",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "occ_q[x] <= occ_q[x] + 4'(alloc_fire && (src == 2'(x)))\n                           - 4'(retire_fire && (winner == 2'(x)));",
+          "new": "occ_q[x] <= (alloc_fire && (src == 2'(x))) ? occ_q[x] + 4'd1 : occ_q[x] - 4'(retire_fire && (winner == 2'(x)));"
+        }
+      ],
+      "source_sby_run": "30557de673ef43b59b49b21a21d2357a",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch"
+    },
+    {
+      "id": "FI049",
+      "title": "容量使用较高时放宽为六条发射窗口",
+      "group": "order",
+      "edits": [
+        {
+          "file": "cmdbuf_rd_cmd.sv",
+          "old": "(rank_count[i] < 5)",
+          "new": "((rank_count[i] < 5) || ((quota_cost >= 8) && rank_count[i] == 5))"
+        }
+      ],
+      "source_sby_run": "5a6420047d8b4679bbab183c0e54ee21",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch"
+    }
+  ],
+  "provenance": {
+    "mutations/FI001/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/b7a7e989320647baa1167b22380128c0/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI001/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/b7a7e989320647baa1167b22380128c0/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "281812c960aac1fa7df11993f7da8ba4a90657fdd5292ae73ca3242632f99fdc"
+    },
+    "mutations/FI001/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/b7a7e989320647baa1167b22380128c0/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI001/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI001/bfee712446c742d8a193070cb8e1d45e/external_inputs.json",
+      "sha256": "efd53c099b5df15aee1a23f1b25e646825b241f450094935321abbcb7f6bed10"
+    },
+    "mutations/FI001/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI001/bfee712446c742d8a193070cb8e1d45e/external_inputs.hex",
+      "sha256": "7b35e5344fb0c0224291421e612fcfd816a6e8b9d0cefa9db5f1938c88c9cd80"
+    },
+    "mutations/FI002/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/68ac1936f4154f3c9e6038702d377f3e/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI002/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/68ac1936f4154f3c9e6038702d377f3e/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "1d28965780a7ae6e6ea5b71bccfddce3ee39e8958f71612cb8de2f5904e3ef76"
+    },
+    "mutations/FI002/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/68ac1936f4154f3c9e6038702d377f3e/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI002/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI002/268de76a82274d379e61495fad4c5e77/external_inputs.json",
+      "sha256": "54d71080df79d49ee56537edf28b883bb07835a350208bf4ef3765cee43a2a8e"
+    },
+    "mutations/FI002/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI002/268de76a82274d379e61495fad4c5e77/external_inputs.hex",
+      "sha256": "fc75b738dfdc26f77a92c5af6a0529a17bcf1b877a678ce9f42b5d31bbc2a81d"
+    },
+    "mutations/FI003/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/0cdac199fc274508bcd0395e2a3b55b5/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI003/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/0cdac199fc274508bcd0395e2a3b55b5/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "d2349a10042f63124d318721aa8c6e0e222651fad8a8d3f81ba6956811885515"
+    },
+    "mutations/FI003/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/0cdac199fc274508bcd0395e2a3b55b5/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI003/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI003/be5195c84091482b8df323283ec1932a/external_inputs.json",
+      "sha256": "45f3d1ff667ef7a94efa45d04c128a70d99af9d6c560e6d1cc2d7e377876c959"
+    },
+    "mutations/FI003/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI003/be5195c84091482b8df323283ec1932a/external_inputs.hex",
+      "sha256": "bd5bbbd7640df4f4dc9d0dff39e226071ca36074631091c4cc1aaa71c55e97e5"
+    },
+    "mutations/FI004/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/b334faffd50147e495ffdbfd3f129bc1/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI004/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/b334faffd50147e495ffdbfd3f129bc1/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "9d90620be08c35e9b95401d64b46845ff05eb080baf59db4ebee899540dee9ce"
+    },
+    "mutations/FI004/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/b334faffd50147e495ffdbfd3f129bc1/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI004/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI004/6dead0b4509b47bb98e5fc95e8bcd68d/external_inputs.json",
+      "sha256": "e3e728ed585f3b796310c6dad60ebdd43a3cc22d3ae496d542176e030ba704cb"
+    },
+    "mutations/FI004/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI004/6dead0b4509b47bb98e5fc95e8bcd68d/external_inputs.hex",
+      "sha256": "170ab618910ea6fabc76ed8a85372039007a753d656f7128b5fa201372e24da7"
+    },
+    "mutations/FI005/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/4602bfc7946c4aecab29def269f1e82f/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI005/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/4602bfc7946c4aecab29def269f1e82f/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "23ad35d222ff89110d2fb55bc73aee06f5b4db9a90321fb75d15cb47a812fce4"
+    },
+    "mutations/FI005/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/4602bfc7946c4aecab29def269f1e82f/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI005/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI005/92f55f83f61f4da99f4c0b6988aae937/external_inputs.json",
+      "sha256": "13f64a2dd17b32706b2e0d0dfafc7c47fb2639d9fa0c25436749d4c2a7d4af06"
+    },
+    "mutations/FI005/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI005/92f55f83f61f4da99f4c0b6988aae937/external_inputs.hex",
+      "sha256": "5115c6e9efe0d776f4a6614eb4fd7281bdb9af256320cb47ce2acb40e29e2905"
+    },
+    "mutations/FI006/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/d11b2f9fe2154e46aa3fe6c7a0484c35/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI006/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/d11b2f9fe2154e46aa3fe6c7a0484c35/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI006/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/d11b2f9fe2154e46aa3fe6c7a0484c35/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3480afb56cde86c4ce8cf5c5a7783cc457281b3ad5e91ddfacd422eef41321ea"
+    },
+    "mutations/FI006/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI006/253db7f2631b4d79a823472ef37ffe6e/external_inputs.json",
+      "sha256": "10eede5adc9d27aef12f7e31ab548d62628f1494cc2bd909f7d6ffaf255e03d9"
+    },
+    "mutations/FI006/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI006/253db7f2631b4d79a823472ef37ffe6e/external_inputs.hex",
+      "sha256": "eba3bc35c198b983bc8941ac50530d3240b397b1aa58671df6af912890b11602"
+    },
+    "mutations/FI007/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/f56e224e1d304a9a88b553070f3dca91/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI007/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/f56e224e1d304a9a88b553070f3dca91/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "b78846aee2878985eb217a3a18f120fd16b6e14c1b034a2f4cad7dbc764f44b5"
+    },
+    "mutations/FI007/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/f56e224e1d304a9a88b553070f3dca91/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI007/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI007/56216334cbea4b3d92433954bb24913b/external_inputs.json",
+      "sha256": "0fd7ab8ed632ed20f4271752181ad9e49c592d0154c055b9ffbb3f49bd4f64fb"
+    },
+    "mutations/FI007/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI007/56216334cbea4b3d92433954bb24913b/external_inputs.hex",
+      "sha256": "06685046aece9959fabb5963abc58f86965989e40844319b873a84cb286f557e"
+    },
+    "mutations/FI008/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/d23e3c3778eb4e76ad449fd5c5a09ad4/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI008/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/d23e3c3778eb4e76ad449fd5c5a09ad4/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "843e2ed1e9711c2bce0f5918015b5c56e7847e349318ae995c6c9021df32c5af"
+    },
+    "mutations/FI008/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/d23e3c3778eb4e76ad449fd5c5a09ad4/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI008/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI008/f97c8affeee944209237d04fcbb6a5f2/external_inputs.json",
+      "sha256": "3512e2e564ddd078c061330d878f744820911a5a9d85247526bfd660d4e4fc0f"
+    },
+    "mutations/FI008/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI008/f97c8affeee944209237d04fcbb6a5f2/external_inputs.hex",
+      "sha256": "29b278182b11da9a9707ba47a380ecea28eedd2619742b8870e31af711950fdf"
+    },
+    "mutations/FI009/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/8b6a927e1be64cfba149098333edb29b/project/rtl/cmdbuf_rd.sv",
+      "sha256": "306c481bc1ff7175293c529d37a7579b98062c6b699e3a5d10691a0f00770e28"
+    },
+    "mutations/FI009/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/8b6a927e1be64cfba149098333edb29b/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "8f435b962816718b5e77d855af484c7a1c5bb576c18a4192cf41db73e08910dc"
+    },
+    "mutations/FI009/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/8b6a927e1be64cfba149098333edb29b/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "b5a2f903a958bd8fb3649fbea26f3839c563af6e6000b03b906f799cff06ae0b"
+    },
+    "mutations/FI009/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI009/58352039f9a7497eaecd016708ac7b42/external_inputs.json",
+      "sha256": "9bd69c4618b610af0747826ed971734f6438a8bf253840bf6c056127c6bf6483"
+    },
+    "mutations/FI009/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI009/58352039f9a7497eaecd016708ac7b42/external_inputs.hex",
+      "sha256": "45476c4ec3c3be4fedcfebbfc84d476dba9e2228396d44b4aeabf4b066660237"
+    },
+    "mutations/FI010/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/0a8acb2fe4c5487abd5b6cdbd94cc6f2/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI010/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/0a8acb2fe4c5487abd5b6cdbd94cc6f2/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "efa1cd5c867742331ea6d8492adab8701eebc4cef0caa1ba9f0c5d9d77efa245"
+    },
+    "mutations/FI010/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/0a8acb2fe4c5487abd5b6cdbd94cc6f2/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI010/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI010/d099c932f049448a87fb0d634e04d0c6/external_inputs.json",
+      "sha256": "f2aad5d5386ca5d675562923faef8254ed5ba2938e7d67b85ac481b2578d6c5e"
+    },
+    "mutations/FI010/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI010/d099c932f049448a87fb0d634e04d0c6/external_inputs.hex",
+      "sha256": "c8c482929b18e48a5193566bbf0c880b2691ce210bf4040f11a83287cf145081"
+    },
+    "mutations/FI011/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/767757a09a6544c3929fca7ec67f05cc/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI011/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/767757a09a6544c3929fca7ec67f05cc/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "0c7715eb0a18a2a8373cb5bbc15523e1229fecbaf0f1a00d4c5a80b42688a6c7"
+    },
+    "mutations/FI011/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/767757a09a6544c3929fca7ec67f05cc/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI011/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI011/f4106a153f114561a066da74edbb3f46/external_inputs.json",
+      "sha256": "7fe5697d2d2a66cf4e145077bb3fc6b971a8cc0e4713eff4eb7957bf0761629c"
+    },
+    "mutations/FI011/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI011/f4106a153f114561a066da74edbb3f46/external_inputs.hex",
+      "sha256": "0108556b7f72ddd39e91dd71651c3504ad69d16322ad8cb61c52ee71d93ce9e5"
+    },
+    "mutations/FI012/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/a3e95866310544cb95eb9de8e541b0f0/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI012/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/a3e95866310544cb95eb9de8e541b0f0/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "5dfbcccf1cfb4cf938ae57f9d62d0575a349e6181c12323921a2dcb9ca5e3bf0"
+    },
+    "mutations/FI012/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/a3e95866310544cb95eb9de8e541b0f0/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI012/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI012/1b437782c4c947e0a87b05ca5f5ec354/external_inputs.json",
+      "sha256": "70c0bd2955bd9d443e9323f2a7aa65e208768fd45d8a0c2c6bf4522182af2af0"
+    },
+    "mutations/FI012/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI012/1b437782c4c947e0a87b05ca5f5ec354/external_inputs.hex",
+      "sha256": "991c8d07f54ab975b3ff9a07cd2a2a7805ab24848094ed024c28d1d02aaa453e"
+    },
+    "mutations/FI013/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/9a96527b9a4045769920307bd3662308/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI013/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/9a96527b9a4045769920307bd3662308/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "77a521d497e984d287debd6a6b44c2825e159eaabbacb7606bf279dbdd4f20a0"
+    },
+    "mutations/FI013/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/9a96527b9a4045769920307bd3662308/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI013/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI013/380710d25ddd4387822e3997061f2291/external_inputs.json",
+      "sha256": "1b3ee9c1f690f34db32c731d17aab8e243cd6227cc5d2be3814b55cfbe786dd6"
+    },
+    "mutations/FI013/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI013/380710d25ddd4387822e3997061f2291/external_inputs.hex",
+      "sha256": "d5096278c248c8827603ac7e2267d5c128151c5b962638bb0501eeb58a6e27b2"
+    },
+    "mutations/FI014/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/c089e8b058ed4a95b8e6c178d7b38a58/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI014/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/c089e8b058ed4a95b8e6c178d7b38a58/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "2dc9e9b78ab454adbbfa6abe9d2e2c7a7a147986fbd8a505f82c6a8fcf04fdd5"
+    },
+    "mutations/FI014/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/c089e8b058ed4a95b8e6c178d7b38a58/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI014/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI014/898251fbcfab4e868afd939f78a4cd06/external_inputs.json",
+      "sha256": "06026a5242958722c145c45f92ae1a4af4b8b28a4c225e55ba51ebb6abdfc1fc"
+    },
+    "mutations/FI014/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI014/898251fbcfab4e868afd939f78a4cd06/external_inputs.hex",
+      "sha256": "a27d128ba8d266d851946f62d0aa4203adf46639c13a2ab8dbe0bce61723f63b"
+    },
+    "mutations/FI015/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/05f92b73f3474dbd8393d40e794d43cf/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI015/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/05f92b73f3474dbd8393d40e794d43cf/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "78ebe716557deff4ca4ef3988c8f26877d2962203a21393e96fd4219862019d1"
+    },
+    "mutations/FI015/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/05f92b73f3474dbd8393d40e794d43cf/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI015/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI015/4241e8feb2ad4e408ae87c2e1bd74a3c/external_inputs.json",
+      "sha256": "f4aedaa60b0fd0691dca20f9ba9c61ee43b825d00c8e017bad59878b81ad85eb"
+    },
+    "mutations/FI015/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI015/4241e8feb2ad4e408ae87c2e1bd74a3c/external_inputs.hex",
+      "sha256": "cb86715d60e93101a871aef1639407b50c256790b5d79c1f9156a809c5fe9b15"
+    },
+    "mutations/FI016/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/aa2ce85267b640509fb62676d0c954b5/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI016/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/aa2ce85267b640509fb62676d0c954b5/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "296ed91ac538a60f1c941967327d65c3cf5502a4a7b689bdf3913e7e1615e307"
+    },
+    "mutations/FI016/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/aa2ce85267b640509fb62676d0c954b5/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI016/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI016/91b3aad4b62b4b1bae258d4b358b08d5/external_inputs.json",
+      "sha256": "a639bee39a8006dead12e81ee202e26c2dd0590e2b3202b77cfe889809c4384b"
+    },
+    "mutations/FI016/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI016/91b3aad4b62b4b1bae258d4b358b08d5/external_inputs.hex",
+      "sha256": "e4789040fd261b5ffc83b701fe680bc1be6791bbf23c0c4ba1cfaeb0d45361d3"
+    },
+    "mutations/FI017/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/8f67778d435549be855f0b5f2194571d/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI017/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/8f67778d435549be855f0b5f2194571d/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "9d034600406a63e12dd967d989e9626e10fc34ef1ecf822a9118b383a808af42"
+    },
+    "mutations/FI017/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/8f67778d435549be855f0b5f2194571d/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI017/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI017/916d9bc2d9c6490abb2281762b313cdb/external_inputs.json",
+      "sha256": "3e56468082682e19f52b5cae9d824e1023260e5009ba71ffcadce7578f113426"
+    },
+    "mutations/FI017/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI017/916d9bc2d9c6490abb2281762b313cdb/external_inputs.hex",
+      "sha256": "ea92a7c26587304ea578ef8cc8c71006a69e7581b9edd4564515dcb8785ce105"
+    },
+    "mutations/FI018/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/485ec084df124e0b8adeeeea40325a47/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI018/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/485ec084df124e0b8adeeeea40325a47/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "82314124c377222243ad71654911ac80d9bd68b42e417ec8911cf7e17f50ca82"
+    },
+    "mutations/FI018/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/485ec084df124e0b8adeeeea40325a47/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI018/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI018/fd8931ee33d64484992a5aab0cb8b0cb/external_inputs.json",
+      "sha256": "74c852ab9ea371bab736954fe47f89f4ba96ae00aed88094bcd7225690e7d645"
+    },
+    "mutations/FI018/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI018/fd8931ee33d64484992a5aab0cb8b0cb/external_inputs.hex",
+      "sha256": "58d6590282fa43c01dd222fda041efabe6e3b74f373b51cbafee9740ffed0e2f"
+    },
+    "mutations/FI019/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/de5f2a8d608f4bd1aca2f9d388dedaef/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI019/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/de5f2a8d608f4bd1aca2f9d388dedaef/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "72067fb1322b1f668d9cfdb0f65855ccd567ba4da36fc726ce00125c49a29fe7"
+    },
+    "mutations/FI019/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/de5f2a8d608f4bd1aca2f9d388dedaef/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI019/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI019/ebfaf06a70ff4a26abdfe7ba307a272c/external_inputs.json",
+      "sha256": "e3129ca113d869876ff3cc5ff59c03c54edce310e387c91c4470c609a9300b32"
+    },
+    "mutations/FI019/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI019/ebfaf06a70ff4a26abdfe7ba307a272c/external_inputs.hex",
+      "sha256": "0d5f173c21efc16c160fcdf1ec55c69379ce05cea9ddc0ba98dc63657c9784a1"
+    },
+    "mutations/FI020/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/156b608985544198a5138549b342a094/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI020/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/156b608985544198a5138549b342a094/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "fdc9125d871419d7317e7add8ad993995ada94a709353ca6bf241e099f5fcdd7"
+    },
+    "mutations/FI020/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/156b608985544198a5138549b342a094/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI020/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI020/c56255c6953b4029b8601f4d1812b90a/external_inputs.json",
+      "sha256": "5225ef15ac05c1653a318b5210a30fb4126c12c3809c52a30f64d56faab99f41"
+    },
+    "mutations/FI020/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI020/c56255c6953b4029b8601f4d1812b90a/external_inputs.hex",
+      "sha256": "a86ac008737e966be97ee09831a2ed6259c0a812eeea6a0d58746a3be0b6cb61"
+    },
+    "mutations/FI021/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/5e482577aeb6445a9988cc65e4324821/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI021/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/5e482577aeb6445a9988cc65e4324821/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "5df54ebec1a38e98e4761209cf7be74eaabf5410b4fdf9d1255de51b06723f02"
+    },
+    "mutations/FI021/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/5e482577aeb6445a9988cc65e4324821/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI021/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI021/2f0786b04efa4ef5ae5d24f1f7680db4/external_inputs.json",
+      "sha256": "58dad86b8f3fde23aa608c4bf1a6ffa2c945d94868f5fe8da9f43e423921f915"
+    },
+    "mutations/FI021/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI021/2f0786b04efa4ef5ae5d24f1f7680db4/external_inputs.hex",
+      "sha256": "b72c01fb98366c10a65f2300cc3898e0d116c87fadd34cb259d8cff7c38ae9c4"
+    },
+    "mutations/FI022/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/d74b4821efcc487aa1676fea0bf3a87b/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI022/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/d74b4821efcc487aa1676fea0bf3a87b/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "01844d971074965bdae2b8ec5a6a5372fdada5a3825e0d410409dab1b0acdc0e"
+    },
+    "mutations/FI022/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/d74b4821efcc487aa1676fea0bf3a87b/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI022/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI022/8752cd0530f047a1b00dac0cd719ce8e/external_inputs.json",
+      "sha256": "c23679c3f46562a0f67d731bd142b7070f83e5275e260e8169fda075bf6a20de"
+    },
+    "mutations/FI022/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI022/8752cd0530f047a1b00dac0cd719ce8e/external_inputs.hex",
+      "sha256": "1d0f72b882603407837c85ca1695380e0050ec7cfb5a6680df9e710ea003fa92"
+    },
+    "mutations/FI023/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/e38ac241eeff444caad963d49d78c8fe/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI023/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/e38ac241eeff444caad963d49d78c8fe/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "ffe5b73fb7e2b95756a1edd3ae1f3fa72818cd6441156d9ead0b14bb975341da"
+    },
+    "mutations/FI023/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/e38ac241eeff444caad963d49d78c8fe/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI023/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI023/f9d0ddbed266493ba9aa4022d29eace9/external_inputs.json",
+      "sha256": "f50761315cc810c2aed11ebe81b47560773d870a2cc2bacff39614e6734043ae"
+    },
+    "mutations/FI023/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI023/f9d0ddbed266493ba9aa4022d29eace9/external_inputs.hex",
+      "sha256": "94355029e78507eff19b13a0bbdb2cc53ff9936cda5471a83fcba2c881700133"
+    },
+    "mutations/FI024/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/5c70fb3a0e37405b9567010cdf7a061d/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI024/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/5c70fb3a0e37405b9567010cdf7a061d/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "d17d2c8cf833b0596031648d19424d3260627fb3b8295bc304366e2cdd291990"
+    },
+    "mutations/FI024/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/5c70fb3a0e37405b9567010cdf7a061d/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI024/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI024/b18bfaa469da4c5aad7b4183c7755dab/external_inputs.json",
+      "sha256": "532b023bc81cf42892997ab3ac2156ca6ac3fb4e695894d720ee44adc84dcef0"
+    },
+    "mutations/FI024/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI024/b18bfaa469da4c5aad7b4183c7755dab/external_inputs.hex",
+      "sha256": "0f71100819a42be0295a6eba4516982c4efa0c944fe0251a7ef5ed69c2d186b9"
+    },
+    "mutations/FI025/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/bcb51e2df3404330b0b401087ecd2efb/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI025/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/bcb51e2df3404330b0b401087ecd2efb/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI025/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/bcb51e2df3404330b0b401087ecd2efb/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "49cd15bf4ed95cca2cb1d851bd9933578c76e7f55dd24cae11e45b934335f4ff"
+    },
+    "mutations/FI025/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI025/72c246c1123044d9ac94d42899d6cf55/external_inputs.json",
+      "sha256": "e72074ab4cf36a8961942e8a13a391f1520c1aa624de88cdcd770b0faeffa218"
+    },
+    "mutations/FI025/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI025/72c246c1123044d9ac94d42899d6cf55/external_inputs.hex",
+      "sha256": "e152f9865584463d9db0fe756ff98fadd4b7e9bae5d9e584dab03bcce2833677"
+    },
+    "mutations/FI026/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/3f348fc87c3547ebb6f3160f826d94c3/project/rtl/cmdbuf_rd.sv",
+      "sha256": "d49178feab5d2a66574a41e63c5ac0a4f42ad760da3dfb784301aa0cf7612d89"
+    },
+    "mutations/FI026/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/3f348fc87c3547ebb6f3160f826d94c3/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI026/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/3f348fc87c3547ebb6f3160f826d94c3/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "b50e3c6b95f51215c6c546d712c97be6aa25aed8b07ff58ebe4b1b2c01473132"
+    },
+    "mutations/FI026/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI026/8e082669bbc9401dbe78114706185025/external_inputs.json",
+      "sha256": "1051265ad5db5226246b0c2cb843526260d82da2c32e6c3742a40d33e95182de"
+    },
+    "mutations/FI026/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI026/8e082669bbc9401dbe78114706185025/external_inputs.hex",
+      "sha256": "dc0f8d2364c118ed45240011381b0acb91273bfb17a9e41a293d23410ec89d86"
+    },
+    "mutations/FI027/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/722f732a005a47ccbb906aa85a5dae0e/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI027/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/722f732a005a47ccbb906aa85a5dae0e/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI027/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/722f732a005a47ccbb906aa85a5dae0e/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "688c18ff53523260d91ca2e47897fe3cd5022c35eb47e6e8c5257bdcd64bfab0"
+    },
+    "mutations/FI027/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI027/6f617a82a52f44c08066d4a47fa62306/external_inputs.json",
+      "sha256": "2c1fbb5042e527dc0d11712bf37039fbf6651854a989aee258d8108cc63958cb"
+    },
+    "mutations/FI027/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI027/6f617a82a52f44c08066d4a47fa62306/external_inputs.hex",
+      "sha256": "9265b1171ea3eb47d1b6bb5f64286b37467e85301bd4113a5747303c046af626"
+    },
+    "mutations/FI028/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/fd6a0e689d26430e89b6ffa80436b971/project/rtl/cmdbuf_rd.sv",
+      "sha256": "ad8556f94b17d4a0e8b419328fe437fc27deac93aa2c3461e94fa3a72d5577c4"
+    },
+    "mutations/FI028/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/fd6a0e689d26430e89b6ffa80436b971/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI028/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/fd6a0e689d26430e89b6ffa80436b971/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3aaa92aab0e61dd33d5d7b08423a8b01f71f973276697a8e4f927dcccc0dec5d"
+    },
+    "mutations/FI028/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI028/5ae49ce68e3c48aca8523f92169dcacb/external_inputs.json",
+      "sha256": "36ab5d54ccc1a5ab45874db65bd9f835fc4cfda073529736898de2e405a56746"
+    },
+    "mutations/FI028/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI028/5ae49ce68e3c48aca8523f92169dcacb/external_inputs.hex",
+      "sha256": "f71802b012343cdf27648f809a9c402101f392842184c80915a28919097ad439"
+    },
+    "mutations/FI029/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/ef25599c001c4565bf01f0e768dda432/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI029/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/ef25599c001c4565bf01f0e768dda432/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI029/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/ef25599c001c4565bf01f0e768dda432/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "fe73a3b505ab05d3242863b17ceaa3ebb78a4ce31248679cf3c36ade55303818"
+    },
+    "mutations/FI029/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI029/ae3035c1dc88473b82e6277ebaa17505/external_inputs.json",
+      "sha256": "d92874ed72aa56728fdb659ac16c74168d0dbf7f59dadfc858c99e13e0d01c88"
+    },
+    "mutations/FI029/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI029/ae3035c1dc88473b82e6277ebaa17505/external_inputs.hex",
+      "sha256": "1b1a92c6152b124f25b0a4869cd01c3af073d9e8c2070dde190d7623936f1f1c"
+    },
+    "mutations/FI030/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/a050fbee171a4eb6b3c8f1d6fd86a059/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI030/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/a050fbee171a4eb6b3c8f1d6fd86a059/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI030/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/a050fbee171a4eb6b3c8f1d6fd86a059/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "546bd538b0d64960708108dc0c817baf1def4b9d26a796e91f3c05d5712afa6f"
+    },
+    "mutations/FI030/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI030/137b566318aa4b67b81d8f5f77982cf5/external_inputs.json",
+      "sha256": "de336516e1e34ad86bf9a3a137ac7c5e88b940e3b57cf7d43a5fb3ec4e500ed3"
+    },
+    "mutations/FI030/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI030/137b566318aa4b67b81d8f5f77982cf5/external_inputs.hex",
+      "sha256": "7cb66b2033768dc083ee1e4325e982ad27cb3bcce9b54179b46b8925be98828a"
+    },
+    "mutations/FI031/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/fd1977616d2f47688a7624b1846e5ff1/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI031/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/fd1977616d2f47688a7624b1846e5ff1/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "4aea9c65d4d93dde39162f0a312c08136a2760c12a90bc26bbd3088f8e7b8ac8"
+    },
+    "mutations/FI031/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/fd1977616d2f47688a7624b1846e5ff1/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI031/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI031/06414b973f3a43228c251d0da547bdda/external_inputs.json",
+      "sha256": "f9a6882054c51143832ace1b1366500fc59d66e112b500568b52f864140ca95a"
+    },
+    "mutations/FI031/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI031/06414b973f3a43228c251d0da547bdda/external_inputs.hex",
+      "sha256": "5103e3ea35b216169f222ebaa0b0b9890a8756c5c42e6f54c8013f88aa02264b"
+    },
+    "mutations/FI032/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/769b56edc9944ab7b3e3cbe2d2dc16f6/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI032/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/769b56edc9944ab7b3e3cbe2d2dc16f6/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "3dc3eef9fa23fa997a0a4b7a898a9cc10f6f7f4713e6527a48ce997890484d32"
+    },
+    "mutations/FI032/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/769b56edc9944ab7b3e3cbe2d2dc16f6/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI032/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI032/727f4b70f047459a82841f863ce45362/external_inputs.json",
+      "sha256": "cce61a43b2637ea9143d3d2120691aa29e5ef864f2565e0fd020b62824262529"
+    },
+    "mutations/FI032/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI032/727f4b70f047459a82841f863ce45362/external_inputs.hex",
+      "sha256": "9c06e2226736a07b985b5689e7f614f25988fb1f77f8c436aeaf63b7484d1dbb"
+    },
+    "mutations/FI033/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/7dace2fd135849a59d72e28fa640f342/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI033/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/7dace2fd135849a59d72e28fa640f342/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "acc9299fc6b623aa920ed2902c31d2487b29e1f0eb51fd12875285bddcc204e6"
+    },
+    "mutations/FI033/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/7dace2fd135849a59d72e28fa640f342/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI033/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI033/4db4b578ae7e462283c33b4552e52c62/external_inputs.json",
+      "sha256": "37d1abd53be37f9dddb7ddd6c8d94e42d5f0df78f32a18ec5ed48a939a75d82e"
+    },
+    "mutations/FI033/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI033/4db4b578ae7e462283c33b4552e52c62/external_inputs.hex",
+      "sha256": "cd588420c0449b4597913d39bfdb287299f8c04a8b9bf3d75cc410d51bfbfd47"
+    },
+    "mutations/FI034/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/2d0e02c6b28d41b0ad829a2ebc50eba9/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI034/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/2d0e02c6b28d41b0ad829a2ebc50eba9/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "f01c54582b301390355cf4464845daa3c3b88f5112af1db0cb8ed5ba71b9e8e8"
+    },
+    "mutations/FI034/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/2d0e02c6b28d41b0ad829a2ebc50eba9/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI034/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI034/adf1d4a538024642844da34eeb322ff5/external_inputs.json",
+      "sha256": "8dc7db28dbbde58964e75694dff7bf479e8bb2c338a8c28b6c1302a0b7f3c371"
+    },
+    "mutations/FI034/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI034/adf1d4a538024642844da34eeb322ff5/external_inputs.hex",
+      "sha256": "eea6c9dd55208fa85c9454831a35c03e037976fd97d24bee3e4c7dab6aeff62b"
+    },
+    "mutations/FI035/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/6d185f633bfa4db99fd82c47790ff140/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI035/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/6d185f633bfa4db99fd82c47790ff140/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "6800e2cfef28c21765baf21b9442bfd3a34a7dcec96c0d30777a1290d5a5f193"
+    },
+    "mutations/FI035/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/6d185f633bfa4db99fd82c47790ff140/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI035/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI035/c86dd4f87c094160a44cec6708619a78/external_inputs.json",
+      "sha256": "0d4e42e08b0432693860c3e1fa08b311c94ef534f0b81047af02a21db56043f0"
+    },
+    "mutations/FI035/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI035/c86dd4f87c094160a44cec6708619a78/external_inputs.hex",
+      "sha256": "4f0986f060de5f22a14ab1233f6eaeeea4267fee5eb3da0b95ff108f7808c246"
+    },
+    "mutations/FI036/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/7e6fdecc85524dfdb632d23106c32b52/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI036/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/7e6fdecc85524dfdb632d23106c32b52/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "55f08e382e0f8efebe14e191c71340826eb698ccf247791636c1d3f034f13445"
+    },
+    "mutations/FI036/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/7e6fdecc85524dfdb632d23106c32b52/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI036/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI036/dea38def8b6d4b37af82df1836fdb7a8/external_inputs.json",
+      "sha256": "c453e1df8c9e29bbf3c8eba1999bb24b12f41c7c0d6a857cc4eeb9d4f1b2640c"
+    },
+    "mutations/FI036/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI036/dea38def8b6d4b37af82df1836fdb7a8/external_inputs.hex",
+      "sha256": "a7dcfe5ab9e285b3b488f55d16258a47f75bc61e9858a7c7654d43d23a2c8e9d"
+    },
+    "mutations/FI037/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/df519528595d485189377e97f962f32f/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI037/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/df519528595d485189377e97f962f32f/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "a77843bc12de976994734cb0eb348dac4ca76350e6b033042b90a6f6d2983282"
+    },
+    "mutations/FI037/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/df519528595d485189377e97f962f32f/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI037/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI037/f8e46316d9094619bb5f23412c94e217/external_inputs.json",
+      "sha256": "969155ff1969de9f2839f3cc469876bc72fd4aeaa32617b0cf736e02ed39370f"
+    },
+    "mutations/FI037/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI037/f8e46316d9094619bb5f23412c94e217/external_inputs.hex",
+      "sha256": "921f6a0a01158b35d981fd7a01558bcbe0af340d240b65578f757e646a9489d5"
+    },
+    "mutations/FI038/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/50645d8f78ee4ba2b74771b3dbc240dc/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI038/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/50645d8f78ee4ba2b74771b3dbc240dc/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "c078ba438d0dbcc76e984d83ffa923afd4bfa6f7e38ecf1119f875a6ddbbe162"
+    },
+    "mutations/FI038/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/50645d8f78ee4ba2b74771b3dbc240dc/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "73838bbfbb299bc9aeeb1323cebd0887dbe450ee75ebb11c3f7daf6c227ef51c"
+    },
+    "mutations/FI038/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI038/ab20bde6253f40f9b38fa1c752c0051e/external_inputs.json",
+      "sha256": "a31fe08d1d13c2d37bfc844dd282feffdc8daf065280ca61f23e78c12e1d1587"
+    },
+    "mutations/FI038/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI038/ab20bde6253f40f9b38fa1c752c0051e/external_inputs.hex",
+      "sha256": "7d698a5b9a50e949528b68ce250e111ad20b962bbdf3954222942292c90d2ce2"
+    },
+    "mutations/FI039/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/75f24f92183d46afb1dc3decec32da6e/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI039/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/75f24f92183d46afb1dc3decec32da6e/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "fd7d39e92ab63924ef2a5c5214888a8938bbe141e8d1479e6b9e8e32e78b4cf0"
+    },
+    "mutations/FI039/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/75f24f92183d46afb1dc3decec32da6e/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI039/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI039/f9a2528f28ed455b8e16755cd1aaa7a9/external_inputs.json",
+      "sha256": "1fadec41191af0d310db296f27d7b6ffbb6c02a3afaacff4a6a9f5bb240da350"
+    },
+    "mutations/FI039/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI039/f9a2528f28ed455b8e16755cd1aaa7a9/external_inputs.hex",
+      "sha256": "83ea0d147cdaa79e022074b09bb16856332dff2c491385bde933e8beedd478f0"
+    },
+    "mutations/FI040/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8813/d2ce674159294c708a0370251a84a6cb/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI040/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8813/d2ce674159294c708a0370251a84a6cb/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "e275ea11bcd1b056b4ad4891894a0b39abcfa4f274ffb36acf55942d49b22519"
+    },
+    "mutations/FI040/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8813/d2ce674159294c708a0370251a84a6cb/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI040/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI040/631fa9e65e17491faf1b171c3a3b0fe1/external_inputs.json",
+      "sha256": "6b2a8fc6e9202578a14c0be5b64bb2ec5492935b083bb8cd9f044cabe66f93e2"
+    },
+    "mutations/FI040/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI040/631fa9e65e17491faf1b171c3a3b0fe1/external_inputs.hex",
+      "sha256": "4016cd3e128dd91dd44a1403c1909b7088e13e505e249775b1f2943226212a81"
+    },
+    "mutations/FI041/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/71fe9a5075ce480788e583ba366bf3bc/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI041/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/71fe9a5075ce480788e583ba366bf3bc/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "f2d97f4723311b60ee063c171c613bf589d69a4b12ebad219ee15bf1fa9045a5"
+    },
+    "mutations/FI041/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/71fe9a5075ce480788e583ba366bf3bc/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI041/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI041/dc6a5624ccb5411f99bb00ed318b17aa/external_inputs.json",
+      "sha256": "a4e904b8d394f2f7aabb0edcf97722977af50d96d367d5711f412e5bb5e644ea"
+    },
+    "mutations/FI041/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI041/dc6a5624ccb5411f99bb00ed318b17aa/external_inputs.hex",
+      "sha256": "46efa73962b624a610fcd1667dc949eccedf17d5da41e71f40d3c755cbf71761"
+    },
+    "mutations/FI042/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/afe60febe7ef4497b6310b451a34a5c4/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI042/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/afe60febe7ef4497b6310b451a34a5c4/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "527a2ebd558a17e19bc90dd2aac2fd737a983254f5d88d9e051a1e072800731e"
+    },
+    "mutations/FI042/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/afe60febe7ef4497b6310b451a34a5c4/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI042/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI042/586ff0e468a844bf9bd3d4254ad0b762/external_inputs.json",
+      "sha256": "d769fe1a473d2840c698c8d60dd25390a7946e92ece5c69e98eea1307da6a402"
+    },
+    "mutations/FI042/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI042/586ff0e468a844bf9bd3d4254ad0b762/external_inputs.hex",
+      "sha256": "65150858629d35a1b9f57ee161e6bf3c2a7d6118545fa87442bbe8653a85136b"
+    },
+    "mutations/FI043/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/4ad94b54b3d54f9fa28ce12f3c6cb01c/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI043/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/4ad94b54b3d54f9fa28ce12f3c6cb01c/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "fca330007cac1175708cc2f230232a142d9f8f4f2f447f7bddeebd2ad2b876d1"
+    },
+    "mutations/FI043/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/4ad94b54b3d54f9fa28ce12f3c6cb01c/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI043/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI043/abbc710bc1874fddb20244ea556226f1/external_inputs.json",
+      "sha256": "218b41240342c3aa20049e84b2774a925bb9ab21340d88de4b587a55b02196c7"
+    },
+    "mutations/FI043/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI043/abbc710bc1874fddb20244ea556226f1/external_inputs.hex",
+      "sha256": "97978f49e779156d636a452cbd182f7a995ad33cbb61e0eeea17a29a7f6a983f"
+    },
+    "mutations/FI044/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/b4be39d4e6504aa991a21dbe08a018b6/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI044/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/b4be39d4e6504aa991a21dbe08a018b6/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "d4484eb74b793d794e13bcaf6ac097bfee8025b2a60743359a4bd011493d2b41"
+    },
+    "mutations/FI044/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/b4be39d4e6504aa991a21dbe08a018b6/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI044/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI044/d65c64a6e7af4e998c6678d11f17b9c7/external_inputs.json",
+      "sha256": "bcc3ee35ef670ecf758e666acdce54027bf5e858d0b1f585d48fa889b8207b73"
+    },
+    "mutations/FI044/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI044/d65c64a6e7af4e998c6678d11f17b9c7/external_inputs.hex",
+      "sha256": "193b9940f7e51c62cdd894129187f055ad7c8238f7afbcdafad06a7804145f59"
+    },
+    "mutations/FI045/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/132c9c8ca0f546f592be56c41dde5f92/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI045/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/132c9c8ca0f546f592be56c41dde5f92/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "97ac8e97060fa105c63547b5b39e8b5b6de2f6705e98818c5bba79b59ca1af6e"
+    },
+    "mutations/FI045/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/132c9c8ca0f546f592be56c41dde5f92/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI045/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI045/95fa799905834eef9c37d25ed6f0d15d/external_inputs.json",
+      "sha256": "89396db964874088ccbd7b0d9b556dfac9cbb968b16e8112572a7d9292e9c643"
+    },
+    "mutations/FI045/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI045/95fa799905834eef9c37d25ed6f0d15d/external_inputs.hex",
+      "sha256": "52f369a9ecfe16fa4b13f4e980c6335bbec9b9483ef19b827453c05261be4add"
+    },
+    "mutations/FI046/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/47f60bbd2fd94cec99709f44dcc2c5be/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI046/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/47f60bbd2fd94cec99709f44dcc2c5be/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "8b0ee54523942f955409671214c97b414791ce40becf1fb8182dc0d446c6103e"
+    },
+    "mutations/FI046/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/47f60bbd2fd94cec99709f44dcc2c5be/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI046/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI046/0a438032f07e4f89befaff22df0cb791/external_inputs.json",
+      "sha256": "0ea24c43969572c968723c3ce57e13affc72da3c470f62cafa1d6bd58c9ecae0"
+    },
+    "mutations/FI046/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI046/0a438032f07e4f89befaff22df0cb791/external_inputs.hex",
+      "sha256": "496b62d615307614202fdc94da8269e9b171a15dbb7bb9caaa2f5941d26b0f06"
+    },
+    "mutations/FI047/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/2e53c25a7ed441e4bd2f75c63d19c009/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI047/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/2e53c25a7ed441e4bd2f75c63d19c009/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "632e30789b0e0a07024eb909293843b192edc7ac59e6eb7d41809ca2b9012395"
+    },
+    "mutations/FI047/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/2e53c25a7ed441e4bd2f75c63d19c009/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI047/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI047/a7b6e4e116ba4b308fa8f2270c0934b3/external_inputs.json",
+      "sha256": "7978ee40aa8f2d7594421f26356278d8e78e44d0c7a74c2bc1e935977ad4225b"
+    },
+    "mutations/FI047/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI047/a7b6e4e116ba4b308fa8f2270c0934b3/external_inputs.hex",
+      "sha256": "9126b688f8c7353cd6010786318c458e3b92679a5bd4af05f599faf792c51e4e"
+    },
+    "mutations/FI048/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/6adc856bec7d4b82b8f8d110649c13fd/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI048/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/6adc856bec7d4b82b8f8d110649c13fd/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "87851ece21b51ce6bd635e67971013aa7dae8b95064bf23face417bb54950db5"
+    },
+    "mutations/FI048/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/6adc856bec7d4b82b8f8d110649c13fd/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "e6e79253ce08ebde98db826c4c25234dbe371186ee313d3ff6d3896e09fef90a"
+    },
+    "mutations/FI048/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI048/30557de673ef43b59b49b21a21d2357a/external_inputs.json",
+      "sha256": "2e48abe05ca58c7510aa8c8eccdb3a2eeedea518452da9564dc84e1ecee5b749"
+    },
+    "mutations/FI048/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI048/30557de673ef43b59b49b21a21d2357a/external_inputs.hex",
+      "sha256": "1093b37afe3875bafa800460875c8616c22c1800ab471310da78e3179a3f7fc7"
+    },
+    "mutations/FI049/rtl/cmdbuf_rd.sv": {
+      "member": "evidence/native/8814/b62d17d805f441ff950ebcc88ae7b5b1/project/rtl/cmdbuf_rd.sv",
+      "sha256": "2fb66027539a01cbe74d4be6bb6d29eb95d0242c99c878a24de1afc45024e195"
+    },
+    "mutations/FI049/rtl/cmdbuf_rd_cmd.sv": {
+      "member": "evidence/native/8814/b62d17d805f441ff950ebcc88ae7b5b1/project/rtl/cmdbuf_rd_cmd.sv",
+      "sha256": "4725cd12c2286f6bc17bbdc29e940b576e5964c80700e02294bd2cb46808c3c7"
+    },
+    "mutations/FI049/rtl/cmdbuf_rd_otb.sv": {
+      "member": "evidence/native/8814/b62d17d805f441ff950ebcc88ae7b5b1/project/rtl/cmdbuf_rd_otb.sv",
+      "sha256": "3cea5131c419736f1de4a290715380ce6ed3228567c4d0a40026e2986d6c01af"
+    },
+    "mutations/FI049/external_inputs.json": {
+      "member": "evidence/task/mutations/replay/FI049/5a6420047d8b4679bbab183c0e54ee21/external_inputs.json",
+      "sha256": "4d88378eb092c19d558d87bb61a32aa176a743e0f1663adfe456b0c0298de528"
+    },
+    "mutations/FI049/external_inputs.hex": {
+      "member": "evidence/task/mutations/replay/FI049/5a6420047d8b4679bbab183c0e54ee21/external_inputs.hex",
+      "sha256": "a04a5ae056c6838e594be5e144664b2788a34e33e8f84d038a203945ab190323"
+    }
+  }
+}

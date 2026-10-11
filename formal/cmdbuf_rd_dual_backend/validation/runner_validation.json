@@ -1,0 +1,43 @@
+{
+  "timestamp_utc": "2026-10-11T18:09:46.821191+00:00",
+  "command": [
+    "C:\\Users\\1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-m",
+    "unittest",
+    "test_run",
+    "-v"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 1.844,
+  "tests": 63,
+  "passed": 62,
+  "skipped": 1,
+  "skip_reason": "Windows host did not permit test symlink creation; traversal cases executed.",
+  "scope": "Runner contract tests, real subprocess capture/timeout tests, and simulated tool/report tests. This is not an SBY or FormalMC DUT proof.",
+  "formalmc_actual_dut_run": false,
+  "files": {
+    "run.py": "10e4583c4a1321dd652a1ee7c0abb314cefd6334765449c726bfefb77fcb006d",
+    "test_run.py": "cebbfba5c463852ceaf9bcdc410ad5bcf6f4ee8a810e99f0ad1c355cd9430537",
+    "runner_unit_tests.log": "67039d11a2ce74002e9162c419f9da689f7cd49321c6f6cebe5af25c8b0987c3"
+  },
+  "change_from_sby_regression_runner": {
+    "previous_run_py_sha256": "cac60941dfea0a81fedc2d84edb2f4bfc2cdb68b0c6857890eeb9a66346b9ebe",
+    "changed_functions": [
+      "formal_capabilities",
+      "parse_formalmc"
+    ],
+    "unchanged_sby_execution_parsing": true,
+    "detail": "Only FormalMC result hardening and capability Tcl termination changed; existing SBY regression uses recorded previous runner SHA."
+  },
+  "linux": {
+    "timestamp_utc": "2026-10-11T18:10:01.779221+00:00",
+    "python": "3.11 VM venv",
+    "tests": 63,
+    "passed": 63,
+    "skipped": 0,
+    "remote_exit_zero_observed": true,
+    "unittest_ok_observed": true,
+    "log": "runner_linux_unit_tests.log",
+    "log_sha256": "f7fa9e34272121e6bde544ffdf132c011a1ab751bb5facb7086996be847c3237"
+  }
+}

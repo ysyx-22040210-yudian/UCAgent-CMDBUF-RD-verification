@@ -1,0 +1,31 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 10: rresp got=0x1 expected=0x3",
+  "type": "errors",
+  "seed": 1,
+  "cycles": 10,
+  "checks": 162,
+  "coverage": {
+    "accepted": 4,
+    "accepted_back_to_back": 3,
+    "accepted_src0": 2,
+    "accepted_src1": 1,
+    "accepted_src2": 1,
+    "capture_no_bypass": 4,
+    "captured": 4,
+    "captured_back_to_back": 3,
+    "error_combo_00": 1,
+    "error_combo_01": 1,
+    "error_combo_10": 1,
+    "issued": 4,
+    "issued_back_to_back": 3,
+    "reset": 1,
+    "retired": 3,
+    "retired_back_to_back": 2,
+    "retired_src0": 1,
+    "retired_src1": 1,
+    "retired_src2": 1,
+    "three_cycle_path": 4
+  }
+}

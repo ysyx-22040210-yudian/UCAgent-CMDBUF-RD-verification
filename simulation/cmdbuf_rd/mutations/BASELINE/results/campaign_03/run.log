@@ -1,0 +1,20 @@
+COMMAND ["make", "-f", "/root/env_base/env/Makefile", "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk", "RTL_ROOT=/root/cmdbuf_rd/mutations/BASELINE", "BUILD_DIR=/root/cmdbuf_rd/mutations/BASELINE/build/campaign_03", "RESULT_DIR=/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03", "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases", "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp", "JOBS=2", "run-all"]
+PASS 01_pipeline checks=793 accepted=24 cycles=51
+PASS 02_same_xau_ooo checks=514 accepted=6 cycles=43
+PASS 03_forward_6b checks=513 accepted=6 cycles=43
+PASS 04_grants checks=1333 accepted=24 cycles=103
+PASS 05_failure_5a checks=537 accepted=8 cycles=43
+PASS 06_window_block checks=563 accepted=6 cycles=48
+PASS 07_single_pulse checks=575 accepted=7 cycles=48
+PASS 08_rr checks=648 accepted=9 cycles=53
+PASS 09_errors checks=443 accepted=4 cycles=38
+PASS 10_capacity_reuse checks=669 accepted=11 cycles=53
+PASS 11_capacity_700 checks=648 accepted=9 cycles=53
+PASS 12_capacity_440 checks=647 accepted=9 cycles=53
+PASS 13_tokens checks=737 accepted=8 cycles=63
+PASS 14_single_source_throughput checks=3478 accepted=160 cycles=170
+PASS 15_reset_clean checks=1256 accepted=24 cycles=96
+PASS 16_random_seed_1 checks=29188 accepted=935 cycles=1814
+PASS 17_random_seed_17 checks=29234 accepted=942 cycles=1812
+PASS 18_random_seed_91 checks=29172 accepted=931 cycles=1816
+PASS 19_rr_ready_masks checks=381 accepted=3 cycles=33

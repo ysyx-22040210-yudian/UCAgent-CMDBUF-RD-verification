@@ -1,0 +1,26 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 15: rvalid got=0x1 expected=0x0",
+  "type": "forward_6b",
+  "seed": 1,
+  "cycles": 15,
+  "checks": 182,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "capture_no_bypass": 2,
+    "captured": 2,
+    "captured_back_to_back": 1,
+    "error_combo_00": 1,
+    "issued": 2,
+    "issued_back_to_back": 1,
+    "outside_window_blocked": 2,
+    "reset": 1,
+    "retired": 1,
+    "retired_src0": 1,
+    "same_xau_ooo_issue": 1,
+    "sixth_success_forward": 1
+  }
+}

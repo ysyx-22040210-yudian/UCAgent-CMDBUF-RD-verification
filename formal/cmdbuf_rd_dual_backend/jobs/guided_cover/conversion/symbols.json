@@ -1,0 +1,65 @@
+[
+  {
+    "port": "portable_symbol_0000",
+    "kind": "anyseq",
+    "width": 128,
+    "original_cell": "$auto$setundef.cc:550:execute$5594",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0001",
+    "kind": "anyseq",
+    "width": 18,
+    "original_cell": "$auto$setundef.cc:550:execute$5596",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0002",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$5598",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0003",
+    "kind": "anyseq",
+    "width": 2,
+    "original_cell": "$auto$setundef.cc:550:execute$5600",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0004",
+    "kind": "anyseq",
+    "width": 3,
+    "original_cell": "$auto$setundef.cc:550:execute$5602",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0005",
+    "kind": "anyseq",
+    "width": 5,
+    "original_cell": "$auto$setundef.cc:550:execute$5604",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0006",
+    "kind": "anyseq",
+    "width": 8,
+    "original_cell": "$auto$setundef.cc:550:execute$5606",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0007",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$5608",
+    "source_location": ""
+  },
+  {
+    "port": "portable_symbol_0008",
+    "kind": "anyseq",
+    "width": 4,
+    "original_cell": "$auto$setundef.cc:550:execute$5610",
+    "source_location": ""
+  }
+]

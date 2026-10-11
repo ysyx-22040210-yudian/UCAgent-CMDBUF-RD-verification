@@ -1,0 +1,2996 @@
+{
+  "run_id": "campaign_03",
+  "status": "complete",
+  "baseline_hashes": {
+    "cmdbuf_rd.sv": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+    "cmdbuf_rd_cmd.sv": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+    "cmdbuf_rd_otb.sv": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068"
+  },
+  "verification_snapshots": [
+    {
+      "original": "/root/env_base/projects/cmdbuf_rd.mk",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+      "sha256": "89224072b813eaef06d5e81a0b090f2336c54125cf64c5ea777d0f0e830cc4c5"
+    },
+    {
+      "original": "/root/env_base/adapters/cmdbuf_rd/cmdbuf_rd_harness.cpp",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+      "sha256": "639bc3d0ebd6dee75e7b3c0060aee39fc50efb75029b8d0dfd7e4528bcbd2e65"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/01_pipeline.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/01_pipeline.case",
+      "sha256": "f9f16408254aacecbf9a597f9f27c32ec3eed26d6cf8674bfd665489c95624c7"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/02_same_xau_ooo.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/02_same_xau_ooo.case",
+      "sha256": "eaa18cce13836ead26ab3b7000c6543ed9828ae55e1442b1ee5db8be4f12e300"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/03_forward_6b.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/03_forward_6b.case",
+      "sha256": "35c5ab5bd717466bfcf2d5e815e97687734f75994b4f07dbf131ed4eba7ae1eb"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/04_grants.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/04_grants.case",
+      "sha256": "fd1f709944ecf693b95c2ca1774784cfa8b22fdd75b5cdcae4d2a395c3d39e22"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/05_failure_5a.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/05_failure_5a.case",
+      "sha256": "a38f7ef625b566b9894cec4bd9d0491efc797a558a8b590a509d841d62337087"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/06_window_block.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/06_window_block.case",
+      "sha256": "97d02dc56f6cc0c6b069a457e97da96ff0796e60c8bb3a358e84d332dccfe8d1"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/07_single_pulse.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/07_single_pulse.case",
+      "sha256": "31fc79fab0727d1a38990547475be6f207b58d6944de86242e5f9c571cd70386"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/08_rr.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/08_rr.case",
+      "sha256": "da809b4329eaf5e724f02b430960e5b7df66af5cd36fd25fb2eddefe58ce9f91"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/09_errors.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/09_errors.case",
+      "sha256": "fff73d44053e140c63923726af6fdcae249cf1d76da4357a3fef6cc2753f4003"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/10_capacity_reuse.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/10_capacity_reuse.case",
+      "sha256": "ec5dad23d6ffae36250600411467ab45d348f15fe9db60eedc9a81d31a2e1636"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/11_capacity_700.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/11_capacity_700.case",
+      "sha256": "3b97aab19cfc5e71e1c2cdbf172a501ea3df64b90f6f0b843ea186f7bc4f080a"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/12_capacity_440.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/12_capacity_440.case",
+      "sha256": "abb85b79fbc0bba7ac644b5fb5cfc887538221d56f2877dce10b99e32727b47a"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/13_tokens.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/13_tokens.case",
+      "sha256": "8ef876c139739882a5bb8d70f205ee09e08d7cf208a0415b23bb9491909ecda7"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/14_single_source_throughput.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/14_single_source_throughput.case",
+      "sha256": "e393889f56b0fc75dad74032a6df4c6ce82f2d1da812d8211b7eb11c7d489000"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/15_reset_clean.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/15_reset_clean.case",
+      "sha256": "dbff763c41ceb986d274ff8213b8f8a63e2ea31abe0e80dea8e62249657f7be9"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/16_random_seed_1.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/16_random_seed_1.case",
+      "sha256": "04d3425f4761157704f243aba01a7d712472afcbe2fc260bbef42e92c97c62f4"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/17_random_seed_17.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/17_random_seed_17.case",
+      "sha256": "b51d9a53e0733bed7f8b6ff5b2c719e6616ed09bdd15ab28b9a494b1dd2e790d"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/18_random_seed_91.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/18_random_seed_91.case",
+      "sha256": "9691b089e2fed222fc47de15980c869283394b1da1011384780718188a5188e5"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/19_rr_ready_masks.case",
+      "snapshot": "/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases/19_rr_ready_masks.case",
+      "sha256": "ea3cde0606cc6c6734e95c64a07553248675af6e47482c6ffdb3aa8d375f4629"
+    }
+  ],
+  "environment_hashes": {
+    "/root/env_base/env/Makefile": "7e781875f46f7142c971884289d4eb3b2c7826e93b3df5be258f23930522a43e",
+    "/root/env_base/scripts/run_cases.py": "0cdb50a4a2c3834c6ff56d189e2423b7824d0a8c412ca68a58b61257f6e61224"
+  },
+  "scope": "Selected exact-fragment mutations; not the complete fault catalogue",
+  "selected_cases": [
+    "01_pipeline.case",
+    "02_same_xau_ooo.case",
+    "03_forward_6b.case",
+    "04_grants.case",
+    "05_failure_5a.case",
+    "06_window_block.case",
+    "07_single_pulse.case",
+    "08_rr.case",
+    "09_errors.case",
+    "10_capacity_reuse.case",
+    "11_capacity_700.case",
+    "12_capacity_440.case",
+    "13_tokens.case",
+    "14_single_source_throughput.case",
+    "15_reset_clean.case",
+    "16_random_seed_1.case",
+    "17_random_seed_17.case",
+    "18_random_seed_91.case",
+    "19_rr_ready_masks.case"
+  ],
+  "mutations": [
+    {
+      "id": "M01",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M01",
+      "result_dir": "/root/cmdbuf_rd/mutations/M01/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M01",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M01/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M01/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 7.139,
+        "log": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M01",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M01/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M01/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.216,
+        "log": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: req got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/06_window_block.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: req got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 1306: req got=0x20 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 507: req got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 1406: req got=0x8 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "03_forward_6b.case",
+        "06_window_block.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/mutations/M01/results/campaign_03/03_forward_6b.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: req got=0x4 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "rank_count[i] < 5",
+        "after": "rank_count[i] < 9",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "716acad296e56af596d458d8ea77669dda3cf7f1095db54d38fc1625d347c3cc"
+      },
+      "purpose": "错误扩大最老五条窗口，允许第六条绕过阻塞窗口"
+    },
+    {
+      "id": "M02",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M02",
+      "result_dir": "/root/cmdbuf_rd/mutations/M02/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M02",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M02/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M02/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.837,
+        "log": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M02",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M02/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M02/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.166,
+        "log": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: pending_cnt got=0x0 expected=0x1",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 5: pending_cnt got=0x1 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 4: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: pending_cnt got=0x3 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "13_tokens.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/mutations/M02/results/campaign_03/04_grants.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
+        "after": "assign issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "a4dffe3050aecddb05983878895aa9a19af53062de83d489503b53debe0a7fe2"
+      },
+      "purpose": "将双 grant 同时命中错误放宽为任一 grant 命中"
+    },
+    {
+      "id": "M03",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M03",
+      "result_dir": "/root/cmdbuf_rd/mutations/M03/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M03",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M03/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M03/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 7.193,
+        "log": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M03",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M03/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M03/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.216,
+        "log": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: req got=0x0 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 388: req got=0x0 expected=0x20",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/17_random_seed_17.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/18_random_seed_91.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "03_forward_6b.case",
+        "16_random_seed_1.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/mutations/M03/results/campaign_03/03_forward_6b.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 10: req got=0x0 expected=0x4",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "success_mask = issue_success ? current_issue_mask : 9'b0;",
+        "after": "success_mask = (issue_success && !issue_valid_q) ? current_issue_mask : 9'b0;",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "9487528dc88d0f8c6d716a307c95937a177bcc4c447d316935be084887f4c309"
+      },
+      "purpose": "关闭 6B 成功当拍窗口前馈"
+    },
+    {
+      "id": "M04",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M04",
+      "result_dir": "/root/cmdbuf_rd/mutations/M04/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M04",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M04/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M04/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.739,
+        "log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M04",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M04/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M04/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.319,
+        "log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/04_grants.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/04_grants.log"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/17_random_seed_17.log"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/18_random_seed_91.log"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "13_tokens.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "rtl_assertion",
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/04_grants.json",
+        "status": "fail",
+        "checker_failure": true,
+        "detection_kind": "rtl_assertion",
+        "failure": "%Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch",
+        "evidence_log": "/root/cmdbuf_rd/mutations/M04/results/campaign_03/04_grants.log"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd.sv",
+        "before": ".retire_entry, .issue_success, .issue_entry, .capture_valid,",
+        "after": ".retire_entry, .issue_success(issue_success || (|req)), .issue_entry, .capture_valid,",
+        "baseline_sha256": "06e57c016cc74fff564c4d7c2e6e5fc8c9df317f9b172a6f3c7a6df7d74db7e8",
+        "mutant_sha256": "d48f10aaccedcb40cfe115fc4f14bd27ea8670b3b99c06df00095aa6d434b795"
+      },
+      "purpose": "仅发 req 即启动 OTB 返回 token，失败请求也被计入"
+    },
+    {
+      "id": "M05",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M05",
+      "result_dir": "/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M05",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M05/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.835,
+        "log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M05",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M05/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M05/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.316,
+        "log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/01_pipeline.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/02_same_xau_ooo.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/02_same_xau_ooo.log"
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 13: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: arready got=0x7 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/06_window_block.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 23: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/07_single_pulse.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/07_single_pulse.log"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/08_rr.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/08_rr.log"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/09_errors.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/10_capacity_reuse.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/10_capacity_reuse.log"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/11_capacity_700.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/11_capacity_700.log"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/12_capacity_440.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/12_capacity_440.log"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/14_single_source_throughput.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/15_reset_clean.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/17_random_seed_17.log"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/19_rr_ready_masks.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "%Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/19_rr_ready_masks.log"
+        }
+      ],
+      "detecting_cases": [
+        "01_pipeline.case",
+        "02_same_xau_ooo.case",
+        "03_forward_6b.case",
+        "04_grants.case",
+        "05_failure_5a.case",
+        "06_window_block.case",
+        "07_single_pulse.case",
+        "08_rr.case",
+        "09_errors.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "13_tokens.case",
+        "14_single_source_throughput.case",
+        "15_reset_clean.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case",
+        "19_rr_ready_masks.case"
+      ],
+      "detection_kinds": [
+        "rtl_assertion",
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/mutations/M05/results/campaign_03/01_pipeline.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_otb.sv",
+        "before": "assign capture_valid = rst_n && ret_valid_q[3];",
+        "after": "assign capture_valid = rst_n && (ret_valid_q[3] || ret_valid_q[2]);",
+        "baseline_sha256": "bbca166e8facd72ec22aeb7f1b666df1da9e08fb2efe76f94fa49a25c0ed0068",
+        "mutant_sha256": "ebdd887d7904a1b3b4000fc345ffacc1a89d2de9d136572ad0704a4e747843b6"
+      },
+      "purpose": "固定四拍捕获错误多使用提前一拍的 tap，导致早采样或重复捕获"
+    },
+    {
+      "id": "M06",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M06",
+      "result_dir": "/root/cmdbuf_rd/mutations/M06/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M06",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M06/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M06/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.586,
+        "log": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M06",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M06/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M06/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.167,
+        "log": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 61: arready got=0x7 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 113: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 16: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "07_single_pulse.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/mutations/M06/results/campaign_03/07_single_pulse.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: arready got=0x7 expected=0x6",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "((occ_after[x] == 0) || (shared_after < 6));",
+        "after": "((occ_after[x] == 0) || (shared_after < 9));",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "e670bd3aaee3c306e9b1b0951419f42484b430cad928f9713b872d62ed3d8ec4"
+      },
+      "purpose": "放宽共享额度，破坏每来源一项容量保底"
+    },
+    {
+      "id": "M07",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M07",
+      "result_dir": "/root/cmdbuf_rd/mutations/M07/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M07",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M07/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M07/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.838,
+        "log": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M07",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M07/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M07/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.166,
+        "log": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/08_rr.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: rvalid got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 15: rvalid got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/19_rr_ready_masks.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        }
+      ],
+      "detecting_cases": [
+        "07_single_pulse.case",
+        "08_rr.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case",
+        "19_rr_ready_masks.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/mutations/M07/results/campaign_03/07_single_pulse.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
+        "after": "r_candidate[x] = done_q[head_entry[x]];",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "2ef48bfa10ac442b3701e0668a1bc364bbafd54fcdf38243cbc25b811d48d148"
+      },
+      "purpose": "响应候选忽略当拍 rready"
+    },
+    {
+      "id": "M08",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M08",
+      "result_dir": "/root/cmdbuf_rd/mutations/M08/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M08",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M08/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M08/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.586,
+        "log": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M08",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M08/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M08/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.167,
+        "log": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/02_same_xau_ooo.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 15: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: rvalid got=0x1 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 20: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "02_same_xau_ooo.case",
+        "03_forward_6b.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "02_same_xau_ooo.case",
+        "result": "/root/cmdbuf_rd/mutations/M08/results/campaign_03/02_same_xau_ooo.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 8: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "((older_q[i] & src_mask[x]) == 9'b0);",
+        "after": "((older_q[i] & src_mask[x] & done_q) == 9'b0) && done_q[i];",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "3ef22742ab91755c0a1495b5e1d222e23ffcc680f5276066cb3e83a3f681a0f4"
+      },
+      "purpose": "仅在完成项中找来源队头，跳过同来源更老的未完成命令"
+    },
+    {
+      "id": "M09",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M09",
+      "result_dir": "/root/cmdbuf_rd/mutations/M09/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M09",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M09/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M09/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.586,
+        "log": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M09",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M09/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M09/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.165,
+        "log": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/09_errors.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 171: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 37: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 35: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "09_errors.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "09_errors.case",
+        "result": "/root/cmdbuf_rd/mutations/M09/results/campaign_03/09_errors.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 10: rresp got=0x1 expected=0x3",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;",
+        "after": "if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "63c927192e698460ef4d74e9a4f5e8a26a1b36b2ce3a848157ef99a0fb84ea06"
+      },
+      "purpose": "错误地让奇偶异常覆盖地址越界异常"
+    },
+    {
+      "id": "M10",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M10",
+      "result_dir": "/root/cmdbuf_rd/mutations/M10/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M10",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M10/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M10/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.737,
+        "log": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M10",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M10/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M10/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.165,
+        "log": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: req got=0x0 expected=0x80",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 4: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: req got=0x0 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/mutations/M10/results/campaign_03/04_grants.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 3: req got=0x0 expected=0x2",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "issue_valid_q <= select_valid;",
+        "after": "issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "92a9be0d5af9a0915ea6ca58b048ca02b175513a0b2e5d2b1ffe54fb6d5af66d"
+      },
+      "purpose": "违反 5A，在当前请求失败时丢弃同拍预选的下一命令"
+    },
+    {
+      "id": "M11",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M11",
+      "result_dir": "/root/cmdbuf_rd/mutations/M11/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M11",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M11/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M11/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.587,
+        "log": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M11",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M11/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M11/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.166,
+        "log": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/01_pipeline.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 22: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/08_rr.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 22: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 20: arready got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/14_single_source_throughput.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 12: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 17: arready got=0x4 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "01_pipeline.case",
+        "04_grants.case",
+        "07_single_pulse.case",
+        "08_rr.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "14_single_source_throughput.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/mutations/M11/results/campaign_03/01_pipeline.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: arready got=0x6 expected=0x7",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x] - 1;",
+        "after": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x];",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "a27d6e4d2334528eeb3c661f5f175c738c2b3e55dd19e27392133f67c9ad14a8"
+      },
+      "purpose": "关闭 10B 准入的退休前馈，满表时多停一拍"
+    },
+    {
+      "id": "M12",
+      "rtl_root": "/root/cmdbuf_rd/mutations/M12",
+      "result_dir": "/root/cmdbuf_rd/mutations/M12/results/campaign_03",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M12",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M12/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M12/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.636,
+        "log": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/mutations/M12",
+          "BUILD_DIR=/root/cmdbuf_rd/mutations/M12/build/campaign_03",
+          "RESULT_DIR=/root/cmdbuf_rd/mutations/M12/results/campaign_03",
+          "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.216,
+        "log": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 5: req got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: req got=0x10 expected=0x1",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 2: req got=0x20 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "16_random_seed_1.case",
+        "result": "/root/cmdbuf_rd/mutations/M12/results/campaign_03/16_random_seed_1.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 5: req got=0x4 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.sv",
+        "before": "!(addr_q[i][6] ? rd_mem_status[1][addr_q[i][5:3]] : rd_mem_status[0][addr_q[i][5:3]]);",
+        "after": "!(addr_q[i][6] ? rd_mem_status[0][addr_q[i][5:3]] : rd_mem_status[1][addr_q[i][5:3]]);",
+        "baseline_sha256": "4de7a4022db5d69f3090691d59b3fe42ca673e77020a478ac7584d0378496339",
+        "mutant_sha256": "50e6221eb21ad7da73df65ab791775d64151a4bec99994734f3888e0e6182b6c"
+      },
+      "purpose": "反转命令选择时的奇偶 Bank 状态索引"
+    }
+  ],
+  "baseline": {
+    "id": "BASELINE",
+    "rtl_root": "/root/cmdbuf_rd/mutations/BASELINE",
+    "result_dir": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03",
+    "build": {
+      "command": [
+        "make",
+        "-f",
+        "/root/env_base/env/Makefile",
+        "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+        "RTL_ROOT=/root/cmdbuf_rd/mutations/BASELINE",
+        "BUILD_DIR=/root/cmdbuf_rd/mutations/BASELINE/build/campaign_03",
+        "RESULT_DIR=/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03",
+        "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+        "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+        "JOBS=2",
+        "build"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 6.79,
+      "log": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/build.log"
+    },
+    "run": {
+      "command": [
+        "make",
+        "-f",
+        "/root/env_base/env/Makefile",
+        "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk",
+        "RTL_ROOT=/root/cmdbuf_rd/mutations/BASELINE",
+        "BUILD_DIR=/root/cmdbuf_rd/mutations/BASELINE/build/campaign_03",
+        "RESULT_DIR=/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03",
+        "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases",
+        "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp",
+        "JOBS=2",
+        "run-all"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 0.216,
+      "log": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/run.log"
+    },
+    "cases": [
+      {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/01_pipeline.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "02_same_xau_ooo.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/02_same_xau_ooo.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/03_forward_6b.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/04_grants.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "05_failure_5a.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/05_failure_5a.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "06_window_block.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/06_window_block.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/07_single_pulse.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "08_rr.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/08_rr.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "09_errors.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/09_errors.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "10_capacity_reuse.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/10_capacity_reuse.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "11_capacity_700.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/11_capacity_700.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "12_capacity_440.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/12_capacity_440.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "13_tokens.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/13_tokens.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "14_single_source_throughput.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/14_single_source_throughput.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "15_reset_clean.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/15_reset_clean.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "16_random_seed_1.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/16_random_seed_1.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "17_random_seed_17.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/17_random_seed_17.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "18_random_seed_91.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/18_random_seed_91.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "19_rr_ready_masks.case",
+        "result": "/root/cmdbuf_rd/mutations/BASELINE/results/campaign_03/19_rr_ready_masks.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      }
+    ],
+    "detecting_cases": [],
+    "detection_kinds": [],
+    "first_detection": null,
+    "status": "passed",
+    "raw_status": "survived"
+  },
+  "counts": {
+    "killed": 12,
+    "survived": 0,
+    "compile_error": 0,
+    "runtime_error": 0,
+    "mutation_error": 0
+  },
+  "baseline_source_unchanged": true,
+  "verification_inputs_unchanged": true
+}

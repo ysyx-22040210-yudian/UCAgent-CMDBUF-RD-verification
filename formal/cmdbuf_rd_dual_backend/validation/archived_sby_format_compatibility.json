@@ -1,0 +1,130 @@
+{
+  "timestamp_utc": "2026-10-11T18:02:57.562746+00:00",
+  "scope": "Read-only compatibility audit of archived SBY JUnit format and current property mappings. Not a new proof run. No historical PASS imported into runner results.",
+  "mode_properties_total": 494,
+  "job_count": 20,
+  "issues": [],
+  "jobs": [
+    {
+      "job_id": "age_projection",
+      "mode_properties": 11,
+      "matched": 11,
+      "historical_xml_sha256": "be26ab0ed25b0d1a7cd320e0086570e1feb113899cc59b8c31a9d5aa6bb1681b"
+    },
+    {
+      "job_id": "aggregate",
+      "mode_properties": 71,
+      "matched": 71,
+      "historical_xml_sha256": "302bf900a36c83e7000438e344831adc14bb0218c4d664fd448174de6e6ff10b"
+    },
+    {
+      "job_id": "aggregate_split",
+      "mode_properties": 7,
+      "matched": 7,
+      "historical_xml_sha256": "fc1ce4cf3999faf5fe14137731e34f653e20786647baed2aedd8dc1d0169e5d3"
+    },
+    {
+      "job_id": "calendar",
+      "mode_properties": 25,
+      "matched": 25,
+      "historical_xml_sha256": "caa8977ccea0e5c8f2f65d3e7c0a4c49b316fc98d56841f914416c339649cc15"
+    },
+    {
+      "job_id": "capacity",
+      "mode_properties": 24,
+      "matched": 24,
+      "historical_xml_sha256": "24714efe9be4f23d774727ac2492f3df13d262df800b6d3d8e1c50694236f3dd"
+    },
+    {
+      "job_id": "cover_banks",
+      "mode_properties": 16,
+      "matched": 16,
+      "historical_xml_sha256": "4098922efdf8ab85cb46ab9ad66247fa3d28aded2fc16ad22656ee1381724812"
+    },
+    {
+      "job_id": "cover_data_identity",
+      "mode_properties": 12,
+      "matched": 12,
+      "historical_xml_sha256": "b4f9ea7dc8cd4b1ebf81fd33fb13bd7f7ae5fb3e20fa9915eb5e2ead27e58e42"
+    },
+    {
+      "job_id": "cover_pipeline",
+      "mode_properties": 16,
+      "matched": 16,
+      "historical_xml_sha256": "1a4a03e6b7cf9231a8642fcfeb9441b9f7b4d9a8e420d5831cb884d5efdaafc8"
+    },
+    {
+      "job_id": "cover_window_response",
+      "mode_properties": 15,
+      "matched": 15,
+      "historical_xml_sha256": "8a5726915b82ff5185bc0c9b20c357209f459debcfd6d03de89702268e228990"
+    },
+    {
+      "job_id": "data_origin",
+      "mode_properties": 60,
+      "matched": 60,
+      "historical_xml_sha256": "18e32dd08e514da6b0fbf8721f581d8835649ee6d05c389ae564e4f52f177fc3"
+    },
+    {
+      "job_id": "data_transition",
+      "mode_properties": 33,
+      "matched": 33,
+      "historical_xml_sha256": "12ff962a368c8f85152c54934c6dce9e56a997756953313759ebd867458bb496"
+    },
+    {
+      "job_id": "lifecycle",
+      "mode_properties": 60,
+      "matched": 60,
+      "historical_xml_sha256": "3a3b0da31ce6666c131a3214ebe43a39eb91c74f1d676d3cedabab383fb7b5ca"
+    },
+    {
+      "job_id": "lifecycle_r2",
+      "mode_properties": 59,
+      "matched": 59,
+      "historical_xml_sha256": "c03123125047216c3c9b00b099b99a56447c282c248c31ea732c63c66204e1a9"
+    },
+    {
+      "job_id": "local_transition",
+      "mode_properties": 35,
+      "matched": 35,
+      "historical_xml_sha256": "20fe16630ae93409775e4e70bb49de2c0648dc4c5d6228ac63ad508d0941d356"
+    },
+    {
+      "job_id": "pipeline",
+      "mode_properties": 1,
+      "matched": 1,
+      "historical_xml_sha256": "8d793498f0e7ff29139249acb850021f396028a6fc91a286a9cb6429e0546f60"
+    },
+    {
+      "job_id": "policy_order",
+      "mode_properties": 15,
+      "matched": 15,
+      "historical_xml_sha256": "6d26afd603e7bffcd7f2f39c144c74f9e99af4489bef7cf22c057c9c04054ada"
+    },
+    {
+      "job_id": "quota_math",
+      "mode_properties": 6,
+      "matched": 6,
+      "historical_xml_sha256": "137b37557c84134b9ffbafe476b3f4816529ef878acc4532837ca26a0360769d"
+    },
+    {
+      "job_id": "source_net_math",
+      "mode_properties": 1,
+      "matched": 1,
+      "historical_xml_sha256": "7dc414f7b40d901a34d6e2b0db5c060763ea1c8c4dd55e3eaad59984cbfdd566"
+    },
+    {
+      "job_id": "structural",
+      "mode_properties": 11,
+      "matched": 11,
+      "historical_xml_sha256": "e5450a018d9d9c5e7fcead624bd88f41b007b4d85197d03dff0ee66a3b56b94d"
+    },
+    {
+      "job_id": "wiring",
+      "mode_properties": 16,
+      "matched": 16,
+      "historical_xml_sha256": "f5cedb72b9f006ccf40a181246a88658b3895c2d0924a71234043de6246bbbc4"
+    }
+  ],
+  "runner_sha256": "cac60941dfea0a81fedc2d84edb2f4bfc2cdb68b0c6857890eeb9a66346b9ebe"
+}

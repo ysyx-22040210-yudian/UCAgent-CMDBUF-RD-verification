@@ -1,0 +1,27 @@
+COMMAND ["make", "-f", "/root/env_base/env/Makefile", "PROJECT_CONFIG=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd.mk", "RTL_ROOT=/root/cmdbuf_rd/mutations/M04", "BUILD_DIR=/root/cmdbuf_rd/mutations/M04/build/campaign_03", "RESULT_DIR=/root/cmdbuf_rd/mutations/M04/results/campaign_03", "CASE_DIR=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cases", "HARNESS_FILES=/root/cmdbuf_rd/mutations/campaigns/campaign_03/verification/cmdbuf_rd_harness.cpp", "JOBS=2", "run-all"]
+PASS 01_pipeline checks=793 accepted=24 cycles=51
+PASS 02_same_xau_ooo checks=514 accepted=6 cycles=43
+PASS 03_forward_6b checks=513 accepted=6 cycles=43
+[27] %Fatal: cmdbuf_rd_cmd.sv:305: Assertion failed in TOP.cmdbuf_rd.u_cmd: capture ownership mismatch
+%Error: /root/cmdbuf_rd/mutations/M04/rtl/cmdbuf_rd_cmd.sv:305: Verilog $stop
+Aborting...
+CHECK_FAILED 05_failure_5a cycle 7: rvalid got=0x1 expected=0x0
+PASS 06_window_block checks=563 accepted=6 cycles=48
+PASS 07_single_pulse checks=575 accepted=7 cycles=48
+PASS 08_rr checks=648 accepted=9 cycles=53
+PASS 09_errors checks=443 accepted=4 cycles=38
+PASS 10_capacity_reuse checks=669 accepted=11 cycles=53
+PASS 11_capacity_700 checks=648 accepted=9 cycles=53
+PASS 12_capacity_440 checks=647 accepted=9 cycles=53
+CHECK_FAILED 13_tokens cycle 11: rvalid got=0x2 expected=0x0
+PASS 14_single_source_throughput checks=3478 accepted=160 cycles=170
+PASS 15_reset_clean checks=1256 accepted=24 cycles=96
+CHECK_FAILED 16_random_seed_1 cycle 9: rvalid got=0x2 expected=0x0
+[39] %Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture
+%Error: /root/cmdbuf_rd/mutations/M04/rtl/cmdbuf_rd_otb.sv:81: Verilog $stop
+Aborting...
+[51] %Fatal: cmdbuf_rd_otb.sv:81: Assertion failed in TOP.cmdbuf_rd.u_otb: invalid OTB capture
+%Error: /root/cmdbuf_rd/mutations/M04/rtl/cmdbuf_rd_otb.sv:81: Verilog $stop
+Aborting...
+PASS 19_rr_ready_masks checks=381 accepted=3 cycles=33
+make: *** [/root/env_base/env/Makefile:22: run-all] Error 1

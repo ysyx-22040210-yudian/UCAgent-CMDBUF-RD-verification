@@ -1,0 +1,1 @@
+CHECK_FAILED 10_capacity_reuse cycle 20: arready got=0x0 expected=0x2

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+desktop_preferences.json
+.env
+.env.local
+.ucagent/
+state/
+local-config/
+formal/cmdbuf_rd_dual_backend/results/
+verification/closure/cmdbuf_rd_evidence.tar.gz
+verification/closure/evidence/
+*.partial

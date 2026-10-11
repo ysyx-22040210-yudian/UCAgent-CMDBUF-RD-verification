@@ -1,0 +1,24 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 8: arready got=0x7 expected=0x4",
+  "type": "capacity_440",
+  "seed": 1,
+  "cycles": 8,
+  "checks": 111,
+  "coverage": {
+    "accepted": 8,
+    "accepted_back_to_back": 7,
+    "accepted_src0": 4,
+    "accepted_src1": 4,
+    "capture_no_bypass": 2,
+    "capture_without_ready": 2,
+    "captured": 2,
+    "captured_back_to_back": 1,
+    "issued": 6,
+    "issued_back_to_back": 5,
+    "ready_zero_holds_completed": 1,
+    "reset": 1,
+    "three_cycle_path": 6
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 22: arready got=0x6 expected=0x7",
+  "type": "single_pulse",
+  "seed": 1,
+  "cycles": 22,
+  "checks": 257,
+  "coverage": {
+    "accepted": 7,
+    "accepted_back_to_back": 6,
+    "accepted_src0": 7,
+    "capacity700_ready110": 15,
+    "capture_no_bypass": 7,
+    "capture_without_ready": 7,
+    "captured": 7,
+    "captured_back_to_back": 6,
+    "issued": 7,
+    "issued_back_to_back": 6,
+    "ready_zero_holds_completed": 15,
+    "reset": 1,
+    "three_cycle_path": 7,
+    "zero_data_no_error": 1
+  }
+}

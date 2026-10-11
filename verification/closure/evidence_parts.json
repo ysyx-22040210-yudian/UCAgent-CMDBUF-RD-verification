@@ -1,0 +1,32 @@
+{
+  "archive": "cmdbuf_rd_evidence.tar.gz",
+  "bytes": 212829414,
+  "sha256": "9cc646b2c13a659256b45d1b30a0cd82444ca6a7d8bcbe16a6cd9e9df4ccda00",
+  "parts": [
+    {
+      "file": "archive-parts/cmdbuf_rd_evidence.tar.gz.part001",
+      "bytes": 47185920,
+      "sha256": "5d48c7889a631635d2aa5f43ba1ae63fa5f8edb7a04740cd38211f1f02353a8b"
+    },
+    {
+      "file": "archive-parts/cmdbuf_rd_evidence.tar.gz.part002",
+      "bytes": 47185920,
+      "sha256": "5204648cd196f71dda388b82a9d6e2616e82d8678db3b7b8fc42b7b88660c41e"
+    },
+    {
+      "file": "archive-parts/cmdbuf_rd_evidence.tar.gz.part003",
+      "bytes": 47185920,
+      "sha256": "12332703c4493f404ae2819676e5da3fccaa88094f70b867388c8897df8a702b"
+    },
+    {
+      "file": "archive-parts/cmdbuf_rd_evidence.tar.gz.part004",
+      "bytes": 47185920,
+      "sha256": "a979f0d75ff0b8e20935e1665dab81b4f217da50e86be9b9409a248d8ef65b99"
+    },
+    {
+      "file": "archive-parts/cmdbuf_rd_evidence.tar.gz.part005",
+      "bytes": 24085734,
+      "sha256": "3d70f13ce898013140c4dc497b754c026ed1cebfb98b195fa2e6457a32e4602b"
+    }
+  ]
+}

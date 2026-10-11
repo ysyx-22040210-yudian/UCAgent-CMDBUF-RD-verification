@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "forward_6b",
+  "seed": 1,
+  "cycles": 43,
+  "checks": 513,
+  "coverage": {
+    "accepted": 6,
+    "accepted_back_to_back": 5,
+    "accepted_src0": 6,
+    "capture_after_bubble": 1,
+    "capture_no_bypass": 6,
+    "captured": 6,
+    "captured_back_to_back": 4,
+    "error_combo_00": 6,
+    "issued": 6,
+    "issued_back_to_back": 4,
+    "outside_window_blocked": 2,
+    "reset": 1,
+    "retired": 6,
+    "retired_back_to_back": 4,
+    "retired_src0": 6,
+    "rr_skip": 5,
+    "same_xau_head_block": 5,
+    "same_xau_ooo_issue": 1,
+    "sixth_success_forward": 1
+  }
+}

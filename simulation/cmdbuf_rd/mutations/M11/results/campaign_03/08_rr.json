@@ -1,0 +1,25 @@
+{
+  "status": "fail",
+  "checks_failed": 1,
+  "failure": "cycle 22: arready got=0x0 expected=0x7",
+  "type": "rr",
+  "seed": 1,
+  "cycles": 22,
+  "checks": 263,
+  "coverage": {
+    "accepted": 9,
+    "accepted_back_to_back": 8,
+    "accepted_src0": 3,
+    "accepted_src1": 3,
+    "accepted_src2": 3,
+    "capture_no_bypass": 9,
+    "capture_without_ready": 9,
+    "captured": 9,
+    "captured_back_to_back": 8,
+    "issued": 9,
+    "issued_back_to_back": 8,
+    "ready_zero_holds_completed": 15,
+    "reset": 1,
+    "three_cycle_path": 9
+  }
+}

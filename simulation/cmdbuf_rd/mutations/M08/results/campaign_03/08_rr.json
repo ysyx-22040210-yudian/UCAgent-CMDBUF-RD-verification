@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "checks_failed": 0,
+  "failure": "",
+  "type": "rr",
+  "seed": 1,
+  "cycles": 53,
+  "checks": 648,
+  "coverage": {
+    "accepted": 9,
+    "accepted_back_to_back": 8,
+    "accepted_src0": 3,
+    "accepted_src1": 3,
+    "accepted_src2": 3,
+    "capture_no_bypass": 9,
+    "capture_without_ready": 9,
+    "captured": 9,
+    "captured_back_to_back": 8,
+    "error_combo_00": 9,
+    "issued": 9,
+    "issued_back_to_back": 8,
+    "ready_zero_holds_completed": 15,
+    "reset": 1,
+    "retired": 9,
+    "retired_back_to_back": 8,
+    "retired_src0": 3,
+    "retired_src1": 3,
+    "retired_src2": 3,
+    "rr_all_three": 7,
+    "three_cycle_path": 9
+  }
+}
