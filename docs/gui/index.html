@@ -1,0 +1,298 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="UCAgent 原生 Tk GUI 逐步操作说明，15 张真实窗口截图，SBY 与 FormalMC 一键切换"><title>CMDBUF RD · Tk GUI 详细操作图示</title><link rel="stylesheet" href="styles.css"></head><body><header><div><div class="brand">UCAgent · Tk GUI 操作图示</div><div class="sub">2026-10-12 · 15 张实际截图 · 本页为阅读说明</div></div><div class="actions"><button id="marker-toggle" type="button" aria-pressed="true">隐藏图中编号</button><button id="print-guide" type="button">打印说明</button><a href="https://github.com/ysyx-22040210-yudian/UCAgent-CMDBUF-RD-verification/blob/main/docs/gui/README.md" target="_blank" rel="noopener">GitHub 文档</a></div></header><div class="layout"><aside><p class="label">操作目录</p><nav><a href="#connect">01 启动桌面与连接服务</a><a href="#navigation">02 看懂主导航和两个项目入口</a><a href="#original">03 打开原 SBY 任务，一键进入 FormalMC</a><a href="#packages">04 从“双后端验证”直接进入项目</a><a href="#sby">05 配置 SBY</a><a href="#formalmc">06 配置 FormalMC</a><a href="#inventory">07 查看 22 个任务与 177 个检查点</a><a href="#execute">08 执行环境检查、自检和完整验证</a><a href="#results">09 读懂结果与运行日志</a><a href="#recovery">10 取消、退出和恢复</a><a href="#stages">11 原 14 阶段工作台的按钮和页签</a><a href="#new-design">12 新设计如何建立阶段任务</a><a href="#faq">13 常见问题与截图中的能力提示</a><a href="#evidence">14 截图和证据索引</a></nav><div class="hint">截图保留实际窗口内容。编号和框线只用于指路；点击图片可以查看原始画面。</div></aside><main><div class="notice">实际验证在 Tk 桌面完成。此页面用于阅读操作说明，不向服务提交检查或求解请求。</div><div class="flow" aria-label="完整重跑操作顺序"><span>连接执行服务</span><i>→</i><span>选择 cmdbuf_rd</span><i>→</i><span>选择后端</span><i>→</i><span>保存配置</span><i>→</i><span>环境检查 / 自检</span><i>→</i><span>运行完整验证</span><i>→</i><span>核对结果和日志</span></div><h1>CMDBUF RD · Tk GUI 详细操作图示</h1>
+<p>本文对应仓库内已交付的 <strong>UCAgent 原生 Tkinter/ttk 桌面界面</strong>，操作图来自实际窗口。日期：2026-10-12。HTML 版本是阅读说明的页面；实际验证操作在 Tk 窗口中完成。</p>
+<p>GitHub 可直接阅读本页。下载仓库后，打开同目录 <a href="index.html">index.html</a>，可查看带点击位置编号的离线阅读版；点击截图可放大查看原始画面。</p>
+<p><strong>重跑当前项目的操作顺序：打开桌面 → 连接执行服务 → 进入 cmdbuf_rd → 选择 SBY 或 FormalMC → 填写并保存配置 → 环境检查 → FormalMC 能力自检 → 运行完整验证 → 查看结果和日志。</strong></p>
+<p>本次拍图只读取现有任务和运行记录，没有启动新的求解任务、修改服务配置或推进验收阶段。图中的 SBY 最新记录是历史 <code>quota_math</code> 单任务通过，FormalMC 最新记录是历史环境检查发现工具缺失。两者都不能当成本次完整验证通过。截图源代码和像素校验见 <a href="capture_receipt.json">拍图记录</a>。</p>
+<h2>阅读导航</h2>
+<ul>
+<li><a href="#connect">01 启动桌面与连接服务</a></li>
+<li><a href="#navigation">02 看懂主导航和两个项目入口</a></li>
+<li><a href="#original">03 打开原 SBY 任务，一键进入 FormalMC</a></li>
+<li><a href="#packages">04 从“双后端验证”直接进入项目</a></li>
+<li><a href="#sby">05 配置 SBY</a></li>
+<li><a href="#formalmc">06 配置 FormalMC</a></li>
+<li><a href="#inventory">07 查看 22 个任务与 177 个检查点</a></li>
+<li><a href="#execute">08 执行环境检查、自检和完整验证</a></li>
+<li><a href="#results">09 读懂结果与运行日志</a></li>
+<li><a href="#recovery">10 取消、退出和恢复</a></li>
+<li><a href="#stages">11 原 14 阶段工作台的按钮和页签</a></li>
+<li><a href="#new-design">12 新设计如何建立阶段任务</a></li>
+<li><a href="#faq">13 常见问题与截图中的能力提示</a></li>
+<li><a href="#evidence">14 截图和证据索引</a></li>
+</ul>
+<a id="connect"></a>
+<h2>01 启动桌面与连接服务</h2>
+<h3>1.1 当前电脑的入口</h3>
+<p>下载或克隆仓库后，进入 <code>gui/</code>。已经建立到本次虚拟机服务的 SSH 转发时，运行 <code>Start-UCAgent-CMDBUF.pyw</code>，会直接定位到原 SBY 阶段任务。</p>
+<p>Windows 的 <code>.pyw</code> 需要安装带 Tk 的 Python 并正确关联。双击无窗口时，用 Python 显式启动：</p>
+<pre><code class="language-sh">python gui/Start-UCAgent-CMDBUF.pyw</code></pre>
+<p>如果电脑没有文件关联或想直接指定服务，使用通用入口：</p>
+<pre><code class="language-sh">python gui/UCAgent-Desktop.pyz --server http://127.0.0.1:18814</code></pre>
+<p>当前默认 <code>18814</code> 是 Windows 电脑的本地转发端口，转发到虚拟机的 <code>8814</code> 服务。可在终端保持以下连接：</p>
+<pre><code class="language-sh">ssh -N -L 18814:127.0.0.1:8814 root@192.168.31.116</code></pre>
+<p>登录使用已有 SSH 凭据，GUI 不要求填写 SSH 密码。终端关闭或电脑重启后，需要重新建立转发。</p>
+<h3>1.2 在其他设备启动</h3>
+<p>桌面客户端连接该设备实际可访问的 UCAgent 服务地址。若客户端和服务都在执行设备本机，可使用：</p>
+<pre><code class="language-sh">python3 gui/UCAgent-Desktop.pyz --server http://127.0.0.1:8814</code></pre>
+<p>Linux 桌面要提供 Tk 和图形显示环境。执行服务需使用配套的更新源码、登记完整验证包，并提供实际工具环境；具体登记见 <a href="../GitHub使用说明.md">GitHub 使用说明</a> 和 <a href="../../ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md">登记格式</a>。</p>
+<h3>1.3 在窗口中连接</h3>
+<figure><div class="shot"><a href="images/02_connection.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/02_connection.png" width="1680" height="1120" alt="图 02：连接执行服务" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:93.45238%;top:1.42857%;width:5.05952%;height:2.94643%" title="顶部连接入口"><b class="pin">1</b></span><span class="region" style="left:35.47619%;top:26.25000%;width:34.16667%;height:3.03571%" title="服务地址"><b class="pin">2</b></span><span class="region" style="left:63.03571%;top:39.55357%;width:6.60714%;height:2.94643%" title="连接服务"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 02：连接执行服务</span><div class="legend"><span><b>1</b>顶部连接入口</span><span><b>2</b>服务地址</span><span><b>3</b>连接服务</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p><strong>操作位置：①窗口右上角“连接” → ②弹窗“服务地址” → ③“连接服务”。</strong></p>
+<ol>
+<li>输入能从客户端访问的 HTTP 服务地址。当前 Windows 电脑填写 <code>http://127.0.0.1:18814</code>。</li>
+<li>点击“连接服务”。</li>
+<li>确认右上角显示绿色 <strong>“执行服务已连接”</strong>。</li>
+<li>如果没有连接成功，先确认服务和 SSH 转发正常，再点击“刷新”或重新连接。</li>
+</ol>
+<p>图 02 是在虚拟机本机拍摄，因此显示 <code>8814</code>；它不是 Windows 端必须照抄的地址。连接服务成功只表示可以读取平台，不能说明 SBY / FormalMC 工具或设计验证已经通过。</p>
+<a id="navigation"></a>
+<h2>02 看懂主导航和两个项目入口</h2>
+<figure><div class="shot"><a href="images/01_overview.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/01_overview.png" width="1680" height="1120" alt="图 01：工作台总览" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:0.71429%;top:21.87500%;width:11.66667%;height:4.01786%" title="形式化工作台"><b class="pin">1</b></span><span class="region" style="left:0.71429%;top:26.25000%;width:11.66667%;height:4.01786%" title="双后端验证"><b class="pin">2</b></span><span class="region" style="left:0.71429%;top:58.75000%;width:11.66667%;height:4.01786%" title="设置"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 01：工作台总览</span><div class="legend"><span><b>1</b>形式化工作台</span><span><b>2</b>双后端验证</span><span><b>3</b>设置</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<div class="table-scroll"><table><thead><tr><th>位置</th><th>用途</th><th>当前项目怎么使用</th></tr></thead><tbody>
+<tr><td>工作台</td><td>总览、项目、运行情况和工具状态</td><td>检查连接状态，了解是否有正在执行的任务</td></tr>
+<tr><td>项目空间</td><td>管理已导入的 RTL / 验证工程</td><td>新设计先导入工程；当前 cmdbuf_rd 已经有正式任务</td></tr>
+<tr><td><strong>形式化工作台</strong></td><td>原 UCAgent 阶段任务及 Check / Complete 流程</td><td>查看原 14 阶段、原验收结论和一键切换按钮</td></tr>
+<tr><td><strong>双后端验证</strong></td><td>已登记完整验证包的 SBY / FormalMC 操作台</td><td>重跑当前封存项目的 22 个任务</td></tr>
+<tr><td>验证记录</td><td>平台通用运行记录</td><td>根据项目名称和运行 ID 查历史记录</td></tr>
+<tr><td>工具链</td><td>执行服务上的工具登记</td><td>新建设计任务时核对真实工具链 ID</td></tr>
+<tr><td>设置 / 顶部连接</td><td>当前客户端与服务配置</td><td>连接正确的执行服务</td></tr>
+</tbody></table></div>
+<p>当前包的独立新运行主要在“<strong>双后端操作台 → 本后端运行结果 / 运行日志</strong>”查看；原阶段记录在“<strong>形式化工作台</strong>”查看。它们的证据格式与验收状态分别保留。</p>
+<p>总览图中的 <code>FIxxx</code> 是注错工程。故障版产生“验证失败”可能正是注错检测的预期结果，应结合项目名称和注错报告判断，不能把它自动归为原版 cmdbuf_rd 的缺陷。</p>
+<a id="original"></a>
+<h2>03 打开原 SBY 任务，一键进入 FormalMC</h2>
+<h3>3.1 选择原任务</h3>
+<figure><div class="shot"><a href="images/03_sessions.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/03_sessions.png" width="1680" height="1120" alt="图 03：形式化工作台中的原 SBY 任务" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:0.71429%;top:21.87500%;width:11.66667%;height:4.01786%" title="形式化工作台"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:24.82143%;width:83.57143%;height:3.75000%" title="选中 cmdbuf_rd / sby 原任务"><b class="pin">2</b></span><span class="region" style="left:22.55952%;top:14.28571%;width:8.27381%;height:3.03571%" title="进入阶段工作台"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 03：形式化工作台中的原 SBY 任务</span><div class="legend"><span><b>1</b>形式化工作台</span><span><b>2</b>选中 cmdbuf_rd / sby 原任务</span><span><b>3</b>进入阶段工作台</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<ol>
+<li>点击左侧“<strong>形式化工作台</strong>”。</li>
+<li>在列表中选中 DUT 为 <code>cmdbuf_rd</code>、引擎为 <code>sby</code> 的原任务。</li>
+<li>双击该行，或点击“<strong>进入阶段工作台</strong>”。</li>
+</ol>
+<p>本次原会话 ID 为 <code>90855753a21f4dc7a0dc29b7892e38f3</code>。新设备使用自己的任务 ID；仅复制源码和验证包不会自动复制这个会话数据库。</p>
+<h3>3.2 进入原验收页</h3>
+<figure><div class="shot"><a href="images/04_original_stages.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/04_original_stages.png" width="1680" height="1120" alt="图 04：原 SBY 阶段树与切换按钮" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:14.76190%;top:13.75000%;width:35.41667%;height:3.30357%" title="整任务名称、引擎和结论"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:33.30357%;width:34.76190%;height:62.85714%" title="阶段树"><b class="pin">2</b></span><span class="region" style="left:14.76190%;top:28.48214%;width:29.58333%;height:3.30357%" title="切换到 FormalMC"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 04：原 SBY 阶段树与切换按钮</span><div class="legend"><span><b>1</b>整任务名称、引擎和结论</span><span><b>2</b>阶段树</span><span><b>3</b>切换到 FormalMC</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p><strong>识别顺序：①顶部 DUT / 引擎 / 结论 → ②左侧阶段树 → ③“切换到 FormalMC”。</strong></p>
+<p>顶部应显示 <code>cmdbuf_rd / SBY</code>，当前原任务为“<strong>已完成</strong>”，验证结论为“<strong>验证通过</strong>”。左侧包含需求、FG、FC、CK、属性、环境、覆盖、回放及总结等原流程节点。</p>
+<p>单击“<strong>3.3 检测点 CK</strong>”等节点，右侧“阶段要求”显示对应要求和产物路径。单击阶段只改变查看位置，不推进流程。已完成任务中的 Check / Complete 等按钮处于灰色是正常状态。</p>
+<p>图 04 右侧的“所选阶段门禁”是选中节点的检查投影，截图中显示“尚未检查”；它与顶部整任务结论、左侧阶段完成状态不是同一个字段。审查历史结论时，继续查看图 05 的已存检查结果和正式验收报告，不能只凭其中一行判断全部证明完成。</p>
+<p>点击“<strong>切换到 FormalMC</strong>”，会直接进入下图的 FormalMC 操作台。</p>
+<figure><div class="shot"><a href="images/07_formalmc_controls.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/07_formalmc_controls.png" width="1680" height="1120" alt="图 07：由原 SBY 任务进入 FormalMC 操作台" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:82.61905%;top:14.19643%;width:15.71429%;height:3.30357%" title="切换 SBY / FormalMC"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:25.80357%;width:83.57143%;height:14.64286%" title="当前 FormalMC 的工具配置"><b class="pin">2</b></span><span class="region" style="left:14.76190%;top:41.33929%;width:6.84524%;height:3.30357%" title="保存配置"><b class="pin">3</b></span><span class="region" style="left:22.08333%;top:41.33929%;width:6.84524%;height:3.30357%" title="环境检查"><b class="pin">4</b></span><span class="region" style="left:29.40476%;top:41.33929%;width:6.84524%;height:3.30357%" title="FormalMC 能力自检"><b class="pin">5</b></span><span class="region" style="left:36.72619%;top:41.51786%;width:7.38095%;height:2.94643%" title="运行完整验证"><b class="pin">6</b></span></div></div><figcaption><span class="title">图 07：由原 SBY 任务进入 FormalMC 操作台</span><div class="legend"><span><b>1</b>切换 SBY / FormalMC</span><span><b>2</b>当前 FormalMC 的工具配置</span><span><b>3</b>保存配置</span><span><b>4</b>环境检查</span><span><b>5</b>FormalMC 能力自检</span><span><b>6</b>运行完整验证</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>这一点击只切换操作界面。它不启动 FormalMC、不改写原 SBY 结论，也不将原 SBY 结果算成 FormalMC 通过。</p>
+<a id="packages"></a>
+<h2>04 从“双后端验证”直接进入项目</h2>
+<figure><div class="shot"><a href="images/08_package_list.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/08_package_list.png" width="1680" height="1120" alt="图 08：完整验证包列表" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:0.71429%;top:26.25000%;width:11.66667%;height:4.01786%" title="双后端验证"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:23.75000%;width:83.57143%;height:3.83929%" title="选中 cmdbuf_rd 完整包"><b class="pin">2</b></span><span class="region" style="left:14.76190%;top:16.51786%;width:15.23810%;height:3.30357%" title="打开 SBY / FormalMC"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 08：完整验证包列表</span><div class="legend"><span><b>1</b>双后端验证</span><span><b>2</b>选中 cmdbuf_rd 完整包</span><span><b>3</b>打开 SBY / FormalMC</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p><strong>操作位置：①左侧“双后端验证” → ②选中 <code>cmdbuf_rd</code> → ③“打开 SBY”或“打开 FormalMC”。</strong></p>
+<p>新设备没有原 SBY 会话时，只要执行服务已经登记完整验证包，就可以使用这个入口。它不要求先建立或完成一个新的 14 阶段任务。</p>
+<p>如果列表为空，执行服务尚未登记包或客户端连接了另一台服务。管理员需在登记文件中填写 <code>formal/cmdbuf_rd_dual_backend</code> 的本机绝对路径，再按 <a href="../../ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md">服务登记格式</a>启动匹配版本的服务。</p>
+<a id="sby"></a>
+<h2>05 配置 SBY</h2>
+<figure><div class="shot"><a href="images/09_sby_controls.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/09_sby_controls.png" width="1680" height="1120" alt="图 09：SBY 配置和操作按钮" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:14.76190%;top:25.80357%;width:83.57143%;height:18.21429%" title="当前 SBY 的工具配置"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:44.91071%;width:6.84524%;height:3.30357%" title="保存配置"><b class="pin">2</b></span><span class="region" style="left:22.08333%;top:44.91071%;width:6.84524%;height:3.30357%" title="环境检查"><b class="pin">3</b></span><span class="region" style="left:36.72619%;top:45.08929%;width:7.38095%;height:2.94643%" title="运行完整验证"><b class="pin">4</b></span><span class="region" style="left:44.58333%;top:44.91071%;width:7.38095%;height:3.30357%" title="取消当前运行：当前无活动任务"><b class="pin">5</b></span></div></div><figcaption><span class="title">图 09：SBY 配置和操作按钮</span><div class="legend"><span><b>1</b>当前 SBY 的工具配置</span><span><b>2</b>保存配置</span><span><b>3</b>环境检查</span><span><b>4</b>运行完整验证</span><span><b>5</b>取消当前运行：当前无活动任务</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>确认标题是 <strong><code>cmdbuf_rd · SBY</code></strong>，右上角 SBY 按钮为选中状态。以下路径均指向<strong>执行服务所在设备</strong>，不是 Windows 客户端。</p>
+<div class="table-scroll"><table><thead><tr><th>字段</th><th>怎么填</th><th>示例 / 本次值</th></tr></thead><tbody>
+<tr><td>工具可执行文件</td><td>填 <code>sby</code> 的实际文件路径；填命令名时需能在服务进程 PATH 中找到</td><td>新设备示例 <code>/opt/oss-cad-suite/bin/sby</code></td></tr>
+<tr><td>工具目录（用分号分隔）</td><td>提供 Yosys、SMTBMC 及所需求解器的目录；多个目录用英文 <code>;</code> 分隔</td><td><code>/opt/oss-cad-suite/bin;/opt/solvers/bin</code></td></tr>
+<tr><td>单任务超时（秒）</td><td>一个任务的外部等待预算，不是全部 22 任务的总时间</td><td>本次配置 <code>1200</code></td></tr>
+<tr><td>SBY 内部求解超时（秒，可留空）</td><td>SBY 自身的求解预算；留空使用任务原配置</td><td>本次配置 <code>900</code></td></tr>
+</tbody></table></div>
+<p>截图中的 <code>/home/ucagent-lab/...</code> 是本次虚拟机的实际安装路径。其他设备应填写自己的路径，不直接照搬。</p>
+<ol>
+<li>填写或调整字段。</li>
+<li>点击“<strong>保存配置</strong>”，等待“已保存 sby 配置”提示。</li>
+<li>点击“<strong>环境检查</strong>”。</li>
+<li>环境检查通过后，点击“<strong>运行完整验证</strong>”。</li>
+</ol>
+<p>SBY 的“<strong>能力自检</strong>”按钮在当前界面中为灰色；该按钮提供给 FormalMC 使用。正常重跑当前 SBY 项目不需要点击它。</p>
+<p>配置变更后没有保存，启动会显示下图的提示，不会提交检查或验证任务：</p>
+<figure><div class="shot"><a href="images/13_unsaved_config.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/13_unsaved_config.png" width="1680" height="1120" alt="图 13：配置未保存提示" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:14.76190%;top:44.91071%;width:6.84524%;height:3.30357%" title="保存配置"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:49.10714%;width:83.57143%;height:1.51786%" title="提示"><b class="pin">2</b></span></div></div><figcaption><span class="title">图 13：配置未保存提示</span><div class="legend"><span><b>1</b>保存配置</span><span><b>2</b>提示</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>图中为拍图临时把超时从 <code>1200</code> 改为 <code>1201</code> 产生的真实客户端提示，随后已恢复原值，没有修改服务配置。编辑草稿可以在同一操作台来回切换后端时保留；需要长期保存时必须点击“保存配置”。</p>
+<a id="formalmc"></a>
+<h2>06 配置 FormalMC</h2>
+<figure><div class="shot"><a href="images/07_formalmc_controls.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/07_formalmc_controls.png" width="1680" height="1120" alt="图 07：FormalMC 工具配置" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:82.61905%;top:14.19643%;width:15.71429%;height:3.30357%" title="切换 SBY / FormalMC"><b class="pin">1</b></span><span class="region" style="left:14.76190%;top:25.80357%;width:83.57143%;height:14.64286%" title="当前 FormalMC 的工具配置"><b class="pin">2</b></span><span class="region" style="left:14.76190%;top:41.33929%;width:6.84524%;height:3.30357%" title="保存配置"><b class="pin">3</b></span><span class="region" style="left:22.08333%;top:41.33929%;width:6.84524%;height:3.30357%" title="环境检查"><b class="pin">4</b></span><span class="region" style="left:29.40476%;top:41.33929%;width:6.84524%;height:3.30357%" title="FormalMC 能力自检"><b class="pin">5</b></span><span class="region" style="left:36.72619%;top:41.51786%;width:7.38095%;height:2.94643%" title="运行完整验证"><b class="pin">6</b></span></div></div><figcaption><span class="title">图 07：FormalMC 工具配置</span><div class="legend"><span><b>1</b>切换 SBY / FormalMC</span><span><b>2</b>当前 FormalMC 的工具配置</span><span><b>3</b>保存配置</span><span><b>4</b>环境检查</span><span><b>5</b>FormalMC 能力自检</span><span><b>6</b>运行完整验证</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<ol>
+<li>点击右上角“<strong>切换到 FormalMC</strong>”。</li>
+<li>确认标题变为 <strong><code>cmdbuf_rd · FormalMC</code></strong>。</li>
+<li>填写执行设备实际安装的 FormalMC 可执行文件，例如 <code>/opt/formalmc/bin/FormalMC</code>。这只是路径格式示例，不表示该文件在当前机器上存在。</li>
+<li>如厂商工具依赖额外目录，在“工具目录”填写对应目录；许可证和厂商初始化环境由服务进程所在设备提供。</li>
+<li>设置单任务超时，点击“<strong>保存配置</strong>”。</li>
+<li>先做“<strong>环境检查</strong>”，再做“<strong>能力自检</strong>”；通过后点击“<strong>运行完整验证</strong>”。</li>
+</ol>
+<p>FormalMC 模式没有 SBY 内部超时字段。SBY 和 FormalMC 分别保存工具路径、超时和运行结果；切回 SBY 后，其配置仍是 SBY 配置。</p>
+<p><strong>能力自检</strong>使用运行包内的小模型检查工具是否支持所需初始状态、符号输入、覆盖目标和故意失败的断言。自检通过只证明运行入口满足这些检查，不表示 cmdbuf_rd 已证明。完整 FormalMC 运行也会自动执行这项自检。</p>
+<p>当前虚拟机未安装真实 FormalMC，工具缺失截图见 <a href="#results">第 09 节</a>。未发现工具时，应在实际有工具和许可证的执行设备上配置并重新运行。</p>
+<a id="inventory"></a>
+<h2>07 查看 22 个任务与 177 个检查点</h2>
+<figure><div class="shot"><a href="images/10_job_inventory.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/10_job_inventory.png" width="1680" height="1120" alt="图 10：任务与检查点清单" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:14.76190%;top:17.94643%;width:58.33333%;height:2.14286%" title="核对验证范围"><b class="pin">1</b></span><span class="region" style="left:28.33333%;top:52.50000%;width:6.78571%;height:2.41071%" title="任务与检查点页签"><b class="pin">2</b></span><span class="region" style="left:15.35714%;top:55.98214%;width:81.78571%;height:40.17857%" title="任务与检查点"><b class="pin">3</b></span></div></div><figcaption><span class="title">图 10：任务与检查点清单</span><div class="legend"><span><b>1</b>核对验证范围</span><span><b>2</b>任务与检查点页签</span><span><b>3</b>任务与检查点</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>点击下方“<strong>任务与检查点</strong>”页签，核对顶部范围：</p>
+<div class="table-scroll"><table><thead><tr><th>项目</th><th>当前封存包</th></tr></thead><tbody>
+<tr><td>任务总数</td><td>22</td></tr>
+<tr><td>规格检查点 CK</td><td>177</td></tr>
+<tr><td>安全检查点</td><td>107</td></tr>
+<tr><td>业务覆盖检查点</td><td>65</td></tr>
+<tr><td>环境假设</td><td>5</td></tr>
+</tbody></table></div>
+<p>表格显示任务 ID、证明 / 覆盖模式和关联的 CK 数量；向下滚动可查看剩余任务。数学供应证明、辅助不变量等任务可能关联 0 个直接 CK，这不表示它们没有参与依赖证明。</p>
+<p>完整测试点分解是 <strong>15 FG → 35 FC → 177 CK</strong>，见 <a href="../../formal/cmdbuf_rd_dual_backend/spec_catalog.md">规格分解</a> 和 <a href="../../formal/cmdbuf_rd_dual_backend/spec_catalog.json">机器可读清单</a>。该页是任务清单，不是逐 CK 的编辑器；逐项定义和运行结果在规格文件及结果 JSON 中查看。</p>
+<p>当前项目的“运行完整验证”会提交全套任务，运行器按真实依赖关系安排供应证明和依赖任务。只修改仓库顶层 <code>rtl/</code> 不会更新封存包的 <code>jobs/</code> 输入；设计变更后需重新生成输入并重新验证。</p>
+<a id="execute"></a>
+<h2>08 执行环境检查、自检和完整验证</h2>
+<h3>8.1 按钮的准确含义</h3>
+<div class="table-scroll"><table><thead><tr><th>按钮</th><th>实际操作</th><th>何时使用</th></tr></thead><tbody>
+<tr><td>保存配置</td><td>保存当前后端工具路径和超时</td><td>修改字段后先执行</td></tr>
+<tr><td>环境检查</td><td>检查运行包完整性和对应工具能否启动</td><td>第一次连接新设备、修改路径或工具环境后</td></tr>
+<tr><td>能力自检</td><td>执行 FormalMC 兼容性小模型</td><td>FormalMC 环境检查通过后</td></tr>
+<tr><td><strong>运行完整验证</strong></td><td>用当前后端执行 cmdbuf_rd 全套任务</td><td>配置和工具条件就绪后</td></tr>
+<tr><td>取消当前运行</td><td>请求停止该项目真正处于活动状态的运行</td><td>需要停止当前求解时</td></tr>
+</tbody></table></div>
+<h3>8.2 完整运行的实际步骤</h3>
+<ol>
+<li>确认标题和后端正确。</li>
+<li>核对范围为 <strong>22 个任务 / 177 个检查点</strong>。</li>
+<li>修改配置后点击“保存配置”。</li>
+<li>点击“环境检查”，到“运行日志”查看实际输出。</li>
+<li>FormalMC 再执行“能力自检”。</li>
+<li>点击“运行完整验证”一次。</li>
+<li>观察“正在执行”提示，记录项目、后端、动作与运行 ID。</li>
+<li>在“本后端运行结果”和“运行日志”查看进度与最终结果。</li>
+</ol>
+<p>运行中可以切换 SBY / FormalMC 页面；已经启动的任务继续使用启动时的后端。切换页面不会把正在运行的 SBY 改成 FormalMC，也不会启动第二个任务。活动任务存在时，保存和新启动按钮受控；服务同时只接受一个新的活动运行。</p>
+<p>环境检查、能力自检及完整运行都有各自的运行记录。当前操作台主要展示当前后端的最近一次记录；“刷新”或 <code>F5</code> 重新读取实际状态，不会重新求解。</p>
+<a id="results"></a>
+<h2>09 读懂结果与运行日志</h2>
+<h3>9.1 结果页：先看运行范围，再看通过状态</h3>
+<figure><div class="shot"><a href="images/11_sby_partial_result.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/11_sby_partial_result.png" width="1680" height="1120" alt="图 11：历史 SBY 单任务结果" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:15.35714%;top:55.53571%;width:67.26190%;height:3.57143%" title="单任务通过，但未完整通过"><b class="pin">1</b></span><span class="region" style="left:16.54762%;top:84.28571%;width:33.33333%;height:9.73214%" title="未运行计数与完整套件标记"><b class="pin">2</b></span></div></div><figcaption><span class="title">图 11：历史 SBY 单任务结果</span><div class="legend"><span><b>1</b>单任务通过，但未完整通过</span><span><b>2</b>未运行计数与完整套件标记</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>图 11 是真实的 <code>quota_math</code> 单任务运行。它的工具求解通过，但 <strong><code>full_suite_passed</code> 为 <code>false</code></strong>，所以正文明确提示“本次尚未获得完整验证通过结果”。这个运行仅验证辅助数学任务，结果里其余 172 个规格检测点为未运行，5 个环境假设单列。</p>
+<p>结果第一行的“运行完整验证”是动作名称，<strong>不能只凭该名称或“验证通过”文字判断全套完成</strong>。应同时核对结果中的范围和完整套件标记。</p>
+<div class="table-scroll"><table><thead><tr><th>看到的结果</th><th>应如何理解</th></tr></thead><tbody>
+<tr><td>环境检查通过</td><td>包和工具启动检查通过，尚未证明 DUT</td></tr>
+<tr><td>能力自检通过</td><td>运行入口的兼容性检查通过，尚未证明 DUT</td></tr>
+<tr><td>单任务 <code>passed</code>，<code>full_suite_passed=false</code></td><td>本次是部分运行，不是全套通过</td></tr>
+<tr><td>正文显示“本次完整验证通过”，结果 <code>full_suite_passed=true</code></td><td>当前后端的全套运行满足检查点和依赖要求</td></tr>
+<tr><td><code>error</code> / 工具缺失 / 许可证错误</td><td>执行条件或工具发生错误，不能当作 DUT 证明通过</td></tr>
+<tr><td><code>timeout</code> / <code>cancelled</code> / 未识别结果</td><td>本次没有获得完整证明结论</td></tr>
+<tr><td>安全性质失败并有反例</td><td>检查具体性质、假设和波形；动态重跑确认问题</td></tr>
+</tbody></table></div>
+<p>全套通过时核对当前后端、22 任务的运行范围和 <strong>107 安全已证明 / 65 覆盖已命中 / 5 假设单列</strong>。环境假设不计为证明成功数量。</p>
+<h3>9.2 日志页：查看真实工具输出</h3>
+<figure><div class="shot"><a href="images/12_sby_log.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/12_sby_log.png" width="1680" height="1120" alt="图 12：实际 SBY 运行日志" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:15.35714%;top:55.98214%;width:82.38095%;height:40.17857%" title="运行日志"><b class="pin">1</b></span></div></div><figcaption><span class="title">图 12：实际 SBY 运行日志</span><div class="legend"><span><b>1</b>运行日志</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>点击“<strong>运行日志</strong>”。这里保留真实命令、工具诊断、求解输出和退出情况。右侧滚动条用于查看前后内容。排查时记录运行 ID、后端、任务 ID、错误文字及相关日志，不只截图一个 PASS / FAIL。</p>
+<p>操作台屏幕上的原始结果内容可以滚动查看。完整证据文件保存在执行服务状态目录下；需要复制完整目录时，在执行设备按实际工作空间和运行 ID 找到对应文件。当前界面没有为完整包提供一个“导出全部证据”的按钮。</p>
+<h3>9.3 FormalMC 工具缺失示例</h3>
+<figure><div class="shot"><a href="images/14_formalmc_missing_tool.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/14_formalmc_missing_tool.png" width="1680" height="1120" alt="图 14：真实 FormalMC 缺工具日志" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:15.35714%;top:52.41071%;width:82.38095%;height:43.75000%" title="真实日志"><b class="pin">1</b></span></div></div><figcaption><span class="title">图 14：真实 FormalMC 缺工具日志</span><div class="legend"><span><b>1</b>真实日志</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>日志中的 <code>Tool not found: FormalMC</code> 表示执行服务没有找到指定工具。按以下顺序排查：</p>
+<ol>
+<li>工具文件是否存在于执行设备。</li>
+<li>“工具可执行文件”是否填写正确，并已保存。</li>
+<li>服务用户是否有执行权限、所需 PATH / 动态库和厂商环境。</li>
+<li>工具能够启动后，再排查许可证或编译问题。</li>
+</ol>
+<p>这张图不是 FormalMC 发现 RTL 错误的反例。本次原 SBY 已验收的结果也不会因此变成 FormalMC 通过。</p>
+<a id="recovery"></a>
+<h2>10 取消、退出和恢复</h2>
+<p>“<strong>取消当前运行</strong>”没有任务时为灰色，如图 09。该项目有活动任务时可以点击，等待状态从取消请求转为最终取消，再查看日志。</p>
+<p>如果运行 SBY 后切到 FormalMC 页面，取消按钮仍针对该项目实际运行中的 SBY 任务；先看“正在执行”提示中的后端和运行 ID。若活动运行属于另一个登记项目，当前项目的取消入口不会控制它。</p>
+<p>当前入口连接远程执行服务，关闭 Tk 客户端不会停止远程服务。重新打开客户端并连接同一服务、同一包，可以读取服务保存的配置和运行结果。客户端未保存草稿不保证在退出后恢复，重要配置先点击保存。</p>
+<p>电脑重启后，重新建立 SSH 转发，再打开桌面。原 SBY 阶段会话和新运行结果保存在服务端；本机 <code>.pyw</code> 文件并不包含完整远程数据库。如果用 UCAgent 的本机服务模式，退出行为应以该模式窗口的实际提示为准。</p>
+<a id="stages"></a>
+<h2>11 原 14 阶段工作台的按钮和页签</h2>
+<h3>11.1 查看原阶段结果</h3>
+<figure><div class="shot"><a href="images/05_original_results.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/05_original_results.png" width="1680" height="1120" alt="图 05：原任务检查结果与事件" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:64.28571%;top:33.57143%;width:7.44048%;height:3.66071%" title="检查结果与事件页签"><b class="pin">1</b></span><span class="region" style="left:51.19048%;top:38.30357%;width:46.42857%;height:45.35714%" title="原任务结果"><b class="pin">2</b></span></div></div><figcaption><span class="title">图 05：原任务检查结果与事件</span><div class="legend"><span><b>1</b>检查结果与事件页签</span><span><b>2</b>原任务结果</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<div class="table-scroll"><table><thead><tr><th>页签</th><th>用途</th></tr></thead><tbody>
+<tr><td>阶段要求</td><td>查看选中阶段的要求、参考文件、产物路径和门禁信息</td></tr>
+<tr><td>输入与产物编辑</td><td>查看工作空间文件；允许编辑的文件提交前审查差异</td></tr>
+<tr><td><strong>检查结果与事件</strong></td><td>查看执行状态、验证结论、实际检查结果和事件</td></tr>
+<tr><td>日志与审核</td><td>保存阶段日志、填写审核理由、处理实际人工门禁</td></tr>
+<tr><td>Agent 工作台</td><td>让已配置的 Agent 准备当前阶段产物并调用原检查流程</td></tr>
+</tbody></table></div>
+<p>阶段树会将分组与子节点展开显示。例如 FG / FC / CK 属于规格分解部分，屏幕上的顶层编号不等于原子阶段总数。当前验收记录确认 <strong>14 个启用阶段全部完成</strong>，以正式阶段记录为准。</p>
+<h3>11.2 按钮怎么用</h3>
+<div class="table-scroll"><table><thead><tr><th>按钮</th><th>含义</th><th>原已完成任务</th></tr></thead><tbody>
+<tr><td>检查 Check</td><td>实际执行当前阶段检查</td><td>通常灰色，不需要为查看结果重新点击</td></tr>
+<tr><td>完成并推进</td><td>满足门禁后完成阶段并进入下一阶段</td><td>当前已完成</td></tr>
+<tr><td>审核通过 / 退回修改</td><td>处理确实启用的人工审核门禁</td><td>依据当前阶段和审核状态启用</td></tr>
+<tr><td>暂停 / 恢复</td><td>处理阶段任务的暂停与恢复</td><td>依据实际状态启用</td></tr>
+<tr><td>停止检查</td><td>停止阶段工作台当前活动检查</td><td>不等于双后端包的取消按钮</td></tr>
+<tr><td>重新开启所选阶段</td><td>让既有任务重新进入阶段工作</td><td>查看历史结果或重跑封存包时无需点击</td></tr>
+<tr><td>切换到 FormalMC</td><td>当前 cmdbuf_rd 的完整包导航入口</td><td>可用；只切换页面</td></tr>
+</tbody></table></div>
+<p>审核通过不能替代 Check，保存文件和 Agent 回复也不会自动完成阶段。已完成任务的灰色按钮反映真实状态，不表示 GUI 失效。</p>
+<h3>11.3 Agent 工作台</h3>
+<figure><div class="shot"><a href="images/06_stage_agent.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/06_stage_agent.png" width="1680" height="1120" alt="图 06：已完成任务中的 Agent 工作台" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:50.59524%;top:37.41071%;width:47.61905%;height:59.46429%" title="Agent 工作台"><b class="pin">1</b></span></div></div><figcaption><span class="title">图 06：已完成任务中的 Agent 工作台</span><div class="legend"><span><b>1</b>Agent 工作台</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<p>新建的阶段任务需要使用 Agent 时，在该页填写任务说明、运行轮数与时间预算，再使用“启动 / 继续 Agent”。执行服务应已配置适用的 Agent 身份和模型入口；本仓库的 Tk 客户端本身不提供模型凭据。</p>
+<p>遇到人工审核门禁，先审查“输入与产物编辑”的差异和“检查结果与事件”，再在“日志与审核”填写实际理由并审核，通过后继续。当前原任务已完成，Agent 操作不作为重跑 22 任务的必要步骤。</p>
+<a id="new-design"></a>
+<h2>12 新设计如何建立阶段任务</h2>
+<p>当前封存 cmdbuf_rd 的重跑入口已经在第 04～08 节说明。需要对新设计建立规格、测试点和属性时，使用原阶段流程：</p>
+<ol>
+<li>在“项目空间”导入执行设备上的真实工程，核对顶层和源码路径。</li>
+<li>在“工具链”核对可用的引擎和工具链 ID。</li>
+<li>进入“形式化工作台”，点击“新建阶段任务”。</li>
+<li>在下图表单中填写自己的项目、DUT、引擎及对应工具链。</li>
+<li>按工作要求设置人工审核、动态反例复现和静态缺陷关联选项，再提交。</li>
+<li>进入阶段工作台，按实际阶段要求准备产物、执行 Check / Complete，并处理审核门禁。</li>
+</ol>
+<figure><div class="shot"><a href="images/15_new_stage_dialog.png" target="_blank" rel="noopener" title="查看原始截图"><img src="images/15_new_stage_dialog.png" width="1680" height="1120" alt="图 15：新建阶段任务表单" loading="lazy"></a><div class="markers" aria-hidden="true"><span class="region" style="left:21.01190%;top:22.58929%;width:49.28571%;height:8.66071%" title="目标项目和 DUT 标识符"><b class="pin">1</b></span><span class="region" style="left:21.01190%;top:31.25000%;width:49.28571%;height:8.75000%" title="证明引擎与对应工具链"><b class="pin">2</b></span><span class="region" style="left:21.01190%;top:39.91071%;width:49.28571%;height:12.41071%" title="审核与辅助验证选项"><b class="pin">3</b></span><span class="region" style="left:62.85714%;top:68.75000%;width:7.61905%;height:3.03571%" title="提交：拍图未点击"><b class="pin">4</b></span></div></div><figcaption><span class="title">图 15：新建阶段任务表单</span><div class="legend"><span><b>1</b>目标项目和 DUT 标识符</span><span><b>2</b>证明引擎与对应工具链</span><span><b>3</b>审核与辅助验证选项</span><span><b>4</b>提交：拍图未点击</span></div><div class="figure-note">真实 Tk 窗口 · 点击图片查看原始尺寸 · 编号框线是说明页叠加层</div></figcaption></figure>
+<div class="table-scroll"><table><thead><tr><th>字段</th><th>操作要点</th></tr></thead><tbody>
+<tr><td>项目名称</td><td>选择已导入的目标设计，不能照抄截图里作为示例的辅助证明项目</td></tr>
+<tr><td>环境名称（标识符）</td><td>当前界面对 DUT 名称字段的标签；填写目标 DUT 的实际顶层模块标识符</td></tr>
+<tr><td>证明引擎</td><td>选择 <code>sby</code> 或 <code>formalmc</code></td></tr>
+<tr><td>工具链</td><td>填写该引擎在执行服务中真实登记的工具链 ID</td></tr>
+<tr><td>每阶段人工审核</td><td><code>true</code> 启用真实人工门禁，<code>false</code> 按检查器流程推进</td></tr>
+<tr><td>配套动态反例复现</td><td>根据项目所需的动态回放环境配置</td></tr>
+<tr><td>启用静态缺陷关联阶段</td><td>根据项目的静态检查能力配置</td></tr>
+</tbody></table></div>
+<p>图 15 保留了窗口原始默认值，仅用于识别字段，拍图没有提交新任务。默认引擎和工具链文字并不保证成对可运行：创建 SBY 任务时选择 <code>sby</code> 和其实际工具链；创建 FormalMC 任务时选择 <code>formalmc</code> 和已登记的对应工具链。新任务不会自动继承旧报告和已通过的结论。</p>
+<a id="faq"></a>
+<h2>13 常见问题与截图中的能力提示</h2>
+<div class="table-scroll"><table><thead><tr><th>现象</th><th>处理方法</th></tr></thead><tbody>
+<tr><td>双击 <code>.pyw</code> 无窗口</td><td>用 Python 显式启动；核对 Tk 安装、文件关联及服务地址</td></tr>
+<tr><td>服务连接不上</td><td>核对服务进程、端口、客户端地址和 SSH 转发；先连通再刷新</td></tr>
+<tr><td>“双后端验证”列表为空</td><td>核对是否连接正确服务，以及完整包登记文件是否生效</td></tr>
+<tr><td>原页没有当前包的“切换到 FormalMC”入口</td><td>核对客户端和服务版本，以及登记文件中的包与真实会话 ID 关联</td></tr>
+<tr><td>修改配置后检查没有启动</td><td>先保存配置，再执行环境检查或完整验证</td></tr>
+<tr><td>SBY 的能力自检按钮灰色</td><td>正常；该自检按钮用于 FormalMC</td></tr>
+<tr><td>完整运行启动按钮灰色</td><td>检查是否有活动任务、请求是否还在处理、项目数据是否已加载</td></tr>
+<tr><td><code>Tool not found</code></td><td>填写执行设备真实工具路径，保存后重新环境检查</td></tr>
+<tr><td>许可证不可用</td><td>在执行服务设备上配置实际许可证环境，再检查日志</td></tr>
+<tr><td>配置冲突 / revision 变化</td><td>刷新实际服务状态，核对自己的配置后再保存，不连续盲目重试</td></tr>
+<tr><td>界面出现 <code>passed</code> 但还提示未完整通过</td><td>核对动作是否环境检查 / 自检 / 单任务，查看 <code>full_suite_passed</code></td></tr>
+<tr><td>有求解超时</td><td>检查任务和日志；必要时调整外部与 SBY 内部预算，再发起新的运行</td></tr>
+</tbody></table></div>
+<h3>原 SBY 页的能力说明是什么意思</h3>
+<div class="table-scroll"><table><thead><tr><th>提示</th><th>含义</th></tr></thead><tbody>
+<tr><td>原生 Yosys assert / assume / cover，并非完整 SVA</td><td>当前前端使用其支持的语法；时序规则可以用监视器、历史状态和断言表达</td></tr>
+<tr><td>COI 本接入不支持</td><td>当前没有提供完整的性质到 RTL 影响锥报告</td></tr>
+<tr><td>guard / trigger Cover 不等于完整空洞性</td><td>触发条件可达不等于所有断言都已做完语义空洞性分析</td></tr>
+<tr><td>活性未建立</td><td>当前没有建立在无限等待环境下每个请求最终完成的证明</td></tr>
+<tr><td>BMC 无反例不等于无界证明</td><td>有限深度没有失败输入，不能当成所有时间范围的安全证明</td></tr>
+<tr><td>反例必须真实动态重跑</td><td>工具得到失败输入后，实际回放确认问题，才记为已复现</td></tr>
+</tbody></table></div>
+<p>这些是当前接入和项目范围的提示，不是某条新断言报错。当前原任务验收为 107 安全检查点无界证明、65 覆盖、5 环境假设单列和 49 类代表注错回放；没有声称完整 COI、全面空洞性或无限背压下的无条件最终完成。详见 <a href="../../verification/closure/verification_summary.md">正式验收报告</a>。</p>
+<a id="evidence"></a>
+<h2>14 截图和证据索引</h2>
+<div class="table-scroll"><table><thead><tr><th>图号</th><th>实际画面</th><th>本次是否执行验证</th></tr></thead><tbody>
+<tr><td>01</td><td>总览和主导航</td><td>否</td></tr>
+<tr><td>02</td><td>服务连接弹窗</td><td>否，仅查看</td></tr>
+<tr><td>03</td><td>原 SBY 阶段任务列表</td><td>否</td></tr>
+<tr><td>04</td><td>原阶段树和一键入口</td><td>否，仅选择 CK 阶段查看</td></tr>
+<tr><td>05</td><td>原任务检查结果与事件</td><td>否，读取既有验收</td></tr>
+<tr><td>06</td><td>原任务 Agent 工作台</td><td>否，未启动 Agent</td></tr>
+<tr><td>07</td><td>FormalMC 配置与操作台</td><td>否，读取既有记录</td></tr>
+<tr><td>08</td><td>已登记完整验证包列表</td><td>否</td></tr>
+<tr><td>09</td><td>SBY 配置和操作按钮</td><td>否</td></tr>
+<tr><td>10</td><td>22 任务清单</td><td>否</td></tr>
+<tr><td>11</td><td>历史 SBY <code>quota_math</code> 单任务结果</td><td>否，读取既有运行</td></tr>
+<tr><td>12</td><td>上述单任务真实日志</td><td>否，读取既有运行</td></tr>
+<tr><td>13</td><td>未保存配置提示</td><td>否，仅客户端临时草稿，已恢复</td></tr>
+<tr><td>14</td><td>历史 FormalMC 缺工具日志</td><td>否，读取既有运行</td></tr>
+<tr><td>15</td><td>新阶段任务表单</td><td>否，未提交</td></tr>
+</tbody></table></div>
+<p>全部截图在独立虚拟显示中使用实际 Tk 应用和实际执行服务拍摄，PNG 转码保持原始像素、尺寸和颜色。离线 HTML 阅读版的编号和框线是文档叠加层，不修改截图，也不是 GUI 新增按钮。</p>
+<p>相应源码为仓库中的 <code>ucagent-tool/desktop/ucagent_tk/</code>；<a href="capture_receipt.json">拍图记录</a>保存了源码哈希、截图哈希、GET 操作和前后状态检查。本次拍图确认原会话、包配置及运行记录均未改变。</p>
+<p>完整验证输入与运行方法见 <a href="../../formal/cmdbuf_rd_dual_backend/README.md">验证包 README</a>。原始证据归档的完整重组与校验见 <a href="../../README.md#复核上传完整性与原始证据">仓库首页</a>。</p><footer>截图与已交付 GUI 源码哈希一致；拍图仅读取既有记录。原 SBY 验收与本次双后端新运行分别查看。<br><a href="capture_receipt.json">拍图记录</a> · <a href="annotations.json">文档标注坐标</a> · <a href="README.md">Markdown 说明</a></footer></main></div><script>
+const markerButton=document.getElementById('marker-toggle');
+markerButton.addEventListener('click',()=>{const hidden=document.body.classList.toggle('no-markers');markerButton.textContent=hidden?'显示图中编号':'隐藏图中编号';markerButton.setAttribute('aria-pressed',String(!hidden));});
+document.getElementById('print-guide').addEventListener('click',()=>window.print());
+const links=[...document.querySelectorAll('aside nav a')];
+const observer=new IntersectionObserver(entries=>{entries.filter(e=>e.isIntersecting).forEach(e=>{links.forEach(link=>link.classList.toggle('current',link.hash==='#'+e.target.id));});},{rootMargin:'-12% 0px -78% 0px'});
+document.querySelectorAll('main a[id]').forEach(node=>observer.observe(node));
+</script></body></html>

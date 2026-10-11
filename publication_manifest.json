@@ -59,8 +59,88 @@
       "sha256": "5dcde9e241eb15757c61d48fbb497c24584613f4f03671b6a87b31f26a341e5b"
     },
     "docs/GitHub使用说明.md": {
-      "bytes": 2574,
-      "sha256": "3d5828c5a61ca0ebe0fead44b2e07f596c25166d5dec4c7068794d21f6a16420"
+      "bytes": 2716,
+      "sha256": "c74aa6dd80ef370cbe489ab171d9a42885eb63c861d5bb7d2015dff665cea710"
+    },
+    "docs/gui/annotations.json": {
+      "bytes": 6781,
+      "sha256": "f0853c094416a053e4dbbee7ad2dc13327ed6dc9f11af907b0ab31673722736e"
+    },
+    "docs/gui/capture_receipt.json": {
+      "bytes": 15554,
+      "sha256": "27a4466925ca4242f89d81c1457c85d18b3b22de1a11466a2f0782f24fe81b92"
+    },
+    "docs/gui/images/01_overview.png": {
+      "bytes": 41401,
+      "sha256": "6b7fa785dcea46de862bfcc43cf3c99ee1a4f9e614c10d682d6b0798fe96ba3b"
+    },
+    "docs/gui/images/02_connection.png": {
+      "bytes": 42197,
+      "sha256": "85787d4df5db7a0d68aee10e3eb4d9eaa23dae35584ec035b77d1b493c6fb35d"
+    },
+    "docs/gui/images/03_sessions.png": {
+      "bytes": 32039,
+      "sha256": "5ff124602b9b09ad3b7bf6952067f7206d98713bc3366942393d2146df86461f"
+    },
+    "docs/gui/images/04_original_stages.png": {
+      "bytes": 44978,
+      "sha256": "0fe009ebca6dbb5465b8219f1d2c4e060b848c2a1f733848bfe182c442139ad3"
+    },
+    "docs/gui/images/05_original_results.png": {
+      "bytes": 51975,
+      "sha256": "a109fb2e5c05c47331c5b46d1bdc706a64e5a7f86d265751a8d189551d3f3ef1"
+    },
+    "docs/gui/images/06_stage_agent.png": {
+      "bytes": 47975,
+      "sha256": "72a9a592eb9b682e739609f73b6ef65b16ea4b2c66b1ff123e4a88ba4e59f676"
+    },
+    "docs/gui/images/07_formalmc_controls.png": {
+      "bytes": 33535,
+      "sha256": "1a258c4812f8d3b22e580e1e597576cb97014b0b7c38ca0ede74ee3973c23c5b"
+    },
+    "docs/gui/images/08_package_list.png": {
+      "bytes": 21892,
+      "sha256": "ee1b7d42f1070a9009a1cd395532eb36c6f4b10d6e5cdc91417e69ed41c6362b"
+    },
+    "docs/gui/images/09_sby_controls.png": {
+      "bytes": 45050,
+      "sha256": "5412207c488326e30ec3d5645f3ac7677936089eab3d4ed8e087fefe24a26a0a"
+    },
+    "docs/gui/images/10_job_inventory.png": {
+      "bytes": 36337,
+      "sha256": "9067725f99801fb77b4bae0f701d143d9135669a9795999d7c3308f7a8e363ad"
+    },
+    "docs/gui/images/11_sby_partial_result.png": {
+      "bytes": 44296,
+      "sha256": "bb2013744f2f05987ad119adf5ed760148884cd1d6683ca1b1f0ac911c6e74df"
+    },
+    "docs/gui/images/12_sby_log.png": {
+      "bytes": 35007,
+      "sha256": "1c8507ef6a81d639f1999082676934e21964c153ad025a7cc8a73fda08899585"
+    },
+    "docs/gui/images/13_unsaved_config.png": {
+      "bytes": 45269,
+      "sha256": "858a61ab3f396cdf8ad8b03a51dc194740ede8db1e04147fb780e9c867b7c55b"
+    },
+    "docs/gui/images/14_formalmc_missing_tool.png": {
+      "bytes": 30668,
+      "sha256": "2f69e5aaa5998481c00d96861f4e6adf88f087e0b389d91bce68dd314f8b8537"
+    },
+    "docs/gui/images/15_new_stage_dialog.png": {
+      "bytes": 38698,
+      "sha256": "9de0f6fc7ecbe65a27beee8dfd12a16379c6cd323a5440915de6a9d0187a354a"
+    },
+    "docs/gui/index.html": {
+      "bytes": 51983,
+      "sha256": "a18e6e77b48f048df0be3b79beacfa5195057f48d99488904c9e6f655c75e590"
+    },
+    "docs/gui/README.md": {
+      "bytes": 26524,
+      "sha256": "2399983fbe147726e311cb176a4837098ac04096fbc6992d71f6e57e43baa7a3"
+    },
+    "docs/gui/styles.css": {
+      "bytes": 5235,
+      "sha256": "64da481d3b053934ffe4115f0f5d83beba634ce1393b2a176c45055ffbdc1759"
     },
     "docs/timing/00_overview.png": {
       "bytes": 770320,
@@ -2687,8 +2767,8 @@
       "sha256": "8b449589cbf7dd87c108658960b13a3c9ea968d1790839daed1e6aa82ad27eaa"
     },
     "README.md": {
-      "bytes": 4760,
-      "sha256": "271ae1f1e2b944a63306759ae709aa3bf1608de841c51e55705f79033d309196"
+      "bytes": 5089,
+      "sha256": "f184d42231c13c8542d789c7c559674e3af207921a61d78fbecde7b82eb5d2e3"
     },
     "rtl/cmdbuf_rd.sv": {
       "bytes": 1745,

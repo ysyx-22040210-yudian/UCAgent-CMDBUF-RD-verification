@@ -1,5 +1,7 @@
 # 从 GitHub 使用当前项目
 
+桌面的逐步操作和实际截图见 [Tk GUI 详细操作图示](gui/README.md)；下载后可打开 [离线阅读版](gui/index.html)。
+
 ## 原生桌面界面
 
 客户端使用 Python 3.8+ 自带的 Tkinter/ttk；Linux 桌面系统需提供 Tk 和图形显示环境。执行服务使用 Python 3.11+ 和 `ucagent-tool/requirements.txt` 所列依赖。若已有相同 UCAgent 环境，先核对本仓库的 GUI 变更清单和版本，再配套更新客户端与服务。

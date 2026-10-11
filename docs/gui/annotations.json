@@ -1,0 +1,331 @@
+{
+  "source": "Documentation overlay only: captured widget bounds and visual inspection of original pixels",
+  "changes_tk_controls": false,
+  "changes_png_pixels": false,
+  "screenshots": {
+    "01_overview": [
+      {
+        "label": "形式化工作台",
+        "x": 12,
+        "y": 245,
+        "width": 196,
+        "height": 45
+      },
+      {
+        "label": "双后端验证",
+        "x": 12,
+        "y": 294,
+        "width": 196,
+        "height": 45
+      },
+      {
+        "label": "设置",
+        "x": 12,
+        "y": 658,
+        "width": 196,
+        "height": 45
+      }
+    ],
+    "02_connection": [
+      {
+        "label": "顶部连接入口",
+        "x": 1570,
+        "y": 16,
+        "width": 85,
+        "height": 33
+      },
+      {
+        "label": "服务地址",
+        "x": 596,
+        "y": 294,
+        "width": 574,
+        "height": 34
+      },
+      {
+        "label": "连接服务",
+        "x": 1059,
+        "y": 443,
+        "width": 111,
+        "height": 33
+      }
+    ],
+    "03_sessions": [
+      {
+        "label": "形式化工作台",
+        "x": 12,
+        "y": 245,
+        "width": 196,
+        "height": 45
+      },
+      {
+        "label": "选中 cmdbuf_rd / sby 原任务",
+        "x": 248,
+        "y": 278,
+        "width": 1404,
+        "height": 42
+      },
+      {
+        "label": "进入阶段工作台",
+        "x": 379,
+        "y": 160,
+        "width": 139,
+        "height": 34
+      }
+    ],
+    "04_original_stages": [
+      {
+        "label": "整任务名称、引擎和结论",
+        "x": 248,
+        "y": 154,
+        "width": 595,
+        "height": 37
+      },
+      {
+        "label": "阶段树",
+        "x": 248,
+        "y": 373,
+        "width": 584,
+        "height": 704
+      },
+      {
+        "label": "切换到 FormalMC",
+        "x": 248,
+        "y": 319,
+        "width": 497,
+        "height": 37
+      }
+    ],
+    "05_original_results": [
+      {
+        "label": "检查结果与事件页签",
+        "x": 1080,
+        "y": 376,
+        "width": 125,
+        "height": 41
+      },
+      {
+        "label": "原任务结果",
+        "x": 860,
+        "y": 429,
+        "width": 780,
+        "height": 508
+      }
+    ],
+    "06_stage_agent": [
+      {
+        "label": "Agent 工作台",
+        "x": 850,
+        "y": 419,
+        "width": 800,
+        "height": 666
+      }
+    ],
+    "07_formalmc_controls": [
+      {
+        "label": "切换 SBY / FormalMC",
+        "x": 1388,
+        "y": 159,
+        "width": 264,
+        "height": 37
+      },
+      {
+        "label": "当前 FormalMC 的工具配置",
+        "x": 248,
+        "y": 289,
+        "width": 1404,
+        "height": 164
+      },
+      {
+        "label": "保存配置",
+        "x": 248,
+        "y": 463,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "环境检查",
+        "x": 371,
+        "y": 463,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "FormalMC 能力自检",
+        "x": 494,
+        "y": 463,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "运行完整验证",
+        "x": 617,
+        "y": 465,
+        "width": 124,
+        "height": 33
+      }
+    ],
+    "08_package_list": [
+      {
+        "label": "双后端验证",
+        "x": 12,
+        "y": 294,
+        "width": 196,
+        "height": 45
+      },
+      {
+        "label": "选中 cmdbuf_rd 完整包",
+        "x": 248,
+        "y": 266,
+        "width": 1404,
+        "height": 43
+      },
+      {
+        "label": "打开 SBY / FormalMC",
+        "x": 248,
+        "y": 185,
+        "width": 256,
+        "height": 37
+      }
+    ],
+    "09_sby_controls": [
+      {
+        "label": "当前 SBY 的工具配置",
+        "x": 248,
+        "y": 289,
+        "width": 1404,
+        "height": 204
+      },
+      {
+        "label": "保存配置",
+        "x": 248,
+        "y": 503,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "环境检查",
+        "x": 371,
+        "y": 503,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "运行完整验证",
+        "x": 617,
+        "y": 505,
+        "width": 124,
+        "height": 33
+      },
+      {
+        "label": "取消当前运行：当前无活动任务",
+        "x": 749,
+        "y": 503,
+        "width": 124,
+        "height": 37
+      }
+    ],
+    "10_job_inventory": [
+      {
+        "label": "核对验证范围",
+        "x": 248,
+        "y": 201,
+        "width": 980,
+        "height": 24
+      },
+      {
+        "label": "任务与检查点页签",
+        "x": 476,
+        "y": 588,
+        "width": 114,
+        "height": 27
+      },
+      {
+        "label": "任务与检查点",
+        "x": 258,
+        "y": 627,
+        "width": 1374,
+        "height": 450
+      }
+    ],
+    "11_sby_partial_result": [
+      {
+        "label": "单任务通过，但未完整通过",
+        "x": 258,
+        "y": 622,
+        "width": 1130,
+        "height": 40
+      },
+      {
+        "label": "未运行计数与完整套件标记",
+        "x": 278,
+        "y": 944,
+        "width": 560,
+        "height": 109
+      }
+    ],
+    "12_sby_log": [
+      {
+        "label": "运行日志",
+        "x": 258,
+        "y": 627,
+        "width": 1384,
+        "height": 450
+      }
+    ],
+    "13_unsaved_config": [
+      {
+        "label": "保存配置",
+        "x": 248,
+        "y": 503,
+        "width": 115,
+        "height": 37
+      },
+      {
+        "label": "提示",
+        "x": 248,
+        "y": 550,
+        "width": 1404,
+        "height": 17
+      }
+    ],
+    "14_formalmc_missing_tool": [
+      {
+        "label": "真实日志",
+        "x": 258,
+        "y": 587,
+        "width": 1384,
+        "height": 490
+      }
+    ],
+    "15_new_stage_dialog": [
+      {
+        "label": "目标项目和 DUT 标识符",
+        "x": 353,
+        "y": 253,
+        "width": 828,
+        "height": 97
+      },
+      {
+        "label": "证明引擎与对应工具链",
+        "x": 353,
+        "y": 350,
+        "width": 828,
+        "height": 98
+      },
+      {
+        "label": "审核与辅助验证选项",
+        "x": 353,
+        "y": 447,
+        "width": 828,
+        "height": 139
+      },
+      {
+        "label": "提交：拍图未点击",
+        "x": 1056,
+        "y": 770,
+        "width": 128,
+        "height": 34
+      }
+    ]
+  }
+}

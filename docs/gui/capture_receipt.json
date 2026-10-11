@@ -1,0 +1,545 @@
+{
+  "date": "2026-10-12",
+  "source": "Real UCAgent Tk desktop, actual existing VM task service",
+  "display": "Independent Xvfb 1680x1120; original pixels captured as XWD",
+  "source_hashes": {
+    "desktop/ucagent_tk/portable_formal.py": "e423080a4624d9a0e337a28a3b6774cafa51ce55da48f5e586b89fa9d8ea6af9",
+    "desktop/ucagent_tk/formal.py": "ad3a26f30effa841d2aa04f24f29cf823f33ccf9e11a731fef9deefec68b4091",
+    "desktop/ucagent_tk/app.py": "39595ae9829b5d1f60c3a5ad45296a43e175fc0d49f353351bc893051b28903a"
+  },
+  "api_operations": [
+    {
+      "path": "/projects",
+      "method": "GET"
+    },
+    {
+      "path": "/runs",
+      "method": "GET"
+    },
+    {
+      "path": "/overview",
+      "method": "GET"
+    },
+    {
+      "path": "/projects",
+      "method": "GET"
+    },
+    {
+      "path": "/runs",
+      "method": "GET"
+    },
+    {
+      "path": "/formal-sessions",
+      "method": "GET"
+    },
+    {
+      "path": "/projects",
+      "method": "GET"
+    },
+    {
+      "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal",
+      "method": "GET"
+    },
+    {
+      "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3/files",
+      "method": "GET"
+    },
+    {
+      "path": "/formal-sessions/90855753a21f4dc7a0dc29b7892e38f3/events?after=0",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd/runs/run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd/runs/run-b8af730718b94129a2c49a486f321c6f",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd",
+      "method": "GET"
+    },
+    {
+      "path": "/portable-formal/cmdbuf_rd/runs/run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+      "method": "GET"
+    },
+    {
+      "path": "/formal-sessions",
+      "method": "GET"
+    },
+    {
+      "path": "/projects",
+      "method": "GET"
+    }
+  ],
+  "write_operations": 0,
+  "new_solver_runs": 0,
+  "source_session_unchanged": true,
+  "package_configs_and_runs_unchanged": true,
+  "screenshots": [
+    {
+      "id": "01_overview",
+      "title": "总览与主导航",
+      "view": "Dashboard",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "formal_sessions",
+          "x": 12,
+          "y": 245,
+          "width": 196,
+          "height": 45
+        },
+        {
+          "label": "portable_formal",
+          "x": 12,
+          "y": 294,
+          "width": 196,
+          "height": 45
+        },
+        {
+          "label": "settings",
+          "x": 12,
+          "y": 658,
+          "width": 196,
+          "height": 45
+        }
+      ],
+      "file": "images/01_overview.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "6b7fa785dcea46de862bfcc43cf3c99ee1a4f9e614c10d682d6b0798fe96ba3b",
+      "original_xwd_sha256": "6767b303c550952f239036e492b4647910b9ce41f66560417f40c9427916e338",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "02_connection",
+      "title": "连接执行服务",
+      "view": "Dashboard",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "复制",
+          "x": 510,
+          "y": 394,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "连接服务",
+          "x": 1059,
+          "y": 443,
+          "width": 111,
+          "height": 33
+        },
+        {
+          "label": "服务地址",
+          "x": 596,
+          "y": 294,
+          "width": 574,
+          "height": 34
+        }
+      ],
+      "file": "images/02_connection.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "85787d4df5db7a0d68aee10e3eb4d9eaa23dae35584ec035b77d1b493c6fb35d",
+      "original_xwd_sha256": "a2c49cd9f8280667c173c0ddbd4a7a6a904784e7a58487e2d4b1e8e5105baf15",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "03_sessions",
+      "title": "选中原 SBY 阶段任务",
+      "view": "FormalSessionsView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "原 SBY 任务",
+          "x": 248,
+          "y": 244,
+          "width": 1404,
+          "height": 686
+        }
+      ],
+      "file": "images/03_sessions.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "5ff124602b9b09ad3b7bf6952067f7206d98713bc3366942393d2146df86461f",
+      "original_xwd_sha256": "ce257a6dcfcb16fc089f83c7a928810f878f178012b305b32aa0afb08ddc076f",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "04_original_stages",
+      "title": "原 SBY 14 阶段与一键入口",
+      "view": "FormalSessionView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "阶段树",
+          "x": 248,
+          "y": 373,
+          "width": 584,
+          "height": 704
+        },
+        {
+          "label": "切换到 FormalMC",
+          "x": 248,
+          "y": 319,
+          "width": 497,
+          "height": 37
+        },
+        {
+          "label": "阶段内容",
+          "x": 848,
+          "y": 373,
+          "width": 804,
+          "height": 714
+        }
+      ],
+      "file": "images/04_original_stages.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "0fe009ebca6dbb5465b8219f1d2c4e060b848c2a1f733848bfe182c442139ad3",
+      "original_xwd_sha256": "302121dab4ea7b10c5b16b5d1cfba24e86fa37a4621125248b2d60cbe29cd96b",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "05_original_results",
+      "title": "原任务结果与事件",
+      "view": "FormalSessionView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "原任务结果",
+          "x": 860,
+          "y": 429,
+          "width": 780,
+          "height": 508
+        },
+        {
+          "label": "结果与事件页签",
+          "x": 848,
+          "y": 373,
+          "width": 804,
+          "height": 714
+        }
+      ],
+      "file": "images/05_original_results.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "a109fb2e5c05c47331c5b46d1bdc706a64e5a7f86d265751a8d189551d3f3ef1",
+      "original_xwd_sha256": "53ca5a07818266418e00417c8aa1e6177a9e6da98b00face2ab9e97b4e82f009",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "06_stage_agent",
+      "title": "阶段 Agent 工作台（已完成任务）",
+      "view": "FormalSessionView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "Agent 工作台",
+          "x": 850,
+          "y": 419,
+          "width": 800,
+          "height": 666
+        }
+      ],
+      "file": "images/06_stage_agent.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "72a9a592eb9b682e739609f73b6ef65b16ea4b2c66b1ff123e4a88ba4e59f676",
+      "original_xwd_sha256": "3480de7a23b50027357919599c0711d1d66066c8853e5e398bc467d3c35dc144",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "07_formalmc_controls",
+      "title": "FormalMC 操作台和工具配置",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "后端切换",
+          "x": 1388,
+          "y": 159,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "保存配置",
+          "x": 248,
+          "y": 463,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "能力自检",
+          "x": 494,
+          "y": 463,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "运行完整验证",
+          "x": 617,
+          "y": 465,
+          "width": 124,
+          "height": 33
+        }
+      ],
+      "backend": "formalmc",
+      "displayed_run": {
+        "id": "run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+        "action": "preflight",
+        "status": "error",
+        "full_suite_passed": false
+      },
+      "file": "images/07_formalmc_controls.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "1a258c4812f8d3b22e580e1e597576cb97014b0b7c38ca0ede74ee3973c23c5b",
+      "original_xwd_sha256": "b987d6436dffa871bb5f6e762e2d0aaa49eb7e6b76beefadebe822e8c4ca2d28",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "08_package_list",
+      "title": "从双后端验证列表进入项目",
+      "view": "PortableFormalPackages",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "已登记项目",
+          "x": 248,
+          "y": 232,
+          "width": 1404,
+          "height": 825
+        }
+      ],
+      "file": "images/08_package_list.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "ee1b7d42f1070a9009a1cd395532eb36c6f4b10d6e5cdc91417e69ed41c6362b",
+      "original_xwd_sha256": "6d466c9a6ea3ea43a09fbcd30e1c915bff34972e12539fcb9b98f406ff6345ed",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "09_sby_controls",
+      "title": "SBY 配置与完整验证入口",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "环境检查",
+          "x": 371,
+          "y": 503,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "运行完整验证",
+          "x": 617,
+          "y": 505,
+          "width": 124,
+          "height": 33
+        },
+        {
+          "label": "取消当前运行",
+          "x": 749,
+          "y": 503,
+          "width": 124,
+          "height": 37
+        }
+      ],
+      "backend": "sby",
+      "displayed_run": {
+        "id": "run-b8af730718b94129a2c49a486f321c6f",
+        "action": "run",
+        "status": "passed",
+        "full_suite_passed": false
+      },
+      "file": "images/09_sby_controls.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "5412207c488326e30ec3d5645f3ac7677936089eab3d4ed8e087fefe24a26a0a",
+      "original_xwd_sha256": "880b3282841a89279ac9f165f1f15e252b6b1de318a40f8f7549ae0ed0d6e481",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "10_job_inventory",
+      "title": "22 个任务与检查点清单",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "任务与检查点",
+          "x": 258,
+          "y": 627,
+          "width": 1374,
+          "height": 450
+        }
+      ],
+      "backend": "sby",
+      "displayed_run": {
+        "id": "run-b8af730718b94129a2c49a486f321c6f",
+        "action": "run",
+        "status": "passed",
+        "full_suite_passed": false
+      },
+      "file": "images/10_job_inventory.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "9067725f99801fb77b4bae0f701d143d9135669a9795999d7c3308f7a8e363ad",
+      "original_xwd_sha256": "25cacdedb8a380f476e58c6bb2176f95973e2ce6b955b420b7f9790a04fefb9d",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "11_sby_partial_result",
+      "title": "实际 SBY 单任务结果（非完整验证通过）",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "运行结果",
+          "x": 258,
+          "y": 663,
+          "width": 1384,
+          "height": 414
+        }
+      ],
+      "backend": "sby",
+      "displayed_run": {
+        "id": "run-b8af730718b94129a2c49a486f321c6f",
+        "action": "run",
+        "status": "passed",
+        "full_suite_passed": false
+      },
+      "file": "images/11_sby_partial_result.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "bb2013744f2f05987ad119adf5ed760148884cd1d6683ca1b1f0ac911c6e74df",
+      "original_xwd_sha256": "f33efaa53106ec797e3c9d7a0d7b42e58606fa01e817e8f5f360dd0f74ecf72e",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "12_sby_log",
+      "title": "实际 SBY 求解日志",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "运行日志",
+          "x": 258,
+          "y": 627,
+          "width": 1384,
+          "height": 450
+        }
+      ],
+      "backend": "sby",
+      "displayed_run": {
+        "id": "run-b8af730718b94129a2c49a486f321c6f",
+        "action": "run",
+        "status": "passed",
+        "full_suite_passed": false
+      },
+      "file": "images/12_sby_log.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "1c8507ef6a81d639f1999082676934e21964c153ad025a7cc8a73fda08899585",
+      "original_xwd_sha256": "eb89a10ee9f3a67204d077336a20c71d3a819e6d97e6887d51c556014c72310a",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "13_unsaved_config",
+      "title": "未保存配置时的提示",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "保存配置",
+          "x": 248,
+          "y": 503,
+          "width": 115,
+          "height": 37
+        },
+        {
+          "label": "提示",
+          "x": 248,
+          "y": 550,
+          "width": 1404,
+          "height": 17
+        }
+      ],
+      "backend": "sby",
+      "displayed_run": {
+        "id": "run-b8af730718b94129a2c49a486f321c6f",
+        "action": "run",
+        "status": "passed",
+        "full_suite_passed": false
+      },
+      "file": "images/13_unsaved_config.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "858a61ab3f396cdf8ad8b03a51dc194740ede8db1e04147fb780e9c867b7c55b",
+      "original_xwd_sha256": "7deb31ae5752e7f22e697d2da6a118d25fad3e855a742ae07592a519054f5e7d",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "14_formalmc_missing_tool",
+      "title": "实际 FormalMC 工具缺失日志",
+      "view": "PortableFormalView",
+      "native_tk": true,
+      "highlights": [
+        {
+          "label": "真实日志",
+          "x": 258,
+          "y": 587,
+          "width": 1384,
+          "height": 490
+        }
+      ],
+      "backend": "formalmc",
+      "displayed_run": {
+        "id": "run-d8f263b3957f4d7c8e58a6ec2a8d005b",
+        "action": "preflight",
+        "status": "error",
+        "full_suite_passed": false
+      },
+      "file": "images/14_formalmc_missing_tool.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "2f69e5aaa5998481c00d96861f4e6adf88f087e0b389d91bce68dd314f8b8537",
+      "original_xwd_sha256": "37e529f5e46f50ab15658273ed1232eeea69604d979d4531ea9dd4b07b219ba3",
+      "unchanged_pixels": true
+    },
+    {
+      "id": "15_new_stage_dialog",
+      "title": "新建阶段任务表单（仅查看，未提交）",
+      "view": "FormalSessionsView",
+      "native_tk": true,
+      "highlights": [],
+      "file": "images/15_new_stage_dialog.png",
+      "width": 1680,
+      "height": 1120,
+      "png_sha256": "9de0f6fc7ecbe65a27beee8dfd12a16379c6cd323a5440915de6a9d0187a354a",
+      "original_xwd_sha256": "c5f19c48681eb132473e87ff1cb954bf69dbb4dc599fa89d73e9a3b2e1455b39",
+      "unchanged_pixels": true
+    }
+  ]
+}

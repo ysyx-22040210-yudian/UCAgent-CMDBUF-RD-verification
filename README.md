@@ -15,6 +15,7 @@
 | `docs/design/` | 详细设计方案与架构图 |
 | `docs/timing/` | 已对齐时序图、5A / 6B / 10B 决策 |
 | `docs/fault_catalog/` | 注错清单及容量保底场景 |
+| `docs/gui/` | 15 张真实 Tk 截图、逐步操作说明和离线阅读版 |
 | `simulation/` | 早期 RTL 仿真工程、独立参考模型与历史结果 |
 | `verification/closure/` | 完整 UCAgent 流程报告与原始证据分卷 |
 | `verification/gui/` | Tk GUI 回归日志、实际界面截图与验收记录 |
@@ -36,6 +37,8 @@ FormalMC 入口沿用当前 UCAgent 支持的命令接口，并先执行能力�
 这是已验证版本的快照：形式任务使用 `jobs/` 中锁定的输入和模型。只修改顶层 `rtl/` 不会改变形式验证对象；迭代设计应重新生成任务输入并重新验证。
 
 ## 使用 Tk GUI
+
+[详细操作图示](docs/gui/README.md)覆盖启动连接、一键切换 SBY / FormalMC、保存配置、运行验证、结果判断、日志排错及阶段工作台。下载后可打开 [带点击位置编号的阅读版](docs/gui/index.html)。
 
 ```sh
 python3 gui/UCAgent-Desktop.pyz --server http://127.0.0.1:8814
