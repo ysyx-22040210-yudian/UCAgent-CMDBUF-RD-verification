@@ -1,0 +1,824 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "code_baseline": "1949e75f62417e4e916d6f6fc94e2b15a364a3d5",
+  "scope": "All project explanatory Markdown and equivalent HTML; vendor upstream docs retained as source",
+  "expected_markdown_sources": [
+    "README.md",
+    "docs/GitHub使用说明.md",
+    "docs/design/cmdbuf_rd_design.md",
+    "docs/fault_catalog/capacity_policy.md",
+    "docs/fault_catalog/cmdbuf_rd_fault_catalog.md",
+    "docs/gui/README.md",
+    "formal/cmdbuf_rd_dual_backend/README.md",
+    "formal/cmdbuf_rd_dual_backend/spec_catalog.md",
+    "gui/README.md",
+    "provenance/README.md",
+    "rtl/README.md",
+    "simulation/cmdbuf_rd/README.md",
+    "simulation/cmdbuf_rd/docs/capacity_policy.md",
+    "simulation/cmdbuf_rd/docs/design_spec.md",
+    "simulation/cmdbuf_rd/docs/fault_catalog.md",
+    "simulation/cmdbuf_rd/docs/mutation_plan.md",
+    "simulation/cmdbuf_rd/docs/verification_baseline.md",
+    "simulation/cmdbuf_rd/docs/verification_report.md",
+    "ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md",
+    "verification/closure/spec_catalog.md",
+    "verification/closure/verification_summary.md",
+    "verification/verilog_20261012/README.md"
+  ],
+  "markdown_source_count": 22,
+  "volumes": [
+    {
+      "id": "01_project_usage",
+      "title": "项目使用与部署说明",
+      "subtitle": "RTL 集成 项目目录 服务登记与证据复核",
+      "sources": [
+        "README.md",
+        "rtl/README.md",
+        "docs/GitHub使用说明.md",
+        "gui/README.md",
+        "ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md",
+        "provenance/README.md"
+      ]
+    },
+    {
+      "id": "02_rtl_design",
+      "title": "CMDBUF RD 详细设计方案",
+      "subtitle": "接口 架构 状态 流水 年龄管理与并发更新",
+      "sources": [
+        "docs/design/cmdbuf_rd_design.md"
+      ]
+    },
+    {
+      "id": "03_timing_scenarios",
+      "title": "CMDBUF RD 时序图集",
+      "subtitle": "13 个已对齐场景与 5A 6B 10B 决策",
+      "sources": []
+    },
+    {
+      "id": "04_fault_catalog",
+      "title": "CMDBUF RD 注错与容量保护清单",
+      "subtitle": "49 组注错点 历史歧义与容量准入",
+      "sources": [
+        "docs/fault_catalog/cmdbuf_rd_fault_catalog.md",
+        "docs/fault_catalog/capacity_policy.md"
+      ]
+    },
+    {
+      "id": "05_tk_gui_guide",
+      "title": "UCAgent Tk GUI 详细操作说明",
+      "subtitle": "启动 连接 一键切换 配置 执行 结果与排错",
+      "sources": [
+        "docs/gui/README.md"
+      ]
+    },
+    {
+      "id": "06_formal_verification",
+      "title": "CMDBUF RD Formal 验证说明",
+      "subtitle": "完整流程 测试点分解 当前结果与双后端迁移",
+      "sources": [
+        "verification/verilog_20261012/README.md",
+        "verification/closure/verification_summary.md",
+        "formal/cmdbuf_rd_dual_backend/README.md",
+        "formal/cmdbuf_rd_dual_backend/spec_catalog.md"
+      ]
+    },
+    {
+      "id": "07_simulation_history",
+      "title": "CMDBUF RD 仿真基线与历史记录",
+      "subtitle": "早期设计 仿真计划 注错计划与阶段报告",
+      "sources": [
+        "simulation/cmdbuf_rd/README.md",
+        "simulation/cmdbuf_rd/docs/verification_baseline.md",
+        "simulation/cmdbuf_rd/docs/mutation_plan.md",
+        "simulation/cmdbuf_rd/docs/verification_report.md",
+        "simulation/cmdbuf_rd/docs/design_spec.md"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "README.md",
+      "bytes": 7247,
+      "sha256": "bef4d37b57d132a57da9c6b8e8ec9134181e0bf025816e215bb76eb2f9d5a54b",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/GitHub使用说明.md",
+      "bytes": 2929,
+      "sha256": "d3257eac4814cd679634515a345f6bbde3359cf4550f75c210a39d2f118a0189",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/design/architecture.png",
+      "bytes": 328836,
+      "sha256": "41a370d88fa257c7e8b6663474e3ef0f8a4979bf7f8711dcd6c761655fd6c284",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/design/cmdbuf_rd_design.md",
+      "bytes": 38600,
+      "sha256": "61e22eb38eaade2a34bd8a7b08a1c1e6d4775591be19055edd695d8eeb6b2f05",
+      "volume": "02_rtl_design",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/design/index.html",
+      "bytes": 48550,
+      "sha256": "515e4c06685b7cfe40c94985a347e52f162f9ef1774ca11a323cec7b106d6b83",
+      "volume": "02_rtl_design",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/fault_catalog/capacity_policy.md",
+      "bytes": 3306,
+      "sha256": "ce9711b51962f677b93069506e9f564826b509f797ae2727c078b1d5a3d85d24",
+      "volume": "04_fault_catalog",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/fault_catalog/cmdbuf_rd_fault_catalog.md",
+      "bytes": 54498,
+      "sha256": "5f708a24539269920b308902b536e7ec6ad00475b353c335bf79b0e45a905863",
+      "volume": "04_fault_catalog",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/fault_catalog/index.html",
+      "bytes": 81480,
+      "sha256": "1203069aabefa48254b8abe860780ca737aed3b54a154962dd4cafaa53e1f0ef",
+      "volume": "04_fault_catalog",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/README.md",
+      "bytes": 26524,
+      "sha256": "2399983fbe147726e311cb176a4837098ac04096fbc6992d71f6e57e43baa7a3",
+      "volume": "05_tk_gui_guide",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/annotations.json",
+      "bytes": 6781,
+      "sha256": "f0853c094416a053e4dbbee7ad2dc13327ed6dc9f11af907b0ab31673722736e",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/01_overview.png",
+      "bytes": 41401,
+      "sha256": "6b7fa785dcea46de862bfcc43cf3c99ee1a4f9e614c10d682d6b0798fe96ba3b",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/02_connection.png",
+      "bytes": 42197,
+      "sha256": "85787d4df5db7a0d68aee10e3eb4d9eaa23dae35584ec035b77d1b493c6fb35d",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/03_sessions.png",
+      "bytes": 32039,
+      "sha256": "5ff124602b9b09ad3b7bf6952067f7206d98713bc3366942393d2146df86461f",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/04_original_stages.png",
+      "bytes": 44978,
+      "sha256": "0fe009ebca6dbb5465b8219f1d2c4e060b848c2a1f733848bfe182c442139ad3",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/05_original_results.png",
+      "bytes": 51975,
+      "sha256": "a109fb2e5c05c47331c5b46d1bdc706a64e5a7f86d265751a8d189551d3f3ef1",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/06_stage_agent.png",
+      "bytes": 47975,
+      "sha256": "72a9a592eb9b682e739609f73b6ef65b16ea4b2c66b1ff123e4a88ba4e59f676",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/07_formalmc_controls.png",
+      "bytes": 33535,
+      "sha256": "1a258c4812f8d3b22e580e1e597576cb97014b0b7c38ca0ede74ee3973c23c5b",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/08_package_list.png",
+      "bytes": 21892,
+      "sha256": "ee1b7d42f1070a9009a1cd395532eb36c6f4b10d6e5cdc91417e69ed41c6362b",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/09_sby_controls.png",
+      "bytes": 45050,
+      "sha256": "5412207c488326e30ec3d5645f3ac7677936089eab3d4ed8e087fefe24a26a0a",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/10_job_inventory.png",
+      "bytes": 36337,
+      "sha256": "9067725f99801fb77b4bae0f701d143d9135669a9795999d7c3308f7a8e363ad",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/11_sby_partial_result.png",
+      "bytes": 44296,
+      "sha256": "bb2013744f2f05987ad119adf5ed760148884cd1d6683ca1b1f0ac911c6e74df",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/12_sby_log.png",
+      "bytes": 35007,
+      "sha256": "1c8507ef6a81d639f1999082676934e21964c153ad025a7cc8a73fda08899585",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/13_unsaved_config.png",
+      "bytes": 45269,
+      "sha256": "858a61ab3f396cdf8ad8b03a51dc194740ede8db1e04147fb780e9c867b7c55b",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/14_formalmc_missing_tool.png",
+      "bytes": 30668,
+      "sha256": "2f69e5aaa5998481c00d96861f4e6adf88f087e0b389d91bce68dd314f8b8537",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/images/15_new_stage_dialog.png",
+      "bytes": 38698,
+      "sha256": "9de0f6fc7ecbe65a27beee8dfd12a16379c6cd323a5440915de6a9d0187a354a",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/gui/index.html",
+      "bytes": 51983,
+      "sha256": "a18e6e77b48f048df0be3b79beacfa5195057f48d99488904c9e6f655c75e590",
+      "volume": "05_tk_gui_guide",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/01_timing.png",
+      "bytes": 140069,
+      "sha256": "7b4920838f98906c0e51bce270bfaf8ec800e4f2ce7a94dec8dbc1c1a61b86d4",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/02_timing.png",
+      "bytes": 108848,
+      "sha256": "61a92283a737a5f1034930039cb9a725bb28d82f080e2f8b7d312655fc7d0122",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/03_timing.png",
+      "bytes": 128516,
+      "sha256": "666a99e38c99dcdd2954a1528a815ee8f7e48be8ab8d10438d994693a57df397",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/04_timing.png",
+      "bytes": 107722,
+      "sha256": "7876a19b496c4f2e23829a6f2d88c22f6fc82bddab2e9fdcd57c022d88c58745",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/05_timing.png",
+      "bytes": 122763,
+      "sha256": "a02b2ec4f2f4fc51525c08e4cd94a692e9db1f14242785c9ee69fa594063aef5",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/06_timing.png",
+      "bytes": 123246,
+      "sha256": "f9a7e15b5bae07e5c1985777b02f7f38f6d5d4be772aa260756024825b10a858",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/07_timing.png",
+      "bytes": 123529,
+      "sha256": "881c81c7b231f2d493fe40f4dd92a165b520f0497d4477b8dbc9c8dac142fcf0",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/08_timing.png",
+      "bytes": 108828,
+      "sha256": "77ca73000ccfeacd1c8abb64be178d3ad3d2da16fab7cf48b7cd359511ff9c79",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/09_timing.png",
+      "bytes": 138828,
+      "sha256": "c68832fb0ffe1fe34ae86714c02a5b5da6c5aee3c43a484c75ebaab72667112a",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/10_timing.png",
+      "bytes": 132169,
+      "sha256": "a0c1cd3de3858e8f68150108cd8b6e91e07943178627d4cc11dce0f4b29f7a4d",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/11_timing.png",
+      "bytes": 172296,
+      "sha256": "11655fb5b151ed4b345e5a2e7dde0b926933c7467c00e4cd35f97c43bcd5c6b1",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/12_timing.png",
+      "bytes": 146960,
+      "sha256": "56bd8d1bd47673f3bf336c4f9f3924d6b0236c10ff88e5472de508ade3194248",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/13_timing.png",
+      "bytes": 148422,
+      "sha256": "f4172379796d4d66787345cd06d88de3de31f3ca25e5293cdf85eee2f78ebf57",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/decisions.json",
+      "bytes": 2704,
+      "sha256": "88925f0f31d5c40b99ea8de26fcb8bae9964a3cb27ec71591562ac8326cd7c57",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/index.html",
+      "bytes": 4395,
+      "sha256": "b8b2fe4b78bf56cdc15c5349b276088e9280ca4b91918c1a9703eb9f1522b405",
+      "volume": "03_timing_scenarios",
+      "duplicate_of": null
+    },
+    {
+      "file": "docs/timing/manifest.json",
+      "bytes": 2642,
+      "sha256": "b7893171d86cb0a6c21c4ab57d97c103809fd4e62d1a3ce1331f3f5527015f37",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "formal/cmdbuf_rd_dual_backend/README.md",
+      "bytes": 6401,
+      "sha256": "77ce44d2f556d2b98493c4fcd03641cc2d5087d9309664e41a734ac1852482ca",
+      "volume": "06_formal_verification",
+      "duplicate_of": null
+    },
+    {
+      "file": "formal/cmdbuf_rd_dual_backend/spec_catalog.md",
+      "bytes": 67693,
+      "sha256": "84a2a9972e988975469293fdbf7dca7f0dae50c7ae55f08685dfe56ceaed606c",
+      "volume": "06_formal_verification",
+      "duplicate_of": null
+    },
+    {
+      "file": "gui/README.md",
+      "bytes": 2799,
+      "sha256": "22639d7c56657a5dc43cc8a6828f26daa64fdf394256d3d63ba236e4b104501a",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "provenance/README.md",
+      "bytes": 992,
+      "sha256": "8b449589cbf7dd87c108658960b13a3c9ea968d1790839daed1e6aa82ad27eaa",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "rtl/README.md",
+      "bytes": 2400,
+      "sha256": "885cb6441a9e876feb4fb9378cf0619b329c3cfaeedaa9725c20af9fae985277",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "simulation/cmdbuf_rd/README.md",
+      "bytes": 4928,
+      "sha256": "c09adf2eba2c56021d12c9ba49d872db922cdbff5c09da4dc0287463cc6fd7cc",
+      "volume": "07_simulation_history",
+      "duplicate_of": null
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/capacity_policy.md",
+      "bytes": 3306,
+      "sha256": "ce9711b51962f677b93069506e9f564826b509f797ae2727c078b1d5a3d85d24",
+      "volume": "04_fault_catalog",
+      "duplicate_of": "docs/fault_catalog/capacity_policy.md"
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/design_spec.md",
+      "bytes": 37894,
+      "sha256": "eb15e531027feb145af8ec371308a65189296f3a8dab998df71caa57bfbcdc09",
+      "volume": "07_simulation_history",
+      "duplicate_of": null
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/fault_catalog.md",
+      "bytes": 54498,
+      "sha256": "5f708a24539269920b308902b536e7ec6ad00475b353c335bf79b0e45a905863",
+      "volume": "04_fault_catalog",
+      "duplicate_of": "docs/fault_catalog/cmdbuf_rd_fault_catalog.md"
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/mutation_plan.md",
+      "bytes": 9038,
+      "sha256": "6a938c7c448aefa1c2d28eb203cb637231b7cbedb820dff46638ee50354d85da",
+      "volume": "07_simulation_history",
+      "duplicate_of": null
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/verification_baseline.md",
+      "bytes": 10603,
+      "sha256": "7f207d5d4d3a8f080f5c7023a742493ce2c36dff0163630496efce4db44ca5df",
+      "volume": "07_simulation_history",
+      "duplicate_of": null
+    },
+    {
+      "file": "simulation/cmdbuf_rd/docs/verification_report.md",
+      "bytes": 5003,
+      "sha256": "3f9d8af3887e8e03289a98bbc3e9abbf07d32d2e18088d76309c006cec94d607",
+      "volume": "07_simulation_history",
+      "duplicate_of": null
+    },
+    {
+      "file": "ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md",
+      "bytes": 3017,
+      "sha256": "c9fc38fe0bedbe24a3a7c099b7f0de1efdabfffab592c4caddb3d6941f4c4c4d",
+      "volume": "01_project_usage",
+      "duplicate_of": null
+    },
+    {
+      "file": "verification/closure/index.html",
+      "bytes": 665395,
+      "sha256": "6e82c6ab9f015c00a273bb10a6455b9af867c4d7b8c3ab39aa2cfd40bc5b7b36",
+      "volume": "06_formal_verification",
+      "duplicate_of": null
+    },
+    {
+      "file": "verification/closure/spec_catalog.md",
+      "bytes": 67693,
+      "sha256": "84a2a9972e988975469293fdbf7dca7f0dae50c7ae55f08685dfe56ceaed606c",
+      "volume": "06_formal_verification",
+      "duplicate_of": "formal/cmdbuf_rd_dual_backend/spec_catalog.md"
+    },
+    {
+      "file": "verification/closure/verification_summary.md",
+      "bytes": 6272,
+      "sha256": "060861b81b5b1fad3838d655be05529aa5bf9f565724c43cd1c8a9dabeeec0ce",
+      "volume": "06_formal_verification",
+      "duplicate_of": null
+    },
+    {
+      "file": "verification/gui/02_formalmc_ready.png",
+      "bytes": 28537,
+      "sha256": "5df7ad30186dbb7d08494faefb329098c3091faa0d86123a219fd377ec0bc20c",
+      "volume": null,
+      "duplicate_of": null
+    },
+    {
+      "file": "verification/verilog_20261012/README.md",
+      "bytes": 5301,
+      "sha256": "f411d911f2f7b9ceaeb9eae6cd8d820d2298c2722f2d87eea152be27bbbf348e",
+      "volume": "06_formal_verification",
+      "duplicate_of": null
+    }
+  ],
+  "word_outputs": [
+    {
+      "file": "01_project_usage.docx",
+      "bytes": 76456,
+      "figures": 1,
+      "parsed_blocks": 652,
+      "sources": {
+        "README.md": 318,
+        "rtl/README.md": 91,
+        "docs/GitHub使用说明.md": 68,
+        "gui/README.md": 96,
+        "ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md": 64,
+        "provenance/README.md": 15
+      },
+      "image_sources": [
+        "verification/gui/02_formalmc_ready.png"
+      ]
+    },
+    {
+      "file": "02_rtl_design.docx",
+      "bytes": 511686,
+      "figures": 2,
+      "parsed_blocks": 2629,
+      "sources": {
+        "docs/design/cmdbuf_rd_design.md": 2629
+      },
+      "image_sources": [
+        "docs/design/architecture.png",
+        "docs/timing/01_timing.png"
+      ]
+    },
+    {
+      "file": "03_timing_scenarios.docx",
+      "bytes": 1614993,
+      "figures": 13,
+      "parsed_blocks": 0,
+      "sources": {},
+      "image_sources": [
+        "docs/timing/01_timing.png",
+        "docs/timing/02_timing.png",
+        "docs/timing/03_timing.png",
+        "docs/timing/04_timing.png",
+        "docs/timing/05_timing.png",
+        "docs/timing/06_timing.png",
+        "docs/timing/07_timing.png",
+        "docs/timing/08_timing.png",
+        "docs/timing/09_timing.png",
+        "docs/timing/10_timing.png",
+        "docs/timing/11_timing.png",
+        "docs/timing/12_timing.png",
+        "docs/timing/13_timing.png"
+      ]
+    },
+    {
+      "file": "04_fault_catalog.docx",
+      "bytes": 66961,
+      "figures": 0,
+      "parsed_blocks": 3349,
+      "sources": {
+        "docs/fault_catalog/cmdbuf_rd_fault_catalog.md": 3210,
+        "docs/fault_catalog/capacity_policy.md": 139
+      },
+      "image_sources": []
+    },
+    {
+      "file": "05_tk_gui_guide.docx",
+      "bytes": 581143,
+      "figures": 64,
+      "parsed_blocks": 1548,
+      "sources": {
+        "docs/gui/README.md": 1548
+      },
+      "image_sources": [
+        "docs/gui/images/01_overview.png",
+        "docs/gui/images/02_connection.png",
+        "docs/gui/images/03_sessions.png",
+        "docs/gui/images/04_original_stages.png",
+        "docs/gui/images/05_original_results.png",
+        "docs/gui/images/06_stage_agent.png",
+        "docs/gui/images/07_formalmc_controls.png",
+        "docs/gui/images/08_package_list.png",
+        "docs/gui/images/09_sby_controls.png",
+        "docs/gui/images/10_job_inventory.png",
+        "docs/gui/images/11_sby_partial_result.png",
+        "docs/gui/images/12_sby_log.png",
+        "docs/gui/images/13_unsaved_config.png",
+        "docs/gui/images/14_formalmc_missing_tool.png",
+        "docs/gui/images/15_new_stage_dialog.png"
+      ]
+    },
+    {
+      "file": "06_formal_verification.docx",
+      "bytes": 84594,
+      "figures": 0,
+      "parsed_blocks": 4909,
+      "sources": {
+        "verification/verilog_20261012/README.md": 173,
+        "verification/closure/verification_summary.md": 266,
+        "formal/cmdbuf_rd_dual_backend/README.md": 104,
+        "formal/cmdbuf_rd_dual_backend/spec_catalog.md": 4366
+      },
+      "image_sources": []
+    },
+    {
+      "file": "07_simulation_history.docx",
+      "bytes": 533956,
+      "figures": 2,
+      "parsed_blocks": 5030,
+      "sources": {
+        "simulation/cmdbuf_rd/README.md": 125,
+        "simulation/cmdbuf_rd/docs/verification_baseline.md": 1333,
+        "simulation/cmdbuf_rd/docs/mutation_plan.md": 573,
+        "simulation/cmdbuf_rd/docs/verification_report.md": 357,
+        "simulation/cmdbuf_rd/docs/design_spec.md": 2642
+      },
+      "image_sources": [
+        "docs/design/architecture.png",
+        "docs/timing/01_timing.png"
+      ]
+    },
+    {
+      "file": "CMDBUF_RD_完整说明手册.docx",
+      "bytes": 2658828,
+      "figures": 82,
+      "parsed_blocks": 18117,
+      "sources": {
+        "README.md": 318,
+        "rtl/README.md": 91,
+        "docs/GitHub使用说明.md": 68,
+        "gui/README.md": 96,
+        "ucagent-tool/docs/content/02_usage/13_portable_formal_gui.md": 64,
+        "provenance/README.md": 15,
+        "docs/design/cmdbuf_rd_design.md": 2629,
+        "docs/fault_catalog/cmdbuf_rd_fault_catalog.md": 3210,
+        "docs/fault_catalog/capacity_policy.md": 139,
+        "docs/gui/README.md": 1548,
+        "verification/verilog_20261012/README.md": 173,
+        "verification/closure/verification_summary.md": 266,
+        "formal/cmdbuf_rd_dual_backend/README.md": 104,
+        "formal/cmdbuf_rd_dual_backend/spec_catalog.md": 4366,
+        "simulation/cmdbuf_rd/README.md": 125,
+        "simulation/cmdbuf_rd/docs/verification_baseline.md": 1333,
+        "simulation/cmdbuf_rd/docs/mutation_plan.md": 573,
+        "simulation/cmdbuf_rd/docs/verification_report.md": 357,
+        "simulation/cmdbuf_rd/docs/design_spec.md": 2642
+      },
+      "image_sources": [
+        "docs/design/architecture.png",
+        "docs/gui/images/01_overview.png",
+        "docs/gui/images/02_connection.png",
+        "docs/gui/images/03_sessions.png",
+        "docs/gui/images/04_original_stages.png",
+        "docs/gui/images/05_original_results.png",
+        "docs/gui/images/06_stage_agent.png",
+        "docs/gui/images/07_formalmc_controls.png",
+        "docs/gui/images/08_package_list.png",
+        "docs/gui/images/09_sby_controls.png",
+        "docs/gui/images/10_job_inventory.png",
+        "docs/gui/images/11_sby_partial_result.png",
+        "docs/gui/images/12_sby_log.png",
+        "docs/gui/images/13_unsaved_config.png",
+        "docs/gui/images/14_formalmc_missing_tool.png",
+        "docs/gui/images/15_new_stage_dialog.png",
+        "docs/timing/01_timing.png",
+        "docs/timing/02_timing.png",
+        "docs/timing/03_timing.png",
+        "docs/timing/04_timing.png",
+        "docs/timing/05_timing.png",
+        "docs/timing/06_timing.png",
+        "docs/timing/07_timing.png",
+        "docs/timing/08_timing.png",
+        "docs/timing/09_timing.png",
+        "docs/timing/10_timing.png",
+        "docs/timing/11_timing.png",
+        "docs/timing/12_timing.png",
+        "docs/timing/13_timing.png",
+        "verification/gui/02_formalmc_ready.png"
+      ]
+    }
+  ],
+  "editorial_updates": [
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| reset | 输入 | 1 | 占位名称；极性、同步或异步及运行中复位协议待确认 |",
+      "after": "| rst_n | 输入 | 1 | 当前 RTL 为低有效异步复位；运行中 MEM 协同复位协议未定义 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "尚未交付可综合 RTL、运行完整仿真、综合或静态时序分析，不能据此宣称目标频率、面积或全部验证已通过。",
+      "after": "当前已经交付三份可综合 Verilog-2001 RTL，并完成重新编译、23 项仿真、22 项 SBY 任务与顺序等价检查；详细范围见 Formal 验证分册。尚未完成物理综合与静态时序签核，不能据此宣称目标频率或面积达标。",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| 复位 | 尚无完整协议 | 极性、同步方式、初始 RR 和未完成返回处置待确认 |",
+      "after": "| 复位 | 当前 rst_n 低有效异步复位，初始 RR 为 0 | 运行中 MEM 返回与复位的协调仍未定义 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| 数据清除 | 退休后旧归属和数据不能再次有效 | 建议分配及退休物理清零；是否必须逐 bit 清零待确认 |",
+      "after": "| 数据清除 | 退休后旧归属和数据不能再次有效 | 当前 OTB 在复位、分配与退休时物理清零，属于实现选择 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| 错误响应数据 | rresp 优先级已确认 | 建议仍输出捕获值，最终数据语义待确认 |",
+      "after": "| 错误响应数据 | rresp 优先级已确认 | 当前实现仍输出捕获值，属于实现选择 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| RR 细节 | 合格通道间 RR | 建议 0→1→2、服务后推进、空闲保持，精确规则待确认 |",
+      "after": "| RR 细节 | 合格通道间 RR | 当前实现初始 0，按 0→1→2 扫描，服务后推进，空闲保持 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    },
+    {
+      "source": "docs/design/cmdbuf_rd_design.md",
+      "before": "| Bank 状态变化 | 双 grant 决定最终成功 | 建议请求级不二次撤销，是否允许撤销待确认 |",
+      "after": "| Bank 状态变化 | 双 grant 决定最终成功 | 当前实现请求级不因 status 改变撤销，属于实现选择 |",
+      "authority": "rtl/*.v and verification/verilog_20261012/README.md"
+    }
+  ],
+  "original_image_bytes_unchanged": true,
+  "sealed_inputs_modified": false,
+  "pdf_export": "LibreOffice via documents skill render_docx.py",
+  "outputs": [
+    {
+      "file": "01_project_usage.pdf",
+      "pages": 15,
+      "pdf_bytes": 551308,
+      "pdf_sha256": "86b75eb8e9948af39addfe9a9a25228c927ae12d829b941e9de46d7e5321b186",
+      "docx_bytes": 76456,
+      "docx_sha256": "6eb92738faecc5f75daed9d5050b7d42c2bce5066b1a3c7db9183c758a7cf344",
+      "bookmark_count": 13
+    },
+    {
+      "file": "02_rtl_design.pdf",
+      "pages": 32,
+      "pdf_bytes": 1377952,
+      "pdf_sha256": "751ddd28e5840acd3fcbbcd784af913306c0f95300b9d03201eade85182cbc5a",
+      "docx_bytes": 511686,
+      "docx_sha256": "8f0105dc54a975d73efb3fc4318d4a632137a95d31dc38e44f0b07dee3808aea",
+      "bookmark_count": 5
+    },
+    {
+      "file": "03_timing_scenarios.pdf",
+      "pages": 15,
+      "pdf_bytes": 1699503,
+      "pdf_sha256": "e9aa88266d6d0df99f05d5750b60265be874cacbbf2e1ffef50878e7391bf4cb",
+      "docx_bytes": 1614993,
+      "docx_sha256": "5c0b81837bde72d32e41c372fe43b9cb50561b55d0b301140c4f1bcc9f5ce9b0",
+      "bookmark_count": 3
+    },
+    {
+      "file": "04_fault_catalog.pdf",
+      "pages": 38,
+      "pdf_bytes": 1216473,
+      "pdf_sha256": "9e6d58585c71d21973af87f5f32d7b734264f163722df29f816ad96bfddda839",
+      "docx_bytes": 66961,
+      "docx_sha256": "0245bd552475f278a5be45d8ef6bf74166903d287ce24cf142f75186c39dcd93",
+      "bookmark_count": 6
+    },
+    {
+      "file": "05_tk_gui_guide.pdf",
+      "pages": 64,
+      "pdf_bytes": 1473019,
+      "pdf_sha256": "a054f9b24eba8c459bcc4e7d14d9c179a7a803847623bf38370c1c819a0e6016",
+      "docx_bytes": 581143,
+      "docx_sha256": "a4d36354913962b10e5029e390004906c3309b8018ad99ec6a0d8d33babacdd4",
+      "bookmark_count": 4
+    },
+    {
+      "file": "06_formal_verification.pdf",
+      "pages": 67,
+      "pdf_bytes": 1579407,
+      "pdf_sha256": "e75f96ff366c6a97b8004d025d9a01cd48a0f55f6a84370e2387363d64ccc27d",
+      "docx_bytes": 84594,
+      "docx_sha256": "e95c56f10dda20ec04c50d8032ec2480a06b813ec6e858aeef2d4ceae57b2fa9",
+      "bookmark_count": 10
+    },
+    {
+      "file": "07_simulation_history.pdf",
+      "pages": 58,
+      "pdf_bytes": 1870857,
+      "pdf_sha256": "cf8e767667da2789c99d88cc74a8c1b86d3a8bbe6f724899d057f29c6f2f53d8",
+      "docx_bytes": 533956,
+      "docx_sha256": "ccb7624efbd9f0a2b0ecb703c43e4aa7f57e7cedaf148b23480175e85ac908c1",
+      "bookmark_count": 12
+    },
+    {
+      "file": "CMDBUF_RD_完整说明手册.pdf",
+      "pages": 285,
+      "pdf_bytes": 7120596,
+      "pdf_sha256": "dda6e7f4228f4afbce2cda2cd01dcb90f68c9c0dfbeda4b6764dc8f8b4a37655",
+      "docx_bytes": 2658828,
+      "docx_sha256": "32699d145a82aa9e3e3db8e7f63ff56b42923513f5bcd285451bc37f8c5b0c8c",
+      "bookmark_count": 48
+    }
+  ],
+  "validation": "document_validation.json"
+}

@@ -10,6 +10,10 @@
       "bytes": 264,
       "sha256": "5d1975b40bc8d7f03a11aa677b0233c83242f2e9a2ce93f3e65532a7db086896"
     },
+    "AGENTS.md": {
+      "bytes": 998,
+      "sha256": "9cfd015daee24ad4fa8f75440ef61a0b374736622b4b2aa5378597429704477b"
+    },
     "docs/design/architecture.png": {
       "bytes": 328836,
       "sha256": "41a370d88fa257c7e8b6663474e3ef0f8a4979bf7f8711dcd6c761655fd6c284"
@@ -213,6 +217,82 @@
     "docs/timing/render_timing.py": {
       "bytes": 22291,
       "sha256": "d42e8301661ba54056c514b28364b34e39b2ea56c9abe6898ca6b556c44d964c"
+    },
+    "documents/01_project_usage.docx": {
+      "bytes": 76456,
+      "sha256": "6eb92738faecc5f75daed9d5050b7d42c2bce5066b1a3c7db9183c758a7cf344"
+    },
+    "documents/01_project_usage.pdf": {
+      "bytes": 551308,
+      "sha256": "86b75eb8e9948af39addfe9a9a25228c927ae12d829b941e9de46d7e5321b186"
+    },
+    "documents/02_rtl_design.docx": {
+      "bytes": 511686,
+      "sha256": "8f0105dc54a975d73efb3fc4318d4a632137a95d31dc38e44f0b07dee3808aea"
+    },
+    "documents/02_rtl_design.pdf": {
+      "bytes": 1377952,
+      "sha256": "751ddd28e5840acd3fcbbcd784af913306c0f95300b9d03201eade85182cbc5a"
+    },
+    "documents/03_timing_scenarios.docx": {
+      "bytes": 1614993,
+      "sha256": "5c0b81837bde72d32e41c372fe43b9cb50561b55d0b301140c4f1bcc9f5ce9b0"
+    },
+    "documents/03_timing_scenarios.pdf": {
+      "bytes": 1699503,
+      "sha256": "e9aa88266d6d0df99f05d5750b60265be874cacbbf2e1ffef50878e7391bf4cb"
+    },
+    "documents/04_fault_catalog.docx": {
+      "bytes": 66961,
+      "sha256": "0245bd552475f278a5be45d8ef6bf74166903d287ce24cf142f75186c39dcd93"
+    },
+    "documents/04_fault_catalog.pdf": {
+      "bytes": 1216473,
+      "sha256": "9e6d58585c71d21973af87f5f32d7b734264f163722df29f816ad96bfddda839"
+    },
+    "documents/05_tk_gui_guide.docx": {
+      "bytes": 581143,
+      "sha256": "a4d36354913962b10e5029e390004906c3309b8018ad99ec6a0d8d33babacdd4"
+    },
+    "documents/05_tk_gui_guide.pdf": {
+      "bytes": 1473019,
+      "sha256": "a054f9b24eba8c459bcc4e7d14d9c179a7a803847623bf38370c1c819a0e6016"
+    },
+    "documents/06_formal_verification.docx": {
+      "bytes": 84594,
+      "sha256": "e95c56f10dda20ec04c50d8032ec2480a06b813ec6e858aeef2d4ceae57b2fa9"
+    },
+    "documents/06_formal_verification.pdf": {
+      "bytes": 1579407,
+      "sha256": "e75f96ff366c6a97b8004d025d9a01cd48a0f55f6a84370e2387363d64ccc27d"
+    },
+    "documents/07_simulation_history.docx": {
+      "bytes": 533956,
+      "sha256": "ccb7624efbd9f0a2b0ecb703c43e4aa7f57e7cedaf148b23480175e85ac908c1"
+    },
+    "documents/07_simulation_history.pdf": {
+      "bytes": 1870857,
+      "sha256": "cf8e767667da2789c99d88cc74a8c1b86d3a8bbe6f724899d057f29c6f2f53d8"
+    },
+    "documents/CMDBUF_RD_完整说明手册.docx": {
+      "bytes": 2658828,
+      "sha256": "32699d145a82aa9e3e3db8e7f63ff56b42923513f5bcd285451bc37f8c5b0c8c"
+    },
+    "documents/CMDBUF_RD_完整说明手册.pdf": {
+      "bytes": 7120596,
+      "sha256": "dda6e7f4228f4afbce2cda2cd01dcb90f68c9c0dfbeda4b6764dc8f8b4a37655"
+    },
+    "documents/CMDBUF_RD_说明文档.zip": {
+      "bytes": 16334360,
+      "sha256": "a48862f50f5d6dd712073656cf0cccaa22294419da1921f31517438a4df19606"
+    },
+    "documents/document_manifest.json": {
+      "bytes": 29168,
+      "sha256": "e149bc8c8df4d50fc2ad2b8cf60bc526a969e3f621eb56ca329abdaf3b82d0b1"
+    },
+    "documents/document_validation.json": {
+      "bytes": 3425,
+      "sha256": "eb0a4be9ca77ad31967912dfd1a596332e0344ff3da6d6778a9d6d2073e1a401"
     },
     "formal/cmdbuf_rd_dual_backend/jobs/age_projection/conversion/emit.log": {
       "bytes": 488,
@@ -3699,8 +3779,8 @@
       "sha256": "8b449589cbf7dd87c108658960b13a3c9ea968d1790839daed1e6aa82ad27eaa"
     },
     "README.md": {
-      "bytes": 5879,
-      "sha256": "d99a1880b97e32277cfb2bed9d534fc661f5459f66705e4be2f50375bed2a9cd"
+      "bytes": 7247,
+      "sha256": "bef4d37b57d132a57da9c6b8e8ec9134181e0bf025816e215bb76eb2f9d5a54b"
     },
     "rtl/cmdbuf_rd.v": {
       "bytes": 2392,
