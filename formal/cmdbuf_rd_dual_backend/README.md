@@ -2,6 +2,8 @@
 
 此包把当前 `cmdbuf_rd` 的验证输入、检查点映射和证明依赖放在同一目录，使用相对路径运行。新设备不需要原虚拟机、原平台数据库或历史会话。RTL 的接口及功能没有为迁移而修改。
 
+2026-10-12 的当前输入修订为 **Verilog-2001**：芯片 RTL 和注错变异文件为 `.v`，Bank 状态按原位序使用 `[15:0]`。22 个任务的 DUT 输入已同步转换，FormalMC 模型由这些新输入重新生成；原先嵌在 RTL 内的形式观测器移到 `formal_hooks/*.svh`。177 个 CK、性质种类和供应证明依赖保留。转换与对应关系见 `provenance/verilog_2001_conversion.json`、`provenance/verilog_property_correspondence.json`；新验证记录见 [Verilog 迁移验证](../../verification/verilog_20261012/README.md)。
+
 ## 在有 FormalMC 的 Linux 设备上运行
 
 要求：Python 3.9 或更新版本、可启动且许可证有效的 FormalMC。沿用当前 UCAgent 的 FormalMC 命令接口；不锁定未经核实的小版本。不需要在 FormalMC 设备安装 SBY、Yosys、Python 第三方库或 UCAgent 服务。
@@ -59,6 +61,8 @@ python3 replay.py --case FI001 --case FI035 --case FI049
 本包采用已对齐的初始复位协议，不覆盖尚未定义的运行中 MEM 复位协调。永久 Bank 阻塞、上游缺少公平性等情况不被擅自改成无条件活性保证。严格五条待发窗口及其他已对齐规则继续保留。
 
 交付时实际执行过的测试及结果见 `validation/validation_summary.json`。当前开发设备未安装真实 FormalMC；FormalMC 的完整实机编译、求解和版本兼容性以目标设备的新运行结果为准。启动自检发现不支持的命令或结果格式时会保留日志并停止，不能把此情况解释成 RTL 已通过。
+
+`validation/validation_summary.json` 保留的是转换前的历史迁移验收。当前 Verilog 修订的重新执行记录另存于上述迁移验证目录；历史报告中的旧源码哈希不会改写成新哈希。
 
 迁移验证包括：新入口的原始 SBY 全套回归、标准 SV 模型的 SBY 交叉验证、Verilator 语法检查和运行器测试。模型中并行选择条件的二态结构互斥检查另存于 `validation/audit_pmux_v2.tar.gz`；此检查不是 FormalMC 实测，也不是四态等价证明。超时、早期转换错误及后续修复后的实际运行记录分别保留。
 

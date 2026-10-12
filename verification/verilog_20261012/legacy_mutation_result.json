@@ -1,0 +1,2996 @@
+{
+  "run_id": "verilog_2001_recheck",
+  "status": "complete",
+  "baseline_hashes": {
+    "cmdbuf_rd.v": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b",
+    "cmdbuf_rd_cmd.v": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+    "cmdbuf_rd_otb.v": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54"
+  },
+  "verification_snapshots": [
+    {
+      "original": "/root/cmdbuf_rd/verilog_20261012/cmdbuf_rd.mk",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+      "sha256": "1ded3d5111b7e04b72d2984ae54e3fa09e3ae1535b631253b78f776b041b89fb"
+    },
+    {
+      "original": "/root/env_base/adapters/cmdbuf_rd/cmdbuf_rd_harness.cpp",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+      "sha256": "639bc3d0ebd6dee75e7b3c0060aee39fc50efb75029b8d0dfd7e4528bcbd2e65"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/01_pipeline.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/01_pipeline.case",
+      "sha256": "f9f16408254aacecbf9a597f9f27c32ec3eed26d6cf8674bfd665489c95624c7"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/02_same_xau_ooo.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/02_same_xau_ooo.case",
+      "sha256": "eaa18cce13836ead26ab3b7000c6543ed9828ae55e1442b1ee5db8be4f12e300"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/03_forward_6b.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/03_forward_6b.case",
+      "sha256": "35c5ab5bd717466bfcf2d5e815e97687734f75994b4f07dbf131ed4eba7ae1eb"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/04_grants.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/04_grants.case",
+      "sha256": "fd1f709944ecf693b95c2ca1774784cfa8b22fdd75b5cdcae4d2a395c3d39e22"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/05_failure_5a.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/05_failure_5a.case",
+      "sha256": "a38f7ef625b566b9894cec4bd9d0491efc797a558a8b590a509d841d62337087"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/06_window_block.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/06_window_block.case",
+      "sha256": "97d02dc56f6cc0c6b069a457e97da96ff0796e60c8bb3a358e84d332dccfe8d1"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/07_single_pulse.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/07_single_pulse.case",
+      "sha256": "31fc79fab0727d1a38990547475be6f207b58d6944de86242e5f9c571cd70386"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/08_rr.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/08_rr.case",
+      "sha256": "da809b4329eaf5e724f02b430960e5b7df66af5cd36fd25fb2eddefe58ce9f91"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/09_errors.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/09_errors.case",
+      "sha256": "fff73d44053e140c63923726af6fdcae249cf1d76da4357a3fef6cc2753f4003"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/10_capacity_reuse.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/10_capacity_reuse.case",
+      "sha256": "ec5dad23d6ffae36250600411467ab45d348f15fe9db60eedc9a81d31a2e1636"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/11_capacity_700.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/11_capacity_700.case",
+      "sha256": "3b97aab19cfc5e71e1c2cdbf172a501ea3df64b90f6f0b843ea186f7bc4f080a"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/12_capacity_440.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/12_capacity_440.case",
+      "sha256": "abb85b79fbc0bba7ac644b5fb5cfc887538221d56f2877dce10b99e32727b47a"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/13_tokens.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/13_tokens.case",
+      "sha256": "8ef876c139739882a5bb8d70f205ee09e08d7cf208a0415b23bb9491909ecda7"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/14_single_source_throughput.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/14_single_source_throughput.case",
+      "sha256": "e393889f56b0fc75dad74032a6df4c6ce82f2d1da812d8211b7eb11c7d489000"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/15_reset_clean.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/15_reset_clean.case",
+      "sha256": "dbff763c41ceb986d274ff8213b8f8a63e2ea31abe0e80dea8e62249657f7be9"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/16_random_seed_1.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/16_random_seed_1.case",
+      "sha256": "04d3425f4761157704f243aba01a7d712472afcbe2fc260bbef42e92c97c62f4"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/17_random_seed_17.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/17_random_seed_17.case",
+      "sha256": "b51d9a53e0733bed7f8b6ff5b2c719e6616ed09bdd15ab28b9a494b1dd2e790d"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/18_random_seed_91.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/18_random_seed_91.case",
+      "sha256": "9691b089e2fed222fc47de15980c869283394b1da1011384780718188a5188e5"
+    },
+    {
+      "original": "/root/env_base/cases/cmdbuf_rd/19_rr_ready_masks.case",
+      "snapshot": "/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases/19_rr_ready_masks.case",
+      "sha256": "ea3cde0606cc6c6734e95c64a07553248675af6e47482c6ffdb3aa8d375f4629"
+    }
+  ],
+  "environment_hashes": {
+    "/root/env_base/env/Makefile": "7e781875f46f7142c971884289d4eb3b2c7826e93b3df5be258f23930522a43e",
+    "/root/env_base/scripts/run_cases.py": "0cdb50a4a2c3834c6ff56d189e2423b7824d0a8c412ca68a58b61257f6e61224"
+  },
+  "scope": "Selected exact-fragment mutations; not the complete fault catalogue",
+  "selected_cases": [
+    "01_pipeline.case",
+    "02_same_xau_ooo.case",
+    "03_forward_6b.case",
+    "04_grants.case",
+    "05_failure_5a.case",
+    "06_window_block.case",
+    "07_single_pulse.case",
+    "08_rr.case",
+    "09_errors.case",
+    "10_capacity_reuse.case",
+    "11_capacity_700.case",
+    "12_capacity_440.case",
+    "13_tokens.case",
+    "14_single_source_throughput.case",
+    "15_reset_clean.case",
+    "16_random_seed_1.case",
+    "17_random_seed_17.case",
+    "18_random_seed_91.case",
+    "19_rr_ready_masks.case"
+  ],
+  "mutations": [
+    {
+      "id": "M01",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M01",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M01",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M01/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.683,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M01",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M01/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.215,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: req got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/06_window_block.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: req got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 1306: req got=0x20 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 507: req got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 1406: req got=0x8 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "03_forward_6b.case",
+        "06_window_block.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M01/results/verilog_2001_recheck/03_forward_6b.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: req got=0x4 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "rank_count[i] < 5",
+        "after": "rank_count[i] < 9",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "d6aa26620b3ed2208aa55bf47645c081db6a5d1613f706a5d07b43a095dd2632"
+      },
+      "purpose": "错误扩大最老五条窗口，允许第六条绕过阻塞窗口"
+    },
+    {
+      "id": "M02",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M02",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M02",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M02/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.683,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M02",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M02/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.165,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: pending_cnt got=0x0 expected=0x1",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 5: pending_cnt got=0x1 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 4: pending_cnt got=0x2 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: pending_cnt got=0x3 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "13_tokens.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M02/results/verilog_2001_recheck/04_grants.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 3: pending_cnt got=0x2 expected=0x3",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
+        "after": "assign issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "56ed755352ddbc3b8dc06d5dc4fe1af1734aeadea3028d8efe4d454b5026833c"
+      },
+      "purpose": "将双 grant 同时命中错误放宽为任一 grant 命中"
+    },
+    {
+      "id": "M03",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M03",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M03",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M03/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.739,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M03",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M03/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.216,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: req got=0x0 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 388: req got=0x0 expected=0x20",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "03_forward_6b.case",
+        "16_random_seed_1.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M03/results/verilog_2001_recheck/03_forward_6b.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 10: req got=0x0 expected=0x4",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "success_mask = issue_success ? current_issue_mask : 9'b0;",
+        "after": "success_mask = (issue_success && !issue_valid_q) ? current_issue_mask : 9'b0;",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "26261bb3df6150e1aacbb58cbcc746bda1cbaa92d36da2ef4cfec860a7206dc4"
+      },
+      "purpose": "关闭 6B 成功当拍窗口前馈"
+    },
+    {
+      "id": "M04",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M04",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M04",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M04/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.783,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M04",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M04/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.265,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/04_grants.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: capture ownership mismatch",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/04_grants.log"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/17_random_seed_17.log"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/18_random_seed_91.log"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "13_tokens.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "rtl_assertion",
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/04_grants.json",
+        "status": "fail",
+        "checker_failure": true,
+        "detection_kind": "rtl_assertion",
+        "failure": "CMDBUF_CHECK_FAILURE: capture ownership mismatch",
+        "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M04/results/verilog_2001_recheck/04_grants.log"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd.v",
+        "before": ".retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),",
+        "after": ".retire_entry(retire_entry), .issue_success(issue_success || (|req)), .issue_entry(issue_entry), .capture_valid(capture_valid),",
+        "baseline_sha256": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b",
+        "mutant_sha256": "32b39481eecf4bab0aeef0d4b588501ff696ceb16fa7f6d7b9f0db309454398d"
+      },
+      "purpose": "仅发 req 即启动 OTB 返回 token，失败请求也被计入"
+    },
+    {
+      "id": "M05",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M05",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M05",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M05/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 7.385,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M05",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M05/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.366,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: capture ownership mismatch",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/02_same_xau_ooo.log"
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 13: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: arready got=0x7 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/06_window_block.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 23: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/07_single_pulse.log"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/08_rr.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/08_rr.log"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/09_errors.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/10_capacity_reuse.log"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/11_capacity_700.log"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/12_capacity_440.log"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/13_tokens.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/17_random_seed_17.log"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "fail",
+          "checker_failure": true,
+          "detection_kind": "rtl_assertion",
+          "failure": "CMDBUF_CHECK_FAILURE: invalid OTB capture",
+          "evidence_log": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/19_rr_ready_masks.log"
+        }
+      ],
+      "detecting_cases": [
+        "01_pipeline.case",
+        "02_same_xau_ooo.case",
+        "03_forward_6b.case",
+        "04_grants.case",
+        "05_failure_5a.case",
+        "06_window_block.case",
+        "07_single_pulse.case",
+        "08_rr.case",
+        "09_errors.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "13_tokens.case",
+        "14_single_source_throughput.case",
+        "15_reset_clean.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case",
+        "19_rr_ready_masks.case"
+      ],
+      "detection_kinds": [
+        "rtl_assertion",
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M05/results/verilog_2001_recheck/01_pipeline.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 6: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_otb.v",
+        "before": "assign capture_valid = rst_n && ret_valid_q[3];",
+        "after": "assign capture_valid = rst_n && (ret_valid_q[3] || ret_valid_q[2]);",
+        "baseline_sha256": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54",
+        "mutant_sha256": "34aa78ef1978d77b98b4dbe2d70b437fbdd6fcb8a462dd40f2986b04bc14ffa1"
+      },
+      "purpose": "固定四拍捕获错误多使用提前一拍的 tap，导致早采样或重复捕获"
+    },
+    {
+      "id": "M06",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M06",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M06",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M06/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 7.537,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M06",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M06/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.166,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x7 expected=0x6",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 61: arready got=0x7 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 113: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 16: arready got=0x7 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "07_single_pulse.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M06/results/verilog_2001_recheck/07_single_pulse.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: arready got=0x7 expected=0x6",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "((occ_after[x] == 0) || (shared_after < 6));",
+        "after": "((occ_after[x] == 0) || (shared_after < 9));",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "cffdd5818513717676698e535a751ed676506b801aba7b09cd2e783b5c648f21"
+      },
+      "purpose": "放宽共享额度，破坏每来源一项容量保底"
+    },
+    {
+      "id": "M07",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M07",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M07",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M07/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 7.033,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M07",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M07/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.164,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/08_rr.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: rvalid got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 15: rvalid got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: rvalid got=0x2 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        }
+      ],
+      "detecting_cases": [
+        "07_single_pulse.case",
+        "08_rr.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case",
+        "19_rr_ready_masks.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M07/results/verilog_2001_recheck/07_single_pulse.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
+        "after": "r_candidate[x] = done_q[head_entry[x]];",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "001563d8462da594cfc00f62a97c498d0966a64d7152d6d3af9400d3448d9fc8"
+      },
+      "purpose": "响应候选忽略当拍 rready"
+    },
+    {
+      "id": "M08",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M08",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M08",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M08/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.832,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M08",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M08/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.164,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 8: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 15: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: rvalid got=0x1 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 20: rvalid got=0x1 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "02_same_xau_ooo.case",
+        "03_forward_6b.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "02_same_xau_ooo.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M08/results/verilog_2001_recheck/02_same_xau_ooo.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 8: rvalid got=0x1 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "((older_q[i] & src_mask[x]) == 9'b0);",
+        "after": "((older_q[i] & src_mask[x] & done_q) == 9'b0) && done_q[i];",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "3cc3ee5e4ebc453608097718816159ae755bacb06d7bf3bdf190e78e5a673853"
+      },
+      "purpose": "仅在完成项中找来源队头，跳过同来源更老的未完成命令"
+    },
+    {
+      "id": "M09",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M09",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M09",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M09/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.733,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M09",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M09/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.164,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/09_errors.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 10: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 171: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 37: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 35: rresp got=0x1 expected=0x3",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "09_errors.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "09_errors.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M09/results/verilog_2001_recheck/09_errors.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 10: rresp got=0x1 expected=0x3",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;",
+        "after": "if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "f62eefb7a6b5f4c0bcc578aa40a633bb48f5df71ee6f6558bd1dfc56de373679"
+      },
+      "purpose": "错误地让奇偶异常覆盖地址越界异常"
+    },
+    {
+      "id": "M10",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M10",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M10",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M10/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.75,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M10",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M10/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.165,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 3: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: req got=0x0 expected=0x80",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 4: req got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 14: req got=0x0 expected=0x4",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "04_grants.case",
+        "05_failure_5a.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M10/results/verilog_2001_recheck/04_grants.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 3: req got=0x0 expected=0x2",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "issue_valid_q <= select_valid;",
+        "after": "issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "48d2904248da4f416a36ca8094fd603575296cddb1b6a666a58e0937a50ca50f"
+      },
+      "purpose": "违反 5A，在当前请求失败时丢弃同拍预选的下一命令"
+    },
+    {
+      "id": "M11",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M11",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M11",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M11/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.633,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M11",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M11/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.165,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/04_grants.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 22: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/08_rr.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 22: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 20: arready got=0x0 expected=0x2",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 24: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 7: arready got=0x6 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 12: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 11: arready got=0x0 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 17: arready got=0x4 expected=0x7",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "01_pipeline.case",
+        "04_grants.case",
+        "07_single_pulse.case",
+        "08_rr.case",
+        "10_capacity_reuse.case",
+        "11_capacity_700.case",
+        "12_capacity_440.case",
+        "14_single_source_throughput.case",
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M11/results/verilog_2001_recheck/01_pipeline.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 7: arready got=0x6 expected=0x7",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "if (retire_fire && (winner == x[1:0])) occ_after[x] = occ_after[x] - 1;",
+        "after": "if (retire_fire && (winner == x[1:0])) occ_after[x] = occ_after[x];",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "b82d0a048c1248660172825bebf3aecdf92b049c99af33c30b0c2393fad34878"
+      },
+      "purpose": "关闭 10B 准入的退休前馈，满表时多停一拍"
+    },
+    {
+      "id": "M12",
+      "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/M12",
+      "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck",
+      "build": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M12",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M12/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "build"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 6.481,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/build.log"
+      },
+      "run": {
+        "command": [
+          "make",
+          "-f",
+          "/root/env_base/env/Makefile",
+          "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+          "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/M12",
+          "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M12/build/verilog_2001_recheck",
+          "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck",
+          "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+          "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+          "JOBS=2",
+          "run-all"
+        ],
+        "returncode": 2,
+        "timeout": false,
+        "seconds": 0.164,
+        "log": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/run.log"
+      },
+      "cases": [
+        {
+          "case": "01_pipeline.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/01_pipeline.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "02_same_xau_ooo.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/02_same_xau_ooo.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "03_forward_6b.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/03_forward_6b.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "04_grants.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/04_grants.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "05_failure_5a.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/05_failure_5a.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "06_window_block.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/06_window_block.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "07_single_pulse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/07_single_pulse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "08_rr.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/08_rr.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "09_errors.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/09_errors.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "10_capacity_reuse.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/10_capacity_reuse.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "11_capacity_700.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/11_capacity_700.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "12_capacity_440.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/12_capacity_440.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "13_tokens.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/13_tokens.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "14_single_source_throughput.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/14_single_source_throughput.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "15_reset_clean.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/15_reset_clean.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        },
+        {
+          "case": "16_random_seed_1.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/16_random_seed_1.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 5: req got=0x4 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "17_random_seed_17.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/17_random_seed_17.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 9: req got=0x10 expected=0x1",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "18_random_seed_91.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/18_random_seed_91.json",
+          "status": "fail",
+          "checks_failed": 1,
+          "failure": "cycle 2: req got=0x20 expected=0x0",
+          "checker_failure": true,
+          "detection_kind": "scoreboard"
+        },
+        {
+          "case": "19_rr_ready_masks.case",
+          "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/19_rr_ready_masks.json",
+          "status": "pass",
+          "checks_failed": 0,
+          "failure": ""
+        }
+      ],
+      "detecting_cases": [
+        "16_random_seed_1.case",
+        "17_random_seed_17.case",
+        "18_random_seed_91.case"
+      ],
+      "detection_kinds": [
+        "scoreboard"
+      ],
+      "first_detection": {
+        "case": "16_random_seed_1.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/M12/results/verilog_2001_recheck/16_random_seed_1.json",
+        "status": "fail",
+        "checks_failed": 1,
+        "failure": "cycle 5: req got=0x4 expected=0x0",
+        "checker_failure": true,
+        "detection_kind": "scoreboard"
+      },
+      "status": "killed",
+      "change": {
+        "file": "rtl/cmdbuf_rd_cmd.v",
+        "before": "!rd_mem_status[addr_q[i][6:3]];",
+        "after": "!rd_mem_status[{~addr_q[i][6], addr_q[i][5:3]}];",
+        "baseline_sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+        "mutant_sha256": "fb02366e7718fa8eb8c858b9a3144f34bc6d6c6248262f1ccb8a416ad4266552"
+      },
+      "purpose": "反转命令选择时的奇偶 Bank 状态索引"
+    }
+  ],
+  "baseline": {
+    "id": "BASELINE",
+    "rtl_root": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE",
+    "result_dir": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck",
+    "build": {
+      "command": [
+        "make",
+        "-f",
+        "/root/env_base/env/Makefile",
+        "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+        "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE",
+        "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/build/verilog_2001_recheck",
+        "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck",
+        "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+        "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+        "JOBS=2",
+        "build"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 6.982,
+      "log": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/build.log"
+    },
+    "run": {
+      "command": [
+        "make",
+        "-f",
+        "/root/env_base/env/Makefile",
+        "PROJECT_CONFIG=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd.mk",
+        "RTL_ROOT=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE",
+        "BUILD_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/build/verilog_2001_recheck",
+        "RESULT_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck",
+        "CASE_DIR=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cases",
+        "HARNESS_FILES=/root/cmdbuf_rd/verilog_20261012/mutations/campaigns/verilog_2001_recheck/verification/cmdbuf_rd_harness.cpp",
+        "JOBS=2",
+        "run-all"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 0.215,
+      "log": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/run.log"
+    },
+    "cases": [
+      {
+        "case": "01_pipeline.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/01_pipeline.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "02_same_xau_ooo.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/02_same_xau_ooo.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "03_forward_6b.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/03_forward_6b.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "04_grants.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/04_grants.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "05_failure_5a.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/05_failure_5a.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "06_window_block.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/06_window_block.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "07_single_pulse.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/07_single_pulse.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "08_rr.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/08_rr.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "09_errors.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/09_errors.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "10_capacity_reuse.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/10_capacity_reuse.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "11_capacity_700.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/11_capacity_700.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "12_capacity_440.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/12_capacity_440.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "13_tokens.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/13_tokens.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "14_single_source_throughput.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/14_single_source_throughput.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "15_reset_clean.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/15_reset_clean.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "16_random_seed_1.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/16_random_seed_1.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "17_random_seed_17.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/17_random_seed_17.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "18_random_seed_91.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/18_random_seed_91.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      },
+      {
+        "case": "19_rr_ready_masks.case",
+        "result": "/root/cmdbuf_rd/verilog_20261012/mutations/BASELINE/results/verilog_2001_recheck/19_rr_ready_masks.json",
+        "status": "pass",
+        "checks_failed": 0,
+        "failure": ""
+      }
+    ],
+    "detecting_cases": [],
+    "detection_kinds": [],
+    "first_detection": null,
+    "status": "passed",
+    "raw_status": "survived"
+  },
+  "counts": {
+    "killed": 12,
+    "survived": 0,
+    "compile_error": 0,
+    "runtime_error": 0,
+    "mutation_error": 0
+  },
+  "baseline_source_unchanged": true,
+  "verification_inputs_unchanged": true
+}

@@ -4,188 +4,188 @@
     "sby_label": "CK_CV_ZERO_DATA",
     "formalmc_label": "P_COVER_0000",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:213.9-213.193",
-    "a_connection": "$auto$async2sync.cc:116:execute$17303",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17299"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:63.9-63.193",
+    "a_connection": "$auto$async2sync.cc:116:execute$17093",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17089"
   },
   {
     "label": "dut.CK_CV_UPPER_DATA",
     "sby_label": "CK_CV_UPPER_DATA",
     "formalmc_label": "P_COVER_0001",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:214.9-214.224",
-    "a_connection": "$auto$async2sync.cc:116:execute$17309",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17305"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:64.9-64.224",
+    "a_connection": "$auto$async2sync.cc:116:execute$17099",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17095"
   },
   {
     "label": "dut.CK_CV_REORDER_TO_ORDER",
     "sby_label": "CK_CV_REORDER_TO_ORDER",
     "formalmc_label": "P_COVER_0002",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:218.9-218.135",
-    "a_connection": "$auto$async2sync.cc:116:execute$17315",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17311"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:68.9-68.135",
+    "a_connection": "$auto$async2sync.cc:116:execute$17105",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17101"
   },
   {
     "label": "dut.CK_CV_NONMONOTONIC_ID",
     "sby_label": "CK_CV_NONMONOTONIC_ID",
     "formalmc_label": "P_COVER_0003",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:216.9-216.156",
-    "a_connection": "$auto$async2sync.cc:116:execute$17321",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17317"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:66.9-66.156",
+    "a_connection": "$auto$async2sync.cc:116:execute$17111",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17107"
   },
   {
     "label": "dut.CK_CV_FULL_SLOT_REUSE",
     "sby_label": "CK_CV_FULL_SLOT_REUSE",
     "formalmc_label": "P_COVER_0004",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:219.9-219.179",
-    "a_connection": "$auto$async2sync.cc:116:execute$17327",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17323"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:69.9-69.179",
+    "a_connection": "$auto$async2sync.cc:116:execute$17117",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17113"
   },
   {
     "label": "dut.CK_CV_ERR11",
     "sby_label": "CK_CV_ERR11",
     "formalmc_label": "P_COVER_0005",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:212.9-212.173",
-    "a_connection": "$auto$async2sync.cc:116:execute$17333",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17329"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:62.9-62.173",
+    "a_connection": "$auto$async2sync.cc:116:execute$17123",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17119"
   },
   {
     "label": "dut.CK_CV_ERR10",
     "sby_label": "CK_CV_ERR10",
     "formalmc_label": "P_COVER_0006",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:211.9-211.174",
-    "a_connection": "$auto$async2sync.cc:116:execute$17339",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17335"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:61.9-61.174",
+    "a_connection": "$auto$async2sync.cc:116:execute$17129",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17125"
   },
   {
     "label": "dut.CK_CV_ERR01",
     "sby_label": "CK_CV_ERR01",
     "formalmc_label": "P_COVER_0007",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:210.9-210.173",
-    "a_connection": "$auto$async2sync.cc:116:execute$17345",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17341"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:60.9-60.173",
+    "a_connection": "$auto$async2sync.cc:116:execute$17135",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17131"
   },
   {
     "label": "dut.CK_CV_ERR00",
     "sby_label": "CK_CV_ERR00",
     "formalmc_label": "P_COVER_0008",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:209.9-209.174",
-    "a_connection": "$auto$async2sync.cc:116:execute$17351",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17347"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:59.9-59.174",
+    "a_connection": "$auto$async2sync.cc:116:execute$17141",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17137"
   },
   {
     "label": "dut.CK_CV_DUPLICATE_ID",
     "sby_label": "CK_CV_DUPLICATE_ID",
     "formalmc_label": "P_COVER_0009",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:215.9-215.211",
-    "a_connection": "$auto$async2sync.cc:116:execute$17357",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17353"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:65.9-65.211",
+    "a_connection": "$auto$async2sync.cc:116:execute$17147",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17143"
   },
   {
     "label": "dut.CK_CV_CROSS_SRC_ID",
     "sby_label": "CK_CV_CROSS_SRC_ID",
     "formalmc_label": "P_COVER_0010",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:217.9-217.167",
-    "a_connection": "$auto$async2sync.cc:116:execute$17363",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17359"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:67.9-67.167",
+    "a_connection": "$auto$async2sync.cc:116:execute$17153",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17149"
   },
   {
     "label": "dut.CK_CV_CAPTURE_NOREADY",
     "sby_label": "CK_CV_CAPTURE_NOREADY",
     "formalmc_label": "P_COVER_0011",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:220.9-220.192",
-    "a_connection": "$auto$async2sync.cc:116:execute$17369",
-    "enable_connection": "$auto$async2sync.cc:107:execute$17365"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:70.9-70.192",
+    "a_connection": "$auto$async2sync.cc:116:execute$17159",
+    "enable_connection": "$auto$async2sync.cc:107:execute$17155"
   },
   {
-    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4767",
-    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4767",
+    "label": "dut._witness_.check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4627",
+    "sby_label": "check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4627",
     "formalmc_label": "P_ASSUME_0012",
     "kind": "assume",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.36-165.50",
-    "a_connection": "$flatten\\dut.$lt$inputs/rtl/cmdbuf_rd.sv:165$4768_Y",
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:15.36-15.50",
+    "a_connection": "$flatten\\dut.$lt$inputs/formal_hooks/cmdbuf_rd_2.svh:15$4628_Y",
     "enable_connection": "1'1"
   },
   {
-    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4765",
-    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4765",
+    "label": "dut._witness_.check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4625",
+    "sby_label": "check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4625",
     "formalmc_label": "P_ASSUME_0013",
     "kind": "assume",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.21-165.35",
-    "a_connection": "$flatten\\dut.$lt$inputs/rtl/cmdbuf_rd.sv:165$4766_Y",
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:15.21-15.35",
+    "a_connection": "$flatten\\dut.$lt$inputs/formal_hooks/cmdbuf_rd_2.svh:15$4626_Y",
     "enable_connection": "1'1"
   },
   {
-    "label": "dut._witness_.check_assume_inputs_rtl_cmdbuf_rd_sv_165_4769",
-    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_sv_165_4769",
+    "label": "dut._witness_.check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4629",
+    "sby_label": "check_assume_inputs_formal_hooks_cmdbuf_rd_2_svh_15_4629",
     "formalmc_label": "P_ASSUME_0014",
     "kind": "assume",
-    "source_location": "inputs/rtl/cmdbuf_rd.sv:165.51-165.69",
-    "a_connection": "$flatten\\dut.$ne$inputs/rtl/cmdbuf_rd.sv:165$4770_Y",
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:15.51-15.69",
+    "a_connection": "$flatten\\dut.$ne$inputs/formal_hooks/cmdbuf_rd_2.svh:15$4630_Y",
     "enable_connection": "1'1"
   },
   {
-    "label": "dut.u_otb._witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_4286",
-    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_4286",
+    "label": "dut.u_otb._witness_.check_assume_inputs_formal_hooks_cmdbuf_rd_otb_1_svh_33_4146",
+    "sby_label": "check_assume_inputs_formal_hooks_cmdbuf_rd_otb_1_svh_33_4146",
     "formalmc_label": "P_ASSUME_0015",
     "kind": "assume",
-    "source_location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
-    "a_connection": "$flatten\\dut.\\u_otb.$lt$inputs/rtl/cmdbuf_rd_otb.sv:128$4287_Y",
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_otb_1.svh:33.15-33.37",
+    "a_connection": "$flatten\\dut.\\u_otb.$lt$inputs/formal_hooks/cmdbuf_rd_otb_1.svh:33$4147_Y",
     "enable_connection": "1'1"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5258",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5258",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5118",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_5118",
     "formalmc_label": "P_ASSUME_0016",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
-    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:38$5259_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:38$5258_EN"
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:38$5119_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:38$5118_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5248",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5248",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5108",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_5108",
     "formalmc_label": "P_ASSUME_0017",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
-    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:32$5249_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:32$5248_EN"
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:32$5109_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:32$5108_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5250",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5250",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5110",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_5110",
     "formalmc_label": "P_ASSUME_0018",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
     "a_connection": "\\rst_n",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:33$5250_EN"
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:33$5110_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5251",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5251",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5111",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_5111",
     "formalmc_label": "P_ASSUME_0019",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
-    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:35$5252_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5251_EN"
+    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:35$5112_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5111_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5253",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5253",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5113",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_5113",
     "formalmc_label": "P_ASSUME_0020",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
-    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:36$5256_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5251_EN"
+    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:36$5116_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$5111_EN"
   }
 ]

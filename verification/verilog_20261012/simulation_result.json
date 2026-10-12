@@ -1,0 +1,82 @@
+{
+  "passed": 19,
+  "total": 19,
+  "cases": [
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/01_pipeline.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/02_same_xau_ooo.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/03_forward_6b.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/04_grants.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/05_failure_5a.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/06_window_block.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/07_single_pulse.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/08_rr.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/09_errors.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/10_capacity_reuse.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/11_capacity_700.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/12_capacity_440.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/13_tokens.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/14_single_source_throughput.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/15_reset_clean.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/16_random_seed_1.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/17_random_seed_17.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/18_random_seed_91.case",
+      "exit_code": 0
+    },
+    {
+      "case_file": "/root/env_base/cases/cmdbuf_rd/19_rr_ready_masks.case",
+      "exit_code": 0
+    }
+  ]
+}

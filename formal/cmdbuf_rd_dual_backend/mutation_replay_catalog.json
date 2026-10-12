@@ -1,373 +1,1048 @@
 {
   "schema_version": 1,
   "scope": "Replay of 49 archived SBY external traces; not a new FormalMC counterexample campaign.",
-  "oracle_source_sha256": "de7a065c76f9699ec3c4049492af13b9a993a2fbdb0107387846e380c31794e9",
+  "oracle_source_sha256": "849d15a63c352630a329dd4bdc8cf89372f093cd63775c031f3ce7f059faa4f0",
   "cases": [
     {
       "id": "FI001",
       "title": "接受事件误用任意来源ready",
       "group": "wiring",
-      "edits": [
+      "source_sby_run": "bfee712446c742d8a193070cb8e1d45e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "alloc_fire = arvalid && src_ready;",
           "new": "alloc_fire = arvalid && (|arready);"
         }
       ],
-      "source_sby_run": "bfee712446c742d8a193070cb8e1d45e",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "507108606bf8c9021eb2d3e13e09c2bccff0cb1da0e71320763a5d1f2bc3e45e",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        src_ready = 1'b0;\n        if (src < 3) src_ready = arready[src];\n        alloc_fire = arvalid && src_ready;\n        free_mask = ~valid_q | retire_mask;\n        free_found = 1'b0;\n",
+          "new": "        src_ready = 1'b0;\n        if (src < 3) src_ready = arready[src];\n        alloc_fire = arvalid && (|arready);\n        free_mask = ~valid_q | retire_mask;\n        free_found = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI002",
       "title": "下游地址丢失half",
       "group": "order",
-      "edits": [
+      "source_sby_run": "268de76a82274d379e61495fad4c5e77",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_addr_q <= addr_q[select_entry][17:6];",
           "new": "issue_addr_q <= {addr_q[select_entry][17:7],1'b0};"
         }
       ],
-      "source_sby_run": "268de76a82274d379e61495fad4c5e77",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "9a90e9d2d60d742df3528f24920ca7bcc4f641ed60ab3c2d596aeb14dc2438d5",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                issue_entry_q <= select_entry;\n                issue_bank_q <= addr_q[select_entry][5:3];\n                issue_addr_q <= addr_q[select_entry][17:6];\n            end else begin\n                issue_entry_q <= 4'b0;\n",
+          "new": "                issue_entry_q <= select_entry;\n                issue_bank_q <= addr_q[select_entry][5:3];\n                issue_addr_q <= {addr_q[select_entry][17:7],1'b0};\n            end else begin\n                issue_entry_q <= 4'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI003",
       "title": "bank解码错误为[6:4]",
       "group": "order",
-      "edits": [
+      "source_sby_run": "be5195c84091482b8df323283ec1932a",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_bank_q <= addr_q[select_entry][5:3];",
           "new": "issue_bank_q <= addr_q[select_entry][6:4];"
         }
       ],
-      "source_sby_run": "be5195c84091482b8df323283ec1932a",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "945bd4cb2a29373d6707a6c48775713514061a9dac82476332e3b079786b9699",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            if (select_valid) begin\n                issue_entry_q <= select_entry;\n                issue_bank_q <= addr_q[select_entry][5:3];\n                issue_addr_q <= addr_q[select_entry][17:6];\n            end else begin\n",
+          "new": "            if (select_valid) begin\n                issue_entry_q <= select_entry;\n                issue_bank_q <= addr_q[select_entry][6:4];\n                issue_addr_q <= addr_q[select_entry][17:6];\n            end else begin\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI004",
       "title": "bank空闲极性倒置",
       "group": "order",
-      "edits": [
+      "source_sby_run": "6dead0b4509b47bb98e5fc95e8bcd68d",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "bank_idle_mask[i] = !(addr_q[i][6] ?",
           "new": "bank_idle_mask[i] = (addr_q[i][6] ?"
         }
       ],
-      "source_sby_run": "6dead0b4509b47bb98e5fc95e8bcd68d",
-      "samples": 4,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "9b2dd261e68bae6f084584d051147f89e83c9ebb580d4bb8cfe0139b8fbef31a",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && (rank_count[i] < 5);\n            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n        candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n",
+          "new": "                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && (rank_count[i] < 5);\n            bank_idle_mask[i] = (addr_q[i][6] ? rd_mem_status[8 + addr_q[i][5:3]] : rd_mem_status[addr_q[i][5:3]]);\n        end\n        candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI005",
       "title": "共享R同时指向所有来源",
       "group": "wiring",
-      "edits": [
+      "source_sby_run": "92f55f83f61f4da99f4c0b6988aae937",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "rvalid[winner] = 1'b1;",
           "new": "rvalid = 3'b111;"
         }
       ],
-      "source_sby_run": "92f55f83f61f4da99f4c0b6988aae937",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "d930e53ee6ed4f003b3e3250e4cc13f71747b580c2271bdeb2e2eedcb0f76c56",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        if (rst_n && winner_valid) begin\n            rsp_entry = head_entry[winner];\n            rvalid[winner] = 1'b1;\n            rid = id_q[rsp_entry];\n            r_port_id = port_q[rsp_entry];\n",
+          "new": "        if (rst_n && winner_valid) begin\n            rsp_entry = head_entry[winner];\n            rvalid = 3'b111;\n            rid = id_q[rsp_entry];\n            r_port_id = port_q[rsp_entry];\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI006",
       "title": "合并MEM数据的128位半字串换",
       "group": "data_transition",
-      "edits": [
+      "source_sby_run": "253db7f2631b4d79a823472ef37ffe6e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "data_q[i] <= mem_rdata;",
           "new": "data_q[i] <= {mem_rdata[63:0],mem_rdata[127:64]};"
         }
       ],
-      "source_sby_run": "253db7f2631b4d79a823472ef37ffe6e",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "deeabda532dd640a0a906718c3f30d797bc87a5ca968a9cebc91ffbacdfc11b5"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n                    done_q[i] <= 1'b1;\n",
+          "new": "                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= {mem_rdata[63:0],mem_rdata[127:64]};\n                    pc_err_q[i] <= pc_err;\n                    done_q[i] <= 1'b1;\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI007",
       "title": "保存port_id错误",
       "group": "local_transition",
-      "edits": [
+      "source_sby_run": "56216334cbea4b3d92433954bb24913b",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "port_q[i] <= ar_port_id;",
           "new": "port_q[i] <= ar_port_id ^ 5'b00001;"
         }
       ],
-      "source_sby_run": "56216334cbea4b3d92433954bb24913b",
-      "samples": 4,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "953d03645619617c21c69410d575810ebadf1ee3a8a99d499b61e80510063a34",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                    src_q[i] <= src;\n                    id_q[i] <= arid;\n                    port_q[i] <= ar_port_id;\n                    arresp_q[i] <= arresp;\n                end else if (retire_mask[i]) begin\n",
+          "new": "                    src_q[i] <= src;\n                    id_q[i] <= arid;\n                    port_q[i] <= ar_port_id ^ 5'b00001;\n                    arresp_q[i] <= arresp;\n                end else if (retire_mask[i]) begin\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI008",
       "title": "允许单个XAU占完九项",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "f97c8affeee944209237d04fcbb6a5f2",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "(shared_after < 6)",
           "new": "(shared_after < 8)"
         }
       ],
-      "source_sby_run": "f97c8affeee944209237d04fcbb6a5f2",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "7beafdaf0469c422c6c46bbdc7779b9200232d5f1959b2c96a542669e5643c86",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 8));\n\n        src_ready = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI009",
       "title": "OTB分配槽与CMDBUF错位",
       "group": "calendar",
-      "edits": [
+      "source_sby_run": "58352039f9a7497eaecd016708ac7b42",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd.sv",
           "old": ".clk, .rst_n, .alloc_fire, .alloc_entry, .retire_fire,",
           "new": ".clk, .rst_n, .alloc_fire, .alloc_entry(alloc_entry ^ 4'd1), .retire_fire,"
         }
       ],
-      "source_sby_run": "58352039f9a7497eaecd016708ac7b42",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "44b7c3871d3a20ca4a347a3b2bb8167f46d72b63b43036b2a622b3102bd5fb68",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    cmdbuf_rd_otb u_otb (\n        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n",
+          "new": "    );\n    cmdbuf_rd_otb u_otb (\n        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry ^ 4'd1), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n"
+        },
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI010",
       "title": "已发射项仍进入pending窗口",
       "group": "order",
-      "edits": [
+      "source_sby_run": "d099c932f049448a87fb0d634e04d0c6",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "pending_mask = valid_q & ~issued_q;",
           "new": "pending_mask = valid_q;"
         }
       ],
-      "source_sby_run": "d099c932f049448a87fb0d634e04d0c6",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "9ba43ab97ec72d5c602e4bd9331f06bd2d5e45fb4d70100bc59abd72ddb3632b",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        integer j;\n\n        pending_mask = valid_q & ~issued_q;\n        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n",
+          "new": "        integer j;\n\n        pending_mask = valid_q;\n        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI011",
       "title": "窗口扩为六项越窗发射",
       "group": "order",
-      "edits": [
+      "source_sby_run": "f4106a153f114561a066da74edbb3f46",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "(rank_count[i] < 5)",
           "new": "(rank_count[i] < 6)"
         }
       ],
-      "source_sby_run": "f4106a153f114561a066da74edbb3f46",
-      "samples": 9,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "6f3b85602d371042f4518562ad7f6af47ebe0e4d903835f819756f9085727475",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            for (j = 0; j < ENTRIES; j = j + 1)\n                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && (rank_count[i] < 5);\n            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n",
+          "new": "            for (j = 0; j < ENTRIES; j = j + 1)\n                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && (rank_count[i] < 6);\n            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI012",
       "title": "窗口内误选最新命令",
       "group": "order",
-      "edits": [
+      "source_sby_run": "1b437782c4c947e0a87b05ca5f5ec354",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "((older_q[i] & candidate_mask) == 9'b0)",
           "new": "((~older_q[i] & candidate_mask & ~(9'b1 << i)) == 9'b0)"
         }
       ],
-      "source_sby_run": "1b437782c4c947e0a87b05ca5f5ec354",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "4a3a92937cdf2da850edc08ad356edab7dc0a8aa5d6214baeeedc4a57af09437",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n                              ((older_q[i] & candidate_mask) == 9'b0);\n            if (select_onehot[i]) select_entry = i[3:0];\n        end\n",
+          "new": "        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n                              ((~older_q[i] & candidate_mask & ~(9'b1 << i)) == 9'b0);\n            if (select_onehot[i]) select_entry = i[3:0];\n        end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI013",
       "title": "AR同拍直接旁路req",
       "group": "order",
-      "edits": [
+      "source_sby_run": "380710d25ddd4387822e3997061f2291",
+      "samples": 3,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;",
           "new": "assign req = (rst_n && arvalid && src_ready) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);"
         }
       ],
-      "source_sby_run": "380710d25ddd4387822e3997061f2291",
-      "samples": 3,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "1d332588e23e0f47355475bdcb139d82d847d1c133fffcbfb221039a5773f7e0",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    reg [31:0] scan;\n\n    assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;\n    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n",
+          "new": "    reg [31:0] scan;\n\n    assign req = (rst_n && arvalid && src_ready) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);\n    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI014",
       "title": "发射级插入不必要流水气泡",
       "group": "local_transition",
-      "edits": [
+      "source_sby_run": "898251fbcfab4e868afd939f78a4cd06",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_valid_q <= select_valid;",
           "new": "issue_valid_q <= select_valid && !issue_valid_q;"
         }
       ],
-      "source_sby_run": "898251fbcfab4e868afd939f78a4cd06",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "0dd588c53e946512757d8a3db38e41fa14a1575722496654f76acd751b475991",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "\n            // 5A: always replace the attempt with this cycle's selection.\n            issue_valid_q <= select_valid;\n            if (select_valid) begin\n                issue_entry_q <= select_entry;\n",
+          "new": "\n            // 5A: always replace the attempt with this cycle's selection.\n            issue_valid_q <= select_valid && !issue_valid_q;\n            if (select_valid) begin\n                issue_entry_q <= select_entry;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI015",
       "title": "5A失败冲刷已预选下一条",
       "group": "local_transition",
-      "edits": [
+      "source_sby_run": "4241e8feb2ad4e408ae87c2e1bd74a3c",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_valid_q <= select_valid;",
           "new": "issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);"
         }
       ],
-      "source_sby_run": "4241e8feb2ad4e408ae87c2e1bd74a3c",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "d108a2da421f46552eb18ebd04c26f898ce64ac226ec6809089c5898ee026c9f",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "\n            // 5A: always replace the attempt with this cycle's selection.\n            issue_valid_q <= select_valid;\n            if (select_valid) begin\n                issue_entry_q <= select_entry;\n",
+          "new": "\n            // 5A: always replace the attempt with this cycle's selection.\n            issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);\n            if (select_valid) begin\n                issue_entry_q <= select_entry;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI016",
       "title": "失败命令年龄变为最新",
       "group": "order",
-      "edits": [
+      "source_sby_run": "91b3aad4b62b4b1bae258d4b358b08d5",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "older_q[i] <= older_next[i];",
           "new": "older_q[i] <= (issue_valid_q && !issue_success && issue_entry_q == 4'(i)) ? (valid_q & ~(9'b1 << i)) : older_next[i];"
         }
       ],
-      "source_sby_run": "91b3aad4b62b4b1bae258d4b358b08d5",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f7e7e89a5872db7b22fb1d6916e3e656273db61a4bd22e6657ee2183d1d43925",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            end\n            for (i = 0; i < ENTRIES; i = i + 1) begin\n                older_q[i] <= older_next[i];\n                // New allocation wins over retiring the previous owner.\n                if (alloc_fire && (alloc_entry == i[3:0])) begin\n",
+          "new": "            end\n            for (i = 0; i < ENTRIES; i = i + 1) begin\n                older_q[i] <= (issue_valid_q && !issue_success && issue_entry_q == i[3:0]) ? (valid_q & ~(9'b1 << i)) : older_next[i];\n                // New allocation wins over retiring the previous owner.\n                if (alloc_fire && (alloc_entry == i[3:0])) begin\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI017",
       "title": "当前请求项允许重复预选",
       "group": "order",
-      "edits": [
+      "source_sby_run": "916d9bc2d9c6490abb2281762b313cdb",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;",
           "new": "candidate_mask = window_mask & bank_idle_mask;"
         }
       ],
-      "source_sby_run": "916d9bc2d9c6490abb2281762b313cdb",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "b4f6638a19f02c715d375268dc9cf6184e0f317dd4702003d2458ee2948c2887",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n        candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n",
+          "new": "            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n        candidate_mask = window_mask & bank_idle_mask;\n        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI018",
       "title": "成功窗口前馈晚一拍",
       "group": "order",
-      "edits": [
+      "source_sby_run": "fd8931ee33d64484992a5aab0cb8b0cb",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "success_mask = issue_success ? current_issue_mask : 9'b0;",
           "new": "success_mask = 9'b0;"
         }
       ],
-      "source_sby_run": "fd8931ee33d64484992a5aab0cb8b0cb",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "e635642867f0aa3359f0565738cf25ee53e8677a4b3bb5d35658d40f15bc7483",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n        success_mask = issue_success ? current_issue_mask : 9'b0;\n        rank_pool = pending_mask & ~success_mask;\n        window_mask = 9'b0;\n",
+          "new": "        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n        success_mask = 9'b0;\n        rank_pool = pending_mask & ~success_mask;\n        window_mask = 9'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI019",
       "title": "失败请求提前腾出窗口名额",
       "group": "order",
-      "edits": [
+      "source_sby_run": "ebfaf06a70ff4a26abdfe7ba307a272c",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "success_mask = issue_success ? current_issue_mask : 9'b0;",
           "new": "success_mask = issue_valid_q ? current_issue_mask : 9'b0;"
         }
       ],
-      "source_sby_run": "ebfaf06a70ff4a26abdfe7ba307a272c",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "881d125462d35d473a62e66a8f5a5eb7c62b2008739d9f5b9955f5472e360405",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n        success_mask = issue_success ? current_issue_mask : 9'b0;\n        rank_pool = pending_mask & ~success_mask;\n        window_mask = 9'b0;\n",
+          "new": "        current_issue_mask = 9'b0;\n        if (issue_valid_q) current_issue_mask[issue_entry_q] = 1'b1;\n        success_mask = issue_valid_q ? current_issue_mask : 9'b0;\n        rank_pool = pending_mask & ~success_mask;\n        window_mask = 9'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI020",
       "title": "双grant错误OR",
       "group": "wiring",
-      "edits": [
+      "source_sby_run": "c56255c6953b4029b8601f4d1812b90a",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
           "new": "issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));"
         }
       ],
-      "source_sby_run": "c56255c6953b4029b8601f4d1812b90a",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "0772427969d4fb14c71d9744adf17bc2eb91039f3efa176d5cf1f85505139394",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n    assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = pending_q;\n",
+          "new": "    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n    assign issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = pending_q;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI021",
       "title": "无req时grant制造成功",
       "group": "wiring",
-      "edits": [
+      "source_sby_run": "2f0786b04efa4ef5ae5d24f1f7680db4",
+      "samples": 3,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
           "new": "issue_success = |(ar_rd_gnt & rw_rd_gnt);"
         }
       ],
-      "source_sby_run": "2f0786b04efa4ef5ae5d24f1f7680db4",
-      "samples": 3,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "1d263464b5948eba171b770a291d18b3b95ddeebfcd3d782a23e104c8464e96b",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n    assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = pending_q;\n",
+          "new": "    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n    assign issue_success = |(ar_rd_gnt & rw_rd_gnt);\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = pending_q;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI022",
       "title": "待发数只报告非空",
       "group": "order",
-      "edits": [
+      "source_sby_run": "8752cd0530f047a1b00dac0cd719ce8e",
+      "samples": 5,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "assign pending_cnt = pending_q;",
           "new": "assign pending_cnt = (pending_q != 0) ? 4'd1 : 4'd0;"
         }
       ],
-      "source_sby_run": "8752cd0530f047a1b00dac0cd719ce8e",
-      "samples": 5,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f9ca87a93b39ba7f0e9e5df9458ba3849bd6117ee38fb3a545095e615246be53",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = pending_q;\n    assign retire_fire = |(rvalid & rready);\n    assign retire_entry = rsp_entry;\n",
+          "new": "    assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);\n    assign issue_entry = issue_entry_q;\n    assign pending_cnt = (pending_q != 0) ? 4'd1 : 4'd0;\n    assign retire_fire = |(rvalid & rready);\n    assign retire_entry = rsp_entry;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI023",
       "title": "发射成功提前释放CMDBUF",
       "group": "order",
-      "edits": [
+      "source_sby_run": "f9d0ddbed266493ba9aa4022d29eace9",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "valid_next = valid_q & ~retire_mask;",
           "new": "valid_next = valid_q & ~retire_mask & ~success_mask;"
         }
       ],
-      "source_sby_run": "f9d0ddbed266493ba9aa4022d29eace9",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "dec869cae5912b58655ad1712a00e9404e80cc014f6f8ceb16f6b99ac76335e8",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            end\n        end\n        valid_next = valid_q & ~retire_mask;\n        if (alloc_fire) valid_next[alloc_entry] = 1'b1;\n    end\n",
+          "new": "            end\n        end\n        valid_next = valid_q & ~retire_mask & ~success_mask;\n        if (alloc_fire) valid_next[alloc_entry] = 1'b1;\n    end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI024",
       "title": "CMDBUF漏接MEM完成",
       "group": "local_transition",
-      "edits": [
+      "source_sby_run": "b18bfaa469da4c5aad7b4183c7755dab",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "if (capture_valid && (capture_entry == 4'(i))) done_q[i] <= 1'b1;",
           "new": "if (capture_valid && (capture_entry == 4'(i))) done_q[i] <= 1'b0;"
         }
       ],
-      "source_sby_run": "b18bfaa469da4c5aad7b4183c7755dab",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f997f7d804c1aea4f0b1e509c75a4c081826f7c851d9796e9293c53f31174b3a",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                end else begin\n                    if (issue_success && (issue_entry_q == i[3:0])) issued_q[i] <= 1'b1;\n                    if (capture_valid && (capture_entry == i[3:0])) done_q[i] <= 1'b1;\n                end\n            end\n",
+          "new": "                end else begin\n                    if (issue_success && (issue_entry_q == i[3:0])) issued_q[i] <= 1'b1;\n                    if (capture_valid && (capture_entry == i[3:0])) done_q[i] <= 1'b0;\n                end\n            end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI025",
       "title": "MEM返回改成三拍",
       "group": "calendar_delay",
-      "edits": [
+      "source_sby_run": "72c246c1123044d9ac94d42899d6cf55",
+      "samples": 8,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "rst_n && ret_valid_q[3]",
@@ -379,15 +1054,43 @@
           "new": "capture_entry = ret_entry_q[2]"
         }
       ],
-      "source_sby_run": "72c246c1123044d9ac94d42899d6cf55",
-      "samples": 8,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "1bfd66d593a9c33b41188da57bd16bdaf0cdf2a21ad87472a456faa074cb809e"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "\n    // The old last stage is sampled at the edge four cycles after issue.\n    assign capture_valid = rst_n && ret_valid_q[3];\n    assign capture_entry = ret_entry_q[3];\n    always @* begin\n        rsp_data = 128'b0;\n",
+          "new": "\n    // The old last stage is sampled at the edge four cycles after issue.\n    assign capture_valid = rst_n && ret_valid_q[2];\n    assign capture_entry = ret_entry_q[2];\n    always @* begin\n        rsp_data = 128'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI026",
       "title": "失败req也启动返回计时",
       "group": "calendar_delay",
-      "edits": [
+      "source_sby_run": "8e082669bbc9401dbe78114706185025",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "input  logic issue_success,",
@@ -404,30 +1107,91 @@
           "new": ".retire_entry, .issue_success, .mutation_issue_request(|req), .issue_entry, .capture_valid,"
         }
       ],
-      "source_sby_run": "8e082669bbc9401dbe78114706185025",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "df89e7f8f14bdc1ec1f6074ddc7ee93482b9d54071b08b071cbb99704ea78032",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "cf11df8d2d1ba7deffe2f6b9259de2785ec048e814535fd46035268bb18dc7a9"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    cmdbuf_rd_otb u_otb (\n        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n        .rsp_pc_err(rsp_pc_err)\n    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    cmdbuf_rd_otb u_otb (\n        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .mutation_issue_request(|req), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n        .rsp_pc_err(rsp_pc_err)\n    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    input wire [3:0] retire_entry,\n    input wire issue_success,\n    input wire [3:0] issue_entry,\n    output wire capture_valid,\n",
+          "new": "    input wire [3:0] retire_entry,\n    input wire issue_success,\n    input wire mutation_issue_request,\n    input wire [3:0] issue_entry,\n    output wire capture_valid,\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "        end else begin\n            // No stalls, including empty cycles and upstream backpressure.\n            ret_valid_q[0] <= issue_success;\n            ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n",
+          "new": "        end else begin\n            // No stalls, including empty cycles and upstream backpressure.\n            ret_valid_q[0] <= mutation_issue_request;\n            ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI027",
       "title": "返回日历遇bubble停止推进",
       "group": "calendar_delay",
-      "edits": [
+      "source_sby_run": "6f617a82a52f44c08066d4a47fa62306",
+      "samples": 7,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "ret_valid_q[k] <= ret_valid_q[k-1];",
           "new": "if (issue_success) ret_valid_q[k] <= ret_valid_q[k-1];"
         }
       ],
-      "source_sby_run": "6f617a82a52f44c08066d4a47fa62306",
-      "samples": 7,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "85e51662e3a344ffc5a45944ce877ba6799373ff992512287956e84d7bb76c0f"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "            ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n                ret_valid_q[k] <= ret_valid_q[k-1];\n                ret_entry_q[k] <= ret_valid_q[k-1] ? ret_entry_q[k-1] : 4'b0;\n            end\n",
+          "new": "            ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n                if (issue_success) ret_valid_q[k] <= ret_valid_q[k-1];\n                ret_entry_q[k] <= ret_valid_q[k-1] ? ret_entry_q[k-1] : 4'b0;\n            end\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI028",
       "title": "R不ready时漏掉MEM单拍数据",
       "group": "data_transition",
-      "edits": [
+      "source_sby_run": "5ae49ce68e3c48aca8523f92169dcacb",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "input  logic pc_err,",
@@ -444,324 +1208,947 @@
           "new": "end else if (capture_valid && (capture_entry == 4'(i)) && (|mutation_rready)) begin"
         }
       ],
-      "source_sby_run": "5ae49ce68e3c48aca8523f92169dcacb",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "6a07cb16316141b7a9cddb86dd75bd801c181dfd0ecd933fef456f161d27b14a",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "c1dfe7243014ecda515d7214ab3cfd0302b23a4f96e55f3b52dffccee1215964"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n        .rsp_pc_err(rsp_pc_err)\n    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "        .clk(clk), .rst_n(rst_n), .alloc_fire(alloc_fire), .alloc_entry(alloc_entry), .retire_fire(retire_fire),\n        .retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),\n        .capture_entry(capture_entry), .mem_rdata(mem_rdata), .pc_err(pc_err), .mutation_rready(rready), .rsp_entry(rsp_entry), .rsp_data(rsp_data),\n        .rsp_pc_err(rsp_pc_err)\n    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    input wire [127:0] mem_rdata,\n    input wire pc_err,\n    input wire [3:0] rsp_entry,\n    output reg [127:0] rsp_data,\n",
+          "new": "    input wire [127:0] mem_rdata,\n    input wire pc_err,\n    input wire [2:0] mutation_rready,\n    input wire [3:0] rsp_entry,\n    output reg [127:0] rsp_data,\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "                    data_q[i] <= 128'b0;\n                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n",
+          "new": "                    data_q[i] <= 128'b0;\n                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0]) && (|mutation_rready)) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI029",
       "title": "错误地用pc_err作为返回有效",
       "group": "data_transition",
-      "edits": [
+      "source_sby_run": "ae3035c1dc88473b82e6277ebaa17505",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "end else if (capture_valid && (capture_entry == 4'(i))) begin",
           "new": "end else if (capture_valid && (capture_entry == 4'(i)) && pc_err) begin"
         }
       ],
-      "source_sby_run": "ae3035c1dc88473b82e6277ebaa17505",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "e0d0772e42915071655fe0903484e113223f74858dfdc7d271e470b32da9b267"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "                    data_q[i] <= 128'b0;\n                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n",
+          "new": "                    data_q[i] <= 128'b0;\n                    pc_err_q[i] <= 1'b0;\n                end else if (capture_valid && (capture_entry == i[3:0]) && pc_err) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI030",
       "title": "返回token绑定错误entry",
       "group": "calendar_delay",
-      "edits": [
+      "source_sby_run": "137b566318aa4b67b81d8f5f77982cf5",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;",
           "new": "ret_entry_q[0] <= issue_success ? (issue_entry ^ 4'd1) : 4'b0;"
         }
       ],
-      "source_sby_run": "137b566318aa4b67b81d8f5f77982cf5",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "80d2a0d5442a2bd391aa3f282616304dd61558296c0b387c872a29dffcfa7c42"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "            // No stalls, including empty cycles and upstream backpressure.\n            ret_valid_q[0] <= issue_success;\n            ret_entry_q[0] <= issue_success ? issue_entry : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n                ret_valid_q[k] <= ret_valid_q[k-1];\n",
+          "new": "            // No stalls, including empty cycles and upstream backpressure.\n            ret_valid_q[0] <= issue_success;\n            ret_entry_q[0] <= issue_success ? (issue_entry ^ 4'd1) : 4'b0;\n            for (k = 1; k < 4; k = k + 1) begin\n                ret_valid_q[k] <= ret_valid_q[k-1];\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI031",
       "title": "MEM捕获同拍直接R旁路",
       "group": "order",
-      "edits": [
+      "source_sby_run": "06414b973f3a43228c251d0da547bdda",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
           "new": "r_candidate[x] = (done_q[head_entry[x]] || (capture_valid && capture_entry == head_entry[x])) && rready[x];"
         }
       ],
-      "source_sby_run": "06414b973f3a43228c251d0da547bdda",
-      "samples": 9,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "95b192d10faffa3b083208abc6b04cb1895c80adf12cc9fd93a49f8a52ef83f4",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            end\n            if (head_valid[x])\n                r_candidate[x] = done_q[head_entry[x]] && rready[x];\n        end\n    end\n",
+          "new": "            end\n            if (head_valid[x])\n                r_candidate[x] = (done_q[head_entry[x]] || (capture_valid && capture_entry == head_entry[x])) && rready[x];\n        end\n    end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI032",
       "title": "年轻已完成项绕过同源未完成队头",
       "group": "order",
-      "edits": [
+      "source_sby_run": "727f4b70f047459a82841f863ce45362",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "src_mask[x][i] = valid_q[i] && (src_q[i] == 2'(x));",
           "new": "src_mask[x][i] = valid_q[i] && done_q[i] && (src_q[i] == 2'(x));"
         }
       ],
-      "source_sby_run": "727f4b70f047459a82841f863ce45362",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "2379fe490a187840f8341915b71c68d7947c4c136bee955395fad9239655ef01",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            head_entry[x] = 4'b0;\n            for (i = 0; i < ENTRIES; i = i + 1)\n                src_mask[x][i] = valid_q[i] && (src_q[i] == x[1:0]);\n            for (i = 0; i < ENTRIES; i = i + 1) begin\n                head_onehot[x][i] = src_mask[x][i] &&\n",
+          "new": "            head_entry[x] = 4'b0;\n            for (i = 0; i < ENTRIES; i = i + 1)\n                src_mask[x][i] = valid_q[i] && done_q[i] && (src_q[i] == x[1:0]);\n            for (i = 0; i < ENTRIES; i = i + 1) begin\n                head_onehot[x][i] = src_mask[x][i] &&\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI033",
       "title": "错误施加全局响应保序",
       "group": "order",
-      "edits": [
+      "source_sby_run": "4db4b578ae7e462283c33b4552e52c62",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "((older_q[i] & src_mask[x]) == 9'b0)",
           "new": "(older_q[i] == 9'b0)"
         }
       ],
-      "source_sby_run": "4db4b578ae7e462283c33b4552e52c62",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "b74d07fb9deadea0edd2e40e177a00ea5daacac8b55b273d38b366165a62cd6f",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            for (i = 0; i < ENTRIES; i = i + 1) begin\n                head_onehot[x][i] = src_mask[x][i] &&\n                                   ((older_q[i] & src_mask[x]) == 9'b0);\n                if (head_onehot[x][i]) begin\n                    head_entry[x] = i[3:0];\n",
+          "new": "            for (i = 0; i < ENTRIES; i = i + 1) begin\n                head_onehot[x][i] = src_mask[x][i] &&\n                                   (older_q[i] == 9'b0);\n                if (head_onehot[x][i]) begin\n                    head_entry[x] = i[3:0];\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI034",
       "title": "R选择忽略目标rready",
       "group": "wiring",
-      "edits": [
+      "source_sby_run": "adf1d4a538024642844da34eeb322ff5",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
           "new": "r_candidate[x] = done_q[head_entry[x]];"
         }
       ],
-      "source_sby_run": "adf1d4a538024642844da34eeb322ff5",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "cd3bd764839aec7c090d46e1a7c2a52a762fb8e3fbac194283bde4ef8cf2c52f",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            end\n            if (head_valid[x])\n                r_candidate[x] = done_q[head_entry[x]] && rready[x];\n        end\n    end\n",
+          "new": "            end\n            if (head_valid[x])\n                r_candidate[x] = done_q[head_entry[x]];\n        end\n    end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI035",
       "title": "RR在空闲周期也推进",
       "group": "order",
-      "edits": [
+      "source_sby_run": "c86dd4f87c094160a44cec6708619a78",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "if (retire_fire) rr_ptr_q <=",
           "new": "if (1'b1) rr_ptr_q <="
         }
       ],
-      "source_sby_run": "c86dd4f87c094160a44cec6708619a78",
-      "samples": 4,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "796d01eedf47b490e0ac7df34ff6bfd18b0e25e0952d639b0058c49d5dc00ce1",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                occ_q[x] <= occ_q[x] + {3'b0, (alloc_fire && (src == x[1:0]))}\n                           - {3'b0, (retire_fire && (winner == x[1:0]))};\n            if (retire_fire) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n            // 5A: always replace the attempt with this cycle's selection.\n",
+          "new": "                occ_q[x] <= occ_q[x] + {3'b0, (alloc_fire && (src == x[1:0]))}\n                           - {3'b0, (retire_fire && (winner == x[1:0]))};\n            if (1'b1) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n            // 5A: always replace the attempt with this cycle's selection.\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI036",
       "title": "越界命令被禁止访问MEM",
       "group": "order",
-      "edits": [
+      "source_sby_run": "dea38def8b6d4b37af82df1836fdb7a8",
+      "samples": 4,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;",
           "new": "candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n        for (int m = 0; m < ENTRIES; m++) if (arresp_q[m] == 2'b11) candidate_mask[m] = 1'b0;"
         }
       ],
-      "source_sby_run": "dea38def8b6d4b37af82df1836fdb7a8",
-      "samples": 4,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "b913fac057c99569e8463e6d0ed65287d0fca8cd1258304109df1c82c627e5e6",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        integer i;\n        integer j;\n\n        pending_mask = valid_q & ~issued_q;\n",
+          "new": "        integer i;\n        integer j;\n        integer m;\n\n        pending_mask = valid_q & ~issued_q;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        end\n        candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n",
+          "new": "        end\n        candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask;\n        for (m = 0; m < ENTRIES; m = m + 1) if (arresp_q[m] == 2'b11) candidate_mask[m] = 1'b0;\n        for (i = 0; i < ENTRIES; i = i + 1) begin\n            select_onehot[i] = candidate_mask[i] &&\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI037",
       "title": "奇偶错误优先于越界",
       "group": "order",
-      "edits": [
+      "source_sby_run": "f8e46316d9094619bb5f23412c94e217",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;",
           "new": "if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;"
         }
       ],
-      "source_sby_run": "f8e46316d9094619bb5f23412c94e217",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "5f09098372c9549d63d5e586ed7cc703441dfcc6911e453ba3d28a4f616b481d",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        rresp = 2'b00;\n        if (|rvalid) begin\n            if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;\n        end\n    end\n",
+          "new": "        rresp = 2'b00;\n        if (|rvalid) begin\n            if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n        end\n    end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI038",
       "title": "捕获时丢弃pc_err",
       "group": "data_transition",
-      "edits": [
+      "source_sby_run": "ab20bde6253f40f9b38fa1c752c0051e",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_otb.sv",
           "old": "pc_err_q[i] <= pc_err;",
           "new": "pc_err_q[i] <= 1'b0;"
         }
       ],
-      "source_sby_run": "ab20bde6253f40f9b38fa1c752c0051e",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "f80b362ebe6b240d9cd2f22142cf3ba07110271ab497948fceda9bba67cdf51f",
+        "cmdbuf_rd_otb.v": "f83b6c7a9081768538c4bff8b7f549f98a22d9fc782622428aaf9ec2ddfdf6b5"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= pc_err;\n                    done_q[i] <= 1'b1;\n                end\n",
+          "new": "                end else if (capture_valid && (capture_entry == i[3:0])) begin\n                    data_q[i] <= mem_rdata;\n                    pc_err_q[i] <= 1'b0;\n                    done_q[i] <= 1'b1;\n                end\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI039",
       "title": "10B准入没有扣除当拍退休",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "f9a2528f28ed455b8e16755cd1aaa7a9",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x] - 1;",
           "new": "if (1'b0) occ_after[x] = occ_after[x] - 1;"
         }
       ],
-      "source_sby_run": "f9a2528f28ed455b8e16755cd1aaa7a9",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "ce1eb80f60200ca5c3834b17cc7294f213f52fa7a12e06268e951accaf6a2a3c",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1) begin\n            occ_after[x] = {28'b0, occ_q[x]};\n            if (retire_fire && (winner == x[1:0])) occ_after[x] = occ_after[x] - 1;\n            used_after = used_after + occ_after[x];\n            if (occ_after[x] > 0) shared_after = shared_after + occ_after[x] - 1;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1) begin\n            occ_after[x] = {28'b0, occ_q[x]};\n            if (1'b0) occ_after[x] = occ_after[x] - 1;\n            used_after = used_after + occ_after[x];\n            if (occ_after[x] > 0) shared_after = shared_after + occ_after[x] - 1;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI040",
       "title": "同槽复用被旧退休清除覆盖",
       "group": "local_transition",
-      "edits": [
+      "source_sby_run": "631fa9e65e17491faf1b171c3a3b0fe1",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "if (alloc_fire && (alloc_entry == 4'(i))) begin",
           "new": "if (alloc_fire && (alloc_entry == 4'(i)) && !retire_mask[i]) begin"
         }
       ],
-      "source_sby_run": "631fa9e65e17491faf1b171c3a3b0fe1",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "060fe79f3531d8c7f05d5a789b4d95ce31bcf4cb6830cb2991e6a9e2c0e3177d",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "                older_q[i] <= older_next[i];\n                // New allocation wins over retiring the previous owner.\n                if (alloc_fire && (alloc_entry == i[3:0])) begin\n                    issued_q[i] <= 1'b0;\n                    done_q[i] <= 1'b0;\n",
+          "new": "                older_q[i] <= older_next[i];\n                // New allocation wins over retiring the previous owner.\n                if (alloc_fire && (alloc_entry == i[3:0]) && !retire_mask[i]) begin\n                    issued_q[i] <= 1'b0;\n                    done_q[i] <= 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI041",
       "title": "R退休漏清CMDBUF归属",
       "group": "order",
-      "edits": [
+      "source_sby_run": "dc6a5624ccb5411f99bb00ed318b17aa",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "valid_next = valid_q & ~retire_mask;",
           "new": "valid_next = valid_q;"
         }
       ],
-      "source_sby_run": "dc6a5624ccb5411f99bb00ed318b17aa",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "6489adcac8c263297d84ef1e55e0a2602d1f35b5d39f056151c86dfadae724de",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            end\n        end\n        valid_next = valid_q & ~retire_mask;\n        if (alloc_fire) valid_next[alloc_entry] = 1'b1;\n    end\n",
+          "new": "            end\n        end\n        valid_next = valid_q;\n        if (alloc_fire) valid_next[alloc_entry] = 1'b1;\n    end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI042",
       "title": "同拍复用新AR直接旁路请求",
       "group": "order",
-      "edits": [
+      "source_sby_run": "586ff0e468a844bf9bd3d4254ad0b762",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;",
           "new": "assign req = (rst_n && alloc_fire && retire_fire) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);"
         }
       ],
-      "source_sby_run": "586ff0e468a844bf9bd3d4254ad0b762",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "c2bb803a64c4e724b95a8af754fbf198a1216d8bee4d3339239e4b02b8bb3c5c",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    reg [31:0] scan;\n\n    assign req = (rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0;\n    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n",
+          "new": "    reg [31:0] scan;\n\n    assign req = (rst_n && alloc_fire && retire_fire) ? (8'b1 << araddr[5:3]) : ((rst_n && issue_valid_q) ? (8'b1 << issue_bank_q) : 8'b0);\n    assign arb_addr = (rst_n && issue_valid_q) ? issue_addr_q : 12'b0;\n    // Successful issue requires the same requested bank in both grants.\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI043",
       "title": "只限制每源七项而丢失联合保底",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "abbc710bc1874fddb20244ea556226f1",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "(shared_after < 6)",
           "new": "(occ_after[x] < 7)"
         }
       ],
-      "source_sby_run": "abbc710bc1874fddb20244ea556226f1",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "865b6fe6b3d809d6f14f73c9e10a1fff2a9f67a9a84568ebc941343f28eb267d",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (occ_after[x] < 7));\n\n        src_ready = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI044",
       "title": "占用额度在成功发射时提前扣除",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "d65c64a6e7af4e998c6678d11f17b9c7",
+      "samples": 6,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "- 4'(retire_fire && (winner == 2'(x)))",
           "new": "- 4'(issue_success && (src_q[issue_entry_q] == 2'(x)))"
         }
       ],
-      "source_sby_run": "d65c64a6e7af4e998c6678d11f17b9c7",
-      "samples": 6,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "ef39e4012872e4d375ed3d4c607eed5c1b59f29dc4012fba4674317904784205",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            for (x = 0; x < 3; x = x + 1)\n                occ_q[x] <= occ_q[x] + {3'b0, (alloc_fire && (src == x[1:0]))}\n                           - {3'b0, (retire_fire && (winner == x[1:0]))};\n            if (retire_fire) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n",
+          "new": "            for (x = 0; x < 3; x = x + 1)\n                occ_q[x] <= occ_q[x] + {3'b0, (alloc_fire && (src == x[1:0]))}\n                           - {3'b0, (issue_success && (src_q[issue_entry_q] == x[1:0]))};\n            if (retire_fire) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI045",
       "title": "三路ready错误共用来源0占用",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "95fa799905834eef9c37d25ed6f0d15d",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "((occ_after[x] == 0) || (shared_after < 6))",
           "new": "((occ_after[0] == 0) || (shared_after < 6))"
         }
       ],
-      "source_sby_run": "95fa799905834eef9c37d25ed6f0d15d",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "ef98d58654c298e6a85061dfe514a3b6a365595ffeac53dd327081bad44a9926",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[0] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI046",
       "title": "其他两源空闲时允许借出保底",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "0a438032f07e4f89befaff22df0cb791",
+      "samples": 10,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "(shared_after < 6)",
           "new": "((shared_after < 6) || ((occ_after[1] == 0) && (occ_after[2] == 0)))"
         }
       ],
-      "source_sby_run": "0a438032f07e4f89befaff22df0cb791",
-      "samples": 10,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "d5fa0450dfce58e53b938877a96116913efdfffc8789c071f10e2d1dad0eef83",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || ((shared_after < 6) || ((occ_after[1] == 0) && (occ_after[2] == 0))));\n\n        src_ready = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI047",
       "title": "释放唯一保底时误开放所有来源",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "a7b6e4e116ba4b308fa8f2270c0934b3",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "((occ_after[x] == 0) || (shared_after < 6))",
           "new": "((occ_after[x] == 0) || (shared_after < 6) || retire_fire)"
         }
       ],
-      "source_sby_run": "a7b6e4e116ba4b308fa8f2270c0934b3",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "d3495d2c03897b736e8d463d63ae6e470f1ae992a20db6bedab18b0aeb695f66",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6));\n\n        src_ready = 1'b0;\n",
+          "new": "        for (x = 0; x < 3; x = x + 1)\n            arready[x] = rst_n && (free_after > 0) &&\n                         ((occ_after[x] == 0) || (shared_after < 6) || retire_fire);\n\n        src_ready = 1'b0;\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI048",
       "title": "同源退休和接收计数更新优先级丢减一",
       "group": "capacity",
-      "edits": [
+      "source_sby_run": "30557de673ef43b59b49b21a21d2357a",
+      "samples": 11,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "occ_q[x] <= occ_q[x] + 4'(alloc_fire && (src == 2'(x)))\n                           - 4'(retire_fire && (winner == 2'(x)));",
           "new": "occ_q[x] <= (alloc_fire && (src == 2'(x))) ? occ_q[x] + 4'd1 : occ_q[x] - 4'(retire_fire && (winner == 2'(x)));"
         }
       ],
-      "source_sby_run": "30557de673ef43b59b49b21a21d2357a",
-      "samples": 11,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "46ed9478df1cace909e4635cc6fa6c025950078893340485d3d9acf1d5903765",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            pending_q <= pending_q + {3'b0, (alloc_fire)} - {3'b0, (issue_success)};\n            for (x = 0; x < 3; x = x + 1)\n                occ_q[x] <= occ_q[x] + {3'b0, (alloc_fire && (src == x[1:0]))}\n                           - {3'b0, (retire_fire && (winner == x[1:0]))};\n            if (retire_fire) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n",
+          "new": "            pending_q <= pending_q + {3'b0, (alloc_fire)} - {3'b0, (issue_success)};\n            for (x = 0; x < 3; x = x + 1)\n                occ_q[x] <= (alloc_fire && (src == x[1:0])) ? occ_q[x] + 4'd1 : occ_q[x] - {3'b0, (retire_fire && (winner == x[1:0]))};\n            if (retire_fire) rr_ptr_q <= (winner == 2) ? 2'd0 : winner + 2'd1;\n\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     },
     {
       "id": "FI049",
       "title": "容量使用较高时放宽为六条发射窗口",
       "group": "order",
-      "edits": [
+      "source_sby_run": "5a6420047d8b4679bbab183c0e54ee21",
+      "samples": 9,
+      "expected": "original_pass_mutant_mismatch",
+      "baseline_edits": [
         {
           "file": "cmdbuf_rd_cmd.sv",
           "old": "(rank_count[i] < 5)",
           "new": "((rank_count[i] < 5) || ((quota_cost >= 8) && rank_count[i] == 5))"
         }
       ],
-      "source_sby_run": "5a6420047d8b4679bbab183c0e54ee21",
-      "samples": 9,
-      "expected": "original_pass_mutant_mismatch"
+      "rtl_language": "Verilog-2001",
+      "current_rtl_sha256": {
+        "cmdbuf_rd.v": "affe748c53e992c2c4e9029d779ba3a862dd58d0f7ae7559b44284ca3818025b",
+        "cmdbuf_rd_cmd.v": "72f76281319722940e1297f0689255fd185020e9e1ce4d8729b406aafc9e3d69",
+        "cmdbuf_rd_otb.v": "7af9bf6ea6cee10f7fb9040beab5eb8bfddc8ad66fe53de37384d8349dbd8d3d"
+      },
+      "edits": [
+        {
+          "file": "cmdbuf_rd.v",
+          "old": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\nendmodule\n`default_nettype wire\n",
+          "new": "    );\n    assign rdata = (|rvalid) ? rsp_data : 128'b0;\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "            for (j = 0; j < ENTRIES; j = j + 1)\n                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && (rank_count[i] < 5);\n            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n",
+          "new": "            for (j = 0; j < ENTRIES; j = j + 1)\n                if (rank_pool[j] && older_q[i][j]) rank_count[i] = rank_count[i] + 1;\n            window_mask[i] = rank_pool[i] && ((rank_count[i] < 5) || ((quota_cost >= 8) && rank_count[i] == 5));\n            bank_idle_mask[i] = !rd_mem_status[addr_q[i][6:3]];\n        end\n"
+        },
+        {
+          "file": "cmdbuf_rd_cmd.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_cmd_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        },
+        {
+          "file": "cmdbuf_rd_otb.v",
+          "old": "    end\n`endif\nendmodule\n`default_nettype wire\n",
+          "new": "    end\n`endif\n\n`ifdef FORMAL\n`include \"inputs/formal_hooks/cmdbuf_rd_otb_0.svh\"\n`endif\nendmodule\n`default_nettype wire\n"
+        }
+      ]
     }
   ],
   "provenance": {
@@ -1745,5 +3132,7 @@
       "member": "evidence/task/mutations/replay/FI049/5a6420047d8b4679bbab183c0e54ee21/external_inputs.hex",
       "sha256": "a04a5ae056c6838e594be5e144664b2788a34e33e8f84d038a203945ab190323"
     }
-  }
+  },
+  "input_revision": "verilog2001_20261012",
+  "edit_contract": "Exact nonempty fragments, one occurrence per sequential replacement; reproduces the supplied current Verilog mutant bytes."
 }

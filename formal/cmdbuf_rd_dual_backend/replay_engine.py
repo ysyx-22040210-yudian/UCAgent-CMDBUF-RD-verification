@@ -3,7 +3,7 @@ import hashlib, json, os, subprocess, time
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ORIGINAL = ROOT / 'rtl'
-FILES = ['cmdbuf_rd.sv', 'cmdbuf_rd_cmd.sv', 'cmdbuf_rd_otb.sv']
+FILES = ['cmdbuf_rd.v', 'cmdbuf_rd_cmd.v', 'cmdbuf_rd_otb.v']
 WIDTHS = {'rst_n':1,'arvalid':1,'araddr':18,'src':2,'arid':8,'ar_port_id':5,'arresp':2,'rready':3,'ar_rd_gnt':8,'rd_mem_status':16,'mem_rdata':128,'pc_err':1,'rw_rd_gnt':8}
 ENV = os.environ.copy()
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()

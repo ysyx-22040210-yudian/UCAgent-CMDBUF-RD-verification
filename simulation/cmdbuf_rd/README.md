@@ -1,13 +1,15 @@
 # cmdbuf_rd RTL 与验证工程
 
+当前芯片 RTL 已转换为 Verilog-2001，`rtl/*.v` 为集成文件；新的等价性与完整重新验证记录见 [Verilog 迁移说明](../../verification/verilog_20261012/README.md)。以下早期回归与注错报告保留原执行时间。
+
 开发与实际编译、仿真、注错验证主机：192.168.31.116，工程：`/root/cmdbuf_rd`。
-本工程依据已对齐的 cmdbuf_rd 设计基线实现。当前为 RTL 功能验证交付，未进行综合面积、静态时序或完整形式证明。
+本工程依据已对齐的 cmdbuf_rd 设计基线实现。以下内容描述早期功能验证；完整形式证明及本次语言转换的当前结果见仓库验证报告。综合面积和静态时序仍未签核。
 
 ## 实现结构
 
-- `rtl/cmdbuf_rd.sv`：顶层接口、CMDBUF/OTB 连接。
-- `rtl/cmdbuf_rd_cmd.sv`：9 项元数据与状态、年龄矩阵、最老 5 条待发窗口、三周期接收/判断/发射、5A/6B、容量准入、每 XAU 保序及响应 RR、10B 同拍复用。
-- `rtl/cmdbuf_rd_otb.sv`：9 项 128-bit 数据与 pc_err、成功发射四拍返回标记、无返回背压的数据捕获、分配/退休数据清除。
+- `rtl/cmdbuf_rd.v`：顶层接口、CMDBUF/OTB 连接。
+- `rtl/cmdbuf_rd_cmd.v`：9 项元数据与状态、年龄矩阵、最老 5 条待发窗口、三周期接收/判断/发射、5A/6B、容量准入、每 XAU 保序及响应 RR、10B 同拍复用。
+- `rtl/cmdbuf_rd_otb.v`：9 项 128-bit 数据与 pc_err、成功发射四拍返回标记、无返回背压的数据捕获、分配/退休数据清除。
 - `/root/env_base/adapters/cmdbuf_rd/`：独立 C++ 参考模型和 Verilator 驱动。
 - `/root/env_base/cases/cmdbuf_rd/`：定向及随机 case；公共 runner 未加入 DUT 特例。
 - `scripts/run_mutations.py`：隔离 RTL 注错副本、编译与检测结果分类。

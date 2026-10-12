@@ -1,0 +1,27 @@
+read_verilog -sv -DSYNTHESIS baseline/cmdbuf_rd.sv baseline/cmdbuf_rd_cmd.sv baseline/cmdbuf_rd_otb.sv
+hierarchy -top cmdbuf_rd
+proc
+flatten
+memory_map
+opt
+async2sync
+opt
+rename cmdbuf_rd gold
+design -stash gold
+read_verilog -DSYNTHESIS rtl/cmdbuf_rd.v rtl/cmdbuf_rd_cmd.v rtl/cmdbuf_rd_otb.v
+hierarchy -top cmdbuf_rd
+proc
+flatten
+memory_map
+opt
+async2sync
+opt
+rename cmdbuf_rd gate
+design -stash gate
+design -copy-from gold -as gold gold
+design -copy-from gate -as gate gate
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct -seq 5
+equiv_status -assert

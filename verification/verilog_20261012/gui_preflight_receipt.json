@@ -1,0 +1,8 @@
+{
+  "run_id": "run-bf4e123834214b39a1bb4c4442a0d0d5",
+  "status": "preflight_passed",
+  "manifest_sha256": "7ce6537849c029df05f8adcf4281390bf7cb5e1618b16c92d94c1f502af69c6b",
+  "full_suite_passed": false,
+  "result_status": "preflight_passed",
+  "new_solver_runs": 0
+}

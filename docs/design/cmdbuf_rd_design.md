@@ -2,9 +2,11 @@
 
 版本日期：2026-10-10。设计基线：九项 CMDBUF 与九项 OTB、五条待发命令乱序窗口、5A／6B／10B 时序、成功发射后固定四拍返回、MEM 捕获后最早下一拍响应，以及每 XAU 保底的容量保护方案。
 
+实现语言更新：2026-10-12，当前三份芯片 RTL 采用 Verilog-2001（`.v`）。Bank 状态的逻辑组织仍为 2×8 位，实际端口为 `rd_mem_status[15:0]`：偶 Bank 位于 `[7:0]`，奇 Bank 位于 `[15:8]`，按 `araddr[6:3]` 索引。形式属性和观测器属于验证文件，保留 SystemVerilog。当前集成文件和验证记录见 [RTL 说明](../../rtl/README.md)。
+
 本方案用于 RTL 编码、模块接口评审和验证建模。已确认的行为作为实现约束；固定 entry、年龄矩阵、相同物理索引等属于本方案的实现选择。复位、精确 RR 顺序等尚未最终定义的边界在文末列出，不将建议冒充已经确认的接口要求。
 
-[时序图集](../cmdbuf_rd_timing/index.html) · [注错清单](../cmdbuf_rd_fault_catalog/index.html) · [容量隔离说明](../cmdbuf_rd_fault_catalog/capacity_policy.md)
+[时序图集](../timing/index.html) · [注错清单](../fault_catalog/index.html) · [容量隔离说明](../fault_catalog/capacity_policy.md)
 
 ## 1 设计目标和能力边界
 
@@ -96,7 +98,7 @@ pending_cnt 表示全局待发数，不是窗口内命令数，也不是总占�
 
 | 信号 | 方向 | 位宽 | 含义 |
 | --- | --- | --- | --- |
-| rd_mem_status | 输入 | [1:0][7:0] | 第一维奇偶，第二维 Bank；0 空闲、1 忙 |
+| rd_mem_status | 输入 | [15:0] | `[7:0]` 为偶 Bank，`[15:8]` 为奇 Bank；0 空闲、1 忙 |
 | mem_rdata | 输入 | 128 | 合并后的单组返回数据 |
 | pc_err | 输入 | 1 | 当前有效返回的奇偶校验异常 |
 | rw_rd_gnt | 输入 | 8 | 目标 Bank 的读仲裁许可 |
@@ -104,7 +106,7 @@ pending_cnt 表示全局待发数，不是窗口内命令数，也不是总占�
 ```text
 bank_id   = saved_araddr[5:3]       // Bank 0～7
 bank_half = saved_araddr[6]         // 0 偶、1 奇
-bank_idle = !rd_mem_status[bank_half][bank_id]
+bank_idle = !rd_mem_status[{bank_half, bank_id}]
 arb_addr  = issue_addr_q            // 保存的 araddr[17:6]
 ```
 
@@ -309,7 +311,7 @@ rank_pool = pending_mask & ~success_mask
 older_count[i] = popcount(older_set[i] & rank_pool)
 window_mask[i] = rank_pool[i] && (older_count[i] < 5)
 
-bank_idle_mask[i] = !rd_mem_status[cmd_addr[i][6]][cmd_addr[i][5:3]]
+bank_idle_mask[i] = !rd_mem_status[cmd_addr[i][6:3]]
 candidate_mask = window_mask & bank_idle_mask & ~current_issue_mask
 select_onehot = oldest(candidate_mask)
 ```
@@ -412,7 +414,7 @@ attempt_valid 便于观察请求尝试；只有 issue_success 才允许 OTB 产�
         mem_done[capture_entry] <= 1
 ```
 
-在 SystemVerilog 中用同一沿的非阻塞赋值读取旧末级即可。不要将 capture_valid 再额外寄存一拍，也不要在捕获时使用刚移入末级的下一状态。
+在 Verilog 中用同一沿的非阻塞赋值读取旧末级即可。不要将 capture_valid 再额外寄存一拍，也不要在捕获时使用刚移入末级的下一状态。
 
 | 时钟沿 | A 标记和数据的动作 |
 | --- | --- |
@@ -534,7 +536,7 @@ else:
     若 MEM 捕获命中 i，保存数据和 pc_err，mem_done=1
 ```
 
-这是每项的逻辑优先级，不代表将所有数组写成多个冲突的 always_ff。每个寄存器应有唯一写入过程；并行事件分别作用于不同 entry，不能用顶层全局 if/else 误删其他事件。
+这是每项的逻辑优先级，不代表将所有数组写成多个冲突的时钟沿 always 过程。每个寄存器应有唯一写入过程；并行事件分别作用于不同 entry，不能用顶层全局 if/else 误删其他事件。
 
 ### 14.3 合法并发关系
 
@@ -663,17 +665,14 @@ sum(max(occ_q[x],1)) <= 9
 | [12 容量保留](../cmdbuf_rd_timing/12_timing.png) | 一路占七项后其他来源仍可准入 |
 | [13 保底复用](../cmdbuf_rd_timing/13_timing.png) | 释放唯一项时仅恢复该来源资格 |
 
-## 19 建议 RTL 划分
+## 19 当前 RTL 划分
 
-| 文件或逻辑块建议 | 主要内容 |
+| 当前文件 | 主要内容 |
 | --- | --- |
-| cmdbuf_rd.sv | 顶层端口、公共事件、模块连接 |
-| cmdbuf_rd_cmd.sv | 九项元数据、状态、年龄、窗口及请求级 |
-| cmdbuf_rd_otb.sv | 九项数据、pc_err、固定四拍返回标记与捕获 |
-| cmdbuf_rd_alloc.sv | 每来源占用、保留额度、free mask 与分配 |
-| cmdbuf_rd_rsp.sv | 每来源队头、RR、共享 R mux 与退休 |
-
-文件划分是建议，允许将 alloc/rsp 合并到顶层或 CMDBUF 控制中。核心是状态单一归属、每个寄存器唯一写入者，以及分配/完成/退休广播的一致性。
+| cmdbuf_rd.v | 顶层端口、公共事件、模块连接 |
+| cmdbuf_rd_cmd.v | 九项元数据、状态、年龄、窗口、请求级、容量准入和响应 RR |
+| cmdbuf_rd_otb.v | 九项数据、pc_err、固定四拍返回标记与捕获 |
+当前实现将分配、容量保护、来源队头和响应 RR 合并在 cmdbuf_rd_cmd.v 内。状态保持单一归属、每个寄存器唯一写入者，分配/完成/退休事件同步传递给 OTB。
 
 常量建议统一定义：XAU_NUM=3、ENTRY_NUM=9、WINDOW_SIZE=5、BANK_NUM=8、ADDR_WIDTH=18、DATA_WIDTH=128、ID_WIDTH=8、PORT_ID_WIDTH=5、MEM_LATENCY=4。参数化不代表任意组合均已验证；首先固定这一基线实现。
 

@@ -1,8 +1,8 @@
 
--- Running command `read_rtlil "/root/cmdbuf_rd/portable_20261012/package/jobs/aggregate/conversion/portable.il"; write_verilog -sv -noattr "/root/cmdbuf_rd/portable_20261012/package/jobs/aggregate/formalmc/model.sv"' --
+-- Running command `read_rtlil "/root/cmdbuf_rd/verilog_20261012/package/jobs/aggregate/conversion/portable.il"; write_verilog -sv -noattr "/root/cmdbuf_rd/verilog_20261012/package/jobs/aggregate/formalmc/model.sv"' --
 
 1. Executing RTLIL frontend.
-Input filename: /root/cmdbuf_rd/portable_20261012/package/jobs/aggregate/conversion/portable.il
+Input filename: /root/cmdbuf_rd/verilog_20261012/package/jobs/aggregate/conversion/portable.il
 
 2. Executing Verilog backend.
 

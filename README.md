@@ -2,6 +2,8 @@
 
 本仓库保存当前已对齐的 `cmdbuf_rd` 项目：9 项 CMDBUF/OTB、3 个 XAU、最老 5 条未成功发射命令窗口、三周期前向流水、MEM 成功发射后四拍返回，以及每个 XAU 保序的 RR 响应。
 
+当前芯片 RTL 使用 **Verilog-2001**，入口为 [cmdbuf_rd.v](rtl/cmdbuf_rd.v)、[cmdbuf_rd_cmd.v](rtl/cmdbuf_rd_cmd.v) 和 [cmdbuf_rd_otb.v](rtl/cmdbuf_rd_otb.v)。集成与 Bank 状态位序见 [RTL 使用说明](rtl/README.md)。形式验证属性与观测器继续使用验证工具支持的 SystemVerilog。
+
 操作界面为 **Python Tkinter/ttk 原生 GUI**。在 UCAgent 已关联的 SBY 任务中点击“切换到 FormalMC”，即可进入完整项目的 FormalMC 操作页；两种后端独立保存配置和结果。HTML 文件是报告与文档。
 
 ## 目录
@@ -19,6 +21,7 @@
 | `simulation/` | 早期 RTL 仿真工程、独立参考模型与历史结果 |
 | `verification/closure/` | 完整 UCAgent 流程报告与原始证据分卷 |
 | `verification/gui/` | Tk GUI 回归日志、实际界面截图与验收记录 |
+| `verification/verilog_20261012/` | 本次 Verilog 转换、新旧等价性与重新验证的证据 |
 | `provenance/` | GUI 变更及交付来源说明 |
 
 ## 运行 SBY / FormalMC
@@ -51,6 +54,8 @@ python3 gui/UCAgent-Desktop.pyz --server http://127.0.0.1:8814
 ![实际 Tk GUI](verification/gui/02_formalmc_ready.png)
 
 ## 已完成的实际验证
+
+本次 Verilog 修订已重新完成严格 Verilog 编译、3162 项顺序等价证明、23 项仿真回归、22 项完整 SBY 任务、22 个重建模型交叉验证和 49 类注错回放。实际输入、日志及新结果见 [Verilog 重新验证报告](verification/verilog_20261012/README.md)。以下原 UCAgent 14 阶段等记录保留其历史验收范围。
 
 - 原 UCAgent 正式流程 14/14 阶段完成；规格拆分为 15 FG → 35 FC → 177 CK。
 - 107 个安全检查点获得无界证明，65 个业务覆盖获得见证；5 个环境假设单列。

@@ -1,4 +1,4 @@
-read_verilog -formal -sv -DSYNTHESIS "inputs/cmdbuf_rd/rtl/cmdbuf_rd.sv" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_cmd.sv" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_otb.sv" "inputs/formal_out/tests/cmdbuf_rd_checker.sv" "inputs/formal_out/tests/cmdbuf_rd_wrapper.sv"
+read_verilog -formal -sv -DSYNTHESIS "inputs/cmdbuf_rd/rtl/cmdbuf_rd.v" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_cmd.v" "inputs/cmdbuf_rd/rtl/cmdbuf_rd_otb.v" "inputs/formal_out/tests/cmdbuf_rd_checker.sv" "inputs/formal_out/tests/cmdbuf_rd_wrapper.sv"
 prep -top cmdbuf_rd_wrapper
 check -assert
 write_json ucagent_design.json
@@ -9,5 +9,5 @@ async2sync
 chformal -lower
 chformal -assume -early
 setundef -undriven -anyseq
-write_rtlil "/root/cmdbuf_rd/portable_20261012/package/jobs/guided_cover/conversion/normalized.il"
-write_json "/root/cmdbuf_rd/portable_20261012/package/jobs/guided_cover/conversion/normalized.json"
+write_rtlil "/root/cmdbuf_rd/verilog_20261012/package/jobs/guided_cover/conversion/normalized.il"
+write_json "/root/cmdbuf_rd/verilog_20261012/package/jobs/guided_cover/conversion/normalized.json"

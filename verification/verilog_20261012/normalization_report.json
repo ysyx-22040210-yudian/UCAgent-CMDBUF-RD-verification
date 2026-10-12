@@ -1,0 +1,234 @@
+{
+  "rtl_language": "Verilog-2001",
+  "old_manifest_sha256": "472cb4e4cf67b8cfe10e9c5fbb9243d8115b83f53fc241e185c9bc57a8a957dc",
+  "models_generated_from_current_inputs": true,
+  "old_results_used_for_current_verdict": false,
+  "jobs": [
+    {
+      "id": "age_projection",
+      "properties_before": 18,
+      "properties_after": 18,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "18e0d991319de9a32aed970aad27661c973ca4b65bc5dccccc1d1f82d59b8da1"
+    },
+    {
+      "id": "aggregate",
+      "properties_before": 79,
+      "properties_after": 79,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [
+        {
+          "kind": "assert",
+          "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:81.13-81.45",
+          "count": 9
+        },
+        {
+          "kind": "assert",
+          "source_location": "inputs/formal_hooks/cmdbuf_rd_2.svh:80.13-80.58",
+          "count": 9
+        }
+      ],
+      "model_sha256": "f54351b3c52b0182c38c7ddc1edab7a806c07f76b8376b65ceab7035fc5e3ff9"
+    },
+    {
+      "id": "aggregate_split",
+      "properties_before": 12,
+      "properties_after": 12,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "ba2fa454a1dfb9379335ebed6d69c95b82847567d76187c49b6237a6e61e7ad6"
+    },
+    {
+      "id": "calendar",
+      "properties_before": 30,
+      "properties_after": 30,
+      "checkpoints_rebound": [
+        "CK-GRANT-NOSTRAY-TOKEN",
+        "CK-MEM-EXACT4",
+        "CK-MEM-IDENTITY",
+        "CK-MEM-CALENDAR-BUBBLES",
+        "CK-MEM-NO-EARLY"
+      ],
+      "replicated_properties_preserved": [],
+      "model_sha256": "2aeb1b08051d2190bbce11db40ba1b244d6b04a20bdb558b338fccda39efb887"
+    },
+    {
+      "id": "capacity",
+      "properties_before": 43,
+      "properties_after": 43,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "03e7d4934afdddbe281bd24c371ee9542fbffc40cb93e6ae9fd10f0d714dfa10"
+    },
+    {
+      "id": "cover_banks",
+      "properties_before": 22,
+      "properties_after": 22,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "4bcae1c6b39c58cd0d44848e7e051ac8adbeff06e4d1bcaad29cf40d007ff9d3"
+    },
+    {
+      "id": "cover_data_identity",
+      "properties_before": 21,
+      "properties_after": 21,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "f375025a658e488c4bb627e9960cd79357795abab58bc5110eba0e41129c8b15"
+    },
+    {
+      "id": "cover_pipeline",
+      "properties_before": 22,
+      "properties_after": 22,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "5943fb607d1ce97fd4add96292a8c25e80d7c186a9694b652e0791ca2080b471"
+    },
+    {
+      "id": "cover_window_response",
+      "properties_before": 21,
+      "properties_after": 21,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "becba313b7ec1b31086623d1b8ea4cf9ebae80e1f6a1ce6e2a2e01091518cf43"
+    },
+    {
+      "id": "data_origin",
+      "properties_before": 66,
+      "properties_after": 66,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [
+        {
+          "kind": "assert",
+          "source_location": "inputs/formal_hooks/cmdbuf_rd_1.svh:81.13-81.45",
+          "count": 9
+        },
+        {
+          "kind": "assert",
+          "source_location": "inputs/formal_hooks/cmdbuf_rd_1.svh:80.13-80.58",
+          "count": 9
+        }
+      ],
+      "model_sha256": "c4b87193d8c310af689b7b47ee052a41d119f0d29accabb2df0af8167192b7c9"
+    },
+    {
+      "id": "data_transition",
+      "properties_before": 39,
+      "properties_after": 39,
+      "checkpoints_rebound": [
+        "CK-DATA-CAPTURE128",
+        "CK-DATA-PCERR-CAPTURE",
+        "CK-DATA-CAPTURE-NOREADY",
+        "CK-DATA-VALID-NOTVALUE",
+        "CK-DATA-HOLD128",
+        "CK-DATA-PCERR-HOLD"
+      ],
+      "replicated_properties_preserved": [],
+      "model_sha256": "2e5d42cb78ad2f0f3da7416a9c52fe310187c66b0d106cbc7de15a1eba20a7cd"
+    },
+    {
+      "id": "guided_cover",
+      "properties_before": 22,
+      "properties_after": 22,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "5b6a1092fb729bbacd7604b74ef49360819ebb82810c4b34a6237621a9dd6dcf"
+    },
+    {
+      "id": "guided_prove",
+      "properties_before": 13,
+      "properties_after": 13,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "20a0e92e7c49dc861c8d781bc097c501da3f894cc7febf19b6b8e978a01dd669"
+    },
+    {
+      "id": "lifecycle",
+      "properties_before": 68,
+      "properties_after": 68,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "f36939b7641f5a874e38d0565577eec62631675f229e6033f8af279b7061ec3b"
+    },
+    {
+      "id": "lifecycle_r2",
+      "properties_before": 67,
+      "properties_after": 67,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "d1ccce8523fa9851e4742bf22dce282404e9cff270e037e602ff86520be8495b"
+    },
+    {
+      "id": "local_transition",
+      "properties_before": 41,
+      "properties_after": 41,
+      "checkpoints_rebound": [
+        "CK-LIFE-NEW-STATE",
+        "CK-RETIRE-CLEAR-STATE"
+      ],
+      "replicated_properties_preserved": [],
+      "model_sha256": "09672284fbe1d30d48406c987e0d183f267ed5d6db486964c7b6a9f7803449a4"
+    },
+    {
+      "id": "pipeline",
+      "properties_before": 5,
+      "properties_after": 5,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "b83d0c64f236dce7f503df0c7b4f943355da1b4d28ff0f73fa2e0433d7e6109e"
+    },
+    {
+      "id": "policy_order",
+      "properties_before": 20,
+      "properties_after": 20,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [
+        {
+          "kind": "assert",
+          "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_0.svh:90.55-90.88",
+          "count": 3
+        }
+      ],
+      "model_sha256": "236ec12886f1c9e3758ff7a9bac8d2b680784d5199b86c9f77e2114ad1904923"
+    },
+    {
+      "id": "quota_math",
+      "properties_before": 6,
+      "properties_after": 6,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "71049859075057817ffba158dba48c04a70d632d486632f2d547c7aaeb428254"
+    },
+    {
+      "id": "source_net_math",
+      "properties_before": 5,
+      "properties_after": 5,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "a6e2d4a1af6f1925d2650d079c94a8abecc60d7c4392c453f4e80ec8ada8fbfb"
+    },
+    {
+      "id": "structural",
+      "properties_before": 15,
+      "properties_after": 15,
+      "checkpoints_rebound": [],
+      "replicated_properties_preserved": [],
+      "model_sha256": "9d66d754f7d1ec0f95e0560a5cd250de32fc73a8274385a0e1a1175c641af283"
+    },
+    {
+      "id": "wiring",
+      "properties_before": 21,
+      "properties_after": 21,
+      "checkpoints_rebound": [
+        "CK-AR-ACCEPT",
+        "CK-GRANT-EXACT",
+        "CK-RETIRE-EXACT"
+      ],
+      "replicated_properties_preserved": [],
+      "model_sha256": "980bd79bc6f6b370282eebe2a00f1aaba93e94c76d1cd4e75cec46828d5d30d6"
+    }
+  ],
+  "new_manifest_sha256": "7ce6537849c029df05f8adcf4281390bf7cb5e1618b16c92d94c1f502af69c6b",
+  "models_generated": 22
+}

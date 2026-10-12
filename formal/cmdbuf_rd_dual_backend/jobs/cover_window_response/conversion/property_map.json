@@ -1,11 +1,11 @@
 [
   {
-    "label": "dut.u_otb._witness_.check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_5890",
-    "sby_label": "check_assume_inputs_rtl_cmdbuf_rd_otb_sv_128_5890",
+    "label": "dut.u_otb._witness_.check_assume_inputs_formal_hooks_cmdbuf_rd_otb_1_svh_33_5750",
+    "sby_label": "check_assume_inputs_formal_hooks_cmdbuf_rd_otb_1_svh_33_5750",
     "formalmc_label": "P_ASSUME_0000",
     "kind": "assume",
-    "source_location": "inputs/rtl/cmdbuf_rd_otb.sv:128.15-128.37",
-    "a_connection": "$flatten\\dut.\\u_otb.$lt$inputs/rtl/cmdbuf_rd_otb.sv:128$5891_Y",
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_otb_1.svh:33.15-33.37",
+    "a_connection": "$flatten\\dut.\\u_otb.$lt$inputs/formal_hooks/cmdbuf_rd_otb_1.svh:33$5751_Y",
     "enable_connection": "1'1"
   },
   {
@@ -13,179 +13,179 @@
     "sby_label": "CK_CV_6B",
     "formalmc_label": "P_COVER_0001",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:583.9-583.159",
-    "a_connection": "$auto$async2sync.cc:116:execute$19722",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19718"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:69.9-69.159",
+    "a_connection": "$auto$async2sync.cc:116:execute$19512",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19508"
   },
   {
     "label": "dut.u_cmd.CK_CV_CAP440",
     "sby_label": "CK_CV_CAP440",
     "formalmc_label": "P_COVER_0002",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:588.9-588.102",
-    "a_connection": "$auto$async2sync.cc:116:execute$19728",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19724"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:74.9-74.102",
+    "a_connection": "$auto$async2sync.cc:116:execute$19518",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19514"
   },
   {
     "label": "dut.u_cmd.CK_CV_CAP700",
     "sby_label": "CK_CV_CAP700",
     "formalmc_label": "P_COVER_0003",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:587.9-587.102",
-    "a_connection": "$auto$async2sync.cc:116:execute$19734",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19730"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:73.9-73.102",
+    "a_connection": "$auto$async2sync.cc:116:execute$19524",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19520"
   },
   {
     "label": "dut.u_cmd.CK_CV_CAP711",
     "sby_label": "CK_CV_CAP711",
     "formalmc_label": "P_COVER_0004",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:589.9-589.114",
-    "a_connection": "$auto$async2sync.cc:116:execute$19740",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19736"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:75.9-75.114",
+    "a_connection": "$auto$async2sync.cc:116:execute$19530",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19526"
   },
   {
     "label": "dut.u_cmd.CK_CV_CROSS_SRC_PROGRESS",
     "sby_label": "CK_CV_CROSS_SRC_PROGRESS",
     "formalmc_label": "P_COVER_0005",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:594.9-594.113",
-    "a_connection": "$auto$async2sync.cc:116:execute$19746",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19742"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:80.9-80.113",
+    "a_connection": "$auto$async2sync.cc:116:execute$19536",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19532"
   },
   {
     "label": "dut.u_cmd.CK_CV_FAIL_KEEPS_WINDOW",
     "sby_label": "CK_CV_FAIL_KEEPS_WINDOW",
     "formalmc_label": "P_COVER_0006",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:584.9-584.126",
-    "a_connection": "$auto$async2sync.cc:116:execute$19752",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19748"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:70.9-70.126",
+    "a_connection": "$auto$async2sync.cc:116:execute$19542",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19538"
   },
   {
     "label": "dut.u_cmd.CK_CV_OUT_OF_ORDER",
     "sby_label": "CK_CV_OUT_OF_ORDER",
     "formalmc_label": "P_COVER_0007",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:586.9-586.42",
-    "a_connection": "$auto$async2sync.cc:116:execute$19758",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19754"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:72.9-72.42",
+    "a_connection": "$auto$async2sync.cc:116:execute$19548",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19544"
   },
   {
     "label": "dut.u_cmd.CK_CV_QUOTA_NO_ESCAPE",
     "sby_label": "CK_CV_QUOTA_NO_ESCAPE",
     "formalmc_label": "P_COVER_0008",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:585.9-585.214",
-    "a_connection": "$auto$async2sync.cc:116:execute$19764",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19760"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:71.9-71.214",
+    "a_connection": "$auto$async2sync.cc:116:execute$19554",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19550"
   },
   {
     "label": "dut.u_cmd.CK_CV_RR_MASKS",
     "sby_label": "CK_CV_RR_MASKS",
     "formalmc_label": "P_COVER_0009",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:596.9-596.74",
-    "a_connection": "$auto$async2sync.cc:116:execute$19770",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19766"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:82.9-82.74",
+    "a_connection": "$auto$async2sync.cc:116:execute$19560",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19556"
   },
   {
     "label": "dut.u_cmd.CK_CV_RR_ROTATE",
     "sby_label": "CK_CV_RR_ROTATE",
     "formalmc_label": "P_COVER_0010",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:595.9-595.91",
-    "a_connection": "$auto$async2sync.cc:116:execute$19776",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19772"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:81.9-81.91",
+    "a_connection": "$auto$async2sync.cc:116:execute$19566",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19562"
   },
   {
     "label": "dut.u_cmd.CK_CV_SAME_SRC_NETZERO",
     "sby_label": "CK_CV_SAME_SRC_NETZERO",
     "formalmc_label": "P_COVER_0011",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:592.9-592.225",
-    "a_connection": "$auto$async2sync.cc:116:execute$19782",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19778"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:78.9-78.225",
+    "a_connection": "$auto$async2sync.cc:116:execute$19572",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19568"
   },
   {
     "label": "dut.u_cmd.CK_CV_SHARED_REFILL",
     "sby_label": "CK_CV_SHARED_REFILL",
     "formalmc_label": "P_COVER_0012",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:591.9-591.147",
-    "a_connection": "$auto$async2sync.cc:116:execute$19788",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19784"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:77.9-77.147",
+    "a_connection": "$auto$async2sync.cc:116:execute$19578",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19574"
   },
   {
     "label": "dut.u_cmd.CK_CV_SIXTH_BLOCKED",
     "sby_label": "CK_CV_SIXTH_BLOCKED",
     "formalmc_label": "P_COVER_0013",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:582.9-582.121",
-    "a_connection": "$auto$async2sync.cc:116:execute$19794",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19790"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:68.9-68.121",
+    "a_connection": "$auto$async2sync.cc:116:execute$19584",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19580"
   },
   {
     "label": "dut.u_cmd.CK_CV_UNIQUE_REFILL",
     "sby_label": "CK_CV_UNIQUE_REFILL",
     "formalmc_label": "P_COVER_0014",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:590.9-590.147",
-    "a_connection": "$auto$async2sync.cc:116:execute$19800",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19796"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:76.9-76.147",
+    "a_connection": "$auto$async2sync.cc:116:execute$19590",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19586"
   },
   {
     "label": "dut.u_cmd.CK_CV_YOUNGER_DONE",
     "sby_label": "CK_CV_YOUNGER_DONE",
     "formalmc_label": "P_COVER_0015",
     "kind": "cover",
-    "source_location": "inputs/rtl/cmdbuf_rd_cmd.sv:593.9-593.51",
-    "a_connection": "$auto$async2sync.cc:116:execute$19806",
-    "enable_connection": "$auto$async2sync.cc:107:execute$19802"
+    "source_location": "inputs/formal_hooks/cmdbuf_rd_cmd_1.svh:79.9-79.51",
+    "a_connection": "$auto$async2sync.cc:116:execute$19596",
+    "enable_connection": "$auto$async2sync.cc:107:execute$19592"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6348",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6348",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6208",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_38_6208",
     "formalmc_label": "P_ASSUME_0016",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:38.26-38.42",
-    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:38$6349_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:38$6348_EN"
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:38$6209_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:38$6208_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6338",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6338",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6198",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_32_6198",
     "formalmc_label": "P_ASSUME_0017",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:32.25-32.39",
-    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:32$6339_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:32$6338_EN"
+    "a_connection": "$logic_not$inputs/formal/cmdbuf_rd_formal.sv:32$6199_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:32$6198_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6340",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6340",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6200",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_33_6200",
     "formalmc_label": "P_ASSUME_0018",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:33.14-33.27",
     "a_connection": "\\rst_n",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:33$6340_EN"
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:33$6200_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6341",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6341",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6201",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_35_6201",
     "formalmc_label": "P_ASSUME_0019",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:35.13-35.28",
-    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:35$6342_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$6341_EN"
+    "a_connection": "$lt$inputs/formal/cmdbuf_rd_formal.sv:35$6202_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$6201_EN"
   },
   {
-    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6343",
-    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6343",
+    "label": "_witness_.check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6203",
+    "sby_label": "check_assume_inputs_formal_cmdbuf_rd_formal_sv_36_6203",
     "formalmc_label": "P_ASSUME_0020",
     "kind": "assume",
     "source_location": "inputs/formal/cmdbuf_rd_formal.sv:36.13-36.55",
-    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:36$6346_Y",
-    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$6341_EN"
+    "a_connection": "$logic_or$inputs/formal/cmdbuf_rd_formal.sv:36$6206_Y",
+    "enable_connection": "$assume$inputs/formal/cmdbuf_rd_formal.sv:35$6201_EN"
   }
 ]

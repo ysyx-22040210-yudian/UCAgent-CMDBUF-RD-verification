@@ -1,0 +1,253 @@
+{
+  "scope": "Replay of 49 archived SBY external traces; not a new FormalMC counterexample campaign.",
+  "new_formalmc_counterexamples": false,
+  "selected": 49,
+  "passed": 49,
+  "cases": [
+    {
+      "case": "FI001",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI001/result.json"
+    },
+    {
+      "case": "FI002",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI002/result.json"
+    },
+    {
+      "case": "FI003",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI003/result.json"
+    },
+    {
+      "case": "FI004",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI004/result.json"
+    },
+    {
+      "case": "FI005",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI005/result.json"
+    },
+    {
+      "case": "FI006",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI006/result.json"
+    },
+    {
+      "case": "FI007",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI007/result.json"
+    },
+    {
+      "case": "FI008",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI008/result.json"
+    },
+    {
+      "case": "FI009",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI009/result.json"
+    },
+    {
+      "case": "FI010",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI010/result.json"
+    },
+    {
+      "case": "FI011",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI011/result.json"
+    },
+    {
+      "case": "FI012",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI012/result.json"
+    },
+    {
+      "case": "FI013",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI013/result.json"
+    },
+    {
+      "case": "FI014",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI014/result.json"
+    },
+    {
+      "case": "FI015",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI015/result.json"
+    },
+    {
+      "case": "FI016",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI016/result.json"
+    },
+    {
+      "case": "FI017",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI017/result.json"
+    },
+    {
+      "case": "FI018",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI018/result.json"
+    },
+    {
+      "case": "FI019",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI019/result.json"
+    },
+    {
+      "case": "FI020",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI020/result.json"
+    },
+    {
+      "case": "FI021",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI021/result.json"
+    },
+    {
+      "case": "FI022",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI022/result.json"
+    },
+    {
+      "case": "FI023",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI023/result.json"
+    },
+    {
+      "case": "FI024",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI024/result.json"
+    },
+    {
+      "case": "FI025",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI025/result.json"
+    },
+    {
+      "case": "FI026",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI026/result.json"
+    },
+    {
+      "case": "FI027",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI027/result.json"
+    },
+    {
+      "case": "FI028",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI028/result.json"
+    },
+    {
+      "case": "FI029",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI029/result.json"
+    },
+    {
+      "case": "FI030",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI030/result.json"
+    },
+    {
+      "case": "FI031",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI031/result.json"
+    },
+    {
+      "case": "FI032",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI032/result.json"
+    },
+    {
+      "case": "FI033",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI033/result.json"
+    },
+    {
+      "case": "FI034",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI034/result.json"
+    },
+    {
+      "case": "FI035",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI035/result.json"
+    },
+    {
+      "case": "FI036",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI036/result.json"
+    },
+    {
+      "case": "FI037",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI037/result.json"
+    },
+    {
+      "case": "FI038",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI038/result.json"
+    },
+    {
+      "case": "FI039",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI039/result.json"
+    },
+    {
+      "case": "FI040",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI040/result.json"
+    },
+    {
+      "case": "FI041",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI041/result.json"
+    },
+    {
+      "case": "FI042",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI042/result.json"
+    },
+    {
+      "case": "FI043",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI043/result.json"
+    },
+    {
+      "case": "FI044",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI044/result.json"
+    },
+    {
+      "case": "FI045",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI045/result.json"
+    },
+    {
+      "case": "FI046",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI046/result.json"
+    },
+    {
+      "case": "FI047",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI047/result.json"
+    },
+    {
+      "case": "FI048",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI048/result.json"
+    },
+    {
+      "case": "FI049",
+      "passed": true,
+      "report": "/root/cmdbuf_rd/verilog_20261012/validation/replay_toolchain_fixed/replay-20261012T154449Z-92eba990/FI049/result.json"
+    }
+  ]
+}

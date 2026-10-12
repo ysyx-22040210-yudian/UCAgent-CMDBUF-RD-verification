@@ -1,5 +1,7 @@
 # 从 GitHub 使用当前项目
 
+当前 RTL 入口为 `rtl/*.v`，使用 Verilog-2001；Bank 状态用 `[15:0]` 保存原二维位序，详见 [RTL 集成说明](../rtl/README.md)。SBY 与 FormalMC 的验证环境保留其属性文件语法。
+
 桌面的逐步操作和实际截图见 [Tk GUI 详细操作图示](gui/README.md)；下载后可打开 [离线阅读版](gui/index.html)。
 
 ## 原生桌面界面

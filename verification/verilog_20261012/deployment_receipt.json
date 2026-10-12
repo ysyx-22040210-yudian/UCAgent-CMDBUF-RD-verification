@@ -1,0 +1,18 @@
+{
+  "package_id": "cmdbuf_rd",
+  "root": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/cmdbuf_rd_verilog_2001",
+  "old_gui_package_retained": "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/acceptance/cmdbuf_rd_dual_backend_gui",
+  "default_vm_rtl": "/root/cmdbuf_rd/rtl/*.v",
+  "rtl_sha256": {
+    "cmdbuf_rd.v": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b",
+    "cmdbuf_rd_cmd.v": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+    "cmdbuf_rd_otb.v": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54"
+  },
+  "manifest_sha256": "7ce6537849c029df05f8adcf4281390bf7cb5e1618b16c92d94c1f502af69c6b",
+  "release_sha256": "cee63597428d1329fea88c6f11f867b452bf5fc01b254dcb16899088a1b8ef0c",
+  "stage_state_unchanged": true,
+  "service_unit": "cmdbuf-rd-ucagent.service",
+  "old_service_pid": 36471,
+  "session_id": "90855753a21f4dc7a0dc29b7892e38f3",
+  "settings_preserved": true
+}

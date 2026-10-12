@@ -1,0 +1,71 @@
+{
+  "language": "Verilog-2001 for both DUT and simulation bench",
+  "command": [
+    "iverilog",
+    "-g2001",
+    "-s",
+    "replay_tb",
+    "-o",
+    "/root/cmdbuf_rd/verilog_20261012/validation/iverilog_replay/replay.vvp",
+    "/root/cmdbuf_rd/verilog_20261012/validation/iverilog_replay/replay_tb.v",
+    "/root/cmdbuf_rd/verilog_20261012/rtl/cmdbuf_rd.v",
+    "/root/cmdbuf_rd/verilog_20261012/rtl/cmdbuf_rd_cmd.v",
+    "/root/cmdbuf_rd/verilog_20261012/rtl/cmdbuf_rd_otb.v"
+  ],
+  "cases": [
+    {
+      "id": "FI001",
+      "passed": true,
+      "returncode": 0,
+      "oracle": {
+        "checks": 886,
+        "protocol_violations": [],
+        "semantic_mismatch_count": 0,
+        "first_failure": null,
+        "failures": [],
+        "recorded_samples": 10,
+        "expected_samples": 10,
+        "input_contract_valid": true
+      },
+      "log_sha256": "1cad9178027c3a80ebc9c35f8cb0ceb990c5490cf187485e85682e0585928a6a"
+    },
+    {
+      "id": "FI035",
+      "passed": true,
+      "returncode": 0,
+      "oracle": {
+        "checks": 289,
+        "protocol_violations": [],
+        "semantic_mismatch_count": 0,
+        "first_failure": null,
+        "failures": [],
+        "recorded_samples": 4,
+        "expected_samples": 4,
+        "input_contract_valid": true
+      },
+      "log_sha256": "cf951ed4e154a2fb5fa0ca82beaf5f86f227667a651b79542f691f165a3bcd39"
+    },
+    {
+      "id": "FI049",
+      "passed": true,
+      "returncode": 0,
+      "oracle": {
+        "checks": 787,
+        "protocol_violations": [],
+        "semantic_mismatch_count": 0,
+        "first_failure": null,
+        "failures": [],
+        "recorded_samples": 9,
+        "expected_samples": 9,
+        "input_contract_valid": true
+      },
+      "log_sha256": "a1ad27b9e807c505e9c932ffa24cd7740a3662f3e5679a1c3bfeda52512211ad"
+    }
+  ],
+  "rtl_sha256": {
+    "cmdbuf_rd.v": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b",
+    "cmdbuf_rd_cmd.v": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+    "cmdbuf_rd_otb.v": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54"
+  },
+  "all_passed": true
+}

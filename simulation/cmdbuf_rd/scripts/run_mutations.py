@@ -16,52 +16,52 @@ import time
 
 # Each anchor was reviewed against the actual RTL; --manifest may override.
 DEFAULT_MUTATIONS = [
-    {"id": "M01", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M01", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "rank_count[i] < 5", "after": "rank_count[i] < 9",
      "purpose": "错误扩大最老五条窗口，允许第六条绕过阻塞窗口"},
-    {"id": "M02", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M02", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "assign issue_success = |(req & ar_rd_gnt & rw_rd_gnt);",
      "after": "assign issue_success = |(req & (ar_rd_gnt | rw_rd_gnt));",
      "purpose": "将双 grant 同时命中错误放宽为任一 grant 命中"},
-    {"id": "M03", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M03", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "success_mask = issue_success ? current_issue_mask : 9'b0;",
      "after": "success_mask = (issue_success && !issue_valid_q) ? current_issue_mask : 9'b0;",
      "purpose": "关闭 6B 成功当拍窗口前馈"},
-    {"id": "M04", "file": "rtl/cmdbuf_rd.sv",
-     "before": ".retire_entry, .issue_success, .issue_entry, .capture_valid,",
-     "after": ".retire_entry, .issue_success(issue_success || (|req)), .issue_entry, .capture_valid,",
+    {"id": "M04", "file": "rtl/cmdbuf_rd.v",
+     "before": ".retire_entry(retire_entry), .issue_success(issue_success), .issue_entry(issue_entry), .capture_valid(capture_valid),",
+     "after": ".retire_entry(retire_entry), .issue_success(issue_success || (|req)), .issue_entry(issue_entry), .capture_valid(capture_valid),",
      "purpose": "仅发 req 即启动 OTB 返回 token，失败请求也被计入"},
-    {"id": "M05", "file": "rtl/cmdbuf_rd_otb.sv",
+    {"id": "M05", "file": "rtl/cmdbuf_rd_otb.v",
      "before": "assign capture_valid = rst_n && ret_valid_q[3];",
      "after": "assign capture_valid = rst_n && (ret_valid_q[3] || ret_valid_q[2]);",
      "purpose": "固定四拍捕获错误多使用提前一拍的 tap，导致早采样或重复捕获"},
-    {"id": "M06", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M06", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "((occ_after[x] == 0) || (shared_after < 6));",
      "after": "((occ_after[x] == 0) || (shared_after < 9));",
      "purpose": "放宽共享额度，破坏每来源一项容量保底"},
-    {"id": "M07", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M07", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "r_candidate[x] = done_q[head_entry[x]] && rready[x];",
      "after": "r_candidate[x] = done_q[head_entry[x]];",
      "purpose": "响应候选忽略当拍 rready"},
-    {"id": "M08", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M08", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "((older_q[i] & src_mask[x]) == 9'b0);",
      "after": "((older_q[i] & src_mask[x] & done_q) == 9'b0) && done_q[i];",
      "purpose": "仅在完成项中找来源队头，跳过同来源更老的未完成命令"},
-    {"id": "M09", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M09", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;\n            else if (rsp_pc_err)\n                rresp = 2'b01;",
      "after": "if (rsp_pc_err)\n                rresp = 2'b01;\n            else if (arresp_q[rsp_entry] == 2'b11)\n                rresp = 2'b11;",
      "purpose": "错误地让奇偶异常覆盖地址越界异常"},
-    {"id": "M10", "file": "rtl/cmdbuf_rd_cmd.sv",
+    {"id": "M10", "file": "rtl/cmdbuf_rd_cmd.v",
      "before": "issue_valid_q <= select_valid;",
      "after": "issue_valid_q <= select_valid && !(issue_valid_q && !issue_success);",
      "purpose": "违反 5A，在当前请求失败时丢弃同拍预选的下一命令"},
-    {"id": "M11", "file": "rtl/cmdbuf_rd_cmd.sv",
-     "before": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x] - 1;",
-     "after": "if (retire_fire && (winner == 2'(x))) occ_after[x] = occ_after[x];",
+    {"id": "M11", "file": "rtl/cmdbuf_rd_cmd.v",
+     "before": "if (retire_fire && (winner == x[1:0])) occ_after[x] = occ_after[x] - 1;",
+     "after": "if (retire_fire && (winner == x[1:0])) occ_after[x] = occ_after[x];",
      "purpose": "关闭 10B 准入的退休前馈，满表时多停一拍"},
-    {"id": "M12", "file": "rtl/cmdbuf_rd_cmd.sv",
-     "before": "!(addr_q[i][6] ? rd_mem_status[1][addr_q[i][5:3]] : rd_mem_status[0][addr_q[i][5:3]]);",
-     "after": "!(addr_q[i][6] ? rd_mem_status[0][addr_q[i][5:3]] : rd_mem_status[1][addr_q[i][5:3]]);",
+    {"id": "M12", "file": "rtl/cmdbuf_rd_cmd.v",
+     "before": "!rd_mem_status[addr_q[i][6:3]];",
+     "after": "!rd_mem_status[{~addr_q[i][6], addr_q[i][5:3]}];",
      "purpose": "反转命令选择时的奇偶 Bank 状态索引"},
 ]
 
@@ -116,13 +116,13 @@ def inspect_cases(result_dir, case_files):
             elif record["status"] != "pass":
                 record["infrastructure_error"] = True
         except (OSError, ValueError, TypeError) as exc:
-            # Verilator $fatal exits before the C++ harness can write JSON.
-            # Accept only an explicit source-level assertion message, not abort alone.
+            # An explicit RTL check can stop before the harness writes JSON.
+            # An abort alone is never counted as detecting the mutation.
             log_path = result_dir / (case.stem + ".log")
             if not log_path.is_file() and len(case_files) == 1:
                 log_path = result_dir / "run.log"
             log = log_path.read_text(encoding="utf-8", errors="replace") if log_path.is_file() else ""
-            assertion = re.search(r"%(?:Error|Fatal):[^\n]*\.sv:\d+:[^\n]*Assertion failed in[^\n]*", log)
+            assertion = re.search(r"CMDBUF_CHECK_FAILURE:[^\n]*", log)
             if assertion:
                 record.update({"status": "fail", "checker_failure": True,
                                "detection_kind": "rtl_assertion", "failure": assertion.group(0),
@@ -134,7 +134,7 @@ def inspect_cases(result_dir, case_files):
 
 
 def check_tree_unchanged(root, expected):
-    observed = {str(p.relative_to(root)): sha256(p) for p in sorted(root.rglob("*.sv"))}
+    observed = {str(p.relative_to(root)): sha256(p) for p in sorted(root.rglob("*.v"))}
     if observed != expected:
         raise RuntimeError("Baseline RTL changed during the mutation campaign; results are not comparable")
 
@@ -261,7 +261,7 @@ def main():
     if not case_files or any(not p.is_file() for p in case_files):
         parser.error("No selected case files found")
     source = args.workspace / "rtl"
-    expected = {str(p.relative_to(source)): sha256(p) for p in sorted(source.rglob("*.sv"))}
+    expected = {str(p.relative_to(source)): sha256(p) for p in sorted(source.rglob("*.v"))}
     if not expected:
         parser.error("Baseline RTL is missing")
     campaign = args.workspace / "mutations"
