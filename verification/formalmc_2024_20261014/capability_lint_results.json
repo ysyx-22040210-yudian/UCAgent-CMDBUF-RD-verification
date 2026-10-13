@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "id": "capability_immediate_safety",
+      "returncode": 0
+    },
+    {
+      "id": "capability_immediate_negative",
+      "returncode": 0
+    },
+    {
+      "id": "capability_immediate_cover",
+      "returncode": 0
+    },
+    {
+      "id": "capability_safety",
+      "returncode": 0
+    },
+    {
+      "id": "capability_negative",
+      "returncode": 0
+    },
+    {
+      "id": "capability_cover",
+      "returncode": 0
+    }
+  ],
+  "formalmc_executed": false,
+  "scope": "Syntax lint only; not a capability proof"
+}

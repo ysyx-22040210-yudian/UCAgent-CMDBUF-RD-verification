@@ -1,0 +1,9 @@
+{
+  "profile": "2024_zero_init_and_typed_cover",
+  "source_runner_sha256": "10e4583c4a1321dd652a1ee7c0abb314cefd6334765449c726bfefb77fcb006d",
+  "intermediate_zero_runner_sha256": "64019bd0dce82465bdfff7225c72c8760844655f4c70390852fa4c898fb5f44f",
+  "runner_sha256": "e5faf3c37dcfa47126a39acb3aa395b4d8ab9c05006344c01bb1751aac6eb2af",
+  "patch_builder_sha256": "2d3a7fbfa4ea051fdfb95a2e6d2044210298e766f506505ac637b4c9d6db527e",
+  "formalmc_executed": false,
+  "public_2024_manual_confirmed": false
+}

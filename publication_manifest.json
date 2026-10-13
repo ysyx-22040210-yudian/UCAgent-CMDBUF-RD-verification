@@ -274,6 +274,14 @@
       "bytes": 1870857,
       "sha256": "cf8e767667da2789c99d88cc74a8c1b86d3a8bbe6f724899d057f29c6f2f53d8"
     },
+    "documents/08_formalmc2024_zero_init.docx": {
+      "bytes": 41242,
+      "sha256": "c44963993d8625cb6595a285261ebe8b31c9cb389fddbce5b4935660028a5756"
+    },
+    "documents/08_formalmc2024_zero_init.pdf": {
+      "bytes": 253612,
+      "sha256": "132c78de10e43b7ca923fedad62e5d0bcf638800febea7d9cec1861a977c395c"
+    },
     "documents/CMDBUF_RD_完整说明手册.docx": {
       "bytes": 2658828,
       "sha256": "32699d145a82aa9e3e3db8e7f63ff56b42923513f5bcd285451bc37f8c5b0c8c"
@@ -293,6 +301,10 @@
     "documents/document_validation.json": {
       "bytes": 3425,
       "sha256": "eb0a4be9ca77ad31967912dfd1a596332e0344ff3da6d6778a9d6d2073e1a401"
+    },
+    "formal/build_formalmc_2024.py": {
+      "bytes": 11043,
+      "sha256": "cbbab82818f9cc8dcef479cfc2d4b50f3981c7320ae59374f9f5a7cf2e4f1976"
     },
     "formal/cmdbuf_rd_dual_backend/jobs/age_projection/conversion/emit.log": {
       "bytes": 488,
@@ -3758,6 +3770,22 @@
       "bytes": 2682,
       "sha256": "bc2a71856a23f2f53424ced29755a333e233f94c4c1d74eaa39e75817078ff62"
     },
+    "formal/formalmc2024_runner_tests.py": {
+      "bytes": 3359,
+      "sha256": "00dfc1365d2e9fa9795b96d74b7bc126a6f1ed11e59a7d45394e8054836ae03e"
+    },
+    "formal/releases/CMDBUF_RD_FormalMC2024_zero_init_20261014.zip": {
+      "bytes": 50074759,
+      "sha256": "3fcf6927f40baeb7dd2f14d1a49d0e888fcf628e2b844e8547fe0b816122a36e"
+    },
+    "formal/releases/CMDBUF_RD_FormalMC2024_zero_init_20261014.zip.sha256": {
+      "bytes": 113,
+      "sha256": "1de6058333f8388c5c6f2e2b561393da18de10aae297d31e51437879fcab2818"
+    },
+    "formal/validate_formalmc_2024.py": {
+      "bytes": 6027,
+      "sha256": "3cd925165ac7026856b3145c4ef7883f90871037ebafb483d0cfcb9cd7810200"
+    },
     "gui/README.md": {
       "bytes": 2799,
       "sha256": "22639d7c56657a5dc43cc8a6828f26daa64fdf394256d3d63ba236e4b104501a"
@@ -3779,8 +3807,8 @@
       "sha256": "8b449589cbf7dd87c108658960b13a3c9ea968d1790839daed1e6aa82ad27eaa"
     },
     "README.md": {
-      "bytes": 7247,
-      "sha256": "bef4d37b57d132a57da9c6b8e8ec9134181e0bf025816e215bb76eb2f9d5a54b"
+      "bytes": 8770,
+      "sha256": "1ac5f1c821341de37026ceafe9dd6fca472fe9689882857be4adace55bb90971"
     },
     "rtl/cmdbuf_rd.v": {
       "bytes": 2392,
@@ -9349,6 +9377,38 @@
     "verification/closure/verification_summary.md": {
       "bytes": 6272,
       "sha256": "060861b81b5b1fad3838d655be05529aa5bf9f565724c43cd1c8a9dabeeec0ce"
+    },
+    "verification/formalmc_2024_20261014/capability_lint_results.json": {
+      "bytes": 544,
+      "sha256": "db33f4565f689e95daa231983ec39755860680a4d19561ad159f9606deb88bc9"
+    },
+    "verification/formalmc_2024_20261014/formalmc2024_zero_init.json": {
+      "bytes": 13339,
+      "sha256": "e6427be541cf885b36a363cb1fa93af2024e5b9a1d36bb50550f3a58b7807c4d"
+    },
+    "verification/formalmc_2024_20261014/input_preservation.json": {
+      "bytes": 123,
+      "sha256": "50a322317441bb83b7fa1ea742dff954f4e0cd6bd109c4c148aeccb76e34335b"
+    },
+    "verification/formalmc_2024_20261014/package_manifest.json": {
+      "bytes": 868312,
+      "sha256": "775dea7afb678ea4657fe2fbdd949da5dab63a607523a4f29918785dcbda4c4f"
+    },
+    "verification/formalmc_2024_20261014/runner_profile.json": {
+      "bytes": 501,
+      "sha256": "b0ffe3697cdd39a7a1aa4b826668239a12c9868f1561ae19dcfd9e5ea1a27a37"
+    },
+    "verification/formalmc_2024_20261014/test_formalmc_2024.py.log": {
+      "bytes": 1822,
+      "sha256": "5af1de15498a9f420c058022e5e3ac10b625ddc7e1a6c36f63c4da4f0357fcac"
+    },
+    "verification/formalmc_2024_20261014/test_run.py.log": {
+      "bytes": 6861,
+      "sha256": "9f13cd055a6afb54092f5f38385f1d8e5d37f29ab5321172034d6e5a03e50f2c"
+    },
+    "verification/formalmc_2024_20261014/validation_summary.json": {
+      "bytes": 95165,
+      "sha256": "80f8cd0821fc7ec5461d9ea4b2c4ad0175399d09a25ba16573671326d01a15e7"
     },
     "verification/gui/01_sby_source.png": {
       "bytes": 43308,

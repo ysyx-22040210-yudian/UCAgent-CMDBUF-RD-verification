@@ -1,0 +1,627 @@
+{
+  "profile": "formalmc2024_zero_init",
+  "source_manifest_sha256": "7ce6537849c029df05f8adcf4281390bf7cb5e1618b16c92d94c1f502af69c6b",
+  "source_release_sha256": "cee63597428d1329fea88c6f11f867b452bf5fc01b254dcb16899088a1b8ef0c",
+  "builder_sha256": "504b381f8f7740c8e143a1d9fdf9e8c592d16e71c3516f732068016134eda5eb",
+  "source_library_sha256": "f4e0019a39c5b611ad6e24ab9d73324151a0d8ca52c5a5fc5af29f7fb8283e30",
+  "yosys": "Yosys 0.67+94 (git sha1 7defa5186-dirty, Release, Clang /usr/bin/clang++ 18.1.8)",
+  "target_restriction_source": "user_report_nonzero_initializer_unsupported_zero_supported",
+  "public_2024_manual_confirmed": false,
+  "zinit_all_used": false,
+  "real_formalmc_executed": false,
+  "validation_status": "not_run",
+  "jobs": [
+    {
+      "id": "age_projection",
+      "before": {
+        "bits": 506,
+        "initial": {
+          "0": 18,
+          "1": 17,
+          "x": 471
+        },
+        "cell_types": {
+          "$dff": 38,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 506,
+        "initial": {
+          "0": 35,
+          "x": 471
+        },
+        "cell_types": {
+          "$dff": 38,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 38,
+      "model_sha256": "2ba92ffe2d993558a5575b6a0ae14e26ece8f39e1b250bc78eb5c59afe63e2d4"
+    },
+    {
+      "id": "aggregate",
+      "before": {
+        "bits": 3647,
+        "initial": {
+          "x": 3464,
+          "0": 102,
+          "1": 81
+        },
+        "cell_types": {
+          "$dff": 318,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 3647,
+        "initial": {
+          "x": 3464,
+          "0": 183
+        },
+        "cell_types": {
+          "$dff": 318,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 175,
+      "model_sha256": "8c7d54317c8fedb6f906541b28b528ac6021c81e0cb03f637f09a785ff3cb325"
+    },
+    {
+      "id": "aggregate_split",
+      "before": {
+        "bits": 597,
+        "initial": {
+          "x": 573,
+          "0": 13,
+          "1": 11
+        },
+        "cell_types": {
+          "$dff": 42,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 597,
+        "initial": {
+          "x": 573,
+          "0": 24
+        },
+        "cell_types": {
+          "$dff": 42,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 25,
+      "model_sha256": "7e314f89a2ec89a0d42baaec93e6f1aa1c7f6d4a7bb912013f777734cf5015ee"
+    },
+    {
+      "id": "calendar",
+      "before": {
+        "bits": 1770,
+        "initial": {
+          "0": 45,
+          "1": 33,
+          "x": 1692
+        },
+        "cell_types": {
+          "$dff": 90,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 1770,
+        "initial": {
+          "0": 78,
+          "x": 1692
+        },
+        "cell_types": {
+          "$dff": 90,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 70,
+      "model_sha256": "27b79ee12ea4dd6972a1d99e348e4443312d09a6a74321d57e4345b6c5038257"
+    },
+    {
+      "id": "capacity",
+      "before": {
+        "bits": 581,
+        "initial": {
+          "0": 45,
+          "x": 493,
+          "1": 43
+        },
+        "cell_types": {
+          "$dff": 102,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 581,
+        "initial": {
+          "0": 88,
+          "x": 493
+        },
+        "cell_types": {
+          "$dff": 102,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 88,
+      "model_sha256": "234dc3d0ac4d0de877d3d35e2848e0a99fd9a0924123b55c5497818ce217f7d1"
+    },
+    {
+      "id": "cover_banks",
+      "before": {
+        "bits": 5541,
+        "initial": {
+          "0": 387,
+          "1": 372,
+          "x": 4782
+        },
+        "cell_types": {
+          "$dff": 1170,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 5541,
+        "initial": {
+          "0": 759,
+          "x": 4782
+        },
+        "cell_types": {
+          "$dff": 1170,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 751,
+      "model_sha256": "9cc148a19273bebd7c22461834442d123c3d7ed8e90169429794ce601eda51ee"
+    },
+    {
+      "id": "cover_data_identity",
+      "before": {
+        "bits": 5470,
+        "initial": {
+          "0": 565,
+          "1": 368,
+          "x": 4537
+        },
+        "cell_types": {
+          "$dff": 1168,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 5470,
+        "initial": {
+          "0": 933,
+          "x": 4537
+        },
+        "cell_types": {
+          "$dff": 1168,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 754,
+      "model_sha256": "00d063f7f039ec0d8958f0b5516291507537d78e654a449b3a41167c06e60a49"
+    },
+    {
+      "id": "cover_pipeline",
+      "before": {
+        "bits": 5197,
+        "initial": {
+          "0": 426,
+          "1": 372,
+          "x": 4399
+        },
+        "cell_types": {
+          "$dff": 1187,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 5197,
+        "initial": {
+          "0": 798,
+          "x": 4399
+        },
+        "cell_types": {
+          "$dff": 1187,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 758,
+      "model_sha256": "b9c942569c38c76c46a997c4bd77c940a08d9f427506b0b73c1c2561e1852c31"
+    },
+    {
+      "id": "cover_window_response",
+      "before": {
+        "bits": 5043,
+        "initial": {
+          "0": 394,
+          "1": 371,
+          "x": 4278
+        },
+        "cell_types": {
+          "$dff": 1135,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 5043,
+        "initial": {
+          "0": 765,
+          "x": 4278
+        },
+        "cell_types": {
+          "$dff": 1135,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 751,
+      "model_sha256": "f35834fa8a5c01415099ac2d4b63e7d1f9c5de291f3ae3ace6bac0615e75316e"
+    },
+    {
+      "id": "data_origin",
+      "before": {
+        "bits": 3502,
+        "initial": {
+          "x": 3345,
+          "0": 87,
+          "1": 70
+        },
+        "cell_types": {
+          "$dff": 267,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 3502,
+        "initial": {
+          "x": 3345,
+          "0": 157
+        },
+        "cell_types": {
+          "$dff": 267,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 147,
+      "model_sha256": "b1ff2604af0e1458cfebd780adabb9b9c9c065772d39d28ba679f5372d2fa3d1"
+    },
+    {
+      "id": "data_transition",
+      "before": {
+        "bits": 2065,
+        "initial": {
+          "0": 56,
+          "1": 43,
+          "x": 1966
+        },
+        "cell_types": {
+          "$dff": 122,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 2065,
+        "initial": {
+          "0": 99,
+          "x": 1966
+        },
+        "cell_types": {
+          "$dff": 122,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 92,
+      "model_sha256": "600b97f838c60584fd178ed9d56351fad4a9fa3679cdeb29699db056c715bee6"
+    },
+    {
+      "id": "guided_cover",
+      "before": {
+        "bits": 1705,
+        "initial": {
+          "0": 31,
+          "1": 29,
+          "x": 1645
+        },
+        "cell_types": {
+          "$dff": 63,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 1705,
+        "initial": {
+          "0": 60,
+          "x": 1645
+        },
+        "cell_types": {
+          "$dff": 63,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 60,
+      "model_sha256": "5a93345fee03194d9dc83122c7aed09355797d8526d7804db23381bbe5cd98b3"
+    },
+    {
+      "id": "guided_prove",
+      "before": {
+        "bits": 1705,
+        "initial": {
+          "0": 31,
+          "1": 29,
+          "x": 1645
+        },
+        "cell_types": {
+          "$dff": 63,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 1705,
+        "initial": {
+          "0": 60,
+          "x": 1645
+        },
+        "cell_types": {
+          "$dff": 63,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 60,
+      "model_sha256": "1f5446229909aa7fc3d88183728744e82540e453940f98d0081b3bf66137567b"
+    },
+    {
+      "id": "lifecycle",
+      "before": {
+        "bits": 2036,
+        "initial": {
+          "0": 84,
+          "1": 70,
+          "x": 1882
+        },
+        "cell_types": {
+          "$dff": 211,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 2036,
+        "initial": {
+          "0": 154,
+          "x": 1882
+        },
+        "cell_types": {
+          "$dff": 211,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 147,
+      "model_sha256": "9a1cdabba664a90a66c31b6a3e4886fcc7cc77fb9b259ff33a7870aa85f68888"
+    },
+    {
+      "id": "lifecycle_r2",
+      "before": {
+        "bits": 2026,
+        "initial": {
+          "x": 1875,
+          "0": 82,
+          "1": 69
+        },
+        "cell_types": {
+          "$dff": 204,
+          "$sdff": 83
+        }
+      },
+      "after": {
+        "bits": 2026,
+        "initial": {
+          "0": 151,
+          "x": 1875
+        },
+        "cell_types": {
+          "$dff": 204,
+          "$sdff": 83
+        }
+      },
+      "zero_declarations": 144,
+      "model_sha256": "160f2cdbe0439ffd8be628cb60bd2bb8806fe3405764fc48caf639d6c99b2718"
+    },
+    {
+      "id": "local_transition",
+      "before": {
+        "bits": 1870,
+        "initial": {
+          "0": 51,
+          "1": 42,
+          "x": 1777
+        },
+        "cell_types": {
+          "$dff": 114,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 1870,
+        "initial": {
+          "0": 93,
+          "x": 1777
+        },
+        "cell_types": {
+          "$dff": 114,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 89,
+      "model_sha256": "eb09d30ec8aef6424679b81f894de2e67d4a52f9150b6c24f8445f7242298f85"
+    },
+    {
+      "id": "pipeline",
+      "before": {
+        "bits": 493,
+        "initial": {
+          "x": 481,
+          "0": 7,
+          "1": 5
+        },
+        "cell_types": {
+          "$dff": 16,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 493,
+        "initial": {
+          "x": 481,
+          "0": 12
+        },
+        "cell_types": {
+          "$dff": 16,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 12,
+      "model_sha256": "4f0b55ea7c3f4f810affcc80728769eb75a6d5101e35636fc974ec5f1fdbcd5f"
+    },
+    {
+      "id": "policy_order",
+      "before": {
+        "bits": 504,
+        "initial": {
+          "0": 21,
+          "1": 20,
+          "x": 463
+        },
+        "cell_types": {
+          "$dff": 42,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 504,
+        "initial": {
+          "0": 41,
+          "x": 463
+        },
+        "cell_types": {
+          "$dff": 42,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 41,
+      "model_sha256": "3a67899dbc745dbb1937b0a17ae9f5b26f98fc97eb252a637ee23501aa813429"
+    },
+    {
+      "id": "quota_math",
+      "before": {
+        "bits": 12,
+        "initial": {
+          "0": 6,
+          "1": 6
+        },
+        "cell_types": {
+          "$dff": 12
+        }
+      },
+      "after": {
+        "bits": 12,
+        "initial": {
+          "0": 12
+        },
+        "cell_types": {
+          "$dff": 12
+        }
+      },
+      "zero_declarations": 12,
+      "model_sha256": "4707af5ee7a17d627800d50679810d920339bc7f29f221149327e7d8e32ab17c"
+    },
+    {
+      "id": "source_net_math",
+      "before": {
+        "bits": 472,
+        "initial": {
+          "0": 6,
+          "1": 5,
+          "x": 461
+        },
+        "cell_types": {
+          "$dff": 11,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 472,
+        "initial": {
+          "0": 11,
+          "x": 461
+        },
+        "cell_types": {
+          "$dff": 11,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 18,
+      "model_sha256": "6d7b60e3b24b7aeac4e83b62df392a582db79b32fc9b7718a72eb01967aea51f"
+    },
+    {
+      "id": "structural",
+      "before": {
+        "bits": 519,
+        "initial": {
+          "0": 17,
+          "1": 15,
+          "x": 487
+        },
+        "cell_types": {
+          "$dff": 46,
+          "$sdff": 66
+        }
+      },
+      "after": {
+        "bits": 519,
+        "initial": {
+          "0": 32,
+          "x": 487
+        },
+        "cell_types": {
+          "$dff": 46,
+          "$sdff": 66
+        }
+      },
+      "zero_declarations": 32,
+      "model_sha256": "4e8c8514632562b44bac1efecb4c8ffc7bdf7a31ed933c08a503abf072002e5b"
+    },
+    {
+      "id": "wiring",
+      "before": {
+        "bits": 1696,
+        "initial": {
+          "0": 31,
+          "1": 23,
+          "x": 1642
+        },
+        "cell_types": {
+          "$dff": 49,
+          "$sdff": 81
+        }
+      },
+      "after": {
+        "bits": 1696,
+        "initial": {
+          "0": 54,
+          "x": 1642
+        },
+        "cell_types": {
+          "$dff": 49,
+          "$sdff": 81
+        }
+      },
+      "zero_declarations": 49,
+      "model_sha256": "084fc138c083e4059e8d32642533c71faf521957ae5be467973de99669dd8997"
+    }
+  ]
+}

@@ -13,6 +13,7 @@
 | Tk GUI 操作图示与放大视图 | [阅读](documents/05_tk_gui_guide.pdf) | [编辑](documents/05_tk_gui_guide.docx) |
 | 完整 Formal 流程、177 CK 与验证结果 | [阅读](documents/06_formal_verification.pdf) | [编辑](documents/06_formal_verification.docx) |
 | 仿真基线与历史阶段记录 | [阅读](documents/07_simulation_history.pdf) | [编辑](documents/07_simulation_history.docx) |
+| FormalMC 2024 零初值适配与新验证记录 | [阅读](documents/08_formalmc2024_zero_init.pdf) | [编辑](documents/08_formalmc2024_zero_init.docx) |
 
 当前芯片 RTL 使用 **Verilog-2001**，入口为 [cmdbuf_rd.v](rtl/cmdbuf_rd.v)、[cmdbuf_rd_cmd.v](rtl/cmdbuf_rd_cmd.v) 和 [cmdbuf_rd_otb.v](rtl/cmdbuf_rd_otb.v)。集成与 Bank 状态位序见 [RTL 使用说明 PDF](documents/01_project_usage.pdf)。形式验证属性与观测器继续使用验证工具支持的 SystemVerilog。
 
@@ -24,6 +25,7 @@
 |---|---|
 | `rtl/` | 当前三份 RTL，与封存验证包的 RTL 字节相同 |
 | `formal/cmdbuf_rd_dual_backend/` | 可迁移的 SBY / FormalMC 验证包、22 个任务、177 个检查点与历史验证证据 |
+| `formal/releases/` | 独立 FormalMC 2024 零初值候选 ZIP 与 SHA256 校验文件 |
 | `ucagent-tool/` | 已更新的 UCAgent 桌面与服务完整源码，保留上游 Apache-2.0 许可证 |
 | `gui/` | Tk 桌面 zipapp 和当前项目启动入口 |
 | `docs/design/` | 详细设计方案与架构图 |
@@ -35,6 +37,7 @@
 | `verification/closure/` | 完整 UCAgent 流程报告与原始证据分卷 |
 | `verification/gui/` | Tk GUI 回归日志、实际界面截图与验收记录 |
 | `verification/verilog_20261012/` | 本次 Verilog 转换、新旧等价性与重新验证的证据 |
+| `verification/formalmc_2024_20261014/` | 零初值候选的 22 个模型 SBY 结果汇总、转换来源、输入保留检查和运行器测试日志 |
 | `provenance/` | GUI 变更及交付来源说明 |
 
 ## 运行 SBY / FormalMC
@@ -49,6 +52,10 @@ python3 run.py --backend formalmc --tool /your/install/bin/FormalMC
 ```
 
 FormalMC 入口沿用当前 UCAgent 支持的命令接口，并先执行能力自检。当前开发设备没有真实 FormalMC，因此未宣称已完成 FormalMC 实机证明。许可证及厂商环境由执行设备提供。
+
+针对目标设备“声明初值 1 不支持、0 支持”的反馈，独立零初值候选包通过状态反相编码保留初态和转移，并适配已识别的 typed Cover 报告。构建与验证入口为 `formal/build_formalmc_2024.py` 和 `formal/validate_formalmc_2024.py`；22 个新模型均取得 SBY 通过记录，容量作业保留首次超时与重试记录。手册核查、适配范围和实际结果见 [补充说明 PDF](documents/08_formalmc2024_zero_init.pdf)。原验证包保持封存，目标 FormalMC 2024 实测仍未完成。
+
+候选包下载：[FormalMC 2024 零初值 ZIP](formal/releases/CMDBUF_RD_FormalMC2024_zero_init_20261014.zip) / [SHA256](formal/releases/CMDBUF_RD_FormalMC2024_zero_init_20261014.zip.sha256)。解压后使用包内 `run.py`；Tk 执行服务登记该解压目录的绝对路径。迁移前请阅读 [PDF](documents/08_formalmc2024_zero_init.pdf) / [Word](documents/08_formalmc2024_zero_init.docx)。[结果汇总](verification/formalmc_2024_20261014/validation_summary.json) 可在仓库查看，原始日志、首次运行与容量重试证据均随 ZIP 提供。
 
 这是已验证版本的快照：形式任务使用 `jobs/` 中锁定的输入和模型。只修改顶层 `rtl/` 不会改变形式验证对象；迭代设计应重新生成任务输入并重新验证。
 

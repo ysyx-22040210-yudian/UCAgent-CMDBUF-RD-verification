@@ -1,0 +1,4102 @@
+{
+  "all_models_have_fresh_passing_sby_results": true,
+  "models": 22,
+  "manifest_sha256": "775dea7afb678ea4657fe2fbdd949da5dab63a607523a4f29918785dcbda4c4f",
+  "initial_full_run_passed": 21,
+  "initial_timeouts": [
+    "capacity"
+  ],
+  "capacity_retry_passed": true,
+  "formalmc_executed": false,
+  "unit_tests_passed": 73,
+  "capability_lint_passed": 6,
+  "passing_results": {
+    "age_projection": {
+      "id": "age_projection",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/age_projection/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/age_projection/inputs/validate.sby"
+      ],
+      "model_sha256": "2ba92ffe2d993558a5575b6a0ae14e26ece8f39e1b250bc78eb5c59afe63e2d4",
+      "config_sha256": "84a31472ac24b42bd9829b728284b47b6f7a415cb5179647b2853ae6c095c590",
+      "returncode": 0,
+      "raw_status": "PASS 0 1",
+      "expected_count": 11,
+      "observed_count": 11,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "aggregate": {
+      "id": "aggregate",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/aggregate/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/aggregate/inputs/validate.sby"
+      ],
+      "model_sha256": "8c7d54317c8fedb6f906541b28b528ac6021c81e0cb03f637f09a785ff3cb325",
+      "config_sha256": "275dab9fe18d221ff33917e20282c52f514c33e19c4256b779af94a7434a2cba",
+      "returncode": 0,
+      "raw_status": "PASS 0 74",
+      "expected_count": 71,
+      "observed_count": 71,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0028": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0034": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0035": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0036": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0037": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0038": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0039": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0040": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0041": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0042": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0043": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0044": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0045": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0046": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0047": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0048": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0049": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0050": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0051": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0052": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0053": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0054": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0055": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0056": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0057": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0058": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0059": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0060": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0061": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0062": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0063": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0064": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0065": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0066": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0067": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0068": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0071": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0072": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0073": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "aggregate_split": {
+      "id": "aggregate_split",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/aggregate_split/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/aggregate_split/inputs/validate.sby"
+      ],
+      "model_sha256": "7e314f89a2ec89a0d42baaec93e6f1aa1c7f6d4a7bb912013f777734cf5015ee",
+      "config_sha256": "942e4c75fe6b401579cbb2fa6d960f6a9ca4c12ff2b7ca4d884d0c5da265589e",
+      "returncode": 0,
+      "raw_status": "PASS 0 1",
+      "expected_count": 7,
+      "observed_count": 7,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "calendar": {
+      "id": "calendar",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/calendar/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/calendar/inputs/validate.sby"
+      ],
+      "model_sha256": "27b79ee12ea4dd6972a1d99e348e4443312d09a6a74321d57e4345b6c5038257",
+      "config_sha256": "3202140350c7da4f956a8ef371df18f563a7008dcaa1273a433eefb29740d974",
+      "returncode": 0,
+      "raw_status": "PASS 0 2",
+      "expected_count": 25,
+      "observed_count": 25,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "cover_banks": {
+      "id": "cover_banks",
+      "mode": "cover",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_banks/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_banks/inputs/validate.sby"
+      ],
+      "model_sha256": "9cc148a19273bebd7c22461834442d123c3d7ed8e90169429794ce601eda51ee",
+      "config_sha256": "766a5db0da668eb0dc733f0fe5529669473e10fd4e386493bd6377047348883c",
+      "returncode": 0,
+      "raw_status": "PASS 0 20",
+      "expected_count": 16,
+      "observed_count": 16,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_COVER_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "cover_data_identity": {
+      "id": "cover_data_identity",
+      "mode": "cover",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_data_identity/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_data_identity/inputs/validate.sby"
+      ],
+      "model_sha256": "00d063f7f039ec0d8958f0b5516291507537d78e654a449b3a41167c06e60a49",
+      "config_sha256": "9550dec6b4e0e1d95aa13c4c5bbfb45abbd0d99400e530be9fab3b5ccfb68a51",
+      "returncode": 0,
+      "raw_status": "PASS 0 30",
+      "expected_count": 12,
+      "observed_count": 12,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_COVER_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "cover_pipeline": {
+      "id": "cover_pipeline",
+      "mode": "cover",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_pipeline/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_pipeline/inputs/validate.sby"
+      ],
+      "model_sha256": "b9c942569c38c76c46a997c4bd77c940a08d9f427506b0b73c1c2561e1852c31",
+      "config_sha256": "d907b16b8e51a7d293e909038787d5e0efa3280649cc7c2f571b806dfdb9fc70",
+      "returncode": 0,
+      "raw_status": "PASS 0 29",
+      "expected_count": 16,
+      "observed_count": 16,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_COVER_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "cover_window_response": {
+      "id": "cover_window_response",
+      "mode": "cover",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_window_response/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/cover_window_response/inputs/validate.sby"
+      ],
+      "model_sha256": "f35834fa8a5c01415099ac2d4b63e7d1f9c5de291f3ae3ace6bac0615e75316e",
+      "config_sha256": "554de6539109c85829400e050c4c2fc0692cec3246a2374dd6729c62843a64b1",
+      "returncode": 0,
+      "raw_status": "PASS 0 48",
+      "expected_count": 15,
+      "observed_count": 15,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_COVER_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "data_origin": {
+      "id": "data_origin",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/data_origin/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/data_origin/inputs/validate.sby"
+      ],
+      "model_sha256": "b1ff2604af0e1458cfebd780adabb9b9c9c065772d39d28ba679f5372d2fa3d1",
+      "config_sha256": "275dab9fe18d221ff33917e20282c52f514c33e19c4256b779af94a7434a2cba",
+      "returncode": 0,
+      "raw_status": "PASS 0 25",
+      "expected_count": 60,
+      "observed_count": 60,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0028": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0034": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0035": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0036": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0037": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0038": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0039": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0040": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0041": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0042": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0043": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0044": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0045": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0046": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0047": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0048": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0049": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0050": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0051": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0052": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0053": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0054": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0056": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0057": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0058": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0059": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0060": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "data_transition": {
+      "id": "data_transition",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/data_transition/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/data_transition/inputs/validate.sby"
+      ],
+      "model_sha256": "600b97f838c60584fd178ed9d56351fad4a9fa3679cdeb29699db056c715bee6",
+      "config_sha256": "3202140350c7da4f956a8ef371df18f563a7008dcaa1273a433eefb29740d974",
+      "returncode": 0,
+      "raw_status": "PASS 0 4",
+      "expected_count": 33,
+      "observed_count": 33,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "guided_cover": {
+      "id": "guided_cover",
+      "mode": "cover",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/guided_cover/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/guided_cover/inputs/validate.sby"
+      ],
+      "model_sha256": "5a93345fee03194d9dc83122c7aed09355797d8526d7804db23381bbe5cd98b3",
+      "config_sha256": "a88f92037a15916b7dd39253441217de9881c47c9c11fc353f31e1ef8f735dc1",
+      "returncode": 0,
+      "raw_status": "PASS 0 6",
+      "expected_count": 16,
+      "observed_count": 16,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_COVER_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_COVER_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "guided_prove": {
+      "id": "guided_prove",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/guided_prove/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/guided_prove/inputs/validate.sby"
+      ],
+      "model_sha256": "1f5446229909aa7fc3d88183728744e82540e453940f98d0081b3bf66137567b",
+      "config_sha256": "7bda485822b1e37bb78467595910a77ced9cdfb570abe58df3e9453f9c1336aa",
+      "returncode": 0,
+      "raw_status": "PASS 0 2",
+      "expected_count": 7,
+      "observed_count": 7,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "lifecycle": {
+      "id": "lifecycle",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/lifecycle/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/lifecycle/inputs/validate.sby"
+      ],
+      "model_sha256": "9a1cdabba664a90a66c31b6a3e4886fcc7cc77fb9b259ff33a7870aa85f68888",
+      "config_sha256": "275dab9fe18d221ff33917e20282c52f514c33e19c4256b779af94a7434a2cba",
+      "returncode": 0,
+      "raw_status": "PASS 0 7",
+      "expected_count": 60,
+      "observed_count": 60,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0028": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0034": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0035": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0036": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0037": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0038": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0039": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0040": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0041": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0042": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0044": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0045": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0046": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0047": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0048": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0049": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0050": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0051": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0052": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0053": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0054": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0055": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0056": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0057": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0058": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0059": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0060": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0061": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0062": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "lifecycle_r2": {
+      "id": "lifecycle_r2",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/lifecycle_r2/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/lifecycle_r2/inputs/validate.sby"
+      ],
+      "model_sha256": "160f2cdbe0439ffd8be628cb60bd2bb8806fe3405764fc48caf639d6c99b2718",
+      "config_sha256": "275dab9fe18d221ff33917e20282c52f514c33e19c4256b779af94a7434a2cba",
+      "returncode": 0,
+      "raw_status": "PASS 0 6",
+      "expected_count": 59,
+      "observed_count": 59,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0028": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0034": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0035": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0036": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0037": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0038": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0039": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0040": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0041": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0043": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0044": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0045": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0046": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0047": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0048": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0049": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0050": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0051": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0052": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0053": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0054": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0055": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0056": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0057": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0058": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0059": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0060": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0061": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "local_transition": {
+      "id": "local_transition",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/local_transition/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/local_transition/inputs/validate.sby"
+      ],
+      "model_sha256": "eb09d30ec8aef6424679b81f894de2e67d4a52f9150b6c24f8445f7242298f85",
+      "config_sha256": "3202140350c7da4f956a8ef371df18f563a7008dcaa1273a433eefb29740d974",
+      "returncode": 0,
+      "raw_status": "PASS 0 2",
+      "expected_count": 35,
+      "observed_count": 35,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0023": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0024": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0025": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0026": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0027": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0028": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0029": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0030": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0031": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0032": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0033": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0034": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0035": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "pipeline": {
+      "id": "pipeline",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/pipeline/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/pipeline/inputs/validate.sby"
+      ],
+      "model_sha256": "4f0b55ea7c3f4f810affcc80728769eb75a6d5101e35636fc974ec5f1fdbcd5f",
+      "config_sha256": "942e4c75fe6b401579cbb2fa6d960f6a9ca4c12ff2b7ca4d884d0c5da265589e",
+      "returncode": 0,
+      "raw_status": "PASS 0 0",
+      "expected_count": 1,
+      "observed_count": 1,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "policy_order": {
+      "id": "policy_order",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/policy_order/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/policy_order/inputs/validate.sby"
+      ],
+      "model_sha256": "3a67899dbc745dbb1937b0a17ae9f5b26f98fc97eb252a637ee23501aa813429",
+      "config_sha256": "84a31472ac24b42bd9829b728284b47b6f7a415cb5179647b2853ae6c095c590",
+      "returncode": 0,
+      "raw_status": "PASS 0 5",
+      "expected_count": 15,
+      "observed_count": 15,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "quota_math": {
+      "id": "quota_math",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/quota_math/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/quota_math/inputs/validate.sby"
+      ],
+      "model_sha256": "4707af5ee7a17d627800d50679810d920339bc7f29f221149327e7d8e32ab17c",
+      "config_sha256": "d2cdfff6fdb6e8c76d73ad7203dc467108a111cc49b7a71be36df84b537b5c7c",
+      "returncode": 0,
+      "raw_status": "PASS 0 0",
+      "expected_count": 6,
+      "observed_count": 6,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "source_net_math": {
+      "id": "source_net_math",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/source_net_math/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/source_net_math/inputs/validate.sby"
+      ],
+      "model_sha256": "6d7b60e3b24b7aeac4e83b62df392a582db79b32fc9b7718a72eb01967aea51f",
+      "config_sha256": "942e4c75fe6b401579cbb2fa6d960f6a9ca4c12ff2b7ca4d884d0c5da265589e",
+      "returncode": 0,
+      "raw_status": "PASS 0 5",
+      "expected_count": 1,
+      "observed_count": 1,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "structural": {
+      "id": "structural",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/structural/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/structural/inputs/validate.sby"
+      ],
+      "model_sha256": "4e8c8514632562b44bac1efecb4c8ffc7bdf7a31ed933c08a503abf072002e5b",
+      "config_sha256": "84a31472ac24b42bd9829b728284b47b6f7a415cb5179647b2853ae6c095c590",
+      "returncode": 0,
+      "raw_status": "PASS 0 1",
+      "expected_count": 11,
+      "observed_count": 11,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "wiring": {
+      "id": "wiring",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/wiring/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/validation/wiring/inputs/validate.sby"
+      ],
+      "model_sha256": "084fc138c083e4059e8d32642533c71faf521957ae5be467973de99669dd8997",
+      "config_sha256": "3202140350c7da4f956a8ef371df18f563a7008dcaa1273a433eefb29740d974",
+      "returncode": 0,
+      "raw_status": "PASS 0 2",
+      "expected_count": 16,
+      "observed_count": 16,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    },
+    "capacity": {
+      "id": "capacity",
+      "mode": "prove",
+      "command": [
+        "/home/ucagent-lab/development/cmdbuf_rd_closure_20261011/tooling/sby-late-anyseq-v1/bin/sby",
+        "-d",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/capacity_retry/capacity/work",
+        "/root/cmdbuf_rd/formalmc_2024_20261014/capacity_retry/capacity/inputs/validate.sby"
+      ],
+      "model_sha256": "234dc3d0ac4d0de877d3d35e2848e0a99fd9a0924123b55c5497818ce217f7d1",
+      "config_sha256": "76801638f19fa05f5d314ab482b63d0f3d181da2eb89572aebfe4ae5d41de527",
+      "source_config_sha256": "942e4c75fe6b401579cbb2fa6d960f6a9ca4c12ff2b7ca4d884d0c5da265589e",
+      "sby_timeout_override": 900,
+      "returncode": 0,
+      "raw_status": "PASS 0 251",
+      "expected_count": 24,
+      "observed_count": 24,
+      "missing_labels": [],
+      "unexpected_labels": [],
+      "properties": {
+        "P_ASSERT_0000": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0001": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0002": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0003": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0004": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0005": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0006": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0007": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0008": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0009": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0010": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0011": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0012": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0013": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0014": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0015": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0016": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0017": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0018": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0019": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0020": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0021": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0022": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ],
+        "P_ASSERT_0042": [
+          {
+            "failure": false,
+            "error": false,
+            "skipped": false
+          }
+        ]
+      },
+      "passed": true
+    }
+  },
+  "result_sources": [
+    "validation/results.json",
+    "capacity_retry/results.json"
+  ]
+}

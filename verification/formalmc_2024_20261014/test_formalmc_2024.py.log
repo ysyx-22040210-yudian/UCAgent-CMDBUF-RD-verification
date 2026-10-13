@@ -1,0 +1,25 @@
+test_all_capability_initializers_are_zero (__main__.FormalMc2024Tests.test_all_capability_initializers_are_zero)
+No positive capability case can use unsupported nonzero initialization. ... ok
+test_conflicting_cover_results_are_rejected (__main__.FormalMc2024Tests.test_conflicting_cover_results_are_rejected)
+A later PASS must not erase a Cover failure. ... ok
+test_generic_pass_is_not_a_witness (__main__.FormalMc2024Tests.test_generic_pass_is_not_a_witness)
+Generic status text cannot establish a Cover witness. ... ok
+test_known_cover_false_is_uncovered (__main__.FormalMc2024Tests.test_known_cover_false_is_uncovered)
+Failed Cover reachability is not an assertion counterexample. ... ok
+test_known_info_cover_true (__main__.FormalMc2024Tests.test_known_info_cover_true)
+The recognized FormalMC TRUE diagnostic has typed Cover semantics. ... ok
+test_known_summary_cover_pass (__main__.FormalMc2024Tests.test_known_summary_cover_pass)
+Summary Pass is a witness only after binding to a typed Cover. ... ok
+test_license_error_blocks_success (__main__.FormalMc2024Tests.test_license_error_blocks_success)
+Recognized Cover results do not bypass infrastructure failures. ... ok
+test_missing_and_ambiguous_results_stay_unconfirmed (__main__.FormalMc2024Tests.test_missing_and_ambiguous_results_stay_unconfirmed)
+Known formatting does not bypass complete unique property binding. ... ok
+test_name_does_not_override_assert_type (__main__.FormalMc2024Tests.test_name_does_not_override_assert_type)
+A Cover-like name cannot replace the manifest's assertion kind. ... ok
+test_proven_is_not_a_witness (__main__.FormalMc2024Tests.test_proven_is_not_a_witness)
+An assertion-style proof word must not become a reachable witness. ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
