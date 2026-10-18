@@ -1,0 +1,64 @@
+{
+  "testpoints": 200,
+  "source_assert_labels": 59,
+  "source_cover_labels": 1417,
+  "mapped_cover_bins": 1415,
+  "base_environment_labels": [
+    "E01_RESET_FIRST",
+    "E02_RESET_RELEASE",
+    "E03_SRC",
+    "E04_ARRESP",
+    "E05_ZERO_READY"
+  ],
+  "native_lint": [
+    {
+      "profile": "base",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "c782f12053d7d5ebaac53c556db048e2e7568a762cae054aae84ecf4b11b5ce0"
+    },
+    {
+      "profile": "negative",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "b92220288b391c8ccd1bbc8eebd037db79e50b41c2e6dfcd5420f5766fc9df61"
+    },
+    {
+      "profile": "idle_reset",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "54b39ac7231daec3554585f19b41e646a55d1bd2bca7b98e56c1e0296c76c259"
+    },
+    {
+      "profile": "drain",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "bea3caafd53eb6ecb1f839a0292854f4aa7d51877c1c82dcef645e14f64de052"
+    },
+    {
+      "profile": "perf_rr",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "6597157ba01f1257c47457b0f2a2a802c5a1aa7ac0fe3f56750256a1adf54f12"
+    },
+    {
+      "profile": "perf0",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "b34c5f9165517b0bd9eeb12d85344aab0376fd46c2a9d875bd3441e623875d3d"
+    },
+    {
+      "profile": "perf1",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "6830fba6821e01a53cf97dab1aabbd29b3487d39e1848d6706dd061397b63a82"
+    },
+    {
+      "profile": "perf2",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "aa3dc7bf0e019f06016e2dc250298aaa00dcb032542b9a1561cfabd36fb997d9"
+    }
+  ],
+  "proof_executed": false
+}

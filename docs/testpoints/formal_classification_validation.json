@@ -1,0 +1,88 @@
+{
+  "kind": "document_and_classification_validation_only",
+  "date": "2026-10-18",
+  "status": "passed",
+  "formal_executed": false,
+  "rtl_changed": false,
+  "testpoint_ids": 200,
+  "unique_ids": 200,
+  "id_order_matches_original": true,
+  "counts": {
+    "total": 200,
+    "by_category": {
+      "端口": 39,
+      "特性": 126,
+      "业务": 35
+    },
+    "assert_scope": {
+      "partial": 3,
+      "base": 191,
+      "none_for_dut": 2,
+      "conditional_progress": 3,
+      "extension": 1
+    },
+    "base_assumptions": 5,
+    "cover_base_goals": 198,
+    "cover_extension_goals": 2,
+    "cover_goals_not_hit_results": true
+  },
+  "docx_records": 200,
+  "pdf_pages": 37,
+  "all_ids_found_in_pdf": true,
+  "visual_review": "All 37 pages inspected; changed pages re-inspected after corrections.",
+  "render_backend": "Microsoft Word COM export followed by canonical render_docx.py PDF-to-PNG workflow",
+  "source_sha256": "154f6bee2002dfd8725ddda1b27bba4c03ad5eee28bc7985e32ff390300ac656",
+  "outputs": {
+    "documents/10_cmdbuf_rd_formal_testpoint_mapping.docx": {
+      "bytes": 74634,
+      "sha256": "5b80773b4a90dc78c17e904ba858a0cd9d989df891cdc34ebe65338f75ff89af"
+    },
+    "documents/10_cmdbuf_rd_formal_testpoint_mapping.pdf": {
+      "bytes": 949289,
+      "sha256": "1f862ee809e0ed41b4a41d08f1b38f5162bf0ea538fa134bb28f3669656b435c"
+    },
+    "docs/testpoints/formal_classification.json": {
+      "bytes": 308481,
+      "sha256": "198c9d4a795c633534575c9078b6b308f3b0a1a6ca92b931fe9cfe44e1068383"
+    }
+  },
+  "page_image_sha256": {
+    "page-1.png": "efec89407663e2fbdac0be222103cfa2ae234441a93cde09add380de1f6c68a4",
+    "page-10.png": "539cd428c4e2694cd529b8a77147968466b0a4afe55860cd04822e94a984ecae",
+    "page-11.png": "2fd41f3d96f1350f883b618df20036742ba44c52361dcbc8c90113b57fd8bb18",
+    "page-12.png": "4d639b54eff6f624f616e1e1a46ec1e3055bc106e1a1589524a694e6a44d8878",
+    "page-13.png": "eb667b7818b522aa09a18849d7dc72e534e0ae157ec6f2d44b1326129fb0b040",
+    "page-14.png": "429f81426f1190ef47aa4e27f79d761a92d9857d177f89f69e74f47d1bf65ec6",
+    "page-15.png": "1fb28caf37f9f7c9bbea6f5daa2f45c6d2d85faa336cc2de96a3d74eac821a6b",
+    "page-16.png": "63ca502a7e44ff502f22e180f1950989950bac3e9dae1a424aa6862fcf2d9271",
+    "page-17.png": "5ec13e44a6de90a7cf7fb77d14b3c8c1c9918f551bb392d90ef9e3b7fc593add",
+    "page-18.png": "abfe192adb3837b26c21ccb8f8c1642062a424a430aeb8fc1a7ee2137e952f4c",
+    "page-19.png": "d33e99636606d7f5bb4f71f2bee0f82a198fb9cbf35ef660fb1b22a3c237d0a0",
+    "page-2.png": "3f2df230ae6681b93cb334f9d1f9e63c44a3dce89ec0a848a4781b2159e06a63",
+    "page-20.png": "c810cbc213ebfbac02c9f0bfec0aac311f5e3ba808adebd059826818a4a72b78",
+    "page-21.png": "7ad7cd1e3d259b5510edc43f595238742e3a8f0e36970e9e58c2888f09f74a49",
+    "page-22.png": "341d91054b0324751d5739266552df83a67bfcf93c6817e5eb2db9168b013939",
+    "page-23.png": "f2e0a80bbc571da6efd230f185f2c7af07748f003346d872108d356e4f1ab452",
+    "page-24.png": "21e63772cacde88b28e7c9ec253583a2800086789ecadd69d5099787e346c05e",
+    "page-25.png": "107d7e110728a4616a398502c7ba75677a7562574247faed28bd8564c1b29924",
+    "page-26.png": "b7e275d604e26e4cb310daecb6e4a85bce8a75799d16ddc202d85cbd19dc7f3c",
+    "page-27.png": "804ab6c0bf474560dd152c2780b93b6707593ccab0fecef264414193f01fddf4",
+    "page-28.png": "ad0d4708f7189be7ad958b9bb5007df17c4159dc5f968fe2cabdf3a16724f7ae",
+    "page-29.png": "cbd3340ea82e42a3409e85995a6ac83c6e87d85e7ad6d970f3934cc7761edb1a",
+    "page-3.png": "c091700ad7952de3813f3e2f422140dac32a45b9255ccbc61950281e859a3824",
+    "page-30.png": "2d600e6159165908bca8e840261b1bab7d82aaaa8fe638bd601fc4632295203b",
+    "page-31.png": "6f3117fc45c9d238f149ea479663450c1c256770aeb621d3f00f9d15888eeed6",
+    "page-32.png": "1a1ff9e335a00d4550f4c673a8b81d32b4edbc0e021d3aadb5708af28f484f21",
+    "page-33.png": "2713145887809e9c7a40022c5a0a744d32ebf3bc06dce213ccb9dde8d7a88bf7",
+    "page-34.png": "89eaecd63bb80a0f4d57618ba96587eca8a5097e22b5bb7d38ba2952c81f2400",
+    "page-35.png": "f85dfac643914e75b79f256c43d61dc703aa5651bd86063d28e0921d44d3904e",
+    "page-36.png": "500ac30a3b375f21144ec068c5439c7563b8638e620ac321d665d3e50f964c26",
+    "page-37.png": "b6e148fd46c9d926f92d55f3bec5f8617dd809745ee5c0987ef3a9c8474746d1",
+    "page-4.png": "7866c2021c2b37a76155102475b57bee988221167806ed9a832f6da8a61fa740",
+    "page-5.png": "398f76c55ae25ea4413f438d713ff304c5f9cf25062cff654abbfb46339d2e59",
+    "page-6.png": "63182f4255f378cd0c2bc02c044f57dc2d7859a53eded8ba8d7f60bc65d91a6e",
+    "page-7.png": "4d2d8e8fee37b74986ae38e8a2d8e095e26f8fe8212178d3c20fada809ebdf20",
+    "page-8.png": "5fb043af20ed4225d509547f58a8336e663a71a69e83b4d9d3fc5f8738e2e5ed",
+    "page-9.png": "f151630be84dfbf68cfbdb8c9c928592bde06f533de3c33cb9f69ba364c96aaa"
+  }
+}

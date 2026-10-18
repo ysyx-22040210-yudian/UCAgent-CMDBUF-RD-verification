@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "public_port_count": 24,
+  "ports": {
+    "clk": "scalar",
+    "rst_n": "scalar",
+    "arvalid": "scalar",
+    "arready": "[2:0]",
+    "araddr": "[17:0]",
+    "src": "[1:0]",
+    "arid": "[7:0]",
+    "ar_port_id": "[4:0]",
+    "arresp": "[1:0]",
+    "rvalid": "[2:0]",
+    "rready": "[2:0]",
+    "rdata": "[127:0]",
+    "rid": "[7:0]",
+    "r_port_id": "[4:0]",
+    "raddr": "[2:0]",
+    "rresp": "[1:0]",
+    "req": "[7:0]",
+    "arb_addr": "[11:0]",
+    "pending_cnt": "[3:0]",
+    "ar_rd_gnt": "[7:0]",
+    "rd_mem_status": "[15:0]",
+    "mem_rdata": "[127:0]",
+    "pc_err": "scalar",
+    "rw_rd_gnt": "[7:0]"
+  },
+  "rtl_byte_identical": true,
+  "rtl_sha256": {
+    "cmdbuf_rd.v": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b",
+    "cmdbuf_rd_cmd.v": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+    "cmdbuf_rd_otb.v": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54"
+  },
+  "no_internal_observation": true,
+  "only_zero_declaration_initializers": true,
+  "checker_sha256": "c419c15053f292eae5e076b446b38fc8b624fdd2cd6a8c89309cba49723ecad4"
+}

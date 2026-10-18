@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "campaign": "cmdbuf_rd_port_only_20261018",
+  "verification_host": "Linux VM 192.168.31.116",
+  "coverage": {
+    "testpoints": 200,
+    "mapped_bins": 1415,
+    "testpoints_any_witness": 200,
+    "testpoints_all_bins_hit": 200,
+    "testpoints_all_formal_bins": 200,
+    "formal_bins": 1415,
+    "formal_witness_methods": {
+      "sby_cover_unrestricted": 1299,
+      "sby_cover_guided": 115,
+      "sby_cover_closed_inputs": 1
+    },
+    "combined_hit_bins": 1415,
+    "structural_gap_testpoints": 28,
+    "original_scope_limit_testpoints": 6,
+    "simulation_runs": 388,
+    "simulation_runs_passed": 388,
+    "all_original_requirements_proved": false,
+    "formalmc_executed": false
+  },
+  "cover_profiles": {
+    "base": 1410,
+    "negative": 3,
+    "idle_reset": 1,
+    "longflow": 1
+  },
+  "distinct_formal_trace_files": 949,
+  "port_audit": {
+    "passed": true,
+    "public_port_count": 24,
+    "ports": {
+      "clk": "scalar",
+      "rst_n": "scalar",
+      "arvalid": "scalar",
+      "arready": "[2:0]",
+      "araddr": "[17:0]",
+      "src": "[1:0]",
+      "arid": "[7:0]",
+      "ar_port_id": "[4:0]",
+      "arresp": "[1:0]",
+      "rvalid": "[2:0]",
+      "rready": "[2:0]",
+      "rdata": "[127:0]",
+      "rid": "[7:0]",
+      "r_port_id": "[4:0]",
+      "raddr": "[2:0]",
+      "rresp": "[1:0]",
+      "req": "[7:0]",
+      "arb_addr": "[11:0]",
+      "pending_cnt": "[3:0]",
+      "ar_rd_gnt": "[7:0]",
+      "rd_mem_status": "[15:0]",
+      "mem_rdata": "[127:0]",
+      "pc_err": "scalar",
+      "rw_rd_gnt": "[7:0]"
+    },
+    "rtl_byte_identical": true,
+    "rtl_sha256": {
+      "cmdbuf_rd_cmd.v": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480",
+      "cmdbuf_rd_otb.v": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54",
+      "cmdbuf_rd.v": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b"
+    },
+    "no_internal_observation": true,
+    "only_zero_declaration_initializers": true,
+    "checker_sha256": "c419c15053f292eae5e076b446b38fc8b624fdd2cd6a8c89309cba49723ecad4"
+  },
+  "native_compile": {
+    "port_only": true,
+    "testpoints": 200,
+    "source_assert_labels": 31,
+    "source_cover_labels": 1417,
+    "mapped_cover_bins": 1415,
+    "base_environment_labels": [
+      "E01_RESET_FIRST",
+      "E02_RESET_RELEASE",
+      "E03_SRC",
+      "E04_ARRESP",
+      "E05_ZERO_READY"
+    ],
+    "native_lint": [
+      {
+        "profile": "base",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "6f3994125e8d60a27ab658a4d868cadbddfdc1b25f1ebc9df86ea86ba1c114c3"
+      },
+      {
+        "profile": "negative",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "f9915bf1873a42469429b8734d5c42f08c9e45eed720ae9ff9405dd4ad0c25b2"
+      },
+      {
+        "profile": "idle_reset",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "970c8508554944dced4b2cdb392de28222fd296b0c0383afcdd73f96c1165688"
+      },
+      {
+        "profile": "drain",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "ca06634541f8f790040edf6848b149e1c74ea13f0518d3a8310fa49bc5870cd4"
+      },
+      {
+        "profile": "perf_rr",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "2c7b9a924b9ad2d9e42001ba49a580581060e66ba42c976e05d0d38af8b62d08"
+      },
+      {
+        "profile": "perf0",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "0557a9d84561d73ee04ebe0a5defe3a88e675e0bbb97b3bcf04bfb911cbfb62d"
+      },
+      {
+        "profile": "perf1",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "d0269d20b75108384676f45aa4348b4af7604841a20ec25cc220b184814d9171"
+      },
+      {
+        "profile": "perf2",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "e80c625b34895fbda03bf16db776d718ebc834931f2e5679c2c58d6c2ec891f8"
+      },
+      {
+        "profile": "longflow",
+        "returncode": 0,
+        "passed": true,
+        "input_manifest_sha256": "35c4031e3f03291f2d1039caeccd591c130943c4e6284a44f4d71d34acc53e87"
+      }
+    ],
+    "proof_executed": false
+  },
+  "unbounded_proof": {
+    "job": "wave02/protocol_prove",
+    "status": "PASS 0 3",
+    "mode": "prove",
+    "profile": "base",
+    "depth": 8,
+    "engine": "smtbmc yices",
+    "guided": false,
+    "closed_input_driver": false,
+    "trim_unused_wrapper_exports": false,
+    "selected_assertions": "A_RESET_OUTPUTS,A_REQ_ONEHOT,A_R_ONEHOT,A_R_READY,A_R_IDLE_ZERO",
+    "cover_check_start": 0,
+    "inputs_sha256": "bb01c8506c140d4b46fc2c20c13eb1d06605e2c6ec76909c18f8f6fbd3b9e7ae"
+  },
+  "bounded_checks": [
+    {
+      "job": "wave11/base_bmc10",
+      "status": "PASS 0 45",
+      "mode": "bmc",
+      "profile": "base",
+      "depth": 10,
+      "engine": "smtbmc yices",
+      "guided": false,
+      "closed_input_driver": false,
+      "trim_unused_wrapper_exports": false,
+      "selected_assertions": null,
+      "cover_check_start": 0,
+      "inputs_sha256": "567cd041533739ce078c55434d1e39b2c58ce8cc3d7481cb0c50ca51178152d4"
+    },
+    {
+      "job": "wave11/perf0_bmc20",
+      "status": "PASS 0 25",
+      "mode": "bmc",
+      "profile": "perf0",
+      "depth": 20,
+      "engine": "smtbmc yices",
+      "guided": false,
+      "closed_input_driver": false,
+      "trim_unused_wrapper_exports": false,
+      "selected_assertions": null,
+      "cover_check_start": 0,
+      "inputs_sha256": "690de565ee601ff5ddf3d67ae925e150438ea1aba18084bcdea41cf04ab8c818"
+    },
+    {
+      "job": "wave11/perf_rr_bmc20",
+      "status": "PASS 0 25",
+      "mode": "bmc",
+      "profile": "perf_rr",
+      "depth": 20,
+      "engine": "smtbmc yices",
+      "guided": false,
+      "closed_input_driver": false,
+      "trim_unused_wrapper_exports": false,
+      "selected_assertions": null,
+      "cover_check_start": 0,
+      "inputs_sha256": "d348927e75a6aba860e6addd85a76cb8ca5bf686943bd9a7d9e34578a9754e85"
+    },
+    {
+      "job": "wave_alt/highest_free_slot",
+      "status": "PASS 0 19",
+      "mode": "bmc",
+      "profile": "base",
+      "depth": 9,
+      "engine": "smtbmc yices",
+      "guided": false,
+      "closed_input_driver": false,
+      "trim_unused_wrapper_exports": false,
+      "selected_assertions": null,
+      "cover_check_start": 0,
+      "inputs_sha256": "afd0c400a893533b15700ae1b056a6f902cd59a4acc66b306516a4e5a6122ac8"
+    }
+  ],
+  "full_unbounded_proof_complete": false,
+  "general_drain_bound_proved": false,
+  "mutation_detected": 8,
+  "mutation_total": 8,
+  "mutations": [
+    {
+      "mutation": "M01_SINGLE_GRANT",
+      "status": "FAIL 2 4",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:15 [run] engine_0: ##   0:00:00  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:217.45-217.85 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_217_2709)"
+      ],
+      "returncode": 2,
+      "seconds": 3.85,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "56ed755352ddbc3b8dc06d5dc4fe1af1734aeadea3028d8efe4d454b5026833c",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M02_SIXTH_BYPASS",
+      "status": "FAIL 2 21",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:30 [run] engine_0: ##   0:00:15  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:218.41-218.78 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_218_2714)",
+        "SBY 22:03:30 [run] engine_0: ##   0:00:15  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:219.46-219.89 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_219_2719)"
+      ],
+      "returncode": 2,
+      "seconds": 18.52,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "685e9db8f5e13eb76365c38ea43848125a8f2e68a351988ff0e6d1d1b469155e",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M03_RETURN_EARLY",
+      "status": "FAIL 2 11",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:220.47-220.90 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_220_2724)",
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:227.44-227.151 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_227_2789)",
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:230.47-230.98 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_230_2830)"
+      ],
+      "returncode": 2,
+      "seconds": 9.77,
+      "mutated_file": "cmdbuf_rd_otb.v",
+      "mutated_sha256": "b7e02736868e22e2bee73be1d7c00abc43f45b949ba6b2bae7a16ed05d775317",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M04_DATA_HIGH_BIT",
+      "status": "FAIL 2 14",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:37 [run] engine_0: ##   0:00:09  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:223.44-223.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_223_2760)"
+      ],
+      "returncode": 2,
+      "seconds": 12.58,
+      "mutated_file": "cmdbuf_rd.v",
+      "mutated_sha256": "4fba9cac045d6f0364c718eed0691ca7cdcaa265dc316c9049d24aa1ae0cf318",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M05_RESERVATION_STOLEN",
+      "status": "FAIL 2 26",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:59 [run] engine_0: ##   0:00:26  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:213.43-213.86 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_213_2642)"
+      ],
+      "returncode": 2,
+      "seconds": 29.35,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "f633666bd9974771da85f2c66a1d7c11e2b24af75f34a28df1f1127d6a522b23",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M08_ERROR_PRIORITY",
+      "status": "FAIL 2 18",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:07:18 [run] engine_0: ##   0:00:13  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:222.44-222.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_222_2751)"
+      ],
+      "returncode": 2,
+      "seconds": 18.21,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "a129c9dd881aa80d5c3e584befda4b734d7edc2fc5e6f1b584675e6b237c9f0f",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M06_CMD_REUSE_METADATA",
+      "status": "FAIL 2 14",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:12:59 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:218.41-218.78 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_218_2750)",
+        "SBY 22:12:59 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:219.46-219.89 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_219_2755)"
+      ],
+      "returncode": 2,
+      "seconds": 11.59,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "1add9acf7d73b3f606435b992e53c87f1686be81221ce1d007c7c5883866a62b",
+      "evidence": "mutations02/results.json"
+    },
+    {
+      "mutation": "M07_RR_NEXT",
+      "status": "FAIL 2 11",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:220.47-220.90 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_220_2724)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:221.48-221.154 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_221_2738)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:222.44-222.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_222_2749)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:223.44-223.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_223_2759)"
+      ],
+      "returncode": 2,
+      "seconds": 9.83,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "497977a4b06307584107dfa1f5d182bf392b63493d71456a5c2022d03113927f",
+      "evidence": "mutations02/results.json"
+    }
+  ],
+  "mutation_attempts": [
+    {
+      "mutation": "M01_SINGLE_GRANT",
+      "status": "FAIL 2 4",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:15 [run] engine_0: ##   0:00:00  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:217.45-217.85 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_217_2709)"
+      ],
+      "returncode": 2,
+      "seconds": 3.85,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "56ed755352ddbc3b8dc06d5dc4fe1af1734aeadea3028d8efe4d454b5026833c",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M02_SIXTH_BYPASS",
+      "status": "FAIL 2 21",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:30 [run] engine_0: ##   0:00:15  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:218.41-218.78 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_218_2714)",
+        "SBY 22:03:30 [run] engine_0: ##   0:00:15  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:219.46-219.89 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_219_2719)"
+      ],
+      "returncode": 2,
+      "seconds": 18.52,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "685e9db8f5e13eb76365c38ea43848125a8f2e68a351988ff0e6d1d1b469155e",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M03_RETURN_EARLY",
+      "status": "FAIL 2 11",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:220.47-220.90 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_220_2724)",
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:227.44-227.151 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_227_2789)",
+        "SBY 22:03:25 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:230.47-230.98 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_230_2830)"
+      ],
+      "returncode": 2,
+      "seconds": 9.77,
+      "mutated_file": "cmdbuf_rd_otb.v",
+      "mutated_sha256": "b7e02736868e22e2bee73be1d7c00abc43f45b949ba6b2bae7a16ed05d775317",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M04_DATA_HIGH_BIT",
+      "status": "FAIL 2 14",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:37 [run] engine_0: ##   0:00:09  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:223.44-223.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_223_2760)"
+      ],
+      "returncode": 2,
+      "seconds": 12.58,
+      "mutated_file": "cmdbuf_rd.v",
+      "mutated_sha256": "4fba9cac045d6f0364c718eed0691ca7cdcaa265dc316c9049d24aa1ae0cf318",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M05_RESERVATION_STOLEN",
+      "status": "FAIL 2 26",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:03:59 [run] engine_0: ##   0:00:26  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:213.43-213.86 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_213_2642)"
+      ],
+      "returncode": 2,
+      "seconds": 29.35,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "f633666bd9974771da85f2c66a1d7c11e2b24af75f34a28df1f1127d6a522b23",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M06_CMD_REUSE_METADATA",
+      "status": "TIMEOUT 8 2",
+      "assertion_failure_observed": false,
+      "failure_lines": [],
+      "returncode": 8,
+      "seconds": 202.61,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "1add9acf7d73b3f606435b992e53c87f1686be81221ce1d007c7c5883866a62b",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M07_RR_NEXT",
+      "status": "TIMEOUT 8 3",
+      "assertion_failure_observed": false,
+      "failure_lines": [],
+      "returncode": 8,
+      "seconds": 196.58,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "497977a4b06307584107dfa1f5d182bf392b63493d71456a5c2022d03113927f",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M08_ERROR_PRIORITY",
+      "status": "FAIL 2 18",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:07:18 [run] engine_0: ##   0:00:13  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:222.44-222.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_222_2751)"
+      ],
+      "returncode": 2,
+      "seconds": 18.21,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "a129c9dd881aa80d5c3e584befda4b734d7edc2fc5e6f1b584675e6b237c9f0f",
+      "evidence": "mutations01/results.json"
+    },
+    {
+      "mutation": "M06_CMD_REUSE_METADATA",
+      "status": "FAIL 2 14",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:12:59 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:218.41-218.78 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_218_2750)",
+        "SBY 22:12:59 [run] engine_0: ##   0:00:06  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:219.46-219.89 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_219_2755)"
+      ],
+      "returncode": 2,
+      "seconds": 11.59,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "1add9acf7d73b3f606435b992e53c87f1686be81221ce1d007c7c5883866a62b",
+      "evidence": "mutations02/results.json"
+    },
+    {
+      "mutation": "M07_RR_NEXT",
+      "status": "FAIL 2 11",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:220.47-220.90 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_220_2724)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:221.48-221.154 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_221_2738)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:222.44-222.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_222_2749)",
+        "SBY 22:12:57 [run] engine_0: ##   0:00:05  Assert failed in cmdbuf_rd_formal.check_ports: cmdbuf_rd_port_sva.sv:223.44-223.95 (_witness_.check_assert_cmdbuf_rd_port_sva_sv_223_2759)"
+      ],
+      "returncode": 2,
+      "seconds": 9.83,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "497977a4b06307584107dfa1f5d182bf392b63493d71456a5c2022d03113927f",
+      "evidence": "mutations02/results.json"
+    }
+  ],
+  "simulation_replay": {
+    "runs": 388,
+    "cycles": 386500,
+    "all_passed": true,
+    "exact_input_replay": true,
+    "binary_sha256": "9d4981b02fec9546060477a07a0716d1d1bd8b6d49157d4c09319b59a8063a08"
+  },
+  "tool_versions": {
+    "sby": {
+      "returncode": 0,
+      "output": "SBY v0.67-4-gfea6e46"
+    },
+    "yosys": {
+      "returncode": 0,
+      "output": "Yosys 0.67+94 (git sha1 7defa5186-dirty, Release, Clang /usr/bin/clang++ 18.1.8)"
+    },
+    "verilator": {
+      "returncode": 0,
+      "output": "Verilator 5.024 2024-04-05 rev UNKNOWN.REV"
+    },
+    "yices": {
+      "returncode": 0,
+      "output": "Yices 2.7.0\nCopyright SRI International.\nLinked with GMP 6.2.1\nCopyright Free Software Foundation, Inc.\nBuild date: 2026-07-26\nPlatform: x86_64-pc-linux-gnu (release)\nRevision: 05178c03ddf49c6bba63c5c7153774c11a5da12d"
+    },
+    "btormc": {
+      "returncode": 0,
+      "output": "3.2.4"
+    }
+  },
+  "formalmc_executed": false,
+  "scope_notes": [
+    "All 200 mapped points have witnesses for all 1415 mapped functional bins, not a proof of all original requirements.",
+    "28 points include physical implementation requirements unobservable at public ports; only their stated functional proxies are checked.",
+    "Six original scenario/sampling limitations remain listed per testpoint.",
+    "Unrestricted cover means no saved-input guidance; each profile retains its own declared input assumptions.",
+    "Guided covers constrain public input ports only. The longflow driver also fixes only inputs and starts its counter at zero.",
+    "Selected-property and skip settings remain in every job record. Skipped cover prefixes are not assertion proofs.",
+    "Only the five named protocol properties have new unbounded PASS evidence; the whole checker has BASE BMC depth 10.",
+    "All failed, unknown, timed-out and cancelled search attempts are preserved; previously emitted valid cover traces retain their reachability meaning.",
+    "Native compilation is Slang on Windows. Formal runs and final assertion-enabled simulation replay are on the Linux VM.",
+    "These are new port-only checker results, not a rerun of the historic UCAgent 14-stage closure or 49-mutation campaign."
+  ]
+}

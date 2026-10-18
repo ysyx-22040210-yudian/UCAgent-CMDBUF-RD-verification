@@ -1,0 +1,21 @@
+{
+  "rtl_modified": false,
+  "formalMC_executed": false,
+  "new_source_files": {
+    "build.py": "c833c0cf15bdc223a18b9231035b077ec6abbd8895997abade01789022f0d882",
+    "check_sources.py": "774cc3c5c9688cc3c9fdf215f2018eedfcb857144c56ebb1816b8cda00a6d0ce",
+    "cmdbuf_rd_bind.sv": "a0b17bc581f2628a6aabaa54a77becdccc8564b0e985b5067742a305b0ea26d8",
+    "cmdbuf_rd_sva.sv": "2e5337e2da2e7df23ffa8ff4ab63fe543a4160f7295e8c3da275a6e1b2d97445",
+    "cmdbuf_rd_sva_covers.svh": "9cb50ad92e4f7389850a3b98b7bfcd3f2cad051862f57658434ec1b4f13940a4",
+    "cmdbuf_rd_sva_macros.svh": "9d47c701e1b6c8acee501a47054759d172db9d120fb639827701c67732440506",
+    "cmdbuf_rd_sva_profiles.svh": "a61a10f8a662c79b3e3c21e965139548f4410634f88726f9346ea838afa453f9",
+    "cmdbuf_rd_sva_scenarios.svh": "446fcd6409008d04ae257c51b12cade7f214c63582017b0edb5e3a3259f50c5e",
+    "generate_covers.py": "0ea44dfc7d1a883860e92f96b711d1f28d209e5ef6591ae44e0964bf75aecc6d",
+    "mutation_smoke.py": "eb453f2ff8f4992c03c0aa44b949e4f41bbc09d9d8af0087b96bea76fce0e599",
+    "property_map.json": "abbd7d27a7a327683b6a2530a6608a96175fe5847a208bd36dcb3296ff711e52",
+    "validate.py": "1fe706c312b6bc23dcc6c8ad3a016f5ffb89033372563bb9578d65fa1ca57994"
+  },
+  "document_pages": 6,
+  "visual_review": "all_pages_reviewed",
+  "artifact_scope": "SVA source implementation and separate bounded/cover/mutation smoke evidence; not 200-point closure"
+}

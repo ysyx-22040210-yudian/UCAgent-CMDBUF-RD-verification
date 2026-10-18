@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "sv_logic_unchanged": true,
+  "sv_line_numbers_unchanged": true,
+  "files": [
+    {
+      "file": "cmdbuf_rd_port_covers.svh",
+      "before_sha256": "608804b06e230c19c772ede196cc3b0e3bcfbc55d163a481edd96a805f7d2209",
+      "after_sha256": "8af1df4db5ef3f631ef5aea291d41b95829cdeb04eb7058eef367c3c7b9d9966",
+      "logic_unchanged": true,
+      "line_numbers_unchanged": true
+    },
+    {
+      "file": "cmdbuf_rd_port_macros.svh",
+      "before_sha256": "880846cb44c42fdca17657b8d5d5c49d2d6aab65e309461d7795b4875d232dbe",
+      "after_sha256": "880846cb44c42fdca17657b8d5d5c49d2d6aab65e309461d7795b4875d232dbe",
+      "logic_unchanged": true,
+      "line_numbers_unchanged": true
+    },
+    {
+      "file": "cmdbuf_rd_port_profiles.svh",
+      "before_sha256": "fa116034811ccb34cf546d71c2d253ebabc01e8180837342933bde93e0a0db7f",
+      "after_sha256": "0b2840b2a16d5e01e96d439a071a7a22c7f51822c97d4aa0c7ca31a212d18bde",
+      "logic_unchanged": true,
+      "line_numbers_unchanged": true
+    },
+    {
+      "file": "cmdbuf_rd_port_scenarios.svh",
+      "before_sha256": "b560854c9ffbc1796a46bfa4ce2123717ed8a59883505a7bc67b0a2f27a6b604",
+      "after_sha256": "b560854c9ffbc1796a46bfa4ce2123717ed8a59883505a7bc67b0a2f27a6b604",
+      "logic_unchanged": true,
+      "line_numbers_unchanged": true
+    },
+    {
+      "file": "cmdbuf_rd_port_sva.sv",
+      "before_sha256": "c419c15053f292eae5e076b446b38fc8b624fdd2cd6a8c89309cba49723ecad4",
+      "after_sha256": "6d06af4580c17b54bc95694f9ac9e4cafe9c969da48b8b62ed0f9412988b072b",
+      "logic_unchanged": true,
+      "line_numbers_unchanged": true
+    }
+  ],
+  "annotation_check_passed": true,
+  "regeneration_preserves_annotations": true,
+  "property_counts": {
+    "ASSERT": {
+      "NO_REF_MODEL_PORTS": 7,
+      "NO_REF_MODEL_HISTORY": 2,
+      "REF_MODEL": 10,
+      "MODEL_SELF_CHECK": 12
+    },
+    "ASSUME": {
+      "NO_REF_MODEL_HISTORY": 3,
+      "REF_MODEL": 1,
+      "NO_REF_MODEL_PORTS": 9,
+      "NO_REF_MODEL_ENV": 5
+    },
+    "COVER": {
+      "NO_REF_MODEL_HISTORY": 47,
+      "REF_MODEL": 713,
+      "NO_REF_MODEL_PORTS": 657
+    }
+  },
+  "mapped_no_ref_cover_bins": 703,
+  "new_solver_run": false,
+  "historical_evidence_rewritten": false
+}

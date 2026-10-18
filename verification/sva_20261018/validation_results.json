@@ -1,0 +1,229 @@
+{
+  "versions": {
+    "yosys": "Yosys 0.67+94 (git sha1 7defa5186-dirty, Release, Clang /usr/bin/clang++ 18.1.8)",
+    "sby": "SBY v0.67-4-gfea6e46",
+    "yices-smt2": "Yices 2.7.0\nCopyright SRI International.\nLinked with GMP 6.2.1\nCopyright Free Software Foundation, Inc.\nBuild date: 2026-07-26\nPlatform: x86_64-pc-linux-gnu (release)\nRevision: 05178c03ddf49c6bba63c5c7153774c11a5da12d"
+  },
+  "jobs": [
+    {
+      "job": "base_bmc",
+      "profile": "base",
+      "mode": "bmc",
+      "depth": 12,
+      "status": "TIMEOUT 8 4",
+      "returncode": 8,
+      "seconds": 254.43,
+      "input_manifest_sha256": "870a9de18f9960570b79be89d777b2f52f3146a3f334d3f0d91bc72b462b62fe"
+    },
+    {
+      "job": "base_prove",
+      "profile": "base",
+      "mode": "prove",
+      "depth": 12,
+      "status": "TIMEOUT 8 4",
+      "returncode": 8,
+      "seconds": 254.17,
+      "input_manifest_sha256": "bf76aad394df23600faacfff173e8937b46499dbfb2b6e25e2bd9cafcc9e1297"
+    },
+    {
+      "job": "cover_lifecycle",
+      "profile": "base",
+      "mode": "cover",
+      "depth": 24,
+      "status": "PASS 0 17",
+      "returncode": 0,
+      "seconds": 15.06,
+      "input_manifest_sha256": "88191354baf39ec9e8a1519f17f965a4a5cb6b3fcb8e2c8732e45c1d1c2f67e7"
+    },
+    {
+      "job": "cover_schedule",
+      "profile": "base",
+      "mode": "cover",
+      "depth": 40,
+      "status": "PASS 0 29",
+      "returncode": 0,
+      "seconds": 24.93,
+      "input_manifest_sha256": "7b73c22ad29f07246f7376394b850ba5d37de978f9d074eb75468635b494cf28"
+    },
+    {
+      "job": "negative",
+      "profile": "negative",
+      "mode": "cover",
+      "depth": 6,
+      "status": "PASS 0 4",
+      "returncode": 0,
+      "seconds": 4.62,
+      "input_manifest_sha256": "6e3c46db7fb625a3078798840ea5f0b5393a3d3ff5b29e842f4797b7a4e2a010"
+    },
+    {
+      "job": "idle_reset",
+      "profile": "idle_reset",
+      "mode": "cover",
+      "depth": 36,
+      "status": "PASS 0 13",
+      "returncode": 0,
+      "seconds": 11.65,
+      "input_manifest_sha256": "ae447088dcefbf17c12a031a163b3d461dc3bb807fb2f6501c7bd38585cdb6b1"
+    },
+    {
+      "job": "perf_rr",
+      "profile": "perf_rr",
+      "mode": "bmc",
+      "depth": 20,
+      "status": "PASS 0 63",
+      "returncode": 0,
+      "seconds": 60.63,
+      "input_manifest_sha256": "90b71d05243d7cd40254a072dafd3f0aea86438a3ab1cf0b6beee0f798c98981"
+    },
+    {
+      "job": "perf0",
+      "profile": "perf0",
+      "mode": "bmc",
+      "depth": 20,
+      "status": "PASS 0 64",
+      "returncode": 0,
+      "seconds": 61.17,
+      "input_manifest_sha256": "e344e3ac106e4765f7e7625fb758b6cdc77f36cb137b62c40917426323711993"
+    },
+    {
+      "job": "drain",
+      "profile": "drain",
+      "mode": "bmc",
+      "depth": 35,
+      "status": "TIMEOUT 8 7",
+      "returncode": 8,
+      "seconds": 252.45,
+      "input_manifest_sha256": "775b10f75cd79bde9c5abb47393bcd59abc7ea51ac23158ba5febbd54d679cf2"
+    }
+  ],
+  "target_formalmc_executed": false,
+  "suite_complete": true,
+  "mutations": [
+    {
+      "mutation": "M01_SINGLE_GRANT",
+      "status": "FAIL 2 10",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:09:24 [run] engine_0: ##   0:00:02  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:230.45-230.81 (_witness_.check_assert_cmdbuf_rd_sva_sv_230_2667)",
+        "SBY 21:09:24 [run] engine_0: ##   0:00:02  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:257.42-257.74 (_witness_.check_assert_cmdbuf_rd_sva_sv_257_2942)",
+        "SBY 21:09:24 [run] engine_0: ##   0:00:02  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:258.44-258.80 (_witness_.check_assert_cmdbuf_rd_sva_sv_258_2947)"
+      ],
+      "returncode": 2,
+      "seconds": 9.23,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "56ed755352ddbc3b8dc06d5dc4fe1af1734aeadea3028d8efe4d454b5026833c"
+    },
+    {
+      "mutation": "M02_SIXTH_BYPASS",
+      "status": "FAIL 2 26",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:09:40 [run] engine_0: ##   0:00:18  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:258.44-258.80 (_witness_.check_assert_cmdbuf_rd_sva_sv_258_2947)",
+        "SBY 21:09:40 [run] engine_0: ##   0:00:18  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:260.47-260.89 (_witness_.check_assert_cmdbuf_rd_sva_sv_260_2957)"
+      ],
+      "returncode": 2,
+      "seconds": 26.14,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "685e9db8f5e13eb76365c38ea43848125a8f2e68a351988ff0e6d1d1b469155e"
+    },
+    {
+      "mutation": "M03_RETURN_EARLY",
+      "status": "FAIL 2 16",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:09:41 [run] engine_0: ##   0:00:08  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:238.50-238.84 (_witness_.check_assert_cmdbuf_rd_sva_sv_238_2779)"
+      ],
+      "returncode": 2,
+      "seconds": 17.36,
+      "mutated_file": "cmdbuf_rd_otb.v",
+      "mutated_sha256": "b7e02736868e22e2bee73be1d7c00abc43f45b949ba6b2bae7a16ed05d775317"
+    },
+    {
+      "mutation": "M04_DATA_HIGH_BIT",
+      "status": "FAIL 2 38",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:10:18 [run] engine_0: ##   0:00:30  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:266.44-266.95 (_witness_.check_assert_cmdbuf_rd_sva_sv_266_3016)"
+      ],
+      "returncode": 2,
+      "seconds": 37.8,
+      "mutated_file": "cmdbuf_rd.v",
+      "mutated_sha256": "4fba9cac045d6f0364c718eed0691ca7cdcaa265dc316c9049d24aa1ae0cf318"
+    },
+    {
+      "mutation": "M05_RESERVATION_STOLEN",
+      "status": "FAIL 2 67",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:10:46 [run] engine_0: ##   0:00:58  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:231.43-231.86 (_witness_.check_assert_cmdbuf_rd_sva_sv_231_2672)"
+      ],
+      "returncode": 2,
+      "seconds": 65.99,
+      "mutated_file": "cmdbuf_rd_cmd.v",
+      "mutated_sha256": "f633666bd9974771da85f2c66a1d7c11e2b24af75f34a28df1f1127d6a522b23"
+    },
+    {
+      "mutation": "M06_OLD_CLEAR_WINS",
+      "status": "FAIL 2 99",
+      "assertion_failure_observed": true,
+      "failure_lines": [
+        "SBY 21:11:55 [run] engine_0: ##   0:01:29  Assert failed in cmdbuf_rd_formal.tp_check: cmdbuf_rd_sva.sv:246.49-246.108 (_witness_.check_assert_cmdbuf_rd_sva_sv_246_2892)"
+      ],
+      "returncode": 2,
+      "seconds": 97.61,
+      "mutated_file": "cmdbuf_rd_otb.v",
+      "mutated_sha256": "ad5471206794dd4c2c8411250ca72696d7eea67263a160cdfc4c222b08f7bf03"
+    }
+  ],
+  "additional_jobs": [
+    {
+      "job": "release_bmc",
+      "status": "PASS 0 40",
+      "mode": "bmc",
+      "depth": 9,
+      "input_manifest_sha256": "5f33cbf69aeeb0986f3c8d2e519a2fbad1f2d6021efe39a3cc798137fefe3991"
+    },
+    {
+      "job": "prove_strengthened",
+      "status": "TIMEOUT 8 11",
+      "mode": "prove",
+      "depth": 5,
+      "input_manifest_sha256": "c97f3172151e030bc98b9f5841c2fc424cbdb7105bab1850b1cf916e721dc2d7"
+    }
+  ],
+  "final_sources": {
+    "cmdbuf_rd_sva.sv": "2e5337e2da2e7df23ffa8ff4ab63fe543a4160f7295e8c3da275a6e1b2d97445",
+    "cmdbuf_rd_sva_covers.svh": "9cb50ad92e4f7389850a3b98b7bfcd3f2cad051862f57658434ec1b4f13940a4",
+    "cmdbuf_rd_sva_macros.svh": "9d47c701e1b6c8acee501a47054759d172db9d120fb639827701c67732440506",
+    "cmdbuf_rd_sva_profiles.svh": "a61a10f8a662c79b3e3c21e965139548f4410634f88726f9346ea838afa453f9",
+    "cmdbuf_rd_sva_scenarios.svh": "446fcd6409008d04ae257c51b12cade7f214c63582017b0edb5e3a3259f50c5e"
+  },
+  "all_new_assertions_unbounded_proven": false,
+  "all_1415_mapped_covers_executed": false,
+  "formalMC_executed": false,
+  "current_RTL_modified": false,
+  "executed_cover_labels": {
+    "cover_lifecycle": [
+      "C_B_FLOW_01_S0T00",
+      "C_F_CON_16_MAIN",
+      "C_F_REU_01_MAIN",
+      "C_F_ERR_04_MAIN"
+    ],
+    "cover_schedule": [
+      "C_B_BLOCK_04_MAIN",
+      "C_B_BLOCK_03_MAIN",
+      "C_F_WIN_05_MAIN",
+      "C_F_CAP_04_EMPTY2",
+      "C_F_RR_05_PTR0E7"
+    ],
+    "negative": [
+      "C_P_AR_11_SRC",
+      "C_P_AR_11_RESP01",
+      "C_P_AR_11_RESP10"
+    ],
+    "idle_reset": [
+      "C_B_FLOW_10_RESET"
+    ]
+  },
+  "source_revisions_note": "Each inputs.json binds the actual source snapshot. Early runs precede final declaration-placement fix and the extra induction invariants. release_bmc uses final checker sources. Native SVA final profiles are separately compiled on Windows."
+}

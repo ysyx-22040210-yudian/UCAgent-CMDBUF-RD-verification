@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "docx": "documents\\13_cmdbuf_rd_sva_model_dependency.docx",
+  "pdf": "documents\\13_cmdbuf_rd_sva_model_dependency.pdf",
+  "docx_sha256": "bfc8273be97cca9a2446751047ad4fb7ad3100a16612419b672370ad8afab053",
+  "pdf_sha256": "a92e3030b12f673697e29283cb940286764d7a38c7416c8e5cae2bf419f8865a",
+  "pdf_pages": 5,
+  "all_five_rendered_pages_visually_reviewed": true,
+  "labels_present_in_docx_and_pdf": true,
+  "review": "All pages inspected at 144 dpi: legible Chinese text, readable tables, no clipped content or blank overflow pages.",
+  "page_images": [
+    {
+      "page": 1,
+      "sha256": "d64aacd2fd27819c0774f1951c648ee4e9eec7542a2bea74b937793f835addfd"
+    },
+    {
+      "page": 2,
+      "sha256": "b6ef9e91ea8c48e26b35a6c75594abbe2f4764e78dde355e75ed094bc1679b6f"
+    },
+    {
+      "page": 3,
+      "sha256": "a386ba8886cf9b629120af027ddc87f97b7853332b55dffb3a73789c1aa4f22c"
+    },
+    {
+      "page": 4,
+      "sha256": "bff82fb437ded356b141a55d1fa775a361547c777f2e22c6e593bd417bdc84cc"
+    },
+    {
+      "page": 5,
+      "sha256": "8f5a6b605e9191f0cdce2c4365d39b1bf86d575a134311042c561775eb8f4b72"
+    }
+  ],
+  "renderer": {
+    "docx": "E:\\formal打榜\\publish\\UCAgent-CMDBUF-RD-verification\\documents\\13_cmdbuf_rd_sva_model_dependency.docx",
+    "canonical_renderer": "D:\\MigratedFromC\\Users\\1\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1017.11052\\skills\\documents\\render_docx.py",
+    "export_backend": "Microsoft Word COM",
+    "bundled_libreoffice_available": false,
+    "desktop_libreoffice_used": false,
+    "dpi": 144,
+    "log": "WORD_VERSION=16.0\nPAGES=5\n"
+  },
+  "vm_source_bytes_match": true,
+  "rtl_bytes_unchanged": true,
+  "sealed_vm_evidence_bytes_unchanged": true,
+  "new_solver_run": false
+}

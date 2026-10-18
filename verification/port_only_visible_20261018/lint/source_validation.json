@@ -1,0 +1,71 @@
+{
+  "port_only": true,
+  "testpoints": 200,
+  "source_assert_labels": 31,
+  "source_cover_labels": 1417,
+  "mapped_cover_bins": 1415,
+  "base_environment_labels": [
+    "E01_RESET_FIRST",
+    "E02_RESET_RELEASE",
+    "E03_SRC",
+    "E04_ARRESP",
+    "E05_ZERO_READY"
+  ],
+  "native_lint": [
+    {
+      "profile": "base",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "95ea2f85ce36bab9ae26015372d6fb5d42d44f207934d02d1f721909ad929700"
+    },
+    {
+      "profile": "negative",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "b7dc6eb3008f353d95ee0356977089e7b3565805b48ccf8d2d2fdb9034903d77"
+    },
+    {
+      "profile": "idle_reset",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "85fa1ad292ef099da830462f31e472dd857037894ca98305f8f2e0faf9365e18"
+    },
+    {
+      "profile": "drain",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "270dee7c18841217b374662621aff838a61cd426e4d706b1dd0c96ddd6b29472"
+    },
+    {
+      "profile": "perf_rr",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "355c819250f5e4780e1005db36b56df98764845003bab4fc42f15da488c4430d"
+    },
+    {
+      "profile": "perf0",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "b3b00e1e37408468b873e2774530429715c1d436a429e18fd8ffa380f11142de"
+    },
+    {
+      "profile": "perf1",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "e777259f0e2d2ac9ba1c2d797b56a85126262414c3de78fa1e133cc8234f99f5"
+    },
+    {
+      "profile": "perf2",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "5148026f34a57edcd07cdfa7a9cb87aa2c51fe4a50af10801ac2e23829766faa"
+    },
+    {
+      "profile": "longflow",
+      "returncode": 0,
+      "passed": true,
+      "input_manifest_sha256": "338a4e934cdac985dd9f1fe6999e5e70e2cb1c2d84004bc480cf62e60a74c579"
+    }
+  ],
+  "proof_executed": false
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "vm_root": "/root/cmdbuf_rd/port_only_visible_20261018",
+  "annotation_check_passed": true,
+  "files": {
+    "cmdbuf_rd_port_covers.svh": "5377c9470af98d0d374b17cd72632c82bd82682e0704e96df1a5bbaf5d0db9eb",
+    "cmdbuf_rd_port_macros.svh": "880846cb44c42fdca17657b8d5d5c49d2d6aab65e309461d7795b4875d232dbe",
+    "cmdbuf_rd_port_profiles.svh": "305a360bee0216b7ae28bdd9ebb0757bae7c97e72583d49b232e01f9c1a505ad",
+    "cmdbuf_rd_port_scenarios.svh": "b560854c9ffbc1796a46bfa4ce2123717ed8a59883505a7bc67b0a2f27a6b604",
+    "cmdbuf_rd_port_sva.sv": "3f9b15421b627325cfd77e12981713eb38e44da2eefb2b88a0e49d2669d8176f"
+  },
+  "new_solver_run": false
+}

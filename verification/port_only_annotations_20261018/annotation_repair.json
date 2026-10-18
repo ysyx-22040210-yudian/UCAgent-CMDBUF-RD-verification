@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "issue": "Local main checker lacked dependency comments; profiles/covers and annotated VM copy retained them.",
+  "cause": "The writer which reverted the local main checker has not been identified; no cause inferred.",
+  "repair": "Restored main checker comments with an explicit patch and added fail-fast checks to both source-validation and harness-build entry points.",
+  "main_source_sha256": "6d06af4580c17b54bc95694f9ac9e4cafe9c969da48b8b62ed0f9412988b072b",
+  "matches_previous_annotated_vm_source": true,
+  "sv_logic_unchanged": true,
+  "new_solver_run": false,
+  "guard_regression": [
+    {
+      "entry": "build.py",
+      "valid_annotation": true,
+      "returncode": 0,
+      "passed": true,
+      "output_created": true,
+      "output": "{\"output\": \"C:\\\\Users\\\\1\\\\AppData\\\\Local\\\\Temp\\\\cmdbuf_annotation_repair_q_itbs1x\\\\valid_build\", \"profile\": \"base\", \"mode\": \"prove\", \"port_only\": true}\n"
+    },
+    {
+      "entry": "check_sources.py",
+      "valid_annotation": true,
+      "returncode": 0,
+      "passed": true,
+      "output_created": true,
+      "output": "{\n  \"port_only\": true,\n  \"testpoints\": 200,\n  \"source_assert_labels\": 31,\n  \"source_cover_labels\": 1417,\n  \"mapped_cover_bins\": 1415,\n  \"base_environment_labels\": [\n    \"E01_RESET_FIRST\",\n    \"E02_RESET_RELEASE\",\n    \"E03_SRC\",\n    \"E04_ARRESP\",\n    \"E05_ZERO_READY\"\n  ],\n  \"native_lint\": [],\n  \"proof_executed\": false\n}\n"
+    },
+    {
+      "entry": "build.py",
+      "valid_annotation": false,
+      "returncode": 1,
+      "passed": true,
+      "output_created": false,
+      "output": "Traceback (most recent call last):\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\build.py\", line 148, in <module>\n    build(p.parse_args())\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\build.py\", line 10, in build\n    annotate(HERE, check=True)\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\annotate_model_dependencies.py\", line 156, in annotate\n    if check:assert file.read_bytes()==content,('Stale or missing dependency annotation',file)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('Stale or missing dependency annotation', WindowsPath('C:/Users/1/AppData/Local/Temp/cmdbuf_annotation_repair_q_itbs1x/port_only/cmdbuf_rd_port_sva.sv'))\n"
+    },
+    {
+      "entry": "check_sources.py",
+      "valid_annotation": false,
+      "returncode": 1,
+      "passed": true,
+      "output_created": false,
+      "output": "Traceback (most recent call last):\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\check_sources.py\", line 49, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\check_sources.py\", line 20, in main\n    annotate(HERE, check=True)\n  File \"C:\\Users\\1\\AppData\\Local\\Temp\\cmdbuf_annotation_repair_q_itbs1x\\port_only\\annotate_model_dependencies.py\", line 156, in annotate\n    if check:assert file.read_bytes()==content,('Stale or missing dependency annotation',file)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('Stale or missing dependency annotation', WindowsPath('C:/Users/1/AppData/Local/Temp/cmdbuf_annotation_repair_q_itbs1x/port_only/cmdbuf_rd_port_sva.sv'))\n"
+    }
+  ]
+}

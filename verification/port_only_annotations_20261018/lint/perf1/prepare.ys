@@ -1,0 +1,8 @@
+read_verilog -formal -sv -I. -DSYNTHESIS -DTP_PERF -DTP_PERF_SINGLE=1 -DTP_COVER_B_BLOCK -DTP_COVER_B_CAP -DTP_COVER_B_FLOW -DTP_COVER_B_ORDER -DTP_COVER_F_AGE -DTP_COVER_F_CAP -DTP_COVER_F_CNT -DTP_COVER_F_CON -DTP_COVER_F_DAT -DTP_COVER_F_ENT -DTP_COVER_F_ERR -DTP_COVER_F_MEM -DTP_COVER_F_PIPE -DTP_COVER_F_REU -DTP_COVER_F_RR -DTP_COVER_F_WIN -DTP_COVER_P_AR -DTP_COVER_P_ARB -DTP_COVER_P_CLK -DTP_COVER_P_MEM -DTP_COVER_P_R cmdbuf_rd_cmd.v cmdbuf_rd_otb.v cmdbuf_rd.v cmdbuf_rd_port_sva.sv formal_top.sv
+prep -top cmdbuf_rd_formal
+flatten
+async2sync
+dffunmap
+opt_clean
+write_smt2 -wires model.smt2
+write_json compiled.json

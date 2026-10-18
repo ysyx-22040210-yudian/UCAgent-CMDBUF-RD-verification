@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "archive_sha256": "8e51ec5bcff201f4e3937363d6825b3833343db3419a2e5f64925b686d2c9d78",
+  "checked_members": 6578,
+  "testpoints": 200,
+  "formal_cover_bins": 1415,
+  "proof_scope_unchanged": true
+}

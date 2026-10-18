@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18",
+  "status": "document_checks_passed",
+  "scope": "Document content and layout only; no new RTL tests executed.",
+  "test_plan_status": "planned_not_executed",
+  "counts": {
+    "total": 200,
+    "端口": 39,
+    "特性": 126,
+    "业务": 35
+  },
+  "pdf_pages": 32,
+  "docx_editable_cases_complete": true,
+  "pdf_cases_complete": true,
+  "compared_case_fields": [
+    "id",
+    "name",
+    "stimulus",
+    "expected"
+  ],
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "final_changed_pages_rechecked": [
+    22,
+    26,
+    28,
+    29
+  ],
+  "visual_issues_remaining": [],
+  "render_backend": "Microsoft Word COM plus canonical render_docx PDF rasterization",
+  "rtl_sources_unchanged": true,
+  "rtl_simulation_executed": false,
+  "sby_executed": false,
+  "formalmc_executed": false,
+  "traceability_level": "group_semantic_only",
+  "existing_ck_referenced": 177,
+  "existing_fi_referenced": 49,
+  "files": {
+    "documents/09_cmdbuf_rd_testpoints.docx": {
+      "bytes": 74853,
+      "sha256": "eb225b2aa80e4eb282fbc3664e738ff5d43ed0f8a10bb26d92b14d8ed6b4f39e"
+    },
+    "documents/09_cmdbuf_rd_testpoints.pdf": {
+      "bytes": 955326,
+      "sha256": "48dcc900621ed495bfce3e67618f4d15c2779475b2079738b407a642e0b07d75"
+    },
+    "docs/testpoints/cmdbuf_rd_testpoints.json": {
+      "bytes": 143498,
+      "sha256": "154f6bee2002dfd8725ddda1b27bba4c03ad5eee28bc7985e32ff390300ac656"
+    }
+  }
+}

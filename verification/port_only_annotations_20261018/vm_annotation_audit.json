@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "sv_logic_unchanged_from_vm_verified_snapshot": true,
+  "annotation_check_passed": true,
+  "new_solver_run": false,
+  "files": [
+    {
+      "file": "cmdbuf_rd_port_covers.svh",
+      "annotated_sha256": "8af1df4db5ef3f631ef5aea291d41b95829cdeb04eb7058eef367c3c7b9d9966"
+    },
+    {
+      "file": "cmdbuf_rd_port_macros.svh",
+      "annotated_sha256": "880846cb44c42fdca17657b8d5d5c49d2d6aab65e309461d7795b4875d232dbe"
+    },
+    {
+      "file": "cmdbuf_rd_port_profiles.svh",
+      "annotated_sha256": "0b2840b2a16d5e01e96d439a071a7a22c7f51822c97d4aa0c7ca31a212d18bde"
+    },
+    {
+      "file": "cmdbuf_rd_port_scenarios.svh",
+      "annotated_sha256": "b560854c9ffbc1796a46bfa4ce2123717ed8a59883505a7bc67b0a2f27a6b604"
+    },
+    {
+      "file": "cmdbuf_rd_port_sva.sv",
+      "annotated_sha256": "6d06af4580c17b54bc95694f9ac9e4cafe9c969da48b8b62ed0f9412988b072b"
+    }
+  ]
+}

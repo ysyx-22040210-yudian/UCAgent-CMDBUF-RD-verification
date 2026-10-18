@@ -1,0 +1,31 @@
+{
+  "scope": "Visible leading tags and a complete source copy at a fresh editor path; no new formal proof.",
+  "main": "formal/port_only_annotated/cmdbuf_rd_port_sva.sv",
+  "annotations_at_start_and_end_of_no_ref_property_lines": true,
+  "all_sv_logic_and_line_numbers_unchanged": true,
+  "prior_main_path_repeatedly_reverted_to_unannotated_bytes": true,
+  "writer_of_reversion": "Not identified; editor location alone is not evidence of writer identity.",
+  "sha256": {
+    "annotate_model_dependencies.py": "a0952c51a9cdd076ebbfb37fe7e918e6ad1b605a3e1e50699c14ede2f481ac5b",
+    "audit_ports.py": "b5f987ef92ddec6fe6b8c9b0fa4c1d7733d94def2417e6df606fdd77666244e4",
+    "build.py": "ece2e693a6c7c19edcc9476d6408edf3feac632d47528153df231acd37b8f081",
+    "check_sources.py": "90390aebd6430f254b0de567a39e3f33b09f50804d13b93e4f7376f9ff4907c3",
+    "cmdbuf_rd_port_covers.svh": "5377c9470af98d0d374b17cd72632c82bd82682e0704e96df1a5bbaf5d0db9eb",
+    "cmdbuf_rd_port_macros.svh": "880846cb44c42fdca17657b8d5d5c49d2d6aab65e309461d7795b4875d232dbe",
+    "cmdbuf_rd_port_profiles.svh": "305a360bee0216b7ae28bdd9ebb0757bae7c97e72583d49b232e01f9c1a505ad",
+    "cmdbuf_rd_port_scenarios.svh": "b560854c9ffbc1796a46bfa4ce2123717ed8a59883505a7bc67b0a2f27a6b604",
+    "cmdbuf_rd_port_sva.sv": "3f9b15421b627325cfd77e12981713eb38e44da2eefb2b88a0e49d2669d8176f",
+    "collect_results.py": "361862adb12e33674f1fd23d45ce7abf0085dd6de65f81fd716245f102d441e8",
+    "directed_inputs.py": "26f0a431f179c649aeb7e6d2244a4859d2f02ae873d21ab26e5f05d15cfc7a4d",
+    "generate_covers.py": "02db684905f4c15fc850f706e352547d2dcc10d640ea62189eedfc779cf7dc2b",
+    "model_dependency_map.json": "34542b547919cafa4f8d7887c46c310d676f70289f63f2f113659e71694a07b4",
+    "mutation_smoke.py": "008ba08c396b3c627c3730d1b2df9fe01551f2b4652e025d8eec2c6513f8de9b",
+    "port_witness.cpp": "75330883a3faa8e3abc72550d4baf1ee0ca01906d69036f79c05300cff234367",
+    "property_map.json": "228c4e4aa468ff09bc0533d4600fb38f89b7bf04a171a9bce005912cc48bbfdc",
+    "replay_witnesses.py": "9e6415f8338920cb6e41146f90ad8298ae2fbc82bd253d9089903272f7aaa78d",
+    "run_jobs.py": "6dc3086789100e1718fd7602183972ef5959cea06c52597b371f45e14c9ff610",
+    "run_witnesses.py": "82e6c2cf74d0e8dd8d5f87804acfa6e3ff596ed4e2b87155c0793bec6fce26da",
+    "seal_results.py": "1642eba4d769059bfa5a79f331d29d955d790940590433131ed7a9c826363fc9",
+    "verify_evidence.py": "39b1b85b567a130e5e9e2d670b41d4c31a37aa94fb2960e5b470df777b2dbbca"
+  }
+}

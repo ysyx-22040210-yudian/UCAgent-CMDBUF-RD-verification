@@ -14,6 +14,25 @@
 | 完整 Formal 流程、177 CK 与验证结果 | [阅读](documents/06_formal_verification.pdf) | [编辑](documents/06_formal_verification.docx) |
 | 仿真基线与历史阶段记录 | [阅读](documents/07_simulation_history.pdf) | [编辑](documents/07_simulation_history.docx) |
 | FormalMC 2024 零初值适配与新验证记录 | [阅读](documents/08_formalmc2024_zero_init.pdf) | [编辑](documents/08_formalmc2024_zero_init.docx) |
+| 按端口、功能特性、业务场景分解的 200 项测试计划 | [阅读](documents/09_cmdbuf_rd_testpoints.pdf) | [编辑](documents/09_cmdbuf_rd_testpoints.docx) |
+| 200 项测试点的 assert assume cover 分类与证明边界 | [阅读](documents/10_cmdbuf_rd_formal_testpoint_mapping.pdf) | [编辑](documents/10_cmdbuf_rd_formal_testpoint_mapping.docx) |
+| 200 项测试点的 SVA 实现与接入说明 | [阅读](documents/11_cmdbuf_rd_sva_guide.pdf) | [编辑](documents/11_cmdbuf_rd_sva_guide.docx) |
+| 仅顶层端口的 SVA 实现、VM 覆盖结果与 200 项逐点索引 | [阅读](documents/12_cmdbuf_rd_port_only_verification.pdf) | [编辑](documents/12_cmdbuf_rd_port_only_verification.docx) |
+| SVA 无需参考模型部分的逐条标注与依赖说明 | [阅读](documents/13_cmdbuf_rd_sva_model_dependency.pdf) | [编辑](documents/13_cmdbuf_rd_sva_model_dependency.docx) |
+
+新增测试计划包含端口 39 项、功能特性 126 项、业务场景 35 项，每项给出激励、预期结果、建议验证方式和依据类型，并在测试组层级关联已有 CK/FI。[机器可读清单](docs/testpoints/cmdbuf_rd_testpoints.json) 可用于后续用例落实；这 200 项尚未全部验证闭环，本次新增 SVA 的实现与执行范围如下。
+
+形式属性分类逐项给出 assert 检查、cover 见证目标及 assume 边界，区分基础环境、条件吞吐/排空、非法输入监测和空闲复位扩展。[分类数据](docs/testpoints/formal_classification.json) 可供后续绑定具体属性；该分类文档记录分析阶段；后续 SVA 实现与新运行记录单独保存。
+
+新增 [SVA 源码](formal/testpoints_sva/cmdbuf_rd_sva.sv) 为 200 个测试点提供断言、5 项基础环境假设及 [属性映射](formal/testpoints_sva/property_map.json)，含 1415 个映射 cover bin。原生 SVA/bind 的 8 个环境配置编译通过；虚拟机上最终代码通过 9 个采样步的 SBY BMC，选定 13 个 cover 目标命中，6 类代表故障全部被断言检出。条件吞吐任务完成 20 步 BMC；整体无界证明和排空任务仍有超时，尚未完成全部新性质闭环，也未在真实 FormalMC 2024 上执行。各任务使用的源码快照、结果和反例见 [本次执行记录](verification/sva_20261018/validation_results.json)，不沿用历史结论。
+
+后续新增的 [顶层端口验证器](formal/port_only/cmdbuf_rd_port_sva.sv) 只连接原始 24 个端口，无内部层级访问、无额外观察端口，RTL 字节不变。在 VM 上，**200 个测试点映射的 1415 个功能 cover bin 全部取得 SBY 见证**；其中 1299 个使用各属性环境的常规搜索，115 个使用公开输入引导，1 个使用固定输入长流。全部 BASE 断言通过 10 步 BMC，五项协议性质完成新无界证明，单源和三源轮流吞吐各通过 20 步 BMC；8 类代表故障全部检出。最终完整检查器回放 388 组保存输入、386500 个周期，全部通过；9 种原生 SVA 配置编译通过。详见 [逐点覆盖结果](verification/port_only_20261018/coverage_final.json) 和 [验证汇总](verification/port_only_20261018/validation_summary.json)。
+
+此处的全部命中指**已映射的功能场景**：28 个测试点包含仅凭端口无法直接证明的物理结构要求，报告逐项保留缺口，另保留 6 项原始范围限制。整体无界证明、一般排空界和真实 FormalMC 2024 执行仍未完成。输入、证明范围、未通过的尝试、波形和故障反例随 [VM 证据包](verification/port_only_20261018/vm_evidence.tar.gz) 保存；运行 `python3 formal/port_only/verify_evidence.py` 可校验全部封存成员。此次结果独立于历史 UCAgent 完整流程，不替换其验收范围。
+
+顶层端口 SVA 已逐条标出无需事务参考模型的部分：`NO_REF_MODEL_PORTS` 表示只需端口及通用采样门控，`NO_REF_MODEL_HISTORY` 表示还需端口历史或计数器，`NO_REF_MODEL_ENV` 表示还需独立环境阶段控制。BASE 有 6 项无需事务模型的断言；PERF 和 NEGATIVE 配置另有 3 项。1415 个映射 cover bin 中有 703 个无需事务模型，但这不等于其所属测试点的全部检查均无需模型。其余属性明确保留 `REF_MODEL` 或 `MODEL_SELF_CHECK` 标签。完整分类与依赖链见 [逐属性清单](formal/port_only/model_dependency_map.json)，逐点映射见 [属性映射](formal/port_only/property_map.json)。本次仅新增注释和元数据，表达式、辅助逻辑及源码行号未变；9 种原生 SVA 配置编译通过，VM 源码逻辑核对通过，未新增求解器证明。检查记录位于 [标注审计](verification/port_only_annotations_20261018/annotation_audit.json)。
+
+**查看本次标注版请打开 [带行首标签的主文件](formal/port_only_annotated/cmdbuf_rd_port_sva.sv) 与 [配置文件](formal/port_only_annotated/cmdbuf_rd_port_profiles.svh)。** `formal/port_only_annotated/` 是完整可构建源码副本，无需模型的标签同时放在属性行开头和行末。旧主文件路径曾反复回退为未标注内容，具体写入来源未定位；新副本使用独立编辑器路径，并在生成前检查标签完整性。表达式与原行号不变，9 种原生配置编译通过，记录见 [本次检查](verification/port_only_visible_20261018/lint/source_validation.json)。
 
 当前芯片 RTL 使用 **Verilog-2001**，入口为 [cmdbuf_rd.v](rtl/cmdbuf_rd.v)、[cmdbuf_rd_cmd.v](rtl/cmdbuf_rd_cmd.v) 和 [cmdbuf_rd_otb.v](rtl/cmdbuf_rd_otb.v)。集成与 Bank 状态位序见 [RTL 使用说明 PDF](documents/01_project_usage.pdf)。形式验证属性与观测器继续使用验证工具支持的 SystemVerilog。
 
@@ -25,16 +44,24 @@
 |---|---|
 | `rtl/` | 当前三份 RTL，与封存验证包的 RTL 字节相同 |
 | `formal/cmdbuf_rd_dual_backend/` | 可迁移的 SBY / FormalMC 验证包、22 个任务、177 个检查点与历史验证证据 |
+| `formal/testpoints_sva/` | 本次 200 项测试点的 SVA、场景监测器、bind、生成器和属性映射 |
+| `formal/port_only/` | 只连 24 个顶层端口的独立参考模型、SVA、覆盖映射、SBY 生成器及证据校验器 |
+| `formal/port_only_annotated/` | 本次可查看、可构建的完整标注版；NO_REF_MODEL 标签位于属性行开头与行末 |
 | `formal/releases/` | 独立 FormalMC 2024 零初值候选 ZIP 与 SHA256 校验文件 |
 | `ucagent-tool/` | 已更新的 UCAgent 桌面与服务完整源码，保留上游 Apache-2.0 许可证 |
 | `gui/` | Tk 桌面 zipapp 和当前项目启动入口 |
 | `docs/design/` | 详细设计方案与架构图 |
 | `docs/timing/` | 已对齐时序图、5A / 6B / 10B 决策 |
 | `docs/fault_catalog/` | 注错清单及容量保底场景 |
+| `docs/testpoints/` | 200 项测试点、既有 CK/FI 语义关联及文档完整性检查记录 |
 | `docs/gui/` | 15 张真实 Tk 截图和操作说明的维护来源 |
 | `documents/` | 全部项目说明的 PDF / Word 完整手册与主题分册 |
 | `simulation/` | 早期 RTL 仿真工程、独立参考模型与历史结果 |
 | `verification/closure/` | 完整 UCAgent 流程报告与原始证据分卷 |
+| `verification/sva_20261018/` | 本次 SVA 编译、SBY 有界/覆盖/超时结果及 6 类故障反例 |
+| `verification/port_only_20261018/` | 端口验证的 1415 个功能覆盖见证、有限证明范围、8 类注错、388 组回放及逐点报告 |
+| `verification/port_only_annotations_20261018/` | 无参考模型标签的依赖核对、逻辑不变检查、9 种原生编译及 VM 同步记录 |
+| `verification/port_only_visible_20261018/` | 行首标签版本的源码副本审计、9 种编译和 VM 核对 |
 | `verification/gui/` | Tk GUI 回归日志、实际界面截图与验收记录 |
 | `verification/verilog_20261012/` | 本次 Verilog 转换、新旧等价性与重新验证的证据 |
 | `verification/formalmc_2024_20261014/` | 零初值候选的 22 个模型 SBY 结果汇总、转换来源、输入保留检查和运行器测试日志 |
