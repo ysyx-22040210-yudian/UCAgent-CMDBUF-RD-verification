@@ -1,0 +1,18 @@
+{
+  "result": {
+    "status": "PASS 0 3",
+    "returncode": 0,
+    "elapsed_seconds": 2.65,
+    "compared_instances": 202,
+    "assumptions": 0,
+    "history_updates_unchanged": true,
+    "scope": "Two-state sampled predicates on shared histories, with history-update token equivalence; no DUT instantiated."
+  },
+  "state_update_audit": {
+    "transaction_model_and_cover_history": true,
+    "per_xau_fifo_and_cover_history": true,
+    "public_events": true,
+    "pending_port_history": true,
+    "return_calendar_count": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "pages": 5,
+  "all_pages_visually_reviewed": true,
+  "renderer": "Native Word 16.0 and packaged render_docx.py / Poppler 120 DPI",
+  "pdf_sha256": "70bc36707d10f1c210c2ed3b47796f6e51cbbb26b0e644c5cdba96c6d9f0db59",
+  "docx_sha256": "25d2e1af5b32ef28c0e801701e5570e38288f4b4e577434d712a53976148d372",
+  "source_hash_recheck": "PASS"
+}

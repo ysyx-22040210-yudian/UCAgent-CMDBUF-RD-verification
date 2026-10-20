@@ -1,0 +1,146 @@
+{
+  "confirmed_on": "2026-10-21",
+  "purpose": "User corrections to the protocol alignment; these supersede conflicting earlier descriptions.",
+  "implementation_status": "Implemented in rtl/*.sv; current entry rtl/files.f. New VM verification scope and limitations are recorded separately in verification/protocol_20261021/summary.json.",
+  "implementation_language": {
+    "systemverilog_allowed": true,
+    "confirmed_on": "2026-10-21",
+    "interface_policy": "SystemVerilog may directly implement the specified per-bank unpacked-array port. A Verilog-2001 flat-port workaround is no longer required.",
+    "historical_sources": "Preserve frozen Verilog sources and previous verification results as historical evidence."
+  },
+  "same_cycle_ar_r": {
+    "confirmed": true,
+    "rule": "An R retirement may provide capacity for an AR acceptance in the same cycle, including full-buffer reuse subject to source capacity protection."
+  },
+  "rd_mem_status": {
+    "declaration_as_given": "bit [1:0] rd_mem_status [7:0]",
+    "outer_index": "bank 0..7",
+    "inner_index": "0 even, 1 odd",
+    "idle_value": 0,
+    "busy_value": 1,
+    "bank_from_command": "saved_araddr[5:3]",
+    "half_from_command": "saved_araddr[6]",
+    "half_from_issued_address": "arb_addr[0]",
+    "same_cycle_environment_constraint": "(rw_rd_gnt[i] & ar_rd_gnt[i] & req[i]) |-> (rd_mem_status[i][arb_addr[0]] != 0)",
+    "constraint_direction": "Success requires corresponding status busy. Busy does not imply this request succeeded.",
+    "no_issue_stage_idle_gate": "A successful request must coexist with busy status in the request cycle. Selection uses the previous selection cycle's idle decision.",
+    "interface_policy": "Preserve the external per-bank two-bit array. Do not replace it with the old flat-vector interface."
+  },
+  "window": {
+    "capacity": 5,
+    "command_entries": 9,
+    "candidate_scope": "Only valid, unissued commands belonging to the current five-entry window",
+    "priority": "Test bank availability within that window, then select the oldest eligible command",
+    "advance_condition": "Actual downstream issue success only",
+    "not_advance_conditions": [
+      "No selection",
+      "Request without both matching grants",
+      "MEM completion",
+      "R retirement by itself"
+    ],
+    "new_command_admission": "AR allocation and filling available window positions do not authorize skipping an already-full blocked window.",
+    "non_head_success_confirmed": true,
+    "non_head_success_example": "After C succeeds in window A,B,C,D,E, retain A,B,D,E in their original age order and admit F.",
+    "same_cycle_refill_confirmed": true,
+    "same_cycle_refill_rule": "Under 6B, the updated window A,B,D,E,F participates in selection during the same cycle as C's success; an eligible winning F may issue in the next cycle.",
+    "selection_logic": [
+      "pending_mask = valid & ~issued",
+      "success_mask = issue_success ? onehot(current_issue_entry) : 0",
+      "window_mask = oldest_5(pending_mask & ~success_mask)",
+      "candidate_mask = window_mask & bank_idle_mask",
+      "selected = oldest(candidate_mask)"
+    ]
+  },
+  "retry": {
+    "participates_in_current_selection": true,
+    "retain_original_age": true,
+    "rule": "A current request that fails remains eligible for this cycle's selection. If it is still in the window, idle and oldest among eligible commands, select it for the next cycle again.",
+    "example": "A selected C2; A request fails C3 while A bank is idle; A is reselected C3; A requests again C4.",
+    "supersedes": "Unconditional current_issue_mask removal from candidates and the mandatory retry bubble previously attributed to 5A."
+  },
+  "pending_count": {
+    "registered_output": false,
+    "include_current_ar_accept": true,
+    "deduct_current_issue_success": true,
+    "formula": "pending_cnt = pending_at_cycle_start + ar_fire - issue_success",
+    "state_update": "pending_at_next_cycle_start = pending_cnt",
+    "r_retirement_changes_pending_directly": false,
+    "examples": [
+      {
+        "start": 5,
+        "ar_fire": 0,
+        "issue_success": 1,
+        "output": 4
+      },
+      {
+        "start": 5,
+        "ar_fire": 1,
+        "issue_success": 1,
+        "output": 5
+      },
+      {
+        "start": 5,
+        "ar_fire": 1,
+        "issue_success": 0,
+        "output": 6
+      }
+    ]
+  },
+  "capacity": {
+    "each_xau_maximum": 7,
+    "first_entry_reserved_for_each_other_xau": true,
+    "occupancy_lifetime": "AR acceptance until R retirement, including issued and completed commands",
+    "admission_requirement": "Preserve the first-entry entitlement of every zero-occupancy source, considering same-cycle retirement.",
+    "safe_invariant": "sum(max(occ[x],1) for x in 0..2) <= 9",
+    "counterexample_to_cap_only": "Occupancy 5,4,0 obeys the per-source cap of seven but denies XAU2 its first entry and is therefore not permitted."
+  },
+  "unchanged_return_contract": {
+    "mem_latency_from_success": 4,
+    "mem_pulse_width": 1,
+    "earliest_r_after_mem_capture": 1,
+    "per_xau_response_order": "AR acceptance order",
+    "rr_candidates": "Completed source heads with current rready=1",
+    "error_priority": "Address overflow takes priority over parity error"
+  },
+  "sva_alignment_confirmed": {
+    "clock_and_disable": "@(posedge clk) disable iff (!rst_n)",
+    "startup_flags": false,
+    "reset_sequence_assumptions": false,
+    "dedicated_reset_properties": false,
+    "rr_initial_source": 0,
+    "rr_scan_order": [0, 1, 2],
+    "rr_update": "Only after actual R response, point to the winning source plus one modulo three; otherwise hold.",
+    "arb_addr_checked_when": "req != 0",
+    "r_payload_checked_when": "rvalid != 0; R_READY separately asserts rvalid is a subset of rready.",
+    "idle_payload_values": "Do not care",
+    "initial_state_setup": "Verification tool reset initialization is documented separately; disable iff does not initialize the reference model.",
+    "current_evidence": "verification/sva_alignment_20261021/summary.json"
+  },
+  "explicit_per_xau_r_order": {
+    "order_basis": "Successful AR acceptance order within each XAU, across all arid values.",
+    "fifo_push": "arvalid && arready[src] with legal src",
+    "fifo_pop": "rvalid[x] && rready[x] for this XAU only",
+    "not_pop_events": ["Downstream issue success", "MEM data capture", "Other XAU R response"],
+    "payload": ["raddr = original araddr[2:0]", "rid", "r_port_id", "rdata[127:0]", "rresp"],
+    "example": "AR 1,2,3; issue 3,1,2; MEM 3,1,2; R must remain 1,2,3.",
+    "other_sources": "Other eligible XAU heads continue to participate in RR while this source is blocked.",
+    "id_uniqueness_assumed": false,
+    "assertion_prefix": "A_XAU_R_",
+    "current_evidence": "verification/xau_order_20261021/summary.json"
+  },
+  "verification_changes_required": [
+    "Bind environment assumptions to the actual per-bank unpacked array.",
+    "Add the same-cycle granted-bank-busy assumption as NO_REF_MODEL_PORTS.",
+    "Replace the current-request exclusion rule in both RTL and independent checker.",
+    "Compare pending_cnt against same-cycle next count including AR acceptance.",
+    "Remove contradictory always-idle PERF/DRAIN environments when adding success-implies-busy.",
+    "Recheck same-half busy exclusion, continuous failed retry, blocked sixth command, and same-cycle AR/R capacity reuse.",
+    "Treat historical PASS and cover results as evidence for their original frozen specification only."
+  ],
+  "remaining_boundaries": [
+    "No upstream scheduling fairness is specified.",
+    "No extra ID uniqueness or unaccepted-AR stability assumptions are imposed.",
+    "Dedicated reset verification and downstream coordinated reset behavior are outside this SVA alignment.",
+    "FormalMC 2024 execution and encrypted-target equivalence must still be established on the target tools."
+  ]
+}

@@ -1,0 +1,5 @@
+type=repeat_ids
+seed=1
+cycles=70
+trace=1
+require=retired:24

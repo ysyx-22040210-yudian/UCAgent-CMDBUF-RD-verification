@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-21",
+  "scope": "Explicit per-XAU response order from accepted AR to successful R",
+  "new_assumptions": [],
+  "checker": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+  "dependency": "REF_MODEL",
+  "sources": [0, 1, 2],
+  "properties_per_source": [
+    "A_XAU_R_HAS_PENDING",
+    "A_XAU_R_HEAD_COMPLETE",
+    "A_XAU_R_NO_EARLY_BYPASS",
+    "A_XAU_R_ADDR_ORDER",
+    "A_XAU_R_ID_ORDER",
+    "A_XAU_R_PORT_ORDER",
+    "A_XAU_R_DATA_ORDER",
+    "A_XAU_R_RESP_ORDER"
+  ],
+  "testpoints": [
+    {
+      "id": "ORDER-01",
+      "requirement": "After accepting commands 1,2,3, command 3 may issue and complete first but cannot produce R before 1 and 2.",
+      "cover": ["C_XAU_EARLY_THIRD_BLOCKED", "C_XAU_R_123_AFTER_ISSUE3_FIRST"],
+      "simulation_cases": ["28_xau0_order_312", "29_xau1_order_312", "30_xau2_order_312"]
+    },
+    {
+      "id": "ORDER-02",
+      "requirement": "Even with multiple completed entries in one source, R must select the oldest accepted unretired command.",
+      "fault": "younger_completed_bundle"
+    },
+    {
+      "id": "ORDER-03",
+      "requirement": "Repeated ID, port_id and R low address do not weaken order or data/error checking.",
+      "cover": ["C_XAU_REPEAT_ID_HEAD_R"],
+      "simulation_cases": ["31_xau0_order_312_repeat", "32_xau1_order_312_repeat", "33_xau2_order_312_repeat"]
+    },
+    {
+      "id": "ORDER-04",
+      "requirement": "Blocked source head does not block eligible response heads of other XAUs.",
+      "cover": ["C_XAU_OTHER_SOURCE_PROGRESS"],
+      "simulation_cases": ["28_xau0_order_312", "29_xau1_order_312", "30_xau2_order_312"]
+    },
+    {
+      "id": "ORDER-05",
+      "requirement": "Same-cycle R pop and AR push preserves surviving FIFO order and appends the new command at the tail.",
+      "cover": ["C_XAU_SAME_CYCLE_POP_PUSH"],
+      "simulation_cases": ["10_capacity_reuse", "14_single_source_throughput", "16_random_seed_1", "17_random_seed_17", "18_random_seed_91"]
+    },
+    {
+      "id": "ORDER-06",
+      "requirement": "Address, ID, port_id, data and error all belong to the same FIFO-head transaction.",
+      "faults": ["wrong_raddr", "wrong_rid", "wrong_port", "wrong_data", "wrong_error"],
+      "error_sequence_in_directed_case": ["00", "01", "11"]
+    }
+  ],
+  "fault_catalog": [
+    {"id": "skip_incomplete_head", "effect": "Select oldest completed command, skipping an older incomplete command", "expect": "A_XAU_R_HEAD_COMPLETE or A_XAU_R_NO_EARLY_BYPASS"},
+    {"id": "younger_completed_bundle", "effect": "With head complete, return an entire younger completed payload bundle", "expect": "One or more A_XAU_R_*_ORDER"},
+    {"id": "wrong_raddr", "effect": "Corrupt valid R low address", "expect": "A_XAU_R_ADDR_ORDER"},
+    {"id": "wrong_rid", "effect": "Corrupt valid response ID", "expect": "A_XAU_R_ID_ORDER"},
+    {"id": "wrong_port", "effect": "Corrupt valid response port_id", "expect": "A_XAU_R_PORT_ORDER"},
+    {"id": "wrong_data", "effect": "Corrupt one bit of valid response data", "expect": "A_XAU_R_DATA_ORDER"},
+    {"id": "wrong_error", "effect": "Lose the parity-error response status", "expect": "A_XAU_R_RESP_ORDER"}
+  ],
+  "evidence": "verification/xau_order_20261021/summary.json",
+  "limits": "Port-observable behavior only; not a physical-entry observation or an unbounded proof of all response-order assertions."
+}

@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=reset_clean
+seed=1
+cycles=45
+trace=0
+require=drained_reset:1,reset:2,retired:24

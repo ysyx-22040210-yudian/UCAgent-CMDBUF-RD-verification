@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-21",
+  "vm_workspace": "/root/cmdbuf_rd/xau_order_20261021",
+  "scope": "Explicit per-XAU acceptance-order FIFO; no RTL behavior change and no new assume.",
+  "formal": {
+    "jobs": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "timeout": 120,
+        "status": "PASS 0 4",
+        "returncode": 0,
+        "elapsed_seconds": 4.2,
+        "inputs_sha256": "58214052bdec04f0bdb3ac885a1ce6ffc33a35022f24c7028e987b0e62351b66"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "abc bmc3",
+        "assertions": null,
+        "timeout": 360,
+        "status": "PASS 0 77",
+        "returncode": 0,
+        "elapsed_seconds": 73.32,
+        "inputs_sha256": "cee3dc70895d4dac1a6181587bdb6858543ee6efb20a35c15a581bb06ffafbb6"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 66",
+        "returncode": 0,
+        "elapsed_seconds": 59.0,
+        "inputs_sha256": "cee3dc70895d4dac1a6181587bdb6858543ee6efb20a35c15a581bb06ffafbb6"
+      }
+    ],
+    "elaborated_properties": {
+      "protocol_prove": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "all_bmc": {
+        "assert": 145,
+        "assume": 11,
+        "cover": 0
+      },
+      "corrections_cover": {
+        "assert": 0,
+        "assume": 11,
+        "cover": 46
+      }
+    },
+    "job_paths": {
+      "protocol_prove": "build/formal_01/protocol_prove",
+      "all_bmc": "build/formal_abc/all_bmc",
+      "corrections_cover": "build/formal_01/corrections_cover"
+    },
+    "earlier_attempts": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "timeout": 120,
+        "status": "PASS 0 4",
+        "returncode": 0,
+        "elapsed_seconds": 4.2,
+        "inputs_sha256": "58214052bdec04f0bdb3ac885a1ce6ffc33a35022f24c7028e987b0e62351b66"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 360,
+        "status": "TIMEOUT 8 3",
+        "returncode": 8,
+        "elapsed_seconds": 375.45,
+        "inputs_sha256": "cee3dc70895d4dac1a6181587bdb6858543ee6efb20a35c15a581bb06ffafbb6"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 66",
+        "returncode": 0,
+        "elapsed_seconds": 59.0,
+        "inputs_sha256": "cee3dc70895d4dac1a6181587bdb6858543ee6efb20a35c15a581bb06ffafbb6"
+      }
+    ],
+    "cover_hits": 46,
+    "new_order_covers": 15,
+    "last_cover_step": 13
+  },
+  "simulation": {
+    "total": 33,
+    "passed": 33,
+    "cycles": 7178,
+    "checks": 121522,
+    "accepted": 3294,
+    "retired": 3294,
+    "new_directed_cases": 6,
+    "coverage": {
+      "accepted": 3294,
+      "accepted_back_to_back": 1916,
+      "accepted_src0": 1250,
+      "capture_no_bypass": 3294,
+      "captured": 3294,
+      "captured_back_to_back": 1835,
+      "error_combo_00": 2609,
+      "four_events": 818,
+      "issued": 3294,
+      "issued_back_to_back": 1835,
+      "reset": 34,
+      "retired": 3294,
+      "retired_back_to_back": 1900,
+      "retired_src0": 1250,
+      "rr_skip": 1935,
+      "single_source_turnover": 180,
+      "success_busy": 3294,
+      "target_0_0": 226,
+      "target_1_1": 243,
+      "target_2_0": 229,
+      "target_3_1": 218,
+      "target_4_0": 220,
+      "target_5_1": 213,
+      "target_6_0": 240,
+      "target_7_1": 207,
+      "three_cycle_path": 444,
+      "capture_after_bubble": 1426,
+      "same_xau_head_block": 668,
+      "same_xau_ooo_issue": 279,
+      "target_2_1": 189,
+      "target_3_0": 205,
+      "target_4_1": 200,
+      "target_5_0": 154,
+      "target_6_1": 176,
+      "outside_window_blocked": 14,
+      "pending5_ar0_success1": 329,
+      "pending5_ar1_success0": 288,
+      "same_half_busy_excluded": 652,
+      "sixth_success_forward": 8,
+      "target_1_0": 193,
+      "accepted_src1": 1016,
+      "accepted_src2": 1028,
+      "ar_only_grant": 954,
+      "failed_keep_next": 2285,
+      "failure_same_cycle_reselect": 1463,
+      "full_reuse": 1476,
+      "issue_failure": 2315,
+      "issue_failure_back_to_back": 1015,
+      "retired_src1": 1016,
+      "retired_src2": 1028,
+      "retry_success": 1279,
+      "rw_only_grant": 718,
+      "wrong_bank_grant": 416,
+      "target_0_1": 188,
+      "capacity700_ready110": 22,
+      "capture_without_ready": 410,
+      "error_combo_01": 380,
+      "ready_zero_holds_completed": 734,
+      "zero_data_no_error": 147,
+      "rr_all_three": 50,
+      "error_combo_10": 260,
+      "error_combo_11": 45,
+      "shared_retire_ready111": 10,
+      "unique_retire_ready010": 2,
+      "rejected_unready_src": 132,
+      "capacity440_ready100": 20,
+      "drained_reset": 1,
+      "failure_select_other": 822,
+      "nonhead_sixth_refill": 3,
+      "pending5_ar0_success0": 270,
+      "pending5_ar1_success1": 363,
+      "target_7_0": 193,
+      "ordered_three_full_path": 6,
+      "other_xau_while_head_blocked": 6
+    }
+  },
+  "mutations": {
+    "total": 7,
+    "detected": 7
+  },
+  "initialization": "Actual reset simulation writes initial state; all native properties disable iff (!rst_n); no startup flag or reset-sequence assume.",
+  "limitations": [
+    "Only the three baseline interface properties have an unbounded proof in this run.",
+    "New response-order assertions have bounded checks and directed simulation, not an unbounded proof.",
+    "Cover witnesses demonstrate reachability, not universal correctness.",
+    "Physical DUT entry identity and clearing are not directly observed; indistinguishable complete output tuples cannot expose an internal swap by ports alone.",
+    "R address is the specified three-bit raddr=original araddr[2:0], not an added 18-bit output.",
+    "No actual FormalMC 2024 execution or encrypted-target equivalence check."
+  ]
+}

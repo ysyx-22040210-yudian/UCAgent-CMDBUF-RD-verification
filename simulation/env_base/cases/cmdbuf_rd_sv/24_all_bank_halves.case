@@ -1,0 +1,5 @@
+type=all_halves
+seed=1
+cycles=144
+trace=1
+require=target_0_0:1,target_1_0:1,target_2_0:1,target_3_0:1,target_4_0:1,target_5_0:1,target_6_0:1,target_7_0:1,target_0_1:1,target_1_1:1,target_2_1:1,target_3_1:1,target_4_1:1,target_5_1:1,target_6_1:1,target_7_1:1

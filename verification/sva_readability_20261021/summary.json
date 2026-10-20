@@ -1,0 +1,286 @@
+{
+  "date": "2026-10-21",
+  "vm_workspace": "/root/cmdbuf_rd/sva_readability_20261021",
+  "scope": "Readable native SVA; unchanged RTL, property labels, environment obligations and history updates.",
+  "formal": {
+    "jobs": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "timeout": 120,
+        "status": "PASS 0 4",
+        "returncode": 0,
+        "elapsed_seconds": 4.24,
+        "inputs_sha256": "302a57aa2572a35faa01dcd1ef378b767f7e4102b731fb1f2a3f90aef1ac180e"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "abc bmc3",
+        "assertions": null,
+        "timeout": 360,
+        "status": "PASS 0 74",
+        "returncode": 0,
+        "elapsed_seconds": 69.65,
+        "inputs_sha256": "76e7bb1dad6f5ad0aeeb513acfdcfa30472814c9c6ee0320dcffca28f26d04b9"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 63",
+        "returncode": 0,
+        "elapsed_seconds": 56.18,
+        "inputs_sha256": "76e7bb1dad6f5ad0aeeb513acfdcfa30472814c9c6ee0320dcffca28f26d04b9"
+      }
+    ],
+    "elaborated_properties": {
+      "protocol_prove": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "all_bmc": {
+        "assert": 145,
+        "assume": 11,
+        "cover": 0
+      },
+      "corrections_cover": {
+        "assert": 0,
+        "assume": 11,
+        "cover": 46
+      }
+    },
+    "cover_hits": 46,
+    "last_cover_step": 13
+  },
+  "checker_equivalence": {
+    "status": "PASS 0 3",
+    "returncode": 0,
+    "elapsed_seconds": 2.65,
+    "compared_instances": 202,
+    "assumptions": 0,
+    "history_updates_unchanged": true,
+    "scope": "Two-state sampled predicates on shared histories, with history-update token equivalence; no DUT instantiated."
+  },
+  "history_update_audit": {
+    "transaction_model_and_cover_history": true,
+    "per_xau_fifo_and_cover_history": true,
+    "public_events": true,
+    "pending_port_history": true,
+    "return_calendar_count": true
+  },
+  "sby_adaptation": {
+    "converted_labels": 25,
+    "rule": "Single-sample A |-> B becomes (!A || B), with clock/disable unchanged.",
+    "native_source_kept": true
+  },
+  "simulation": {
+    "total": 33,
+    "passed": 33,
+    "cycles": 7178,
+    "checks": 121522,
+    "accepted": 3294,
+    "retired": 3294,
+    "native_sva": true,
+    "coverage": {
+      "accepted": 3294,
+      "accepted_back_to_back": 1916,
+      "accepted_src0": 1250,
+      "capture_no_bypass": 3294,
+      "captured": 3294,
+      "captured_back_to_back": 1835,
+      "error_combo_00": 2609,
+      "four_events": 818,
+      "issued": 3294,
+      "issued_back_to_back": 1835,
+      "reset": 34,
+      "retired": 3294,
+      "retired_back_to_back": 1900,
+      "retired_src0": 1250,
+      "rr_skip": 1935,
+      "single_source_turnover": 180,
+      "success_busy": 3294,
+      "target_0_0": 226,
+      "target_1_1": 243,
+      "target_2_0": 229,
+      "target_3_1": 218,
+      "target_4_0": 220,
+      "target_5_1": 213,
+      "target_6_0": 240,
+      "target_7_1": 207,
+      "three_cycle_path": 444,
+      "capture_after_bubble": 1426,
+      "same_xau_head_block": 668,
+      "same_xau_ooo_issue": 279,
+      "target_2_1": 189,
+      "target_3_0": 205,
+      "target_4_1": 200,
+      "target_5_0": 154,
+      "target_6_1": 176,
+      "outside_window_blocked": 14,
+      "pending5_ar0_success1": 329,
+      "pending5_ar1_success0": 288,
+      "same_half_busy_excluded": 652,
+      "sixth_success_forward": 8,
+      "target_1_0": 193,
+      "accepted_src1": 1016,
+      "accepted_src2": 1028,
+      "ar_only_grant": 954,
+      "failed_keep_next": 2285,
+      "failure_same_cycle_reselect": 1463,
+      "full_reuse": 1476,
+      "issue_failure": 2315,
+      "issue_failure_back_to_back": 1015,
+      "retired_src1": 1016,
+      "retired_src2": 1028,
+      "retry_success": 1279,
+      "rw_only_grant": 718,
+      "wrong_bank_grant": 416,
+      "target_0_1": 188,
+      "capacity700_ready110": 22,
+      "capture_without_ready": 410,
+      "error_combo_01": 380,
+      "ready_zero_holds_completed": 734,
+      "zero_data_no_error": 147,
+      "rr_all_three": 50,
+      "error_combo_10": 260,
+      "error_combo_11": 45,
+      "shared_retire_ready111": 10,
+      "unique_retire_ready010": 2,
+      "rejected_unready_src": 132,
+      "capacity440_ready100": 20,
+      "drained_reset": 1,
+      "failure_select_other": 822,
+      "nonhead_sixth_refill": 3,
+      "pending5_ar0_success0": 270,
+      "pending5_ar1_success1": 363,
+      "target_7_0": 193,
+      "ordered_three_full_path": 6,
+      "other_xau_while_head_blocked": 6
+    }
+  },
+  "mutations": {
+    "total": 7,
+    "detected": 7
+  },
+  "compile": {
+    "rtl_lint": {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--Wall",
+        "--assert",
+        "--language",
+        "1800-2017",
+        "--top-module",
+        "cmdbuf_rd",
+        "-f",
+        "rtl/files.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "interface_compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "cmdbuf_rd",
+        "-o",
+        "build/compile_01/interface.vvp",
+        "-f",
+        "rtl/files.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "native_sva_compile": {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--assert",
+        "-Wno-WIDTHEXPAND",
+        "-Wno-WIDTHTRUNC",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-f",
+        "formal/protocol_20261021/native.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "verilator_version": "Verilator 5.051 devel rev v5.050-99-gf8fb1d664 (mod)",
+    "iverilog_version": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+  },
+  "earlier_attempts": {
+    "native_frontend_attempt": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "timeout": 120,
+        "status": "ERROR 16 0",
+        "returncode": 16,
+        "elapsed_seconds": 0.18,
+        "inputs_sha256": "2946bf69009a85a151eaaa14bb8c63aa8a39a1be38a7857a479d6b31069d6828"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "abc bmc3",
+        "assertions": null,
+        "timeout": 360,
+        "status": "ERROR 16 0",
+        "returncode": 16,
+        "elapsed_seconds": 0.18,
+        "inputs_sha256": "e0d374322346d471bab13412a9006ab4fd34a03086f486fed9ad9ed5e4baec0a"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "ERROR 16 0",
+        "returncode": 16,
+        "elapsed_seconds": 0.18,
+        "inputs_sha256": "e0d374322346d471bab13412a9006ab4fd34a03086f486fed9ad9ed5e4baec0a"
+      }
+    ],
+    "separate_histories_equivalence_attempt": {
+      "status": "TIMEOUT 8 19",
+      "returncode": 8,
+      "elapsed_seconds": 181.69,
+      "compared_instances": 202,
+      "assumptions": 0,
+      "scope": "Two-state sampled checker predicates and port-derived histories; no DUT instantiated."
+    }
+  },
+  "limitations": [
+    "Only the three baseline DUT interface properties have an unbounded proof in this run.",
+    "The all-assertion DUT run is a 10-step BMC, not an unbounded proof of all design properties.",
+    "Checker equivalence compares two-state sampled predicates on shared histories after a state-update token audit; not encrypted-target RTL equivalence.",
+    "The VM SBY frontend needs generated Boolean lowering of single-sample |->; Verilator compiles the human-readable native source directly.",
+    "No actual FormalMC 2024 execution was performed."
+  ]
+}

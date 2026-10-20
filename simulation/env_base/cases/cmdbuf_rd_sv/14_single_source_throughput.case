@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=throughput
+seed=1
+cycles=160
+trace=0
+require=single_source_turnover:100,four_events:100,accepted:160

@@ -1,0 +1,5 @@
+type=xau_order_312
+seed=1
+cycles=40
+trace=1
+require=ordered_three_full_path:1,same_xau_ooo_issue:1,same_xau_head_block:1,other_xau_while_head_blocked:1,retired:4

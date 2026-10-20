@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=capacity_reuse
+seed=1
+cycles=50
+trace=1
+require=unique_retire_ready010:1,shared_retire_ready111:1,full_reuse:2

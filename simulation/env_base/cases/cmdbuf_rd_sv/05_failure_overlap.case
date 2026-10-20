@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=failure_overlap
+seed=1
+cycles=40
+trace=1
+require=failed_keep_next:1,retry_success:1,retired:8

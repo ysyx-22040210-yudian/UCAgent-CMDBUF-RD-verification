@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=forward_6b
+seed=1
+cycles=40
+trace=0
+require=sixth_success_forward:1,retired:6

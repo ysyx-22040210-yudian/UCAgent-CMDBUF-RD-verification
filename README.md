@@ -1,14 +1,24 @@
 # UCAgent CMDBUF RD：RTL、形式验证与 Tk GUI
 
-本仓库保存当前已对齐的 `cmdbuf_rd` 项目：9 项 CMDBUF/OTB、3 个 XAU、最老 5 条未成功发射命令窗口、三周期前向流水、MEM 成功发射后四拍返回，以及每个 XAU 保序的 RR 响应。
+本仓库保存 `cmdbuf_rd` 项目的 RTL、验证环境与历史证据：9 项 CMDBUF/OTB、3 个 XAU、最老 5 条未成功发射命令窗口、三周期前向流水、MEM 成功发射后四拍返回，以及每个 XAU 保序的 RR 响应。
+
+**2026-10-21 规格修正：** 用户已确认逐 Bank 二维 `rd_mem_status`、成功拍对应状态为忙、失败命令同拍重选、`pending_cnt` 同拍加 AR 接收并减成功发射、每源最多七项并保留其他来源首项容量，以及窗口内非队头成功后同拍补入下一项（6B）。RTL 允许使用 SystemVerilog。最新定义见 [修订说明 PDF](documents/15_cmdbuf_rd_protocol_corrections_20261021.pdf) / [Word](documents/15_cmdbuf_rd_protocol_corrections_20261021.docx) 和 [规格记录](docs/timing/protocol_corrections_20261021.json)。新版 RTL/SVA 已实现这些修正，当前入口为 [rtl/files.f](rtl/files.f)，只编译三份 `.sv`。实现与本轮 VM 结果见 [修复验证说明 PDF](documents/16_cmdbuf_rd_rtl_revision_20261021.pdf) / [Word](documents/16_cmdbuf_rd_rtl_revision_20261021.docx) 及 [本轮结果](verification/protocol_20261021/summary.json)。下文此前验证结果仅适用于各自的原始规格和封存输入。
 
 项目说明统一提供 **PDF 阅读版和 Word 编辑版**。完整资料见 [完整说明手册 PDF](documents/CMDBUF_RD_完整说明手册.pdf) / [完整说明手册 Word](documents/CMDBUF_RD_完整说明手册.docx)，各主题分册见下表。原 Markdown、HTML 和历史证据作为维护及追溯来源保留。
+
+**SVA 对齐基线：** 用户已确认去掉 `started` / `active` 和复位序列约束，所有原生属性统一在 `!rst_n` 时禁用；RR 从 XAU0 开始、仅实际响应后推进；无效请求地址和无效 R 负载不检查。第 17 份说明记录该轮的 11 个 assume、16 个 DUT 断言和 99 个模型自检实例，以及 10 步 BMC、三项接口性质无界证明、31 个 cover 和 27 个仿真用例。见 [SVA 对齐 PDF](documents/17_cmdbuf_rd_sva_alignment_20261021.pdf) / [Word](documents/17_cmdbuf_rd_sva_alignment_20261021.docx) 与 [该轮结果](verification/sva_alignment_20261021/summary.json)。第 16 份说明及此前运行保留原始范围，其中复位和空闲清零属性不再是当前检查规则。
+
+**当前单 XAU 保序检查：** 新增每源独立 AR 接收 FIFO，仅实际 R 握手弹出队头；通过 `A_XAU_R_*` 逐项检查地址、ID、port_id、数据及错误状态。命令 3 即使先发射、先返回 MEM，也须等命令 1、2 完成 R 后再响应。当前共有 40 个 DUT 断言、105 个模型自检，原 11 个 assume 不变；145 个实例通过 SBY ABC 的 10 步 BMC，46 个 cover 命中，33 个原生 SVA 仿真用例通过，7 类保序及字段注错全部检出。首次 Yices 超时也已保留。详见 [单 XAU 保序 PDF](documents/18_cmdbuf_rd_xau_response_order_20261021.pdf) / [Word](documents/18_cmdbuf_rd_xau_response_order_20261021.docx)、[测试点与注错映射](docs/testpoints/xau_order_20261021.json) 和 [本轮证据](verification/xau_order_20261021/summary.json)。
+
+**SVA 阅读入口已优化：** [主文件](formal/protocol_20261021/cmdbuf_rd_port_sva.sv) 直接展示完整的 `assume/assert/cover property`，有条件的同拍义务使用 `|->`，每条附中文意图和依赖标注；参考状态分别放在事务模型和单 XAU FIFO 文件中。61 个标签与 202 个展开实例保持不变。改写后的回归及采样表达式等价检查通过，见 [阅读说明 PDF](documents/19_cmdbuf_rd_sva_readability_20261021.pdf) / [Word](documents/19_cmdbuf_rd_sva_readability_20261021.docx) 和 [最新证据](verification/sva_readability_20261021/summary.json)。VM 的 SBY 前端不支持 `|->`，运行脚本只对执行副本作同拍布尔转换，保留原生输入与逐条转换记录；原生 Verilator 仿真直接编译主文件。
+
+三个 SVA 源文件已进一步补充详细中文注释，覆盖各端口含义、61 个属性的前提与分析提示，以及窗口推进、四拍捕获、FIFO 同拍出入和覆盖监视器。当前行号与逐条说明见 [属性索引](verification/sva_comments_20261021/property_audit.json)，[注释修改核验](verification/sva_comments_20261021/comment_audit.json) 记录注释前后的代码 token 一致性；原验证证据保留原始输入。
 
 | 说明内容 | PDF | Word |
 |---|---|---|
 | 项目使用、RTL 集成与服务部署 | [阅读](documents/01_project_usage.pdf) | [编辑](documents/01_project_usage.docx) |
 | 详细 RTL 设计方案与架构 | [阅读](documents/02_rtl_design.pdf) | [编辑](documents/02_rtl_design.docx) |
-| 13 个已对齐时序场景 | [阅读](documents/03_timing_scenarios.pdf) | [编辑](documents/03_timing_scenarios.docx) |
+| 历史 13 个时序场景，冲突部分以最新修订为准 | [阅读](documents/03_timing_scenarios.pdf) | [编辑](documents/03_timing_scenarios.docx) |
 | 49 组注错与容量保护 | [阅读](documents/04_fault_catalog.pdf) | [编辑](documents/04_fault_catalog.docx) |
 | Tk GUI 操作图示与放大视图 | [阅读](documents/05_tk_gui_guide.pdf) | [编辑](documents/05_tk_gui_guide.docx) |
 | 完整 Formal 流程、177 CK 与验证结果 | [阅读](documents/06_formal_verification.pdf) | [编辑](documents/06_formal_verification.docx) |
@@ -19,6 +29,12 @@
 | 200 项测试点的 SVA 实现与接入说明 | [阅读](documents/11_cmdbuf_rd_sva_guide.pdf) | [编辑](documents/11_cmdbuf_rd_sva_guide.docx) |
 | 仅顶层端口的 SVA 实现、VM 覆盖结果与 200 项逐点索引 | [阅读](documents/12_cmdbuf_rd_port_only_verification.pdf) | [编辑](documents/12_cmdbuf_rd_port_only_verification.docx) |
 | SVA 无需参考模型部分的逐条标注与依赖说明 | [阅读](documents/13_cmdbuf_rd_sva_model_dependency.pdf) | [编辑](documents/13_cmdbuf_rd_sva_model_dependency.docx) |
+| 2026-10-20 对既有 RTL 行为与待定边界的核对 | [阅读](documents/14_cmdbuf_rd_protocol_alignment_20261020.pdf) | [编辑](documents/14_cmdbuf_rd_protocol_alignment_20261020.docx) |
+| 2026-10-21 用户确认的协议修正与 SV 实现许可 | [阅读](documents/15_cmdbuf_rd_protocol_corrections_20261021.pdf) | [编辑](documents/15_cmdbuf_rd_protocol_corrections_20261021.docx) |
+| 2026-10-21 新版 RTL 修复、集成入口与本轮 VM 验证 | [阅读](documents/16_cmdbuf_rd_rtl_revision_20261021.pdf) | [编辑](documents/16_cmdbuf_rd_rtl_revision_20261021.docx) |
+| 2026-10-21 最新 assume assert 对齐、RR 规则与有效负载检查 | [阅读](documents/17_cmdbuf_rd_sva_alignment_20261021.pdf) | [编辑](documents/17_cmdbuf_rd_sva_alignment_20261021.docx) |
+| 单 XAU 保序独立断言、命令 3 先完成场景与注错结果 | [阅读](documents/18_cmdbuf_rd_xau_response_order_20261021.pdf) | [编辑](documents/18_cmdbuf_rd_xau_response_order_20261021.docx) |
+| SVA 阅读顺序、显式蕴含、参考模型分离及改写核验 | [阅读](documents/19_cmdbuf_rd_sva_readability_20261021.pdf) | [编辑](documents/19_cmdbuf_rd_sva_readability_20261021.docx) |
 
 新增测试计划包含端口 39 项、功能特性 126 项、业务场景 35 项，每项给出激励、预期结果、建议验证方式和依据类型，并在测试组层级关联已有 CK/FI。[机器可读清单](docs/testpoints/cmdbuf_rd_testpoints.json) 可用于后续用例落实；这 200 项尚未全部验证闭环，本次新增 SVA 的实现与执行范围如下。
 
@@ -34,7 +50,7 @@
 
 **查看本次标注版请打开 [带行首标签的主文件](formal/port_only_annotated/cmdbuf_rd_port_sva.sv) 与 [配置文件](formal/port_only_annotated/cmdbuf_rd_port_profiles.svh)。** `formal/port_only_annotated/` 是完整可构建源码副本，无需模型的标签同时放在属性行开头和行末。旧主文件路径曾反复回退为未标注内容，具体写入来源未定位；新副本使用独立编辑器路径，并在生成前检查标签完整性。表达式与原行号不变，9 种原生配置编译通过，记录见 [本次检查](verification/port_only_visible_20261018/lint/source_validation.json)。
 
-当前芯片 RTL 使用 **Verilog-2001**，入口为 [cmdbuf_rd.v](rtl/cmdbuf_rd.v)、[cmdbuf_rd_cmd.v](rtl/cmdbuf_rd_cmd.v) 和 [cmdbuf_rd_otb.v](rtl/cmdbuf_rd_otb.v)。集成与 Bank 状态位序见 [RTL 使用说明 PDF](documents/01_project_usage.pdf)。形式验证属性与观测器继续使用验证工具支持的 SystemVerilog。
+当前芯片 RTL 使用 **SystemVerilog**：[cmdbuf_rd.sv](rtl/cmdbuf_rd.sv)、[cmdbuf_rd_cmd.sv](rtl/cmdbuf_rd_cmd.sv)、[cmdbuf_rd_otb.sv](rtl/cmdbuf_rd_otb.sv)。使用 [rtl/files.f](rtl/files.f) 显式选择当前版本；逐 Bank 状态口为 `input bit [1:0] rd_mem_status [7:0]`。同目录 `.v` 是历史实现，禁止把 `.v` 和 `.sv` 同时加入一个编译任务。旧 GUI 验证包、历史 SVA 和证据仍对应旧规格；本次修订的独立验证入口为 [formal/protocol_20261021/run.py](formal/protocol_20261021/run.py)。
 
 操作界面为 **Python Tkinter/ttk 原生 GUI**。在 UCAgent 已关联的 SBY 任务中点击“切换到 FormalMC”，即可进入完整项目的 FormalMC 操作页；两种后端独立保存配置和结果。HTML 文件是报告与文档。
 
@@ -42,7 +58,12 @@
 
 | 目录 | 内容 |
 |---|---|
-| `rtl/` | 当前三份 RTL，与封存验证包的 RTL 字节相同 |
+| `rtl/` | 当前三份 `.sv`、显式文件清单及保留的历史 `.v` |
+| `formal/protocol_20261021/` | 新规格端口 SVA、同拍 busy 约束、SBY/read_slang 运行入口与原生 SVA 文件清单 |
+| `verification/protocol_20261021/` | 新版 RTL 本轮 VM 仿真、注错、SBY 范围及独立证据包 |
+| `verification/sva_alignment_20261021/` | 最新复位禁用与有效负载规则的原生 SVA 验证、属性清单、初态记录及证据 |
+| `verification/xau_order_20261021/` | 独立单源接收 FIFO 保序检查、六个定向序列、十五个新增 cover 与七类注错证据 |
+| `verification/sva_readability_20261021/` | 可读版 SVA 的逐属性索引、语义比较、SBY 适配记录、原生仿真与注错回归 |
 | `formal/cmdbuf_rd_dual_backend/` | 可迁移的 SBY / FormalMC 验证包、22 个任务、177 个检查点与历史验证证据 |
 | `formal/testpoints_sva/` | 本次 200 项测试点的 SVA、场景监测器、bind、生成器和属性映射 |
 | `formal/port_only/` | 只连 24 个顶层端口的独立参考模型、SVA、覆盖映射、SBY 生成器及证据校验器 |
@@ -51,7 +72,7 @@
 | `ucagent-tool/` | 已更新的 UCAgent 桌面与服务完整源码，保留上游 Apache-2.0 许可证 |
 | `gui/` | Tk 桌面 zipapp 和当前项目启动入口 |
 | `docs/design/` | 详细设计方案与架构图 |
-| `docs/timing/` | 已对齐时序图、5A / 6B / 10B 决策 |
+| `docs/timing/` | 历史时序图、原 5A / 6B / 10B 决策与 2026-10-21 最新修正规格 |
 | `docs/fault_catalog/` | 注错清单及容量保底场景 |
 | `docs/testpoints/` | 200 项测试点、既有 CK/FI 语义关联及文档完整性检查记录 |
 | `docs/gui/` | 15 张真实 Tk 截图和操作说明的维护来源 |
@@ -67,7 +88,22 @@
 | `verification/formalmc_2024_20261014/` | 零初值候选的 22 个模型 SBY 结果汇总、转换来源、输入保留检查和运行器测试日志 |
 | `provenance/` | GUI 变更及交付来源说明 |
 
-## 运行 SBY / FormalMC
+## 当前修订版入口
+
+在仓库根目录编译 `rtl/files.f`。VM 回归与 SBY（要求 Yosys 的 `read_slang` 前端）入口为：
+
+```sh
+make -f simulation/env_base/env/Makefile PROJECT_CONFIG=simulation/env_base/projects/cmdbuf_rd_sv.mk lint run-all
+python3 formal/protocol_20261021/run.py --output build/formal_new --tools /your/oss-cad-suite/bin
+```
+
+原生 SVA 接入清单为 [native.f](formal/protocol_20261021/native.f)。目标 FormalMC 2024 和加密 RTL 等价检查尚未在本轮执行。详细结果及明确的证明范围见本轮 PDF / Word 说明。
+
+最新 SVA 回归使用 `PROJECT_CONFIG=simulation/env_base/projects/cmdbuf_rd_sva.mk`，在检查器输入端对无效负载及复位期间信号加入干扰。VM 上已验证的原生 SVA 仿真工具为 Verilator 5.051；5.024 的二维端口采样存在 C++ 代码生成失败，记录在证据中。SBY 初态通过真实复位逻辑的模拟结果建立，之后不限制复位序列；这属于工具设置，不是新增 SVA assume。当前结果收集使用 [collect_readability_results.py](formal/protocol_20261021/collect_readability_results.py)。`collect_xau_order_results.py`、`collect_alignment_results.py`、`collect_results.py` 分别对应第 18、17、16 份说明的封存输入与运行。
+
+人阅读和原生 SVA 工具使用 `cmdbuf_rd_port_sva.sv` 及其两个 `.svh` 引用文件，不需要属性宏。SBY 的每个运行目录同时保存 `native_checker.sv`、实际执行的布尔适配副本和 `sby_lowering.json`；适配器只接受本拍蕴含，遇到延迟或多拍性质会报错。cover 保持真实事件条件，不用蕴含获取空真命中。
+
+## 历史双后端包入口
 
 在有对应工具的 Linux 设备上：
 

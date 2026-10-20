@@ -1,0 +1,281 @@
+{
+  "revision": "2026-10-21",
+  "rtl_entry": "rtl/files.f",
+  "vm_workspace": "/root/cmdbuf_rd/revision_20261021",
+  "compilation": {
+    "rtl_lint": {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--Wall",
+        "--assert",
+        "--language",
+        "1800-2017",
+        "--top-module",
+        "cmdbuf_rd",
+        "-f",
+        "rtl/files.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "interface_compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "cmdbuf_rd",
+        "-o",
+        "/root/cmdbuf_rd/revision_20261021/build/compilation/interface.vvp",
+        "-f",
+        "rtl/files.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "native_sva_compile": {
+      "command": [
+        "verilator",
+        "--lint-only",
+        "--assert",
+        "-Wno-WIDTHEXPAND",
+        "-Wno-WIDTHTRUNC",
+        "--top-module",
+        "cmdbuf_rd_formal",
+        "-f",
+        "formal/protocol_20261021/native.f"
+      ],
+      "returncode": 0,
+      "status": "PASS"
+    },
+    "verilator_version": "Verilator 5.024 2024-04-05 rev UNKNOWN.REV",
+    "iverilog_version": "Icarus Verilog version 12.0 (devel) (s20150603-1120-gd8cb29f)"
+  },
+  "simulation": {
+    "passed": 27,
+    "total": 27,
+    "cycles": 6920,
+    "checks": 111922,
+    "accepted": 3270,
+    "retired": 3270,
+    "coverage_events": {
+      "accepted": 3270,
+      "accepted_back_to_back": 1898,
+      "accepted_src0": 1242,
+      "capture_no_bypass": 3270,
+      "captured": 3270,
+      "captured_back_to_back": 1829,
+      "error_combo_00": 2597,
+      "four_events": 818,
+      "issued": 3270,
+      "issued_back_to_back": 1829,
+      "reset": 28,
+      "retired": 3270,
+      "retired_back_to_back": 1894,
+      "retired_src0": 1242,
+      "rr_skip": 1913,
+      "single_source_turnover": 180,
+      "success_busy": 3270,
+      "target_0_0": 220,
+      "target_1_1": 237,
+      "target_2_0": 223,
+      "target_3_1": 212,
+      "target_4_0": 220,
+      "target_5_1": 213,
+      "target_6_0": 240,
+      "target_7_1": 207,
+      "three_cycle_path": 432,
+      "capture_after_bubble": 1414,
+      "same_xau_head_block": 548,
+      "same_xau_ooo_issue": 273,
+      "target_2_1": 189,
+      "target_3_0": 205,
+      "target_4_1": 200,
+      "target_5_0": 154,
+      "target_6_1": 176,
+      "outside_window_blocked": 14,
+      "pending5_ar0_success1": 329,
+      "pending5_ar1_success0": 288,
+      "same_half_busy_excluded": 652,
+      "sixth_success_forward": 8,
+      "target_1_0": 193,
+      "accepted_src1": 1008,
+      "accepted_src2": 1020,
+      "ar_only_grant": 954,
+      "failed_keep_next": 2285,
+      "failure_same_cycle_reselect": 1463,
+      "full_reuse": 1476,
+      "issue_failure": 2315,
+      "issue_failure_back_to_back": 1015,
+      "retired_src1": 1008,
+      "retired_src2": 1020,
+      "retry_success": 1279,
+      "rw_only_grant": 718,
+      "wrong_bank_grant": 416,
+      "target_0_1": 188,
+      "capacity700_ready110": 22,
+      "capture_without_ready": 410,
+      "error_combo_01": 374,
+      "ready_zero_holds_completed": 734,
+      "zero_data_no_error": 147,
+      "rr_all_three": 50,
+      "error_combo_10": 260,
+      "error_combo_11": 39,
+      "shared_retire_ready111": 10,
+      "unique_retire_ready010": 2,
+      "rejected_unready_src": 132,
+      "capacity440_ready100": 20,
+      "drained_reset": 1,
+      "failure_select_other": 822,
+      "nonhead_sixth_refill": 3,
+      "pending5_ar0_success0": 270,
+      "pending5_ar1_success1": 363,
+      "target_7_0": 193
+    }
+  },
+  "formal": {
+    "jobs": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_RESET_OUTPUTS",
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY",
+          "A_R_IDLE_ZERO"
+        ],
+        "timeout": 120,
+        "status": "PASS 0 5",
+        "returncode": 0,
+        "elapsed_seconds": 4.67,
+        "inputs_sha256": "0b052350d26e215607ebb6866f54976c07fa1cfb1a2a4b11c4826dffed92f819"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 51",
+        "returncode": 0,
+        "elapsed_seconds": 46.92,
+        "inputs_sha256": "3e1feeb168bfa1be5e9d1c8b3995a019bf0cf21cb4c74edb846b46faa61b9244"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 23",
+        "returncode": 0,
+        "elapsed_seconds": 18.23,
+        "inputs_sha256": "3e1feeb168bfa1be5e9d1c8b3995a019bf0cf21cb4c74edb846b46faa61b9244"
+      }
+    ],
+    "elaborated_properties": {
+      "protocol_prove": {
+        "assert": 5,
+        "assume": 13,
+        "cover": 0
+      },
+      "all_bmc": {
+        "assert": 118,
+        "assume": 13,
+        "cover": 0
+      },
+      "corrections_cover": {
+        "assert": 0,
+        "assume": 13,
+        "cover": 31
+      }
+    },
+    "bmc_note": "118 assertion instances include 19 DUT obligations and 99 reference-model self-checks; 10 sampled steps, not unbounded proof.",
+    "base_assumptions": "First sampled reset, subsequent release; legal src/arresp when arvalid; zero arready implies no arvalid; 8 same-cycle success-implies-busy assumptions.",
+    "covers": "All 31 current correction cover instances reached under the base assumptions; no PERF always-idle assumptions.",
+    "backend": "SBY with native SystemVerilog read_slang frontend; no replacement flat-port RTL."
+  },
+  "mutations": {
+    "detected": 6,
+    "total": 6,
+    "cases": [
+      {
+        "name": "retry_bubble",
+        "case": "20_retry_single.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 20_retry_single cycle 3: req got=0x0 expected=0x8"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "86ba20aa0902aceefd3a3d71d685ebc97ad9a4742341fd22664c401e972db1f1"
+      },
+      {
+        "name": "registered_count",
+        "case": "23_pending_delta.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 23_pending_delta cycle 0: pending_cnt same-cycle delta got=0x0 expected=0x1"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "ea092788779d37d2ca68543e6ae6c044d153e6eede97773a549485c4f6d8dd9b"
+      },
+      {
+        "name": "transposed_status",
+        "case": "24_all_bank_halves.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 24_all_bank_halves cycle 11: req got=0x0 expected=0x2"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "553ab5dba523a44c78460c8c0d78402c85697785f64d44cc8da84e7026c1a63d"
+      },
+      {
+        "name": "late_refill",
+        "case": "22_nonhead_refill.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 22_nonhead_refill cycle 10: req got=0x0 expected=0x20"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "50716bffdd65082719d9dc835c554c24539c451cb9af8c6f9e3490b6636e1104"
+      },
+      {
+        "name": "busy_cancels_request",
+        "case": "01_pipeline.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 01_pipeline cycle 2: req got=0x0 expected=0x1"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "8edcef2a0ab32507b7eb0b04d3eb4246e4bd71c7057b13e1674f8071ea257e11"
+      },
+      {
+        "name": "cap_only",
+        "case": "12_capacity_440.case",
+        "detected": true,
+        "failure": [
+          "CHECK_FAILED 12_capacity_440 cycle 8: pending_cnt same-cycle delta got=0x2 expected=0x1"
+        ],
+        "returncode": 2,
+        "mutant_sha256": "8694c89be445676356e3acd6ab4ada4c4213187d37975420bc6ae04d94b4ffc2"
+      }
+    ]
+  },
+  "earlier_attempts": {
+    "formal_01": "Frontend rejected $onehot0; replaced checker expression with width-explicit equivalent.",
+    "formal_02": "SMT backend loop from inferred checker memory; disabled implicit memory inference in the SV frontend.",
+    "formal_03": "All-assertion depth-12 BMC TIMEOUT at 240-second limit; protocol proof and covers passed. Full logs preserved."
+  },
+  "limitations": [
+    "No new equivalence check against the target encrypted RTL.",
+    "No actual FormalMC 2024 execution on target equipment.",
+    "Only five named protocol properties have unbounded proof; full functional unbounded proof is not claimed.",
+    "This is a corrected-specification regression, not reclosure of the historical 200-testpoint / 1415-cover catalog.",
+    "RR initialization, idle/error payload defaults and reset details retain the previous implementation choices pending target alignment."
+  ]
+}

@@ -14,3 +14,4 @@ formal/cmdbuf_rd_dual_backend/results/
 verification/closure/cmdbuf_rd_evidence.tar.gz
 verification/closure/evidence/
 *.partial
+/build/

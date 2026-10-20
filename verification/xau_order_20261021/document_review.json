@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-21",
+  "pages": 3,
+  "all_pages_visually_reviewed": true,
+  "reviewed_pages": [
+    1,
+    2,
+    3
+  ],
+  "renderer": "Native Microsoft Word COM export + packaged render_docx.py + bundled Poppler 120 dpi",
+  "layout": "No clipped text, overlap, missing glyphs or orphan overflow pages in final render",
+  "source_files_rechecked": 54,
+  "source_match": true,
+  "documents": {
+    "documents/18_cmdbuf_rd_xau_response_order_20261021.docx": "4428c51019ffd9918fee09a84ccbff6a595f4bdccd3f05f7334cb09d151c55d6",
+    "documents/18_cmdbuf_rd_xau_response_order_20261021.pdf": "a48df2989746541f0ecb7c2579d0f921a5d257737abb9d45c64ae1ff1096a21c"
+  }
+}

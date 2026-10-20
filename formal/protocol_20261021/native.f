@@ -1,0 +1,7 @@
++define+SYNTHESIS
++incdir+formal/protocol_20261021
+rtl/cmdbuf_rd.sv
+rtl/cmdbuf_rd_cmd.sv
+rtl/cmdbuf_rd_otb.sv
+formal/protocol_20261021/cmdbuf_rd_port_sva.sv
+formal/protocol_20261021/formal_top.sv

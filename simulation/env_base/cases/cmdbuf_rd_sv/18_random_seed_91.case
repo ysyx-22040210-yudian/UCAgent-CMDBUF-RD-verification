@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=random
+seed=91
+cycles=1800
+trace=0
+require=accepted:100,issue_failure:5,retry_success:5,capture_without_ready:1

@@ -1,0 +1,5 @@
+type=retry_single
+seed=1
+cycles=25
+trace=1
+require=failure_same_cycle_reselect:5,issue_failure_back_to_back:4,retry_success:1,retired:1

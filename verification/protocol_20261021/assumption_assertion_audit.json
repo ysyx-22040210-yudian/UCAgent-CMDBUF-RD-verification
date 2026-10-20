@@ -1,0 +1,344 @@
+{
+  "source": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+  "source_sha256": "fbd6e95c2f4b1f45565b28d7e1f9a029809e5107717bcd6175090367347b33cd",
+  "enabled_defines": [
+    "SYNTHESIS"
+  ],
+  "disabled_optional_profiles": [
+    "TP_IDLE_RESET",
+    "TP_NEGATIVE",
+    "TP_SIM"
+  ],
+  "properties": [
+    {
+      "label": "E01_RESET_FIRST",
+      "kind": "assume",
+      "line": 44,
+      "expression": "started || !rst_n",
+      "classification": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "E02_RESET_RELEASE",
+      "kind": "assume",
+      "line": 46,
+      "expression": "!started || rst_n",
+      "classification": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "E02_RESET_IDLE_ONLY",
+      "kind": "assume",
+      "line": 49,
+      "expression": "!started || rst_n || (m_live == 0 && m_due == 0)",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": false
+    },
+    {
+      "label": "E03_SRC",
+      "kind": "assume",
+      "line": 52,
+      "expression": "!arvalid || src < 3",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "E04_ARRESP",
+      "kind": "assume",
+      "line": 53,
+      "expression": "!arvalid || arresp == 2'b00 || arresp == 2'b11",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "E05_ZERO_READY",
+      "kind": "assume",
+      "line": 55,
+      "expression": "arready != 0 || !arvalid",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "E06_SUCCESS_BUSY",
+      "kind": "assume",
+      "line": 61,
+      "expression": "!rst_n || !(req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env]) || rd_mem_status[bank_env][arb_addr[0]]",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 8,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_RESET_OUTPUTS",
+      "kind": "assert",
+      "line": 218,
+      "expression": "rst_n || (arready==0 && rvalid==0 && req==0 && pending_cnt==0)",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_RESET_EMPTY",
+      "kind": "assert",
+      "line": 219,
+      "expression": "!started || !previous_reset || (pending_cnt=={3'b0,accept} && req==0 && rvalid==0)",
+      "classification": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_READY",
+      "kind": "assert",
+      "line": 220,
+      "expression": "!active || arready==expected_ready",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_REQ_ONEHOT",
+      "kind": "assert",
+      "line": 222,
+      "expression": "!active || (req & (req-8'd1))==0",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_ONEHOT",
+      "kind": "assert",
+      "line": 223,
+      "expression": "!active || (rvalid & (rvalid-3'd1))==0",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_READY",
+      "kind": "assert",
+      "line": 224,
+      "expression": "!active || (rvalid & ~rready)==0",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_PENDING",
+      "kind": "assert",
+      "line": 225,
+      "expression": "!active || pending_cnt==(waiting+(accept?1:0)-(success?1:0))",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_REQ",
+      "kind": "assert",
+      "line": 226,
+      "expression": "!active || req==expected_req",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_ARB_ADDR",
+      "kind": "assert",
+      "line": 227,
+      "expression": "!active || arb_addr==expected_addr",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_RR_CHOICE",
+      "kind": "assert",
+      "line": 228,
+      "expression": "!active || rvalid==expected_rvalid",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_METADATA",
+      "kind": "assert",
+      "line": 229,
+      "expression": "!active || !retire || (rid==m_id[rsp_e] && r_port_id==m_port[rsp_e] && raddr==m_addr[rsp_e][2:0])",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_RESP",
+      "kind": "assert",
+      "line": 230,
+      "expression": "!active || !retire || rresp==expected_resp",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_DATA",
+      "kind": "assert",
+      "line": 231,
+      "expression": "!active || !retire || rdata==m_data[rsp_e]",
+      "classification": "REF_MODEL",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_R_IDLE_ZERO",
+      "kind": "assert",
+      "line": 232,
+      "expression": "!active || rvalid!=0 || (rdata==0 && rid==0 && r_port_id==0 && raddr==0 && rresp==0)",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_ALLOC",
+      "kind": "assert",
+      "line": 234,
+      "expression": "!active || !accept || (free_found && alloc_e<9)",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_RETIRE",
+      "kind": "assert",
+      "line": 235,
+      "expression": "!active || !retire || (model_retire && rsp_e<9 && m_live[rsp_e] && m_sent[rsp_e] && m_done[rsp_e])",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_SUCCESS",
+      "kind": "assert",
+      "line": 236,
+      "expression": "!active || !success || (m_attempt && m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e])",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_DUE",
+      "kind": "assert",
+      "line": 237,
+      "expression": "!active || !due || (due_e<9 && m_live[due_e] && m_sent[due_e] && !m_done[due_e])",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_NO_BYPASS",
+      "kind": "assert",
+      "line": 238,
+      "expression": "!active || !due || !retire || due_e!=rsp_e",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_STATE",
+      "kind": "assert",
+      "line": 239,
+      "expression": "!active || ((m_sent & ~m_live)==0 && (m_done & ~m_sent)==0)",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_RANGE",
+      "kind": "assert",
+      "line": 240,
+      "expression": "!active || (waiting>=0 && waiting<=used && used<=9)",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_QUOTA",
+      "kind": "assert",
+      "line": 241,
+      "expression": "!active || (shared_cost<=6 && quota_cost<=9)",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_ATTEMPT",
+      "kind": "assert",
+      "line": 242,
+      "expression": "!active || !m_attempt || (m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e])",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_AGE_RANGE",
+      "kind": "assert",
+      "line": 245,
+      "expression": "!active || !m_live[g] || m_age[g]<used",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 9,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_CALENDAR",
+      "kind": "assert",
+      "line": 247,
+      "expression": "!active || calendar_count=={3'b0,(m_live[g] && m_sent[g] && !m_done[g])}",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 9,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "M_AGE_UNIQUE",
+      "kind": "assert",
+      "line": 250,
+      "expression": "!active || !m_live[g] || !m_live[h] || m_age[g]!=m_age[h]",
+      "classification": "MODEL_SELF_CHECK",
+      "instances": 72,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_RR_BOUND",
+      "kind": "assert",
+      "line": 259,
+      "expression": "!active || !eligible[g] || bypass_count<2 || rvalid[g]",
+      "classification": "REF_MODEL",
+      "instances": 3,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_PENDING_RECURRENCE",
+      "kind": "assert",
+      "line": 266,
+      "expression": "!active || pending_cnt==(last_pending+{3'b0,accept}-{3'b0,success})",
+      "classification": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "enabled_in_current_run": true
+    },
+    {
+      "label": "A_PENDING_RANGE",
+      "kind": "assert",
+      "line": 267,
+      "expression": "!active || pending_cnt<=9",
+      "classification": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "enabled_in_current_run": true
+    }
+  ],
+  "counts": {
+    "assume": 13,
+    "assert": 118,
+    "DUT_assert": 19,
+    "model_self_check": 99
+  }
+}

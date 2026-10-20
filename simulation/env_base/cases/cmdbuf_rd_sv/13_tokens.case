@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=tokens
+seed=1
+cycles=60
+trace=0
+require=capture_after_bubble:2,zero_data_no_error:1,retired:8

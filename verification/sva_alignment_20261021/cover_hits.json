@@ -1,0 +1,126 @@
+[
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[0].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[4].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[6].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[6].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.C_FAILURE_SELECT_OTHER"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[0].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[4].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[2].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[2].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[7].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[7].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[5].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[5].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[3].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[3].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[1].half_covers[0].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 3,
+    "property": "cmdbuf_rd_formal: checks.bank_covers[1].half_covers[1].C_SUCCESS_BUSY_TARGET"
+  },
+  {
+    "step": 4,
+    "property": "cmdbuf_rd_formal: checks.C_RETRY_NEXT_CYCLE"
+  },
+  {
+    "step": 6,
+    "property": "cmdbuf_rd_formal: checks.C_FOUR_SUCCESS"
+  },
+  {
+    "step": 6,
+    "property": "cmdbuf_rd_formal: checks.C_PENDING5_BOTH"
+  },
+  {
+    "step": 6,
+    "property": "cmdbuf_rd_formal: checks.C_PENDING5_DEC"
+  },
+  {
+    "step": 6,
+    "property": "cmdbuf_rd_formal: checks.C_PENDING5_ADD"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_ALL_FOUR_EVENTS"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_RETURN_ERROR_PRIORITY"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_READY_MASK_RR"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_REFILL_NEXT_CYCLE"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_NONHEAD_REFILL"
+  },
+  {
+    "step": 8,
+    "property": "cmdbuf_rd_formal: checks.C_CAPACITY700"
+  },
+  {
+    "step": 9,
+    "property": "cmdbuf_rd_formal: checks.C_CAPACITY440"
+  },
+  {
+    "step": 10,
+    "property": "cmdbuf_rd_formal: checks.C_BLOCKED_SIX"
+  },
+  {
+    "step": 10,
+    "property": "cmdbuf_rd_formal: checks.C_FULL_REUSE"
+  }
+]

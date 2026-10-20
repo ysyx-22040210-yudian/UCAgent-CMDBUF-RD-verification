@@ -1,0 +1,9 @@
+{
+  "method": "Yosys sim -clock clk -resetn rst_n -rstlen 1 -n 1 -w",
+  "reset_waveform": "build/formal_03/all_bmc/run/src/reset_initialization.vcd",
+  "init_attribute_count": 483,
+  "unknown_valued_attributes": 5,
+  "arbitrary_zero_initialization": false,
+  "reset_assume_after_initialization": false,
+  "scope": "Proof starts from the state established by reset; not arbitrary power-up state. rst_n is subsequently unconstrained."
+}

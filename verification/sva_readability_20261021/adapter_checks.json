@@ -1,0 +1,7 @@
+{
+  "next_cycle": "rejected",
+  "delay": "rejected",
+  "repetition": "rejected",
+  "cover_implication": "rejected",
+  "unknown_selection": "rejected"
+}

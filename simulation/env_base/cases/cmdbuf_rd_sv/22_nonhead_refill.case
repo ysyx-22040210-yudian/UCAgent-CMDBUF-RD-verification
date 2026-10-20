@@ -1,0 +1,5 @@
+type=nonhead_refill
+seed=1
+cycles=35
+trace=1
+require=nonhead_sixth_refill:1,retired:6

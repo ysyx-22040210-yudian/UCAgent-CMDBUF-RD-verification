@@ -1,0 +1,20 @@
+{
+  "local_sources_match_VM": true,
+  "source_files": 41,
+  "archive_members_verified": 598,
+  "legacy_verilog": {
+    "cmdbuf_rd.v": {
+      "unchanged_from_HEAD": true,
+      "sha256": "b48bc45ad3a0ae153286ffc55c5f5dfc33da5b3f8f3936ff4bf45fbf10a2282b"
+    },
+    "cmdbuf_rd_cmd.v": {
+      "unchanged_from_HEAD": true,
+      "sha256": "8f10bee27f0bb0d099d7fca9bd1e8ecfb50377fb4795d16910ea278d11ccc480"
+    },
+    "cmdbuf_rd_otb.v": {
+      "unchanged_from_HEAD": true,
+      "sha256": "63b2752eeb1a3430a6ba0b63075d1efeb35d2dfa690559417ad5ff494d49cc54"
+    }
+  },
+  "encrypted_target_equivalence_executed": false
+}

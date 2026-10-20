@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=errors
+seed=1
+cycles=35
+trace=0
+require=error_combo_00:1,error_combo_01:1,error_combo_10:1,error_combo_11:1

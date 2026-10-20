@@ -1,0 +1,5 @@
+type=retry_busy_other
+seed=1
+cycles=25
+trace=1
+require=failure_select_other:1,retry_success:1,retired:2

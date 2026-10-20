@@ -1,0 +1,314 @@
+[
+  {
+    "name": "skip_incomplete_head",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_HEAD_COMPLETE",
+      "A_XAU_R_NO_EARLY_BYPASS"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_HEAD_COMPLETE",
+      "A_XAU_R_NO_EARLY_BYPASS"
+    ],
+    "counterexamples": [
+      "skip_incomplete_head/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "skip_incomplete_head",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "skip_incomplete_head",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "src_mask[x][i] = valid_q[i] && (src_q[i] == x[1:0]);",
+        "after": "src_mask[x][i] = valid_q[i] && done_q[i] && (src_q[i] == x[1:0]);",
+        "expected": [
+          "A_XAU_R_HEAD_COMPLETE",
+          "A_XAU_R_NO_EARLY_BYPASS"
+        ]
+      },
+      "status": "FAIL 2 13",
+      "returncode": 2,
+      "elapsed_seconds": 14.47,
+      "inputs_sha256": "6dd3cce174b01051d22ac3065e6d9b2cb95111412fdfd2626e4f95f0dd242a1f"
+    }
+  },
+  {
+    "name": "younger_completed_bundle",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_ADDR_ORDER",
+      "A_XAU_R_ID_ORDER",
+      "A_XAU_R_PORT_ORDER",
+      "A_XAU_R_DATA_ORDER",
+      "A_XAU_R_RESP_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_DATA_ORDER"
+    ],
+    "counterexamples": [
+      "younger_completed_bundle/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "younger_completed_bundle",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "younger_completed_bundle",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "rsp_entry = head_entry[winner];",
+        "after": "rsp_entry = head_entry[winner];\n            for(offset=0;offset<ENTRIES;offset=offset+1)\n                if(valid_q[offset] && done_q[offset] && src_q[offset]==winner &&\n                   older_q[offset][head_entry[winner]]) rsp_entry=offset[3:0];",
+        "expected": [
+          "A_XAU_R_ADDR_ORDER",
+          "A_XAU_R_ID_ORDER",
+          "A_XAU_R_PORT_ORDER",
+          "A_XAU_R_DATA_ORDER",
+          "A_XAU_R_RESP_ORDER"
+        ]
+      },
+      "status": "FAIL 2 13",
+      "returncode": 2,
+      "elapsed_seconds": 14.86,
+      "inputs_sha256": "1d66b2eb550d0e2f0560815b5cdc8fb3fe4034f6a6f7dba6a63383bf0d5c474d"
+    }
+  },
+  {
+    "name": "wrong_raddr",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_ADDR_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_ADDR_ORDER"
+    ],
+    "counterexamples": [
+      "wrong_raddr/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "wrong_raddr",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "wrong_raddr",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "raddr = addr_q[rsp_entry][2:0];",
+        "after": "raddr = addr_q[rsp_entry][2:0] ^ 3'b001;",
+        "expected": [
+          "A_XAU_R_ADDR_ORDER"
+        ]
+      },
+      "status": "FAIL 2 5",
+      "returncode": 2,
+      "elapsed_seconds": 4.89,
+      "inputs_sha256": "92b3fa0a32af69255017081c94102baed00efadc485a01c773d31eb905d0d694"
+    }
+  },
+  {
+    "name": "wrong_rid",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_ID_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_ID_ORDER"
+    ],
+    "counterexamples": [
+      "wrong_rid/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "wrong_rid",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "wrong_rid",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "rid = id_q[rsp_entry];",
+        "after": "rid = id_q[rsp_entry] ^ 8'h01;",
+        "expected": [
+          "A_XAU_R_ID_ORDER"
+        ]
+      },
+      "status": "FAIL 2 5",
+      "returncode": 2,
+      "elapsed_seconds": 4.87,
+      "inputs_sha256": "ee4ea68f3dbc0e0f196f7d67cd5d79bdd3d13006faedc3621c55ebb2c32c970a"
+    }
+  },
+  {
+    "name": "wrong_port",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_PORT_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_PORT_ORDER"
+    ],
+    "counterexamples": [
+      "wrong_port/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "wrong_port",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "wrong_port",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "r_port_id = port_q[rsp_entry];",
+        "after": "r_port_id = port_q[rsp_entry] ^ 5'b00001;",
+        "expected": [
+          "A_XAU_R_PORT_ORDER"
+        ]
+      },
+      "status": "FAIL 2 5",
+      "returncode": 2,
+      "elapsed_seconds": 4.95,
+      "inputs_sha256": "da49ec84f8ae1d6bfa47b3bcb5123493a40ccc4f279740e903e0e8e5f6edbab5"
+    }
+  },
+  {
+    "name": "wrong_data",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_DATA_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_DATA_ORDER"
+    ],
+    "counterexamples": [
+      "wrong_data/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "wrong_data",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "wrong_data",
+        "file": "cmdbuf_rd.sv",
+        "before": "assign rdata = (|rvalid) ? rsp_data : 128'b0;",
+        "after": "assign rdata = (|rvalid) ? (rsp_data ^ 128'b1) : 128'b0;",
+        "expected": [
+          "A_XAU_R_DATA_ORDER"
+        ]
+      },
+      "status": "FAIL 2 5",
+      "returncode": 2,
+      "elapsed_seconds": 4.96,
+      "inputs_sha256": "5335ec61c60e8a8ce73b008927ff55a228915c7cbe60c7bc2c79b16c33e9622f"
+    }
+  },
+  {
+    "name": "wrong_error",
+    "detected": true,
+    "expected": [
+      "A_XAU_R_RESP_ORDER"
+    ],
+    "failed_order_assertions": [
+      "A_XAU_R_RESP_ORDER"
+    ],
+    "counterexamples": [
+      "wrong_error/run/engine_0/trace.vcd"
+    ],
+    "run": {
+      "name": "wrong_error",
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": [
+        "A_XAU_R_HAS_PENDING",
+        "A_XAU_R_HEAD_COMPLETE",
+        "A_XAU_R_NO_EARLY_BYPASS",
+        "A_XAU_R_ADDR_ORDER",
+        "A_XAU_R_ID_ORDER",
+        "A_XAU_R_PORT_ORDER",
+        "A_XAU_R_DATA_ORDER",
+        "A_XAU_R_RESP_ORDER"
+      ],
+      "timeout": 240,
+      "mutation": {
+        "name": "wrong_error",
+        "file": "cmdbuf_rd_cmd.sv",
+        "before": "else if (rsp_pc_err)\n                rresp = 2'b01;",
+        "after": "else if (rsp_pc_err)\n                rresp = 2'b00;",
+        "expected": [
+          "A_XAU_R_RESP_ORDER"
+        ]
+      },
+      "status": "FAIL 2 5",
+      "returncode": 2,
+      "elapsed_seconds": 4.8,
+      "inputs_sha256": "da0406b122b6a41ab7b7a0dacc009af9f86fb24777820817db47ae58905f9117"
+    }
+  }
+]

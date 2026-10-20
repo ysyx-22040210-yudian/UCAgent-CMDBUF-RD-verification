@@ -1,0 +1,4 @@
+type=pending_ar_only
+cycles=30
+trace=1
+require=pending5_ar1_success0:1,retired:6

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-21",
+  "scope": "Chinese source comments only",
+  "files": {
+    "cmdbuf_rd_port_sva.sv": {
+      "before_sha256": "b5dd992d833103f890c2fd45e74b38b758b73d2510d3016108626822ba295bc2",
+      "after_sha256": "236a3930f4348ca356d9fb0281656986cb90e4ab2b67052905e3749e4ff0e367",
+      "token_sha256": "4aca60b4a64814c6223a613fb98db06b8b764a1f5e5ce8b03a2289a7e976fdaf",
+      "token_count": 2576,
+      "executable_tokens_identical": true,
+      "before_lines": 511,
+      "after_lines": 798
+    },
+    "cmdbuf_rd_reference_model.svh": {
+      "before_sha256": "ab92a706826257946dddf51b07b372cb30090104ebadfd6e606e595564b04e79",
+      "after_sha256": "39b09cb1d7fd84904340a104bbf6cf4e7dcd89c3bb8262dc116b637b8edac0c8",
+      "token_sha256": "0146fb3e4301b167ca9e2ec0eb97a3718760375a91a408e71803007882de5066",
+      "token_count": 2021,
+      "executable_tokens_identical": true,
+      "before_lines": 198,
+      "after_lines": 262
+    },
+    "cmdbuf_rd_xau_order_model.svh": {
+      "before_sha256": "2f2caa6983a12d31b17a84a861cd28e4aa7ad6df0251571f8102a4ae67c15b35",
+      "after_sha256": "212894ee924643425a196785597a7f2aea92cf9ee79ebb6afb1ef74b5e559467",
+      "token_sha256": "e215576676bc37dbf9c2ce0007389a2993d309bf1c4c6265e5a60ca8d554a8c5",
+      "token_count": 625,
+      "executable_tokens_identical": true,
+      "before_lines": 87,
+      "after_lines": 112
+    }
+  },
+  "labels_annotated": 61,
+  "instances": {
+    "assume": 11,
+    "assert": 145,
+    "cover": 46
+  },
+  "property_expressions_and_dependencies_unchanged": true,
+  "sby_execution_tokens_identical_for_full_protocol_and_order_jobs": true,
+  "previous_validation": "verification/sva_readability_20261021/summary.json",
+  "formal_rerun": false,
+  "note": "Token equality and VM native compile validate this comment-only change; previous proof scope remains as recorded."
+}

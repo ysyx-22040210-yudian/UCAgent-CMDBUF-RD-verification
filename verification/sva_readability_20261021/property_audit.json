@@ -1,0 +1,625 @@
+{
+  "source": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+  "source_sha256": "b5dd992d833103f890c2fd45e74b38b758b73d2510d3016108626822ba295bc2",
+  "properties": [
+    {
+      "kind": "assume",
+      "label": "E03_SRC",
+      "expression": "(arvalid)\n        |-> (src < 2'd3)",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "有效 AR 必须来自 XAU0、XAU1 或 XAU2；无效拍不约束 src。",
+      "line": 54,
+      "end_line": 58
+    },
+    {
+      "kind": "assume",
+      "label": "E04_ARRESP",
+      "expression": "(arvalid)\n        |-> (arresp == 2'b00 || arresp == 2'b11)",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "有效 AR 的上游状态只允许正常 00 或地址越界 11。",
+      "line": 61,
+      "end_line": 65
+    },
+    {
+      "kind": "assume",
+      "label": "E05_ZERO_READY",
+      "expression": "(arready == 3'b000)\n        |-> (!arvalid)",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "三个来源都不能接收时，上游不得发送有效 AR。",
+      "line": 68,
+      "end_line": 72
+    },
+    {
+      "kind": "assume",
+      "label": "E06_SUCCESS_BUSY",
+      "expression": "(req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])\n            |-> (requested_half_busy)",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 8,
+      "description": "本拍该 Bank 双 grant 成功时，被访问的奇偶半区本拍必须报告占用。",
+      "line": 78,
+      "end_line": 82
+    },
+    {
+      "kind": "assert",
+      "label": "A_REQ_ONEHOT",
+      "expression": "(req & (req-8'd1)) == 0",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "下游每拍最多请求一个 Bank；全零合法。",
+      "line": 100,
+      "end_line": 103
+    },
+    {
+      "kind": "assert",
+      "label": "A_R_ONEHOT",
+      "expression": "(rvalid & (rvalid-3'd1)) == 0",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "共享 R 负载每拍最多发往一个 XAU；全零合法。",
+      "line": 106,
+      "end_line": 109
+    },
+    {
+      "kind": "assert",
+      "label": "A_R_READY",
+      "expression": "(rvalid & ~rready) == 0",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "rvalid 只能在对应 rready 已经为 1 的通道拉高。",
+      "line": 112,
+      "end_line": 115
+    },
+    {
+      "kind": "assert",
+      "label": "A_PENDING_RANGE",
+      "expression": "pending_cnt <= 9",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 1,
+      "description": "待发命令数不能超过共享容量 9。",
+      "line": 118,
+      "end_line": 121
+    },
+    {
+      "kind": "assert",
+      "label": "A_PENDING_RECURRENCE",
+      "expression": "pending_cnt == (last_pending+{3'b0,ar_fire}-{3'b0,issue_fire})",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "description": "本拍计数 = 上拍计数 + 本拍 AR 握手 - 本拍成功发射。",
+      "line": 124,
+      "end_line": 127
+    },
+    {
+      "kind": "assert",
+      "label": "A_READY",
+      "expression": "arready == expected_ready",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "arready 必须符合容量预留规则，并计入本拍 R 回收。",
+      "line": 133,
+      "end_line": 136
+    },
+    {
+      "kind": "assert",
+      "label": "A_PENDING",
+      "expression": "pending_cnt == (waiting+(ar_fire?1:0)-(issue_fire?1:0))",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "待发数含本拍新 AR，扣除本拍双 grant 成功；仲裁失败不扣除。",
+      "line": 139,
+      "end_line": 142
+    },
+    {
+      "kind": "assert",
+      "label": "A_REQ",
+      "expression": "req == expected_req",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "当前 req 必须对应上一拍窗口内选出的最老可发命令。",
+      "line": 145,
+      "end_line": 148
+    },
+    {
+      "kind": "assert",
+      "label": "A_ARB_ADDR",
+      "expression": "(req != 8'b0)\n        |-> (arb_addr == expected_addr)",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "req 有效时检查完整下游地址 araddr[17:6]；无效时不检查负载。",
+      "line": 151,
+      "end_line": 155
+    },
+    {
+      "kind": "assert",
+      "label": "A_RR_CHOICE",
+      "expression": "rvalid == expected_rvalid",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "只在 ready 且最老队头已完成的来源间按 RR 选择。",
+      "line": 158,
+      "end_line": 161
+    },
+    {
+      "kind": "assert",
+      "label": "A_R_METADATA",
+      "expression": "(r_fire)\n        |-> ((rid == m_id[rsp_e] && r_port_id == m_port[rsp_e] && raddr == m_addr[rsp_e][2:0]))",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "R 握手时，ID、port_id、地址低三位必须属于同一预期事务。",
+      "line": 164,
+      "end_line": 168
+    },
+    {
+      "kind": "assert",
+      "label": "A_R_RESP",
+      "expression": "(r_fire)\n        |-> (rresp == expected_resp)",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "R 错误状态来自预期事务；地址越界优先于奇偶校验异常。",
+      "line": 171,
+      "end_line": 175
+    },
+    {
+      "kind": "assert",
+      "label": "A_R_DATA",
+      "expression": "(r_fire)\n        |-> (rdata == m_data[rsp_e])",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "R 数据必须等于预期事务在成功发射后第 4 拍捕获的数据。",
+      "line": 178,
+      "end_line": 182
+    },
+    {
+      "kind": "assert",
+      "label": "A_RR_BOUND",
+      "expression": "(eligible[g] && bypass_count >= 2)\n            |-> (rvalid[g])",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "该源持续可响应且已被另外两次响应越过时，本拍必须轮到它。",
+      "line": 193,
+      "end_line": 197
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_HAS_PENDING",
+      "expression": "(rvalid[g])\n            |-> (oldest_valid)",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "该 XAU 的 rvalid 有效时，必须存在已接受但尚未返回的最老事务。",
+      "line": 200,
+      "end_line": 204
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_HEAD_COMPLETE",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && m_sent[oldest] && m_done[oldest]))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "只允许响应已成功发射且已捕获 MEM 数据的 FIFO 队头。",
+      "line": 207,
+      "end_line": 211
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_NO_EARLY_BYPASS",
+      "expression": "(oldest_valid && !m_done[oldest])\n            |-> (!rvalid[g])",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "队头未完成时，年轻命令即使已完成，也不能让该源提前响应。",
+      "line": 214,
+      "end_line": 218
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_ADDR_ORDER",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && raddr == m_addr[oldest][2:0]))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "有效 R 的 raddr 必须等于该源接收 FIFO 队头的 araddr[2:0]。",
+      "line": 221,
+      "end_line": 225
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_ID_ORDER",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && rid == m_id[oldest]))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "有效 R 的 rid 必须属于队头；不按 ID 数值排序，也不要求 ID 唯一。",
+      "line": 228,
+      "end_line": 232
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_PORT_ORDER",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && r_port_id == m_port[oldest]))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "有效 R 的 port_id 必须透传同一个队头命令的 port_id。",
+      "line": 235,
+      "end_line": 239
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_DATA_ORDER",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && rdata == m_data[oldest]))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "有效 R 的 128 位数据必须来自同一个队头事务的 MEM 捕获记录。",
+      "line": 242,
+      "end_line": 246
+    },
+    {
+      "kind": "assert",
+      "label": "A_XAU_R_RESP_ORDER",
+      "expression": "(rvalid[g])\n            |-> ((oldest_valid && rresp == oldest_resp))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "有效 R 的错误状态必须由同一个队头事务的 arresp 和 pc_err 形成。",
+      "line": 249,
+      "end_line": 253
+    },
+    {
+      "kind": "assert",
+      "label": "M_XAU_FIFO_COUNT",
+      "expression": "order_count == occ[g] && order_count <= 7",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 3,
+      "description": "独立接收 FIFO 的长度必须与事务表该源占用数一致，且不超过 7。",
+      "line": 257,
+      "end_line": 260
+    },
+    {
+      "kind": "assert",
+      "label": "M_XAU_FIFO_HEAD",
+      "expression": "(order_count != 0) == head_valid[g] &&\n            (order_count == 0 || (oldest_valid &&\n            oldest == head[g]))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 3,
+      "description": "独立 FIFO 队头必须与事务表按年龄计算的最老事务一致。",
+      "line": 263,
+      "end_line": 268
+    },
+    {
+      "kind": "cover",
+      "label": "C_XAU_EARLY_THIRD_BLOCKED",
+      "expression": "order_phase == 3 && m_done[third_token] && !m_done[first_token] && rready[g] && !rvalid[g]",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "命令 3 先捕获，命令 1 未完成；即使 ready=1，该源仍无响应。",
+      "line": 272,
+      "end_line": 275
+    },
+    {
+      "kind": "cover",
+      "label": "C_XAU_R_123_AFTER_ISSUE3_FIRST",
+      "expression": "order_phase == 5 && source_r && oldest == third_token && head_payload_matches",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "完整见证：3 先发射及捕获，但 R 按 1、2、3 返回对应整组负载。",
+      "line": 278,
+      "end_line": 281
+    },
+    {
+      "kind": "cover",
+      "label": "C_XAU_OTHER_SOURCE_PROGRESS",
+      "expression": "order_phase == 3 && m_done[third_token] && !m_done[first_token] && (|(rvalid & ~(3'b1<<g)))",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "该源因旧命令未完成而等待时，另一个 XAU 仍能返回。",
+      "line": 284,
+      "end_line": 287
+    },
+    {
+      "kind": "cover",
+      "label": "C_XAU_SAME_CYCLE_POP_PUSH",
+      "expression": "source_ar && source_r && order_count>0 && head_payload_matches",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "同一个 XAU 同拍返回旧命令、接受新命令。",
+      "line": 290,
+      "end_line": 293
+    },
+    {
+      "kind": "cover",
+      "label": "C_XAU_REPEAT_ID_HEAD_R",
+      "expression": "order_count >= 2 &&\n            m_id[order_slot[0]] == m_id[order_slot[1]] &&\n            m_done[order_slot[1]] &&\n            source_r &&\n            head_payload_matches",
+      "dependency": "REF_MODEL",
+      "instances": 3,
+      "description": "队列中 ID 重复且年轻项已完成时，响应仍匹配最老队头。",
+      "line": 296,
+      "end_line": 303
+    },
+    {
+      "kind": "assert",
+      "label": "M_ALLOC",
+      "expression": "(ar_fire)\n        |-> ((free_found && alloc_e<9))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "模型接收 AR 时必须找到合法逻辑槽；不检查 DUT 物理分配编号。",
+      "line": 311,
+      "end_line": 315
+    },
+    {
+      "kind": "assert",
+      "label": "M_RETIRE",
+      "expression": "(r_fire)\n        |-> ((model_retire && rsp_e<9 && m_live[rsp_e] && m_sent[rsp_e] && m_done[rsp_e]))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "实际 R 握手必须对应模型的合法、已发射、已完成事务。",
+      "line": 318,
+      "end_line": 322
+    },
+    {
+      "kind": "assert",
+      "label": "M_SUCCESS",
+      "expression": "(issue_fire)\n        |-> ((m_attempt && m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "实际发射成功必须对应模型当前请求中的未发射事务。",
+      "line": 325,
+      "end_line": 329
+    },
+    {
+      "kind": "assert",
+      "label": "M_DUE",
+      "expression": "(mem_capture_due)\n        |-> ((mem_capture_slot<9 &&\n              m_live[mem_capture_slot] &&\n              m_sent[mem_capture_slot] &&\n              !m_done[mem_capture_slot]))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "返回日历到期必须对应仍在途且尚未捕获的事务。",
+      "line": 332,
+      "end_line": 339
+    },
+    {
+      "kind": "assert",
+      "label": "M_NO_BYPASS",
+      "expression": "(mem_capture_due && r_fire)\n        |-> (mem_capture_slot != rsp_e)",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "本拍刚捕获 MEM 的事务不得在同拍 R 返回，最快下一拍。",
+      "line": 342,
+      "end_line": 346
+    },
+    {
+      "kind": "assert",
+      "label": "M_STATE",
+      "expression": "((m_sent & ~m_live) == 0 && (m_done & ~m_sent) == 0)",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "模型完成集合是已发射集合的子集；已发射集合是有效集合的子集。",
+      "line": 349,
+      "end_line": 352
+    },
+    {
+      "kind": "assert",
+      "label": "M_RANGE",
+      "expression": "(waiting >= 0 && waiting <= used && used <= 9)",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "模型待发数不超过占用数，占用数不超过 9。",
+      "line": 355,
+      "end_line": 358
+    },
+    {
+      "kind": "assert",
+      "label": "M_QUOTA",
+      "expression": "(shared_cost <= 6 && quota_cost <= 9)",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "模型的共享池与空源保留预算均不得超限。",
+      "line": 361,
+      "end_line": 364
+    },
+    {
+      "kind": "assert",
+      "label": "M_ATTEMPT",
+      "expression": "(m_attempt)\n        |-> ((m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 1,
+      "description": "模型请求流水项必须指向合法、有效、未成功发射的事务。",
+      "line": 367,
+      "end_line": 371
+    },
+    {
+      "kind": "assert",
+      "label": "M_AGE_RANGE",
+      "expression": "(m_live[g])\n            |-> (m_age[g]<used)",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 9,
+      "description": "每个有效逻辑槽的年龄排名必须落在当前有效事务范围内。",
+      "line": 380,
+      "end_line": 384
+    },
+    {
+      "kind": "assert",
+      "label": "M_CALENDAR",
+      "expression": "calendar_count == {3'b0,(m_live[g] && m_sent[g] && !m_done[g])}",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 9,
+      "description": "每个已发射未完成事务在 4 拍返回日历中恰好有一项。",
+      "line": 387,
+      "end_line": 390
+    },
+    {
+      "kind": "assert",
+      "label": "M_AGE_UNIQUE",
+      "expression": "(m_live[g] && m_live[h])\n                    |-> (m_age[g] != m_age[h])",
+      "dependency": "MODEL_SELF_CHECK",
+      "instances": 72,
+      "description": "任意两个不同的有效逻辑槽不得使用相同年龄排名。",
+      "line": 395,
+      "end_line": 399
+    },
+    {
+      "kind": "cover",
+      "label": "C_RETRY_NEXT_CYCLE",
+      "expression": "retry_selected && req == last_retry_req && arb_addr == last_retry_addr && req != 0",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "仲裁失败后本拍重选同一命令，下一拍继续发出该请求。",
+      "line": 409,
+      "end_line": 412
+    },
+    {
+      "kind": "cover",
+      "label": "C_FAILURE_SELECT_OTHER",
+      "expression": "m_attempt && !issue_fire && !idle[m_attempt_e] && select_valid && select_e != m_attempt_e",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "当前请求失败且对应半区忙，本拍选中窗口内另一条命令。",
+      "line": 415,
+      "end_line": 418
+    },
+    {
+      "kind": "cover",
+      "label": "C_REFILL_NEXT_CYCLE",
+      "expression": "refill_selected && req == last_refill_req && arb_addr == last_refill_addr",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "成功当拍补入原第 6 条命令，下一拍请求它。",
+      "line": 421,
+      "end_line": 424
+    },
+    {
+      "kind": "cover",
+      "label": "C_NONHEAD_REFILL",
+      "expression": "nonhead_refill_selected && req == last_refill_req && arb_addr == last_refill_addr",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "窗口非队头成功后，原第 6 条同拍补入并于下一拍请求。",
+      "line": 427,
+      "end_line": 430
+    },
+    {
+      "kind": "cover",
+      "label": "C_BLOCKED_SIX",
+      "expression": "blocked_six && blocked_streak >= 3",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "窗口五条均不匹配、窗口外第六条匹配，连续等待仍不能越窗发射。",
+      "line": 433,
+      "end_line": 436
+    },
+    {
+      "kind": "cover",
+      "label": "C_PENDING5_DEC",
+      "expression": "waiting == 5 && !ar_fire && issue_fire && pending_cnt == 4",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "原待发 5 条，本拍只成功发射一条，pending_cnt 本拍为 4。",
+      "line": 439,
+      "end_line": 442
+    },
+    {
+      "kind": "cover",
+      "label": "C_PENDING5_BOTH",
+      "expression": "waiting == 5 && ar_fire && issue_fire && pending_cnt == 5",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "原待发 5 条，本拍同收同发，pending_cnt 本拍仍为 5。",
+      "line": 445,
+      "end_line": 448
+    },
+    {
+      "kind": "cover",
+      "label": "C_PENDING5_ADD",
+      "expression": "waiting == 5 && ar_fire && !issue_fire && pending_cnt == 6",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "原待发 5 条，本拍只接收一条，pending_cnt 本拍为 6。",
+      "line": 451,
+      "end_line": 454
+    },
+    {
+      "kind": "cover",
+      "label": "C_FULL_REUSE",
+      "expression": "used == 9 && ar_fire && r_fire",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "9 项满占用时，同拍 R 回收并接收新 AR。",
+      "line": 457,
+      "end_line": 460
+    },
+    {
+      "kind": "cover",
+      "label": "C_ALL_FOUR_EVENTS",
+      "expression": "ar_fire && issue_fire && mem_capture_due && r_fire",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "同拍发生 AR 接收、成功发射、MEM 捕获和 R 返回。",
+      "line": 463,
+      "end_line": 466
+    },
+    {
+      "kind": "cover",
+      "label": "C_CAPACITY700",
+      "expression": "occ[0] == 7 && occ[1] == 0 && occ[2] == 0 && !r_fire && arready == 6",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "占用为 7/0/0 时，仍允许其余两个 XAU 各接收第一条命令。",
+      "line": 469,
+      "end_line": 472
+    },
+    {
+      "kind": "cover",
+      "label": "C_CAPACITY440",
+      "expression": "occ[0] == 4 && occ[1] == 4 && occ[2] == 0 && !r_fire && arready == 4",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "占用为 4/4/0 时，最后空源仍可接收，已有两个源暂不可接收。",
+      "line": 475,
+      "end_line": 478
+    },
+    {
+      "kind": "cover",
+      "label": "C_RETURN_ERROR_PRIORITY",
+      "expression": "r_fire && m_err[rsp_e] == 3 && m_pc[rsp_e] && rresp == 3",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "同一事务越界与校验异常同时存在，最终响应越界 11。",
+      "line": 481,
+      "end_line": 484
+    },
+    {
+      "kind": "cover",
+      "label": "C_READY_MASK_RR",
+      "expression": "eligible != 0 && rready != 7 && r_fire",
+      "dependency": "REF_MODEL",
+      "instances": 1,
+      "description": "部分通道不 ready 时，RR 仍能选出可响应来源。",
+      "line": 487,
+      "end_line": 490
+    },
+    {
+      "kind": "cover",
+      "label": "C_FOUR_SUCCESS",
+      "expression": "issue_streak >= 3 && issue_fire",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "instances": 1,
+      "description": "连续四拍成功发射，仅使用成功发射事件历史。",
+      "line": 493,
+      "end_line": 496
+    },
+    {
+      "kind": "cover",
+      "label": "C_SUCCESS_BUSY_TARGET",
+      "expression": "req[cb] && ar_rd_gnt[cb] && rw_rd_gnt[cb] && arb_addr[0] == ch && this_half_busy",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "instances": 16,
+      "description": "逐 Bank、逐奇偶半区命中成功发射且状态报告占用。",
+      "line": 503,
+      "end_line": 506
+    }
+  ],
+  "instances": {
+    "assume": 11,
+    "assert": 145,
+    "cover": 46
+  },
+  "labels": 61,
+  "dut_assertion_instances": 40,
+  "model_self_check_instances": 105,
+  "labels_and_dependencies_unchanged": true
+}

@@ -1,0 +1,5 @@
+type=pending_delta
+seed=1
+cycles=35
+trace=1
+require=pending5_ar0_success0:1,pending5_ar0_success1:1,pending5_ar1_success1:1

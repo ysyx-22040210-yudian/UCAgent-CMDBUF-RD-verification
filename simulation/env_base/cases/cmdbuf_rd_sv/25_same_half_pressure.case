@@ -1,0 +1,5 @@
+type=same_half_pressure
+seed=1
+cycles=100
+trace=1
+require=same_half_busy_excluded:8,retired:18

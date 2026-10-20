@@ -1,0 +1,6 @@
+# Independent ordered-command oracle; each required event must occur.
+type=single_pulse
+seed=1
+cycles=45
+trace=0
+require=capture_without_ready:5,zero_data_no_error:1,error_combo_01:1
