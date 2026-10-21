@@ -1,0 +1,327 @@
+{
+  "counts": {
+    "corner_cases": 156,
+    "categories": {
+      "AR 接收与 src": 20,
+      "容量与来源保护": 24,
+      "Entry 生命周期": 12,
+      "流水与乱序窗口": 19,
+      "Bank 与仲裁判断": 14,
+      "pending 与占用计数": 8,
+      "MEM 返回与 OTB": 14,
+      "R 保序与 RR": 18,
+      "字段与错误组合": 8,
+      "同拍事件与冲突": 6,
+      "持续业务与边界": 10,
+      "接入与验证边界": 3
+    },
+    "kinds": {
+      "合法业务": 139,
+      "环境违约": 5,
+      "集成边界": 7,
+      "内部注错": 5
+    },
+    "legal_states": 190,
+    "state_r_pairs": 631,
+    "transitions": 2440,
+    "traces": 6,
+    "trace_cycles": 37,
+    "event_combinations": 16
+  },
+  "checks": [
+    {
+      "name": "all_2440_formula_results_vs_independent_csv",
+      "status": "PASS",
+      "rows": 2440
+    },
+    {
+      "name": "all_190_states_and_action_counts",
+      "status": "PASS",
+      "state_r_pairs": 631,
+      "actions": 2440
+    },
+    {
+      "name": "six_traces_37_cycles_formula_conservation",
+      "status": "PASS"
+    },
+    {
+      "name": "all_16_concurrency_deltas",
+      "status": "PASS"
+    },
+    {
+      "name": "editable_inputs_recalculation_and_restore",
+      "status": "PASS",
+      "trials": 5
+    },
+    {
+      "name": "execution_status_summary_recalculates_and_restores",
+      "status": "PASS"
+    },
+    {
+      "name": "all_final_values_no_formula_errors_and_statuses_unexecuted",
+      "status": "PASS"
+    },
+    {
+      "name": "exported_xlsx_all_cached_values_and_formulas_match",
+      "status": "PASS",
+      "cells": 69432,
+      "formulas": 43995
+    },
+    {
+      "name": "all_sheets_freeze_headers_and_identifiers_all_tables_filterable",
+      "status": "PASS",
+      "sheets": 6,
+      "tables": 9
+    },
+    {
+      "name": "ready_bit_vectors_preserve_three_digits",
+      "status": "PASS",
+      "examples": [
+        "000",
+        "001",
+        "010"
+      ]
+    },
+    {
+      "name": "visual_review_changed_views",
+      "status": "PASS",
+      "previews": 4,
+      "scope": "Removed two four-state/X/Z scenarios; kept reset excluded; category summary updated."
+    },
+    {
+      "name": "source_files_remain_unchanged",
+      "status": "PASS",
+      "files": 9
+    },
+    {
+      "name": "binary_scope_revision_and_preservation",
+      "status": "PASS",
+      "removed_ids": [
+        "ENV-04",
+        "ENV-05"
+      ],
+      "remaining_cases": 156,
+      "unchanged_complete_sheets": [
+        "容量状态",
+        "容量转换",
+        "逐拍场景",
+        "并发事件"
+      ]
+    }
+  ],
+  "previews": [
+    {
+      "sheet": "Corner清单",
+      "range": "A1:G11",
+      "file": "01_corner_front.png"
+    },
+    {
+      "sheet": "Corner清单",
+      "range": "A161:G163",
+      "file": "14_corner_binary_only.png"
+    },
+    {
+      "sheet": "规则与证据",
+      "range": "A7:E10",
+      "file": "11_rules.png"
+    },
+    {
+      "sheet": "规则与证据",
+      "range": "G7:I19",
+      "file": "12_categories.png"
+    }
+  ],
+  "source_files": [
+    {
+      "file": "rtl/files.f",
+      "bytes": 62,
+      "sha256": "f8f3f50bce55a8a0301d7c3cba42e7b70139eaafd5a1f57515b8c893f327b4ec"
+    },
+    {
+      "file": "rtl/cmdbuf_rd.sv",
+      "bytes": 2429,
+      "sha256": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4"
+    },
+    {
+      "file": "rtl/cmdbuf_rd_cmd.sv",
+      "bytes": 15105,
+      "sha256": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f"
+    },
+    {
+      "file": "rtl/cmdbuf_rd_otb.sv",
+      "bytes": 3975,
+      "sha256": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2"
+    },
+    {
+      "file": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+      "bytes": 47198,
+      "sha256": "f27b0ab0513f9b3835509b8cb19d83d8ea8034246d34c72e07bf2f2bfd02e7e1"
+    },
+    {
+      "file": "docs/timing/protocol_corrections_20261021.json",
+      "bytes": 8365,
+      "sha256": "96eda718989eca6c7d3035cc2819280634f6cfff384f8483bd857524672cf13f"
+    },
+    {
+      "file": "docs/timing/admission_20261021/all_capacity_transitions.csv",
+      "bytes": 70834,
+      "sha256": "04a91738638fd44752f4c960697d539c78b58d486142ff1d71222002e001b9a6"
+    },
+    {
+      "file": "docs/timing/admission_20261021/traces.json",
+      "bytes": 12076,
+      "sha256": "918dc2a9f2ce50a1535a42bc29bd6e49c1b50bbd7613ac3e658c2a7939a89290"
+    },
+    {
+      "file": "verification/four_state_20261021/summary.json",
+      "bytes": 3889,
+      "sha256": "9c2eed85a3967a70b3c63801b7c095728a32df8e43c8f528f0697445dfa6f2b0"
+    }
+  ],
+  "scope": "仅分析 rst_n=1、信号各位取 0/1 的正常运行阶段，不考虑复位及四态 X/Z 问题。容量状态与转换做有限枚举和独立规则交叉核验；场景清单是分析结果，未新增运行 RTL 仿真或 formal。关联属性仅为检查入口，不表示该行前提已取得见证。",
+  "output": "outputs/01a11c46-e4bc-75d3-bbb3-a91f7ae14903/cmdbuf_rd_corner_cases_20261021.xlsx",
+  "status": "PASS_WORKBOOK_ANALYSIS_AND_DELIVERY_CHECKS",
+  "output_sha256": "696854690082c0f476510ad3f8a91d02f8772e85a3c6311d3da3b073896226ee",
+  "output_bytes": 768888,
+  "excel_engine": "Authored/calculated/rendered with @oai/artifact-tool; saved OOXML checked independently. No claim of native Excel execution.",
+  "rtl_execution_this_turn": false,
+  "xlsx_structure": {
+    "file": "outputs/01a11c46-e4bc-75d3-bbb3-a91f7ae14903/cmdbuf_rd_corner_cases_20261021.xlsx",
+    "bytes": 768888,
+    "sheets": [
+      {
+        "index": 1,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 1,
+        "formula_errors": 0,
+        "tables": 1,
+        "validations": 1
+      },
+      {
+        "index": 2,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 2090,
+        "formula_errors": 0,
+        "tables": 1,
+        "validations": 0
+      },
+      {
+        "index": 3,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 41480,
+        "formula_errors": 0,
+        "tables": 1,
+        "validations": 4
+      },
+      {
+        "index": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 352,
+        "formula_errors": 0,
+        "tables": 1,
+        "validations": 0
+      },
+      {
+        "index": 5,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 48,
+        "formula_errors": 0,
+        "tables": 2,
+        "validations": 1
+      },
+      {
+        "index": 6,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "7",
+          "topLeftCell": "C8",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        },
+        "formula_count": 24,
+        "formula_errors": 0,
+        "tables": 3,
+        "validations": 0
+      }
+    ],
+    "ready_cell_xml": "<ns0:c xmlns:ns0=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\" r=\"K13\" s=\"22\" t=\"str\"><ns0:f>IF(AND((D13-IF(H13=0,1,0)+E13-IF(H13=1,1,0)+F13-IF(H13=2,1,0))&lt;9,OR((F13-IF(H13=2,1,0))=0,(MAX((D13-IF(H13=0,1,0))-1,0)+MAX((E13-IF(H13=1,1,0))-1,0)+MAX((F13-IF(H13=2,1,0))-1,0))&lt;6)),1,0)&amp;IF(AND((D13-IF(H13=0,1,0)+E13-IF(H13=1,1,0)+F13-IF(H13=2,1,0))&lt;9,OR((E13-IF(H13=1,1,0))=0,(MAX((D13-IF(H13=0,1,0))-1,0)+MAX((E13-IF(H13=1,1,0))-1,0)+MAX((F13-IF(H13=2,1,0))-1,0))&lt;6)),1,0)&amp;IF(AND((D13-IF(H13=0,1,0)+E13-IF(H13=1,1,0)+F13-IF(H13=2,1,0))&lt;9,OR((D13-IF(H13=0,1,0))=0,(MAX((D13-IF(H13=0,1,0))-1,0)+MAX((E13-IF(H13=1,1,0))-1,0)+MAX((F13-IF(H13=2,1,0))-1,0))&lt;6)),1,0)</ns0:f><ns0:v>000</ns0:v></ns0:c>",
+    "tables": [
+      {
+        "name": "CornerCases",
+        "ref": "A7:L163",
+        "has_filter": true
+      },
+      {
+        "name": "CapacityStates",
+        "ref": "A7:O197",
+        "has_filter": true
+      },
+      {
+        "name": "CapacityTransitions",
+        "ref": "A7:Z2447",
+        "has_filter": true
+      },
+      {
+        "name": "TimingTraces",
+        "ref": "A7:S44",
+        "has_filter": true
+      },
+      {
+        "name": "ConcurrentEvents",
+        "ref": "A7:M23",
+        "has_filter": true
+      },
+      {
+        "name": "EntryAliasRules",
+        "ref": "I27:L33",
+        "has_filter": true
+      },
+      {
+        "name": "RulesAndEvidence",
+        "ref": "A7:E32",
+        "has_filter": true
+      },
+      {
+        "name": "EvidenceSources",
+        "ref": "A38:E47",
+        "has_filter": true
+      },
+      {
+        "name": "CategorySummary",
+        "ref": "G7:I19",
+        "has_filter": true
+      }
+    ]
+  },
+  "source_snapshot": "Actual current source hashes; baseline commit is not a claim of a clean working tree."
+}

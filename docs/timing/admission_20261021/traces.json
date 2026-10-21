@@ -1,0 +1,737 @@
+[
+  {
+    "id": "W01",
+    "title": "单源到达七项后切换来源",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          6,
+          0,
+          0
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          7,
+          0,
+          0
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "110",
+        "ar_fire": 0,
+        "after": [
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          7,
+          0,
+          0
+        ],
+        "r_src": null,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "110",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          0
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": null,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 0,
+        "after": [
+          7,
+          1,
+          0
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": null,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C6",
+        "before": [
+          7,
+          1,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      }
+    ],
+    "extra": {}
+  },
+  {
+    "id": "W02",
+    "title": "满九项时回收多项来源",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          7,
+          1,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          7,
+          1,
+          1
+        ],
+        "r_src": 0,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          6,
+          1,
+          2
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          6,
+          1,
+          2
+        ],
+        "r_src": 2,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          6,
+          2,
+          1
+        ],
+        "r_src": 0,
+        "src": null,
+        "arvalid": 0,
+        "arready": "111",
+        "ar_fire": 0,
+        "after": [
+          5,
+          2,
+          1
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          5,
+          2,
+          1
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "cycle": "C6",
+        "before": [
+          6,
+          2,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          6,
+          2,
+          1
+        ]
+      }
+    ],
+    "extra": {}
+  },
+  {
+    "id": "W03",
+    "title": "满九项时回收唯一一项",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": 2,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          0
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          4,
+          4,
+          0
+        ],
+        "r_src": null,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          0
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          4,
+          4,
+          0
+        ],
+        "r_src": null,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 1,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      }
+    ],
+    "extra": {}
+  },
+  {
+    "id": "W04",
+    "title": "总数保持八项而接收资格变化",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          6,
+          1,
+          1
+        ],
+        "r_src": 1,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          7,
+          0,
+          1
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          7,
+          0,
+          1
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "010",
+        "ar_fire": 0,
+        "after": [
+          7,
+          0,
+          1
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          7,
+          0,
+          1
+        ],
+        "r_src": 0,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          6,
+          1,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "111",
+        "ar_fire": 0,
+        "after": [
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          6,
+          1,
+          1
+        ],
+        "r_src": 2,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C6",
+        "before": [
+          6,
+          1,
+          1
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      },
+      {
+        "cycle": "C7",
+        "before": [
+          7,
+          1,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      }
+    ],
+    "extra": {}
+  },
+  {
+    "id": "W05",
+    "title": "回收最后一项和回收额外项的区别",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": 1,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "110",
+        "ar_fire": 0,
+        "after": [
+          7,
+          0,
+          0
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          7,
+          0,
+          0
+        ],
+        "r_src": null,
+        "src": 1,
+        "arvalid": 1,
+        "arready": "110",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          0
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": 0,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "111",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          0
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": null,
+        "src": 0,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 0,
+        "after": [
+          7,
+          1,
+          0
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          7,
+          1,
+          0
+        ],
+        "r_src": null,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 1,
+        "after": [
+          7,
+          1,
+          1
+        ]
+      }
+    ],
+    "extra": {}
+  },
+  {
+    "id": "W06",
+    "title": "同源替换后等待新数据完成",
+    "source": "按容量规则计算的采样时序示意，不是 RTL 仿真波形",
+    "rows": [
+      {
+        "cycle": "C1",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": 2,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 1,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C2",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C3",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C4",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C5",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C6",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C7",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": null,
+        "src": null,
+        "arvalid": 0,
+        "arready": "000",
+        "ar_fire": 0,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      },
+      {
+        "cycle": "C8",
+        "before": [
+          4,
+          4,
+          1
+        ],
+        "r_src": 2,
+        "src": 2,
+        "arvalid": 1,
+        "arready": "100",
+        "ar_fire": 1,
+        "after": [
+          4,
+          4,
+          1
+        ]
+      }
+    ],
+    "extra": {
+      "req_success": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "MEM_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    }
+  }
+]

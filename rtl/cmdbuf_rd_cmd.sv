@@ -22,7 +22,7 @@ module cmdbuf_rd_cmd (
     output wire [3:0] pending_cnt,
     input wire [7:0] ar_rd_gnt,
     // Bank-major unpacked array: status[bank][half], 0=idle, 1=busy.
-    input bit [1:0] rd_mem_status [7:0],
+    input wire [1:0] rd_mem_status [7:0],
     input wire [7:0] rw_rd_gnt,
     output reg alloc_fire,
     output reg [3:0] alloc_entry,

@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "pages": 11,
+  "figures": 6,
+  "content_scope": "src selection, per-source and total occupancy, all capacity admission classes, R lookahead, simultaneous AR/R, completion latency.",
+  "visual_review": {
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "method": "All 11 actual Word-exported page PNGs inspected; no clipping or overflow.",
+    "page_sha256": {
+      "page-1.png": "e814f4bfb18064f96d78d679faab1e9d15a13648d9616256a5d6b1b32b417253",
+      "page-10.png": "b67d32c44e79c02b486179901ce3bfe0dd9d493e98beb6fac9f85aa13343cfaf",
+      "page-11.png": "b413c162657462a84a4201221117d1b7ff410cbd2987def1c5058a8b9b951803",
+      "page-2.png": "afec5a15d18c1465b919c49cc7862f38e21e6621c39a78a1e021e254a7b79550",
+      "page-3.png": "7f47f724d44f9b2b2e93af184b73a168b80ed035da9a0af5a2a877b2101adccb",
+      "page-4.png": "4851e50f7cc1f03a31777d60ad6073f2d4245adbfb4ba9fc29711947fbe2ce97",
+      "page-5.png": "d661a39ac6e7d1e358e014128efb3dab62ab26e7c72db3e1050ac40e6d5c204a",
+      "page-6.png": "5990278946014dd4ba1cd53cdc812d109f005a5d6d1b78fea28f23aec6cc1a09",
+      "page-7.png": "5c9d2eb94c18f66de408e5405db80828855d412c506631751f666b3f83a0e181",
+      "page-8.png": "ec1af183286dd41005a3ae0fab5913222b36000e0977576dccdbf4f5590059d7",
+      "page-9.png": "709299fd107920d472624c0cf42be05a955caeb2e92ea81afd7fae4ebb83e337"
+    }
+  },
+  "rtl_source_hashes_unchanged": true,
+  "new_rtl_or_formal_execution": false,
+  "deliverables": [
+    {
+      "file": "documents/21_cmdbuf_rd_src_arready_occupancy_20261021.docx",
+      "bytes": 2551182,
+      "sha256": "133debd1da4b98671a9c79eca985764b6ff0f2bd61b88471a8aced417dfc7776"
+    },
+    {
+      "file": "documents/21_cmdbuf_rd_src_arready_occupancy_20261021.pdf",
+      "bytes": 1148723,
+      "sha256": "41d78038cefa597f8ff7afcb60fbbd752e3cdfda65c42649ed22459c8d9497d4"
+    }
+  ],
+  "analysis_counts": {
+    "legal_occupancy_states": 190,
+    "state_retirement_pairs": 631,
+    "ar_action_transitions": 2440
+  }
+}

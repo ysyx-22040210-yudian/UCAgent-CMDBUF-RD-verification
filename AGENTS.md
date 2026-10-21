@@ -3,7 +3,7 @@
 - 用户要求说明文档使用 PDF 或 Word。新增、修订的项目说明交付到 `documents/`，优先同时提供可编辑 `.docx` 与对应 `.pdf`；仓库首页的说明入口链接这些成品。
 - 说明覆盖设计、时序、注错、Tk GUI 操作、验证流程、结果与设备迁移。Word 正文和表格可编辑；图示保留清晰度，真实 GUI 截图不得伪造状态。导出后检查页面排版、内容完整性和链接。
 - Markdown、HTML 可以作为内容源、历史记录或仓库导航保留。RTL、脚本、断言、机器可读结果和签名证据保持工程格式。不要为文档转换改写封存输入、历史签名或运行结论。
-- 用户于 2026-10-21 确认 RTL 允许使用 SystemVerilog；新增实现可以使用 `.sv`，并保留 `bit [1:0] rd_mem_status [7:0]` 的逐 Bank 二维端口。原 Verilog `.v` 及封存输入保持其历史含义。验证环境可以使用 `.sv` 和 `.svh`。历史 SBY 证据、当前重新验证结果和目标设备的真实 FormalMC 执行必须分别说明。
+- 用户于 2026-10-21 确认 RTL 允许使用 SystemVerilog，但明确要求 RTL 中不得使用二态 `bit` 类型。逐 Bank 二维状态端口使用 `input wire [1:0] rd_mem_status [7:0]`，保留 X/Z；子模块及验证连接不得再通过 `bit` 把它转为二态。RTL 采用四态 `wire`、`reg` 或适用的 `logic`。原 Verilog `.v` 及封存输入保持其历史含义。验证环境可以使用 `.sv` 和 `.svh`。历史 SBY 证据、当前重新验证结果和目标设备的真实 FormalMC 执行必须分别说明。
 - 当前修正规格以 `docs/timing/protocol_corrections_20261021.json` 和 `documents/15_cmdbuf_rd_protocol_corrections_20261021.pdf` / `.docx` 为准。用户已确认窗口内非队头成功后保留其他待发项并同拍补入下一项（6B）；失败命令可以同拍重选；pending_cnt 包含本拍 AR 接收和成功发射。此前冲突的说明及旧验证结果不能作为新规格的验收结论。
 - 用户指定通过 GitHub Desktop 上传；发布后的文件和远端提交需复核。
 - 当前 RTL 集成入口为 `rtl/files.f`，选入三份 `.sv`；同目录 `.v` 及旧双后端包只保留历史语义。新规格验证使用 `formal/protocol_20261021/` 和 `simulation/env_base/projects/cmdbuf_rd_sv.mk`，结果在 `verification/protocol_20261021/`，不要把新旧结论混用。

@@ -22,8 +22,8 @@ module cmdbuf_rd (
     output wire [11:0] arb_addr,
     output wire [3:0] pending_cnt,
     input wire [7:0] ar_rd_gnt,
-    // Bank-major unpacked array: status[bank][half], 0=idle, 1=busy.
-    input bit [1:0] rd_mem_status [7:0],
+    // 每个 Bank 两个四态状态位：0 空闲，1 忙；保留输入的 X/Z。
+    input wire [1:0] rd_mem_status [7:0],
     input wire [127:0] mem_rdata,
     input wire pc_err,
     input wire [7:0] rw_rd_gnt

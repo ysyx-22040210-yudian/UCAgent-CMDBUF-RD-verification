@@ -1,0 +1,64 @@
+{
+  "status": "FAIL",
+  "workspace": "/root/cmdbuf_rd/four_state_20261021",
+  "records": [
+    {
+      "name": "iverilog_version",
+      "command": [
+        "/usr/local/bin/iverilog",
+        "-V"
+      ],
+      "status": "PASS",
+      "returncode": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.03,
+      "log": "build/iverilog_version.log"
+    },
+    {
+      "name": "verilator_version",
+      "command": [
+        "/home/ucagent-lab/portable-distributions/UCAgent-Studio-0.3.1-linux-x86_64/oss-cad-suite/bin/verilator",
+        "--version"
+      ],
+      "status": "PASS",
+      "returncode": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.06,
+      "log": "build/verilator_version.log"
+    },
+    {
+      "name": "four_state_compile",
+      "command": [
+        "/usr/local/bin/iverilog",
+        "-g2012",
+        "-DSYNTHESIS",
+        "-s",
+        "rd_mem_status_four_state_tb",
+        "-o",
+        "build/four_state.vvp",
+        "rtl/cmdbuf_rd.sv",
+        "rtl/cmdbuf_rd_cmd.sv",
+        "rtl/cmdbuf_rd_otb.sv",
+        "simulation/four_state/rd_mem_status_four_state_tb.sv"
+      ],
+      "status": "PASS",
+      "returncode": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.06,
+      "log": "build/four_state_compile.log"
+    },
+    {
+      "name": "four_state_sim",
+      "command": [
+        "/usr/local/bin/vvp",
+        "build/four_state.vvp"
+      ],
+      "status": "PASS",
+      "returncode": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.02,
+      "log": "build/four_state_sim.log"
+    }
+  ],
+  "error": "'ascii' codec can't decode byte 0xe6 in position 778: ordinal not in range(128)"
+}

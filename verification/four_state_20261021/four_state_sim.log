@@ -1,0 +1,2 @@
+PASS FOUR_STATE_INTERFACE combinations=64 observations=128
+simulation/four_state/rd_mem_status_four_state_tb.sv:58: $finish called at 66000 (1ps)

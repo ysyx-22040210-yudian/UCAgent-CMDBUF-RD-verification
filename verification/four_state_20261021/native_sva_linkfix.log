@@ -1,0 +1,138 @@
+- V e r i l a t i o n   R e p o r t: Verilator 5.051 devel rev v5.050-99-gf8fb1d664 (mod)
+- Verilator: Built from 0.266 MB sources in 6 modules, into 1.402 MB in 4 C++ files needing 0.000 MB
+- Verilator: Walltime 0.197 s (elab=0.012, cvt=0.152, bld=0.000); cpu 0.197 s on 1 threads; allocated 36.383 MB
+make[1]: Entering directory '/root/cmdbuf_rd/four_state_20261021_retry2/build/verilator'
+g++    cmdbuf_rd_sv_harness.o verilated.o verilated_vcd_c.o verilated_threads.o Vcmdbuf_rd__ALL.a    -pthread -lpthread -latomic   -o sim
+make[1]: Leaving directory '/root/cmdbuf_rd/four_state_20261021_retry2/build/verilator'
+- V e r i l a t i o n   R e p o r t: Verilator 5.051 devel rev v5.050-99-gf8fb1d664 (mod)
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.094 s (elab=0.000, cvt=0.000, bld=0.093); cpu 0.001 s on 2 threads; allocated 21.035 MB
+PASS 01_pipeline checks=865 accepted=24 cycles=51
+PASS 02_same_xau_ooo checks=532 accepted=6 cycles=43
+PASS 03_forward_6b checks=533 accepted=6 cycles=43
+PASS 04_grants checks=1405 accepted=24 cycles=103
+PASS 05_failure_overlap checks=561 accepted=8 cycles=43
+PASS 06_window_block checks=585 accepted=6 cycles=48
+PASS 07_single_pulse checks=596 accepted=7 cycles=48
+PASS 08_rr checks=675 accepted=9 cycles=53
+PASS 09_errors checks=455 accepted=4 cycles=38
+PASS 10_capacity_reuse checks=702 accepted=11 cycles=53
+PASS 11_capacity_700 checks=675 accepted=9 cycles=53
+PASS 12_capacity_440 checks=674 accepted=9 cycles=53
+PASS 13_tokens checks=761 accepted=8 cycles=63
+PASS 14_single_source_throughput checks=3958 accepted=160 cycles=170
+PASS 15_reset_clean checks=1328 accepted=24 cycles=96
+PASS 16_random_seed_1 checks=32556 accepted=959 cycles=1815
+PASS 17_random_seed_17 checks=32584 accepted=964 cycles=1812
+PASS 18_random_seed_91 checks=32410 accepted=950 cycles=1814
+PASS 19_rr_ready_masks checks=390 accepted=3 cycles=33
+PASS 20_retry_single checks=318 accepted=1 cycles=28
+PASS 21_retry_busy_other checks=327 accepted=2 cycles=28
+PASS 22_nonhead_refill checks=481 accepted=6 cycles=38
+PASS 23_pending_delta checks=482 accepted=6 cycles=38
+PASS 24_all_bank_halves checks=1725 accepted=16 cycles=147
+PASS 25_same_half_pressure checks=1371 accepted=18 cycles=103
+PASS 26_repeat_ids checks=1082 accepted=24 cycles=73
+PASS 27_pending_ar_only checks=431 accepted=6 cycles=33
+ORDER_EVENT cycle=0 event=AR command=1 xau=0 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799876:55aa00ec:
+ORDER_EVENT cycle=1 event=AR command=2 xau=0 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549876:39249c10:
+ORDER_EVENT cycle=2 event=AR command=3 xau=0 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79876:8cb73914:
+ORDER_EVENT cycle=3 event=AR command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=0 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79876:8cb73914:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=0 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79876:8cb73914:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=0 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799876:55aa00ec:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=0 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799876:55aa00ec:
+ORDER_EVENT cycle=20 event=R command=1 xau=0 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799876:55aa00ec:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=0 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549876:39249c10:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=0 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549876:39249c10:
+ORDER_EVENT cycle=30 event=R command=2 xau=0 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549876:39249c10:
+ORDER_EVENT cycle=31 event=R command=3 xau=0 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79876:8cb73914:
+PASS 28_xau0_order_312 checks=510 accepted=4 cycles=43
+ORDER_EVENT cycle=0 event=AR command=1 xau=1 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799866:55aa00ec:
+ORDER_EVENT cycle=1 event=AR command=2 xau=1 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549866:39249c10:
+ORDER_EVENT cycle=2 event=AR command=3 xau=1 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79866:8cb73914:
+ORDER_EVENT cycle=3 event=AR command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=1 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79866:8cb73914:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=1 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79866:8cb73914:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=1 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799866:55aa00ec:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=1 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799866:55aa00ec:
+ORDER_EVENT cycle=20 event=R command=1 xau=1 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799866:55aa00ec:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=1 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549866:39249c10:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=1 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549866:39249c10:
+ORDER_EVENT cycle=30 event=R command=2 xau=1 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549866:39249c10:
+ORDER_EVENT cycle=31 event=R command=3 xau=1 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79866:8cb73914:
+PASS 29_xau1_order_312 checks=510 accepted=4 cycles=43
+ORDER_EVENT cycle=0 event=AR command=1 xau=2 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799856:55aa00ec:
+ORDER_EVENT cycle=1 event=AR command=2 xau=2 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549856:39249c10:
+ORDER_EVENT cycle=2 event=AR command=3 xau=2 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79856:8cb73914:
+ORDER_EVENT cycle=3 event=AR command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=2 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79856:8cb73914:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=2 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79856:8cb73914:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=2 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799856:55aa00ec:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=2 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799856:55aa00ec:
+ORDER_EVENT cycle=20 event=R command=1 xau=2 addr=73728 raddr=0 id=165 port=19 rresp=0 data=81012000:1234abcd:fe799856:55aa00ec:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=2 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549856:39249c10:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=2 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549856:39249c10:
+ORDER_EVENT cycle=30 event=R command=2 xau=2 addr=73801 raddr=1 id=136 port=26 rresp=1 data=1f3659f0:6d7ed7d8:fe549856:39249c10:
+ORDER_EVENT cycle=31 event=R command=3 xau=2 addr=73874 raddr=2 id=107 port=1 rresp=3 data=bd6fd3e0:eca053e7:feb79856:8cb73914:
+PASS 30_xau2_order_312 checks=510 accepted=4 cycles=43
+ORDER_EVENT cycle=0 event=AR command=1 xau=0 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869876:55aa00f8:
+ORDER_EVENT cycle=1 event=AR command=2 xau=0 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869876:39249c0d:
+ORDER_EVENT cycle=2 event=AR command=3 xau=0 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869876:8cb73912:
+ORDER_EVENT cycle=3 event=AR command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=0 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869876:8cb73912:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=0 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869876:8cb73912:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=1 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929866:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=0 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869876:55aa00f8:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=0 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869876:55aa00f8:
+ORDER_EVENT cycle=20 event=R command=1 xau=0 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869876:55aa00f8:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=0 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869876:39249c0d:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=0 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869876:39249c0d:
+ORDER_EVENT cycle=30 event=R command=2 xau=0 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869876:39249c0d:
+ORDER_EVENT cycle=31 event=R command=3 xau=0 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869876:8cb73912:
+PASS 31_xau0_order_312_repeat checks=510 accepted=4 cycles=43
+ORDER_EVENT cycle=0 event=AR command=1 xau=1 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869866:55aa00f8:
+ORDER_EVENT cycle=1 event=AR command=2 xau=1 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869866:39249c0d:
+ORDER_EVENT cycle=2 event=AR command=3 xau=1 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869866:8cb73912:
+ORDER_EVENT cycle=3 event=AR command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=1 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869866:8cb73912:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=1 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869866:8cb73912:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=2 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929856:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=1 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869866:55aa00f8:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=1 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869866:55aa00f8:
+ORDER_EVENT cycle=20 event=R command=1 xau=1 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869866:55aa00f8:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=1 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869866:39249c0d:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=1 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869866:39249c0d:
+ORDER_EVENT cycle=30 event=R command=2 xau=1 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869866:39249c0d:
+ORDER_EVENT cycle=31 event=R command=3 xau=1 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869866:8cb73912:
+PASS 32_xau1_order_312_repeat checks=510 accepted=4 cycles=43
+ORDER_EVENT cycle=0 event=AR command=1 xau=2 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869856:55aa00f8:
+ORDER_EVENT cycle=1 event=AR command=2 xau=2 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869856:39249c0d:
+ORDER_EVENT cycle=2 event=AR command=3 xau=2 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869856:8cb73912:
+ORDER_EVENT cycle=3 event=AR command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=4 event=ISSUE command=3 xau=2 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869856:8cb73912:
+ORDER_EVENT cycle=5 event=ISSUE command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=8 event=MEM command=3 xau=2 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869856:8cb73912:
+ORDER_EVENT cycle=9 event=MEM command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=10 event=R command=4 xau=0 addr=73947 raddr=3 id=78 port=8 rresp=0 data=5ba74df0:6febdff2:fe929876:1001d628:
+ORDER_EVENT cycle=15 event=ISSUE command=1 xau=2 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869856:55aa00f8:
+ORDER_EVENT cycle=19 event=MEM command=1 xau=2 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869856:55aa00f8:
+ORDER_EVENT cycle=20 event=R command=1 xau=2 addr=73731 raddr=3 id=90 port=7 rresp=0 data=81012003:1234abcd:fe869856:55aa00f8:
+ORDER_EVENT cycle=25 event=ISSUE command=2 xau=2 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869856:39249c0d:
+ORDER_EVENT cycle=29 event=MEM command=2 xau=2 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869856:39249c0d:
+ORDER_EVENT cycle=30 event=R command=2 xau=2 addr=73803 raddr=3 id=90 port=7 rresp=1 data=1f3659f2:6d7ed7d8:fe869856:39249c0d:
+ORDER_EVENT cycle=31 event=R command=3 xau=2 addr=73875 raddr=3 id=90 port=7 rresp=3 data=bd6fd3e1:eca053e7:fe869856:8cb73912:
+PASS 33_xau2_order_312_repeat checks=510 accepted=4 cycles=43

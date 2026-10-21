@@ -59,7 +59,7 @@ module cmdbuf_rd_port_sva (
     input wire [7:0] ar_rd_gnt, rw_rd_gnt,
     // MEM 通道：逐 Bank 半区状态；数据和校验异常只有一组合并返回。
     // 二维状态：rd_mem_status[Bank编号][奇偶位]，0 空闲、1 占用；保持逐 Bank 数组形式。
-    input bit [1:0] rd_mem_status [7:0],
+    input wire [1:0] rd_mem_status [7:0],
     // 来自 MEM：一组合并后的 128 位数据，仅在四拍日历到期的采样沿保存。
     input wire [127:0] mem_rdata,
     // 来自 MEM：与本次返回数据同拍的 1 位校验异常；非到期拍数值不用于该事务。
@@ -794,5 +794,10 @@ module cmdbuf_rd_port_sva (
 
         end
     end endgenerate
+    // Corner 专项是可选扩展；正常工程不开宏时仍使用原属性集合。
+    // 打开 formal/corner_20261021/native.f 后，追加逐测试点见证及独立 AR/R 容量记账。
+`ifdef CMDBUF_CORNER_SUITE
+    `include "cmdbuf_rd_corner_properties.svh"
+`endif
 endmodule
 `default_nettype wire

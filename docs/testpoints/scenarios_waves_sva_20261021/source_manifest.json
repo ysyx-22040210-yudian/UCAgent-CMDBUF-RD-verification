@@ -1,0 +1,78 @@
+{
+  "source_files": {
+    "docs/timing/protocol_corrections_20261021.json": {
+      "bytes": 8365,
+      "sha256": "96eda718989eca6c7d3035cc2819280634f6cfff384f8483bd857524672cf13f"
+    },
+    "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh": {
+      "bytes": 2720,
+      "sha256": "f3dadbc42f45009d13e92844c3b5f9c80e71686558bb0af7619971cbcd5a794f"
+    },
+    "formal/corner_20261021/cmdbuf_rd_corner_properties.svh": {
+      "bytes": 224970,
+      "sha256": "c0c19678b33c1e2995e5a151a52f40c57641309e64c2405e8e2164e334c33a7a"
+    },
+    "formal/corner_20261021/negative/ar_09.sv": {
+      "bytes": 6228,
+      "sha256": "ac974f5628dab2162b84ed31efb1f182cbdfbaf1540cdc3d56e1477eeed20a09"
+    },
+    "formal/corner_20261021/negative/ar_10.sv": {
+      "bytes": 6231,
+      "sha256": "052f534905544401d7f2d5675556d3ff11634aa5d12b7a05df07e30ee0820b71"
+    },
+    "formal/corner_20261021/negative/arb_12.sv": {
+      "bytes": 6215,
+      "sha256": "19a743596d210cfc3355aa812d156489e184fd2387833e1472dae5595b7642f9"
+    },
+    "formal/corner_20261021/negative/err_05.sv": {
+      "bytes": 6248,
+      "sha256": "c5147fbfafb13113237daf69e971415f3c139409fa83592ab4bf38b0a2f6e3fe"
+    },
+    "formal/protocol_20261021/cmdbuf_rd_port_sva.sv": {
+      "bytes": 47481,
+      "sha256": "077bb9178217ef2e1ecdbf33b526be5732a58a859f024c14a7898bfad7eed065"
+    },
+    "verification/corner_20261021/case_property_results.json": {
+      "bytes": 540376,
+      "sha256": "96ca3bcbd8eabfc0e1ee2cbf2e14fe68230bbeab0d8a769745c970942efa66a3"
+    },
+    "verification/corner_20261021/evidence_manifest.json": {
+      "bytes": 453004,
+      "sha256": "de08b5b9f5d2b152019e44a3b909c7c89fe1f12d055516cd90e5a1f80c82ff92"
+    },
+    "verification/corner_20261021/summary.json": {
+      "bytes": 119037,
+      "sha256": "8cb118b77b9c38139fe0fe00e43144e58c9c74c2f2f029cc344e25fecf131264"
+    },
+    "verification/corner_20261021/vm_evidence.tar.gz": {
+      "bytes": 11181161,
+      "sha256": "f724a52697480662853510da16b448b3eca8035b06053740a3e0b9a1e77a6e3d"
+    }
+  },
+  "sampling_note": "Saved SMTBMC/chformal reported step is one after the public VCD sample plotted as the cover trigger; original and public indices are retained.",
+  "figure_data": "Public top-level port VCD only; derived tokens, counts, C2 window and RR state are clearly identified, not DUT internal probes.",
+  "sva_copy_check": "Whitespace-only formatting; all 775 printed property blocks token-equal to current native sources.",
+  "known_condition_gaps": {
+    "ARB-13": {
+      "current_cover": "C_CC_ARB_13_MAIN",
+      "covered": "Any status-vector change while the previously selected request/address remains and issue does not succeed.",
+      "missing": "Change only an unrelated Bank/half while relevant candidate state is fixed.",
+      "shown_trace_note": "Target Bank0 also changes 00 to 01."
+    },
+    "MEM-03": {
+      "current_cover": "C_CC_MEM_03_MAIN",
+      "covered": "Four consecutive captures and different data/pc_err in the final adjacent pair.",
+      "missing": "Different data/pc_err at every adjacent capture of the four; pairwise uniqueness would be a separate stronger condition.",
+      "shown_trace_note": "Captured values are 0,0,0,1<<127 and pc_err 0,0,0,1."
+    },
+    "MEM-06": {
+      "current_cover": "C_CC_MEM_06_MAIN",
+      "covered": "At R, current MEM data and pc_err differ from the saved transaction after a completed wait.",
+      "missing": "Explicit data/pc_err change in the immediately following cycle after capture.",
+      "shown_trace_note": "T0 captured S6; bus unchanged S7; bus changes S8 while returning saved T0."
+    }
+  },
+  "new_solver_execution": false,
+  "rtl_modified": false,
+  "sva_modified": false
+}

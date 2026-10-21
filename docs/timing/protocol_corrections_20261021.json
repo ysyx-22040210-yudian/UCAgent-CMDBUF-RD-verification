@@ -14,6 +14,8 @@
   },
   "rd_mem_status": {
     "declaration_as_given": "bit [1:0] rd_mem_status [7:0]",
+    "rtl_declaration": "input wire [1:0] rd_mem_status [7:0]",
+    "rtl_type_correction": "The original example described the array shape. The user subsequently prohibited two-state bit in RTL. Use four-state wire at the top level, submodule and verification interfaces; preserve X/Z instead of converting to zero.",
     "outer_index": "bank 0..7",
     "inner_index": "0 even, 1 odd",
     "idle_value": 0,

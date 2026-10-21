@@ -1,0 +1,14 @@
+{
+  "real_cases": 17,
+  "sampled_cycles_checked": 875,
+  "checks": [
+    "sampled pending recurrence",
+    "N+4 capture calendar",
+    "selection to next request",
+    "no same-entry capture-to-R bypass"
+  ],
+  "wave_panels": 19,
+  "real_wave_panels": 11,
+  "time_convention": "Each column is the settled value before one rising edge; no intra-cycle propagation is implied.",
+  "not_a_new_rtl_regression": true
+}

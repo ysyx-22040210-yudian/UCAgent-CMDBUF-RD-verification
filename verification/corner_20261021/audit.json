@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "case_rows": 156,
+  "legal_cases_with_witness": 139,
+  "positive_case_rows": 143,
+  "new_bins": 547,
+  "assert_instances": 156,
+  "environment_assume_instances": 11,
+  "model_self_check_instances": 105,
+  "current_assert_assume_bodies_match_bmc": true,
+  "current_cover_bodies_match_native_replay": true,
+  "artifact_archive_verified_members": 2892,
+  "normal_profile_contains_guidance_assumptions": false,
+  "cover_implication_count": 0,
+  "excluded_testpoints": [
+    "ENV-01",
+    "ENV-02",
+    "ENV-03",
+    "ENV-04",
+    "ENV-05"
+  ],
+  "source_hashes": {
+    "formal\\protocol_20261021\\cmdbuf_rd_port_sva.sv": "077bb9178217ef2e1ecdbf33b526be5732a58a859f024c14a7898bfad7eed065",
+    "formal\\corner_20261021\\build_catalog.py": "dfca69c5203c647c3f9d56a6212942cb767d8728409d548472ef6b7dd6f248ae",
+    "formal\\corner_20261021\\case_property_map.json": "e7651741f2ea2c7a0a7ca00c9b9ecb7e0df898e7edeca0dea416dfd25382c85a",
+    "formal\\corner_20261021\\cmdbuf_rd_corner_assertions.svh": "f3dadbc42f45009d13e92844c3b5f9c80e71686558bb0af7619971cbcd5a794f",
+    "formal\\corner_20261021\\cmdbuf_rd_corner_history.svh": "2d0d7fa6e9b817d290e099e635a4bbadd1ad7fa7456bf182076f593306ca4353",
+    "formal\\corner_20261021\\cmdbuf_rd_corner_properties.svh": "c0c19678b33c1e2995e5a151a52f40c57641309e64c2405e8e2164e334c33a7a",
+    "formal\\corner_20261021\\cmdbuf_rd_corner_sequences.svh": "e0506087ac6341eaaacca826669ed5ada012655cd8cd0056d33c71c1dccd7f51",
+    "formal\\corner_20261021\\cmdbuf_rd_long_witness.svh": "ee1d7030087a10761db7395ed00873b3bb1895b27b5bf6f0c61d9c42145da0cf",
+    "formal\\corner_20261021\\native.f": "1ada7ab315afcf6906a55034f04c4fe3a7da6e8bd689266b167858117b749b79",
+    "formal\\corner_20261021\\replay.cpp": "a3d711b08d26ebd36f2f2e7075febd6f0652eb5b8418d4184954b7e130652cca",
+    "formal\\corner_20261021\\replay.py": "78bc3dc640e083102d6c3a22480dc4dbb15beea186c57e4e7a1f240fef78fc68",
+    "formal\\corner_20261021\\run.py": "e28f290f4894bbe90c8ec0a0258a0ae26b66ab408afe33d9fe09d81cad1830ea",
+    "formal\\corner_20261021\\run_guided.py": "f2c7b54740ebd9c0db51ce2134a16b9202ee9196a444bb5d874a381eedc7d884",
+    "formal\\corner_20261021\\run_negative.py": "7aa7992f817029c0b863f4e23a445f32cd5edd5d52f5a656d9328632bdfc89d1",
+    "formal\\corner_20261021\\verify_evidence.py": "6559b546fb0711301cef695bc5748bb5413b2776eb6f781e1d4ddf2932500c39"
+  }
+}

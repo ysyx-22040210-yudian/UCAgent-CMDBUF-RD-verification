@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "baseline_commit": "432ec88818237638f6d3b14da1f3a95357080e66",
+  "change": "rd_mem_status is input wire [1:0] rd_mem_status [7:0] in both RTL modules and all three current verification interfaces.",
+  "workspace": "/root/cmdbuf_rd/four_state_20261021_retry2",
+  "inputs": "inputs.json",
+  "input_files_verified": 86,
+  "four_state": {
+    "status": "PASS",
+    "simulator": "Icarus Verilog",
+    "input_combinations": 64,
+    "observations": 128,
+    "scope": "Port transport only, reset held asserted; 16 bits times 0/1/X/Z at top and CMDBUF."
+  },
+  "native_sva": {
+    "status": "PASS",
+    "cases": 33,
+    "checks": 121522,
+    "cycles": 7178,
+    "details": "simulation_retry.json"
+  },
+  "formal": {
+    "status": "PASS",
+    "assert_instances": 145,
+    "assume_instances": 11,
+    "bmc_depth": 10,
+    "unbounded_assertions": [
+      "A_REQ_ONEHOT",
+      "A_R_ONEHOT",
+      "A_R_READY"
+    ],
+    "cover_instances_reached": 46,
+    "jobs": [
+      {
+        "name": "protocol_prove",
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "timeout": 120,
+        "status": "PASS 0 4",
+        "returncode": 0,
+        "elapsed_seconds": 4.39,
+        "inputs_sha256": "df5112bfa3a1c707c0a2931cc2afbe6406623a2c6a00781526d5ffb64c610df6"
+      },
+      {
+        "name": "all_bmc",
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "abc bmc3",
+        "assertions": null,
+        "timeout": 360,
+        "status": "PASS 0 67",
+        "returncode": 0,
+        "elapsed_seconds": 64.65,
+        "inputs_sha256": "72ab9ce5a00c11e305a6f0edd25397da8e3b8c531ed3d458a0f5aadd29e20710"
+      },
+      {
+        "name": "corrections_cover",
+        "mode": "cover",
+        "depth": 24,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "timeout": 240,
+        "status": "PASS 0 60",
+        "returncode": 0,
+        "elapsed_seconds": 53.73,
+        "inputs_sha256": "72ab9ce5a00c11e305a6f0edd25397da8e3b8c531ed3d458a0f5aadd29e20710"
+      }
+    ]
+  },
+  "prior_attempts": [
+    {
+      "cause": "VM ASCII locale could not read Chinese RTL comments in an optional control-generation step.",
+      "resolution": "Use explicit UTF-8; no RTL change.",
+      "record": "initial_encoding_failure.json"
+    },
+    {
+      "cause": "Icarus generated an invalid .vvp for the old two-state unpacked-port control copy.",
+      "resolution": "Preserve the failed control attempt; do not claim it reproduced X loss. Actual wire DUT passed its four-state test.",
+      "record": "old_bit_control_tool_failure.json"
+    },
+    {
+      "cause": "Native simulation executable failed to link -latomic with devtoolset-11.",
+      "resolution": "Add the existing /usr/lib/gcc/x86_64-redhat-linux/4.8.5 directory to this build process LIBRARY_PATH. Same RTL, SVA and cases then passed.",
+      "record": "initial_build_summary.json",
+      "retry": "simulation_retry.json"
+    }
+  ],
+  "limitations": [
+    "Four-state port transport does not prove business behavior for arbitrary X/Z inputs.",
+    "SBY/Verilator results apply to their formal/binary models, not four-state simulation.",
+    "No new mutation campaign, FormalMC run or encrypted-RTL equivalence check."
+  ],
+  "evidence_archives": {
+    "vm_evidence.tar.gz": {
+      "bytes": 25479950,
+      "sha256": "3608d4f910ea27ba7b960913e01e31e66a7696726bd8a971596c9373c4e18eeb"
+    },
+    "initial_encoding_failure.tar.gz": {
+      "bytes": 78919,
+      "sha256": "5fc9d0f32f6803f5f3d8de138e3507f4c136527507d02c02d1a9f6bcd333b3e7"
+    },
+    "old_bit_control_tool_failure.tar.gz": {
+      "bytes": 93328,
+      "sha256": "f6b52de740835f3b0fadb88f483e84fa46226d9d22b1e4d3ee51e4e7a85a4754"
+    }
+  },
+  "current_rtl_has_bit_type": false
+}

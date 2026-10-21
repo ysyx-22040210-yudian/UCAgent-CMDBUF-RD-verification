@@ -1,0 +1,2665 @@
+[
+  {
+    "id": "W01_minimum_pipeline",
+    "source": "协议示意：A 来自 XAU0，rready=111；busy 除成功拍外仅为本例取值",
+    "columns": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "rows": [
+      {
+        "label": "AR 握手命令",
+        "values": [
+          "A",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "C2 预选",
+        "values": [
+          "-",
+          "A",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "req[bank_A]",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "双 grant 成功",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "对应半区 busy",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 有效数据",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "D_A",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "capture_valid 内部",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 负载",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A / D_A",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "A entry 拍初状态",
+        "values": [
+          "FREE",
+          "WAIT",
+          "WAIT",
+          "FLIGHT",
+          "FLIGHT",
+          "FLIGHT",
+          "FLIGHT",
+          "DONE",
+          "FREE"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W01_minimum_pipeline.png"
+  },
+  {
+    "id": "W02_continuous_pipeline",
+    "source": "协议示意：同源连续流，不同可用半区；C8 起接收和回收同时发生",
+    "columns": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10",
+      "C11",
+      "C12"
+    ],
+    "rows": [
+      {
+        "label": "AR 握手",
+        "values": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "C2 预选",
+        "values": [
+          "-",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "成功发射",
+        "values": [
+          "-",
+          "-",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 返回",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "拍初总占用",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          7,
+          7,
+          6,
+          5
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W02_continuous_pipeline.png"
+  },
+  {
+    "id": "W03_ar_admission",
+    "source": "协议示意：起始已有七条 XAU0 命令；T4 有已完成队头可响应",
+    "columns": [
+      "T0",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5"
+    ],
+    "rows": [
+      {
+        "label": "拍初 occ0/1/2",
+        "values": [
+          "7/0/0",
+          "7/0/0",
+          "7/1/0",
+          "7/1/1",
+          "7/1/1",
+          "7/1/1"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 回收来源",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "XAU0",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arready[2:0]",
+        "values": [
+          "110",
+          "110",
+          "100",
+          "000",
+          "111",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arvalid",
+        "values": [
+          1,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "src",
+        "values": [
+          0,
+          1,
+          2,
+          "-",
+          0,
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "ar_fire",
+        "values": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "AR 被接收",
+        "values": [
+          "-",
+          "B",
+          "C",
+          "-",
+          "D",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W03_ar_admission.png"
+  },
+  {
+    "id": "W04_blocked_window",
+    "source": "协议示意：满窗口的五条命令均忙，F 的半区始终空闲",
+    "columns": [
+      "T0",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6"
+    ],
+    "rows": [
+      {
+        "label": "AR 握手",
+        "values": [
+          "F",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "乱序窗口",
+        "values": [
+          "ABCDE",
+          "ABCDE",
+          "ABCDE",
+          "ABCDE",
+          "ABCDE",
+          "ABCDE",
+          "ABCDE"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "窗口外命令",
+        "values": [
+          "-",
+          "F",
+          "F",
+          "F",
+          "F",
+          "F",
+          "F"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "A 至 E busy",
+        "values": [
+          "11111",
+          "11111",
+          "11111",
+          "11111",
+          "11111",
+          "11111",
+          "11111"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "F 半区 busy",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "命中候选",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "本拍预选",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "req[7:0]",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W04_blocked_window.png"
+  },
+  {
+    "id": "W05_nonhead_refill",
+    "source": "VM VCD 22_nonhead_refill",
+    "columns": [
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14"
+    ],
+    "rows": [
+      {
+        "label": "当前 req 命令",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "C",
+          "F",
+          "-",
+          "-",
+          "A",
+          "B"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "本拍预选窗口",
+        "values": [
+          "ABCDE",
+          "ABCDE",
+          "ABCDE",
+          "ABDEF",
+          "ABDE",
+          "ABDE",
+          "ABDE",
+          "BDE",
+          "DE"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "空闲候选",
+        "values": [
+          "-",
+          "-",
+          "C",
+          "F",
+          "-",
+          "-",
+          "ABDE",
+          "BDE",
+          "DE"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "本拍预选命令",
+        "values": [
+          "-",
+          "-",
+          "C",
+          "F",
+          "-",
+          "-",
+          "A",
+          "B",
+          "D"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "req[7:0] hex",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "04",
+          "20",
+          "00",
+          "00",
+          "01",
+          "02"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          6,
+          6,
+          6,
+          5,
+          4,
+          4,
+          4,
+          3,
+          2
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "C 半区 busy",
+        "values": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "F 半区 busy",
+        "values": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W05_nonhead_refill.png"
+  },
+  {
+    "id": "W06_failed_retry",
+    "source": "VM VCD 20_retry_single",
+    "columns": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "rows": [
+      {
+        "label": "ar_fire",
+        "values": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "select_valid 内部",
+        "values": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "req[7:0] hex",
+        "values": [
+          "00",
+          "00",
+          "08",
+          "08",
+          "08",
+          "08",
+          "08",
+          "08",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "ar_rd_gnt hex",
+        "values": [
+          "FF",
+          "FF",
+          "FF",
+          "FF",
+          "FF",
+          "FF",
+          "FF",
+          "FF",
+          "FF"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rw_rd_gnt hex",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "FF",
+          "FF"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "Bank3 偶 busy",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W06_failed_retry.png"
+  },
+  {
+    "id": "W07_failure_other",
+    "source": "VM VCD 21_retry_busy_other",
+    "columns": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "rows": [
+      {
+        "label": "AR 接收命令",
+        "values": [
+          "A",
+          "B",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "req 命令",
+        "values": [
+          "-",
+          "-",
+          "A",
+          "B",
+          "A",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "A 半区 busy",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "B 半区 busy",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "预选命令",
+        "values": [
+          "-",
+          "A",
+          "B",
+          "A",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获命令",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "B",
+          "A"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          1,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W07_failure_other.png"
+  },
+  {
+    "id": "W08_same_half",
+    "source": "VM VCD 25_same_half_pressure",
+    "columns": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "rows": [
+      {
+        "label": "ar_fire",
+        "values": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "req[7:0] hex",
+        "values": [
+          "00",
+          "00",
+          "40",
+          "00",
+          "40",
+          "00",
+          "40",
+          "00",
+          "40",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arb_addr[0]",
+        "values": [
+          "-",
+          "-",
+          0,
+          "-",
+          0,
+          "-",
+          0,
+          "-",
+          0,
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "status[6][1:0]",
+        "values": [
+          "00",
+          "00",
+          "01",
+          "00",
+          "01",
+          "00",
+          "01",
+          "00",
+          "01",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "select_valid 内部",
+        "values": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "MEM capture 内部",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001",
+          "000",
+          "010"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W08_same_half.png"
+  },
+  {
+    "id": "W09_pending_count",
+    "source": "VM VCD 23_pending_delta",
+    "columns": [
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12"
+    ],
+    "rows": [
+      {
+        "label": "pending_q 拍初",
+        "values": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "AR 握手",
+        "values": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "成功发射",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "pending_cnt 本拍",
+        "values": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "R 回收",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "req[7:0] hex",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01",
+          "02",
+          "04",
+          "08",
+          "10",
+          "20"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W09_pending_count.png"
+  },
+  {
+    "id": "W10_mem_hold",
+    "source": "协议示意：XAU0 队头 A，arresp=00；U/V/W 为非到期拍无关总线值",
+    "columns": [
+      "N",
+      "N+1",
+      "N+2",
+      "N+3",
+      "N+4",
+      "N+5",
+      "N+6",
+      "N+7",
+      "N+8"
+    ],
+    "rows": [
+      {
+        "label": "issue_success",
+        "values": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "capture_valid 内部",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "mem_rdata",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "D_A",
+          "U",
+          "V",
+          "W",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pc_err",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "OTB 保存数据 拍初",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "D_A",
+          "D_A",
+          "D_A",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rready[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001",
+          "001"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 数据及错误",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "D_A/01",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W10_mem_hold.png"
+  },
+  {
+    "id": "W11a_order_early",
+    "source": "VM VCD 28_xau0_order_312",
+    "columns": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10"
+    ],
+    "rows": [
+      {
+        "label": "AR 接收",
+        "values": [
+          "A1",
+          "A2",
+          "A3",
+          "B4",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "成功发射",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "A3",
+          "B4",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A3",
+          "B4",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 返回命令",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "B4"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "010"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rresp",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W11a_order_early.png"
+  },
+  {
+    "id": "W11b_order_release",
+    "source": "VM VCD 28_xau0_order_312",
+    "columns": [
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "S30",
+      "S31"
+    ],
+    "rows": [
+      {
+        "label": "AR 接收",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "成功发射",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A2",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获",
+        "values": [
+          "A1",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A2",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 返回命令",
+        "values": [
+          "-",
+          "A1",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "A2",
+          "A3"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "001",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001",
+          "001"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rresp",
+        "values": [
+          "-",
+          "00",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "01",
+          "11"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W11b_order_release.png"
+  },
+  {
+    "id": "W12_rr",
+    "source": "VM VCD 19_rr_ready_masks",
+    "columns": [
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16"
+    ],
+    "rows": [
+      {
+        "label": "rr_ptr_q 拍初",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rready[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "110",
+          "001",
+          "000",
+          "100",
+          "111"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "head_valid",
+        "values": [
+          "111",
+          "111",
+          "111",
+          "111",
+          "101",
+          "100",
+          "100",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "r_candidate",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "110",
+          "001",
+          "000",
+          "100",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "010",
+          "001",
+          "000",
+          "100",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "retire_fire",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "R 接收来源",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "XAU1",
+          "XAU0",
+          "-",
+          "XAU2",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W12_rr.png"
+  },
+  {
+    "id": "W13_reserve_440",
+    "source": "协议示意：T0/T8 的 src 不可接收；XAU2 的新事务最早在 T8 回收",
+    "columns": [
+      "T0",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8",
+      "T9"
+    ],
+    "rows": [
+      {
+        "label": "拍初 occ0/1/2",
+        "values": [
+          "4/4/0",
+          "4/4/0",
+          "4/4/1",
+          "4/4/1",
+          "3/5/1",
+          "3/5/1",
+          "3/5/1",
+          "3/5/1",
+          "3/5/1",
+          "3/5/0"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 回收来源",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "XAU0",
+          "-",
+          "-",
+          "-",
+          "-",
+          "XAU2",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "回收后 shared_cost",
+        "values": [
+          6,
+          6,
+          6,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arready[2:0]",
+        "values": [
+          "100",
+          "100",
+          "000",
+          "111",
+          "000",
+          "000",
+          "000",
+          "000",
+          "100",
+          "100"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arvalid",
+        "values": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "src",
+        "values": [
+          0,
+          2,
+          "-",
+          1,
+          "-",
+          "-",
+          "-",
+          "-",
+          1,
+          2
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "ar_fire",
+        "values": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      }
+    ],
+    "file": "W13_reserve_440.png"
+  },
+  {
+    "id": "W14_full_reuse",
+    "source": "VM VCD 10_capacity_reuse",
+    "columns": [
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25"
+    ],
+    "rows": [
+      {
+        "label": "拍初 occ0/1/2",
+        "values": [
+          "7/1/1",
+          "7/1/1",
+          "7/1/1",
+          "7/1/1",
+          "6/1/2",
+          "6/1/2",
+          "6/1/2",
+          "6/1/2"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rready[2:0]",
+        "values": [
+          "000",
+          "000",
+          "010",
+          "001",
+          "000",
+          "000",
+          "000",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "010",
+          "001",
+          "000",
+          "000",
+          "000",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arready[2:0]",
+        "values": [
+          "000",
+          "000",
+          "010",
+          "111",
+          "000",
+          "000",
+          "000",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "src",
+        "values": [
+          "-",
+          "-",
+          1,
+          2,
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "ar_fire",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "retire_entry 内部",
+        "values": [
+          "-",
+          "-",
+          7,
+          0,
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "alloc_entry 内部",
+        "values": [
+          "-",
+          "-",
+          7,
+          0,
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W14_full_reuse.png"
+  },
+  {
+    "id": "W15_four_events",
+    "source": "VM VCD 26_repeat_ids",
+    "columns": [
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10"
+    ],
+    "rows": [
+      {
+        "label": "AR 接收",
+        "values": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "alloc_entry",
+        "values": [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "成功发射",
+        "values": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "issue_entry",
+        "values": [
+          3,
+          4,
+          5,
+          6,
+          0,
+          1
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM 捕获",
+        "values": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "capture_entry",
+        "values": [
+          "-",
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 回收",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "retire_entry",
+        "values": [
+          "-",
+          "-",
+          0,
+          1,
+          2,
+          3
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W15_four_events.png"
+  },
+  {
+    "id": "W16_repeated_ids",
+    "source": "VM VCD 31_xau0_order_312_repeat",
+    "columns": [
+      "S28",
+      "S29",
+      "S30",
+      "S31",
+      "S32"
+    ],
+    "rows": [
+      {
+        "label": "MEM capture 内部",
+        "values": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "pc_err",
+        "values": [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "001",
+          "001",
+          "000"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rid hex",
+        "values": [
+          "-",
+          "-",
+          "5A",
+          "5A",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "r_port_id",
+        "values": [
+          "-",
+          "-",
+          7,
+          7,
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "raddr",
+        "values": [
+          "-",
+          "-",
+          3,
+          3,
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "R 命令身份",
+        "values": [
+          "-",
+          "-",
+          "A2",
+          "A3",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rdata[31:0] hex",
+        "values": [
+          "-",
+          "-",
+          "1F3659F2",
+          "BD6FD3E1",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rresp",
+        "values": [
+          "-",
+          "-",
+          "01",
+          "11",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W16_repeated_ids.png"
+  },
+  {
+    "id": "W17_grant_combinations",
+    "source": "协议示意：A 持续请求 Bank3，只有同一 bit 双 grant 才成功",
+    "columns": [
+      "T0",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5"
+    ],
+    "rows": [
+      {
+        "label": "req[7:0] hex",
+        "values": [
+          "08",
+          "08",
+          "08",
+          "08",
+          "08",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "ar_rd_gnt hex",
+        "values": [
+          "08",
+          "00",
+          "04",
+          "08",
+          "08",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "rw_rd_gnt hex",
+        "values": [
+          "00",
+          "08",
+          "04",
+          "04",
+          "08",
+          "00"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "Bank3 对应 busy",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "预选命令",
+        "values": [
+          "A",
+          "A",
+          "A",
+          "A",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W17_grant_combinations.png"
+  },
+  {
+    "id": "W18_reset_start",
+    "source": "协议示意：空状态复位后启动；不定义带未完成 MEM 的单边中途复位",
+    "columns": [
+      "C0",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "rows": [
+      {
+        "label": "rst_n",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "arready[2:0]",
+        "values": [
+          "000",
+          "000",
+          "111",
+          "111",
+          "111",
+          "111",
+          "111",
+          "111",
+          "111",
+          "111"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "arvalid",
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "预选命令",
+        "values": [
+          "-",
+          "-",
+          "-",
+          "A",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "issue_success",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "pending_cnt",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "kind": "bus",
+        "color": null
+      },
+      {
+        "label": "MEM capture",
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "kind": "bit",
+        "color": null
+      },
+      {
+        "label": "rvalid[2:0]",
+        "values": [
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "000",
+          "001"
+        ],
+        "kind": "bus",
+        "color": null
+      }
+    ],
+    "file": "W18_reset_start.png"
+  }
+]

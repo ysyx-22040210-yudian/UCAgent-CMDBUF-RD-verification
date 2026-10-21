@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "command": [
+    "make",
+    "-f",
+    "simulation/env_base/env/Makefile",
+    "PROJECT_CONFIG=simulation/env_base/projects/cmdbuf_rd_sva.mk",
+    "VERILATOR=/home/ucagent-lab/portable-distributions/UCAgent-Studio-0.3.1-linux-x86_64/oss-cad-suite/bin/verilator",
+    "BUILD_DIR=/root/cmdbuf_rd/four_state_20261021_retry2/build/verilator",
+    "RESULT_DIR=/root/cmdbuf_rd/four_state_20261021_retry2/build/simulation",
+    "JOBS=2",
+    "lint",
+    "run-all"
+  ],
+  "returncode": 0,
+  "environment_change": {
+    "LIBRARY_PATH": "/usr/lib/gcc/x86_64-redhat-linux/4.8.5:"
+  },
+  "source_change": false,
+  "elapsed_seconds": 0.77,
+  "simulation_cases": [
+    {
+      "name": "01_pipeline",
+      "checks": 865,
+      "cycles": 51,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "02_same_xau_ooo",
+      "checks": 532,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "03_forward_6b",
+      "checks": 533,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "04_grants",
+      "checks": 1405,
+      "cycles": 103,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "05_failure_overlap",
+      "checks": 561,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "06_window_block",
+      "checks": 585,
+      "cycles": 48,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "07_single_pulse",
+      "checks": 596,
+      "cycles": 48,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "08_rr",
+      "checks": 675,
+      "cycles": 53,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "09_errors",
+      "checks": 455,
+      "cycles": 38,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "10_capacity_reuse",
+      "checks": 702,
+      "cycles": 53,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "11_capacity_700",
+      "checks": 675,
+      "cycles": 53,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "12_capacity_440",
+      "checks": 674,
+      "cycles": 53,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "13_tokens",
+      "checks": 761,
+      "cycles": 63,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "14_single_source_throughput",
+      "checks": 3958,
+      "cycles": 170,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "15_reset_clean",
+      "checks": 1328,
+      "cycles": 96,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "16_random_seed_1",
+      "checks": 32556,
+      "cycles": 1815,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "17_random_seed_17",
+      "checks": 32584,
+      "cycles": 1812,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "18_random_seed_91",
+      "checks": 32410,
+      "cycles": 1814,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "19_rr_ready_masks",
+      "checks": 390,
+      "cycles": 33,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "20_retry_single",
+      "checks": 318,
+      "cycles": 28,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "21_retry_busy_other",
+      "checks": 327,
+      "cycles": 28,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "22_nonhead_refill",
+      "checks": 481,
+      "cycles": 38,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "23_pending_delta",
+      "checks": 482,
+      "cycles": 38,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "24_all_bank_halves",
+      "checks": 1725,
+      "cycles": 147,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "25_same_half_pressure",
+      "checks": 1371,
+      "cycles": 103,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "26_repeat_ids",
+      "checks": 1082,
+      "cycles": 73,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "27_pending_ar_only",
+      "checks": 431,
+      "cycles": 33,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "28_xau0_order_312",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "29_xau1_order_312",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "30_xau2_order_312",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "31_xau0_order_312_repeat",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "32_xau1_order_312_repeat",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    },
+    {
+      "name": "33_xau2_order_312_repeat",
+      "checks": 510,
+      "cycles": 43,
+      "status": "pass",
+      "checks_failed": 0
+    }
+  ],
+  "log": "build/native_sva_linkfix.log"
+}

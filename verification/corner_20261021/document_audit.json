@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "pages": 6,
+  "render_backend": "Native Word 16.0 export + packaged render_docx.py PNG pipeline",
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "title_border_removed": true,
+  "rtl_matches_vm_inputs": true,
+  "image_hashes": {
+    "page-1.png": "ff91662d8dc1277e0fe9303e24b4700c4aa6a8542f731aa43bbde485ce0e7177",
+    "page-2.png": "600537050b66a6a4923fbea66408bfef7d7ea09588d880ea374942107fab9d37",
+    "page-3.png": "4d3e8acbe0cad03dd33edc410067afdc3d5addeb43942946e61249c8828ac85f",
+    "page-4.png": "d5a6b91b2654bd3430da7984cb41f23a58ce4bbb8d0ac6e27db6c44e7d3d4537",
+    "page-5.png": "d73696144188da0cac51ff2692a1ac7920ea37671a1b3e0a912abd109d0dac8a",
+    "page-6.png": "a2b585a8afe41c4709a9f627c3c8fb5e7633ef2470705ef829c3caf1e1397f1c"
+  },
+  "documents": {
+    "22_cmdbuf_rd_corner_sva_20261021.docx": {
+      "bytes": 46833,
+      "sha256": "4f1f3ae4a483d02640494d275844bfdcda9359e62e42aa50685827d51e15d369"
+    },
+    "22_cmdbuf_rd_corner_sva_20261021.pdf": {
+      "bytes": 573714,
+      "sha256": "a2234bf2e953df136373f46547bacd1ce9bf1974c4245ca9b2f3898eaae6a7cd"
+    }
+  }
+}

@@ -1,0 +1,559 @@
+{
+  "version": "1.2",
+  "pages": [
+    {
+      "page": 1,
+      "title": "CMDBUF RD RTL 设计说明",
+      "group": "正文"
+    },
+    {
+      "page": 2,
+      "title": "1 系统架构",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 3,
+      "title": "一条读请求的完整处理过程",
+      "group": "总览波形",
+      "level": 2
+    },
+    {
+      "page": 4,
+      "title": "阅读导航",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 5,
+      "title": "2 接口与协议",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 6,
+      "title": "R 响应通道与错误状态",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 7,
+      "title": "Arbit 与 MEM 接口",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 8,
+      "title": "采样时序与下游握手",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 9,
+      "title": "3 CMDBUF 设计",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 10,
+      "title": "命令状态与 entry 回收",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 11,
+      "title": "共享容量与三个来源的保护",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 12,
+      "title": "命令年龄与五项乱序窗口",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 13,
+      "title": "发射流水与仲裁结果",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 14,
+      "title": "待发计数与同拍更新",
+      "group": "正文",
+      "level": 2
+    },
+    {
+      "page": 15,
+      "title": "4 OTB 设计",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 16,
+      "title": "5 响应保序与轮询",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 17,
+      "title": "6 性能与实现要求",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 18,
+      "title": "7 场景与波形",
+      "group": "波形",
+      "level": 1
+    },
+    {
+      "page": 19,
+      "title": "场景 03 某个来源不能接收时切换来源",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 20,
+      "title": "场景 04 五项窗口都忙而第六项空闲",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 21,
+      "title": "场景 05 窗口中间的命令成功发射",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 22,
+      "title": "场景 06 一条命令连续仲裁失败",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 23,
+      "title": "场景 07 失败后选择另一条命令",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 24,
+      "title": "场景 08 连续访问同一 Bank 半区",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 25,
+      "title": "场景 09 待发计数立即反映本拍事件",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 26,
+      "title": "场景 10 MEM 返回一拍而上游暂时不能接收",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 27,
+      "title": "场景 11 第三条先完成仍然按序响应",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 28,
+      "title": "场景 12 只在能够接收的来源之间轮询",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 29,
+      "title": "场景 13 为第三个来源保留首条容量",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 30,
+      "title": "场景 14 满容量时回收并接收新命令",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 31,
+      "title": "场景 15 接收发射捕获响应同拍发生",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 32,
+      "title": "场景 16 相同 ID 和不同错误结果",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 33,
+      "title": "场景 17 两个仲裁结果必须匹配请求位",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 34,
+      "title": "场景 18 复位后接收第一条命令",
+      "group": "波形",
+      "level": 2
+    },
+    {
+      "page": 35,
+      "title": "8 验证内容与已有结果",
+      "group": "正文",
+      "level": 1
+    },
+    {
+      "page": 36,
+      "title": "9 集成要求和文件入口",
+      "group": "正文",
+      "level": 1
+    }
+  ],
+  "images": [
+    {
+      "page": 2,
+      "file": "architecture.png",
+      "caption": "图 1  cmdbuf_rd 在读访问路径中的位置及内部连接"
+    },
+    {
+      "page": 3,
+      "file": "W01_minimum_pipeline.png",
+      "caption": "W01  协议示意：A 来自 XAU0，rready=111；busy 除成功拍外仅为本例取值"
+    },
+    {
+      "page": 9,
+      "file": "cmd_structure.png",
+      "caption": "图 2  CMDBUF 内部的命令管理和调度关系"
+    },
+    {
+      "page": 10,
+      "file": "lifecycle.png",
+      "caption": "图 3  一组 entry 从分配到回收的过程"
+    },
+    {
+      "page": 13,
+      "file": "issue_fsm.png",
+      "caption": "图 4  发射流水寄存器的两种状态"
+    },
+    {
+      "page": 15,
+      "file": "otb_structure.png",
+      "caption": "图 5  OTB 的返回计时流水和数据存储"
+    },
+    {
+      "page": 16,
+      "file": "rr_states.png",
+      "caption": "图 6  响应轮询的扫描起点和更新规则"
+    },
+    {
+      "page": 18,
+      "file": "W02_continuous_pipeline.png",
+      "caption": "W02  协议示意：同源连续流，不同可用半区；C8 起接收和回收同时发生"
+    },
+    {
+      "page": 19,
+      "file": "W03_ar_admission.png",
+      "caption": "W03  协议示意：起始已有七条 XAU0 命令；T4 有已完成队头可响应"
+    },
+    {
+      "page": 20,
+      "file": "W04_blocked_window.png",
+      "caption": "W04  协议示意：满窗口的五条命令均忙，F 的半区始终空闲"
+    },
+    {
+      "page": 21,
+      "file": "W05_nonhead_refill.png",
+      "caption": "W05  VM VCD 22_nonhead_refill"
+    },
+    {
+      "page": 22,
+      "file": "W06_failed_retry.png",
+      "caption": "W06  VM VCD 20_retry_single"
+    },
+    {
+      "page": 23,
+      "file": "W07_failure_other.png",
+      "caption": "W07  VM VCD 21_retry_busy_other"
+    },
+    {
+      "page": 24,
+      "file": "W08_same_half.png",
+      "caption": "W08  VM VCD 25_same_half_pressure"
+    },
+    {
+      "page": 25,
+      "file": "W09_pending_count.png",
+      "caption": "W09  VM VCD 23_pending_delta"
+    },
+    {
+      "page": 26,
+      "file": "W10_mem_hold.png",
+      "caption": "W10  协议示意：XAU0 队头 A，arresp=00；U/V/W 为非到期拍无关总线值"
+    },
+    {
+      "page": 27,
+      "file": "W11a_order_early.png",
+      "caption": "W11a  VM VCD 28_xau0_order_312"
+    },
+    {
+      "page": 27,
+      "file": "W11b_order_release.png",
+      "caption": "W11b  VM VCD 28_xau0_order_312"
+    },
+    {
+      "page": 28,
+      "file": "W12_rr.png",
+      "caption": "W12  VM VCD 19_rr_ready_masks"
+    },
+    {
+      "page": 29,
+      "file": "W13_reserve_440.png",
+      "caption": "W13  协议示意：T0/T8 的 src 不可接收；XAU2 的新事务最早在 T8 回收"
+    },
+    {
+      "page": 30,
+      "file": "W14_full_reuse.png",
+      "caption": "W14  VM VCD 10_capacity_reuse"
+    },
+    {
+      "page": 31,
+      "file": "W15_four_events.png",
+      "caption": "W15  VM VCD 26_repeat_ids"
+    },
+    {
+      "page": 32,
+      "file": "W16_repeated_ids.png",
+      "caption": "W16  VM VCD 31_xau0_order_312_repeat"
+    },
+    {
+      "page": 33,
+      "file": "W17_grant_combinations.png",
+      "caption": "W17  协议示意：A 持续请求 Bank3，只有同一 bit 双 grant 才成功"
+    },
+    {
+      "page": 34,
+      "file": "W18_reset_start.png",
+      "caption": "W18  协议示意：空状态复位后启动；不定义带未完成 MEM 的单边中途复位"
+    }
+  ],
+  "tables": [
+    {
+      "page": 4,
+      "headers": [
+        "章节或场景",
+        "页码"
+      ],
+      "rows": 0
+    },
+    {
+      "page": 5,
+      "headers": [
+        "端口",
+        "方向",
+        "位宽",
+        "说明"
+      ],
+      "rows": 9
+    },
+    {
+      "page": 6,
+      "headers": [
+        "端口",
+        "方向",
+        "位宽",
+        "说明"
+      ],
+      "rows": 7
+    },
+    {
+      "page": 6,
+      "headers": [
+        "接收时的 arresp",
+        "MEM 返回的 pc_err",
+        "返回的 rresp"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 7,
+      "headers": [
+        "端口",
+        "方向",
+        "位宽或形状",
+        "说明"
+      ],
+      "rows": 8
+    },
+    {
+      "page": 7,
+      "headers": [
+        "原地址字段",
+        "作用"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 8,
+      "headers": [
+        "阶段",
+        "本条命令的处理",
+        "可以同时进行的其他工作"
+      ],
+      "rows": 3
+    },
+    {
+      "page": 9,
+      "headers": [
+        "寄存器",
+        "数量或位数",
+        "用途"
+      ],
+      "rows": 6
+    },
+    {
+      "page": 10,
+      "headers": [
+        "状态",
+        "valid issued done",
+        "何时进入下一状态"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 11,
+      "headers": [
+        "三个来源的占用",
+        "本拍 R 回收",
+        "arready[2:0]",
+        "原因"
+      ],
+      "rows": 6
+    },
+    {
+      "page": 13,
+      "headers": [
+        "本拍正在做什么",
+        "本拍预选结果",
+        "下一拍的请求"
+      ],
+      "rows": 6
+    },
+    {
+      "page": 14,
+      "headers": [
+        "事件",
+        "更新内容"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 15,
+      "headers": [
+        "保存内容",
+        "规模",
+        "作用"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 16,
+      "headers": [
+        "本拍响应结果",
+        "下一拍扫描起点"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 17,
+      "headers": [
+        "条件",
+        "模块的行为"
+      ],
+      "rows": 5
+    },
+    {
+      "page": 21,
+      "headers": [
+        "采样拍",
+        "发射与计数",
+        "本拍选择"
+      ],
+      "rows": 3
+    },
+    {
+      "page": 24,
+      "headers": [
+        "rd_mem_status[b]",
+        "访问偶半区的命令",
+        "访问奇半区的命令"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 25,
+      "headers": [
+        "相同拍初值",
+        "本拍 AR 接收",
+        "本拍发射成功",
+        "本拍 pending_cnt"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 27,
+      "headers": [
+        "命令",
+        "AR 接收",
+        "发射成功",
+        "MEM 捕获",
+        "R 响应"
+      ],
+      "rows": 4
+    },
+    {
+      "page": 32,
+      "headers": [
+        "命令",
+        "arresp",
+        "保存的 pc_err",
+        "响应拍",
+        "rresp"
+      ],
+      "rows": 3
+    },
+    {
+      "page": 32,
+      "headers": [
+        "响应命令",
+        "完整 128 位数据 十六进制"
+      ],
+      "rows": 3
+    },
+    {
+      "page": 35,
+      "headers": [
+        "需要检查的行为",
+        "对应检查入口"
+      ],
+      "rows": 7
+    },
+    {
+      "page": 36,
+      "headers": [
+        "仓库内路径",
+        "用途"
+      ],
+      "rows": 9
+    }
+  ],
+  "docx": "E:\\formal打榜\\publish\\UCAgent-CMDBUF-RD-verification\\documents\\20_cmdbuf_rd_rtl_detailed_design_20261021.docx",
+  "organization": "项目整体介绍 系统架构 完整处理流程 接口 模块 场景 验证与集成"
+}

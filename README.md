@@ -2,6 +2,18 @@
 
 本仓库保存 `cmdbuf_rd` 项目的 RTL、验证环境与历史证据：9 项 CMDBUF/OTB、3 个 XAU、最老 5 条未成功发射命令窗口、三周期前向流水、MEM 成功发射后四拍返回，以及每个 XAU 保序的 RR 响应。
 
+**场景、波形与 SVA 对照手册：** [Word](documents/23_cmdbuf_rd_scenarios_waves_sva_20261021.docx) / [PDF](documents/23_cmdbuf_rd_scenarios_waves_sva_20261021.pdf)。逐项列出当前 156 个场景的前提、动作、预期、波形和可编辑的原生 SVA，并收录全部 547 个 Corner cover 分支及相关 assume/assert。147 项采用已保存的实际关联轨迹，9 项明确使用边界示意。文中及附录 E 标出 ARB-13、MEM-03、MEM-06 的现有 cover 条件与更强文字目标之间的差异，不把分支命中当作全部场景验证闭合。本次整理不修改 RTL/SVA，不新增求解器证明，不纳入复位及四态场景。
+
+**当前 156 项 Corner 的 SVA：** [原生接入清单](formal/corner_20261021/native.f)、[逐项 cover 源码](formal/corner_20261021/cmdbuf_rd_corner_properties.svh) 和 [新增容量断言](formal/corner_20261021/cmdbuf_rd_corner_assertions.svh)。139 项合法业务都有场景见证；新增 547 个分支全部命中，其中 ENT-12 的 1 项使用独立合法输入引导。576 条 SBY 轨迹经原生 SVA 回放通过。156 个断言实例通过 10 步 BMC，其中 105 项是模型自检；仅 3 项协议性质取得无界证明，12 步全量 BMC 和容量无界证明的超时均保留。4 类违规环境在独立配置中按预期检出，另 9 项观测边界或内部注错要求没有计作端口覆盖完成。详见 [PDF](documents/22_cmdbuf_rd_corner_sva_20261021.pdf) / [Word](documents/22_cmdbuf_rd_corner_sva_20261021.docx)、[逐点结果](verification/corner_20261021/case_property_results.json) 和 [VM 验证汇总](verification/corner_20261021/summary.json)。本轮不新增复位或四态场景，不修改 RTL。
+
+**当前 RTL 详细设计 1.2：** [PDF 阅读版](documents/20_cmdbuf_rd_rtl_detailed_design_20261021.pdf) / [Word 编辑版](documents/20_cmdbuf_rd_rtl_detailed_design_20261021.docx)。36 页从项目用途和一条读命令的完整过程讲起，再展开接口、CMDBUF、OTB、保序轮询和各类场景。保留 6 张架构与控制图、18 组场景的 19 张波形图，其中 11 张波形取自已保存的 VM VCD，其余注明为协议示意。1.2 版修正了状态口类型：顶层、CMDBUF 子模块及当前验证接口统一使用四态 `wire`，保留 Bank 二维数组形式。
+
+**四态接口修正：** 本项目 RTL 禁用二态 `bit`。VM 上逐位输入 `0/1/X/Z`，顶层与子模块的 128 个端口观测值全部匹配；正常业务的 33 个原生 SVA 仿真用例、145 个断言实例的 10 步 BMC、三项接口性质无界证明和 46 项 cover 重新通过。四态检查只证明端口保留 X/Z，SBY 结论适用于所用形式模型，不表示对任意 X/Z 业务行为的证明。本轮没有重跑历史注错或目标加密 RTL 等价检查。具体输入、执行命令、构建环境修复与原始日志见 [本次验证记录](verification/four_state_20261021/summary.json)。
+
+**src、arready 与占用时序：** [PDF 分析](documents/21_cmdbuf_rd_src_arready_occupancy_20261021.pdf) / [Word](documents/21_cmdbuf_rd_src_arready_occupancy_20261021.docx)。11 页说明每源占用、先计本拍 R 回收的 ready 计算、来源匹配、满容量同进同出和 MEM 返回延迟，包含六组采样时序示意。容量抽象穷举了 190 种合法占用、631 种状态与回收组合、2440 个 AR 动作组合；[完整数据与核对记录](docs/timing/admission_20261021/analysis_audit.json) 保存分析范围。这是当前准入规则的穷举分析，没有新增 RTL 仿真或 formal 证明。
+
+**Corner 场景 Excel：** [下载可筛选工作簿](outputs/01a11c46-e4bc-75d3-bbb3-a91f7ae14903/cmdbuf_rd_corner_cases_20261021.xlsx)。仅分析 `rst_n=1`、信号各位取 0/1 的正常运行阶段，不考虑复位及四态 X/Z 问题。包含 12 类 156 项场景、190 个合法占用状态、2440 种 AR/R 容量转换、6 组逐拍示例和 16 种同拍事件组合。各条给出前提、触发、预期、注错重点和关联 SVA；执行结果保留“未逐项执行”。容量公式已逐行核对，这是分析及表格校验，不是新增 RTL/formal 运行。另附 [结构化清单](docs/testpoints/corner_20261021/catalog.json) 和 [工作簿核验](docs/testpoints/corner_20261021/workbook_audit.json)。
+
 **2026-10-21 规格修正：** 用户已确认逐 Bank 二维 `rd_mem_status`、成功拍对应状态为忙、失败命令同拍重选、`pending_cnt` 同拍加 AR 接收并减成功发射、每源最多七项并保留其他来源首项容量，以及窗口内非队头成功后同拍补入下一项（6B）。RTL 允许使用 SystemVerilog。最新定义见 [修订说明 PDF](documents/15_cmdbuf_rd_protocol_corrections_20261021.pdf) / [Word](documents/15_cmdbuf_rd_protocol_corrections_20261021.docx) 和 [规格记录](docs/timing/protocol_corrections_20261021.json)。新版 RTL/SVA 已实现这些修正，当前入口为 [rtl/files.f](rtl/files.f)，只编译三份 `.sv`。实现与本轮 VM 结果见 [修复验证说明 PDF](documents/16_cmdbuf_rd_rtl_revision_20261021.pdf) / [Word](documents/16_cmdbuf_rd_rtl_revision_20261021.docx) 及 [本轮结果](verification/protocol_20261021/summary.json)。下文此前验证结果仅适用于各自的原始规格和封存输入。
 
 项目说明统一提供 **PDF 阅读版和 Word 编辑版**。完整资料见 [完整说明手册 PDF](documents/CMDBUF_RD_完整说明手册.pdf) / [完整说明手册 Word](documents/CMDBUF_RD_完整说明手册.docx)，各主题分册见下表。原 Markdown、HTML 和历史证据作为维护及追溯来源保留。
@@ -16,8 +28,12 @@
 
 | 说明内容 | PDF | Word |
 |---|---|---|
+| 当前 156 个场景、对应波形与可编辑 SVA，附已识别的覆盖条件差异 | [阅读](documents/23_cmdbuf_rd_scenarios_waves_sva_20261021.pdf) | [编辑](documents/23_cmdbuf_rd_scenarios_waves_sva_20261021.docx) |
+| 当前 156 项 Corner 的 SVA、逐点覆盖与验证范围 | [阅读](documents/22_cmdbuf_rd_corner_sva_20261021.pdf) | [编辑](documents/22_cmdbuf_rd_corner_sva_20261021.docx) |
+| 当前 RTL 详细设计：接口、架构与状态机、特性及 18 组场景波形 | [阅读](documents/20_cmdbuf_rd_rtl_detailed_design_20261021.pdf) | [编辑](documents/20_cmdbuf_rd_rtl_detailed_design_20261021.docx) |
+| src、arready 与 entry 占用的完整容量分类和同拍进出时序 | [阅读](documents/21_cmdbuf_rd_src_arready_occupancy_20261021.pdf) | [编辑](documents/21_cmdbuf_rd_src_arready_occupancy_20261021.docx) |
 | 项目使用、RTL 集成与服务部署 | [阅读](documents/01_project_usage.pdf) | [编辑](documents/01_project_usage.docx) |
-| 详细 RTL 设计方案与架构 | [阅读](documents/02_rtl_design.pdf) | [编辑](documents/02_rtl_design.docx) |
+| 历史 RTL 设计方案与架构，当前实现以第 20 份说明为准 | [阅读](documents/02_rtl_design.pdf) | [编辑](documents/02_rtl_design.docx) |
 | 历史 13 个时序场景，冲突部分以最新修订为准 | [阅读](documents/03_timing_scenarios.pdf) | [编辑](documents/03_timing_scenarios.docx) |
 | 49 组注错与容量保护 | [阅读](documents/04_fault_catalog.pdf) | [编辑](documents/04_fault_catalog.docx) |
 | Tk GUI 操作图示与放大视图 | [阅读](documents/05_tk_gui_guide.pdf) | [编辑](documents/05_tk_gui_guide.docx) |
@@ -50,7 +66,7 @@
 
 **查看本次标注版请打开 [带行首标签的主文件](formal/port_only_annotated/cmdbuf_rd_port_sva.sv) 与 [配置文件](formal/port_only_annotated/cmdbuf_rd_port_profiles.svh)。** `formal/port_only_annotated/` 是完整可构建源码副本，无需模型的标签同时放在属性行开头和行末。旧主文件路径曾反复回退为未标注内容，具体写入来源未定位；新副本使用独立编辑器路径，并在生成前检查标签完整性。表达式与原行号不变，9 种原生配置编译通过，记录见 [本次检查](verification/port_only_visible_20261018/lint/source_validation.json)。
 
-当前芯片 RTL 使用 **SystemVerilog**：[cmdbuf_rd.sv](rtl/cmdbuf_rd.sv)、[cmdbuf_rd_cmd.sv](rtl/cmdbuf_rd_cmd.sv)、[cmdbuf_rd_otb.sv](rtl/cmdbuf_rd_otb.sv)。使用 [rtl/files.f](rtl/files.f) 显式选择当前版本；逐 Bank 状态口为 `input bit [1:0] rd_mem_status [7:0]`。同目录 `.v` 是历史实现，禁止把 `.v` 和 `.sv` 同时加入一个编译任务。旧 GUI 验证包、历史 SVA 和证据仍对应旧规格；本次修订的独立验证入口为 [formal/protocol_20261021/run.py](formal/protocol_20261021/run.py)。
+当前芯片 RTL 使用 **SystemVerilog**：[cmdbuf_rd.sv](rtl/cmdbuf_rd.sv)、[cmdbuf_rd_cmd.sv](rtl/cmdbuf_rd_cmd.sv)、[cmdbuf_rd_otb.sv](rtl/cmdbuf_rd_otb.sv)。使用 [rtl/files.f](rtl/files.f) 显式选择当前版本；逐 Bank 状态口为 `input wire [1:0] rd_mem_status [7:0]`。同目录 `.v` 是历史实现，禁止把 `.v` 和 `.sv` 同时加入一个编译任务。旧 GUI 验证包、历史 SVA 和证据仍对应旧规格；本次修订的独立验证入口为 [formal/protocol_20261021/run.py](formal/protocol_20261021/run.py)。
 
 操作界面为 **Python Tkinter/ttk 原生 GUI**。在 UCAgent 已关联的 SBY 任务中点击“切换到 FormalMC”，即可进入完整项目的 FormalMC 操作页；两种后端独立保存配置和结果。HTML 文件是报告与文档。
 
@@ -59,6 +75,8 @@
 | 目录 | 内容 |
 |---|---|
 | `rtl/` | 当前三份 `.sv`、显式文件清单及保留的历史 `.v` |
+| `formal/corner_20261021/` | 当前 156 项 Corner 的可选 SVA 扩展、独立容量记账、逐项 cover、负向契约和长循环见证配置 |
+| `verification/corner_20261021/` | 本轮 SBY、原生回放、32 项业务仿真、逐点结果及含失败尝试的独立证据 |
 | `formal/protocol_20261021/` | 新规格端口 SVA、同拍 busy 约束、SBY/read_slang 运行入口与原生 SVA 文件清单 |
 | `verification/protocol_20261021/` | 新版 RTL 本轮 VM 仿真、注错、SBY 范围及独立证据包 |
 | `verification/sva_alignment_20261021/` | 最新复位禁用与有效负载规则的原生 SVA 验证、属性清单、初态记录及证据 |
