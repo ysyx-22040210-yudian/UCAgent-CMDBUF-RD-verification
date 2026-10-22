@@ -1,0 +1,22 @@
+{
+  "name": "prove",
+  "timeout": 180,
+  "mode": "prove",
+  "depth": 16,
+  "engine": "abc pdr",
+  "assertions": [
+    "A_L_REQ_ONEHOT",
+    "A_L_R_ONEHOT",
+    "A_L_R_READY",
+    "A_L_RRESP_CODE"
+  ],
+  "covers": [],
+  "status": "PASS 0 2",
+  "returncode": 0,
+  "seconds": 2.02,
+  "counts": {
+    "assert": 4,
+    "assume": 11,
+    "cover": 0
+  }
+}

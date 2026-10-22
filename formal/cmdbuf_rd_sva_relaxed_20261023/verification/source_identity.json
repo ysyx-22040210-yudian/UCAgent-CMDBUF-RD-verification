@@ -1,0 +1,19 @@
+{
+  "vm_directory": "/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023",
+  "sha256": {
+    "checker.f": "faf9796b65a04664cd1cc51aac04857ec0a9ee9776da8c150ac331bc3dcb527c",
+    "cmdbuf_rd_relaxed_model.svh": "0a42f3fe56ea592a6a1ce05b5400f6bf999987a7321ee3e8092923b0f8b5299c",
+    "cmdbuf_rd_relaxed_sva.sv": "7ebcdc9fa6470164b5c4e0357ef64d9cc631a4791e2852c0045eb1526b1ea195",
+    "cmdbuf_rd_value_bag.sv": "b3fbe05147c39bc9ac7c16667a981fff753c2396b2be590d7560fb07520c30de",
+    "formal_top.sv": "8cd2679dadcef6ffdfb291f922faaf9f627a9766992d2e70f7767c2b59098c03",
+    "native.f": "d89e2d69164f841e85050154cbdfa0b65616a3ac8043ce78ce0c6d8bfe64b8bb",
+    "property_catalog.py": "56c4017a72dfaef4dc39bafaa873bce8c41fd488541b2258e25ee3a074b497c6",
+    "property_scope.json": "5b78a241f566ea520d3ab0f133c3d509c9901ff51c554fc97f5ba2029932029d",
+    "rtl/cmdbuf_rd.sv": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4",
+    "rtl/cmdbuf_rd_cmd.sv": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f",
+    "rtl/cmdbuf_rd_otb.sv": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2",
+    "run.py": "5d752bc6346054a091ef6d5879449b5e1071cf920a9c1e19362f83ffbd6e25ba",
+    "run_monitor_tests.py": "bcc854672d00c4209e506af4f704b52efccd2909dd61878bdb27db69c5d2e35d",
+    "verify.py": "25f880ea40e158f92a0394b2d937cb357c06b6fb9c2d7f305d6f4f2d420fa9da"
+  }
+}

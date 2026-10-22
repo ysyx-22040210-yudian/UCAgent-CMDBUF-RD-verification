@@ -1,0 +1,122 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "arvalid |-> (src < 2'd3)",
+    "executed_expression": "(!(arvalid) || ((src < 2'd3)))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "executed_expression": "(!(arvalid) || ((arresp==2'b00 || arresp==2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "(arready==3'b000) |-> !arvalid",
+    "executed_expression": "(!((arready==3'b000)) || (!arvalid))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "executed_expression": "(!((req[b] && ar_rd_gnt[b] && rw_rd_gnt[b])) || (rd_mem_status[b][arb_addr[0]]))"
+  },
+  {
+    "label": "A_L_RRESP_CODE",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (rresp==2'b00 || rresp==2'b01 || rresp==2'b11)",
+    "executed_expression": "(!((|rvalid)) || ((rresp==2'b00 || rresp==2'b01 || rresp==2'b11)))"
+  },
+  {
+    "label": "A_L_ISSUE_BALANCE",
+    "kind": "assert",
+    "source_expression": "issue_fire |-> waiting!=0",
+    "executed_expression": "(!(issue_fire) || (waiting!=0))"
+  },
+  {
+    "label": "A_L_R_AFTER_CAPTURE",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> completed!=0",
+    "executed_expression": "(!((|rvalid)) || (completed!=0))"
+  },
+  {
+    "label": "A_L_SOURCE_NONEMPTY",
+    "kind": "assert",
+    "source_expression": "rvalid[x] |-> occupied[x]!=0",
+    "executed_expression": "(!(rvalid[x]) || (occupied[x]!=0))"
+  },
+  {
+    "label": "A_L_ADDR_ERROR_ANY",
+    "kind": "assert",
+    "source_expression": "(rvalid[x] && rresp==2'b11) |-> outside[x]!=0",
+    "executed_expression": "(!((rvalid[x] && rresp==2'b11)) || (outside[x]!=0))"
+  },
+  {
+    "label": "A_L_NORMAL_ADDR_ANY",
+    "kind": "assert",
+    "source_expression": "(rvalid[x] && rresp!=2'b11) |-> occupied[x]>outside[x]",
+    "executed_expression": "(!((rvalid[x] && rresp!=2'b11)) || (occupied[x]>outside[x]))"
+  },
+  {
+    "label": "A_L_COMMAND_ANY",
+    "kind": "assert",
+    "source_expression": "(|req) |-> command_hit",
+    "executed_expression": "(!((|req)) || (command_hit))"
+  },
+  {
+    "label": "A_L_RID_ANY",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> id_hit",
+    "executed_expression": "(!((|rvalid)) || (id_hit))"
+  },
+  {
+    "label": "A_L_RPORT_ANY",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> port_hit",
+    "executed_expression": "(!((|rvalid)) || (port_hit))"
+  },
+  {
+    "label": "A_L_RADDR_ANY",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> low_addr_hit",
+    "executed_expression": "(!((|rvalid)) || (low_addr_hit))"
+  },
+  {
+    "label": "A_L_RDATA_ANY",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> data_hit",
+    "executed_expression": "(!((|rvalid)) || (data_hit))"
+  },
+  {
+    "label": "A_L_PC_CLEAN_POSSIBLE",
+    "kind": "assert",
+    "source_expression": "((|rvalid) && rresp==2'b00) |-> bad_low<completed",
+    "executed_expression": "(!(((|rvalid) && rresp==2'b00)) || (bad_low<completed))"
+  },
+  {
+    "label": "A_L_PC_BAD_POSSIBLE",
+    "kind": "assert",
+    "source_expression": "((|rvalid) && rresp==2'b01) |-> bad_high!=0",
+    "executed_expression": "(!(((|rvalid) && rresp==2'b01)) || (bad_high!=0))"
+  },
+  {
+    "label": "M_L_COMMAND_ROOM",
+    "kind": "assert",
+    "source_expression": "ar_fire |-> command_room",
+    "executed_expression": "(!(ar_fire) || (command_room))"
+  },
+  {
+    "label": "M_L_FIELDS_ROOM",
+    "kind": "assert",
+    "source_expression": "ar_fire |-> (id_room && port_room && low_addr_room)",
+    "executed_expression": "(!(ar_fire) || ((id_room && port_room && low_addr_room)))"
+  },
+  {
+    "label": "M_L_DATA_ROOM",
+    "kind": "assert",
+    "source_expression": "mem_due |-> data_room",
+    "executed_expression": "(!(mem_due) || (data_room))"
+  }
+]

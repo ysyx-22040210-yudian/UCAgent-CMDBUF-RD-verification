@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "scope": "当前生效 formal 参考模型的 assign 改写与中文注释；RTL 未改动。",
+  "vm_run_directory": "/root/cmdbuf_rd/assign_model_20261023_v3",
+  "source_audit": {
+    "status": "PASS",
+    "files": [
+      {
+        "path": "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh",
+        "clocked_blocks": 0,
+        "state_variables": 0,
+        "old_sha256": "f3dadbc42f45009d13e92844c3b5f9c80e71686558bb0af7619971cbcd5a794f",
+        "new_sha256": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898"
+      },
+      {
+        "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+        "clocked_blocks": 4,
+        "state_variables": 53,
+        "old_sha256": "2d0d7fa6e9b817d290e099e635a4bbadd1ad7fa7456bf182076f593306ca4353",
+        "new_sha256": "32fcd390d753895f52812c1462e6f4e19fd2160c2367bb3961b5f6c333f4c146"
+      },
+      {
+        "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+        "clocked_blocks": 1,
+        "state_variables": 9,
+        "old_sha256": "e0506087ac6341eaaacca826669ed5ada012655cd8cd0056d33c71c1dccd7f51",
+        "new_sha256": "703d1be957f035bd50eb050559a63ab2d85e8a8a54f677393defddb9cce08ebe"
+      },
+      {
+        "path": "formal/corner_20261021/cmdbuf_rd_long_witness.svh",
+        "clocked_blocks": 1,
+        "state_variables": 1,
+        "old_sha256": "ee1d7030087a10761db7395ed00873b3bb1895b27b5bf6f0c61d9c42145da0cf",
+        "new_sha256": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f"
+      },
+      {
+        "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+        "clocked_blocks": 1,
+        "state_variables": 1,
+        "old_sha256": "077bb9178217ef2e1ecdbf33b526be5732a58a859f024c14a7898bfad7eed065",
+        "new_sha256": "2fd62d01f9904cf1412b9a1cb23176e1051d3223a1a96c3dcc8c4ad2c142f29b"
+      },
+      {
+        "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+        "clocked_blocks": 2,
+        "state_variables": 25,
+        "old_sha256": "39b09cb1d7fd84904340a104bbf6cf4e7dcd89c3bb8262dc116b637b8edac0c8",
+        "new_sha256": "6c3038eed02520dc8a6d3ae7c7404fc888a67d9eab07ca7abaf4c198e0ac08b7"
+      },
+      {
+        "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+        "clocked_blocks": 3,
+        "state_variables": 7,
+        "old_sha256": "212894ee924643425a196785597a7f2aea92cf9ee79ebb6afb1ef74b5e559467",
+        "new_sha256": "d662584d7a4f4037a7df5853cb79f4dcdc4abb5e01fb7e344d0f7d980c0b61db"
+      }
+    ],
+    "properties_unchanged": 615,
+    "property_instances": {
+      "assume": 11,
+      "assert": 156,
+      "cover": 593
+    },
+    "variable_declarations_with_chinese_explanations": 235,
+    "clocked_statements_unchanged": true,
+    "state_declarations_unchanged": true,
+    "rtl_changed": false,
+    "helper_continuous_expressions_unchanged": 12,
+    "comb_always_count": 0,
+    "net_declaration_assignment_count": 0,
+    "comb_equivalence_outputs": 65,
+    "comb_equivalence_environment_assumptions": [],
+    "comb_equivalence_state_domain": [
+      "m_attempt_e < 9",
+      "m_src[0..8] < 3"
+    ],
+    "state_domain_reason": "Exclude out-of-range array indices in arbitrary state; no assumption added to DUT checker. All remaining state values and input ports are arbitrary."
+  },
+  "combinational_equivalence": {
+    "status": "PASS",
+    "outputs": 65,
+    "state_domain": [
+      "m_attempt_e < 9",
+      "m_src[0..8] < 3"
+    ],
+    "note": "任意二值输入与共享状态，在参考数组索引合法的范围内比较旧/新组合函数；正式 SVA 的 assume 未修改。"
+  },
+  "sby": {
+    "bmc_depth": 10,
+    "bmc_assert_instances": 156,
+    "normal_assume_instances": 11,
+    "unbounded_proved": [
+      "A_REQ_ONEHOT",
+      "A_R_ONEHOT",
+      "A_R_READY"
+    ],
+    "newly_searched_cover_instances": 187,
+    "jobs": [
+      {
+        "name": "prove",
+        "timeout": 300,
+        "mode": "prove",
+        "depth": 12,
+        "engine": "abc pdr",
+        "assertions": [
+          "A_REQ_ONEHOT",
+          "A_R_ONEHOT",
+          "A_R_READY"
+        ],
+        "status": "PASS 0 3",
+        "returncode": 0,
+        "elapsed_seconds": 3.24,
+        "counts": {
+          "assert": 3,
+          "assume": 11,
+          "cover": 0
+        },
+        "inputs_sha256": "4185f11347ecf5a2c313364ec07e926010a68c6b630f7ad1afedde52f6d9e861"
+      },
+      {
+        "name": "bmc",
+        "timeout": 300,
+        "mode": "bmc",
+        "depth": 10,
+        "engine": "abc bmc3",
+        "assertions": null,
+        "status": "PASS 0 35",
+        "returncode": 0,
+        "elapsed_seconds": 32.15,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 0
+        },
+        "inputs_sha256": "940d8ecd6dd484845c7116aa3551cdeb8c4d342d2effcedb2c55b1b2dc09d2dc"
+      },
+      {
+        "name": "base",
+        "timeout": 300,
+        "mode": "cover",
+        "depth": 48,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "status": "PASS 0 64",
+        "returncode": 0,
+        "elapsed_seconds": 56.55,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 46
+        },
+        "inputs_sha256": "2d94d4e69a8d4a71cdadf97a0086afde4998565e282800dff7ef3f9447884288"
+      },
+      {
+        "name": "cap",
+        "timeout": 300,
+        "mode": "cover",
+        "depth": 48,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "status": "PASS 0 36",
+        "returncode": 0,
+        "elapsed_seconds": 32.49,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 44
+        },
+        "inputs_sha256": "d879e6248535f424ac14320dce19164792ed8f17a56284bb49169197f331c852"
+      },
+      {
+        "name": "win",
+        "timeout": 300,
+        "mode": "cover",
+        "depth": 48,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "status": "PASS 0 22",
+        "returncode": 0,
+        "elapsed_seconds": 18.5,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 26
+        },
+        "inputs_sha256": "16e964854c27144f2c140e8779000e669d64af071f7e7762d797c6429d7bba5b"
+      },
+      {
+        "name": "arb",
+        "timeout": 300,
+        "mode": "cover",
+        "depth": 48,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "status": "PASS 0 20",
+        "returncode": 0,
+        "elapsed_seconds": 16.84,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 57
+        },
+        "inputs_sha256": "53a487e91cba88a98ba993b17f2efcbe7425e1a4498cc070956a8ac85513f741"
+      },
+      {
+        "name": "cnt",
+        "timeout": 300,
+        "mode": "cover",
+        "depth": 48,
+        "engine": "smtbmc yices",
+        "assertions": null,
+        "status": "PASS 0 12",
+        "returncode": 0,
+        "elapsed_seconds": 10.42,
+        "counts": {
+          "assert": 156,
+          "assume": 11,
+          "cover": 14
+        },
+        "inputs_sha256": "72a510d8d229e9ae7eb0cb505445a742c8e07d8f130413510ea075e5c3a6574f"
+      }
+    ]
+  },
+  "simulation": {
+    "cases": 32,
+    "cycles": 7082,
+    "checks": 120194,
+    "failed": []
+  },
+  "native_replay": {
+    "traces": 576,
+    "cycles": 4740,
+    "failed": [],
+    "corner_cover_labels": 547,
+    "source": "Existing positive SBY witnesses, replayed on the current native unlowered checker; guided ENT12 witness retains its historical provenance.",
+    "guided_historical_witness": "ENT-12; replay is not an unguided re-proof"
+  },
+  "limits": [
+    "156 个 assert 的完整集合仅完成 10 拍 BMC；只有列出的 3 个端口属性有无界证明。",
+    "本轮运行工具是 SBY/Yosys/Verilator；未在目标 FormalMC 2024 上执行。",
+    "不新增复位或 X/Z 测试；工具通过一次复位初始化 RTL 与检查器。"
+  ],
+  "source_sha256": {
+    "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898",
+    "formal/corner_20261021/cmdbuf_rd_corner_history.svh": "32fcd390d753895f52812c1462e6f4e19fd2160c2367bb3961b5f6c333f4c146",
+    "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh": "703d1be957f035bd50eb050559a63ab2d85e8a8a54f677393defddb9cce08ebe",
+    "formal/corner_20261021/cmdbuf_rd_long_witness.svh": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f",
+    "formal/protocol_20261021/cmdbuf_rd_port_sva.sv": "2fd62d01f9904cf1412b9a1cb23176e1051d3223a1a96c3dcc8c4ad2c142f29b",
+    "formal/protocol_20261021/cmdbuf_rd_reference_model.svh": "6c3038eed02520dc8a6d3ae7c7404fc888a67d9eab07ca7abaf4c198e0ac08b7",
+    "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh": "d662584d7a4f4037a7df5853cb79f4dcdc4abb5e01fb7e344d0f7d980c0b61db",
+    "rtl/cmdbuf_rd.sv": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4",
+    "rtl/cmdbuf_rd_cmd.sv": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f",
+    "rtl/cmdbuf_rd_otb.sv": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2"
+  }
+}

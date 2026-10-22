@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "vm_directory": "/root/cmdbuf_rd/cmdbuf_rd_sva_complete_20261023",
+  "source_files_identical": 25,
+  "native_lint": "PASS",
+  "formal": [
+    {
+      "name": "prove",
+      "timeout": 180,
+      "mode": "prove",
+      "depth": 12,
+      "engine": "abc pdr",
+      "assertions": [
+        "A_REQ_ONEHOT",
+        "A_R_ONEHOT",
+        "A_R_READY"
+      ],
+      "status": "PASS 0 2",
+      "returncode": 0,
+      "elapsed_seconds": 2.46,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "inputs_sha256": "b8718df9cbf1b495a9b4db74aaf348ddbea53fe94f6a417791dc5c9fc182bc2f"
+    },
+    {
+      "name": "bmc",
+      "timeout": 180,
+      "mode": "bmc",
+      "depth": 10,
+      "engine": "abc bmc3",
+      "assertions": null,
+      "status": "PASS 0 24",
+      "returncode": 0,
+      "elapsed_seconds": 21.91,
+      "counts": {
+        "assert": 156,
+        "assume": 11,
+        "cover": 0
+      },
+      "inputs_sha256": "6ecbcfbeb7ca70e16cee4fc86128b0a6e7d9ebacb374a8c33e0886b40852f609"
+    }
+  ],
+  "source_sha256": {
+    "cmdbuf_rd_port_sva.sv": "5c09fca48fbc92dc3cc78090d3d33abcabeb18ee60e1668fb2a12af4f1a39c35",
+    "cmdbuf_rd_reference_model.svh": "d0394441a193d6431b24e896d9ac0ff4a3f7b7e91351aea766c390dc623321c2",
+    "cmdbuf_rd_xau_order_model.svh": "5976a220a2bf6f1c8e16960352aacc5f29981a0f0441200e463ba71baa070c6b",
+    "cmdbuf_rd_corner_properties.svh": "c0c19678b33c1e2995e5a151a52f40c57641309e64c2405e8e2164e334c33a7a",
+    "cmdbuf_rd_corner_assertions.svh": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898",
+    "cmdbuf_rd_corner_history.svh": "74b6f9cbcd647d554c4bda40d9b99051f72d445a96f38728c1c92670a365bbd6",
+    "cmdbuf_rd_corner_sequences.svh": "b1f486de4a7a3145d51ed73f6cca7553f8ff1a230f682e90d524f4cce2a1c1f6",
+    "formal_top.sv": "54d21659f39bd7c53674431d2a82a5bfdf6ae58570486bb539f5d7302066ac19",
+    "rtl/cmdbuf_rd.sv": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4",
+    "rtl/cmdbuf_rd_cmd.sv": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f",
+    "rtl/cmdbuf_rd_otb.sv": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2",
+    "property_catalog.py": "56c4017a72dfaef4dc39bafaa873bce8c41fd488541b2258e25ee3a074b497c6",
+    "replay.cpp": "a3d711b08d26ebd36f2f2e7075febd6f0652eb5b8418d4184954b7e130652cca",
+    "replay.py": "78bc3dc640e083102d6c3a22480dc4dbb15beea186c57e4e7a1f240fef78fc68",
+    "optional/cmdbuf_rd_long_witness.svh": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f",
+    "optional/negative/ar_09.sv": "ac974f5628dab2162b84ed31efb1f182cbdfbaf1540cdc3d56e1477eeed20a09",
+    "optional/negative/ar_10.sv": "052f534905544401d7f2d5675556d3ff11634aa5d12b7a05df07e30ee0820b71",
+    "optional/negative/arb_12.sv": "19a743596d210cfc3355aa812d156489e184fd2387833e1472dae5595b7642f9",
+    "optional/negative/err_05.sv": "c5147fbfafb13113237daf69e971415f3c139409fa83592ab4bf38b0a2f6e3fe",
+    "run.py": "7a3a4df578021990dc1f708d0c8d6ccfa917cf1439014a716610032137f2dd08",
+    "run_guided.py": "2d18543de8c1ef5876f57c9ab81caaa6238c1b25419bca023d2c41bf9b9230ed",
+    "run_negative.py": "d5e73483b2e5ab95161f51498bfb3700983858ab04d6599b71f69636691abd8b",
+    "native.f": "dadac6465b813dc4a5f87f30c13b69a3a769d3a0506b0d6185200b2a065e9b38",
+    "checker.f": "ecb1761ebaae2aeca9d630cb1f5dcc73a1c2dd9e0b49b17332c1abdaeb26b8c2",
+    "verify_bundle.py": "98c58aa541bc7706d3079f12baf5865d83449df657376434cd886b93d5f07888"
+  },
+  "scope": "新文件夹的独立编译与运行路径验证：3 项端口性质无界证明，全部 156 个断言实例的 10 拍 BMC。未重跑全部 cover 或目标 FormalMC 2024。"
+}

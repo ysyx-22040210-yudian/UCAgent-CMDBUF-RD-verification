@@ -1,0 +1,14 @@
+{"case": 0, "name": "two_commands_exact", "expected": null, "profile": "full", "status": "PASS", "returncode": 0, "failed_assertions": []}
+{"case": 11, "name": "invalid_payloads_ignored", "expected": null, "profile": "full", "status": "PASS", "returncode": 0, "failed_assertions": []}
+{"case": 0, "name": "two_commands_exact", "expected": null, "profile": "outputs", "status": "PASS", "returncode": 0, "failed_assertions": []}
+{"case": 11, "name": "invalid_payloads_ignored", "expected": null, "profile": "outputs", "status": "PASS", "returncode": 0, "failed_assertions": []}
+{"case": 1, "name": "corrupt_arready", "expected": "A_COMPARE_ARREADY", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_ARREADY"]}
+{"case": 2, "name": "corrupt_pending_cnt", "expected": "A_COMPARE_PENDING_CNT", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_PENDING_CNT"]}
+{"case": 3, "name": "corrupt_req", "expected": "A_COMPARE_REQ", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_REQ"]}
+{"case": 4, "name": "corrupt_arb_addr", "expected": "A_COMPARE_ARB_ADDR", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_ARB_ADDR"]}
+{"case": 5, "name": "corrupt_rvalid", "expected": "A_COMPARE_RVALID", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_RVALID"]}
+{"case": 6, "name": "corrupt_rid", "expected": "A_COMPARE_RID", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_RID"]}
+{"case": 7, "name": "corrupt_r_port_id", "expected": "A_COMPARE_R_PORT_ID", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_R_PORT_ID"]}
+{"case": 8, "name": "corrupt_raddr", "expected": "A_COMPARE_RADDR", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_RADDR"]}
+{"case": 9, "name": "corrupt_rresp", "expected": "A_COMPARE_RRESP", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_RRESP"]}
+{"case": 10, "name": "corrupt_rdata", "expected": "A_COMPARE_RDATA", "profile": "outputs", "status": "PASS", "returncode": 1, "failed_assertions": ["A_COMPARE_RDATA"]}

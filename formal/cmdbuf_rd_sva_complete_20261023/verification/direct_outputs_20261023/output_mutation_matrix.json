@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "outputs": [
+    {
+      "output": "arready",
+      "assertion": "A_COMPARE_ARREADY",
+      "line": 234,
+      "detected": true,
+      "test": "corrupt_arready",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_arready.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "pending_cnt",
+      "assertion": "A_COMPARE_PENDING_CNT",
+      "line": 246,
+      "detected": true,
+      "test": "corrupt_pending_cnt",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_pending_cnt.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "req",
+      "assertion": "A_COMPARE_REQ",
+      "line": 258,
+      "detected": true,
+      "test": "corrupt_req",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_req.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "arb_addr",
+      "assertion": "A_COMPARE_ARB_ADDR",
+      "line": 269,
+      "detected": true,
+      "test": "corrupt_arb_addr",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_arb_addr.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "rvalid",
+      "assertion": "A_COMPARE_RVALID",
+      "line": 282,
+      "detected": true,
+      "test": "corrupt_rvalid",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_rvalid.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "rid",
+      "assertion": "A_COMPARE_RID",
+      "line": 295,
+      "detected": true,
+      "test": "corrupt_rid",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_rid.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "r_port_id",
+      "assertion": "A_COMPARE_R_PORT_ID",
+      "line": 305,
+      "detected": true,
+      "test": "corrupt_r_port_id",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_r_port_id.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "raddr",
+      "assertion": "A_COMPARE_RADDR",
+      "line": 315,
+      "detected": true,
+      "test": "corrupt_raddr",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_raddr.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "rresp",
+      "assertion": "A_COMPARE_RRESP",
+      "line": 327,
+      "detected": true,
+      "test": "corrupt_rresp",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_rresp.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    },
+    {
+      "output": "rdata",
+      "assertion": "A_COMPARE_RDATA",
+      "line": 339,
+      "detected": true,
+      "test": "corrupt_rdata",
+      "evidence_member": "build/final_output_tests/outputs/corrupt_rdata.log",
+      "meaning": "Only the checker-facing output copy is corrupted; this tests assertion sensitivity, not an RTL mutation proof."
+    }
+  ]
+}

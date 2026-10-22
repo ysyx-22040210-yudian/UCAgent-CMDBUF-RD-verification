@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "elaborated": {
+    "ok": true,
+    "required": [
+      "watch_cmd",
+      "watch_src",
+      "watch_id",
+      "watch_port",
+      "watch_low_addr",
+      "watch_data"
+    ],
+    "found": {
+      "watch_cmd": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 15,
+        "uninitialized_anyconst": true
+      },
+      "watch_src": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 2,
+        "uninitialized_anyconst": true
+      },
+      "watch_id": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 8,
+        "uninitialized_anyconst": true
+      },
+      "watch_port": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 5,
+        "uninitialized_anyconst": true
+      },
+      "watch_low_addr": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 3,
+        "uninitialized_anyconst": true
+      },
+      "watch_data": {
+        "module": "cmdbuf_rd_symbolic_values",
+        "width": 128,
+        "uninitialized_anyconst": true
+      }
+    },
+    "anyconst_cells": [
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3477",
+        "width": 15
+      },
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3478",
+        "width": 2
+      },
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3479",
+        "width": 8
+      },
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3480",
+        "width": 5
+      },
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3481",
+        "width": 3
+      },
+      {
+        "module": "cmdbuf_rd_symbolic_values",
+        "cell": "$anyconst$3482",
+        "width": 128
+      }
+    ]
+  },
+  "initialized": {
+    "ok": true,
+    "required": [
+      "watch_src"
+    ],
+    "found": {
+      "watch_src": {
+        "module": "cmdbuf_rd_formal",
+        "width": 2,
+        "uninitialized_anyconst": true
+      }
+    },
+    "anyconst_cells": [
+      {
+        "module": "cmdbuf_rd_formal",
+        "cell": "$flatten\\symbolic_parameters.$anyconst$3478",
+        "width": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "revision": "direct_top_ports_20261023",
+  "properties": [
+    {
+      "label": "E03_SRC",
+      "kind": "assume",
+      "expression": "arvalid |-> src<2'd3",
+      "description": "有效 AR 的来源只能为 0/1/2。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 40
+    },
+    {
+      "label": "E04_ARRESP",
+      "kind": "assume",
+      "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+      "description": "有效 AR 的地址状态只能为正常或越界。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 46
+    },
+    {
+      "label": "E05_ZERO_READY",
+      "kind": "assume",
+      "expression": "arready==3'b000 |-> !arvalid",
+      "description": "三个 ready 全低时，上游不得发送有效 AR。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 52
+    },
+    {
+      "label": "E06_SUCCESS_BUSY",
+      "kind": "assume",
+      "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+      "description": "成功当拍被访问的 Bank/half 必须为忙。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 8,
+      "line": 60
+    },
+    {
+      "label": "A_COMPARE_ARREADY",
+      "kind": "assert",
+      "expression": "arready==expected_ready",
+      "description": "精确比较三个 ready 位，含同拍 R 回收及每源首项预留。",
+      "group": "admission",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 69
+    },
+    {
+      "label": "A_COMPARE_PENDING_CNT",
+      "kind": "assert",
+      "expression": "{2'b0,pending_cnt}==pending_now",
+      "description": "精确比较组合待发数：拍初待发 + 本拍 AR 接收 - 本拍成功发射。",
+      "group": "pending",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 75
+    },
+    {
+      "label": "A_COMPARE_REQ",
+      "kind": "assert",
+      "expression": "req==8'b00000000 ||\n        (req==8'b00000001 && allowed_req_bank[0]) ||\n        (req==8'b00000010 && allowed_req_bank[1]) ||\n        (req==8'b00000100 && allowed_req_bank[2]) ||\n        (req==8'b00001000 && allowed_req_bank[3]) ||\n        (req==8'b00010000 && allowed_req_bank[4]) ||\n        (req==8'b00100000 && allowed_req_bank[5]) ||\n        (req==8'b01000000 && allowed_req_bank[6]) ||\n        (req==8'b10000000 && allowed_req_bank[7])",
+      "description": "req 必须为零或某个有合格待发记录的独热 Bank 值；不检查有候选时必须发射。",
+      "group": "request",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 81
+    },
+    {
+      "label": "A_COMPARE_ARB_ADDR",
+      "kind": "assert",
+      "expression": "(|req) |-> (\n            (command_valid[0] && command_eligible[0] && req[command_value[0][2:0]] &&\n             arb_addr==command_value[0][14:3]) ||\n            (command_valid[1] && command_eligible[1] && req[command_value[1][2:0]] &&\n             arb_addr==command_value[1][14:3]) ||\n            (command_valid[2] && command_eligible[2] && req[command_value[2][2:0]] &&\n             arb_addr==command_value[2][14:3]) ||\n            (command_valid[3] && command_eligible[3] && req[command_value[3][2:0]] &&\n             arb_addr==command_value[3][14:3]) ||\n            (command_valid[4] && command_eligible[4] && req[command_value[4][2:0]] &&\n             arb_addr==command_value[4][14:3]) ||\n            (command_valid[5] && command_eligible[5] && req[command_value[5][2:0]] &&\n             arb_addr==command_value[5][14:3]) ||\n            (command_valid[6] && command_eligible[6] && req[command_value[6][2:0]] &&\n             arb_addr==command_value[6][14:3]) ||\n            (command_valid[7] && command_eligible[7] && req[command_value[7][2:0]] &&\n             arb_addr==command_value[7][14:3]) ||\n            (command_valid[8] && command_eligible[8] && req[command_value[8][2:0]] &&\n             arb_addr==command_value[8][14:3])\n        )",
+      "description": "有效请求地址逐项比较九条成熟待发记录，并要求 Bank 与同一项对应；不会拼接不同记录。",
+      "group": "request",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 95
+    },
+    {
+      "label": "A_COMPARE_RVALID",
+      "kind": "assert",
+      "expression": "rvalid==3'b000 ||\n        (rvalid==3'b001 && allowed_r_source[0]) ||\n        (rvalid==3'b010 && allowed_r_source[1]) ||\n        (rvalid==3'b100 && allowed_r_source[2])",
+      "description": "rvalid 必须为零或一个允许来源的独热值；不指定 RR 胜者，也不证明逐源命令已完成。",
+      "group": "response",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 120
+    },
+    {
+      "label": "A_COMPARE_RID",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (\n            (id_valid[0] && r_src==id_value[0][9:8] && rid==id_value[0][7:0]) ||\n            (id_valid[1] && r_src==id_value[1][9:8] && rid==id_value[1][7:0]) ||\n            (id_valid[2] && r_src==id_value[2][9:8] && rid==id_value[2][7:0]) ||\n            (id_valid[3] && r_src==id_value[3][9:8] && rid==id_value[3][7:0]) ||\n            (id_valid[4] && r_src==id_value[4][9:8] && rid==id_value[4][7:0]) ||\n            (id_valid[5] && r_src==id_value[5][9:8] && rid==id_value[5][7:0]) ||\n            (id_valid[6] && r_src==id_value[6][9:8] && rid==id_value[6][7:0]) ||\n            (id_valid[7] && r_src==id_value[7][9:8] && rid==id_value[7][7:0]) ||\n            (id_valid[8] && r_src==id_value[8][9:8] && rid==id_value[8][7:0])\n        )",
+      "description": "有效 rid 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。",
+      "group": "id",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 129
+    },
+    {
+      "label": "A_COMPARE_R_PORT_ID",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (\n            (port_valid[0] && r_src==port_value[0][6:5] && r_port_id==port_value[0][4:0]) ||\n            (port_valid[1] && r_src==port_value[1][6:5] && r_port_id==port_value[1][4:0]) ||\n            (port_valid[2] && r_src==port_value[2][6:5] && r_port_id==port_value[2][4:0]) ||\n            (port_valid[3] && r_src==port_value[3][6:5] && r_port_id==port_value[3][4:0]) ||\n            (port_valid[4] && r_src==port_value[4][6:5] && r_port_id==port_value[4][4:0]) ||\n            (port_valid[5] && r_src==port_value[5][6:5] && r_port_id==port_value[5][4:0]) ||\n            (port_valid[6] && r_src==port_value[6][6:5] && r_port_id==port_value[6][4:0]) ||\n            (port_valid[7] && r_src==port_value[7][6:5] && r_port_id==port_value[7][4:0]) ||\n            (port_valid[8] && r_src==port_value[8][6:5] && r_port_id==port_value[8][4:0])\n        )",
+      "description": "有效 r_port_id 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。",
+      "group": "port",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 145
+    },
+    {
+      "label": "A_COMPARE_RADDR",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (\n            (low_addr_valid[0] && r_src==low_addr_value[0][4:3] && raddr==low_addr_value[0][2:0]) ||\n            (low_addr_valid[1] && r_src==low_addr_value[1][4:3] && raddr==low_addr_value[1][2:0]) ||\n            (low_addr_valid[2] && r_src==low_addr_value[2][4:3] && raddr==low_addr_value[2][2:0]) ||\n            (low_addr_valid[3] && r_src==low_addr_value[3][4:3] && raddr==low_addr_value[3][2:0]) ||\n            (low_addr_valid[4] && r_src==low_addr_value[4][4:3] && raddr==low_addr_value[4][2:0]) ||\n            (low_addr_valid[5] && r_src==low_addr_value[5][4:3] && raddr==low_addr_value[5][2:0]) ||\n            (low_addr_valid[6] && r_src==low_addr_value[6][4:3] && raddr==low_addr_value[6][2:0]) ||\n            (low_addr_valid[7] && r_src==low_addr_value[7][4:3] && raddr==low_addr_value[7][2:0]) ||\n            (low_addr_valid[8] && r_src==low_addr_value[8][4:3] && raddr==low_addr_value[8][2:0])\n        )",
+      "description": "有效 raddr 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。",
+      "group": "address",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 161
+    },
+    {
+      "label": "A_COMPARE_RRESP",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (\n            (rresp==2'b11 && outside[r_src]!=0) ||\n            (rresp==2'b01 && occupied[r_src]>outside[r_src] && bad_high!=0) ||\n            (rresp==2'b00 && occupied[r_src]>outside[r_src] && bad_low<completed)\n        )",
+      "description": "直接比较 11/01/00 及其可用标记条件；11 可遮住 pc 错误，但不建立逐事务错误配对。",
+      "group": "status",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 177
+    },
+    {
+      "label": "A_COMPARE_RDATA",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (\n            (data_valid[0] && rdata==data_value[0]) ||\n            (data_valid[1] && rdata==data_value[1]) ||\n            (data_valid[2] && rdata==data_value[2]) ||\n            (data_valid[3] && rdata==data_value[3]) ||\n            (data_valid[4] && rdata==data_value[4]) ||\n            (data_valid[5] && rdata==data_value[5]) ||\n            (data_valid[6] && rdata==data_value[6]) ||\n            (data_valid[7] && rdata==data_value[7]) ||\n            (data_valid[8] && rdata==data_value[8])\n        )",
+      "description": "有效 rdata 与九条有效、已捕获且未消费的 128 位数据直接比较；完整相等即通过。",
+      "group": "data",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 187
+    },
+    {
+      "label": "A_L_REQ_ONEHOT",
+      "kind": "assert",
+      "expression": "(req & (req-8'd1))==0",
+      "description": "请求最多一个 Bank。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 204
+    },
+    {
+      "label": "A_L_R_ONEHOT",
+      "kind": "assert",
+      "expression": "(rvalid & (rvalid-3'd1))==0",
+      "description": "共享 R 口最多返回给一个来源。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 210
+    },
+    {
+      "label": "A_L_R_READY",
+      "kind": "assert",
+      "expression": "(rvalid & ~rready)==0",
+      "description": "R 只在该源 ready 为 1 时有效。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 216
+    },
+    {
+      "label": "A_L_RRESP_CODE",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (rresp==2'b00 || rresp==2'b01 || rresp==2'b11)",
+      "description": "有效响应不得使用 10 编码。",
+      "group": "ports",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 222
+    },
+    {
+      "label": "A_L_PENDING_RANGE",
+      "kind": "assert",
+      "expression": "pending_now<=6'd9",
+      "description": "待发数量不得下溢或超过九。",
+      "group": "pending",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 228
+    },
+    {
+      "label": "A_L_TOTAL",
+      "kind": "assert",
+      "expression": "total<=7'd9",
+      "description": "总未回收命令最多九条。",
+      "group": "admission",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 234
+    },
+    {
+      "label": "A_L_RESERVATION",
+      "kind": "assert",
+      "expression": "reserved_total<=7'd9",
+      "description": "每个空源至少保留一项；共享部分不可侵占预留。",
+      "group": "admission",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 240
+    },
+    {
+      "label": "A_L_ISSUE_BALANCE",
+      "kind": "assert",
+      "expression": "issue_fire |-> waiting!=0",
+      "description": "成功发射必须消费先前接收的一条待发命令。",
+      "group": "pending",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 246
+    },
+    {
+      "label": "A_L_COMPLETED",
+      "kind": "assert",
+      "expression": "completed<=5'd9",
+      "description": "已捕获但未响应的数据量不得越界。",
+      "group": "response",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 252
+    },
+    {
+      "label": "M_L_COMMAND_ROOM",
+      "kind": "assert",
+      "expression": "ar_fire |-> command_room",
+      "description": "每次接收 AR 都应有待发地址记录空间。",
+      "group": "request",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 258
+    },
+    {
+      "label": "M_L_FIELDS_ROOM",
+      "kind": "assert",
+      "expression": "ar_fire |-> (id_room && port_room && low_addr_room)",
+      "description": "各字段都必须存得下新 AR，支持 R 同拍释放。",
+      "group": "response",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 264
+    },
+    {
+      "label": "M_L_DATA_ROOM",
+      "kind": "assert",
+      "expression": "mem_due |-> data_room",
+      "description": "MEM 只来一拍，必须能保存，不能丢弃以让后续比较通过。",
+      "group": "data",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 270
+    },
+    {
+      "label": "M_L_WAITING_COUNT",
+      "kind": "assert",
+      "expression": "{1'b0,command_count}==waiting",
+      "description": "地址集合数量与成功发射账本一致。",
+      "group": "request",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 276
+    },
+    {
+      "label": "M_L_FIELD_COUNTS",
+      "kind": "assert",
+      "expression": "({3'b0,id_count}==total && {3'b0,port_count}==total && {3'b0,low_addr_count}==total)",
+      "description": "三种字段独立消费，但各自总量都要守恒。",
+      "group": "response",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 282
+    },
+    {
+      "label": "M_L_DATA_COUNT",
+      "kind": "assert",
+      "expression": "{1'b0,data_count}==completed",
+      "description": "数据集合数量与四拍日历和 R 握手累计数一致。",
+      "group": "data",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 288
+    },
+    {
+      "label": "M_L_PC_INTERVAL",
+      "kind": "assert",
+      "expression": "bad_low<=bad_high && bad_high<=completed",
+      "description": "pc=1 的可能数量区间必须非空，且不超过已完成数据量。",
+      "group": "status",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1,
+      "line": 294
+    },
+    {
+      "label": "A_L_SOURCE_LIMIT",
+      "kind": "assert",
+      "expression": "occupied[x]<=5'd7",
+      "description": "一个 XAU 最多占七项。",
+      "group": "admission",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 3,
+      "line": 302
+    },
+    {
+      "label": "A_L_SOURCE_NONEMPTY",
+      "kind": "assert",
+      "expression": "rvalid[x] |-> occupied[x]!=0",
+      "description": "不能向没有未完成请求的来源返回响应。",
+      "group": "response",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 3,
+      "line": 308
+    },
+    {
+      "label": "M_L_ERROR_COUNT",
+      "kind": "assert",
+      "expression": "outside[x]<=occupied[x]",
+      "description": "越界标记数量不能超过该源占用。",
+      "group": "status",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 3,
+      "line": 314
+    },
+    {
+      "label": "C_L_RESPONSE",
+      "kind": "cover",
+      "expression": "r_fire",
+      "description": "完整接收、发射、四拍返回、R 响应至少发生一次。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 323
+    },
+    {
+      "label": "C_L_PC_ERROR",
+      "kind": "cover",
+      "expression": "r_fire && rresp==2'b01",
+      "description": "正常地址发生奇偶校验异常响应。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 329
+    },
+    {
+      "label": "C_L_ADDRESS_ERROR",
+      "kind": "cover",
+      "expression": "r_fire && rresp==2'b11",
+      "description": "地址越界请求经过 MEM 后返回 11。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 335
+    },
+    {
+      "label": "C_L_FULL",
+      "kind": "cover",
+      "expression": "total==7'd9",
+      "description": "共享九项达到全满。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 341
+    },
+    {
+      "label": "C_L_FULL_REUSE",
+      "kind": "cover",
+      "expression": "total==7'd9 && r_fire && ar_fire",
+      "description": "全满时 R 回收和 AR 接收同拍。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 347
+    },
+    {
+      "label": "C_L_FOUR_EVENTS",
+      "kind": "cover",
+      "expression": "ar_fire && issue_fire && mem_due && r_fire",
+      "description": "接收、发射成功、MEM 捕获、R 回收四事件同拍。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 353
+    },
+    {
+      "label": "C_L_RETRY",
+      "kind": "cover",
+      "expression": "previous_failure && |req && previous_request=={arb_addr,req_bank}",
+      "description": "失败后紧邻下一拍同地址重试。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 359
+    },
+    {
+      "label": "C_L_CONSECUTIVE_ISSUE",
+      "kind": "cover",
+      "expression": "previous_issue && issue_fire",
+      "description": "连续两拍成功发射。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 365
+    },
+    {
+      "label": "C_L_CONSECUTIVE_R",
+      "kind": "cover",
+      "expression": "previous_r && r_fire",
+      "description": "连续两拍返回响应。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 371
+    },
+    {
+      "label": "C_L_DATA_DUPLICATE",
+      "kind": "cover",
+      "expression": "r_fire && (data_match & (data_match-9'd1))!=0",
+      "description": "集合中重复数据同时命中，本次只删除一项。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 377
+    },
+    {
+      "label": "C_L_TURNOVER",
+      "kind": "cover",
+      "expression": "accept_saturated>=5'd10 && r_fire",
+      "description": "累计接收超过九条后仍能响应，防止简单最近九拍窗口丢失老事务。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 383
+    },
+    {
+      "label": "C_D_HIGH_DATA",
+      "kind": "cover",
+      "expression": "r_fire && rdata[127]",
+      "description": "完整 128 位数据最高位为 1 时仍能正常返回。",
+      "group": "cover",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1,
+      "line": 389
+    }
+  ],
+  "counts": {
+    "assert": 35,
+    "assume": 11,
+    "cover": 12
+  },
+  "outputs": {
+    "arready": {
+      "assertion": "A_COMPARE_ARREADY",
+      "group": "admission",
+      "rule": "精确比较三个 ready 位，含同拍 R 回收及每源首项预留。"
+    },
+    "pending_cnt": {
+      "assertion": "A_COMPARE_PENDING_CNT",
+      "group": "pending",
+      "rule": "精确比较组合待发数：拍初待发 + 本拍 AR 接收 - 本拍成功发射。"
+    },
+    "req": {
+      "assertion": "A_COMPARE_REQ",
+      "group": "request",
+      "rule": "req 必须为零或某个有合格待发记录的独热 Bank 值；不检查有候选时必须发射。"
+    },
+    "arb_addr": {
+      "assertion": "A_COMPARE_ARB_ADDR",
+      "group": "request",
+      "rule": "有效请求地址逐项比较九条成熟待发记录，并要求 Bank 与同一项对应；不会拼接不同记录。"
+    },
+    "rvalid": {
+      "assertion": "A_COMPARE_RVALID",
+      "group": "response",
+      "rule": "rvalid 必须为零或一个允许来源的独热值；不指定 RR 胜者，也不证明逐源命令已完成。"
+    },
+    "rid": {
+      "assertion": "A_COMPARE_RID",
+      "group": "id",
+      "rule": "有效 rid 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。"
+    },
+    "r_port_id": {
+      "assertion": "A_COMPARE_R_PORT_ID",
+      "group": "port",
+      "rule": "有效 r_port_id 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。"
+    },
+    "raddr": {
+      "assertion": "A_COMPARE_RADDR",
+      "group": "address",
+      "rule": "有效 raddr 直接与同源九条有效字段记录逐项比较；任一完整字段相等即通过。"
+    },
+    "rresp": {
+      "assertion": "A_COMPARE_RRESP",
+      "group": "status",
+      "rule": "直接比较 11/01/00 及其可用标记条件；11 可遮住 pc 错误，但不建立逐事务错误配对。"
+    },
+    "rdata": {
+      "assertion": "A_COMPARE_RDATA",
+      "group": "data",
+      "rule": "有效 rdata 与九条有效、已捕获且未消费的 128 位数据直接比较；完整相等即通过。"
+    }
+  },
+  "interface": "Exactly the 24 original DUT top-level signals; no extra observation inputs or symbolic parameters.",
+  "matching": "Each complex field compares explicitly with nine valid unconsumed full values. Fields may match different records.",
+  "limitations": [
+    "单 XAU 保序",
+    "RR 胜者和响应进度",
+    "五项窗口和最老发射选择",
+    "字段间事务配对",
+    "逐事务数据/pc_err/错误优先级配对"
+  ],
+  "state_note": "This revision stores actual field records. The previous symbolic model 66-bit/161-bit figures do not apply.",
+  "previous_revision": "verification/symbolic_v1_sources_20261023.tar.gz"
+}

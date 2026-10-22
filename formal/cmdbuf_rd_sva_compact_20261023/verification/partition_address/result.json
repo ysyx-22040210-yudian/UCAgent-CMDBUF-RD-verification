@@ -1,0 +1,29 @@
+{
+  "group": "address",
+  "mode": "bmc",
+  "depth": 12,
+  "timeout": 150,
+  "engine": "smtbmc yices",
+  "status": "PASS 0 4",
+  "returncode": 0,
+  "seconds": 4.14,
+  "counts": {
+    "assert": 3,
+    "assume": 11,
+    "cover": 0
+  },
+  "engine_status": "PASS 0 4",
+  "symbolic_audit_ok": true,
+  "anyconst_cells": [
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3472",
+      "width": 2
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3475",
+      "width": 3
+    }
+  ]
+}

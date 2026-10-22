@@ -1,0 +1,19 @@
+{
+  "name": "bmc",
+  "timeout": 180,
+  "mode": "bmc",
+  "depth": 10,
+  "engine": "abc bmc3",
+  "assertions": null,
+  "covers": [],
+  "status": "PASS 0 31",
+  "returncode": 0,
+  "elapsed_seconds": 27.07,
+  "counts": {
+    "assert": 158,
+    "assume": 11,
+    "cover": 0
+  },
+  "reached_lines": [],
+  "inputs_sha256": "4871b5903652f5dbd57d187730b377339cac22babf92864cfe57eae43696b24a"
+}

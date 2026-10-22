@@ -1,0 +1,35 @@
+{"name": "normal_lifecycle", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_same_source_reverse_order", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_rdata_swapped_between_commands", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_metadata_from_different_entries", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "reject_unknown_rdata", "status": "PASS", "expected_assert": ["A_S_RDATA_AVAILABLE", "M_S_DATA_NEXT"], "returncode": 1, "cycles": 11}
+{"name": "reject_unknown_id", "status": "PASS", "expected_assert": ["A_S_RID_AVAILABLE", "M_S_ID_NEXT"], "returncode": 1, "cycles": 11}
+{"name": "reject_consumed_data_reuse", "status": "PASS", "expected_assert": ["A_S_RDATA_AVAILABLE", "M_S_DATA_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_consumed_id_reuse", "status": "PASS", "expected_assert": ["A_S_RID_AVAILABLE", "M_S_ID_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_same_cycle_MEM_to_R", "status": "PASS", "expected_assert": ["A_S_R_CAPTURED", "A_S_RDATA_AVAILABLE", "A_S_RDATA_AVAILABLE", "M_S_DATA_NEXT"], "returncode": 1, "cycles": 9}
+{"name": "retry_without_bubble", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 11}
+{"name": "duplicate_values_consumed_once_each", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "duplicate_full_command", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "oob_masks_pc_duplicate_data_0", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "oob_masks_pc_duplicate_data_1", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_wrong_RR_winner", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_cross_source_data_swap", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}
+{"name": "relaxed_sixth_pending_command_issued", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 10}
+{"name": "reject_unknown_command", "status": "PASS", "expected_assert": ["A_S_COMMAND_AVAILABLE", "M_S_REQUEST_NEXT"], "returncode": 1, "cycles": 5}
+{"name": "reject_request_one_cycle_after_AR", "status": "PASS", "expected_assert": ["A_S_COMMAND_AVAILABLE", "M_S_REQUEST_NEXT"], "returncode": 1, "cycles": 4}
+{"name": "reject_unavailable_pc_flag", "status": "PASS", "expected_assert": ["A_S_PC_BAD_AVAILABLE", "M_S_PC_INTERVAL"], "returncode": 1, "cycles": 11}
+{"name": "reject_unavailable_address_error", "status": "PASS", "expected_assert": ["A_S_ADDRESS_ERROR_AVAILABLE", "M_S_OUTSIDE_BALANCE"], "returncode": 1, "cycles": 11}
+{"name": "old_entry_survives_more_than_nine_new_commands", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 129}
+{"name": "full_nine_same_cycle_reuse", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 28}
+{"name": "reject_arready_wrong", "status": "PASS", "expected_assert": ["A_S_READY"], "returncode": 1, "cycles": 12}
+{"name": "reject_pending_wrong", "status": "PASS", "expected_assert": ["A_S_PENDING"], "returncode": 1, "cycles": 12}
+{"name": "reject_req_multihot", "status": "PASS", "expected_assert": ["A_S_REQ_ONEHOT"], "returncode": 1, "cycles": 12}
+{"name": "reject_req_wrong_bank", "status": "PASS", "expected_assert": ["A_S_COMMAND_AVAILABLE", "M_S_REQUEST_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_arb_addr_wrong", "status": "PASS", "expected_assert": ["A_S_COMMAND_AVAILABLE", "M_S_REQUEST_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_rvalid_when_not_ready", "status": "PASS", "expected_assert": ["A_S_R_READY"], "returncode": 1, "cycles": 12}
+{"name": "reject_rport_wrong", "status": "PASS", "expected_assert": ["A_S_RPORT_AVAILABLE", "M_S_PORT_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_raddr_wrong", "status": "PASS", "expected_assert": ["A_S_RADDR_AVAILABLE", "M_S_ADDRESS_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "reject_rresp_encoding", "status": "PASS", "expected_assert": ["A_S_RRESP_CODE"], "returncode": 1, "cycles": 12}
+{"name": "reject_rdata_high_bit_corruption", "status": "PASS", "expected_assert": ["A_S_RDATA_AVAILABLE", "M_S_DATA_NEXT"], "returncode": 1, "cycles": 12}
+{"name": "complete_128_bit_high_value", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 10}
+{"name": "unused_symbolic_values_are_legal", "status": "PASS", "expected_assert": null, "returncode": 0, "cycles": 12}

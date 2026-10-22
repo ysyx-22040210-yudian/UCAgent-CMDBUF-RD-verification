@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "arvalid |-> src<2'd3",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 来源必须为 0/1/2。",
+    "line": 242,
+    "end_line": 245,
+    "start": 12077,
+    "end": 12187,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的地址状态仅允许正常和越界。",
+    "line": 248,
+    "end_line": 251,
+    "start": 12265,
+    "end": 12402,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "arready==0 |-> !arvalid",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "全源 ready 为零时无有效 AR。",
+    "line": 254,
+    "end_line": 257,
+    "start": 12479,
+    "end": 12599,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "成功当拍目标 Bank/half 为忙，不要求另一半区忙。",
+    "line": 262,
+    "end_line": 265,
+    "start": 12784,
+    "end": 12973,
+    "group": "ports"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_RDATA_AVAILABLE",
+    "expression": "data_query |-> balance[4]!=0",
+    "dependency": "REF_MODEL",
+    "instances": 1,
+    "description": "rdata 的完整 128 位值必须有此前捕获且未消费的 MEM 数据。",
+    "line": 392,
+    "end_line": 395,
+    "start": 18139,
+    "end": 18269,
+    "group": "data"
+  },
+  {
+    "kind": "assert",
+    "label": "M_S_DATA_NEXT",
+    "expression": "balance_next[4]<=5'd9",
+    "dependency": "MODEL_SELF_CHECK",
+    "instances": 1,
+    "description": "任意值的下一拍数量不能下溢或超过九，禁止计数回绕导致假通过。",
+    "line": 448,
+    "end_line": 451,
+    "start": 20493,
+    "end": 20610,
+    "group": "data"
+  },
+  {
+    "kind": "assert",
+    "label": "M_S_DATA_BALANCE",
+    "expression": "balance[4]<=completed",
+    "dependency": "MODEL_SELF_CHECK",
+    "instances": 1,
+    "description": "任意数据出现次数不大于全体已捕获数量。",
+    "line": 478,
+    "end_line": 481,
+    "start": 21627,
+    "end": 21747,
+    "group": "data"
+  }
+]

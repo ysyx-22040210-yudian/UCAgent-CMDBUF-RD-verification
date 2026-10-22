@@ -1,0 +1,50 @@
+[
+  {
+    "group": "ports",
+    "mode": "prove",
+    "depth": 10,
+    "timeout": 180,
+    "engine": "abc pdr",
+    "status": "PASS 0 2",
+    "returncode": 0,
+    "seconds": 2.08,
+    "counts": {
+      "assert": 4,
+      "assume": 11,
+      "cover": 0
+    },
+    "anyconst_cells": []
+  },
+  {
+    "group": "all",
+    "mode": "bmc",
+    "depth": 10,
+    "timeout": 180,
+    "engine": "smtbmc yices",
+    "status": "FAIL 2 1",
+    "returncode": 2,
+    "seconds": 1.37,
+    "counts": {
+      "assert": 40,
+      "assume": 11,
+      "cover": 0
+    },
+    "anyconst_cells": []
+  },
+  {
+    "group": "cover",
+    "mode": "cover",
+    "depth": 32,
+    "timeout": 180,
+    "engine": "smtbmc yices",
+    "status": "FAIL 2 8",
+    "returncode": 2,
+    "seconds": 6.33,
+    "counts": {
+      "assert": 40,
+      "assume": 11,
+      "cover": 16
+    },
+    "anyconst_cells": []
+  }
+]

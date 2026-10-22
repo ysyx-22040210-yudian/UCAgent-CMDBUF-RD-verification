@@ -1,0 +1,1412 @@
+[
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh",
+    "line": 23,
+    "declaration": "genvar cs; // Corner 每源容量断言的 XAU 展开编号 0..2。",
+    "comment": "Corner 每源容量断言的 XAU 展开编号 0..2。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 7,
+    "declaration": "reg [4:0] h_occ [0:2]; // 每源真实 AR 接收数减真实 R 返回数；5 位可暴露超额接收或下溢。",
+    "comment": "每源真实 AR 接收数减真实 R 返回数；5 位可暴露超额接收或下溢。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 8,
+    "declaration": "wire signed [31:0] h_total;             // 三源真实 AR-R 历史累计的总占用。",
+    "comment": "三源真实 AR-R 历史累计的总占用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 9,
+    "declaration": "wire signed [31:0] h_budget;            // 空源仍计 1 项预留后的总预算。",
+    "comment": "空源仍计 1 项预留后的总预算。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 10,
+    "declaration": "wire signed [31:0] h_after_total;       // 扣除本拍真实 R 后的总占用。",
+    "comment": "扣除本拍真实 R 后的总占用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 11,
+    "declaration": "wire signed [31:0] h_shared_after;      // 扣真实 R 后，三源超过首项的共享占用。",
+    "comment": "扣真实 R 后，三源超过首项的共享占用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 12,
+    "declaration": "wire signed [31:0] h_after [0:2];       // 每源 h_occ 扣本拍该源真实 R 的结果。",
+    "comment": "每源 h_occ 扣本拍该源真实 R 的结果。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 13,
+    "declaration": "wire signed [31:0] h_quota_part [0:2];  // 每源实际占用或首项预留，至少为 1。",
+    "comment": "每源实际占用或首项预留，至少为 1。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 14,
+    "declaration": "wire signed [31:0] h_shared_part [0:2]; // 每源扣 R 后的共享预算消耗。",
+    "comment": "每源扣 R 后的共享预算消耗。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 15,
+    "declaration": "wire [2:0] h_ready;                     // 独立历史账本计算的 AR 接收许可。",
+    "comment": "独立历史账本计算的 AR 接收许可。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 16,
+    "declaration": "genvar hi;                              // 编译展开用的来源编号，与时序循环 hx 分离。",
+    "comment": "编译展开用的来源编号，与时序循环 hx 分离。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 28,
+    "declaration": "integer hx; // 时序循环的来源编号，用于更新独立 AR/R 容量账本。",
+    "comment": "时序循环的来源编号，用于更新独立 AR/R 容量账本。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 41,
+    "declaration": "reg h_prev_a; // 上一采样拍是否真实接受 AR。",
+    "comment": "上一采样拍是否真实接受 AR。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 42,
+    "declaration": "reg h_prev_i; // 上一采样拍是否双 grant 成功发射。",
+    "comment": "上一采样拍是否双 grant 成功发射。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 43,
+    "declaration": "reg h_prev_r; // 上一采样拍是否真实 R 握手。",
+    "comment": "上一采样拍是否真实 R 握手。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 44,
+    "declaration": "reg h_prev_m; // 上一采样拍是否四拍 MEM 日历到期。",
+    "comment": "上一采样拍是否四拍 MEM 日历到期。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 45,
+    "declaration": "reg h_prev_valid; // 上一采样拍 arvalid 的值，包含未握手的有效请求。",
+    "comment": "上一采样拍 arvalid 的值，包含未握手的有效请求。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 46,
+    "declaration": "reg h_prev_pc; // 上一采样拍 MEM 的 pc_err 值。",
+    "comment": "上一采样拍 MEM 的 pc_err 值。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 47,
+    "declaration": "reg [1:0] h_prev_src; // 上一采样拍 AR src，是否有效由 h_prev_a/h_prev_valid 判定。",
+    "comment": "上一采样拍 AR src，是否有效由 h_prev_a/h_prev_valid 判定。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 48,
+    "declaration": "reg [1:0] h_prev_rsrc; // 上一采样拍响应来源编码，配合 h_prev_r 使用。",
+    "comment": "上一采样拍响应来源编码，配合 h_prev_r 使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 49,
+    "declaration": "reg [1:0] h_prev_rr; // 上一采样拍的参考 RR 起点。",
+    "comment": "上一采样拍的参考 RR 起点。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 50,
+    "declaration": "reg [2:0] h_prev_ready; // 上一采样拍三位 arready 快照。",
+    "comment": "上一采样拍三位 arready 快照。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 51,
+    "declaration": "reg [2:0] h_prev_rready; // 上一采样拍三位 rready 快照。",
+    "comment": "上一采样拍三位 rready 快照。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 52,
+    "declaration": "reg [2:0] h_prev_eligible; // 上一采样拍三源队头响应资格快照。",
+    "comment": "上一采样拍三源队头响应资格快照。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 53,
+    "declaration": "reg [7:0] h_prev_req; // 上一采样拍下游 Bank 请求向量。",
+    "comment": "上一采样拍下游 Bank 请求向量。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 54,
+    "declaration": "reg [7:0] h_prev_id; // 上一采样拍 AR ID，配合接受事件使用。",
+    "comment": "上一采样拍 AR ID，配合接受事件使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 55,
+    "declaration": "reg [11:0] h_prev_arb; // 上一采样拍下游请求地址 [17:6]。",
+    "comment": "上一采样拍下游请求地址 [17:6]。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 56,
+    "declaration": "reg [17:0] h_prev_addr; // 上一采样拍完整 AR 地址。",
+    "comment": "上一采样拍完整 AR 地址。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 57,
+    "declaration": "reg [4:0] h_prev_port; // 上一采样拍 AR port_id。",
+    "comment": "上一采样拍 AR port_id。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 58,
+    "declaration": "reg [127:0] h_prev_mem; // 上一采样拍完整 128 位 MEM 返回数据。",
+    "comment": "上一采样拍完整 128 位 MEM 返回数据。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 59,
+    "declaration": "reg [3:0] h_prev_n; // 上一采样拍参考表全部有效事务数 used。",
+    "comment": "上一采样拍参考表全部有效事务数 used。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 60,
+    "declaration": "reg [3:0] h_prev_p; // 上一采样拍参考表待发数 waiting，未计该拍组合端口的增减。",
+    "comment": "上一采样拍参考表待发数 waiting，未计该拍组合端口的增减。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 61,
+    "declaration": "reg [3:0] h_prev_occ [0:2]; // 上一采样拍各源参考表占用数。",
+    "comment": "上一采样拍各源参考表占用数。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 62,
+    "declaration": "reg [15:0] h_prev_status; // 上一采样拍所有 Bank/half 状态，供稳定性比较。",
+    "comment": "上一采样拍所有 Bank/half 状态，供稳定性比较。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 63,
+    "declaration": "wire [15:0] h_status; // 仅用于历史比较的状态拼接视图；不改变顶层二维 rd_mem_status 接口。",
+    "comment": "仅用于历史比较的状态拼接视图；不改变顶层二维 rd_mem_status 接口。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 67,
+    "declaration": "reg [5:0] h_i_history; // 最近六个已采样拍的成功发射记录，bit0 是上一拍。",
+    "comment": "最近六个已采样拍的成功发射记录，bit0 是上一拍。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 68,
+    "declaration": "reg [5:0] h_a_history; // 最近六个已采样拍的 AR 接受记录，bit0 是上一拍。",
+    "comment": "最近六个已采样拍的 AR 接受记录，bit0 是上一拍。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 69,
+    "declaration": "reg [5:0] h_m_history; // 最近六个已采样拍的 MEM 到期记录，bit0 是上一拍。",
+    "comment": "最近六个已采样拍的 MEM 到期记录，bit0 是上一拍。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 70,
+    "declaration": "reg [6:0] h_single_start; // 最近七拍“空表接收新 AR”事件的移位记录，bit0 是上一拍。",
+    "comment": "最近七拍“空表接收新 AR”事件的移位记录，bit0 是上一拍。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 71,
+    "declaration": "reg [5:0] h_src_history; // 最近三拍 AR 来源的 2 位编码串，低两位是上一拍，配合 AR 历史使用。",
+    "comment": "最近三拍 AR 来源的 2 位编码串，低两位是上一拍，配合 AR 历史使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 72,
+    "declaration": "reg [2:0] h_rsrc_history; // 旧实现保留的三位移位快照；低两位是上一拍 R 来源，高位是再前拍来源编码 bit0。",
+    "comment": "旧实现保留的三位移位快照；低两位是上一拍 R 来源，高位是再前拍来源编码 bit0。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 73,
+    "declaration": "reg [2:0] h_pc_history; // 最近三拍 MEM pc_err 快照，bit0 是上一拍，配合到期历史使用。",
+    "comment": "最近三拍 MEM pc_err 快照，bit0 是上一拍，配合到期历史使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 74,
+    "declaration": "reg [2:0] h_ar_sources; // 从记录开始曾真实接收 AR 的来源集合，置位后保持。",
+    "comment": "从记录开始曾真实接收 AR 的来源集合，置位后保持。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 75,
+    "declaration": "reg [5:0] h_total_a; // 累计真实 AR 接受数，达到 63 后饱和，用于长生命周期 cover。",
+    "comment": "累计真实 AR 接受数，达到 63 后饱和，用于长生命周期 cover。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 76,
+    "declaration": "reg [5:0] h_total_r; // 累计真实 R 返回数，达到 63 后饱和，用于排空和复用 cover。",
+    "comment": "累计真实 R 返回数，达到 63 后饱和，用于排空和复用 cover。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 77,
+    "declaration": "reg [3:0] h_same_ar_run; // 同一 src 连续 AR 握手的拍数，饱和于 15，换源时从 1 重计。",
+    "comment": "同一 src 连续 AR 握手的拍数，饱和于 15，换源时从 1 重计。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 78,
+    "declaration": "reg [3:0] h_ar_run; // 连续 AR 握手拍数，饱和于 15，中断即清零。",
+    "comment": "连续 AR 握手拍数，饱和于 15，中断即清零。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 79,
+    "declaration": "reg [3:0] h_r_run; // 连续 R 握手拍数，饱和于 15，中断即清零。",
+    "comment": "连续 R 握手拍数，饱和于 15，中断即清零。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 80,
+    "declaration": "reg [3:0] h_ar_r_run; // 连续同拍 AR 与 R 握手的拍数，饱和于 15。",
+    "comment": "连续同拍 AR 与 R 握手的拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 81,
+    "declaration": "reg [3:0] h_reject_run; // 连续有 req 但双 grant 未成功的拍数，饱和于 15。",
+    "comment": "连续有 req 但双 grant 未成功的拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 82,
+    "declaration": "reg [3:0] h_quiet_run; // 连续无 AR/成功发射/R/MEM 到期四类事件的拍数，饱和于 15。",
+    "comment": "连续无 AR/成功发射/R/MEM 到期四类事件的拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 83,
+    "declaration": "reg [3:0] h_empty_run; // 参考表连续为空的拍数，饱和于 15。",
+    "comment": "参考表连续为空的拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 84,
+    "declaration": "reg [3:0] h_notready_run [0:2]; // 各源队头已完成但 rready 为 0 的连续拍数，饱和于 15。",
+    "comment": "各源队头已完成但 rready 为 0 的连续拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 85,
+    "declaration": "reg h_ever_full; // 是否曾达到 used==9，置位后保持以见证满载后行为。",
+    "comment": "是否曾达到 used==9，置位后保持以见证满载后行为。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 86,
+    "declaration": "reg h_was_drained; // 是否曾在有过 R 响应后排空，置位后保持。",
+    "comment": "是否曾在有过 R 响应后排空，置位后保持。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 87,
+    "declaration": "integer ht; // 时序循环的来源编号，用于源占用快照及不 ready 计数。",
+    "comment": "时序循环的来源编号，用于源占用快照及不 ready 计数。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 142,
+    "declaration": "wire [8:0] h_rank_idle;        // 按 pool 排名而非物理槽号排列的 Bank 空闲位图。",
+    "comment": "按 pool 排名而非物理槽号排列的 Bank 空闲位图。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 143,
+    "declaration": "wire [8:0] h_rank_valid;       // 每个 pool 排名位置是否存在有效事务。",
+    "comment": "每个 pool 排名位置是否存在有效事务。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 144,
+    "declaration": "wire h_other_done;            // 是否存在某源的非队头事务已经完成 MEM 捕获。",
+    "comment": "是否存在某源的非队头事务已经完成 MEM 捕获。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 145,
+    "declaration": "wire h_hole_reused;           // 本拍 AR 分配槽之后仍有有效槽，见证中间空洞复用。",
+    "comment": "本拍 AR 分配槽之后仍有有效槽，见证中间空洞复用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 146,
+    "declaration": "wire h_duplicate_id;          // 本拍 AR 的 ID 是否与任意尚未回收事务相同。",
+    "comment": "本拍 AR 的 ID 是否与任意尚未回收事务相同。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 147,
+    "declaration": "wire [8:0] h_other_done_mask;  // 按参考槽标记“已完成但不是本源队头”。",
+    "comment": "按参考槽标记“已完成但不是本源队头”。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 148,
+    "declaration": "wire [8:0] h_hole_mask;        // 按参考槽标记“本拍分配槽之后仍有有效项”。",
+    "comment": "按参考槽标记“本拍分配槽之后仍有有效项”。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 149,
+    "declaration": "wire [8:0] h_duplicate_mask;   // 按参考槽标记“与本拍 AR 相同 ID”。",
+    "comment": "按参考槽标记“与本拍 AR 相同 ID”。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 150,
+    "declaration": "genvar hr;                     // 编译展开的 pool 排名位置 0..8。",
+    "comment": "编译展开的 pool 排名位置 0..8。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 151,
+    "declaration": "genvar hj;                     // 编译展开的参考槽扫描位置 0..8。",
+    "comment": "编译展开的参考槽扫描位置 0..8。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 154,
+    "declaration": "wire h_rank_idle_prefix [0:9];  // 前 k 槽映射到排名 hr 的空闲值，后扫描槽可覆盖同排名旧值。",
+    "comment": "前 k 槽映射到排名 hr 的空闲值，后扫描槽可覆盖同排名旧值。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 155,
+    "declaration": "wire h_rank_valid_prefix [0:9]; // 前 k 槽是否存在排名 hr 的事务；各排名分别展开。",
+    "comment": "前 k 槽是否存在排名 hr 的事务；各排名分别展开。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 180,
+    "declaration": "reg [3:0] h_done_wait [0:8]; // 各槽已完成但尚未真实 R 回收的持续拍数，饱和于 15。",
+    "comment": "各槽已完成但尚未真实 R 回收的持续拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 181,
+    "declaration": "reg [8:0] h_retired_bad; // 各槽最近一次回收是否同时携带 pc_err 和全 1 数据，供残留检测 cover。",
+    "comment": "各槽最近一次回收是否同时携带 pc_err 和全 1 数据，供残留检测 cover。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 182,
+    "declaration": "reg [8:0] h_clean_reuse; // 各槽本次新 AR 是否复用了上述错误/全 1 数据旧槽，保存复用见证。",
+    "comment": "各槽本次新 AR 是否复用了上述错误/全 1 数据旧槽，保存复用见证。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 183,
+    "declaration": "integer he; // 时序循环的参考槽索引，用于完成等待及槽复用记录。",
+    "comment": "时序循环的参考槽索引，用于完成等待及槽复用记录。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 199,
+    "declaration": "wire h_response_matches; // 本拍真实 R 的对象及五类负载均与参考队头一致，供业务 cover 使用。",
+    "comment": "本拍真实 R 的对象及五类负载均与参考队头一致，供业务 cover 使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 204,
+    "declaration": "reg h_failed_none; // 上拍请求失败、目标半区忙，且同拍未选中任何下一条命令。",
+    "comment": "上拍请求失败、目标半区忙，且同拍未选中任何下一条命令。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 205,
+    "declaration": "reg h_failed_other; // 上拍请求失败、目标半区忙，且同拍选中了另一条命令。",
+    "comment": "上拍请求失败、目标半区忙，且同拍选中了另一条命令。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 206,
+    "declaration": "reg h_blocked_prev; // 上一采样拍 blocked_six 的值，见证五项窗口持续受阻。",
+    "comment": "上一采样拍 blocked_six 的值，见证五项窗口持续受阻。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 207,
+    "declaration": "reg h_selected_prev; // 上一采样拍 C2 是否预选出下一条命令。",
+    "comment": "上一采样拍 C2 是否预选出下一条命令。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 208,
+    "declaration": "reg h_accepted_empty; // 上一采样拍是否从空表接受了一条 AR。",
+    "comment": "上一采样拍是否从空表接受了一条 AR。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 209,
+    "declaration": "reg [7:0] h_selected_req; // 上拍 C2 选中命令应在本拍 C3 发出的 Bank 请求位图。",
+    "comment": "上拍 C2 选中命令应在本拍 C3 发出的 Bank 请求位图。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+    "line": 210,
+    "declaration": "reg [11:0] h_selected_addr; // 上拍 C2 选中命令的地址 [17:6]，供本拍 C3 比较。",
+    "comment": "上拍 C2 选中命令的地址 [17:6]，供本拍 C3 比较。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 3,
+    "declaration": "reg [3:0] h_prev_due_slot; // 上一采样拍四拍 MEM 日历到期槽号，配合 h_prev_m 使用。",
+    "comment": "上一采样拍四拍 MEM 日历到期槽号，配合 h_prev_m 使用。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 4,
+    "declaration": "reg [8:0] h_failed_once; // 各事务是否已出现至少一次仲裁失败，新 AR 复用该槽时清零。",
+    "comment": "各事务是否已出现至少一次仲裁失败，新 AR 复用该槽时清零。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 5,
+    "declaration": "reg [8:0] h_failed_before_success; // 各事务成功发射时记录其此前是否曾仲裁失败。",
+    "comment": "各事务成功发射时记录其此前是否曾仲裁失败。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 6,
+    "declaration": "reg [1:0] h_rr012_phase; // 连续三源响应 0/1/2 的覆盖阶段：0 等 0，1 等 1，2 等 2。",
+    "comment": "连续三源响应 0/1/2 的覆盖阶段：0 等 0，1 等 1，2 等 2。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 7,
+    "declaration": "reg [1:0] h_error_sandwich_phase; // XAU0 正常/错误/正常相邻响应的覆盖阶段 0/1/2。",
+    "comment": "XAU0 正常/错误/正常相邻响应的覆盖阶段 0/1/2。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 8,
+    "declaration": "reg h_rr_gap_seen; // 一次 R 之后是否已出现无响应间隙，下一次 R 后清零。",
+    "comment": "一次 R 之后是否已出现无响应间隙，下一次 R 后清零。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 9,
+    "declaration": "reg h_seen_reject; // 是否曾出现有 req 但仲裁失败，供后续恢复场景 cover。",
+    "comment": "是否曾出现有 req 但仲裁失败，供后续恢复场景 cover。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 10,
+    "declaration": "reg h_seen_partial_ready; // 是否曾出现部分而非全部来源 rready 有效。",
+    "comment": "是否曾出现部分而非全部来源 rready 有效。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 11,
+    "declaration": "reg [17:0] h_prev_raddr_full; // 最近一次真实 R 返回事务的原始完整地址。",
+    "comment": "最近一次真实 R 返回事务的原始完整地址。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 12,
+    "declaration": "wire h_hotspot;                        // 至少三条待发命令访问当前请求所在 Bank。",
+    "comment": "至少三条待发命令访问当前请求所在 Bank。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 13,
+    "declaration": "wire signed [31:0] h_same_bank_count;   // pending 中与 m_attempt_e 的 Bank 相同的条数。",
+    "comment": "pending 中与 m_attempt_e 的 Bank 相同的条数。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 14,
+    "declaration": "wire signed [31:0] h_bank_prefix [0:9]; // 扫描前 k 个槽得到的同 Bank 待发条数。",
+    "comment": "扫描前 k 个槽得到的同 Bank 待发条数。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 15,
+    "declaration": "genvar hs;                             // 编译展开用的逻辑槽扫描索引。",
+    "comment": "编译展开用的逻辑槽扫描索引。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+    "line": 24,
+    "declaration": "integer hf; // 时序循环的槽索引，用于记录失败及失败后成功。",
+    "comment": "时序循环的槽索引，用于记录失败及失败后成功。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_long_witness.svh",
+    "line": 5,
+    "declaration": "reg [5:0] witness_cycle; // 引导 ENT-12 见证专用拍计数，饱和于 63；正常证明不启用此文件。",
+    "comment": "引导 ENT-12 见证专用拍计数，饱和于 63；正常证明不启用此文件。"
+  },
+  {
+    "path": "formal/corner_20261021/cmdbuf_rd_long_witness.svh",
+    "line": 26,
+    "declaration": "genvar wb; // 引导见证约束的 Bank 展开编号 0..7。",
+    "comment": "引导见证约束的 Bank 展开编号 0..7。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 20,
+    "declaration": "input wire clk,",
+    "comment": "// 观测时钟：所有接口义务按此上升沿采样。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 22,
+    "declaration": "input wire rst_n,",
+    "comment": "// 低有效复位：属性在低电平时禁用；模型寄存器由复位分支建立空状态。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 25,
+    "declaration": "input wire arvalid,",
+    "comment": "// 来自上游：共享一条 AR 命令，由 src 指定来源，不是三路独立 arvalid。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 27,
+    "declaration": "input wire [2:0] arready,",
+    "comment": "// 来自 DUT：每位表示该 XAU 当前可接收；可多位同时为 1，握手只看 src 对应位。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 29,
+    "declaration": "input wire [17:0] araddr,",
+    "comment": "// 来自上游：完整 18 位地址；[5:3] 选 Bank，[6] 选奇偶，[2:0] 在 R 口透传。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 31,
+    "declaration": "input wire [1:0] src,",
+    "comment": "// 来源编码 0/1/2 分别是 XAU0/1/2；3 在有效 AR 时由环境契约排除。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 33,
+    "declaration": "input wire [7:0] arid,",
+    "comment": "// 上游事务 ID：8 位原样保存，允许重复，不能以它替代接收 FIFO 的顺序 token。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 35,
+    "declaration": "input wire [4:0] ar_port_id,",
+    "comment": "// 上游 5 位 port_id：与同一事务的数据、ID、低地址一起保序返回。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 37,
+    "declaration": "input wire [1:0] arresp,",
+    "comment": "// 上游地址状态：00 正常、11 越界；越界请求仍发 MEM，最终错误优先级最高。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 40,
+    "declaration": "input wire [2:0] rvalid,",
+    "comment": "// rvalid 来自 DUT、rready 来自上游；共享 R 负载由唯一有效的 rvalid 位指定接收者。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 42,
+    "declaration": "input wire [2:0] rready,",
+    "comment": "// 来自上游：每位指示对应 XAU 本拍可接受响应。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 44,
+    "declaration": "input wire [127:0] rdata,",
+    "comment": "// 来自 DUT：共享 128 位返回数据；无 rvalid 的拍不检查其取值。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 46,
+    "declaration": "input wire [7:0] rid,",
+    "comment": "// 来自 DUT：应等于本次返回事务在 AR 接受时的 arid。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 48,
+    "declaration": "input wire [4:0] r_port_id,",
+    "comment": "// 来自 DUT：应透传同一次 AR 的 port_id。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 50,
+    "declaration": "input wire [2:0] raddr,",
+    "comment": "// 来自 DUT：只返回原 araddr[2:0]，不是完整地址。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 52,
+    "declaration": "input wire [1:0] rresp,",
+    "comment": "// 来自 DUT：00 正常、01 校验异常、11 地址越界；无效拍不比较。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 55,
+    "declaration": "input wire [7:0] req,",
+    "comment": "// 来自 DUT：八个 Bank 的独热或全零请求；仲裁失败的请求不算成功发射。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 57,
+    "declaration": "input wire [11:0] arb_addr,",
+    "comment": "// 来自 DUT：请求事务的 araddr[17:6]；bit0 将奇偶半区送到下游。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 59,
+    "declaration": "input wire [3:0] pending_cnt,",
+    "comment": "// 来自 DUT：组合输出的待发数，含本拍新 AR、扣本拍成功发射，不是总占用数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 61,
+    "declaration": "input wire [7:0] ar_rd_gnt,",
+    "comment": "// 来自 Arbit/MEM：只有同一 req 位的两个 grant 都为 1，本拍才算发射成功。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 63,
+    "declaration": "input wire [7:0] rw_rd_gnt,",
+    "comment": "// 来自 MEM 仲裁：该 Bank 本拍仲裁结果是读，必须与 ar_rd_gnt 同位有效。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 66,
+    "declaration": "input wire [1:0] rd_mem_status [7:0],",
+    "comment": "// 二维状态：rd_mem_status[Bank编号][奇偶位]，0 空闲、1 占用；保持逐 Bank 数组形式。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 68,
+    "declaration": "input wire [127:0] mem_rdata,",
+    "comment": "// 来自 MEM：一组合并后的 128 位数据，仅在四拍日历到期的采样沿保存。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 70,
+    "declaration": "input wire pc_err",
+    "comment": "// 来自 MEM：与本次返回数据同拍的 1 位校验异常；非到期拍数值不用于该事务。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 77,
+    "declaration": "wire ar_fire; // 本拍 AR 是否按 src 选中的 ready 位真正握手。",
+    "comment": "本拍 AR 是否按 src 选中的 ready 位真正握手。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 81,
+    "declaration": "wire issue_fire; // 本拍 req 命中的同一 Bank 是否同时获得两种 grant。",
+    "comment": "本拍 req 命中的同一 Bank 是否同时获得两种 grant。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 84,
+    "declaration": "wire r_fire; // 本拍是否有一个 XAU 真正接收 R 响应。",
+    "comment": "本拍是否有一个 XAU 真正接收 R 响应。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 128,
+    "declaration": "genvar bank_env; // 环境契约的 Bank 展开编号 0..7。",
+    "comment": "环境契约的 Bank 展开编号 0..7。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 131,
+    "declaration": "wire requested_half_busy; // 当前 Bank 的 arb_addr[0] 半区状态，供成功当拍环境约束使用。",
+    "comment": "当前 Bank 的 arb_addr[0] 半区状态，供成功当拍环境约束使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 152,
+    "declaration": "reg [3:0] last_pending; // 上一采样拍的公开 pending_cnt，用于端口计数递推断言。",
+    "comment": "上一采样拍的公开 pending_cnt，用于端口计数递推断言。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 309,
+    "declaration": "genvar g; // 三源保序检查中是 XAU 编号；逐槽自检中是参考槽编号。",
+    "comment": "三源保序检查中是 XAU 编号；逐槽自检中是参考槽编号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 310,
+    "declaration": "genvar h; // 成对年龄自检中的另一参考槽编号，用于比较 g 与 h。",
+    "comment": "成对年龄自检中的另一参考槽编号，用于比较 g 与 h。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 600,
+    "declaration": "wire [3:0] calendar_count; // 四级返回日历中参考槽 g 的有效出现次数。",
+    "comment": "四级返回日历中参考槽 g 的有效出现次数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 792,
+    "declaration": "genvar cb; // Bank 覆盖展开编号 0..7。",
+    "comment": "Bank 覆盖展开编号 0..7。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 793,
+    "declaration": "genvar ch; // 奇偶半区覆盖展开编号 0/1。",
+    "comment": "奇偶半区覆盖展开编号 0/1。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+    "line": 797,
+    "declaration": "wire this_half_busy; // 展开的 Bank cb、半区 ch 忙状态，供逐 Bank/half 覆盖使用。",
+    "comment": "展开的 Bank cb、半区 ch 忙状态，供逐 Bank/half 覆盖使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 9,
+    "declaration": "reg [8:0] m_live;                // 每槽已接受且尚未 R 回收的有效位。",
+    "comment": "每槽已接受且尚未 R 回收的有效位。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 10,
+    "declaration": "reg [8:0] m_sent;                // 每槽已双 grant 成功发射的标志，成功后退出待发窗口。",
+    "comment": "每槽已双 grant 成功发射的标志，成功后退出待发窗口。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 11,
+    "declaration": "reg [8:0] m_done;                // 每槽已在四拍到期沿保存 MEM 数据的标志。",
+    "comment": "每槽已在四拍到期沿保存 MEM 数据的标志。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 12,
+    "declaration": "reg [8:0] m_pc;                  // 每槽随 MEM 数据保存的奇偶校验异常。",
+    "comment": "每槽随 MEM 数据保存的奇偶校验异常。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 13,
+    "declaration": "reg [17:0] m_addr [0:8];         // AR 接受时的完整地址，包含 Bank、half 和 R 低地址。",
+    "comment": "AR 接受时的完整地址，包含 Bank、half 和 R 低地址。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 14,
+    "declaration": "reg [1:0] m_src [0:8];           // 每槽所属 XAU，合法有效事务取 0/1/2。",
+    "comment": "每槽所属 XAU，合法有效事务取 0/1/2。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 15,
+    "declaration": "reg [1:0] m_err [0:8];           // 每槽 AR 地址状态，11 的优先级高于 m_pc。",
+    "comment": "每槽 AR 地址状态，11 的优先级高于 m_pc。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 16,
+    "declaration": "reg [7:0] m_id [0:8];            // 每槽原始 arid，允许不同事务使用相同 ID。",
+    "comment": "每槽原始 arid，允许不同事务使用相同 ID。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 17,
+    "declaration": "reg [4:0] m_port [0:8];          // 每槽原始 ar_port_id，随响应原样返回。",
+    "comment": "每槽原始 ar_port_id，随响应原样返回。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 18,
+    "declaration": "reg [3:0] m_age [0:8];           // 有效未返回事务的全局接收排名，0 最老；发射不改年龄。",
+    "comment": "有效未返回事务的全局接收排名，0 最老；发射不改年龄。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 19,
+    "declaration": "reg [127:0] m_data [0:8];        // 每槽完整 MEM 返回数据，等到该源队头可返回才使用。",
+    "comment": "每槽完整 MEM 返回数据，等到该源队头可返回才使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 20,
+    "declaration": "reg [1:0] m_rr;                  // 跨源响应 RR 起点，响应后指向 winner 的下一来源。",
+    "comment": "跨源响应 RR 起点，响应后指向 winner 的下一来源。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 21,
+    "declaration": "reg m_attempt;                   // 上拍 C2 是否选中命令，即本拍 C3 应有请求。",
+    "comment": "上拍 C2 是否选中命令，即本拍 C3 应有请求。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 22,
+    "declaration": "reg [3:0] m_attempt_e;           // 本拍 C3 请求的参考事务槽号，仅在 m_attempt 时有效。",
+    "comment": "本拍 C3 请求的参考事务槽号，仅在 m_attempt 时有效。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 23,
+    "declaration": "reg [3:0] m_due;                 // 成功发射的四级有效日历，第 3 级表示本拍 MEM 到期。",
+    "comment": "成功发射的四级有效日历，第 3 级表示本拍 MEM 到期。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 24,
+    "declaration": "reg [3:0] m_due_e [0:3];         // 与四级有效日历同行的事务槽号。",
+    "comment": "与四级有效日历同行的事务槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 25,
+    "declaration": "wire mem_capture_due;           // 本拍是否需要捕获唯一一组 MEM 数据/pc_err。",
+    "comment": "本拍是否需要捕获唯一一组 MEM 数据/pc_err。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 26,
+    "declaration": "wire [3:0] mem_capture_slot;     // 本拍到期的事务槽号，仅在 mem_capture_due 时使用。",
+    "comment": "本拍到期的事务槽号，仅在 mem_capture_due 时使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 32,
+    "declaration": "wire signed [31:0] used;                // 当前九槽中 m_live 的总数。",
+    "comment": "当前九槽中 m_live 的总数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 33,
+    "declaration": "wire signed [31:0] waiting;             // 当前 m_live 且未 m_sent 的总数。",
+    "comment": "当前 m_live 且未 m_sent 的总数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 34,
+    "declaration": "wire signed [31:0] occ [0:2];           // 各 XAU 的全部未回收事务数。",
+    "comment": "各 XAU 的全部未回收事务数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 35,
+    "declaration": "wire signed [31:0] shared_cost;         // 三源超出首项的总占用，正常不超过共享预算 6。",
+    "comment": "三源超出首项的总占用，正常不超过共享预算 6。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 36,
+    "declaration": "wire signed [31:0] quota_cost;          // 非空源用实际占用，空源计 1 项预留的总预算。",
+    "comment": "非空源用实际占用，空源计 1 项预留的总预算。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 37,
+    "declaration": "wire signed [31:0] used_prefix [0:9];   // 扫描前 k 个逻辑槽的有效项累计数。",
+    "comment": "扫描前 k 个逻辑槽的有效项累计数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 38,
+    "declaration": "wire signed [31:0] wait_prefix [0:9];   // 扫描前 k 个逻辑槽的待发项累计数。",
+    "comment": "扫描前 k 个逻辑槽的待发项累计数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 39,
+    "declaration": "wire signed [31:0] shared_part [0:2];   // 每源占用中超过首项的部分，空源为 0。",
+    "comment": "每源占用中超过首项的部分，空源为 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 40,
+    "declaration": "wire signed [31:0] quota_part [0:2];    // 每源的占用/首项预留预算，至少为 1。",
+    "comment": "每源的占用/首项预留预算，至少为 1。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 41,
+    "declaration": "genvar mi;                              // 编译展开用的逻辑槽索引 0..8。",
+    "comment": "编译展开用的逻辑槽索引 0..8。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 42,
+    "declaration": "genvar mx;                              // 编译展开用的 XAU 索引 0..2。",
+    "comment": "编译展开用的 XAU 索引 0..2。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 43,
+    "declaration": "genvar mj;                              // 编译展开用的年龄比较对象索引 0..8。",
+    "comment": "编译展开用的年龄比较对象索引 0..8。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 44,
+    "declaration": "genvar mo;                              // 编译展开用的 RR 扫描偏移 0..2。",
+    "comment": "编译展开用的 RR 扫描偏移 0..2。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 55,
+    "declaration": "wire signed [31:0] occ_prefix [0:9]; // 当前 XAU 扫描前 k 个槽的累计占用，分源独立展开。",
+    "comment": "当前 XAU 扫描前 k 个槽的累计占用，分源独立展开。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 70,
+    "declaration": "wire [3:0] head [0:2];                  // 每源最老有效事务的槽号；无队头时默认 0。",
+    "comment": "每源最老有效事务的槽号；无队头时默认 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 71,
+    "declaration": "wire [2:0] head_valid;                  // 每源是否存在年龄小于 9 的有效队头。",
+    "comment": "每源是否存在年龄小于 9 的有效队头。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 72,
+    "declaration": "wire [2:0] eligible;                    // 每源队头有效、已完成且该源 rready 为 1。",
+    "comment": "每源队头有效、已完成且该源 rready 为 1。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 74,
+    "declaration": "wire [3:0] head_age_prefix [0:9];  // 当前 XAU 扫描前 k 个槽得到的最小年龄，无项为 9。",
+    "comment": "当前 XAU 扫描前 k 个槽得到的最小年龄，无项为 9。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 75,
+    "declaration": "wire [3:0] head_slot_prefix [0:9]; // 与当前 XAU 最小年龄对应的参考槽号。",
+    "comment": "与当前 XAU 最小年龄对应的参考槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 76,
+    "declaration": "wire head_found_prefix [0:9];     // 当前 XAU 在前 k 个槽中是否已找到队头。",
+    "comment": "当前 XAU 在前 k 个槽中是否已找到队头。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 77,
+    "declaration": "wire head_take [0:8];             // 当前槽是否比已找到的本源队头更老。",
+    "comment": "当前槽是否比已找到的本源队头更老。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 94,
+    "declaration": "wire [2:0] expected_rvalid;             // 本拍预期的独热响应对象，无候选或复位时为 0。",
+    "comment": "本拍预期的独热响应对象，无候选或复位时为 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 95,
+    "declaration": "wire [1:0] winner;                      // 预期响应对象的 XAU 编号，仅在 model_retire 时使用。",
+    "comment": "预期响应对象的 XAU 编号，仅在 model_retire 时使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 96,
+    "declaration": "wire [3:0] rsp_e;                       // winner 队头对应的参考槽号。",
+    "comment": "winner 队头对应的参考槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 97,
+    "declaration": "wire model_retire;                      // 预期本拍有 R 响应，用于模型回收；r_fire 是真实握手。",
+    "comment": "预期本拍有 R 响应，用于模型回收；r_fire 是真实握手。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 98,
+    "declaration": "wire signed [31:0] rr_scan [0:2];       // 每个 RR 扫描位置对应的来源编号，回绕到 0..2。",
+    "comment": "每个 RR 扫描位置对应的来源编号，回绕到 0..2。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 99,
+    "declaration": "wire [2:0] rr_valid_prefix [0:3];       // 前 k 个 RR 位置已选择的独热响应，初始为 0。",
+    "comment": "前 k 个 RR 位置已选择的独热响应，初始为 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 100,
+    "declaration": "wire [1:0] rr_winner_prefix [0:3];      // 前 k 个 RR 位置选中的来源编号。",
+    "comment": "前 k 个 RR 位置选中的来源编号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 101,
+    "declaration": "wire [3:0] rr_slot_prefix [0:3];        // 前 k 个 RR 位置选中的队头槽号。",
+    "comment": "前 k 个 RR 位置选中的队头槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 102,
+    "declaration": "wire rr_take [0:2];                     // 尚未选中任何源且当前 RR 位置具备响应资格。",
+    "comment": "尚未选中任何源且当前 RR 位置具备响应资格。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 120,
+    "declaration": "wire signed [31:0] after_occ [0:2];      // 各源扣除本拍预期响应后的占用。",
+    "comment": "各源扣除本拍预期响应后的占用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 121,
+    "declaration": "wire signed [31:0] used_after;           // 三源扣本拍预期 R 后的总占用。",
+    "comment": "三源扣本拍预期 R 后的总占用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 122,
+    "declaration": "wire signed [31:0] shared_after;         // 扣本拍预期 R 后共用六项的已使用量。",
+    "comment": "扣本拍预期 R 后共用六项的已使用量。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 123,
+    "declaration": "wire signed [31:0] after_shared_part [0:2]; // 各源扣 R 后超过首项的占用。",
+    "comment": "各源扣 R 后超过首项的占用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 124,
+    "declaration": "wire [2:0] expected_ready;               // 每源本拍是否有资格接受一条 AR，允许多位为 1。",
+    "comment": "每源本拍是否有资格接受一条 AR，允许多位为 1。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 136,
+    "declaration": "wire [3:0] alloc_e;                      // 本拍新 AR 将写入的参考槽号。",
+    "comment": "本拍新 AR 将写入的参考槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 137,
+    "declaration": "wire free_found;                         // 是否存在空槽或本拍可回收槽。",
+    "comment": "是否存在空槽或本拍可回收槽。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 138,
+    "declaration": "wire alloc_free [0:8];                   // 每个逻辑槽是否可供本拍新 AR 使用。",
+    "comment": "每个逻辑槽是否可供本拍新 AR 使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 139,
+    "declaration": "wire alloc_found_prefix [0:9];          // 扫描前 k 个槽是否已经找到可用槽。",
+    "comment": "扫描前 k 个槽是否已经找到可用槽。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 140,
+    "declaration": "wire [3:0] alloc_slot_prefix [0:9];      // 扫描前 k 个槽找到的首个可用槽号。",
+    "comment": "扫描前 k 个槽找到的首个可用槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 155,
+    "declaration": "wire [8:0] pending;                      // 所有有效且未成功发射的事务位图。",
+    "comment": "所有有效且未成功发射的事务位图。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 156,
+    "declaration": "wire [8:0] pool;                         // pending 扣除本拍双 grant 成功事务后的位图。",
+    "comment": "pending 扣除本拍双 grant 成功事务后的位图。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 157,
+    "declaration": "wire [8:0] window;                       // pool 中最老五项位图，不受空闲状态影响成员资格。",
+    "comment": "pool 中最老五项位图，不受空闲状态影响成员资格。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 158,
+    "declaration": "wire [8:0] idle;                         // 各事务地址对应 Bank/half 的本拍空闲状态。",
+    "comment": "各事务地址对应 Bank/half 的本拍空闲状态。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 159,
+    "declaration": "wire [8:0] candidate;                    // window 与 idle 的交集，最老选择只比较此集合。",
+    "comment": "window 与 idle 的交集，最老选择只比较此集合。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 160,
+    "declaration": "wire signed [31:0] ranks [0:8];          // 每项在 pool 内的年龄排名，供窗口与 cover 使用。",
+    "comment": "每项在 pool 内的年龄排名，供窗口与 cover 使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 163,
+    "declaration": "wire signed [31:0] rank_prefix [0:9]; // 对当前槽 mi，前 k 个槽中比它更老的 pool 项数。",
+    "comment": "对当前槽 mi，前 k 个槽中比它更老的 pool 项数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 178,
+    "declaration": "wire [8:0] selected;                    // 本拍 C2 选中项的独热位图，无候选时为 0。",
+    "comment": "本拍 C2 选中项的独热位图，无候选时为 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 179,
+    "declaration": "wire [3:0] select_e;                    // 本拍 C2 选中的参考槽号，无候选时默认 0。",
+    "comment": "本拍 C2 选中的参考槽号，无候选时默认 0。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 180,
+    "declaration": "wire select_valid;                      // 本拍 C2 是否选中，供下一拍请求流水记录使用。",
+    "comment": "本拍 C2 是否选中，供下一拍请求流水记录使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 181,
+    "declaration": "wire [3:0] select_age_prefix [0:9];     // 前 k 个候选得到的最小年龄，无项时为 9。",
+    "comment": "前 k 个候选得到的最小年龄，无项时为 9。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 182,
+    "declaration": "wire [3:0] select_slot_prefix [0:9];    // 与该最小年龄相对应的参考槽号。",
+    "comment": "与该最小年龄相对应的参考槽号。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 183,
+    "declaration": "wire select_take [0:8];                 // 当前槽是候选且年龄严格小于前缀最小年龄。",
+    "comment": "当前槽是候选且年龄严格小于前缀最小年龄。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 196,
+    "declaration": "integer e; // 时序循环的参考槽索引，用于九项事务表的同步更新。",
+    "comment": "时序循环的参考槽索引，用于九项事务表的同步更新。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 197,
+    "declaration": "integer k; // 时序循环的日历级索引，用于四拍返回 token 的移位。",
+    "comment": "时序循环的日历级索引，用于四拍返回 token 的移位。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 255,
+    "declaration": "wire [7:0] expected_req;",
+    "comment": "// expected_req：按 C3 事务地址 [5:3] 解码的预期 Bank 请求。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 258,
+    "declaration": "wire [11:0] expected_addr;",
+    "comment": "// expected_addr：同一 C3 事务地址 [17:6]，无 req 时不作为断言比较对象。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 262,
+    "declaration": "wire [1:0] expected_resp;",
+    "comment": "// expected_resp：本拍 R 事务的预期状态，地址越界优先于奇偶校验异常。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 267,
+    "declaration": "reg retry_selected;                 // 上拍失败事务在同拍 C2 被再次选中。",
+    "comment": "上拍失败事务在同拍 C2 被再次选中。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 268,
+    "declaration": "reg refill_selected;                // 上拍成功后原第六条在同拍 C2 补入并选中。",
+    "comment": "上拍成功后原第六条在同拍 C2 补入并选中。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 269,
+    "declaration": "reg nonhead_refill_selected;         // 在 refill_selected 基础上，成功事务原来不是最老项。",
+    "comment": "在 refill_selected 基础上，成功事务原来不是最老项。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 270,
+    "declaration": "reg [11:0] last_retry_addr;          // 上拍失败请求地址，供本拍重试一致性 cover 比较。",
+    "comment": "上拍失败请求地址，供本拍重试一致性 cover 比较。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 271,
+    "declaration": "reg [11:0] last_refill_addr;         // 上拍补窗选中事务的下游地址。",
+    "comment": "上拍补窗选中事务的下游地址。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 272,
+    "declaration": "reg [7:0] last_retry_req;            // 上拍失败请求的 Bank 独热位图。",
+    "comment": "上拍失败请求的 Bank 独热位图。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 273,
+    "declaration": "reg [7:0] last_refill_req;           // 上拍补窗事务的 Bank 独热位图。",
+    "comment": "上拍补窗事务的 Bank 独热位图。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 274,
+    "declaration": "reg [2:0] blocked_streak;            // 连续五项窗口受阻的拍数，饱和于 7。",
+    "comment": "连续五项窗口受阻的拍数，饱和于 7。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 275,
+    "declaration": "reg [3:0] issue_streak;              // 仅由端口成功事件累计的连续发射拍数，饱和于 15。",
+    "comment": "仅由端口成功事件累计的连续发射拍数，饱和于 15。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 276,
+    "declaration": "wire signed [31:0] selected_old_rank; // 本拍选中项在扣成功之前 pending 集合中的排名。",
+    "comment": "本拍选中项在扣成功之前 pending 集合中的排名。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 277,
+    "declaration": "wire signed [31:0] old_rank_prefix [0:9]; // 扫描前 k 槽中比 select_e 更老的 pending 项数。",
+    "comment": "扫描前 k 槽中比 select_e 更老的 pending 项数。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 278,
+    "declaration": "genvar mc;                          // 编译展开用的旧窗口排名比较索引。",
+    "comment": "编译展开用的旧窗口排名比较索引。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+    "line": 289,
+    "declaration": "wire blocked_six;",
+    "comment": "// blocked_six：五项均不匹配、窗外有空闲项、且没有上拍遗留的请求流水。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 10,
+    "declaration": "reg [1:0] bypass_count; // 本源持续可响应却被其他源先响应的次数，供 RR 有界公平断言使用。",
+    "comment": "本源持续可响应却被其他源先响应的次数，供 RR 有界公平断言使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 22,
+    "declaration": "reg [3:0] order_count; // 本源独立接收 FIFO 的有效长度，仅真实 AR/R 握手改变它。",
+    "comment": "本源独立接收 FIFO 的有效长度，仅真实 AR/R 握手改变它。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 23,
+    "declaration": "reg [3:0] order_slot [0:8]; // 本源按 AR 接收先后排列的参考 token；0 为最老未回收项。",
+    "comment": "本源按 AR 接收先后排列的参考 token；0 为最老未回收项。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 25,
+    "declaration": "wire source_ar; // 本拍是否真正接收本源 AR，即本源 FIFO 入队事件。",
+    "comment": "本拍是否真正接收本源 AR，即本源 FIFO 入队事件。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 28,
+    "declaration": "wire source_r; // 本拍是否真正返回本源 R，即本源 FIFO 出队事件。",
+    "comment": "本拍是否真正返回本源 R，即本源 FIFO 出队事件。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 32,
+    "declaration": "wire [3:0] oldest; // 本源独立 FIFO 队头的参考槽号，与下游发射顺序无关。",
+    "comment": "本源独立 FIFO 队头的参考槽号，与下游发射顺序无关。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 34,
+    "declaration": "wire oldest_valid; // 队列非空、token 合法，且该 token 仍是本源有效事务。",
+    "comment": "队列非空、token 合法，且该 token 仍是本源有效事务。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 38,
+    "declaration": "wire [1:0] oldest_resp; // 本源 FIFO 队头的预期错误状态，越界优先于校验异常。",
+    "comment": "本源 FIFO 队头的预期错误状态，越界优先于校验异常。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 43,
+    "declaration": "wire head_payload_matches; // R 的五类负载是否都属于本源 FIFO 队头，供完整业务见证使用。",
+    "comment": "R 的五类负载是否都属于本源 FIFO 队头，供完整业务见证使用。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 47,
+    "declaration": "integer qi; // 时序移位循环的队列位置，0 为本源接收 FIFO 队头。",
+    "comment": "时序移位循环的队列位置，0 为本源接收 FIFO 队头。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 76,
+    "declaration": "reg [2:0] order_phase; // 0..5 的覆盖跟踪阶段，含义见上方状态转移说明。",
+    "comment": "0..5 的覆盖跟踪阶段，含义见上方状态转移说明。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 77,
+    "declaration": "reg [3:0] first_token;  // 覆盖启动时本源第一条命令的参考槽号，等待最先 R 返回。",
+    "comment": "覆盖启动时本源第一条命令的参考槽号，等待最先 R 返回。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 78,
+    "declaration": "reg [3:0] second_token; // 覆盖启动时本源第二条命令的参考槽号，等待第二次 R 返回。",
+    "comment": "覆盖启动时本源第二条命令的参考槽号，等待第二次 R 返回。"
+  },
+  {
+    "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+    "line": 79,
+    "declaration": "reg [3:0] third_token;  // 覆盖启动时本源第三条命令的参考槽号，应先发射/捕获、最后 R 返回。",
+    "comment": "覆盖启动时本源第三条命令的参考槽号，应先发射/捕获、最后 R 返回。"
+  }
+]

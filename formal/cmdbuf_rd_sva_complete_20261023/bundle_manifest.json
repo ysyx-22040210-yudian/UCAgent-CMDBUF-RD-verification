@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "package": "cmdbuf_rd_sva_complete_20261023",
+  "purpose": "当前完整 Formal SVA 与模型集中交付，保留最新逐句中文注释。",
+  "normal_entry": "cmdbuf_rd_port_sva.sv",
+  "normal_compile": "native.f",
+  "checker_only_compile": "checker.f",
+  "top": "cmdbuf_rd_formal",
+  "working_directory": "本文件夹",
+  "core_read_order": [
+    "cmdbuf_rd_port_sva.sv",
+    "cmdbuf_rd_reference_model.svh",
+    "cmdbuf_rd_xau_order_model.svh",
+    "cmdbuf_rd_corner_properties.svh",
+    "cmdbuf_rd_corner_assertions.svh",
+    "cmdbuf_rd_corner_history.svh",
+    "cmdbuf_rd_corner_sequences.svh"
+  ],
+  "commands": {
+    "integrity": "python3 verify_bundle.py",
+    "sby_smoke": "python3 run.py --output build/smoke --group prove --group bmc --jobs 2",
+    "sby_all": "python3 run.py --output build/all --jobs 2",
+    "guided": "python3 run_guided.py --output build/guided",
+    "negative": "python3 run_negative.py --output build/negative",
+    "output_tests": "python3 run_output_tests.py --tools <OSS_CAD_SUITE_BIN> [--compiler-bin <CXX20_BIN>] [--atomic-library <libatomic.so.1>]"
+  },
+  "notes": [
+    "正常属性共 617 个具名标签；展开后 11 个 assume、158 个 assert、593 个 cover 实例。",
+    "11 个环境假设保持原规则；158 个断言包含十组直接输出比对、独立 XAU 保序及模型自检。",
+    "run.py 需要 SBY、Yosys read_slang、ABC 和 Yices；可用 --tools 指定已有工具目录。",
+    "原生 SVA 文件用于支持该语法的工具；SBY 的受限 |-> 适配只生成在 build 作业副本中。",
+    "完整 cover 搜索可能超时；ENT-12 历史见证使用单独引导配置，不能将其当作无附加条件的证明。",
+    "未在目标 FormalMC 2024 上运行，本包整理不产生新的设备兼容性结论。",
+    "optional/negative 中四个文件是互斥的违规环境监测器，与主模块同名；不得与正常检查器同时编译。"
+  ],
+  "files": {
+    "cmdbuf_rd_port_sva.sv": {
+      "bytes": 51501,
+      "sha256": "3a6e48fdbd0c7eb288b59a78029d078eb9e546c4eeba677b1d99d385a309262d",
+      "source": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+      "role": "主检查器：环境 assume、端口与事务 assert、基础 cover 的阅读入口。"
+    },
+    "cmdbuf_rd_reference_model.svh": {
+      "bytes": 33561,
+      "sha256": "d0394441a193d6431b24e896d9ac0ff4a3f7b7e91351aea766c390dc623321c2",
+      "source": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+      "role": "事务参考模型：容量、五项窗口、最老候选、请求流水、四拍 MEM 日历和 RR。"
+    },
+    "cmdbuf_rd_xau_order_model.svh": {
+      "bytes": 10136,
+      "sha256": "5976a220a2bf6f1c8e16960352aacc5f29981a0f0441200e463ba71baa070c6b",
+      "source": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+      "role": "单 XAU 独立接收 FIFO：检查 R 地址、ID、port、数据及错误状态保序。"
+    },
+    "cmdbuf_rd_corner_properties.svh": {
+      "bytes": 224970,
+      "sha256": "c0c19678b33c1e2995e5a151a52f40c57641309e64c2405e8e2164e334c33a7a",
+      "source": "formal/corner_20261021/cmdbuf_rd_corner_properties.svh",
+      "role": "全部 Corner 场景 cover，并引用 Corner 历史、断言和长序列辅助记录。"
+    },
+    "cmdbuf_rd_corner_assertions.svh": {
+      "bytes": 2777,
+      "sha256": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898",
+      "source": "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh",
+      "role": "Corner 的独立容量、准入与来源占用断言。"
+    },
+    "cmdbuf_rd_corner_history.svh": {
+      "bytes": 24163,
+      "sha256": "74b6f9cbcd647d554c4bda40d9b99051f72d445a96f38728c1c92670a365bbd6",
+      "source": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+      "role": "Corner 场景辅助记录：端口历史、独立 AR/R 账本及窗口映射。"
+    },
+    "cmdbuf_rd_corner_sequences.svh": {
+      "bytes": 6142,
+      "sha256": "b1f486de4a7a3145d51ed73f6cca7553f8ff1a230f682e90d524f4cce2a1c1f6",
+      "source": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+      "role": "Corner 多拍业务阶段记录与热点统计。"
+    },
+    "formal_top.sv": {
+      "bytes": 952,
+      "sha256": "54d21659f39bd7c53674431d2a82a5bfdf6ae58570486bb539f5d7302066ac19",
+      "source": "formal/protocol_20261021/formal_top.sv",
+      "role": "接入顶层 cmdbuf_rd_formal：实例化 DUT 和只观察顶层端口的检查器。"
+    },
+    "rtl/cmdbuf_rd.sv": {
+      "bytes": 2429,
+      "sha256": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4",
+      "source": "rtl/cmdbuf_rd.sv",
+      "role": "当前 SV RTL，供本目录独立编译与 SBY 验证。"
+    },
+    "rtl/cmdbuf_rd_cmd.sv": {
+      "bytes": 15105,
+      "sha256": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f",
+      "source": "rtl/cmdbuf_rd_cmd.sv",
+      "role": "当前 SV RTL，供本目录独立编译与 SBY 验证。"
+    },
+    "rtl/cmdbuf_rd_otb.sv": {
+      "bytes": 3975,
+      "sha256": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2",
+      "source": "rtl/cmdbuf_rd_otb.sv",
+      "role": "当前 SV RTL，供本目录独立编译与 SBY 验证。"
+    },
+    "property_catalog.py": {
+      "bytes": 5776,
+      "sha256": "56c4017a72dfaef4dc39bafaa873bce8c41fd488541b2258e25ee3a074b497c6",
+      "source": "formal/protocol_20261021/property_catalog.py",
+      "role": "原生属性解析与受限同拍 |-> 执行副本适配器。"
+    },
+    "replay.cpp": {
+      "bytes": 2600,
+      "sha256": "a3d711b08d26ebd36f2f2e7075febd6f0652eb5b8418d4184954b7e130652cca",
+      "source": "formal/corner_20261021/replay.cpp",
+      "role": "已保存 SBY 顶层端口轨迹的原生 SVA 回放工具。"
+    },
+    "replay.py": {
+      "bytes": 4346,
+      "sha256": "78bc3dc640e083102d6c3a22480dc4dbb15beea186c57e4e7a1f240fef78fc68",
+      "source": "formal/corner_20261021/replay.py",
+      "role": "已保存 SBY 顶层端口轨迹的原生 SVA 回放工具。"
+    },
+    "optional/cmdbuf_rd_long_witness.svh": {
+      "bytes": 2167,
+      "sha256": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f",
+      "source": "formal/corner_20261021/cmdbuf_rd_long_witness.svh",
+      "role": "仅 ENT-12 引导见证使用的额外输入约束，正常 native.f/run.py 不启用。"
+    },
+    "optional/negative/ar_09.sv": {
+      "bytes": 6228,
+      "sha256": "ac974f5628dab2162b84ed31efb1f182cbdfbaf1540cdc3d56e1477eeed20a09",
+      "source": "formal/corner_20261021/negative/ar_09.sv",
+      "role": "独立违规环境实验；与正常检查器同模块名，不得一起编译。"
+    },
+    "optional/negative/ar_10.sv": {
+      "bytes": 6231,
+      "sha256": "052f534905544401d7f2d5675556d3ff11634aa5d12b7a05df07e30ee0820b71",
+      "source": "formal/corner_20261021/negative/ar_10.sv",
+      "role": "独立违规环境实验；与正常检查器同模块名，不得一起编译。"
+    },
+    "optional/negative/arb_12.sv": {
+      "bytes": 6215,
+      "sha256": "19a743596d210cfc3355aa812d156489e184fd2387833e1472dae5595b7642f9",
+      "source": "formal/corner_20261021/negative/arb_12.sv",
+      "role": "独立违规环境实验；与正常检查器同模块名，不得一起编译。"
+    },
+    "optional/negative/err_05.sv": {
+      "bytes": 6248,
+      "sha256": "c5147fbfafb13113237daf69e971415f3c139409fa83592ab4bf38b0a2f6e3fe",
+      "source": "formal/corner_20261021/negative/err_05.sv",
+      "role": "独立违规环境实验；与正常检查器同模块名，不得一起编译。"
+    },
+    "run.py": {
+      "bytes": 7442,
+      "sha256": "7a3a4df578021990dc1f708d0c8d6ccfa917cf1439014a716610032137f2dd08",
+      "source": "formal/corner_20261021/run.py (only bundle-relative paths adapted)",
+      "role": "正常环境 SBY 入口；保存原生输入、执行副本、转换清单和源文件哈希。"
+    },
+    "run_guided.py": {
+      "bytes": 1497,
+      "sha256": "2d18543de8c1ef5876f57c9ab81caaa6238c1b25419bca023d2c41bf9b9230ed",
+      "source": "formal/corner_20261021/run_guided.py (only bundle-relative witness path adapted)",
+      "role": "独立 ENT-12 引导 cover 入口，额外假设不用于正常证明。"
+    },
+    "run_negative.py": {
+      "bytes": 5240,
+      "sha256": "d5e73483b2e5ab95161f51498bfb3700983858ab04d6599b71f69636691abd8b",
+      "source": "formal/corner_20261021/run_negative.py (only bundle-relative paths adapted)",
+      "role": "独立违规环境实验入口：预期 cover 命中、相应合同监测断言失败。"
+    },
+    "native.f": {
+      "bytes": 524,
+      "sha256": "dadac6465b813dc4a5f87f30c13b69a3a769d3a0506b0d6185200b2a065e9b38",
+      "source": "generated for this self-contained folder",
+      "role": "完整原生编译清单；工作目录为本文件夹。"
+    },
+    "checker.f": {
+      "bytes": 363,
+      "sha256": "ecb1761ebaae2aeca9d630cb1f5dcc73a1c2dd9e0b49b17332c1abdaeb26b8c2",
+      "source": "generated for this self-contained folder",
+      "role": "仅检查器原生编译清单，便于接入另一份同接口 DUT。"
+    },
+    "verify_bundle.py": {
+      "bytes": 2699,
+      "sha256": "850b48b99933ab761728efc3bde612e882f36baceb7d38cab465708405708dd5",
+      "source": "generated for this self-contained folder",
+      "role": "校验本文件夹源文件哈希、include 闭合、原生属性数量与正常环境边界。"
+    },
+    "output_assertions.json": {
+      "source": "generated for explicit full-checker output comparison mapping",
+      "role": "十组输出比对、旧标签到新标签的追溯映射。",
+      "bytes": 2977,
+      "sha256": "27eb67763b4b9178baab765cf1fc6ede68e613d0fc8c4921195b477e8b54bbae"
+    },
+    "run_output_tests.py": {
+      "source": "generated for exact output assertion sensitivity tests",
+      "role": "原生完整断言正常业务、无效负载，以及十个独立输出口注错测试。",
+      "bytes": 9528,
+      "sha256": "ce6b599230838e84cf40123a3f1b785252008bcb52caf7106ba21ee5dc0cfe16"
+    }
+  },
+  "revision": "explicit_exact_output_assertions_20261023",
+  "output_mapping": "output_assertions.json",
+  "current_verification": "verification/direct_outputs_20261023/summary.json"
+}

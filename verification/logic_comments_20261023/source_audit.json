@@ -1,0 +1,855 @@
+{
+  "status": "PASS",
+  "scope": "逐条补充组合计算说明，并补齐 Corner 历史更新、计数与覆盖阶段的逻辑说明。",
+  "changed_files": 5,
+  "assign_statements_with_direct_chinese_explanations": 111,
+  "labelled_properties_unchanged": 615,
+  "executable_tokens_unchanged": true,
+  "baseline": "verification/assign_model_20261023/vm_evidence.tar.gz",
+  "formal_status": "本轮仅修改注释；与上一轮 VM 实测源码的执行 token 完全一致，未新增求解器证明。",
+  "files": [
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+      "before_sha256": "32fcd390d753895f52812c1462e6f4e19fd2160c2367bb3961b5f6c333f4c146",
+      "after_sha256": "74b6f9cbcd647d554c4bda40d9b99051f72d445a96f38728c1c92670a365bbd6",
+      "executable_token_sha256": "1ec38de47a2cfb0a695bd0bf98268d1c37674ed5d80586ea54edaf1131fab5ea",
+      "tokens": 2292,
+      "assign_count": 23,
+      "assign_explanations": [
+        {
+          "line": 19,
+          "statement": "assign h_total = {27'd0,h_occ[0]}+{27'd0,h_occ[1]}+{27'd0,h_occ[2]};",
+          "explanation": [
+            "用真实握手账本计算 ready，独立于 m_live 和 model_retire，可发现参考表共同偏移。",
+            "将三源真实握手账本先扩到 32 位再相加，得到独立于参考事务表的总占用。"
+          ]
+        },
+        {
+          "line": 22,
+          "statement": "assign h_quota_part[hi] = h_occ[hi]==0 ? 1 : {27'd0,h_occ[hi]};",
+          "explanation": [
+            "空来源也保留一个名额，非空来源按实际条数计算，供首项预留总预算检查。"
+          ]
+        },
+        {
+          "line": 24,
+          "statement": "assign h_after[hi] = h_occ[hi] - ((rvalid[hi] && rready[hi]) ? 1 : 0);",
+          "explanation": [
+            "仅当来源 hi 本拍真实 R 握手时减 1；这里依据 DUT 公开输出，不使用 model_retire 的预测。"
+          ]
+        },
+        {
+          "line": 26,
+          "statement": "assign h_shared_part[hi] = h_after[hi]>1 ? h_after[hi]-1 : 0;",
+          "explanation": [
+            "扣过 R 后，超过首项的条数才消耗共享容量；剩 0 或 1 条时共享消耗为 0。"
+          ]
+        },
+        {
+          "line": 29,
+          "statement": "assign h_ready[hi] = h_after_total<9 && (h_after[hi]==0 || h_shared_after<6);",
+          "explanation": [
+            "真实 R 回收后要有物理空间；空来源可用预留项，非空来源还要有共享余量。",
+            "A_CC_READY 用它独立核对 arready，复位禁用由属性自身的 disable iff 负责。"
+          ]
+        },
+        {
+          "line": 32,
+          "statement": "assign h_budget = h_quota_part[0]+h_quota_part[1]+h_quota_part[2];",
+          "explanation": [
+            "合计三个来源含首项预留的预算，检查总预算是否超过九项。"
+          ]
+        },
+        {
+          "line": 34,
+          "statement": "assign h_after_total = h_after[0]+h_after[1]+h_after[2];",
+          "explanation": [
+            "三源扣除本拍真实 R 后求和，供满载同进同出时的物理空间判断。"
+          ]
+        },
+        {
+          "line": 36,
+          "statement": "assign h_shared_after = h_shared_part[0]+h_shared_part[1]+h_shared_part[2];",
+          "explanation": [
+            "将各源扣 R 后的共享消耗相加，供非空来源新增事务的准入判断。"
+          ]
+        },
+        {
+          "line": 76,
+          "statement": "assign h_status = {rd_mem_status[7],rd_mem_status[6],rd_mem_status[5],rd_mem_status[4],",
+          "explanation": [
+            "依 Bank 7 到 Bank 0 拼接，仅作为跨拍状态是否相同的比较值；每个 Bank 的两个半区位均保留。"
+          ]
+        },
+        {
+          "line": 196,
+          "statement": "assign h_rank_idle_prefix[0] = 0;",
+          "explanation": [
+            "还没扫描任何参考槽时，该排名的空闲比较值先置 0；是否有事务另用 valid 标志区分。"
+          ]
+        },
+        {
+          "line": 198,
+          "statement": "assign h_rank_valid_prefix[0] = 0;",
+          "explanation": [
+            "扫描起点没有发现占据排名 hr 的事务，排名有效标志从 0 开始。"
+          ]
+        },
+        {
+          "line": 202,
+          "statement": "assign h_rank_idle_prefix[hj+1] = (pool[hj] && ranks[hj]==hr) ?",
+          "explanation": [
+            "当前槽 hj 在 pool 且排名正好为 hr 时，把它的 idle 映射到该排名；否则沿用已有值。",
+            "若异常状态出现重复排名，保留旧实现的后扫描槽覆盖语义，不通过辅助记录掩盖模型自检失败。"
+          ]
+        },
+        {
+          "line": 205,
+          "statement": "assign h_rank_valid_prefix[hj+1] = h_rank_valid_prefix[hj] ||",
+          "explanation": [
+            "此前或当前找到过排名 hr 的 pool 事务，就保持该排名有效，不因后面不匹配的槽而清零。"
+          ]
+        },
+        {
+          "line": 209,
+          "statement": "assign h_rank_idle[hr] = h_rank_idle_prefix[9];",
+          "explanation": [
+            "九槽扫描后取最终映射值，使 cover 能按“第几老”描述哪些命令的目标 Bank 空闲。"
+          ]
+        },
+        {
+          "line": 211,
+          "statement": "assign h_rank_valid[hr] = h_rank_valid_prefix[9];",
+          "explanation": [
+            "取最终存在标志，区分“该排名不存在”和“该排名存在但目标忙”这两种情况。"
+          ]
+        },
+        {
+          "line": 214,
+          "statement": "assign h_other_done_mask[hr] = m_live[hr] && m_done[hr] &&",
+          "explanation": [
+            "把 hr 当参考槽号，检查它有效且数据已到，同时它不是所属来源的最老事务。",
+            "命中表示年轻事务先完成并等待队头，供单源保序场景观察；它不改变 RR 选择。"
+          ]
+        },
+        {
+          "line": 219,
+          "statement": "assign h_hole_mask[hr] = 1'b0;",
+          "explanation": [
+            "槽 0 前不存在更小编号的分配位置，因此它永远不能作为“新分配槽之后仍有效”的见证槽。"
+          ]
+        },
+        {
+          "line": 222,
+          "statement": "assign h_hole_mask[hr] = ar_fire && m_live[hr] && hr>alloc_e;",
+          "explanation": [
+            "本拍 AR 分配槽号比某个仍有效的槽更小，说明复用了参考表前部的空洞，而非只在末尾追加。"
+          ]
+        },
+        {
+          "line": 225,
+          "statement": "assign h_duplicate_mask[hr] = ar_fire && m_live[hr] && m_id[hr]==arid;",
+          "explanation": [
+            "本拍新 AR 与任一尚未回收参考事务的 ID 相同时置位，用于见证重复 ID 业务。"
+          ]
+        },
+        {
+          "line": 228,
+          "statement": "assign h_other_done = |h_other_done_mask;",
+          "explanation": [
+            "任一参考槽属于“已完成非队头”就置位；这是存在性观察，不授权该事务提前返回。"
+          ]
+        },
+        {
+          "line": 230,
+          "statement": "assign h_hole_reused = |h_hole_mask;",
+          "explanation": [
+            "任一较高编号槽仍有效且本拍分配了更低槽号，就标记本次空洞复用见证。"
+          ]
+        },
+        {
+          "line": 232,
+          "statement": "assign h_duplicate_id = |h_duplicate_mask;",
+          "explanation": [
+            "任一有效参考槽的 ID 与本拍 AR 相同，就标记重复 ID 场景，不把重复 ID 当作非法输入。"
+          ]
+        },
+        {
+          "line": 260,
+          "statement": "assign h_response_matches = r_fire && rvalid==expected_rvalid &&",
+          "explanation": [
+            "要求真实 R 握手、接收来源与预期一致，再逐组比较地址低位、ID、port、数据及错误状态。",
+            "只有这些条件同时成立才记录一次正确响应的业务见证，防止仅 ID 碰巧相同就算通过。"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+      "before_sha256": "703d1be957f035bd50eb050559a63ab2d85e8a8a54f677393defddb9cce08ebe",
+      "after_sha256": "b1f486de4a7a3145d51ed73f6cca7553f8ff1a230f682e90d524f4cce2a1c1f6",
+      "executable_token_sha256": "4cd11f63aaf0a5021a7906363e028f4b84d320652995e9373e7bdeaab78e2d09",
+      "tokens": 476,
+      "assign_count": 4,
+      "assign_explanations": [
+        {
+          "line": 18,
+          "statement": "assign h_bank_prefix[0] = 0;",
+          "explanation": [
+            "只比较 Bank [5:3]，不比较 half；描述热点覆盖，不改变窗口或发射候选。",
+            "扫描起点同 Bank 的待发条数为 0，仅为本拍组合统计的初值。"
+          ]
+        },
+        {
+          "line": 21,
+          "statement": "assign h_bank_prefix[hs+1] = h_bank_prefix[hs] +",
+          "explanation": [
+            "当前槽仍在 pending，且地址 Bank 位 [5:3] 等于当前请求事务的 Bank 时加 1；奇偶半区不同也算同 Bank。"
+          ]
+        },
+        {
+          "line": 25,
+          "statement": "assign h_same_bank_count = h_bank_prefix[9];",
+          "explanation": [
+            "扫描完九槽后得到热点条数，包含待发集合中所有同 Bank 项，不限于五项窗口。"
+          ]
+        },
+        {
+          "line": 27,
+          "statement": "assign h_hotspot = h_same_bank_count>=3;",
+          "explanation": [
+            "同 Bank 待发条数达到 3 即标记热点场景；这是 cover 的业务条件，不用于控制发射或限制输入。"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+      "before_sha256": "2fd62d01f9904cf1412b9a1cb23176e1051d3223a1a96c3dcc8c4ad2c142f29b",
+      "after_sha256": "5c09fca48fbc92dc3cc78090d3d33abcabeb18ee60e1668fb2a12af4f1a39c35",
+      "executable_token_sha256": "f81914ee3f621e0de3aea7518d3c1599cf1a4b386d96bd01f8a256cb014593f7",
+      "tokens": 2618,
+      "assign_count": 6,
+      "assign_explanations": [
+        {
+          "line": 79,
+          "statement": "assign ar_fire = arvalid && (src < 3) &&",
+          "explanation": [
+            "arvalid 有效、src 合法且对应 arready[src] 为 1，才算真正接收一次 AR；其他 ready 位为 1 不算该源握手。"
+          ]
+        },
+        {
+          "line": 84,
+          "statement": "assign issue_fire = |(req & ar_rd_gnt & rw_rd_gnt);",
+          "explanation": [
+            "先把 req 与两种 grant 按 Bank 逐位相与，再归约为一次成功事件；不同 Bank 的 grant 不能拼成成功。"
+          ]
+        },
+        {
+          "line": 88,
+          "statement": "assign r_fire = |(rvalid & rready);",
+          "explanation": [
+            "仅 rvalid 与 rready 同一来源位同时有效才计为 R 回收；任一来源握手即可触发本拍全局回收事件。"
+          ]
+        },
+        {
+          "line": 136,
+          "statement": "assign requested_half_busy = rd_mem_status[bank_env][arb_addr[0]];",
+          "explanation": [
+            "从逐 Bank 二维状态中读请求地址指定的半区，供“请求成功当拍该半区必须忙”的 assume 使用。"
+          ]
+        },
+        {
+          "line": 607,
+          "statement": "assign calendar_count = {3'b0, (m_due[0] && m_due_e[0] == g)} +",
+          "explanation": [
+            "四个日历级逐个判断“有效且 token 等于槽 g”，每个命中先扩成 4 位再相加。",
+            "同一有效事务在返回日历中应有正确的出现次数，不能只检查整条日历是否非空。"
+          ]
+        },
+        {
+          "line": 805,
+          "statement": "assign this_half_busy = rd_mem_status[cb][ch];",
+          "explanation": [
+            "直接读取展开的 Bank cb、半区 ch 状态；逐个 cover 检查各 Bank/half 的成功忙状态组合。"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+      "before_sha256": "6c3038eed02520dc8a6d3ae7c7404fc888a67d9eab07ca7abaf4c198e0ac08b7",
+      "after_sha256": "d0394441a193d6431b24e896d9ac0ff4a3f7b7e91351aea766c390dc623321c2",
+      "executable_token_sha256": "857f6315ea7a0943c99b3eeedb66052666f3f6cc64144acebe5e9f2913ebeb5a",
+      "tokens": 2953,
+      "assign_count": 72,
+      "assign_explanations": [
+        {
+          "line": 28,
+          "statement": "assign mem_capture_due = m_due[3];",
+          "explanation": [
+            "第 3 级有效位为 1，表示四拍前已有一次成功发射，本拍必须接住 MEM 的单拍返回。"
+          ]
+        },
+        {
+          "line": 30,
+          "statement": "assign mem_capture_slot = m_due_e[3];",
+          "explanation": [
+            "从有效位对应的同一级取槽号，保证本拍数据写回那一次成功发射的事务。"
+          ]
+        },
+        {
+          "line": 48,
+          "statement": "assign used_prefix[0] = 0;",
+          "explanation": [
+            "扫描任何槽之前，已累计的有效事务数为 0；这是组合链起点，不是计数器清零。"
+          ]
+        },
+        {
+          "line": 50,
+          "statement": "assign wait_prefix[0] = 0;",
+          "explanation": [
+            "待发计数也从 0 开始，与全部有效事务的计数分别累计。"
+          ]
+        },
+        {
+          "line": 53,
+          "statement": "assign used_prefix[mi+1] = used_prefix[mi] + (m_live[mi] ? 32'sd1 : 32'sd0);",
+          "explanation": [
+            "前 mi 项的累计数，加上当前槽 mi 的有效位；已发射、已完成但未 R 回收的项仍计入占用。"
+          ]
+        },
+        {
+          "line": 55,
+          "statement": "assign wait_prefix[mi+1] = wait_prefix[mi] +",
+          "explanation": [
+            "只有有效且尚未成功发射的当前项才加 1；已成功项继续占 entry，但不再算待发命令。"
+          ]
+        },
+        {
+          "line": 59,
+          "statement": "assign used = used_prefix[9];",
+          "explanation": [
+            "读扫描完槽 0..8 的末端结果，得到本拍全部尚未回收的事务数。"
+          ]
+        },
+        {
+          "line": 61,
+          "statement": "assign waiting = wait_prefix[9];",
+          "explanation": [
+            "读待发累计链末端，得到拍初待发数；本拍 AR/发射的增减另由 pending_cnt 属性检查。"
+          ]
+        },
+        {
+          "line": 65,
+          "statement": "assign occ_prefix[0] = 0;",
+          "explanation": [
+            "每个来源 mx 有独立累计链；尚未扫描任何槽时，该来源的占用计数为 0。"
+          ]
+        },
+        {
+          "line": 68,
+          "statement": "assign occ_prefix[mi+1] = occ_prefix[mi] +",
+          "explanation": [
+            "当前槽必须同时满足“有效”和“来源等于 mx”才加 1，其他来源不影响这条累计链。"
+          ]
+        },
+        {
+          "line": 72,
+          "statement": "assign occ[mx] = occ_prefix[9];",
+          "explanation": [
+            "九个槽都检查完后，末端数值就是来源 mx 的 AR 已接受、R 未回收条数。"
+          ]
+        },
+        {
+          "line": 74,
+          "statement": "assign shared_part[mx] = occ[mx]>0 ? occ[mx]-1 : 0;",
+          "explanation": [
+            "每源第一项由预留容量承担，第二项起才消耗六项共享容量；空源的共享消耗取 0。"
+          ]
+        },
+        {
+          "line": 76,
+          "statement": "assign quota_part[mx] = occ[mx]>0 ? occ[mx] : 1;",
+          "explanation": [
+            "非空来源按实际条数计费，空来源仍占 1 个预留名额，避免其他来源挤掉它的首项。"
+          ]
+        },
+        {
+          "line": 79,
+          "statement": "assign shared_cost = shared_part[0]+shared_part[1]+shared_part[2];",
+          "explanation": [
+            "合计三源超出各自首项的条数，用于检查六项共享容量是否被超用。"
+          ]
+        },
+        {
+          "line": 81,
+          "statement": "assign quota_cost = quota_part[0]+quota_part[1]+quota_part[2];",
+          "explanation": [
+            "合计实际占用与空源预留，得到含公平性预留的总预算；它可能大于 used。"
+          ]
+        },
+        {
+          "line": 97,
+          "statement": "assign head_age_prefix[0] = 4'd9;",
+          "explanation": [
+            "合法年龄为 0..8，取 9 表示尚未找到队头；第一个合法候选一定比这个初值更老。"
+          ]
+        },
+        {
+          "line": 99,
+          "statement": "assign head_slot_prefix[0] = 4'd0;",
+          "explanation": [
+            "尚无候选时先放槽号 0；是否存在真实队头由 head_found_prefix 判定，不能只看这个槽号。"
+          ]
+        },
+        {
+          "line": 101,
+          "statement": "assign head_found_prefix[0] = 1'b0;",
+          "explanation": [
+            "扫描起点还没检查任何事务，因此“已经找到本源队头”的标志为 0。"
+          ]
+        },
+        {
+          "line": 105,
+          "statement": "assign head_take[mi] = m_live[mi] && m_src[mi]==mx && m_age[mi]<head_age_prefix[mi];",
+          "explanation": [
+            "当前槽有效、属于来源 mx，且年龄小于此前找到的最小年龄，才替换队头。",
+            "这里不检查 m_done：年轻命令即使先完成，也不能绕过尚未完成的老命令。"
+          ]
+        },
+        {
+          "line": 108,
+          "statement": "assign head_age_prefix[mi+1] = head_take[mi] ? m_age[mi] : head_age_prefix[mi];",
+          "explanation": [
+            "如果当前槽更老，就把最小年龄更新为 m_age[mi]；否则沿用前 mi 项的最小年龄。",
+            "下标 mi+1 表示把槽 mi 也纳入扫描结果，全部仍是本拍组合计算。"
+          ]
+        },
+        {
+          "line": 111,
+          "statement": "assign head_slot_prefix[mi+1] = head_take[mi] ? 4'(mi) : head_slot_prefix[mi];",
+          "explanation": [
+            "年龄更新时，队头槽号也必须同步改为 mi；未替换时保留原队头槽号。",
+            "4'(mi) 把展开索引转成 4 位槽号，足以表示 0..8，并不增加流水级。"
+          ]
+        },
+        {
+          "line": 113,
+          "statement": "assign head_found_prefix[mi+1] = head_found_prefix[mi] || head_take[mi];",
+          "explanation": [
+            "此前已经找到候选，或当前槽首次满足条件，均表示本源存在队头；后续不匹配的槽不能清掉它。"
+          ]
+        },
+        {
+          "line": 116,
+          "statement": "assign head[mx] = head_slot_prefix[9];",
+          "explanation": [
+            "取扫描九个槽后的槽号作为来源 mx 的最老事务；只有 head_valid[mx] 为 1 时它才有效。"
+          ]
+        },
+        {
+          "line": 118,
+          "statement": "assign head_valid[mx] = head_found_prefix[9];",
+          "explanation": [
+            "末端找到标志说明本源确有有效事务；空来源不会因默认槽号为 0 而误参加 RR。"
+          ]
+        },
+        {
+          "line": 121,
+          "statement": "assign eligible[mx] = head_valid[mx] && m_done[head[mx]] && rready[mx];",
+          "explanation": [
+            "先确定本源队头，再要求该队头已经保存 MEM 数据且上游本拍 ready，才授予 RR 候选资格。",
+            "例如命令 3 已完成而队头命令 1 未完成，本项仍为 0，必须继续等待命令 1。"
+          ]
+        },
+        {
+          "line": 136,
+          "statement": "assign rr_valid_prefix[0] = 0;",
+          "explanation": [
+            "RR 扫描开始时还没有选中来源，独热响应向量从全 0 起步。"
+          ]
+        },
+        {
+          "line": 138,
+          "statement": "assign rr_winner_prefix[0] = 0;",
+          "explanation": [
+            "尚未选中时默认来源号为 0；是否真的选中由响应有效向量判断。"
+          ]
+        },
+        {
+          "line": 140,
+          "statement": "assign rr_slot_prefix[0] = 0;",
+          "explanation": [
+            "尚未选中时默认参考槽号为 0，不把它作为有效响应使用。"
+          ]
+        },
+        {
+          "line": 143,
+          "statement": "assign rr_scan[mo] = (m_rr+mo>=3) ? m_rr+mo-3 : m_rr+mo;",
+          "explanation": [
+            "在 RR 起点上加扫描偏移，达到 3 就减 3 回绕；例如起点 2 的检查顺序为 2、0、1。"
+          ]
+        },
+        {
+          "line": 145,
+          "statement": "assign rr_take[mo] = rr_valid_prefix[mo]==0 && eligible[rr_scan[mo]];",
+          "explanation": [
+            "只有此前还没选中任何来源，并且当前来源 eligible，才能在这个扫描位置选中它。"
+          ]
+        },
+        {
+          "line": 147,
+          "statement": "assign rr_valid_prefix[mo+1] = rr_take[mo] ? (3'b001 << rr_scan[mo]) : rr_valid_prefix[mo];",
+          "explanation": [
+            "首次命中时置对应来源的一位；已经选中则原样传递，保证后面的候选不能覆盖先命中者。"
+          ]
+        },
+        {
+          "line": 149,
+          "statement": "assign rr_winner_prefix[mo+1] = rr_take[mo] ? rr_scan[mo][1:0] : rr_winner_prefix[mo];",
+          "explanation": [
+            "与有效向量同时记录命中来源的编号；没有新命中就继续传递已有胜者。"
+          ]
+        },
+        {
+          "line": 151,
+          "statement": "assign rr_slot_prefix[mo+1] = rr_take[mo] ? head[rr_scan[mo]] : rr_slot_prefix[mo];",
+          "explanation": [
+            "记录同一胜者的本源队头槽号；响应负载随后按这个槽取，避免来源与数据错配。"
+          ]
+        },
+        {
+          "line": 154,
+          "statement": "assign expected_rvalid = rst_n ? rr_valid_prefix[3] : 3'b000;",
+          "explanation": [
+            "扫描三个位置后取最终独热向量；复位期间输出计算值为 0，属性仍按 disable iff 禁用。"
+          ]
+        },
+        {
+          "line": 156,
+          "statement": "assign winner = rr_winner_prefix[3];",
+          "explanation": [
+            "末端保存的来源编号就是本拍 RR 胜者，仅在 model_retire 为 1 时参与回收和指针推进。"
+          ]
+        },
+        {
+          "line": 158,
+          "statement": "assign rsp_e = rr_slot_prefix[3];",
+          "explanation": [
+            "末端保存的队头槽号用于读取本拍响应负载，以及决定本拍要回收哪一条参考事务。"
+          ]
+        },
+        {
+          "line": 160,
+          "statement": "assign model_retire = |expected_rvalid;",
+          "explanation": [
+            "预期响应向量任意一位有效，就预测本拍回收一次；eligible 已要求对应 rready 为 1。"
+          ]
+        },
+        {
+          "line": 172,
+          "statement": "assign after_occ[mx] = occ[mx] - ((model_retire && winner==mx) ? 1 : 0);",
+          "explanation": [
+            "只有本拍预期 R 属于来源 mx 时，该源占用才减 1；其他来源保持原值。",
+            "后续 ready 用减过 R 的占用计算，因此可以接收与回收同拍的新 AR。"
+          ]
+        },
+        {
+          "line": 174,
+          "statement": "assign after_shared_part[mx] = after_occ[mx]>0 ? after_occ[mx]-1 : 0;",
+          "explanation": [
+            "先扣 R，再重新扣除该源首项预留；用于判断本拍响应释放了多少共享容量。"
+          ]
+        },
+        {
+          "line": 177,
+          "statement": "assign expected_ready[mx] = rst_n && used_after<9 &&",
+          "explanation": [
+            "必须有物理空位；空来源可用自己的首项预留，非空来源还须有六项共享预算的余量。",
+            "三位分别计算，可同时为 1；实际只接收 src 选择且完成握手的一条命令。"
+          ]
+        },
+        {
+          "line": 181,
+          "statement": "assign used_after = after_occ[0]+after_occ[1]+after_occ[2];",
+          "explanation": [
+            "合计三源扣除本拍预期 R 后的占用，表示本拍 AR 分配之前实际需要保留的项数。"
+          ]
+        },
+        {
+          "line": 183,
+          "statement": "assign shared_after = after_shared_part[0]+after_shared_part[1]+after_shared_part[2];",
+          "explanation": [
+            "合计扣 R 后的共享消耗；由它决定非空来源本拍能否再增加一项。"
+          ]
+        },
+        {
+          "line": 193,
+          "statement": "assign alloc_found_prefix[0] = 0;",
+          "explanation": [
+            "分配扫描起点还没找到可用槽，允许后面第一个可用槽成为分配结果。"
+          ]
+        },
+        {
+          "line": 195,
+          "statement": "assign alloc_slot_prefix[0] = 0;",
+          "explanation": [
+            "未找到可用槽时槽号默认 0；分配是否合法需同时检查 free_found。"
+          ]
+        },
+        {
+          "line": 198,
+          "statement": "assign alloc_free[mi] = !m_live[mi] || (model_retire && rsp_e==mi);",
+          "explanation": [
+            "原本无效的槽可分配，本拍预期 R 要回收的槽也可立即复用；已发射但未回收的槽仍不可用。"
+          ]
+        },
+        {
+          "line": 200,
+          "statement": "assign alloc_found_prefix[mi+1] = alloc_found_prefix[mi] || alloc_free[mi];",
+          "explanation": [
+            "一旦前面或当前发现可用槽，就保持“已找到”，防止后面的可用槽改写最先选中的结果。"
+          ]
+        },
+        {
+          "line": 202,
+          "statement": "assign alloc_slot_prefix[mi+1] = (!alloc_found_prefix[mi] && alloc_free[mi]) ?",
+          "explanation": [
+            "仅“此前没找到、当前可用”时取当前槽号；否则继续传递先前选中的最小可用槽号。"
+          ]
+        },
+        {
+          "line": 206,
+          "statement": "assign alloc_e = alloc_slot_prefix[9];",
+          "explanation": [
+            "取九槽扫描末端的分配槽号，供本拍 ar_fire 时写入新事务。"
+          ]
+        },
+        {
+          "line": 208,
+          "statement": "assign free_found = alloc_found_prefix[9];",
+          "explanation": [
+            "末端标志说明是否真正存在可用槽；它与 alloc_e 配合，防止把默认槽号当空槽。"
+          ]
+        },
+        {
+          "line": 220,
+          "statement": "assign pending = m_live & ~m_sent;",
+          "explanation": [
+            "有效位与未成功发射位相与，得到所有待发事务；MEM 返回和 R ready 不参与这个集合的定义。"
+          ]
+        },
+        {
+          "line": 224,
+          "statement": "assign pool[mi] = pending[mi] && !(issue_fire && m_attempt_e==mi);",
+          "explanation": [
+            "只移除本拍双 grant 成功的请求项；仲裁失败时不移除，使原命令仍能在本拍被重新选中。"
+          ]
+        },
+        {
+          "line": 226,
+          "statement": "assign rank_prefix[0] = 0;",
+          "explanation": [
+            "计算当前槽 mi 的年龄排名前，较老待发事务数从 0 开始累计。"
+          ]
+        },
+        {
+          "line": 229,
+          "statement": "assign rank_prefix[mj+1] = rank_prefix[mj] +",
+          "explanation": [
+            "比较槽 mj 必须仍在 pool 且年龄严格小于 mi 才加 1；无效、已发射或更年轻的槽不计入。"
+          ]
+        },
+        {
+          "line": 233,
+          "statement": "assign ranks[mi] = rank_prefix[9];",
+          "explanation": [
+            "扫描全部九槽后，累计值就是 pool 中比 mi 更老的条数；对仍在 pool 的项，这就是从 0 起算的排名。"
+          ]
+        },
+        {
+          "line": 235,
+          "statement": "assign window[mi] = pool[mi] && ranks[mi]<5;",
+          "explanation": [
+            "当前项仍在 pool，且前面最多只有四条更老命令，才属于五项窗口；Bank 空闲不能改变入窗资格。"
+          ]
+        },
+        {
+          "line": 237,
+          "statement": "assign idle[mi] = !rd_mem_status[m_addr[mi][5:3]][m_addr[mi][6]];",
+          "explanation": [
+            "地址 [5:3] 选择 Bank 0..7，[6] 选择奇偶半区；对应状态位为 0 才得到 idle=1。"
+          ]
+        },
+        {
+          "line": 239,
+          "statement": "assign candidate[mi] = window[mi] && idle[mi];",
+          "explanation": [
+            "只有“已在五项窗口内”并且“本拍目标半区空闲”的交集才可竞争；窗外第六条空闲也不能越窗。"
+          ]
+        },
+        {
+          "line": 251,
+          "statement": "assign select_age_prefix[0] = 4'd9;",
+          "explanation": [
+            "用合法年龄上界之外的 9 表示尚无选中项，后续扫描寻找候选中的最小年龄。"
+          ]
+        },
+        {
+          "line": 253,
+          "statement": "assign select_slot_prefix[0] = 0;",
+          "explanation": [
+            "初始槽号为 0，仅作无候选时的默认值；select_valid 决定它能否生成下一拍请求。"
+          ]
+        },
+        {
+          "line": 256,
+          "statement": "assign select_take[mi] = candidate[mi] && m_age[mi]<select_age_prefix[mi];",
+          "explanation": [
+            "当前槽必须已经通过窗口与空闲过滤，且比此前最老候选更老，才能替换预选结果。"
+          ]
+        },
+        {
+          "line": 258,
+          "statement": "assign select_age_prefix[mi+1] = select_take[mi] ? m_age[mi] : select_age_prefix[mi];",
+          "explanation": [
+            "命中更老候选时更新最小年龄，未命中则保持已有结果；后来的年轻候选不会抢占它。"
+          ]
+        },
+        {
+          "line": 260,
+          "statement": "assign select_slot_prefix[mi+1] = select_take[mi] ? 4'(mi) : select_slot_prefix[mi];",
+          "explanation": [
+            "与年龄更新同步记录当前 4 位槽号，否则保留此前选中槽，保证选中年龄与事务身份一致。"
+          ]
+        },
+        {
+          "line": 263,
+          "statement": "assign select_e = select_slot_prefix[9];",
+          "explanation": [
+            "末端槽号给出本拍 C2 预选结果；下面的时序逻辑会在时钟沿把它送入 C3 请求流水。"
+          ]
+        },
+        {
+          "line": 265,
+          "statement": "assign selected = (select_age_prefix[9]<9) ? (9'b1 << select_e) : 9'd0;",
+          "explanation": [
+            "末端年龄小于 9 说明确有候选，才将槽号译成九位独热向量；全无候选时输出全 0。"
+          ]
+        },
+        {
+          "line": 267,
+          "statement": "assign select_valid = |selected;",
+          "explanation": [
+            "对独热向量做归约或，表示本拍是否预选到一条命令，决定下一拍 m_attempt 是否有效。"
+          ]
+        },
+        {
+          "line": 331,
+          "statement": "assign expected_req = (rst_n && m_attempt)?(8'b1<<m_addr[m_attempt_e][5:3]):8'd0;",
+          "explanation": [
+            "仅 C3 请求流水有效时，根据那条事务地址的 Bank 位译成八位独热 req；不用本拍 C2 新选中项。"
+          ]
+        },
+        {
+          "line": 335,
+          "statement": "assign expected_addr = (rst_n && m_attempt)?m_addr[m_attempt_e][17:6]:12'd0;",
+          "explanation": [
+            "从同一 C3 事务取地址 [17:6]，低位保留奇偶半区选择；无请求时的默认值不参加有效负载检查。"
+          ]
+        },
+        {
+          "line": 340,
+          "statement": "assign expected_resp = (m_err[rsp_e]==2'b11)?2'b11:(m_pc[rsp_e]?2'b01:2'b00);",
+          "explanation": [
+            "只合成本拍 R 事务保存的状态：AR 越界返回 11，否则 pc_err 返回 01，否则返回 00。"
+          ]
+        },
+        {
+          "line": 358,
+          "statement": "assign old_rank_prefix[0] = 0;",
+          "explanation": [
+            "用旧 pending 排名而非新 pool 排名识别“原第六条”：selected_old_rank==5。",
+            "重新统计预选项在旧 pending 中的排名，起点较老条数为 0。"
+          ]
+        },
+        {
+          "line": 361,
+          "statement": "assign old_rank_prefix[mc+1] = old_rank_prefix[mc] +",
+          "explanation": [
+            "按尚未扣掉本拍成功项的 pending 计数，才能识别新选中项原先是否排在第六条。"
+          ]
+        },
+        {
+          "line": 365,
+          "statement": "assign selected_old_rank = old_rank_prefix[9];",
+          "explanation": [
+            "九槽扫描末端若为 5，表示本拍预选项原先是第六条；与 issue_fire 联合见证成功当拍补窗。"
+          ]
+        },
+        {
+          "line": 372,
+          "statement": "assign blocked_six = waiting>=6 && (window & idle)==0 && (pool & ~window & idle)!=0 && !m_attempt;",
+          "explanation": [
+            "要求至少六条待发、五项窗口全忙、窗外有空闲项，并且没有前拍遗留请求。",
+            "这些条件共同隔离“第六条虽匹配却不能越过受阻窗口”的场景，避免把已在 C3 的请求误判为越窗。"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+      "before_sha256": "d662584d7a4f4037a7df5853cb79f4dcdc4abb5e01fb7e344d0f7d980c0b61db",
+      "after_sha256": "5976a220a2bf6f1c8e16960352aacc5f29981a0f0441200e463ba71baa070c6b",
+      "executable_token_sha256": "b09c7493f2be026b48fd6035b0b14cedfb31e4211b71591818edd4d84ba0e3eb",
+      "tokens": 655,
+      "assign_count": 6,
+      "assign_explanations": [
+        {
+          "line": 27,
+          "statement": "assign source_ar = ar_fire && src==g;",
+          "explanation": [
+            "全局 AR 真正握手且 src 指向当前展开来源 g，才让这个来源的接收 FIFO 入队一次。"
+          ]
+        },
+        {
+          "line": 31,
+          "statement": "assign source_r = rvalid[g] && rready[g];",
+          "explanation": [
+            "只检查来源 g 自己的 R 握手；其他来源返回不会弹出本源 FIFO 的队头。"
+          ]
+        },
+        {
+          "line": 36,
+          "statement": "assign oldest = order_slot[0];",
+          "explanation": [
+            "固定取接收 FIFO 的第 0 项，按 AR 接收先后决定队头，不按成功发射或 MEM 到达先后选择。"
+          ]
+        },
+        {
+          "line": 39,
+          "statement": "assign oldest_valid = order_count!=0 && oldest<9 &&",
+          "explanation": [
+            "同时检查 FIFO 非空、token 在 0..8、对应事务仍有效且来源匹配，避免空队列默认值或陈旧 token 被当成队头。"
+          ]
+        },
+        {
+          "line": 44,
+          "statement": "assign oldest_resp = m_err[oldest]==2'b11 ? 2'b11 :",
+          "explanation": [
+            "从独立 FIFO 队头保存的 arresp/pc_err 合成响应状态，保持地址越界高于奇偶校验异常的优先级。"
+          ]
+        },
+        {
+          "line": 51,
+          "statement": "assign head_payload_matches = oldest_valid &&",
+          "explanation": [
+            "先确认 FIFO 队头有效，再一次比较 raddr、rid、port_id、128 位数据、rresp 是否全部属于它。",
+            "重复 ID 也不会混淆顺序，因为比较对象由 AR 接收 token 决定，并同时核对整组负载。"
+          ]
+        }
+      ]
+    }
+  ]
+}

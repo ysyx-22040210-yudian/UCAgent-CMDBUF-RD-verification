@@ -1,0 +1,38 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "arvalid |-> src<2'd3",
+    "executed_expression": "(!(arvalid) || (src<2'd3))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "executed_expression": "(!(arvalid) || ((arresp==2'b00 || arresp==2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "arready==0 |-> !arvalid",
+    "executed_expression": "(!(arready==0) || (!arvalid))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "executed_expression": "(!((req[b] && ar_rd_gnt[b] && rw_rd_gnt[b])) || (rd_mem_status[b][arb_addr[0]]))"
+  },
+  {
+    "label": "A_S_COMMAND_AVAILABLE",
+    "kind": "assert",
+    "source_expression": "command_query |-> balance[0]>{3'b0,command_fresh}",
+    "executed_expression": "(!(command_query) || (balance[0]>{3'b0,command_fresh}))"
+  },
+  {
+    "label": "A_S_COMMAND_PREVIOUS_IDLE",
+    "kind": "assert",
+    "source_expression": "command_query |-> command_idle_prev",
+    "executed_expression": "(!(command_query) || (command_idle_prev))"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "group": "status",
+  "mode": "bmc",
+  "depth": 12,
+  "timeout": 150,
+  "engine": "smtbmc yices",
+  "status": "PASS 0 6",
+  "returncode": 0,
+  "seconds": 5.62,
+  "counts": {
+    "assert": 6,
+    "assume": 11,
+    "cover": 0
+  },
+  "engine_status": "PASS 0 6",
+  "symbolic_audit_ok": true,
+  "anyconst_cells": [
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3478",
+      "width": 2
+    }
+  ]
+}

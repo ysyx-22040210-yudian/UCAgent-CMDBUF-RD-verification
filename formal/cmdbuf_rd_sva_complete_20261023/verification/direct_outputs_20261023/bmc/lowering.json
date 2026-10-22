@@ -1,0 +1,182 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "(arvalid)\n        |-> (src < 2'd3)",
+    "executed_expression": "(!((arvalid)) || ((src < 2'd3)))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "(arvalid)\n        |-> (arresp == 2'b00 || arresp == 2'b11)",
+    "executed_expression": "(!((arvalid)) || ((arresp == 2'b00 || arresp == 2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "(arready == 3'b000)\n        |-> (!arvalid)",
+    "executed_expression": "(!((arready == 3'b000)) || ((!arvalid)))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])\n            |-> (requested_half_busy)",
+    "executed_expression": "(!((req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])) || ((requested_half_busy)))"
+  },
+  {
+    "label": "A_COMPARE_ARB_ADDR",
+    "kind": "assert",
+    "source_expression": "(req != 8'b0)\n        |-> (arb_addr == expected_addr)",
+    "executed_expression": "(!((req != 8'b0)) || ((arb_addr == expected_addr)))"
+  },
+  {
+    "label": "A_COMPARE_RID",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> (rid == m_id[rsp_e])",
+    "executed_expression": "(!((r_fire)) || ((rid == m_id[rsp_e])))"
+  },
+  {
+    "label": "A_COMPARE_R_PORT_ID",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> (r_port_id == m_port[rsp_e])",
+    "executed_expression": "(!((r_fire)) || ((r_port_id == m_port[rsp_e])))"
+  },
+  {
+    "label": "A_COMPARE_RADDR",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> (raddr == m_addr[rsp_e][2:0])",
+    "executed_expression": "(!((r_fire)) || ((raddr == m_addr[rsp_e][2:0])))"
+  },
+  {
+    "label": "A_COMPARE_RRESP",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> (rresp == expected_resp)",
+    "executed_expression": "(!((r_fire)) || ((rresp == expected_resp)))"
+  },
+  {
+    "label": "A_COMPARE_RDATA",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> (rdata == m_data[rsp_e])",
+    "executed_expression": "(!((r_fire)) || ((rdata == m_data[rsp_e])))"
+  },
+  {
+    "label": "A_RR_BOUND",
+    "kind": "assert",
+    "source_expression": "(eligible[g] && bypass_count >= 2)\n            |-> (rvalid[g])",
+    "executed_expression": "(!((eligible[g] && bypass_count >= 2)) || ((rvalid[g])))"
+  },
+  {
+    "label": "A_XAU_R_HAS_PENDING",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> (oldest_valid)",
+    "executed_expression": "(!((rvalid[g])) || ((oldest_valid)))"
+  },
+  {
+    "label": "A_XAU_R_HEAD_COMPLETE",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && m_sent[oldest] && m_done[oldest]))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && m_sent[oldest] && m_done[oldest]))))"
+  },
+  {
+    "label": "A_XAU_R_NO_EARLY_BYPASS",
+    "kind": "assert",
+    "source_expression": "(oldest_valid && !m_done[oldest])\n            |-> (!rvalid[g])",
+    "executed_expression": "(!((oldest_valid && !m_done[oldest])) || ((!rvalid[g])))"
+  },
+  {
+    "label": "A_XAU_R_ADDR_ORDER",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && raddr == m_addr[oldest][2:0]))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && raddr == m_addr[oldest][2:0]))))"
+  },
+  {
+    "label": "A_XAU_R_ID_ORDER",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && rid == m_id[oldest]))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && rid == m_id[oldest]))))"
+  },
+  {
+    "label": "A_XAU_R_PORT_ORDER",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && r_port_id == m_port[oldest]))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && r_port_id == m_port[oldest]))))"
+  },
+  {
+    "label": "A_XAU_R_DATA_ORDER",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && rdata == m_data[oldest]))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && rdata == m_data[oldest]))))"
+  },
+  {
+    "label": "A_XAU_R_RESP_ORDER",
+    "kind": "assert",
+    "source_expression": "(rvalid[g])\n            |-> ((oldest_valid && rresp == oldest_resp))",
+    "executed_expression": "(!((rvalid[g])) || (((oldest_valid && rresp == oldest_resp))))"
+  },
+  {
+    "label": "M_ALLOC",
+    "kind": "assert",
+    "source_expression": "(ar_fire)\n        |-> ((free_found && alloc_e<9))",
+    "executed_expression": "(!((ar_fire)) || (((free_found && alloc_e<9))))"
+  },
+  {
+    "label": "M_RETIRE",
+    "kind": "assert",
+    "source_expression": "(r_fire)\n        |-> ((model_retire && rsp_e<9 && m_live[rsp_e] && m_sent[rsp_e] && m_done[rsp_e]))",
+    "executed_expression": "(!((r_fire)) || (((model_retire && rsp_e<9 && m_live[rsp_e] && m_sent[rsp_e] && m_done[rsp_e]))))"
+  },
+  {
+    "label": "M_SUCCESS",
+    "kind": "assert",
+    "source_expression": "(issue_fire)\n        |-> ((m_attempt && m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))",
+    "executed_expression": "(!((issue_fire)) || (((m_attempt && m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))))"
+  },
+  {
+    "label": "M_DUE",
+    "kind": "assert",
+    "source_expression": "(mem_capture_due)\n        |-> ((mem_capture_slot<9 &&\n              m_live[mem_capture_slot] &&\n              m_sent[mem_capture_slot] &&\n              !m_done[mem_capture_slot]))",
+    "executed_expression": "(!((mem_capture_due)) || (((mem_capture_slot<9 &&\n              m_live[mem_capture_slot] &&\n              m_sent[mem_capture_slot] &&\n              !m_done[mem_capture_slot]))))"
+  },
+  {
+    "label": "M_NO_BYPASS",
+    "kind": "assert",
+    "source_expression": "(mem_capture_due && r_fire)\n        |-> (mem_capture_slot != rsp_e)",
+    "executed_expression": "(!((mem_capture_due && r_fire)) || ((mem_capture_slot != rsp_e)))"
+  },
+  {
+    "label": "M_ATTEMPT",
+    "kind": "assert",
+    "source_expression": "(m_attempt)\n        |-> ((m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))",
+    "executed_expression": "(!((m_attempt)) || (((m_attempt_e<9 && m_live[m_attempt_e] && !m_sent[m_attempt_e]))))"
+  },
+  {
+    "label": "M_AGE_RANGE",
+    "kind": "assert",
+    "source_expression": "(m_live[g])\n            |-> (m_age[g]<used)",
+    "executed_expression": "(!((m_live[g])) || ((m_age[g]<used)))"
+  },
+  {
+    "label": "M_AGE_UNIQUE",
+    "kind": "assert",
+    "source_expression": "(m_live[g] && m_live[h])\n                    |-> (m_age[g] != m_age[h])",
+    "executed_expression": "(!((m_live[g] && m_live[h])) || ((m_age[g] != m_age[h])))"
+  },
+  {
+    "label": "A_CC_R_NONEMPTY",
+    "kind": "assert",
+    "source_expression": "rvalid[cs] |-> (h_occ[cs]!=0)",
+    "executed_expression": "(!(rvalid[cs]) || ((h_occ[cs]!=0)))"
+  },
+  {
+    "label": "A_CC_C2_TO_C3",
+    "kind": "assert",
+    "source_expression": "h_selected_prev |-> (req==h_selected_req && arb_addr==h_selected_addr)",
+    "executed_expression": "(!(h_selected_prev) || ((req==h_selected_req && arb_addr==h_selected_addr)))"
+  },
+  {
+    "label": "A_CC_NO_C2_NO_REQ",
+    "kind": "assert",
+    "source_expression": "(!h_selected_prev) |-> (req==0)",
+    "executed_expression": "(!((!h_selected_prev)) || ((req==0)))"
+  }
+]

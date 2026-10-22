@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "arvalid |-> src<2'd3",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 来源必须为 0/1/2。",
+    "line": 242,
+    "end_line": 245,
+    "start": 12077,
+    "end": 12187,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的地址状态仅允许正常和越界。",
+    "line": 248,
+    "end_line": 251,
+    "start": 12265,
+    "end": 12402,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "arready==0 |-> !arvalid",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "全源 ready 为零时无有效 AR。",
+    "line": 254,
+    "end_line": 257,
+    "start": 12479,
+    "end": 12599,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "成功当拍目标 Bank/half 为忙，不要求另一半区忙。",
+    "line": 262,
+    "end_line": 265,
+    "start": 12784,
+    "end": 12973,
+    "group": "ports"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_RADDR_AVAILABLE",
+    "expression": "low_addr_query |-> balance[3]!=0",
+    "dependency": "REF_MODEL",
+    "instances": 1,
+    "description": "同源 raddr 必须有尚未消费的相同 AR 低地址。",
+    "line": 386,
+    "end_line": 389,
+    "start": 17877,
+    "end": 18011,
+    "group": "address"
+  },
+  {
+    "kind": "assert",
+    "label": "M_S_ADDRESS_NEXT",
+    "expression": "balance_next[3]<=5'd9",
+    "dependency": "MODEL_SELF_CHECK",
+    "instances": 1,
+    "description": "任意值的下一拍数量不能下溢或超过九，禁止计数回绕导致假通过。",
+    "line": 442,
+    "end_line": 445,
+    "start": 20246,
+    "end": 20366,
+    "group": "address"
+  },
+  {
+    "kind": "assert",
+    "label": "M_S_ADDR_BALANCE",
+    "expression": "balance[3]<=watched_occupied",
+    "dependency": "MODEL_SELF_CHECK",
+    "instances": 1,
+    "description": "任意低地址出现次数不大于该源占用。",
+    "line": 472,
+    "end_line": 475,
+    "start": 21384,
+    "end": 21511,
+    "group": "address"
+  }
+]

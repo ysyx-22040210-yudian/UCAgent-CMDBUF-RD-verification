@@ -7,7 +7,7 @@
 
         // 【RR 等待预算】只统计本源持续 eligible 期间，其他源实际完成的响应次数。
         // 本源资格中断或已轮到本源时归零；空闲时钟不计数，最多两次其他响应后必须轮到本源。
-        reg [1:0] bypass_count;
+        reg [1:0] bypass_count; // 本源持续可响应却被其他源先响应的次数，供 RR 有界公平断言使用。
         always @(posedge clk or negedge rst_n)
             if(!rst_n) bypass_count<=0;
             else if(!eligible[g] || rvalid[g]) bypass_count<=0;
@@ -19,26 +19,39 @@
         // 对各源单独比较队头整组负载，不靠跨源 RR 选择来定义源内顺序。
         // 【独立顺序记录】order_count 是已接受、尚未本源 R 回收的命令数，不是已完成数。
         // order_slot[0] 是队头，其后按 AR 接受先后保存；数组大小为共享上限，合法单源占用最多 7。
-        reg [3:0] order_count;
-        reg [3:0] order_slot [0:8];
+        reg [3:0] order_count; // 本源独立接收 FIFO 的有效长度，仅真实 AR/R 握手改变它。
+        reg [3:0] order_slot [0:8]; // 本源按 AR 接收先后排列的参考 token；0 为最老未回收项。
         // 入队条件包含所选 arready；仅 arvalid 拉高而没有握手不能加入 FIFO。
-        wire source_ar = ar_fire && src==g;
+        wire source_ar; // 本拍是否真正接收本源 AR，即本源 FIFO 入队事件。
+        // 全局 AR 真正握手且 src 指向当前展开来源 g，才让这个来源的接收 FIFO 入队一次。
+        assign source_ar = ar_fire && src==g;
         // 出队必须是本源的真实握手；其他源的响应不会改变此 FIFO。
-        wire source_r = rvalid[g] && rready[g];
+        wire source_r; // 本拍是否真正返回本源 R，即本源 FIFO 出队事件。
+        // 只检查来源 g 自己的 R 握手；其他来源返回不会弹出本源 FIFO 的队头。
+        assign source_r = rvalid[g] && rready[g];
         // 队头 token 的意义与 ID 无关；只有 oldest_valid 为真时它才指向有效的本源事务。
         // 空队列中的默认 token=0 不能被当作一条真实命令。
-        wire [3:0] oldest = order_slot[0];
-        wire oldest_valid = order_count!=0 && oldest<9 &&
+        wire [3:0] oldest; // 本源独立 FIFO 队头的参考槽号，与下游发射顺序无关。
+        // 固定取接收 FIFO 的第 0 项，按 AR 接收先后决定队头，不按成功发射或 MEM 到达先后选择。
+        assign oldest = order_slot[0];
+        wire oldest_valid; // 队列非空、token 合法，且该 token 仍是本源有效事务。
+        // 同时检查 FIFO 非空、token 在 0..8、对应事务仍有效且来源匹配，避免空队列默认值或陈旧 token 被当成队头。
+        assign oldest_valid = order_count!=0 && oldest<9 &&
                             m_live[oldest] && m_src[oldest]==g;
         // 针对同一个 oldest 计算状态，优先级与共享 R 检查一致；不读取当前 MEM pc_err。
-        wire [1:0] oldest_resp = m_err[oldest]==2'b11 ? 2'b11 :
+        wire [1:0] oldest_resp; // 本源 FIFO 队头的预期错误状态，越界优先于校验异常。
+        // 从独立 FIFO 队头保存的 arresp/pc_err 合成响应状态，保持地址越界高于奇偶校验异常的优先级。
+        assign oldest_resp = m_err[oldest]==2'b11 ? 2'b11 :
                                 (m_pc[oldest] ? 2'b01 : 2'b00);
         // 一次比较五类负载：低地址、ID、port、128 位数据、错误状态，必须全部来自同一个队头。
         // 此信号供 cover 记录正确返回；各字段另有独立 assert，便于从失败标签定位错误字段。
-        wire head_payload_matches = oldest_valid &&
+        wire head_payload_matches; // R 的五类负载是否都属于本源 FIFO 队头，供完整业务见证使用。
+        // 先确认 FIFO 队头有效，再一次比较 raddr、rid、port_id、128 位数据、rresp 是否全部属于它。
+        // 重复 ID 也不会混淆顺序，因为比较对象由 AR 接收 token 决定，并同时核对整组负载。
+        assign head_payload_matches = oldest_valid &&
             {raddr,rid,r_port_id,rdata,rresp} ==
             {m_addr[oldest][2:0],m_id[oldest],m_port[oldest],m_data[oldest],oldest_resp};
-        integer qi;
+        integer qi; // 时序移位循环的队列位置，0 为本源接收 FIFO 队头。
         always @(posedge clk or negedge rst_n) begin
             if(!rst_n) begin
                 order_count<=0;
@@ -67,8 +80,10 @@
         // 【覆盖状态机】phase 不是 DUT 状态，也不决定合法响应；assert 仍检查所有业务轨迹。
         // 0 等待至少三条未发射项；1 等待 3 先发；2 等待 3 先捕获；3/4/5 等待 R1/R2/R3。
         // first/second/third_token 在启动见证时固定，后续 FIFO 左移不会改变被跟踪的事务。
-        reg [2:0] order_phase;
-        reg [3:0] first_token, second_token, third_token;
+        reg [2:0] order_phase; // 0..5 的覆盖跟踪阶段，含义见上方状态转移说明。
+        reg [3:0] first_token;  // 覆盖启动时本源第一条命令的参考槽号，等待最先 R 返回。
+        reg [3:0] second_token; // 覆盖启动时本源第二条命令的参考槽号，等待第二次 R 返回。
+        reg [3:0] third_token;  // 覆盖启动时本源第三条命令的参考槽号，应先发射/捕获、最后 R 返回。
         always @(posedge clk or negedge rst_n) begin
             if(!rst_n) begin
                 order_phase<=0; first_token<=0; second_token<=0; third_token<=0;

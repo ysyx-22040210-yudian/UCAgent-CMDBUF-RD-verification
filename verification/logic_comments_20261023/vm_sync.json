@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "vm_snapshot": "/root/cmdbuf_rd/logic_comments_20261023",
+  "preserved_tested_snapshot": "/root/cmdbuf_rd/assign_model_20261023_v3",
+  "native_lint_returncode": 0,
+  "source_sha256": {
+    "formal/corner_20261021/cmdbuf_rd_corner_history.svh": "74b6f9cbcd647d554c4bda40d9b99051f72d445a96f38728c1c92670a365bbd6",
+    "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh": "b1f486de4a7a3145d51ed73f6cca7553f8ff1a230f682e90d524f4cce2a1c1f6",
+    "formal/protocol_20261021/cmdbuf_rd_port_sva.sv": "5c09fca48fbc92dc3cc78090d3d33abcabeb18ee60e1668fb2a12af4f1a39c35",
+    "formal/protocol_20261021/cmdbuf_rd_reference_model.svh": "d0394441a193d6431b24e896d9ac0ff4a3f7b7e91351aea766c390dc623321c2",
+    "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh": "5976a220a2bf6f1c8e16960352aacc5f29981a0f0441200e463ba71baa070c6b"
+  },
+  "solver_rerun": false,
+  "note": "注释修订同步到独立 VM 源码快照；原生语法检查通过，未改写既有 formal 运行输入与证据。"
+}

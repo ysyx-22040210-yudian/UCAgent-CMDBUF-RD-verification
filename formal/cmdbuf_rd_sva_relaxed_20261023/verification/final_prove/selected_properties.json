@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "arvalid |-> (src < 2'd3)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 来源合法；无效拍不限制 src。",
+    "line": 236,
+    "end_line": 239,
+    "start": 11787,
+    "end": 11901
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的地址状态只允许 00 或 11。",
+    "line": 242,
+    "end_line": 245,
+    "start": 11982,
+    "end": 12119
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "(arready==3'b000) |-> !arvalid",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "所有 ready 为零时，上游不发送有效 AR。",
+    "line": 248,
+    "end_line": 251,
+    "start": 12201,
+    "end": 12328
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "成功当拍被访问半区必须忙；不是请求前空闲检查。",
+    "line": 256,
+    "end_line": 259,
+    "start": 12509,
+    "end": 12698
+  },
+  {
+    "kind": "assert",
+    "label": "A_L_REQ_ONEHOT",
+    "expression": "(req & (req-8'd1))==0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "请求最多一个 Bank。",
+    "line": 265,
+    "end_line": 268,
+    "start": 12803,
+    "end": 12921
+  },
+  {
+    "kind": "assert",
+    "label": "A_L_R_ONEHOT",
+    "expression": "(rvalid & (rvalid-3'd1))==0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "共享 R 口最多返回给一个来源。",
+    "line": 271,
+    "end_line": 274,
+    "start": 12976,
+    "end": 13098
+  },
+  {
+    "kind": "assert",
+    "label": "A_L_R_READY",
+    "expression": "(rvalid & ~rready)==0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "R 只在该源 ready 为 1 时有效。",
+    "line": 277,
+    "end_line": 280,
+    "start": 13158,
+    "end": 13273
+  },
+  {
+    "kind": "assert",
+    "label": "A_L_RRESP_CODE",
+    "expression": "(|rvalid) |-> (rresp==2'b00 || rresp==2'b01 || rresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效响应不得使用 10 编码。",
+    "line": 283,
+    "end_line": 286,
+    "start": 13327,
+    "end": 13484
+  }
+]

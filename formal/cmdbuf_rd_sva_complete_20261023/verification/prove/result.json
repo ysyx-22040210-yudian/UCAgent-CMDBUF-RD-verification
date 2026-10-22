@@ -1,0 +1,23 @@
+{
+  "name": "prove",
+  "timeout": 180,
+  "mode": "prove",
+  "depth": 12,
+  "engine": "abc pdr",
+  "assertions": [
+    "A_REQ_ONEHOT",
+    "A_R_ONEHOT",
+    "A_R_READY"
+  ],
+  "covers": [],
+  "status": "PASS 0 2",
+  "returncode": 0,
+  "elapsed_seconds": 2.46,
+  "counts": {
+    "assert": 3,
+    "assume": 11,
+    "cover": 0
+  },
+  "reached_lines": [],
+  "inputs_sha256": "b8718df9cbf1b495a9b4db74aaf348ddbea53fe94f6a417791dc5c9fc182bc2f"
+}

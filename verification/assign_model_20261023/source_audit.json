@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_corner_assertions.svh",
+      "clocked_blocks": 0,
+      "state_variables": 0,
+      "old_sha256": "f3dadbc42f45009d13e92844c3b5f9c80e71686558bb0af7619971cbcd5a794f",
+      "new_sha256": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898"
+    },
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_corner_history.svh",
+      "clocked_blocks": 4,
+      "state_variables": 53,
+      "old_sha256": "2d0d7fa6e9b817d290e099e635a4bbadd1ad7fa7456bf182076f593306ca4353",
+      "new_sha256": "32fcd390d753895f52812c1462e6f4e19fd2160c2367bb3961b5f6c333f4c146"
+    },
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_corner_sequences.svh",
+      "clocked_blocks": 1,
+      "state_variables": 9,
+      "old_sha256": "e0506087ac6341eaaacca826669ed5ada012655cd8cd0056d33c71c1dccd7f51",
+      "new_sha256": "703d1be957f035bd50eb050559a63ab2d85e8a8a54f677393defddb9cce08ebe"
+    },
+    {
+      "path": "formal/corner_20261021/cmdbuf_rd_long_witness.svh",
+      "clocked_blocks": 1,
+      "state_variables": 1,
+      "old_sha256": "ee1d7030087a10761db7395ed00873b3bb1895b27b5bf6f0c61d9c42145da0cf",
+      "new_sha256": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f"
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_port_sva.sv",
+      "clocked_blocks": 1,
+      "state_variables": 1,
+      "old_sha256": "077bb9178217ef2e1ecdbf33b526be5732a58a859f024c14a7898bfad7eed065",
+      "new_sha256": "2fd62d01f9904cf1412b9a1cb23176e1051d3223a1a96c3dcc8c4ad2c142f29b"
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_reference_model.svh",
+      "clocked_blocks": 2,
+      "state_variables": 25,
+      "old_sha256": "39b09cb1d7fd84904340a104bbf6cf4e7dcd89c3bb8262dc116b637b8edac0c8",
+      "new_sha256": "6c3038eed02520dc8a6d3ae7c7404fc888a67d9eab07ca7abaf4c198e0ac08b7"
+    },
+    {
+      "path": "formal/protocol_20261021/cmdbuf_rd_xau_order_model.svh",
+      "clocked_blocks": 3,
+      "state_variables": 7,
+      "old_sha256": "212894ee924643425a196785597a7f2aea92cf9ee79ebb6afb1ef74b5e559467",
+      "new_sha256": "d662584d7a4f4037a7df5853cb79f4dcdc4abb5e01fb7e344d0f7d980c0b61db"
+    }
+  ],
+  "properties_unchanged": 615,
+  "property_instances": {
+    "assume": 11,
+    "assert": 156,
+    "cover": 593
+  },
+  "variable_declarations_with_chinese_explanations": 235,
+  "clocked_statements_unchanged": true,
+  "state_declarations_unchanged": true,
+  "rtl_changed": false,
+  "helper_continuous_expressions_unchanged": 12,
+  "comb_always_count": 0,
+  "net_declaration_assignment_count": 0,
+  "comb_equivalence_outputs": 65,
+  "comb_equivalence_environment_assumptions": [],
+  "comb_equivalence_state_domain": [
+    "m_attempt_e < 9",
+    "m_src[0..8] < 3"
+  ],
+  "state_domain_reason": "Exclude out-of-range array indices in arbitrary state; no assumption added to DUT checker. All remaining state values and input ports are arbitrary."
+}

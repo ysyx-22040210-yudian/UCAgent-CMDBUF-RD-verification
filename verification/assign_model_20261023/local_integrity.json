@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "vm_and_local_source_files": 10,
+  "verified_archive_files": 2207,
+  "evidence_sha256": "7795d8ba9fa6ba40491b69cc76f15a0f3d7e6047fddfc9da1462c9653742ce97",
+  "git_baseline_commit": "0425ea3a845a33b0d96b7b41d3f63a4621bc1dd1"
+}

@@ -1,0 +1,8 @@
+# Only model combinational functions are compared; no DUT is instantiated here.
+# Both sides share every external port and every stored state as arbitrary inputs.
+read_slang --top assign_model_miter --no-implicit-memories assign_model_miter.sv
+prep -top assign_model_miter -flatten
+opt -full
+check -assert
+# Restrict only shared-state array indices to their legal domain; no protocol input restriction.
+sat -set-def-inputs -set legal_index_state 1 -prove mismatch 0 -verify -show-outputs -dump_vcd counterexample.vcd

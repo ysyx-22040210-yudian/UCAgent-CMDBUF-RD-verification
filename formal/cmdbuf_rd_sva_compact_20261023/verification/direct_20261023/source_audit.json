@@ -1,0 +1,1 @@
+{"status": "PASS", "counts": {"assert": 35, "assume": 11, "cover": 12}, "original_ports": 24, "explicit_output_assertions": 10, "commented_assign_statements": 35, "pc_interval_transitions": 1718, "source_files_checked": 0}

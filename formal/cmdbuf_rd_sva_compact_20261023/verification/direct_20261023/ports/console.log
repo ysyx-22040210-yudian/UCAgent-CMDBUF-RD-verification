@@ -1,0 +1,92 @@
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/cmdbuf_rd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/cmdbuf_rd.sv'.
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/cmdbuf_rd_cmd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/cmdbuf_rd_cmd.sv'.
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/cmdbuf_rd_otb.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/cmdbuf_rd_otb.sv'.
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/cmdbuf_rd_field_set.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/cmdbuf_rd_field_set.sv'.
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/cmdbuf_rd_compact_sva.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/cmdbuf_rd_compact_sva.sv'.
+SBY  2:03:08 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/formal_top.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023/build/formal/ports/run/src/formal_top.sv'.
+SBY  2:03:08 [run] engine_0: abc pdr
+SBY  2:03:08 [run] base: starting process "cd run/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:03:09 [run] base: finished (returncode=0)
+SBY  2:03:09 [run] prep: starting process "cd run/model; yosys -ql design_prep.log design_prep.ys"
+SBY  2:03:10 [run] prep: finished (returncode=0)
+SBY  2:03:10 [run] aig: starting process "cd run/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\clk like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\src [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\src [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [2] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [3] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [4] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [5] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [6] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [7] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rst_n like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [2] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [2] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [3] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [4] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [5] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [6] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [7] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [8] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [9] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [10] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [11] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [12] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [13] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [14] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [15] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\pc_err like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arvalid like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arresp [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arresp [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [3] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [4] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [5] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [6] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [0] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [1] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [2] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [3] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [4] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [5] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [6] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [7] like $anyseq.
+SBY  2:03:14 [run] aig: Warning: Treating a total of 47 undriven bits in cmdbuf_rd_formal like $anyseq.
+SBY  2:03:14 [run] aig: finished (returncode=0)
+SBY  2:03:14 [run] engine_0: starting process "cd run; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY  2:03:14 [run] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY  2:03:14 [run] engine_0: Warning: The last 12 outputs are interpreted as constraints.
+SBY  2:03:14 [run] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 179. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY  2:03:14 [run] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY  2:03:14 [run] engine_0: 1 : 0 4                                                                 1     4      0.04 sec  T/O =  0  PRV =  0
+SBY  2:03:14 [run] engine_0: Proved output 0 in frame 1.
+SBY  2:03:14 [run] engine_0: Proved output 1 in frame 1.
+SBY  2:03:14 [run] engine_0: Proved output 2 in frame 1.
+SBY  2:03:14 [run] engine_0: Proved output 3 in frame 1.
+SBY  2:03:14 [run] engine_0: 2 : 0 0 0 ~4                                                             0     4      0.05 sec  T/O =  0  PRV =  4
+SBY  2:03:14 [run] engine_0: Block =    4  Oblig =     4  Clause =     4  Call =    20 (sat=20.0%)  Cex =   0  Start =   0
+SBY  2:03:14 [run] engine_0: SAT solving =     0.00 sec (  2.64 %)
+SBY  2:03:14 [run] engine_0: unsat     =     0.00 sec (  0.06 %)
+SBY  2:03:14 [run] engine_0: sat       =     0.00 sec (  2.58 %)
+SBY  2:03:14 [run] engine_0: Generalize  =     0.00 sec (  1.43 %)
+SBY  2:03:14 [run] engine_0: Push clause =     0.00 sec (  0.00 %)
+SBY  2:03:14 [run] engine_0: Ternary sim =     0.01 sec ( 10.21 %)
+SBY  2:03:14 [run] engine_0: Containment =     0.00 sec (  0.00 %)
+SBY  2:03:14 [run] engine_0: CNF compute =     0.00 sec (  1.42 %)
+SBY  2:03:14 [run] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY  2:03:14 [run] engine_0: TOTAL       =     0.07 sec (100.00 %)
+SBY  2:03:14 [run] engine_0: Property proved.  Time =     0.07 sec
+SBY  2:03:14 [run] engine_0: Counter-example is not available.
+SBY  2:03:14 [run] engine_0: finished (returncode=0)
+SBY  2:03:14 [run] engine_0: Status returned by engine: PASS
+SBY  2:03:14 [run] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY  2:03:14 [run] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY  2:03:14 [run] summary: engine_0 (abc pdr) returned PASS
+SBY  2:03:14 [run] summary: engine_0 did not produce any traces
+SBY  2:03:14 [run] DONE (PASS, rc=0)

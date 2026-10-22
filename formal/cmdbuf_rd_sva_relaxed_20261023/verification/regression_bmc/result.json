@@ -1,0 +1,17 @@
+{
+  "name": "bmc",
+  "timeout": 240,
+  "mode": "bmc",
+  "depth": 16,
+  "engine": "abc bmc3",
+  "assertions": null,
+  "covers": [],
+  "status": "TIMEOUT 8 5",
+  "returncode": 8,
+  "seconds": 250.58,
+  "counts": {
+    "assert": 41,
+    "assume": 11,
+    "cover": 0
+  }
+}

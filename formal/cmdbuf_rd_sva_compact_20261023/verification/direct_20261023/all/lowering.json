@@ -1,0 +1,98 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "arvalid |-> src<2'd3",
+    "executed_expression": "(!(arvalid) || (src<2'd3))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "executed_expression": "(!(arvalid) || ((arresp==2'b00 || arresp==2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "arready==3'b000 |-> !arvalid",
+    "executed_expression": "(!(arready==3'b000) || (!arvalid))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "executed_expression": "(!((req[b] && ar_rd_gnt[b] && rw_rd_gnt[b])) || (rd_mem_status[b][arb_addr[0]]))"
+  },
+  {
+    "label": "A_COMPARE_ARB_ADDR",
+    "kind": "assert",
+    "source_expression": "(|req) |-> (\n            (command_valid[0] && command_eligible[0] && req[command_value[0][2:0]] &&\n             arb_addr==command_value[0][14:3]) ||\n            (command_valid[1] && command_eligible[1] && req[command_value[1][2:0]] &&\n             arb_addr==command_value[1][14:3]) ||\n            (command_valid[2] && command_eligible[2] && req[command_value[2][2:0]] &&\n             arb_addr==command_value[2][14:3]) ||\n            (command_valid[3] && command_eligible[3] && req[command_value[3][2:0]] &&\n             arb_addr==command_value[3][14:3]) ||\n            (command_valid[4] && command_eligible[4] && req[command_value[4][2:0]] &&\n             arb_addr==command_value[4][14:3]) ||\n            (command_valid[5] && command_eligible[5] && req[command_value[5][2:0]] &&\n             arb_addr==command_value[5][14:3]) ||\n            (command_valid[6] && command_eligible[6] && req[command_value[6][2:0]] &&\n             arb_addr==command_value[6][14:3]) ||\n            (command_valid[7] && command_eligible[7] && req[command_value[7][2:0]] &&\n             arb_addr==command_value[7][14:3]) ||\n            (command_valid[8] && command_eligible[8] && req[command_value[8][2:0]] &&\n             arb_addr==command_value[8][14:3])\n        )",
+    "executed_expression": "(!((|req)) || ((\n            (command_valid[0] && command_eligible[0] && req[command_value[0][2:0]] &&\n             arb_addr==command_value[0][14:3]) ||\n            (command_valid[1] && command_eligible[1] && req[command_value[1][2:0]] &&\n             arb_addr==command_value[1][14:3]) ||\n            (command_valid[2] && command_eligible[2] && req[command_value[2][2:0]] &&\n             arb_addr==command_value[2][14:3]) ||\n            (command_valid[3] && command_eligible[3] && req[command_value[3][2:0]] &&\n             arb_addr==command_value[3][14:3]) ||\n            (command_valid[4] && command_eligible[4] && req[command_value[4][2:0]] &&\n             arb_addr==command_value[4][14:3]) ||\n            (command_valid[5] && command_eligible[5] && req[command_value[5][2:0]] &&\n             arb_addr==command_value[5][14:3]) ||\n            (command_valid[6] && command_eligible[6] && req[command_value[6][2:0]] &&\n             arb_addr==command_value[6][14:3]) ||\n            (command_valid[7] && command_eligible[7] && req[command_value[7][2:0]] &&\n             arb_addr==command_value[7][14:3]) ||\n            (command_valid[8] && command_eligible[8] && req[command_value[8][2:0]] &&\n             arb_addr==command_value[8][14:3])\n        )))"
+  },
+  {
+    "label": "A_COMPARE_RID",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (\n            (id_valid[0] && r_src==id_value[0][9:8] && rid==id_value[0][7:0]) ||\n            (id_valid[1] && r_src==id_value[1][9:8] && rid==id_value[1][7:0]) ||\n            (id_valid[2] && r_src==id_value[2][9:8] && rid==id_value[2][7:0]) ||\n            (id_valid[3] && r_src==id_value[3][9:8] && rid==id_value[3][7:0]) ||\n            (id_valid[4] && r_src==id_value[4][9:8] && rid==id_value[4][7:0]) ||\n            (id_valid[5] && r_src==id_value[5][9:8] && rid==id_value[5][7:0]) ||\n            (id_valid[6] && r_src==id_value[6][9:8] && rid==id_value[6][7:0]) ||\n            (id_valid[7] && r_src==id_value[7][9:8] && rid==id_value[7][7:0]) ||\n            (id_valid[8] && r_src==id_value[8][9:8] && rid==id_value[8][7:0])\n        )",
+    "executed_expression": "(!((|rvalid)) || ((\n            (id_valid[0] && r_src==id_value[0][9:8] && rid==id_value[0][7:0]) ||\n            (id_valid[1] && r_src==id_value[1][9:8] && rid==id_value[1][7:0]) ||\n            (id_valid[2] && r_src==id_value[2][9:8] && rid==id_value[2][7:0]) ||\n            (id_valid[3] && r_src==id_value[3][9:8] && rid==id_value[3][7:0]) ||\n            (id_valid[4] && r_src==id_value[4][9:8] && rid==id_value[4][7:0]) ||\n            (id_valid[5] && r_src==id_value[5][9:8] && rid==id_value[5][7:0]) ||\n            (id_valid[6] && r_src==id_value[6][9:8] && rid==id_value[6][7:0]) ||\n            (id_valid[7] && r_src==id_value[7][9:8] && rid==id_value[7][7:0]) ||\n            (id_valid[8] && r_src==id_value[8][9:8] && rid==id_value[8][7:0])\n        )))"
+  },
+  {
+    "label": "A_COMPARE_R_PORT_ID",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (\n            (port_valid[0] && r_src==port_value[0][6:5] && r_port_id==port_value[0][4:0]) ||\n            (port_valid[1] && r_src==port_value[1][6:5] && r_port_id==port_value[1][4:0]) ||\n            (port_valid[2] && r_src==port_value[2][6:5] && r_port_id==port_value[2][4:0]) ||\n            (port_valid[3] && r_src==port_value[3][6:5] && r_port_id==port_value[3][4:0]) ||\n            (port_valid[4] && r_src==port_value[4][6:5] && r_port_id==port_value[4][4:0]) ||\n            (port_valid[5] && r_src==port_value[5][6:5] && r_port_id==port_value[5][4:0]) ||\n            (port_valid[6] && r_src==port_value[6][6:5] && r_port_id==port_value[6][4:0]) ||\n            (port_valid[7] && r_src==port_value[7][6:5] && r_port_id==port_value[7][4:0]) ||\n            (port_valid[8] && r_src==port_value[8][6:5] && r_port_id==port_value[8][4:0])\n        )",
+    "executed_expression": "(!((|rvalid)) || ((\n            (port_valid[0] && r_src==port_value[0][6:5] && r_port_id==port_value[0][4:0]) ||\n            (port_valid[1] && r_src==port_value[1][6:5] && r_port_id==port_value[1][4:0]) ||\n            (port_valid[2] && r_src==port_value[2][6:5] && r_port_id==port_value[2][4:0]) ||\n            (port_valid[3] && r_src==port_value[3][6:5] && r_port_id==port_value[3][4:0]) ||\n            (port_valid[4] && r_src==port_value[4][6:5] && r_port_id==port_value[4][4:0]) ||\n            (port_valid[5] && r_src==port_value[5][6:5] && r_port_id==port_value[5][4:0]) ||\n            (port_valid[6] && r_src==port_value[6][6:5] && r_port_id==port_value[6][4:0]) ||\n            (port_valid[7] && r_src==port_value[7][6:5] && r_port_id==port_value[7][4:0]) ||\n            (port_valid[8] && r_src==port_value[8][6:5] && r_port_id==port_value[8][4:0])\n        )))"
+  },
+  {
+    "label": "A_COMPARE_RADDR",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (\n            (low_addr_valid[0] && r_src==low_addr_value[0][4:3] && raddr==low_addr_value[0][2:0]) ||\n            (low_addr_valid[1] && r_src==low_addr_value[1][4:3] && raddr==low_addr_value[1][2:0]) ||\n            (low_addr_valid[2] && r_src==low_addr_value[2][4:3] && raddr==low_addr_value[2][2:0]) ||\n            (low_addr_valid[3] && r_src==low_addr_value[3][4:3] && raddr==low_addr_value[3][2:0]) ||\n            (low_addr_valid[4] && r_src==low_addr_value[4][4:3] && raddr==low_addr_value[4][2:0]) ||\n            (low_addr_valid[5] && r_src==low_addr_value[5][4:3] && raddr==low_addr_value[5][2:0]) ||\n            (low_addr_valid[6] && r_src==low_addr_value[6][4:3] && raddr==low_addr_value[6][2:0]) ||\n            (low_addr_valid[7] && r_src==low_addr_value[7][4:3] && raddr==low_addr_value[7][2:0]) ||\n            (low_addr_valid[8] && r_src==low_addr_value[8][4:3] && raddr==low_addr_value[8][2:0])\n        )",
+    "executed_expression": "(!((|rvalid)) || ((\n            (low_addr_valid[0] && r_src==low_addr_value[0][4:3] && raddr==low_addr_value[0][2:0]) ||\n            (low_addr_valid[1] && r_src==low_addr_value[1][4:3] && raddr==low_addr_value[1][2:0]) ||\n            (low_addr_valid[2] && r_src==low_addr_value[2][4:3] && raddr==low_addr_value[2][2:0]) ||\n            (low_addr_valid[3] && r_src==low_addr_value[3][4:3] && raddr==low_addr_value[3][2:0]) ||\n            (low_addr_valid[4] && r_src==low_addr_value[4][4:3] && raddr==low_addr_value[4][2:0]) ||\n            (low_addr_valid[5] && r_src==low_addr_value[5][4:3] && raddr==low_addr_value[5][2:0]) ||\n            (low_addr_valid[6] && r_src==low_addr_value[6][4:3] && raddr==low_addr_value[6][2:0]) ||\n            (low_addr_valid[7] && r_src==low_addr_value[7][4:3] && raddr==low_addr_value[7][2:0]) ||\n            (low_addr_valid[8] && r_src==low_addr_value[8][4:3] && raddr==low_addr_value[8][2:0])\n        )))"
+  },
+  {
+    "label": "A_COMPARE_RRESP",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (\n            (rresp==2'b11 && outside[r_src]!=0) ||\n            (rresp==2'b01 && occupied[r_src]>outside[r_src] && bad_high!=0) ||\n            (rresp==2'b00 && occupied[r_src]>outside[r_src] && bad_low<completed)\n        )",
+    "executed_expression": "(!((|rvalid)) || ((\n            (rresp==2'b11 && outside[r_src]!=0) ||\n            (rresp==2'b01 && occupied[r_src]>outside[r_src] && bad_high!=0) ||\n            (rresp==2'b00 && occupied[r_src]>outside[r_src] && bad_low<completed)\n        )))"
+  },
+  {
+    "label": "A_COMPARE_RDATA",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (\n            (data_valid[0] && rdata==data_value[0]) ||\n            (data_valid[1] && rdata==data_value[1]) ||\n            (data_valid[2] && rdata==data_value[2]) ||\n            (data_valid[3] && rdata==data_value[3]) ||\n            (data_valid[4] && rdata==data_value[4]) ||\n            (data_valid[5] && rdata==data_value[5]) ||\n            (data_valid[6] && rdata==data_value[6]) ||\n            (data_valid[7] && rdata==data_value[7]) ||\n            (data_valid[8] && rdata==data_value[8])\n        )",
+    "executed_expression": "(!((|rvalid)) || ((\n            (data_valid[0] && rdata==data_value[0]) ||\n            (data_valid[1] && rdata==data_value[1]) ||\n            (data_valid[2] && rdata==data_value[2]) ||\n            (data_valid[3] && rdata==data_value[3]) ||\n            (data_valid[4] && rdata==data_value[4]) ||\n            (data_valid[5] && rdata==data_value[5]) ||\n            (data_valid[6] && rdata==data_value[6]) ||\n            (data_valid[7] && rdata==data_value[7]) ||\n            (data_valid[8] && rdata==data_value[8])\n        )))"
+  },
+  {
+    "label": "A_L_RRESP_CODE",
+    "kind": "assert",
+    "source_expression": "(|rvalid) |-> (rresp==2'b00 || rresp==2'b01 || rresp==2'b11)",
+    "executed_expression": "(!((|rvalid)) || ((rresp==2'b00 || rresp==2'b01 || rresp==2'b11)))"
+  },
+  {
+    "label": "A_L_ISSUE_BALANCE",
+    "kind": "assert",
+    "source_expression": "issue_fire |-> waiting!=0",
+    "executed_expression": "(!(issue_fire) || (waiting!=0))"
+  },
+  {
+    "label": "M_L_COMMAND_ROOM",
+    "kind": "assert",
+    "source_expression": "ar_fire |-> command_room",
+    "executed_expression": "(!(ar_fire) || (command_room))"
+  },
+  {
+    "label": "M_L_FIELDS_ROOM",
+    "kind": "assert",
+    "source_expression": "ar_fire |-> (id_room && port_room && low_addr_room)",
+    "executed_expression": "(!(ar_fire) || ((id_room && port_room && low_addr_room)))"
+  },
+  {
+    "label": "M_L_DATA_ROOM",
+    "kind": "assert",
+    "source_expression": "mem_due |-> data_room",
+    "executed_expression": "(!(mem_due) || (data_room))"
+  },
+  {
+    "label": "A_L_SOURCE_NONEMPTY",
+    "kind": "assert",
+    "source_expression": "rvalid[x] |-> occupied[x]!=0",
+    "executed_expression": "(!(rvalid[x]) || (occupied[x]!=0))"
+  }
+]

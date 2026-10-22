@@ -1,0 +1,546 @@
+{
+  "status": "IMPLEMENTED_WITH_BOUNDED_VALIDATION",
+  "counts": {
+    "assert": 40,
+    "assume": 11,
+    "cover": 16
+  },
+  "outputs": {
+    "arready": [
+      "admission",
+      "按实际 AR/R 数量和预留规则精确计算，包含同拍回收"
+    ],
+    "pending_cnt": [
+      "pending",
+      "待发计数的组合递推，精确"
+    ],
+    "req": [
+      "request",
+      "独热 + 任意地址的成熟待发次数 + 上拍空闲；不检查窗口最老和无气泡"
+    ],
+    "arb_addr": [
+      "request",
+      "和 Bank 联合的完整地址值计数，不拆位散配"
+    ],
+    "rvalid": [
+      "response",
+      "独热、ready、该源非空、全局已有捕获；不检查 RR 赢家和逐事务时刻"
+    ],
+    "rid": [
+      "id",
+      "同源完整 ID 值的未消费次数"
+    ],
+    "r_port_id": [
+      "port",
+      "同源完整 port 值的未消费次数"
+    ],
+    "raddr": [
+      "address",
+      "同源完整低地址值的未消费次数"
+    ],
+    "rresp": [
+      "status",
+      "合法编码、同源越界数量和全局 pc 数量区间，不绑定事务"
+    ],
+    "rdata": [
+      "data",
+      "完整 128 位值的未消费次数，不绑定 source/ID"
+    ]
+  },
+  "mutable_handwritten_model_bits": 66,
+  "mutable_bits_without_cover_history": 58,
+  "symbolic_constant_bits": 161,
+  "state_accounting": "Excludes DUT state, solver/frontend generated state and 161 fixed symbolic parameter bits. No transaction payload arrays remain.",
+  "storage_comparison": {
+    "previous_relaxed_field_bags_bits": 1530,
+    "current_five_field_counters_bits": 20,
+    "basis": "9 * (15+10+7+5+128) payload bits plus five 9-bit valid masks; counters and parameters are reported separately."
+  },
+  "precision": [
+    "单 XAU 保序",
+    "RR 选择与响应进度",
+    "五项窗口与最老命令选择",
+    "不同 R 字段的事务配对",
+    "pc_err 与特定数据的配对",
+    "逐事务错误优先级",
+    "逐事务准确返回时刻"
+  ],
+  "source_structure": {
+    "status": "PASS",
+    "counts": {
+      "assert": 40,
+      "assume": 11,
+      "cover": 16
+    },
+    "output_groups": 10,
+    "commented_assign_statements": 48,
+    "multiset_transitions": 2695,
+    "pc_interval_transitions": 1718,
+    "source_files_checked": 0
+  },
+  "native_lint": "PASS; both final top-level interfaces checked using Verilator, not FormalMC",
+  "formal_passed": [
+    {
+      "job": "corrected",
+      "group": "ports",
+      "mode": "prove",
+      "depth": 10,
+      "timeout": 180,
+      "engine": "abc pdr",
+      "status": "PASS 0 2",
+      "returncode": 0,
+      "seconds": 2.5,
+      "counts": {
+        "assert": 4,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 2",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": []
+    },
+    {
+      "job": "corrected",
+      "group": "all",
+      "mode": "bmc",
+      "depth": 10,
+      "timeout": 180,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 78",
+      "returncode": 0,
+      "seconds": 78.59,
+      "counts": {
+        "assert": 40,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 78",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3545",
+          "width": 15
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3546",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3547",
+          "width": 8
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3548",
+          "width": 5
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3549",
+          "width": 3
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3550",
+          "width": 128
+        }
+      ]
+    },
+    {
+      "job": "corrected",
+      "group": "cover",
+      "mode": "cover",
+      "depth": 32,
+      "timeout": 180,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 9",
+      "returncode": 0,
+      "seconds": 8.02,
+      "counts": {
+        "assert": 40,
+        "assume": 11,
+        "cover": 16
+      },
+      "engine_status": "PASS 0 9",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3577",
+          "width": 15
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3578",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3579",
+          "width": 8
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3580",
+          "width": 5
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3581",
+          "width": 3
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3582",
+          "width": 128
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "admission",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 14",
+      "returncode": 0,
+      "seconds": 14.68,
+      "counts": {
+        "assert": 6,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 14",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": []
+    },
+    {
+      "job": "partition",
+      "group": "pending",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 10",
+      "returncode": 0,
+      "seconds": 9.82,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 10",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": []
+    },
+    {
+      "job": "partition",
+      "group": "response",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 2",
+      "returncode": 0,
+      "seconds": 2.67,
+      "counts": {
+        "assert": 5,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 2",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": []
+    },
+    {
+      "job": "partition",
+      "group": "id",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 5",
+      "returncode": 0,
+      "seconds": 4.75,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 5",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3472",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3473",
+          "width": 8
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "port",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 4",
+      "returncode": 0,
+      "seconds": 4.2,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 4",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3472",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3474",
+          "width": 5
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "address",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 4",
+      "returncode": 0,
+      "seconds": 4.14,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 4",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3472",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3475",
+          "width": 3
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "status",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 6",
+      "returncode": 0,
+      "seconds": 5.62,
+      "counts": {
+        "assert": 6,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 6",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3478",
+          "width": 2
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "data",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 8",
+      "returncode": 0,
+      "seconds": 7.68,
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "PASS 0 8",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3476",
+          "width": 128
+        }
+      ]
+    }
+  ],
+  "formal_unfinished": [
+    {
+      "job": "deep",
+      "group": "all",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 180,
+      "engine": "smtbmc yices",
+      "status": "TIMEOUT 8 1",
+      "returncode": 8,
+      "seconds": 191.83,
+      "counts": {
+        "assert": 40,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "TIMEOUT 8 1",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3545",
+          "width": 15
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3546",
+          "width": 2
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3547",
+          "width": 8
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3548",
+          "width": 5
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3549",
+          "width": 3
+        },
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3550",
+          "width": 128
+        }
+      ]
+    },
+    {
+      "job": "partition",
+      "group": "request",
+      "mode": "bmc",
+      "depth": 12,
+      "timeout": 150,
+      "engine": "smtbmc yices",
+      "status": "TIMEOUT 8 0",
+      "returncode": 8,
+      "seconds": 161.73,
+      "counts": {
+        "assert": 4,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "TIMEOUT 8 0",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3473",
+          "width": 15
+        }
+      ]
+    },
+    {
+      "job": "request_pdr",
+      "group": "request",
+      "mode": "prove",
+      "depth": 10,
+      "timeout": 120,
+      "engine": "abc pdr",
+      "status": "TIMEOUT 8 2",
+      "returncode": 8,
+      "seconds": 129.67,
+      "counts": {
+        "assert": 4,
+        "assume": 11,
+        "cover": 0
+      },
+      "engine_status": "TIMEOUT 8 2",
+      "symbolic_audit_ok": true,
+      "anyconst_cells": [
+        {
+          "module": "cmdbuf_rd_formal",
+          "cell": "$flatten\\symbolic_parameters.$anyconst$3473",
+          "width": 15
+        }
+      ]
+    }
+  ],
+  "discarded_integration_attempt": {
+    "result": "smoke_results.json",
+    "reason": "read_slang kept anyconst as a wire attribute but drove its value from X. This attempt is invalid as symbolic verification and is not an RTL failure. Fixed by a native read_verilog -formal symbolic helper; later jobs require netlist audit to pass."
+  },
+  "checker_tests": {
+    "passed": 35,
+    "normal_or_intentionally_relaxed": 16,
+    "rejected_invalid_traces": 19,
+    "details": "monitor_results.json",
+    "scope": "Native SVA checker-only traces, with chosen witness values; not DUT simulation or universal proof."
+  },
+  "environment": {
+    "dut_assume_instances": 11,
+    "types": [
+      "legal src",
+      "legal arresp",
+      "all ready low implies arvalid low",
+      "same-cycle successful Bank/half busy"
+    ],
+    "native_extra": "One CFG_WATCH_CONSTANT assume constrains only the six free checker parameters; no DUT input is tied to them.",
+    "initialization": "SBY simulates one real reset cycle to establish initial state; no started/active or reset-sequence assumes. Native FormalMC integration must configure its own initial state."
+  },
+  "runtime": {
+    "default": "Separate jobs by output group; all is an optional combined cross-check.",
+    "caveat": "A smaller model does not guarantee less solver time. Combined compact BMC10 took 78.59s; previous bag BMC10 took 41.18s. Runs differ in properties and concurrent VM load, so these are not a controlled benchmark.",
+    "bottleneck": "The combined 12-step run and command-source group did not complete within their recorded limits; consult individual statuses."
+  },
+  "conclusions": [
+    "All 40 assertion instances passed 10-step BMC; this is a bounded result, not a complete unbounded proof.",
+    "The four local port assertions have an ABC PDR proof. Eight non-request output groups passed 12-step BMC.",
+    "All 16 cover targets were reached. Covers are existential witnesses and do not establish universal assertions.",
+    "Every output group is mapped to checks, but intentionally relaxed transaction/order/progress properties are not verified by this checker.",
+    "All formal jobs after the integration fix audit symbolic drivers before optimization and after initialization.",
+    "Native SVA and current RTL are tested on the VM; no execution on the target FormalMC 2024 device is claimed.",
+    "Current DUT, precise checker and previous relaxed checker are preserved. No GitHub upload is performed in this change."
+  ],
+  "vm_directory": "/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023",
+  "evidence": {
+    "file": "vm_evidence.tar.gz",
+    "files": 848,
+    "bytes": 10246232,
+    "sha256": "5c7763fbbcd274e802a699981e5fc47a35807bd735919f2300b9c2a1e5d00abd"
+  },
+  "source_identity": "source_identity.json"
+}

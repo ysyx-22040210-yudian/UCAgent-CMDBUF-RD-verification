@@ -1,12 +1,12 @@
 // CMDBUF RD 顶层端口 SVA 阅读入口
-// 1 环境假设 -> 2 端口/历史检查 -> 3 发射与 RR -> 4 单 XAU 保序
+// 1 环境假设 -> 2 端口/历史检查 -> 3 十个输出精确比对 -> 4 单 XAU 保序
 // -> 5 参考模型自检 -> 6 业务场景覆盖。
 // 所有属性显式写出 posedge clk / disable iff (!rst_n)，不检查复位协议。
 // |-> 表示同一采样拍；此文件不把本拍义务推迟到下一拍。
 // [NO_REF_MODEL_PORTS] 仅本拍端口；[NO_REF_MODEL_HISTORY] 仅端口历史；
 // [NO_REF_MODEL_ENV] 环境责任；[REF_MODEL] 依赖事务参考记录；
 // [MODEL_SELF_CHECK] 检查器自洽检查，不等于验证 DUT 物理 entry。
-// 属性标签保持不变，以便对照测试点、反例和历史结果。
+// 十组输出断言统一为 A_COMPARE_*；旧标签映射见 output_assertions.json，其余标签保留。
 `default_nettype none
 // 【采样约定】所有属性在时钟上升沿读取同一拍的采样值；状态用非阻塞赋值在沿后更新。
 // 以成功发射的采样拍为 N：N+4 采样并保存 MEM 数据，R 最早在 N+5 的采样拍合法返回。
@@ -37,7 +37,9 @@ module cmdbuf_rd_port_sva (
     input wire [1:0] arresp,
     // R 通道：一组共享负载，单源保序，跨源按 RR 选择。
     // rvalid 来自 DUT、rready 来自上游；共享 R 负载由唯一有效的 rvalid 位指定接收者。
-    input wire [2:0] rvalid, rready,
+    input wire [2:0] rvalid,
+    // 来自上游：每位指示对应 XAU 本拍可接受响应。
+    input wire [2:0] rready,
     // 来自 DUT：共享 128 位返回数据；无 rvalid 的拍不检查其取值。
     input wire [127:0] rdata,
     // 来自 DUT：应等于本次返回事务在 AR 接受时的 arid。
@@ -56,7 +58,9 @@ module cmdbuf_rd_port_sva (
     // 来自 DUT：组合输出的待发数，含本拍新 AR、扣本拍成功发射，不是总占用数。
     input wire [3:0] pending_cnt,
     // 来自 Arbit/MEM：只有同一 req 位的两个 grant 都为 1，本拍才算发射成功。
-    input wire [7:0] ar_rd_gnt, rw_rd_gnt,
+    input wire [7:0] ar_rd_gnt,
+    // 来自 MEM 仲裁：该 Bank 本拍仲裁结果是读，必须与 ar_rd_gnt 同位有效。
+    input wire [7:0] rw_rd_gnt,
     // MEM 通道：逐 Bank 半区状态；数据和校验异常只有一组合并返回。
     // 二维状态：rd_mem_status[Bank编号][奇偶位]，0 空闲、1 占用；保持逐 Bank 数组形式。
     input wire [1:0] rd_mem_status [7:0],
@@ -70,12 +74,18 @@ module cmdbuf_rd_port_sva (
     // 公开端口事件：这些名称只表示本拍实际发生的握手或双 grant 成功。
     // AR 有效但所选来源不 ready 时不分配 entry、不入接收 FIFO，也不占年龄排名。
     // src 的范围保护避免用非法索引访问 arready；它不是新增的环境限制。
-    wire ar_fire = arvalid && (src < 3) &&
+    wire ar_fire; // 本拍 AR 是否按 src 选中的 ready 位真正握手。
+    // arvalid 有效、src 合法且对应 arready[src] 为 1，才算真正接收一次 AR；其他 ready 位为 1 不算该源握手。
+    assign ar_fire = arvalid && (src < 3) &&
                    ((src < 3) ? arready[src] : 1'b0);
     // 三个向量先逐位相与，再做归约或；禁止把不同 Bank 的两个 grant 误拼成一次成功。
-    wire issue_fire = |(req & ar_rd_gnt & rw_rd_gnt);
+    wire issue_fire; // 本拍 req 命中的同一 Bank 是否同时获得两种 grant。
+    // 先把 req 与两种 grant 按 Bank 逐位相与，再归约为一次成功事件；不同 Bank 的 grant 不能拼成成功。
+    assign issue_fire = |(req & ar_rd_gnt & rw_rd_gnt);
     // 真实 R 握手是释放 CMDBUF/OTB 生命周期的事件；MEM 到达只标记完成，不回收。
-    wire r_fire = |(rvalid & rready);
+    wire r_fire; // 本拍是否有一个 XAU 真正接收 R 响应。
+    // 仅 rvalid 与 rready 同一来源位同时有效才计为 R 回收；任一来源握手即可触发本拍全局回收事件。
+    assign r_fire = |(rvalid & rready);
 
     // 参考模型只用已接受 AR、公开 req/grant 和固定返回时延推导事务身份。
     // 其中 expected_* 是独立期望值，不读取 DUT 的选择/完成/entry 等内部信号。
@@ -118,9 +128,12 @@ module cmdbuf_rd_port_sva (
         |-> (!arvalid)
     );
 
-    genvar bank_env;
+    genvar bank_env; // 环境契约的 Bank 展开编号 0..7。
     generate for (bank_env = 0; bank_env < 8; bank_env = bank_env + 1) begin : status_contract
-        wire requested_half_busy = rd_mem_status[bank_env][arb_addr[0]];
+        // requested_half_busy：当前 Bank 被 arb_addr[0] 选中的半区忙状态。
+        wire requested_half_busy; // 当前 Bank 的 arb_addr[0] 半区状态，供成功当拍环境约束使用。
+        // 从逐 Bank 二维状态中读请求地址指定的半区，供“请求成功当拍该半区必须忙”的 assume 使用。
+        assign requested_half_busy = rd_mem_status[bank_env][arb_addr[0]];
         // 【E06_SUCCESS_BUSY 详解】
         // 触发条件：同一个 Bank 位上的 req、ar_rd_gnt、rw_rd_gnt 本拍同时为 1。
         // 环境义务：本拍 rd_mem_status[bank][arb_addr[0]] 必须为 1，表示访问半区占用。
@@ -140,7 +153,7 @@ module cmdbuf_rd_port_sva (
     // 2. 无事务参考模型的 assert：端口合法性与计数递推
     // ----------------------------------------------------------------
     // [NO_REF_MODEL_HISTORY] 只保存上拍公开 pending_cnt，不复制 entry。
-    reg [3:0] last_pending;
+    reg [3:0] last_pending; // 上一采样拍的公开 pending_cnt，用于端口计数递推断言。
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n)
             last_pending <= 0;
@@ -174,7 +187,7 @@ module cmdbuf_rd_port_sva (
     // 【A_R_READY 详解】
     // 检查范围：三个位逐位比较，rvalid[i]=1 时同拍 rready[i] 必须为 1。
     // 本项目 RR 只在 ready 的来源间选择，不能先拉高 valid 再锁住等待 ready。
-    // 它检查本拍资格；RR 是否选了正确来源由 A_RR_CHOICE 进一步检查。
+    // 它检查本拍资格；RR 是否选了正确来源由 A_COMPARE_RVALID 进一步检查。
     // [NO_REF_MODEL_PORTS] rvalid 只能在对应 rready 已经为 1 的通道拉高。
     A_R_READY: assert property (
         @(posedge clk) disable iff (!rst_n)
@@ -203,92 +216,127 @@ module cmdbuf_rd_port_sva (
     );
 
     // ----------------------------------------------------------------
-    // 3. 依赖参考记录的 assert：容量、乱序发射、RR 与有效负载
+    // 3. 十个输出口逐项精确比对：assert 中直接写输出与模型期望值
     // ----------------------------------------------------------------
-    // 【A_READY 详解】
+    // 本节是全部 DUT 输出口的比对入口，每个输出口对应一条 A_COMPARE_*。
+    // 控制口 arready、pending_cnt、req、rvalid 每拍比较，能发现漏发和多发。
+    // arb_addr 仅在 req 有效时比较；R 负载仅在 r_fire 时比较。
+    // A_R_ONEHOT / A_R_READY 另行检查响应对象及握手，因此未 ready 的非法 valid 也会报错。
+    // expected_* 均由上方参考模型用公开端口推导；全部 R 字段绑定同一个 rsp_e。
+    // 标签迁移见 output_assertions.json；原名的历史证据不回写。
+    // 【A_COMPARE_ARREADY 详解】
     // 检查范围：每个非复位拍，逐位比较三个来源的接收资格。
     // expected_ready 先计入本拍预期 R 回收，再按剩余容量和空源首项预留计算。
     // 例如 7/0/0 时 ready 应保留给另外两源；不能让同一源继续耗尽保留容量。
     // 该属性检查容量策略，不假设上游调度公平，也不保证某源最终一定获得输入机会。
     // [REF_MODEL] arready 必须符合容量预留规则，并计入本拍 R 回收。
-    A_READY: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: arready] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_ARREADY: assert property (
         @(posedge clk) disable iff (!rst_n)
         arready == expected_ready
     );
 
-    // 【A_PENDING 详解】
+    // 【A_COMPARE_PENDING_CNT 详解】
     // 检查范围：每个非复位拍，使用事务表中尚未发射的条目数 waiting 作为基数。
     // 期望值组合计入本拍 ar_fire 和 issue_fire，不等下一拍寄存输出。
     // 已发射但仍等 MEM/R 的事务继续占 entry，却不再属于 waiting。
     // 它与 A_PENDING_RECURRENCE 采用不同依据，便于发现模型基数或接口计数时点不一致。
     // [REF_MODEL] 待发数含本拍新 AR，扣除本拍双 grant 成功；仲裁失败不扣除。
-    A_PENDING: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: pending_cnt] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_PENDING_CNT: assert property (
         @(posedge clk) disable iff (!rst_n)
         pending_cnt == (waiting+(ar_fire?1:0)-(issue_fire?1:0))
     );
 
-    // 【A_REQ 详解】
+    // 【A_COMPARE_REQ 详解】
     // 检查范围：每拍同时检查有请求和无请求；无候选时必须 req=0。
     // m_attempt 是上一拍预选结果，选择依据为五项窗口内空闲半区的最老命令。
     // 当拍 Bank 已变忙仍可保留当前 req，真正成功与否只由同 Bank 的双 grant 决定。
     // 失败时沿反例回看上一拍 window、candidate、selected，而不只看当前状态。
     // [REF_MODEL] 当前 req 必须对应上一拍窗口内选出的最老可发命令。
-    A_REQ: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: req] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_REQ: assert property (
         @(posedge clk) disable iff (!rst_n)
         req == expected_req
     );
 
-    // 【A_ARB_ADDR 详解】
+    // 【A_COMPARE_ARB_ADDR 详解】
     // 检查前提：当前 req 非零；req=0 时地址负载按约定不关心。
     // 期望地址属于当前流水请求，内容为保存的 araddr[17:6]，共 12 位。
     // bit0 同时携带奇偶半区选择；不能误用旧的 [17:7] 或当前新输入 araddr。
     // [REF_MODEL] req 有效时检查完整下游地址 araddr[17:6]；无效时不检查负载。
-    A_ARB_ADDR: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: arb_addr] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_ARB_ADDR: assert property (
         @(posedge clk) disable iff (!rst_n)
         (req != 8'b0)
         |-> (arb_addr == expected_addr)
     );
 
-    // 【A_RR_CHOICE 详解】
+    // 【A_COMPARE_RVALID 详解】
     // 检查范围：每拍比较完整 rvalid 向量，包含应当响应却没有响应的情况。
     // 先找各 XAU 最老未返回事务，再判断已完成和 ready，最后从 RR 起点扫描。
     // 不能先过滤出所有已完成项再选源内最老，否则年轻项可能越过尚未完成的老命令。
     // 失败时先区分资格计算错误、源内越序和 RR 指针推进错误。
     // [REF_MODEL] 只在 ready 且最老队头已完成的来源间按 RR 选择。
-    A_RR_CHOICE: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: rvalid] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_RVALID: assert property (
         @(posedge clk) disable iff (!rst_n)
         rvalid == expected_rvalid
     );
 
-    // 【A_R_METADATA 详解】
-    // 检查前提：本拍发生真实 R 握手；无有效响应的负载不比较。
-    // rid、r_port_id、raddr 必须同时来自模型所选的同一个 rsp_e。
-    // raddr 仅检查原地址低三位，不存在额外的 18 位完整 R 地址口。
-    // 该共享出口检查与下面逐源 FIFO 检查互补，不能用三个字段分别各自找到匹配项代替。
-    // [REF_MODEL] R 握手时，ID、port_id、地址低三位必须属于同一预期事务。
-    A_R_METADATA: assert property (
+    // 以下三个字段分别断言，所有期望值仍取自同一个 rsp_e。
+    // rsp_e 是完整模型按单源队头资格和跨源 RR 选出的事务槽，不是按输出字段搜索的匹配槽。
+    // 原 A_R_METADATA 的三个 && 分项拆开，逻辑条件和比较精度保持一致。
+
+    // 【A_COMPARE_RID 详解】
+    // 检查前提：本拍 R 握手；rid 必须等于预期响应事务在 AR 接收时保存的 arid。
+    // 即使另一个有效 entry 的 ID 等于 rid，也不能代替本次 rsp_e 的 ID。
+    // [REF_MODEL] [OUTPUT_COMPARE: rid] 精确比较 8 位 ID；无有效响应时不比较。
+    A_COMPARE_RID: assert property (
         @(posedge clk) disable iff (!rst_n)
         (r_fire)
-        |-> ((rid == m_id[rsp_e] && r_port_id == m_port[rsp_e] && raddr == m_addr[rsp_e][2:0]))
+        |-> (rid == m_id[rsp_e])
     );
 
-    // 【A_R_RESP 详解】
+    // 【A_COMPARE_R_PORT_ID 详解】
+    // 检查前提：本拍 R 握手；透传的是同一预期事务的 ar_port_id。
+    // 使用与 ID、地址、数据、状态相同的 rsp_e，不能拼接其他 entry 的字段。
+    // [REF_MODEL] [OUTPUT_COMPARE: r_port_id] 精确比较 5 位 port_id。
+    A_COMPARE_R_PORT_ID: assert property (
+        @(posedge clk) disable iff (!rst_n)
+        (r_fire)
+        |-> (r_port_id == m_port[rsp_e])
+    );
+
+    // 【A_COMPARE_RADDR 详解】
+    // 检查前提：本拍 R 握手；返回地址必须等于同一预期事务原 araddr[2:0]。
+    // R 口只有 3 位地址；完整 18 位 AR 地址中的其他位不作为本端口输出。
+    // [REF_MODEL] [OUTPUT_COMPARE: raddr] 精确比较 3 位地址，仍按事务身份关联。
+    A_COMPARE_RADDR: assert property (
+        @(posedge clk) disable iff (!rst_n)
+        (r_fire)
+        |-> (raddr == m_addr[rsp_e][2:0])
+    );
+
+    // 【A_COMPARE_RRESP 详解】
     // 检查前提：真实 R 握手，状态必须对应 rsp_e 保存的上游状态和 MEM pc_err。
     // 优先级：原 arresp=11 则返回 11；否则 pc_err=1 返回 01；否则返回 00。
     // 地址越界与校验错同时存在时必须为 11，不能被较晚捕获的校验错覆盖。
     // [REF_MODEL] R 错误状态来自预期事务；地址越界优先于奇偶校验异常。
-    A_R_RESP: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: rresp] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_RRESP: assert property (
         @(posedge clk) disable iff (!rst_n)
         (r_fire)
         |-> (rresp == expected_resp)
     );
 
-    // 【A_R_DATA 详解】
+    // 【A_COMPARE_RDATA 详解】
     // 检查前提：真实 R 握手；期望值来自该事务成功发射 N 拍后 N+4 的 MEM 采样。
     // MEM 只有一组数据且只保持一拍，因此比较的是已保存数据，不是当前 mem_rdata。
     // 失败时应核对发射事务归属、四拍返回日历，以及数据等待期间是否被后续返回覆盖。
     // [REF_MODEL] R 数据必须等于预期事务在成功发射后第 4 拍捕获的数据。
-    A_R_DATA: assert property (
+    // [REF_MODEL] [OUTPUT_COMPARE: rdata] 下方直接比较本端口实际值与模型期望值。
+    A_COMPARE_RDATA: assert property (
         @(posedge clk) disable iff (!rst_n)
         (r_fire)
         |-> (rdata == m_data[rsp_e])
@@ -297,7 +345,8 @@ module cmdbuf_rd_port_sva (
     // ----------------------------------------------------------------
     // 4. 单 XAU 顺序：AR 接收 FIFO 的队头必须先返回
     // ----------------------------------------------------------------
-    genvar g, h;
+    genvar g; // 三源保序检查中是 XAU 编号；逐槽自检中是参考槽编号。
+    genvar h; // 成对年龄自检中的另一参考槽编号，用于比较 g 与 h。
     generate for (g = 0; g < 3; g = g + 1) begin : sources
         // 本地状态只记录该源接收顺序以及 cover 进度。
         `include "cmdbuf_rd_xau_order_model.svh"
@@ -404,7 +453,7 @@ module cmdbuf_rd_port_sva (
         // 下列两项是 FIFO 与事务表互相核对，不是 DUT 存储探针。
         // 【M_XAU_FIFO_COUNT 详解】
         // 检查范围：每拍核对两个独立记录：接收 FIFO 长度与事务表该源有效占用数。
-        // 长度最多 7 是已对齐的容量策略；这里检查模型记录，外部 ready 正确性由 A_READY 检查。
+        // 长度最多 7 是已对齐的容量策略；这里检查模型记录，外部 ready 正确性由 A_COMPARE_ARREADY 检查。
         // 失败先查同拍出入、重复出队或复用逻辑槽时是否遗漏更新，不能直接归结为 DUT 物理槽损坏。
         // [MODEL_SELF_CHECK] 独立接收 FIFO 的长度必须与事务表该源占用数一致，且不超过 7。
         M_XAU_FIFO_COUNT: assert property (
@@ -498,7 +547,7 @@ module cmdbuf_rd_port_sva (
     // 【M_RETIRE 详解】
     // 检查前提：真实 R 握手，模型也应当允许一次响应。
     // rsp_e 必须合法、有效、已发射并完成；它用于避免错误地从模型删除不存在的事务。
-    // 若失败，结合 A_RR_CHOICE 和各源 FIFO 检查定位输出错误或模型归属错误。
+    // 若失败，结合 A_COMPARE_RVALID 和各源 FIFO 检查定位输出错误或模型归属错误。
     // [MODEL_SELF_CHECK] 实际 R 握手必须对应模型的合法、已发射、已完成事务。
     M_RETIRE: assert property (
         @(posedge clk) disable iff (!rst_n)
@@ -534,7 +583,7 @@ module cmdbuf_rd_port_sva (
     // 【M_NO_BYPASS 详解】
     // 检查前提：本拍有 MEM 捕获且有真实 R 握手，二者允许属于不同事务。
     // 要求到期事务与响应事务不同，体现 MEM 捕获后最快下一采样拍才可返回 R。
-    // 本条对模型选定的 rsp_e 作归属自检；实际响应选择仍要看 A_RR_CHOICE。
+    // 本条对模型选定的 rsp_e 作归属自检；实际响应选择仍要看 A_COMPARE_RVALID。
     // [MODEL_SELF_CHECK] 本拍刚捕获 MEM 的事务不得在同拍 R 返回，最快下一拍。
     M_NO_BYPASS: assert property (
         @(posedge clk) disable iff (!rst_n)
@@ -586,8 +635,11 @@ module cmdbuf_rd_port_sva (
     generate for (g = 0; g < 9; g = g + 1) begin : slots
         // 逐槽统计返回日历四级有效 token；只在对应有效位为 1 时计算该级。
         // 该统计不要求读 DUT 内部 OTB，日历由公开的成功发射事件建立。
-        wire [3:0] calendar_count =
-            {3'b0, (m_due[0] && m_due_e[0] == g)} +
+        // calendar_count：四级有效日历中，当前参考槽 g 的出现次数。
+        wire [3:0] calendar_count; // 四级返回日历中参考槽 g 的有效出现次数。
+        // 四个日历级逐个判断“有效且 token 等于槽 g”，每个命中先扩成 4 位再相加。
+        // 同一有效事务在返回日历中应有正确的出现次数，不能只检查整条日历是否非空。
+        assign calendar_count = {3'b0, (m_due[0] && m_due_e[0] == g)} +
             {3'b0, (m_due[1] && m_due_e[1] == g)} +
             {3'b0, (m_due[2] && m_due_e[2] == g)} +
             {3'b0, (m_due[3] && m_due_e[3] == g)};
@@ -644,7 +696,7 @@ module cmdbuf_rd_port_sva (
 
     // 【C_FAILURE_SELECT_OTHER 详解】
     // 当前请求存在但未成功，且它对应半区现在忙；窗口内另一个空闲候选被选中。
-    // 命中拍处于预选阶段，下一拍对外 req 的正确性由 A_REQ/A_ARB_ADDR 检查。
+    // 命中拍处于预选阶段，下一拍对外 req 的正确性由 A_COMPARE_REQ/A_COMPARE_ARB_ADDR 检查。
     // 失败项保留年龄，不因本次改选其他命令而移到队尾。
     // [REF_MODEL] 当前请求失败且对应半区忙，本拍选中窗口内另一条命令。
     C_FAILURE_SELECT_OTHER: cover property (
@@ -675,7 +727,7 @@ module cmdbuf_rd_port_sva (
     // 【C_BLOCKED_SIX 详解】
     // 当前五项窗口无空闲候选，窗口外至少有一项匹配空闲状态，且没有已流水请求。
     // blocked_streak 还要求该状态持续多个采样拍，见证第六项不能越窗发射。
-    // 这条 cover 不证明所有受阻轨迹都正确；发射输出的普遍约束由 A_REQ 检查。
+    // 这条 cover 不证明所有受阻轨迹都正确；发射输出的普遍约束由 A_COMPARE_REQ 检查。
     // [REF_MODEL] 窗口五条均不匹配、窗口外第六条匹配，连续等待仍不能越窗发射。
     C_BLOCKED_SIX: cover property (
         @(posedge clk) disable iff (!rst_n)
@@ -778,10 +830,14 @@ module cmdbuf_rd_port_sva (
     );
 
     // 下面 8×2 的 generate 是全部物理 Bank 半区组合；与前面的三源 generate 不是同一个维度。
-    genvar cb, ch;
+    genvar cb; // Bank 覆盖展开编号 0..7。
+    genvar ch; // 奇偶半区覆盖展开编号 0/1。
     generate for (cb = 0; cb < 8; cb = cb + 1) begin : bank_covers
         for (ch = 0; ch < 2; ch = ch + 1) begin : half_covers
-            wire this_half_busy = rd_mem_status[cb][ch];
+            // this_half_busy：被本覆盖实例观察的固定 Bank/half 忙位。
+            wire this_half_busy; // 展开的 Bank cb、半区 ch 忙状态，供逐 Bank/half 覆盖使用。
+            // 直接读取展开的 Bank cb、半区 ch 状态；逐个 cover 检查各 Bank/half 的成功忙状态组合。
+            assign this_half_busy = rd_mem_status[cb][ch];
             // 【C_SUCCESS_BUSY_TARGET 详解】
             // 按八个 Bank 和两个半区展开，共 16 个覆盖实例。
             // 需真实请求和同 Bank 双 grant 成功，并确认 arb_addr[0] 选中该半区。

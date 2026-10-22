@@ -1,0 +1,49 @@
+{
+  "group": "cover",
+  "mode": "cover",
+  "depth": 32,
+  "timeout": 180,
+  "engine": "smtbmc yices",
+  "status": "PASS 0 9",
+  "returncode": 0,
+  "seconds": 8.02,
+  "counts": {
+    "assert": 40,
+    "assume": 11,
+    "cover": 16
+  },
+  "engine_status": "PASS 0 9",
+  "symbolic_audit_ok": true,
+  "anyconst_cells": [
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3577",
+      "width": 15
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3578",
+      "width": 2
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3579",
+      "width": 8
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3580",
+      "width": 5
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3581",
+      "width": 3
+    },
+    {
+      "module": "cmdbuf_rd_formal",
+      "cell": "$flatten\\symbolic_parameters.$anyconst$3582",
+      "width": 128
+    }
+  ]
+}

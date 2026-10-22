@@ -1,0 +1,135 @@
+SBY  1:35:27 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/cmdbuf_rd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/run/src/cmdbuf_rd.sv'.
+SBY  1:35:27 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/cmdbuf_rd_cmd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/run/src/cmdbuf_rd_cmd.sv'.
+SBY  1:35:27 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/cmdbuf_rd_otb.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/run/src/cmdbuf_rd_otb.sv'.
+SBY  1:35:27 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/cmdbuf_rd_compact_sva.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/run/src/cmdbuf_rd_compact_sva.sv'.
+SBY  1:35:27 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/formal_top.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_compact_20261023/build/smoke/cover/run/src/formal_top.sv'.
+SBY  1:35:27 [run] engine_0: smtbmc yices
+SBY  1:35:27 [run] base: starting process "cd run/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  1:35:27 [run] base: finished (returncode=0)
+SBY  1:35:27 [run] prep: starting process "cd run/model; yosys -ql design_prep.log design_prep.ys"
+SBY  1:35:27 [run] prep: finished (returncode=0)
+SBY  1:35:27 [run] smt2: starting process "cd run/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  1:35:28 [run] smt2: finished (returncode=0)
+SBY  1:35:28 [run] engine_0: starting process "cd run; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 32  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Solver: yices
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Reached cover statement in step 1 at cmdbuf_rd_formal: checks.C_S_SOURCE_MATCH
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Reached cover statement in step 2 at cmdbuf_rd_formal: checks.C_S_RETRY
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Reached cover statement in step 3 at cmdbuf_rd_formal: checks.C_S_COMMAND_MATCH
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Reached cover statement in step 4 at cmdbuf_rd_formal: checks.C_S_ISSUE_STREAK
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY  1:35:28 [run] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY  1:35:29 [run] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY  1:35:29 [run] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 5..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 6..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 7..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Reached cover statement in step 8 at cmdbuf_rd_formal: checks.C_S_DATA_HIGH_BIT
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Reached cover statement in step 8 at cmdbuf_rd_formal: checks.C_S_DATA_MATCH
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace4.vcd
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace4.smtc
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Reached cover statement in step 8 at cmdbuf_rd_formal: checks.C_S_PC_ERROR
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace5.vcd
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace5.smtc
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Reached cover statement in step 8 at cmdbuf_rd_formal: checks.C_S_FOUR_EVENTS
+SBY  1:35:29 [run] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace6.vcd
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace6.smtc
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace6.yw
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Checking cover reachability in step 8..
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Checking cover reachability in step 9..
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Reached cover statement in step 9 at cmdbuf_rd_formal: checks.C_S_RESPONSE_STREAK
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace7.vcd
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace7.smtc
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace7.yw
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Checking cover reachability in step 9..
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Reached cover statement in step 9 at cmdbuf_rd_formal: checks.C_S_DUPLICATE_DATA
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace8.vcd
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace8.smtc
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace8.yw
+SBY  1:35:30 [run] engine_0: ##   0:00:02  Checking cover reachability in step 9..
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Checking cover reachability in step 10..
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Reached cover statement in step 10 at cmdbuf_rd_formal: checks.C_S_FULL_REUSE
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace9.vcd
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace9.smtc
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace9.yw
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Checking cover reachability in step 10..
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Checking cover reachability in step 11..
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Reached cover statement in step 11 at cmdbuf_rd_formal: checks.C_S_TURNOVER
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace10.vcd
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace10.smtc
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace10.yw
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Checking cover reachability in step 11..
+SBY  1:35:31 [run] engine_0: ##   0:00:03  Checking cover reachability in step 12..
+SBY  1:35:32 [run] engine_0: ##   0:00:03  Checking cover reachability in step 13..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 14..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 15..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 16..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 17..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 18..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 19..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 20..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 21..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 22..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 23..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 24..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 25..
+SBY  1:35:32 [run] engine_0: ##   0:00:04  Checking cover reachability in step 26..
+SBY  1:35:33 [run] engine_0: ##   0:00:04  Checking cover reachability in step 27..
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Checking cover reachability in step 28..
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Checking cover reachability in step 29..
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Checking cover reachability in step 30..
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Checking cover reachability in step 31..
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Unreached cover statement at cmdbuf_rd_formal: checks.C_S_ADDRESS_ERROR
+SBY  1:35:33 [run] engine_0: ##   0:00:05  Status: failed
+SBY  1:35:33 [run] engine_0: finished (returncode=1)
+SBY  1:35:33 [run] engine_0: Status returned by engine: FAIL
+SBY  1:35:33 [run] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY  1:35:33 [run] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY  1:35:33 [run] summary: engine_0 (smtbmc yices) returned FAIL
+SBY  1:35:33 [run] summary: cover trace: run/engine_0/trace0.vcd
+SBY  1:35:33 [run] summary:   reached cover statement cmdbuf_rd_formal.\checks.C_S_SOURCE_MATCH at cmdbuf_rd_compact_sva.sv:497.5-500.7 step 1
+SBY  1:35:33 [run] summary: cover trace: run/engine_0/trace1.vcd
+SBY  1:35:33 [run] summary:   reached cover statement cmdbuf_rd_formal.\checks.C_S_RETRY at cmdbuf_rd_compact_sva.sv:569.5-572.7 step 2
+SBY  1:35:33 [run] summary: cover trace: run/engine_0/trace10.vcd
+SBY  1:35:33 [run] summary:   reached cover statement cmdbuf_rd_formal.\checks.C_S_TURNOVER at cmdbuf_rd_compact_sva.sv:587.5-590.7 step 11
+SBY  1:35:33 [run] summary: cover trace: run/engine_0/trace2.vcd
+SBY  1:35:33 [run] summary:   reached cover statement cmdbuf_rd_formal.\checks.C_S_COMMAND_MATCH at cmdbuf_rd_compact_sva.sv:503.5-506.7 step 3
+SBY  1:35:33 [run] summary: cover trace: run/engine_0/trace3.vcd
+SBY  1:35:33 [run] summary:   reached cover statement cmdbuf_rd_formal.\checks.C_S_ISSUE_STREAK at cmdbuf_rd_compact_sva.sv:575.5-578.7 step 4
+SBY  1:35:33 [run] summary: and 6 further traces
+SBY  1:35:33 [run] summary: unreached cover statements:
+SBY  1:35:33 [run] summary:   cmdbuf_rd_formal.\checks.C_S_ADDRESS_ERROR at cmdbuf_rd_compact_sva.sv:551.5-554.7
+SBY  1:35:33 [run] summary: see run/FAIL for a complete summary
+SBY  1:35:33 [run] DONE (FAIL, rc=2)

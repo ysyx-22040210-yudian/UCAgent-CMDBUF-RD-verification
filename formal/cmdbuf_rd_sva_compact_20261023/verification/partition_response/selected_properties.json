@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "arvalid |-> src<2'd3",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 来源必须为 0/1/2。",
+    "line": 242,
+    "end_line": 245,
+    "start": 12077,
+    "end": 12187,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的地址状态仅允许正常和越界。",
+    "line": 248,
+    "end_line": 251,
+    "start": 12265,
+    "end": 12402,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "arready==0 |-> !arvalid",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "全源 ready 为零时无有效 AR。",
+    "line": 254,
+    "end_line": 257,
+    "start": 12479,
+    "end": 12599,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "成功当拍目标 Bank/half 为忙，不要求另一半区忙。",
+    "line": 262,
+    "end_line": 265,
+    "start": 12784,
+    "end": 12973,
+    "group": "ports"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_R_CAPTURED",
+    "expression": "(|rvalid) |-> completed!=0",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 1,
+    "description": "有效 R 必须有此前捕获的 MEM 返回，当前到期不能同拍旁路。",
+    "line": 332,
+    "end_line": 335,
+    "start": 15584,
+    "end": 15707,
+    "group": "response"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_COMPLETED_RANGE",
+    "expression": "completed_next<=5'd9",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 1,
+    "description": "MEM/R 总量保持守恒且不越界。",
+    "line": 338,
+    "end_line": 341,
+    "start": 15765,
+    "end": 15887,
+    "group": "response"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_SOURCE_NONEMPTY",
+    "expression": "rvalid[x] |-> occupied[x]!=0",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 3,
+    "description": "当前有效 R 只能返回给有未完成命令的来源。",
+    "line": 352,
+    "end_line": 355,
+    "start": 16314,
+    "end": 16460,
+    "group": "response"
+  }
+]

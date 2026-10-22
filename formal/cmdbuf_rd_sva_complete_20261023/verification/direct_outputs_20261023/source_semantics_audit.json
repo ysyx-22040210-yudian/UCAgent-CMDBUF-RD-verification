@@ -1,0 +1,395 @@
+{
+  "status": "PASS",
+  "scope": "Same-sample Boolean split audit; not a DUT proof.",
+  "checked_unchanged_properties": [
+    {
+      "before": "E03_SRC",
+      "after": "E03_SRC"
+    },
+    {
+      "before": "E04_ARRESP",
+      "after": "E04_ARRESP"
+    },
+    {
+      "before": "E05_ZERO_READY",
+      "after": "E05_ZERO_READY"
+    },
+    {
+      "before": "E06_SUCCESS_BUSY",
+      "after": "E06_SUCCESS_BUSY"
+    },
+    {
+      "before": "A_REQ_ONEHOT",
+      "after": "A_REQ_ONEHOT"
+    },
+    {
+      "before": "A_R_ONEHOT",
+      "after": "A_R_ONEHOT"
+    },
+    {
+      "before": "A_R_READY",
+      "after": "A_R_READY"
+    },
+    {
+      "before": "A_PENDING_RANGE",
+      "after": "A_PENDING_RANGE"
+    },
+    {
+      "before": "A_PENDING_RECURRENCE",
+      "after": "A_PENDING_RECURRENCE"
+    },
+    {
+      "before": "A_READY",
+      "after": "A_COMPARE_ARREADY"
+    },
+    {
+      "before": "A_PENDING",
+      "after": "A_COMPARE_PENDING_CNT"
+    },
+    {
+      "before": "A_REQ",
+      "after": "A_COMPARE_REQ"
+    },
+    {
+      "before": "A_ARB_ADDR",
+      "after": "A_COMPARE_ARB_ADDR"
+    },
+    {
+      "before": "A_RR_CHOICE",
+      "after": "A_COMPARE_RVALID"
+    },
+    {
+      "before": "A_R_RESP",
+      "after": "A_COMPARE_RRESP"
+    },
+    {
+      "before": "A_R_DATA",
+      "after": "A_COMPARE_RDATA"
+    },
+    {
+      "before": "A_RR_BOUND",
+      "after": "A_RR_BOUND"
+    },
+    {
+      "before": "A_XAU_R_HAS_PENDING",
+      "after": "A_XAU_R_HAS_PENDING"
+    },
+    {
+      "before": "A_XAU_R_HEAD_COMPLETE",
+      "after": "A_XAU_R_HEAD_COMPLETE"
+    },
+    {
+      "before": "A_XAU_R_NO_EARLY_BYPASS",
+      "after": "A_XAU_R_NO_EARLY_BYPASS"
+    },
+    {
+      "before": "A_XAU_R_ADDR_ORDER",
+      "after": "A_XAU_R_ADDR_ORDER"
+    },
+    {
+      "before": "A_XAU_R_ID_ORDER",
+      "after": "A_XAU_R_ID_ORDER"
+    },
+    {
+      "before": "A_XAU_R_PORT_ORDER",
+      "after": "A_XAU_R_PORT_ORDER"
+    },
+    {
+      "before": "A_XAU_R_DATA_ORDER",
+      "after": "A_XAU_R_DATA_ORDER"
+    },
+    {
+      "before": "A_XAU_R_RESP_ORDER",
+      "after": "A_XAU_R_RESP_ORDER"
+    },
+    {
+      "before": "M_XAU_FIFO_COUNT",
+      "after": "M_XAU_FIFO_COUNT"
+    },
+    {
+      "before": "M_XAU_FIFO_HEAD",
+      "after": "M_XAU_FIFO_HEAD"
+    },
+    {
+      "before": "C_XAU_EARLY_THIRD_BLOCKED",
+      "after": "C_XAU_EARLY_THIRD_BLOCKED"
+    },
+    {
+      "before": "C_XAU_R_123_AFTER_ISSUE3_FIRST",
+      "after": "C_XAU_R_123_AFTER_ISSUE3_FIRST"
+    },
+    {
+      "before": "C_XAU_OTHER_SOURCE_PROGRESS",
+      "after": "C_XAU_OTHER_SOURCE_PROGRESS"
+    },
+    {
+      "before": "C_XAU_SAME_CYCLE_POP_PUSH",
+      "after": "C_XAU_SAME_CYCLE_POP_PUSH"
+    },
+    {
+      "before": "C_XAU_REPEAT_ID_HEAD_R",
+      "after": "C_XAU_REPEAT_ID_HEAD_R"
+    },
+    {
+      "before": "M_ALLOC",
+      "after": "M_ALLOC"
+    },
+    {
+      "before": "M_RETIRE",
+      "after": "M_RETIRE"
+    },
+    {
+      "before": "M_SUCCESS",
+      "after": "M_SUCCESS"
+    },
+    {
+      "before": "M_DUE",
+      "after": "M_DUE"
+    },
+    {
+      "before": "M_NO_BYPASS",
+      "after": "M_NO_BYPASS"
+    },
+    {
+      "before": "M_STATE",
+      "after": "M_STATE"
+    },
+    {
+      "before": "M_RANGE",
+      "after": "M_RANGE"
+    },
+    {
+      "before": "M_QUOTA",
+      "after": "M_QUOTA"
+    },
+    {
+      "before": "M_ATTEMPT",
+      "after": "M_ATTEMPT"
+    },
+    {
+      "before": "M_AGE_RANGE",
+      "after": "M_AGE_RANGE"
+    },
+    {
+      "before": "M_CALENDAR",
+      "after": "M_CALENDAR"
+    },
+    {
+      "before": "M_AGE_UNIQUE",
+      "after": "M_AGE_UNIQUE"
+    },
+    {
+      "before": "C_RETRY_NEXT_CYCLE",
+      "after": "C_RETRY_NEXT_CYCLE"
+    },
+    {
+      "before": "C_FAILURE_SELECT_OTHER",
+      "after": "C_FAILURE_SELECT_OTHER"
+    },
+    {
+      "before": "C_REFILL_NEXT_CYCLE",
+      "after": "C_REFILL_NEXT_CYCLE"
+    },
+    {
+      "before": "C_NONHEAD_REFILL",
+      "after": "C_NONHEAD_REFILL"
+    },
+    {
+      "before": "C_BLOCKED_SIX",
+      "after": "C_BLOCKED_SIX"
+    },
+    {
+      "before": "C_PENDING5_DEC",
+      "after": "C_PENDING5_DEC"
+    },
+    {
+      "before": "C_PENDING5_BOTH",
+      "after": "C_PENDING5_BOTH"
+    },
+    {
+      "before": "C_PENDING5_ADD",
+      "after": "C_PENDING5_ADD"
+    },
+    {
+      "before": "C_FULL_REUSE",
+      "after": "C_FULL_REUSE"
+    },
+    {
+      "before": "C_ALL_FOUR_EVENTS",
+      "after": "C_ALL_FOUR_EVENTS"
+    },
+    {
+      "before": "C_CAPACITY700",
+      "after": "C_CAPACITY700"
+    },
+    {
+      "before": "C_CAPACITY440",
+      "after": "C_CAPACITY440"
+    },
+    {
+      "before": "C_RETURN_ERROR_PRIORITY",
+      "after": "C_RETURN_ERROR_PRIORITY"
+    },
+    {
+      "before": "C_READY_MASK_RR",
+      "after": "C_READY_MASK_RR"
+    },
+    {
+      "before": "C_FOUR_SUCCESS",
+      "after": "C_FOUR_SUCCESS"
+    },
+    {
+      "before": "C_SUCCESS_BUSY_TARGET",
+      "after": "C_SUCCESS_BUSY_TARGET"
+    }
+  ],
+  "metadata_boolean_equivalence": [
+    {
+      "r_fire": false,
+      "id_equal": false,
+      "port_equal": false,
+      "address_equal": false,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": false,
+      "port_equal": false,
+      "address_equal": true,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": false,
+      "port_equal": true,
+      "address_equal": false,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": false,
+      "port_equal": true,
+      "address_equal": true,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": true,
+      "port_equal": false,
+      "address_equal": false,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": true,
+      "port_equal": false,
+      "address_equal": true,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": true,
+      "port_equal": true,
+      "address_equal": false,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": false,
+      "id_equal": true,
+      "port_equal": true,
+      "address_equal": true,
+      "old": true,
+      "new": true
+    },
+    {
+      "r_fire": true,
+      "id_equal": false,
+      "port_equal": false,
+      "address_equal": false,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": false,
+      "port_equal": false,
+      "address_equal": true,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": false,
+      "port_equal": true,
+      "address_equal": false,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": false,
+      "port_equal": true,
+      "address_equal": true,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": true,
+      "port_equal": false,
+      "address_equal": false,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": true,
+      "port_equal": false,
+      "address_equal": true,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": true,
+      "port_equal": true,
+      "address_equal": false,
+      "old": false,
+      "new": false
+    },
+    {
+      "r_fire": true,
+      "id_equal": true,
+      "port_equal": true,
+      "address_equal": true,
+      "old": true,
+      "new": true
+    }
+  ],
+  "snapshot": "verification/before_direct_outputs_20261023.tar.gz",
+  "preserved_model_and_rtl_sha256": {
+    "cmdbuf_rd_reference_model.svh": "d0394441a193d6431b24e896d9ac0ff4a3f7b7e91351aea766c390dc623321c2",
+    "cmdbuf_rd_xau_order_model.svh": "5976a220a2bf6f1c8e16960352aacc5f29981a0f0441200e463ba71baa070c6b",
+    "cmdbuf_rd_corner_properties.svh": "c0c19678b33c1e2995e5a151a52f40c57641309e64c2405e8e2164e334c33a7a",
+    "cmdbuf_rd_corner_assertions.svh": "58c67cc59358bdfc3f074eab5e06ce548bbde43dcbe26e758ab0b026ace1e898",
+    "cmdbuf_rd_corner_history.svh": "74b6f9cbcd647d554c4bda40d9b99051f72d445a96f38728c1c92670a365bbd6",
+    "cmdbuf_rd_corner_sequences.svh": "b1f486de4a7a3145d51ed73f6cca7553f8ff1a230f682e90d524f4cce2a1c1f6",
+    "rtl/cmdbuf_rd.sv": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4",
+    "rtl/cmdbuf_rd_cmd.sv": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f",
+    "rtl/cmdbuf_rd_otb.sv": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2",
+    "optional/cmdbuf_rd_long_witness.svh": "1c818148e11908b928fa22e34bc87314693ccf512eff67cab6cb4e630fec1a6f"
+  },
+  "assumes_changed": false,
+  "per_xau_fifo_assertions_changed": false,
+  "extra_input_ports_added": false,
+  "non_property_code_unchanged": true,
+  "model_and_rtl_bytes_unchanged": true,
+  "current_main_sha256": "3a6e48fdbd0c7eb288b59a78029d078eb9e546c4eeba677b1d99d385a309262d"
+}

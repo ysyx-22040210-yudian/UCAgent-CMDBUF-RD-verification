@@ -1,0 +1,50 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "arvalid |-> src<2'd3",
+    "executed_expression": "(!(arvalid) || (src<2'd3))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "executed_expression": "(!(arvalid) || ((arresp==2'b00 || arresp==2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "arready==0 |-> !arvalid",
+    "executed_expression": "(!(arready==0) || (!arvalid))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "executed_expression": "(!((req[b] && ar_rd_gnt[b] && rw_rd_gnt[b])) || (rd_mem_status[b][arb_addr[0]]))"
+  },
+  {
+    "label": "A_S_ADDRESS_ERROR_AVAILABLE",
+    "kind": "assert",
+    "source_expression": "(watched_rvalid && rresp==3) |-> outside!=0",
+    "executed_expression": "(!((watched_rvalid && rresp==3)) || (outside!=0))"
+  },
+  {
+    "label": "A_S_NORMAL_ADDRESS_AVAILABLE",
+    "kind": "assert",
+    "source_expression": "(watched_rvalid && rresp!=3) |-> watched_occupied>outside",
+    "executed_expression": "(!((watched_rvalid && rresp!=3)) || (watched_occupied>outside))"
+  },
+  {
+    "label": "A_S_PC_CLEAN_AVAILABLE",
+    "kind": "assert",
+    "source_expression": "((|rvalid) && rresp==0) |-> bad_low<completed",
+    "executed_expression": "(!(((|rvalid) && rresp==0)) || (bad_low<completed))"
+  },
+  {
+    "label": "A_S_PC_BAD_AVAILABLE",
+    "kind": "assert",
+    "source_expression": "((|rvalid) && rresp==1) |-> bad_high!=0",
+    "executed_expression": "(!(((|rvalid) && rresp==1)) || (bad_high!=0))"
+  }
+]

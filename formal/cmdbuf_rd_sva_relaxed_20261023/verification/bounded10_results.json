@@ -1,0 +1,19 @@
+[
+  {
+    "name": "bmc",
+    "timeout": 180,
+    "mode": "bmc",
+    "depth": 10,
+    "engine": "smtbmc yices",
+    "assertions": null,
+    "covers": [],
+    "status": "PASS 0 39",
+    "returncode": 0,
+    "seconds": 41.18,
+    "counts": {
+      "assert": 41,
+      "assume": 11,
+      "cover": 0
+    }
+  }
+]

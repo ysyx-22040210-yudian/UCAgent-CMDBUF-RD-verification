@@ -1,0 +1,65 @@
+[
+  {
+    "name": "prove",
+    "timeout": 240,
+    "mode": "prove",
+    "depth": 16,
+    "engine": "abc pdr",
+    "assertions": [
+      "A_L_REQ_ONEHOT",
+      "A_L_R_ONEHOT",
+      "A_L_R_READY",
+      "A_L_RRESP_CODE",
+      "A_L_PENDING",
+      "A_L_PENDING_RANGE",
+      "A_L_READY",
+      "A_L_TOTAL",
+      "A_L_RESERVATION",
+      "A_L_SOURCE_LIMIT",
+      "A_L_SOURCE_NONEMPTY"
+    ],
+    "covers": [],
+    "status": "TIMEOUT 8 2",
+    "returncode": 8,
+    "seconds": 250.39,
+    "counts": {
+      "assert": 15,
+      "assume": 11,
+      "cover": 0
+    }
+  },
+  {
+    "name": "bmc",
+    "timeout": 240,
+    "mode": "bmc",
+    "depth": 16,
+    "engine": "abc bmc3",
+    "assertions": null,
+    "covers": [],
+    "status": "TIMEOUT 8 5",
+    "returncode": 8,
+    "seconds": 250.58,
+    "counts": {
+      "assert": 41,
+      "assume": 11,
+      "cover": 0
+    }
+  },
+  {
+    "name": "cover",
+    "timeout": 240,
+    "mode": "cover",
+    "depth": 32,
+    "engine": "smtbmc yices",
+    "assertions": null,
+    "covers": null,
+    "status": "PASS 0 7",
+    "returncode": 0,
+    "seconds": 6.73,
+    "counts": {
+      "assert": 41,
+      "assume": 11,
+      "cover": 11
+    }
+  }
+]

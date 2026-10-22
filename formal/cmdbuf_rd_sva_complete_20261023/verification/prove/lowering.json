@@ -1,0 +1,26 @@
+[
+  {
+    "label": "E03_SRC",
+    "kind": "assume",
+    "source_expression": "(arvalid)\n        |-> (src < 2'd3)",
+    "executed_expression": "(!((arvalid)) || ((src < 2'd3)))"
+  },
+  {
+    "label": "E04_ARRESP",
+    "kind": "assume",
+    "source_expression": "(arvalid)\n        |-> (arresp == 2'b00 || arresp == 2'b11)",
+    "executed_expression": "(!((arvalid)) || ((arresp == 2'b00 || arresp == 2'b11)))"
+  },
+  {
+    "label": "E05_ZERO_READY",
+    "kind": "assume",
+    "source_expression": "(arready == 3'b000)\n        |-> (!arvalid)",
+    "executed_expression": "(!((arready == 3'b000)) || ((!arvalid)))"
+  },
+  {
+    "label": "E06_SUCCESS_BUSY",
+    "kind": "assume",
+    "source_expression": "(req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])\n            |-> (requested_half_busy)",
+    "executed_expression": "(!((req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])) || ((requested_half_busy)))"
+  }
+]

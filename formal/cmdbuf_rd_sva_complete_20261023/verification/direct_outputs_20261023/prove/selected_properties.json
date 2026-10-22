@@ -1,0 +1,86 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "(arvalid)\n        |-> (src < 2'd3)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 必须来自 XAU0、XAU1 或 XAU2；无效拍不约束 src。",
+    "line": 504,
+    "end_line": 508,
+    "start": 26102,
+    "end": 26226
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "(arvalid)\n        |-> (arresp == 2'b00 || arresp == 2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的上游状态只允许正常 00 或地址越界 11。",
+    "line": 515,
+    "end_line": 519,
+    "start": 26465,
+    "end": 26616
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "(arready == 3'b000)\n        |-> (!arvalid)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "三个来源都不能接收时，上游不得发送有效 AR。",
+    "line": 526,
+    "end_line": 530,
+    "start": 26873,
+    "end": 27012
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[bank_env] && ar_rd_gnt[bank_env] && rw_rd_gnt[bank_env])\n            |-> (requested_half_busy)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "本拍该 Bank 双 grant 成功时，被访问的奇偶半区本拍必须报告占用。",
+    "line": 545,
+    "end_line": 549,
+    "start": 27847,
+    "end": 28061
+  },
+  {
+    "kind": "assert",
+    "label": "A_REQ_ONEHOT",
+    "expression": "(req & (req-8'd1)) == 0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "下游每拍最多请求一个 Bank；全零合法。",
+    "line": 573,
+    "end_line": 576,
+    "start": 28884,
+    "end": 29002
+  },
+  {
+    "kind": "assert",
+    "label": "A_R_ONEHOT",
+    "expression": "(rvalid & (rvalid-3'd1)) == 0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "共享 R 负载每拍最多发往一个 XAU；全零合法。",
+    "line": 583,
+    "end_line": 586,
+    "start": 29216,
+    "end": 29338
+  },
+  {
+    "kind": "assert",
+    "label": "A_R_READY",
+    "expression": "(rvalid & ~rready) == 0",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "rvalid 只能在对应 rready 已经为 1 的通道拉高。",
+    "line": 593,
+    "end_line": 596,
+    "start": 29583,
+    "end": 29698
+  }
+]

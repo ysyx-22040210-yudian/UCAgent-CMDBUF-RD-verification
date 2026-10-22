@@ -1,0 +1,239 @@
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/cmdbuf_rd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/cmdbuf_rd.sv'.
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/cmdbuf_rd_cmd.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/cmdbuf_rd_cmd.sv'.
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/cmdbuf_rd_otb.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/cmdbuf_rd_otb.sv'.
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/cmdbuf_rd_value_bag.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/cmdbuf_rd_value_bag.sv'.
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/cmdbuf_rd_relaxed_sva.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/cmdbuf_rd_relaxed_sva.sv'.
+SBY  1:11:04 [run] Copy '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/formal_top.sv' to '/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023/build/regression/bmc/run/src/formal_top.sv'.
+SBY  1:11:04 [run] engine_0: abc bmc3
+SBY  1:11:04 [run] base: starting process "cd run/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  1:11:05 [run] base: finished (returncode=0)
+SBY  1:11:05 [run] prep: starting process "cd run/model; yosys -ql design_prep.log design_prep.ys"
+SBY  1:11:05 [run] prep: finished (returncode=0)
+SBY  1:11:05 [run] aig: starting process "cd run/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\clk like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\src [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\src [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rw_rd_gnt [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rst_n like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rready [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [8] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [9] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [10] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [11] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [12] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [13] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [14] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\rd_mem_status [15] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\pc_err like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [8] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [9] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [10] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [11] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [12] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [13] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [14] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [15] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [16] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [17] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [18] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [19] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [20] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [21] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [22] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [23] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [24] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [25] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [26] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [27] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [28] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [29] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [30] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [31] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [32] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [33] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [34] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [35] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [36] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [37] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [38] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [39] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [40] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [41] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [42] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [43] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [44] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [45] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [46] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [47] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [48] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [49] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [50] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [51] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [52] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [53] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [54] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [55] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [56] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [57] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [58] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [59] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [60] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [61] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [62] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [63] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [64] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [65] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [66] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [67] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [68] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [69] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [70] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [71] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [72] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [73] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [74] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [75] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [76] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [77] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [78] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [79] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [80] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [81] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [82] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [83] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [84] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [85] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [86] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [87] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [88] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [89] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [90] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [91] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [92] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [93] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [94] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [95] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [96] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [97] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [98] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [99] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [100] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [101] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [102] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [103] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [104] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [105] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [106] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [107] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [108] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [109] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [110] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [111] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [112] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [113] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [114] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [115] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [116] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [117] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [118] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [119] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [120] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [121] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [122] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [123] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [124] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [125] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [126] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\mem_rdata [127] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arvalid like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arresp [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arresp [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\arid [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [8] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [9] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [10] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [11] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [12] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [13] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [14] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [15] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [16] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\araddr [17] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [5] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [6] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_rd_gnt [7] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_port_id [0] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_port_id [1] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_port_id [2] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_port_id [3] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating undriven bit cmdbuf_rd_formal.\ar_port_id [4] like $anyseq.
+SBY  1:11:08 [run] aig: Warning: Treating a total of 202 undriven bits in cmdbuf_rd_formal like $anyseq.
+SBY  1:11:09 [run] aig: finished (returncode=0)
+SBY  1:11:09 [run] engine_0: starting process "cd run; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; bmc3 -F 16 -v; write_cex -a engine_0/trace.aiw'"
+SBY  1:11:09 [run] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; bmc3 -F 16 -v; write_cex -a engine_0/trace.aiw"
+SBY  1:11:09 [run] engine_0: Warning: The last 12 outputs are interpreted as constraints.
+SBY  1:11:09 [run] engine_0: Running "bmc3". PI/PO/Reg = 1660/41/3266. And =  42246. Lev =   145. ObjNums = 23190.
+SBY  1:11:09 [run] engine_0: Params: FramesMax = 16. Start = 0. ConfLimit = 0. TimeOut = 0. SolveAll = 0.
+SBY  1:11:09 [run] engine_0: 0 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.04 sec
+SBY  1:11:09 [run] engine_0: 1 + : Var =     431. Cla =     1620. Conf =      2. Learn =      1.    0 MB   4 MB     0.05 sec
+SBY  1:11:09 [run] engine_0: 2 + : Var =    1171. Cla =     4185. Conf =     35. Learn =     28.    0 MB   4 MB     0.05 sec
+SBY  1:11:09 [run] engine_0: 3 + : Var =    2884. Cla =     9735. Conf =    263. Learn =    241.    0 MB   4 MB     0.05 sec
+SBY  1:11:09 [run] engine_0: 4 + : Var =    5424. Cla =    18448. Conf =    841. Learn =    790.    0 MB   4 MB     0.07 sec
+SBY  1:11:09 [run] engine_0: 5 + : Var =    9469. Cla =    32891. Conf =   2097. Learn =   2030.    1 MB   5 MB     0.10 sec
+SBY  1:11:09 [run] engine_0: 6 + : Var =   14334. Cla =    49410. Conf =   4956. Learn =   4868.    1 MB   6 MB     0.17 sec
+SBY  1:11:09 [run] engine_0: 7 + : Var =   19842. Cla =    68982. Conf =  11922. Learn =   9622.    1 MB   7 MB     0.39 sec
+SBY  1:11:17 [run] engine_0: 8 + : Var =   28554. Cla =    97861. Conf =  94296. Learn =  23305.    1 MB  13 MB     8.18 sec
+SBY  1:11:38 [run] engine_0: 9 + : Var =   38250. Cla =   132750. Conf = 268703. Learn =  27207.    1 MB  16 MB    29.56 sec
+SBY  1:13:51 [run] engine_0: 10 + : Var =   49414. Cla =   173388. Conf =1016298. Learn =  45975.    1 MB  26 MB   156.83 sec
+SBY  1:15:15 [run] Reached TIMEOUT (240 seconds). Terminating all subprocesses.
+SBY  1:15:15 [run] engine_0: terminating process
+SBY  1:15:15 [run] summary: Elapsed clock time [H:MM:SS (secs)]: 0:04:01 (241)
+SBY  1:15:15 [run] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:05 (5)
+SBY  1:15:15 [run] summary: engine_0 (abc bmc3) did not return a status
+SBY  1:15:15 [run] summary: engine_0 did not produce any traces
+SBY  1:15:15 [run] DONE (TIMEOUT, rc=8)

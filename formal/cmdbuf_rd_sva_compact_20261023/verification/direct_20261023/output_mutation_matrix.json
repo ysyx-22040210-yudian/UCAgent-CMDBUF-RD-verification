@@ -1,0 +1,79 @@
+{
+  "arready": {
+    "assertion": "A_COMPARE_ARREADY",
+    "line": 69,
+    "detected_cases": [
+      "reject_arready_wrong"
+    ]
+  },
+  "pending_cnt": {
+    "assertion": "A_COMPARE_PENDING_CNT",
+    "line": 75,
+    "detected_cases": [
+      "reject_pending_wrong"
+    ]
+  },
+  "req": {
+    "assertion": "A_COMPARE_REQ",
+    "line": 81,
+    "detected_cases": [
+      "reject_unknown_command",
+      "reject_request_one_cycle_after_AR",
+      "reject_req_wrong_bank"
+    ]
+  },
+  "arb_addr": {
+    "assertion": "A_COMPARE_ARB_ADDR",
+    "line": 95,
+    "detected_cases": [
+      "reject_arb_addr_wrong"
+    ]
+  },
+  "rvalid": {
+    "assertion": "A_COMPARE_RVALID",
+    "line": 120,
+    "detected_cases": [
+      "reject_same_cycle_MEM_to_R",
+      "reject_rvalid_when_not_ready"
+    ]
+  },
+  "rid": {
+    "assertion": "A_COMPARE_RID",
+    "line": 129,
+    "detected_cases": [
+      "reject_unknown_id",
+      "reject_consumed_id_reuse"
+    ]
+  },
+  "r_port_id": {
+    "assertion": "A_COMPARE_R_PORT_ID",
+    "line": 145,
+    "detected_cases": [
+      "reject_rport_wrong"
+    ]
+  },
+  "raddr": {
+    "assertion": "A_COMPARE_RADDR",
+    "line": 161,
+    "detected_cases": [
+      "reject_raddr_wrong"
+    ]
+  },
+  "rresp": {
+    "assertion": "A_COMPARE_RRESP",
+    "line": 177,
+    "detected_cases": [
+      "reject_unavailable_pc_flag",
+      "reject_unavailable_address_error"
+    ]
+  },
+  "rdata": {
+    "assertion": "A_COMPARE_RDATA",
+    "line": 187,
+    "detected_cases": [
+      "reject_unknown_rdata",
+      "reject_consumed_data_reuse",
+      "reject_rdata_high_bit_corruption"
+    ]
+  }
+}

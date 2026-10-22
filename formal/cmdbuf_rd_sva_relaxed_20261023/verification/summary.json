@@ -1,0 +1,168 @@
+{
+  "status": "IMPLEMENTED_WITH_BOUNDED_VALIDATION",
+  "counts": {
+    "assert": 41,
+    "assume": 11,
+    "cover": 11
+  },
+  "dut_assert_instances": 31,
+  "model_self_assert_instances": 10,
+  "native_lint": "PASS",
+  "formal_passed": [
+    {
+      "name": "cover",
+      "timeout": 240,
+      "mode": "cover",
+      "depth": 32,
+      "engine": "smtbmc yices",
+      "assertions": null,
+      "covers": null,
+      "status": "PASS 0 7",
+      "returncode": 0,
+      "seconds": 6.73,
+      "counts": {
+        "assert": 41,
+        "assume": 11,
+        "cover": 11
+      }
+    },
+    {
+      "name": "prove",
+      "timeout": 180,
+      "mode": "prove",
+      "depth": 16,
+      "engine": "abc pdr",
+      "assertions": [
+        "A_L_REQ_ONEHOT",
+        "A_L_R_ONEHOT",
+        "A_L_R_READY",
+        "A_L_RRESP_CODE"
+      ],
+      "covers": [],
+      "status": "PASS 0 2",
+      "returncode": 0,
+      "seconds": 2.02,
+      "counts": {
+        "assert": 4,
+        "assume": 11,
+        "cover": 0
+      }
+    },
+    {
+      "name": "bmc",
+      "timeout": 180,
+      "mode": "bmc",
+      "depth": 10,
+      "engine": "smtbmc yices",
+      "assertions": null,
+      "covers": [],
+      "status": "PASS 0 39",
+      "returncode": 0,
+      "seconds": 41.18,
+      "counts": {
+        "assert": 41,
+        "assume": 11,
+        "cover": 0
+      }
+    }
+  ],
+  "formal_timeouts": [
+    {
+      "name": "prove",
+      "timeout": 240,
+      "mode": "prove",
+      "depth": 16,
+      "engine": "abc pdr",
+      "assertions": [
+        "A_L_REQ_ONEHOT",
+        "A_L_R_ONEHOT",
+        "A_L_R_READY",
+        "A_L_RRESP_CODE",
+        "A_L_PENDING",
+        "A_L_PENDING_RANGE",
+        "A_L_READY",
+        "A_L_TOTAL",
+        "A_L_RESERVATION",
+        "A_L_SOURCE_LIMIT",
+        "A_L_SOURCE_NONEMPTY"
+      ],
+      "covers": [],
+      "status": "TIMEOUT 8 2",
+      "returncode": 8,
+      "seconds": 250.39,
+      "counts": {
+        "assert": 15,
+        "assume": 11,
+        "cover": 0
+      }
+    },
+    {
+      "name": "bmc",
+      "timeout": 240,
+      "mode": "bmc",
+      "depth": 16,
+      "engine": "abc bmc3",
+      "assertions": null,
+      "covers": [],
+      "status": "TIMEOUT 8 5",
+      "returncode": 8,
+      "seconds": 250.58,
+      "counts": {
+        "assert": 41,
+        "assume": 11,
+        "cover": 0
+      }
+    },
+    {
+      "name": "bmc",
+      "timeout": 180,
+      "mode": "bmc",
+      "depth": 12,
+      "engine": "smtbmc yices",
+      "assertions": null,
+      "covers": [],
+      "status": "TIMEOUT 8 1",
+      "returncode": 8,
+      "seconds": 192.87,
+      "counts": {
+        "assert": 41,
+        "assume": 11,
+        "cover": 0
+      }
+    }
+  ],
+  "checker_self_tests": {
+    "passed": 23,
+    "normal_or_intentionally_relaxed": 14,
+    "rejected_invalid_traces": 9,
+    "details": "monitor_results.json"
+  },
+  "pc_interval_exhaustive_transitions": 1718,
+  "commented_assign_statements": 33,
+  "assumptions": "11 instances of the same four established environment contracts; no output-match, unique-value, progress or fairness assumptions.",
+  "conclusions": [
+    "All 41 assertion instances passed 10-step BMC; only four selected port assertions have an unbounded proof.",
+    "11 cover labels reached without extra guided assumptions. Cover reachability is not proof of all assertions.",
+    "23 checker-only directed traces validate intended relaxation and error detection; these are not DUT simulation results.",
+    "16-step ABC BMC, 12-step SMT BMC and expanded 15-assertion PDR timed out. These are not passes.",
+    "No target FormalMC 2024 execution in this change. The precise checker and RTL are unchanged."
+  ],
+  "model_boundaries": [
+    "单 XAU 保序",
+    "响应 RR 次序和有资格即响应",
+    "五项窗口边界和最老选择",
+    "必须在某个精确周期发起 req",
+    "rdata 与来源/ID/地址的对应",
+    "各 R 字段属于同一事务",
+    "逐事务错误优先级和 pc_err 关联",
+    "无环境公平性下的最终响应"
+  ],
+  "vm_directory": "/root/cmdbuf_rd/cmdbuf_rd_sva_relaxed_20261023",
+  "evidence": {
+    "file": "vm_evidence.tar.gz",
+    "files": 217,
+    "bytes": 609750,
+    "sha256": "c8db1c1f2f1014d2780e0548f33082f53ff7d87be8a84e2ff45710837833b71c"
+  },
+  "source_identity": "source_identity.json"
+}

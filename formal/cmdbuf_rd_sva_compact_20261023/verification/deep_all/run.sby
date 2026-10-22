@@ -1,0 +1,27 @@
+[options]
+mode bmc
+depth 12
+timeout 180
+
+[engines]
+smtbmc yices
+
+[script]
+read_slang --top cmdbuf_rd_formal --no-implicit-memories -D SYNTHESIS cmdbuf_rd.sv cmdbuf_rd_cmd.sv cmdbuf_rd_otb.sv cmdbuf_rd_compact_sva.sv formal_top.sv
+read_verilog -formal symbolic_values.v
+write_json symbolic_elaborated.json
+prep -top cmdbuf_rd_formal -flatten
+async2sync
+dffunmap
+chformal -lower
+sim -clock clk -resetn rst_n -rstlen 1 -n 1 -w -vcd reset_initialization.vcd
+stat -width
+write_json initialized.json
+
+[files]
+cmdbuf_rd.sv
+cmdbuf_rd_cmd.sv
+cmdbuf_rd_otb.sv
+cmdbuf_rd_compact_sva.sv
+formal_top.sv
+symbolic_values.v

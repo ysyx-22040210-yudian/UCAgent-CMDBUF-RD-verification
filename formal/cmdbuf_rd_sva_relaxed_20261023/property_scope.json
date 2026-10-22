@@ -1,0 +1,442 @@
+{
+  "properties": [
+    {
+      "label": "E03_SRC",
+      "kind": "assume",
+      "expression": "arvalid |-> (src < 2'd3)",
+      "description": "有效 AR 来源合法；无效拍不限制 src。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "E04_ARRESP",
+      "kind": "assume",
+      "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+      "description": "有效 AR 的地址状态只允许 00 或 11。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "E05_ZERO_READY",
+      "kind": "assume",
+      "expression": "(arready==3'b000) |-> !arvalid",
+      "description": "所有 ready 为零时，上游不发送有效 AR。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "E06_SUCCESS_BUSY",
+      "kind": "assume",
+      "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+      "description": "成功当拍被访问半区必须忙；不是请求前空闲检查。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 8
+    },
+    {
+      "label": "A_L_REQ_ONEHOT",
+      "kind": "assert",
+      "expression": "(req & (req-8'd1))==0",
+      "description": "请求最多一个 Bank。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_R_ONEHOT",
+      "kind": "assert",
+      "expression": "(rvalid & (rvalid-3'd1))==0",
+      "description": "共享 R 口最多返回给一个来源。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_R_READY",
+      "kind": "assert",
+      "expression": "(rvalid & ~rready)==0",
+      "description": "R 只在该源 ready 为 1 时有效。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RRESP_CODE",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> (rresp==2'b00 || rresp==2'b01 || rresp==2'b11)",
+      "description": "有效响应不得使用 10 编码。",
+      "dependency": "NO_REF_MODEL_PORTS",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_PENDING",
+      "kind": "assert",
+      "expression": "{2'b0,pending_cnt}==pending_now",
+      "description": "精确检查本拍 pending，不从 DUT 的计数自我递推。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_PENDING_RANGE",
+      "kind": "assert",
+      "expression": "pending_now<=6'd9",
+      "description": "待发数量不得下溢或超过九。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_READY",
+      "kind": "assert",
+      "expression": "arready==expected_ready",
+      "description": "按实际 AR/R 账本精确计算三源 ready，支持同拍回收。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_TOTAL",
+      "kind": "assert",
+      "expression": "total<=7'd9",
+      "description": "总未回收命令最多九条。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RESERVATION",
+      "kind": "assert",
+      "expression": "reserved_total<=7'd9",
+      "description": "每个空源至少保留一项；共享部分不可侵占预留。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_ISSUE_BALANCE",
+      "kind": "assert",
+      "expression": "issue_fire |-> waiting!=0",
+      "description": "成功发射必须消费先前接收的一条待发命令。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_R_AFTER_CAPTURE",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> completed!=0",
+      "description": "当前 R 必须有之前已捕获的 MEM 返回，不能消费本拍刚到的数据。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_COMPLETED",
+      "kind": "assert",
+      "expression": "completed<=5'd9",
+      "description": "已捕获但未响应的数据量不得越界。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "A_L_SOURCE_LIMIT",
+      "kind": "assert",
+      "expression": "occupied[x]<=5'd7",
+      "description": "一个 XAU 最多占七项。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 3
+    },
+    {
+      "label": "A_L_SOURCE_NONEMPTY",
+      "kind": "assert",
+      "expression": "rvalid[x] |-> occupied[x]!=0",
+      "description": "不能向没有未完成请求的来源返回响应。",
+      "dependency": "NO_REF_MODEL_HISTORY",
+      "precision": "EXACT",
+      "instances": 3
+    },
+    {
+      "label": "A_L_ADDR_ERROR_ANY",
+      "kind": "assert",
+      "expression": "(rvalid[x] && rresp==2'b11) |-> outside[x]!=0",
+      "description": "11 至少能消费该源一个越界标记，不与本拍 rid 绑定。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 3
+    },
+    {
+      "label": "A_L_NORMAL_ADDR_ANY",
+      "kind": "assert",
+      "expression": "(rvalid[x] && rresp!=2'b11) |-> occupied[x]>outside[x]",
+      "description": "非 11 至少能消费该源一个正常地址标记。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 3
+    },
+    {
+      "label": "M_L_ERROR_COUNT",
+      "kind": "assert",
+      "expression": "outside[x]<=occupied[x]",
+      "description": "越界标记数量不能超过该源占用。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 3
+    },
+    {
+      "label": "A_L_COMMAND_ANY",
+      "kind": "assert",
+      "expression": "(|req) |-> command_hit",
+      "description": "req/arb_addr 联合匹配任一合格待发地址；不检查五项窗口和最老选择。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RID_ANY",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> id_hit",
+      "description": "rid 匹配该源九项未消费 ID 中任一项，重复 ID 每次只消费一个。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RPORT_ANY",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> port_hit",
+      "description": "port_id 独立匹配该源字段集合，可以与 rid 命中不同命令。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RADDR_ANY",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> low_addr_hit",
+      "description": "raddr 独立匹配该源低地址集合，不证明单源顺序。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_RDATA_ANY",
+      "kind": "assert",
+      "expression": "(|rvalid) |-> data_hit",
+      "description": "128 位 rdata 逐项比较九项有效数据，任一项相同即通过，不绑定 XAU。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_PC_CLEAN_POSSIBLE",
+      "kind": "assert",
+      "expression": "((|rvalid) && rresp==2'b00) |-> bad_low<completed",
+      "description": "00 要求仍有可能消费一个 pc=0 的返回，不绑定本拍 rdata。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "A_L_PC_BAD_POSSIBLE",
+      "kind": "assert",
+      "expression": "((|rvalid) && rresp==2'b01) |-> bad_high!=0",
+      "description": "01 要求仍有可能消费一个 pc=1 的返回；11 可遮住任意 pc。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "M_L_COMMAND_ROOM",
+      "kind": "assert",
+      "expression": "ar_fire |-> command_room",
+      "description": "每次接收 AR 都应有待发地址记录空间。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_FIELDS_ROOM",
+      "kind": "assert",
+      "expression": "ar_fire |-> (id_room && port_room && low_addr_room)",
+      "description": "各字段都必须存得下新 AR，支持 R 同拍释放。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_DATA_ROOM",
+      "kind": "assert",
+      "expression": "mem_due |-> data_room",
+      "description": "MEM 只来一拍，必须能保存，不能丢弃以让后续比较通过。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_WAITING_COUNT",
+      "kind": "assert",
+      "expression": "{1'b0,command_count}==waiting",
+      "description": "地址集合数量与成功发射账本一致。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_FIELD_COUNTS",
+      "kind": "assert",
+      "expression": "({3'b0,id_count}==total && {3'b0,port_count}==total && {3'b0,low_addr_count}==total)",
+      "description": "三种字段独立消费，但各自总量都要守恒。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_DATA_COUNT",
+      "kind": "assert",
+      "expression": "{1'b0,data_count}==completed",
+      "description": "数据集合数量与四拍日历和 R 握手累计数一致。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "M_L_PC_INTERVAL",
+      "kind": "assert",
+      "expression": "bad_low<=bad_high && bad_high<=completed",
+      "description": "pc=1 的可能数量区间必须非空，且不超过已完成数据量。",
+      "dependency": "MODEL_SELF_CHECK",
+      "precision": "EXACT",
+      "instances": 1
+    },
+    {
+      "label": "C_L_RESPONSE",
+      "kind": "cover",
+      "expression": "r_fire",
+      "description": "完整接收、发射、四拍返回、R 响应至少发生一次。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_PC_ERROR",
+      "kind": "cover",
+      "expression": "r_fire && rresp==2'b01",
+      "description": "正常地址发生奇偶校验异常响应。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_ADDRESS_ERROR",
+      "kind": "cover",
+      "expression": "r_fire && rresp==2'b11",
+      "description": "地址越界请求经过 MEM 后返回 11。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_FULL",
+      "kind": "cover",
+      "expression": "total==7'd9",
+      "description": "共享九项达到全满。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_FULL_REUSE",
+      "kind": "cover",
+      "expression": "total==7'd9 && r_fire && ar_fire",
+      "description": "全满时 R 回收和 AR 接收同拍。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_FOUR_EVENTS",
+      "kind": "cover",
+      "expression": "ar_fire && issue_fire && mem_due && r_fire",
+      "description": "接收、发射成功、MEM 捕获、R 回收四事件同拍。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_RETRY",
+      "kind": "cover",
+      "expression": "previous_failure && |req && previous_request=={arb_addr,req_bank}",
+      "description": "失败后紧邻下一拍同地址重试。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_CONSECUTIVE_ISSUE",
+      "kind": "cover",
+      "expression": "previous_issue && issue_fire",
+      "description": "连续两拍成功发射。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_CONSECUTIVE_R",
+      "kind": "cover",
+      "expression": "previous_r && r_fire",
+      "description": "连续两拍返回响应。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_DATA_DUPLICATE",
+      "kind": "cover",
+      "expression": "r_fire && (data_match & (data_match-9'd1))!=0",
+      "description": "集合中重复数据同时命中，本次只删除一项。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    },
+    {
+      "label": "C_L_TURNOVER",
+      "kind": "cover",
+      "expression": "accept_saturated>=5'd10 && r_fire",
+      "description": "累计接收超过九条后仍能响应，防止简单最近九拍窗口丢失老事务。",
+      "dependency": "REF_MODEL",
+      "precision": "RELAXED",
+      "instances": 1
+    }
+  ],
+  "counts": {
+    "assert": 41,
+    "assume": 11,
+    "cover": 11
+  },
+  "not_checked": [
+    "单 XAU 保序",
+    "响应 RR 次序和有资格即响应",
+    "五项窗口边界和最老选择",
+    "必须在某个精确周期发起 req",
+    "rdata 与来源/ID/地址的对应",
+    "各 R 字段属于同一事务",
+    "逐事务错误优先级和 pc_err 关联",
+    "无环境公平性下的最终响应"
+  ],
+  "exact_scope": [
+    "端口 onehot/ready/编码",
+    "全局与每源容量及首项保留",
+    "基于实际 AR/R 的 arready",
+    "组合 pending_cnt",
+    "req 至少经过 C1/C2 且历史半区空闲",
+    "成功到 MEM 的固定四拍采样和全局捕获后才能响应"
+  ],
+  "assumptions": "只保留 E03/E04/E05/E06；不加入 ID/地址/数据唯一、命中输出、仲裁公平或 ready 恒高假设。"
+}

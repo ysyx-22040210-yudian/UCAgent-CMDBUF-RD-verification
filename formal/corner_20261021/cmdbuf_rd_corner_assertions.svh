@@ -20,7 +20,7 @@
         @(posedge clk) disable iff (!rst_n)
         arready==h_ready
     );
-    genvar cs;
+    genvar cs; // Corner 每源容量断言的 XAU 展开编号 0..2。
     generate for(cs=0;cs<3;cs=cs+1) begin: corner_source
         // [NO_REF_MODEL_HISTORY] 任一 XAU 尚未返回的命令不能超过 7 条。
         A_CC_SRC_LIMIT: assert property (

@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "assume",
+    "label": "E03_SRC",
+    "expression": "arvalid |-> src<2'd3",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 来源必须为 0/1/2。",
+    "line": 242,
+    "end_line": 245,
+    "start": 12077,
+    "end": 12187,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E04_ARRESP",
+    "expression": "arvalid |-> (arresp==2'b00 || arresp==2'b11)",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "有效 AR 的地址状态仅允许正常和越界。",
+    "line": 248,
+    "end_line": 251,
+    "start": 12265,
+    "end": 12402,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E05_ZERO_READY",
+    "expression": "arready==0 |-> !arvalid",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 1,
+    "description": "全源 ready 为零时无有效 AR。",
+    "line": 254,
+    "end_line": 257,
+    "start": 12479,
+    "end": 12599,
+    "group": "ports"
+  },
+  {
+    "kind": "assume",
+    "label": "E06_SUCCESS_BUSY",
+    "expression": "(req[b] && ar_rd_gnt[b] && rw_rd_gnt[b]) |-> rd_mem_status[b][arb_addr[0]]",
+    "dependency": "NO_REF_MODEL_PORTS",
+    "instances": 8,
+    "description": "成功当拍目标 Bank/half 为忙，不要求另一半区忙。",
+    "line": 262,
+    "end_line": 265,
+    "start": 12784,
+    "end": 12973,
+    "group": "ports"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_PENDING",
+    "expression": "{1'b0,pending_cnt}==pending_now",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 1,
+    "description": "pending_cnt 等于本拍 AR 加入、成功发射扣除后的数量。",
+    "line": 314,
+    "end_line": 317,
+    "start": 14849,
+    "end": 14974,
+    "group": "pending"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_PENDING_RANGE",
+    "expression": "pending_now<=5'd9",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 1,
+    "description": "待发计数不能上溢或下溢。",
+    "line": 320,
+    "end_line": 323,
+    "start": 15027,
+    "end": 15144,
+    "group": "pending"
+  },
+  {
+    "kind": "assert",
+    "label": "A_S_ISSUE_NONEMPTY",
+    "expression": "issue_fire |-> waiting!=0",
+    "dependency": "NO_REF_MODEL_HISTORY",
+    "instances": 1,
+    "description": "成功发射不能凭空消费当前尚未存在的命令。",
+    "line": 326,
+    "end_line": 329,
+    "start": 15205,
+    "end": 15331,
+    "group": "pending"
+  }
+]

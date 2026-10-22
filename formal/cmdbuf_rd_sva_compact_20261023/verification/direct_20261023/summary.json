@@ -1,0 +1,184 @@
+{
+  "revision": "direct_top_ports_20261023",
+  "status": "PASS_WITH_BOUNDED_SCOPE",
+  "counts": {
+    "assert": 35,
+    "assume": 11,
+    "cover": 12
+  },
+  "original_port_count": 24,
+  "explicit_output_assertions": {
+    "arready": {
+      "assertion": "A_COMPARE_ARREADY",
+      "line": 69,
+      "detected_cases": [
+        "reject_arready_wrong"
+      ]
+    },
+    "pending_cnt": {
+      "assertion": "A_COMPARE_PENDING_CNT",
+      "line": 75,
+      "detected_cases": [
+        "reject_pending_wrong"
+      ]
+    },
+    "req": {
+      "assertion": "A_COMPARE_REQ",
+      "line": 81,
+      "detected_cases": [
+        "reject_unknown_command",
+        "reject_request_one_cycle_after_AR",
+        "reject_req_wrong_bank"
+      ]
+    },
+    "arb_addr": {
+      "assertion": "A_COMPARE_ARB_ADDR",
+      "line": 95,
+      "detected_cases": [
+        "reject_arb_addr_wrong"
+      ]
+    },
+    "rvalid": {
+      "assertion": "A_COMPARE_RVALID",
+      "line": 120,
+      "detected_cases": [
+        "reject_same_cycle_MEM_to_R",
+        "reject_rvalid_when_not_ready"
+      ]
+    },
+    "rid": {
+      "assertion": "A_COMPARE_RID",
+      "line": 129,
+      "detected_cases": [
+        "reject_unknown_id",
+        "reject_consumed_id_reuse"
+      ]
+    },
+    "r_port_id": {
+      "assertion": "A_COMPARE_R_PORT_ID",
+      "line": 145,
+      "detected_cases": [
+        "reject_rport_wrong"
+      ]
+    },
+    "raddr": {
+      "assertion": "A_COMPARE_RADDR",
+      "line": 161,
+      "detected_cases": [
+        "reject_raddr_wrong"
+      ]
+    },
+    "rresp": {
+      "assertion": "A_COMPARE_RRESP",
+      "line": 177,
+      "detected_cases": [
+        "reject_unavailable_pc_flag",
+        "reject_unavailable_address_error"
+      ]
+    },
+    "rdata": {
+      "assertion": "A_COMPARE_RDATA",
+      "line": 187,
+      "detected_cases": [
+        "reject_unknown_rdata",
+        "reject_consumed_data_reuse",
+        "reject_rdata_high_bit_corruption"
+      ]
+    }
+  },
+  "source_audit": {
+    "status": "PASS",
+    "counts": {
+      "assert": 35,
+      "assume": 11,
+      "cover": 12
+    },
+    "original_ports": 24,
+    "explicit_output_assertions": 10,
+    "commented_assign_statements": 35,
+    "pc_interval_transitions": 1718,
+    "source_files_checked": 0
+  },
+  "native_lint": "PASS",
+  "formal": [
+    {
+      "group": "all",
+      "mode": "bmc",
+      "depth": 10,
+      "timeout": 180,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 50",
+      "returncode": 0,
+      "seconds": 46.78,
+      "counts": {
+        "assert": 35,
+        "assume": 11,
+        "cover": 0
+      }
+    },
+    {
+      "group": "ports",
+      "mode": "prove",
+      "depth": 10,
+      "timeout": 180,
+      "engine": "abc pdr",
+      "status": "PASS 0 6",
+      "returncode": 0,
+      "seconds": 6.35,
+      "counts": {
+        "assert": 4,
+        "assume": 11,
+        "cover": 0
+      }
+    },
+    {
+      "group": "cover",
+      "mode": "cover",
+      "depth": 32,
+      "timeout": 180,
+      "engine": "smtbmc yices",
+      "status": "PASS 0 17",
+      "returncode": 0,
+      "seconds": 15.18,
+      "counts": {
+        "assert": 35,
+        "assume": 11,
+        "cover": 12
+      }
+    }
+  ],
+  "checker_tests": {
+    "total": 35,
+    "passed": 35,
+    "normal_or_intentionally_relaxed": 16,
+    "invalid_traces_detected": 19,
+    "all_ten_direct_output_assertions_observed_failing_on_injected_errors": true,
+    "scope": "Checker-only native SVA traces, not DUT simulation or universal proof."
+  },
+  "conclusions": [
+    "Only the 24 original DUT interface signals enter the checker; extra symbolic observation inputs and generator modules were removed.",
+    "All 10 output groups have an A_COMPARE_* assertion whose body explicitly contains the output comparison.",
+    "Each of the 10 direct comparison labels actually fired in at least one checker injection trace; see output_mutation_matrix.json.",
+    "All 35 assertion instances passed fresh 10-step BMC. Four local protocol rules have an unbounded PDR proof.",
+    "All 12 cover targets reached and all 35 checker self-tests passed. These do not prove complete temporal behavior.",
+    "Actual field records are stored in this revision. The prior symbolic model state-size and performance figures do not describe this revision.",
+    "No target FormalMC 2024 run is claimed. Native compilation and all execution in this report used the VM tools."
+  ],
+  "limitations": [
+    "单 XAU 保序",
+    "RR 胜者和响应进度",
+    "五项窗口和最老发射选择",
+    "字段间事务配对",
+    "逐事务数据/pc_err/错误优先级配对"
+  ],
+  "vm_directory": "/root/cmdbuf_rd/cmdbuf_rd_sva_direct_20261023",
+  "initialization": "One real reset cycle establishes initial state in the SBY adapter; SVA contains disable iff and no reset-sequence assume.",
+  "evidence": {
+    "file": "vm_evidence.tar.gz",
+    "files": 223,
+    "bytes": 1701834,
+    "sha256": "c588d5096080ec3ff555efc4b0b0cd56d28257c3985c60fdd906a4debe72d00c"
+  },
+  "source_identity": "source_identity.json",
+  "previous_revision": "../../verification/symbolic_v1_sources_20261023.tar.gz"
+}

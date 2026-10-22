@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "package": "cmdbuf_rd_sva_relaxed_20261023",
+  "entry": "cmdbuf_rd_relaxed_sva.sv",
+  "model": "cmdbuf_rd_relaxed_model.svh",
+  "collection": "cmdbuf_rd_value_bag.sv",
+  "compile": "native.f",
+  "checker_only": "checker.f",
+  "top": "cmdbuf_rd_formal",
+  "working_directory": "本文件夹",
+  "commands": {
+    "integrity": "python3 verify.py",
+    "sby": "python3 run.py --output build/check --tools <OSS_CAD_SUITE_BIN>",
+    "native_lint": "verilator --lint-only --assert -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC --top-module cmdbuf_rd_formal -f native.f",
+    "monitor": "python3 run_monitor_tests.py --output build/monitor --tools <OSS_CAD_SUITE_BIN> [--compiler-bin <CXX20_BIN>] [--atomic-library <installed_libatomic.so.1>]"
+  },
+  "tools": "SBY, Yosys read_slang, ABC and Yices; native self-tests additionally require Verilator and C++20 coroutine support.",
+  "precision": "复杂字段使用九项独立多重集合的存在性比较；简单端口、数量和准入规则保持精确。",
+  "rdata_rule": "仅 valid 的已捕获且尚未消费的数据可匹配；每次 R 删除一个相等值，重复值保留其余次数。",
+  "no_transaction_binding": "不同字段可匹配不同槽；槽号不代表同一事务。R 数据不绑定来源。",
+  "counts": {
+    "assert": 41,
+    "assume": 11,
+    "cover": 11
+  },
+  "limits": [
+    "单 XAU 保序",
+    "响应 RR 次序和有资格即响应",
+    "五项窗口边界和最老选择",
+    "必须在某个精确周期发起 req",
+    "rdata 与来源/ID/地址的对应",
+    "各 R 字段属于同一事务",
+    "逐事务错误优先级和 pc_err 关联",
+    "无环境公平性下的最终响应"
+  ],
+  "result": "verification/summary.json",
+  "files": {
+    "checker.f": {
+      "bytes": 166,
+      "sha256": "faf9796b65a04664cd1cc51aac04857ec0a9ee9776da8c150ac331bc3dcb527c"
+    },
+    "cmdbuf_rd_relaxed_model.svh": {
+      "bytes": 13764,
+      "sha256": "0a42f3fe56ea592a6a1ce05b5400f6bf999987a7321ee3e8092923b0f8b5299c"
+    },
+    "cmdbuf_rd_relaxed_sva.sv": {
+      "bytes": 14264,
+      "sha256": "7ebcdc9fa6470164b5c4e0357ef64d9cc631a4791e2852c0045eb1526b1ea195"
+    },
+    "cmdbuf_rd_value_bag.sv": {
+      "bytes": 4775,
+      "sha256": "b3fbe05147c39bc9ac7c16667a981fff753c2396b2be590d7560fb07520c30de"
+    },
+    "formal_top.sv": {
+      "bytes": 955,
+      "sha256": "8cd2679dadcef6ffdfb291f922faaf9f627a9766992d2e70f7767c2b59098c03"
+    },
+    "native.f": {
+      "bytes": 254,
+      "sha256": "d89e2d69164f841e85050154cbdfa0b65616a3ac8043ce78ce0c6d8bfe64b8bb"
+    },
+    "property_catalog.py": {
+      "bytes": 5776,
+      "sha256": "56c4017a72dfaef4dc39bafaa873bce8c41fd488541b2258e25ee3a074b497c6"
+    },
+    "property_scope.json": {
+      "bytes": 14886,
+      "sha256": "5b78a241f566ea520d3ab0f133c3d509c9901ff51c554fc97f5ba2029932029d"
+    },
+    "rtl/cmdbuf_rd.sv": {
+      "bytes": 2429,
+      "sha256": "5c7046da70be65f69be1c27002da921166ae35f069b2e55c578903f3774269d4"
+    },
+    "rtl/cmdbuf_rd_cmd.sv": {
+      "bytes": 15105,
+      "sha256": "70cbe3101bbce7bbd8d68bd032b01a5e7e6af79663b049121187cb545c5f3d6f"
+    },
+    "rtl/cmdbuf_rd_otb.sv": {
+      "bytes": 3975,
+      "sha256": "ec3ba652df117f804ee74c0f25f6a5aedded7e9c86be6c827146bf7c3b0021d2"
+    },
+    "run.py": {
+      "bytes": 6045,
+      "sha256": "5d752bc6346054a091ef6d5879449b5e1071cf920a9c1e19362f83ffbd6e25ba"
+    },
+    "run_monitor_tests.py": {
+      "bytes": 10590,
+      "sha256": "bcc854672d00c4209e506af4f704b52efccd2909dd61878bdb27db69c5d2e35d"
+    },
+    "verify.py": {
+      "bytes": 3595,
+      "sha256": "25f880ea40e158f92a0394b2d937cb357c06b6fb9c2d7f305d6f4f2d420fa9da"
+    }
+  }
+}

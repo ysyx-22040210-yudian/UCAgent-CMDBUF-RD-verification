@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "precision": "exact",
+  "checker": "cmdbuf_rd_port_sva.sv",
+  "model": "cmdbuf_rd_reference_model.svh",
+  "per_xau_order": "cmdbuf_rd_xau_order_model.svh",
+  "source_rule": "Only original public ports; no DUT internal signals or extra observer inputs.",
+  "notes": [
+    "旧八条输出断言改为十条；A_R_METADATA 拆为 ID、port_id、低地址三条。",
+    "每条直接写输出 == 期望值；R 字段仍对应同一个 rsp_e，未放宽为九项任一匹配。",
+    "A_XAU_R_* 独立接收 FIFO 保序检查完整保留。",
+    "四条无条件控制口比较保持；无效地址和 R 负载仍不检查。",
+    "只有标签及 metadata 分项改变，环境 assume、模型和其余性质表达式保持。"
+  ],
+  "outputs": [
+    {
+      "output": "arready",
+      "width": 3,
+      "legacy_label": "A_READY",
+      "label": "A_COMPARE_ARREADY",
+      "guard": "always",
+      "expected": "expected_ready",
+      "line": 234
+    },
+    {
+      "output": "pending_cnt",
+      "width": 4,
+      "legacy_label": "A_PENDING",
+      "label": "A_COMPARE_PENDING_CNT",
+      "guard": "always",
+      "expected": "(waiting+(ar_fire?1:0)-(issue_fire?1:0))",
+      "line": 246
+    },
+    {
+      "output": "req",
+      "width": 8,
+      "legacy_label": "A_REQ",
+      "label": "A_COMPARE_REQ",
+      "guard": "always",
+      "expected": "expected_req",
+      "line": 258
+    },
+    {
+      "output": "arb_addr",
+      "width": 12,
+      "legacy_label": "A_ARB_ADDR",
+      "label": "A_COMPARE_ARB_ADDR",
+      "guard": "req != 8'b0",
+      "expected": "expected_addr",
+      "line": 269
+    },
+    {
+      "output": "rvalid",
+      "width": 3,
+      "legacy_label": "A_RR_CHOICE",
+      "label": "A_COMPARE_RVALID",
+      "guard": "always",
+      "expected": "expected_rvalid",
+      "line": 282
+    },
+    {
+      "output": "rid",
+      "width": 8,
+      "legacy_label": "A_R_METADATA",
+      "label": "A_COMPARE_RID",
+      "guard": "r_fire",
+      "expected": "m_id[rsp_e]",
+      "line": 295
+    },
+    {
+      "output": "r_port_id",
+      "width": 5,
+      "legacy_label": "A_R_METADATA",
+      "label": "A_COMPARE_R_PORT_ID",
+      "guard": "r_fire",
+      "expected": "m_port[rsp_e]",
+      "line": 305
+    },
+    {
+      "output": "raddr",
+      "width": 3,
+      "legacy_label": "A_R_METADATA",
+      "label": "A_COMPARE_RADDR",
+      "guard": "r_fire",
+      "expected": "m_addr[rsp_e][2:0]",
+      "line": 315
+    },
+    {
+      "output": "rresp",
+      "width": 2,
+      "legacy_label": "A_R_RESP",
+      "label": "A_COMPARE_RRESP",
+      "guard": "r_fire",
+      "expected": "expected_resp",
+      "line": 327
+    },
+    {
+      "output": "rdata",
+      "width": 128,
+      "legacy_label": "A_R_DATA",
+      "label": "A_COMPARE_RDATA",
+      "guard": "r_fire",
+      "expected": "m_data[rsp_e]",
+      "line": 339
+    }
+  ]
+}

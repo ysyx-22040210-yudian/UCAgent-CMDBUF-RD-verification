@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "revision": "explicit_exact_output_assertions_20261023",
+  "vm": "/root/cmdbuf_rd/cmdbuf_rd_sva_complete_outputs_20261023",
+  "source_identity": "source_identity.json",
+  "source_semantics": "source_semantics_audit.json",
+  "interface": {
+    "original_signals": 24,
+    "extra_observer_inputs": 0
+  },
+  "native_lint": "PASS",
+  "normal_property_instances": {
+    "assume": 11,
+    "assertions": 158,
+    "cover": 593
+  },
+  "formal": [
+    {
+      "name": "prove",
+      "mode": "prove",
+      "status": "PASS 0 3",
+      "depth": 12,
+      "engine": "abc pdr",
+      "counts": {
+        "assert": 3,
+        "assume": 11,
+        "cover": 0
+      },
+      "elapsed_seconds": 3.03
+    },
+    {
+      "name": "bmc",
+      "mode": "bmc",
+      "status": "PASS 0 31",
+      "depth": 10,
+      "engine": "abc bmc3",
+      "counts": {
+        "assert": 158,
+        "assume": 11,
+        "cover": 0
+      },
+      "elapsed_seconds": 27.07
+    }
+  ],
+  "native_tests": {
+    "status": "PASS",
+    "runs": 14,
+    "positive_runs": 4,
+    "negative_runs": 10,
+    "outputs_detected": 10,
+    "scope": "Two positive scenarios in both full-158 and focused-10 assertion configurations; ten separate checker-output faults in focused-10 configuration. Same 11 input assumptions retained."
+  },
+  "precision": "Exact output identity preserved: all R fields refer to the same selected rsp_e, independent per-XAU FIFO order retained.",
+  "limitations": [
+    "158 个断言通过 10 步 BMC，不是全部性质的无界证明。",
+    "无界证明仅覆盖 A_REQ_ONEHOT、A_R_ONEHOT、A_R_READY 三项。",
+    "593 个 cover 表达式保持，本次未重新运行全量 cover 搜索。",
+    "逐输出注错验证原生 SVA 的报错能力，不代表所有 RTL 故障均可检出。",
+    "未在目标 FormalMC 2024 上执行。"
+  ],
+  "preserved_models_and_rtl": true,
+  "assumptions_unchanged": true,
+  "legacy_evidence": "Old source manifest and verification summary preserved in ../before_direct_outputs_20261023.tar.gz; previous verification/summary.json remains historical."
+}

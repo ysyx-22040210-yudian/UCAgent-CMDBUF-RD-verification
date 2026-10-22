@@ -1,0 +1,22 @@
+[options]
+mode bmc
+depth 10
+timeout 180
+
+[engines]
+abc bmc3
+
+[script]
+read_slang --top cmdbuf_rd_formal --no-implicit-memories -D SYNTHESIS -D CMDBUF_CORNER_SUITE cmdbuf_rd.sv cmdbuf_rd_cmd.sv cmdbuf_rd_otb.sv formal_top.sv cmdbuf_rd_port_sva.sv
+prep -top cmdbuf_rd_formal
+async2sync
+dffunmap
+chformal -lower
+sim -clock clk -resetn rst_n -rstlen 1 -n 1 -w -vcd reset_initialization.vcd
+
+[files]
+cmdbuf_rd.sv
+cmdbuf_rd_cmd.sv
+cmdbuf_rd_otb.sv
+formal_top.sv
+cmdbuf_rd_port_sva.sv

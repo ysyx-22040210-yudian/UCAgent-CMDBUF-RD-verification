@@ -2,7 +2,7 @@
 // 目的：先填满并暂停 R，再连续收发，尽快构造重复 ID 和超过 9 次槽位复用的合法轨迹。
 // 这些 assume 是有意选取一个输入序列，不是设计规格，也不得合入正常环境 E03..E06。
 // 该作业只证明所选见证存在；正常 assert 的 BMC/归纳结果另行报告。
-    reg [5:0] witness_cycle;
+    reg [5:0] witness_cycle; // 引导 ENT-12 见证专用拍计数，饱和于 63；正常证明不启用此文件。
     always @(posedge clk or negedge rst_n)
         if(!rst_n)witness_cycle<=0;
         else if(witness_cycle!=63)witness_cycle<=witness_cycle+1'b1;
@@ -23,7 +23,7 @@
         @(posedge clk) disable iff (!rst_n)
         rready==((witness_cycle<20)?3'b000:3'b111) && ar_rd_gnt==8'hff && rw_rd_gnt==8'hff
     );
-    genvar wb;
+    genvar wb; // 引导见证约束的 Bank 展开编号 0..7。
     generate for(wb=0;wb<8;wb=wb+1)begin: witness_banks
         // [NO_REF_MODEL_ENV] [NO_REF_MODEL_PORTS] 请求命中的 half 同拍 busy，其他 half 空闲；与正常 E06 一致。
         W_LONG_STATUS: assume property (

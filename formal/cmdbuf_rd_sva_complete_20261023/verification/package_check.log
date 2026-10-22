@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "files": 25,
+  "labels": 615,
+  "instances": {
+    "assume": 11,
+    "assert": 156,
+    "cover": 593
+  },
+  "include_closure": true,
+  "optional_assumes_in_normal_profile": false
+}

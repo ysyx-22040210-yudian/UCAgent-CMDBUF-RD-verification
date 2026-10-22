@@ -1,0 +1,18 @@
+{
+  "group": "ports",
+  "mode": "prove",
+  "depth": 10,
+  "timeout": 180,
+  "engine": "abc pdr",
+  "status": "PASS 0 2",
+  "returncode": 0,
+  "seconds": 2.5,
+  "counts": {
+    "assert": 4,
+    "assume": 11,
+    "cover": 0
+  },
+  "engine_status": "PASS 0 2",
+  "symbolic_audit_ok": true,
+  "anyconst_cells": []
+}
